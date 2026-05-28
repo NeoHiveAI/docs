@@ -40,4 +40,4 @@ NeoHive searches within the project your agent is connected to. If the knowledge
 
 ## Recently stored knowledge
 
-Knowledge is available for recall immediately after storing. If you just stored something and can't find it, the issue is likely phrasing — try the tips above.
+Knowledge is available for recall immediately after storing. If you just stored something and can't find it, the issue is likely phrasing. Try the tips above.

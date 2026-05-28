@@ -6,12 +6,12 @@ NeoHive runs locally and uses your hardware to index and search your code and kn
 
 The installer automatically detects your hardware and selects the best backend:
 
-- **NVIDIA GPU** — uses CUDA
-- **AMD GPU** — uses ROCm
-- **Intel/other GPU** — uses Vulkan
-- **No GPU** — falls back to CPU
+- **NVIDIA GPU** : uses CUDA
+- **AMD GPU** : uses ROCm
+- **Intel/other GPU** : uses Vulkan
+- **No GPU** : falls back to CPU
 
-**macOS (Apple Silicon):** Macs with M-series chips run the CPU backend. NeoHive is optimised for Apple Silicon, so performance is excellent — no GPU backend needed. The same applies to ARM Linux hosts like AWS Graviton.
+**macOS (Apple Silicon):** Macs with M-series chips run the CPU backend. NeoHive is optimised for Apple Silicon, so performance is excellent : no GPU backend needed. The same applies to ARM Linux hosts like AWS Graviton.
 
 In most cases, you don't need to configure anything.
 

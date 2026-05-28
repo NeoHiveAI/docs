@@ -4,7 +4,7 @@ This guide walks you through installing NeoHive, connecting your coding agent, a
 
 ## Requirements
 
-- **Docker 20+** — [Docker Desktop](https://www.docker.com/products/docker-desktop/) on macOS/Windows, or [Docker Engine](https://docs.docker.com/engine/install/) on Linux
+- **Docker 20+**: [Docker Desktop](https://www.docker.com/products/docker-desktop/) on macOS/Windows, or [Docker Engine](https://docs.docker.com/engine/install/) on Linux
 - **Port 3577** available on localhost
 - **Linux, macOS, or WSL2** (Windows Subsystem for Linux)
 - A **NeoHive license file** provided by the NeoHive team
@@ -27,9 +27,9 @@ The installer will:
 
 The installer needs a license file. You can provide it in any of these ways:
 
-- **Drop it in the current directory** — place `license.json` or `license.key` where you're running the command, and the installer finds it automatically
-- **Pass it explicitly** — `bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh) --license-file /path/to/license.key`
-- **Set an environment variable** — `NEOHIVE_LICENSE_FILE=/path/to/license.key`
+- **Drop it in the current directory**: place `license.json` or `license.key` where you're running the command, and the installer finds it
+- **Pass it explicitly**: `bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh) --license-file /path/to/license.key`
+- **Set an environment variable**: `NEOHIVE_LICENSE_FILE=/path/to/license.key`
 
 The license key is cached after first install, so upgrades won't ask for it again.
 
@@ -39,7 +39,7 @@ Once the installer finishes, open `http://localhost:3577` in your browser. You s
 
 ## Connect your agent
 
-NeoHive ships a plugin for each supported agent. The plugin configures the MCP connection, adds rules that teach your agent when to pull context from NeoHive, and includes hooks that capture learnings automatically at the end of each session.
+NeoHive ships a plugin for each supported agent. The plugin configures the MCP connection, adds rules that teach your agent when to pull context from NeoHive, and includes hooks that capture learnings at the end of each session.
 
 {% tabs %}
 {% tab title="Claude Code" %}
@@ -79,7 +79,7 @@ Install the NeoHive plugin from the [NeoHiveAi/NeoHiveCodex](https://github.com/
 {% endtab %}
 
 {% tab title="Other agents" %}
-NeoHive works with any coding agent that supports MCP — including Copilot, Windsurf, and ChatGPT. Each project's MCP endpoint URL is shown in the dashboard under the **Connect** section. Point your agent's MCP configuration at that URL to get started.
+NeoHive works with any coding agent that supports MCP, including Copilot, Windsurf, and ChatGPT. Each project's MCP endpoint URL is shown in the dashboard under the **Connect** section. Point your agent's MCP configuration at that URL to get started.
 {% endtab %}
 {% endtabs %}
 
@@ -98,16 +98,16 @@ Now open a session with your agent and try:
 
 > "Where do we handle payment retries?"
 
-Your agent will pull the relevant code and context from NeoHive instead of guessing or asking you to paste files. That's the difference — your agent is now grounded in your actual codebase.
+Your agent pulls the relevant code from NeoHive instead of guessing or asking you to paste files. It's working with your actual codebase now.
 
 You can also teach your agent things explicitly:
 
 > "Remember that we always use snake_case for database column names in this project."
 
-This gets stored in NeoHive and surfaces automatically in future sessions when it's relevant — across all your agents, not just the one you told.
+This gets stored in NeoHive and will come back in future sessions when it's relevant, across all your agents, not just the one you told.
 
 ## Next steps
 
-- [Core Concepts](concepts.md) — understand projects, hives, and how knowledge is organized
-- [Using NeoHive](usage.md) — day-to-day workflow with your agent
-- [Indexing Your Codebase](codebase.md) — details on connecting repositories
+- [Core Concepts](concepts.md): understand projects, hives, and how knowledge is organized
+- [Using NeoHive](usage.md): day-to-day workflow with your agent
+- [Indexing Your Codebase](codebase.md): details on connecting repositories

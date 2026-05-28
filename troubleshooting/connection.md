@@ -28,7 +28,7 @@ docker logs neohive --tail 50
 curl http://localhost:3577/health
 ```
 
-You should see `{"status":"ok"}`. If not, NeoHive isn't ready yet — check the container logs.
+You should see `{"status":"ok"}`. If not, NeoHive isn't ready yet. Check the container logs.
 
 ## Is port 3577 available?
 

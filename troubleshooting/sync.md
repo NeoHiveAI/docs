@@ -16,7 +16,7 @@ Very large repositories take longer to index on first sync. The dashboard shows 
 docker logs neohive --tail 50
 ```
 
-Long-running syncs won't be interrupted by idle suspension — NeoHive keeps the worker active until the sync completes.
+Long-running syncs won't be interrupted by idle suspension. NeoHive keeps the worker active until the sync completes.
 
 ## PDF files timing out
 
@@ -29,7 +29,7 @@ NEOHIVE_PDF_BRIDGE_TIMEOUT_MS=1800000 \
 
 ## Sync schedule
 
-Syncs run automatically on a configurable schedule. If you need to trigger one immediately, use the dashboard — each repo hive has a manual sync button.
+Syncs run automatically on a configurable schedule. If you need to trigger one immediately, use the dashboard. Each repo hive has a manual sync button.
 
 ## Still stuck?
 

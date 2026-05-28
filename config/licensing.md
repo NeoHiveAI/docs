@@ -17,7 +17,7 @@ After first install, the license key is cached at `~/.cache/neohive/license-key`
 
 ## Moving to a new machine
 
-When you install NeoHive on a new machine, the previous machine's seat is released automatically. Just run the installer on the new machine with your license file — no cleanup is needed on the old one.
+When you install NeoHive on a new machine, the previous machine's seat is released automatically. Just run the installer on the new machine with your license file. No cleanup is needed on the old one.
 
 ## Rotating your license
 
