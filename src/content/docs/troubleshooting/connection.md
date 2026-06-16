@@ -1,4 +1,7 @@
-# Agent Can't Connect
+---
+title: "Agent Can't Connect"
+description: "Step-by-step checks when your coding agent can't reach NeoHive."
+---
 
 If your coding agent can't reach NeoHive, work through these checks in order.
 

@@ -1,4 +1,7 @@
-# Using NeoHive
+---
+title: "Using NeoHive"
+description: "Your day-to-day workflow: how your agent pulls context and captures knowledge as you work."
+---
 
 Once NeoHive is installed and your agent is connected, most of the work happens in the background. Your agent pulls context from NeoHive when it needs it, and captures new knowledge as you work.
 

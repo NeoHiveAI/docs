@@ -1,4 +1,7 @@
-# Indexing Your Codebase
+---
+title: "Indexing Your Codebase"
+description: "Index your GitHub or GitLab repositories so your agent can search code by meaning."
+---
 
 NeoHive can index your GitHub or GitLab repositories so your agents can search your source code by meaning. Instead of grepping for a function name, your agent can ask "how does the sync engine handle retries?" and get back the relevant code.
 

@@ -1,4 +1,7 @@
-# Migrating from CLAUDE.md
+---
+title: "Migrating from CLAUDE.md"
+description: "Import knowledge from CLAUDE.md, AGENTS.md, or .cursor/rules into NeoHive."
+---
 
 If you've been using `CLAUDE.md`, `AGENTS.md`, or `.cursor/rules` to give your agent project context, you can import that knowledge into NeoHive. This makes it semantically searchable and keeps it up to date alongside everything else your agent learns.
 

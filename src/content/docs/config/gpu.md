@@ -1,4 +1,7 @@
-# GPU vs CPU
+---
+title: "GPU vs CPU"
+description: "How NeoHive selects a GPU or CPU backend, and how to force CPU mode."
+---
 
 NeoHive runs locally and uses your hardware to index and search your code and knowledge. This runs faster with a GPU but works fine on CPU.
 

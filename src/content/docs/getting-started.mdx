@@ -1,4 +1,9 @@
-# Getting Started
+---
+title: "Getting Started"
+description: "Install NeoHive, connect your coding agent, and see it working with your codebase."
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
 
 This guide walks you through installing NeoHive, connecting your coding agent, and seeing it in action.
 
@@ -41,8 +46,9 @@ Once the installer finishes, open `http://localhost:3577` in your browser. You s
 
 NeoHive ships a plugin for each supported agent. The plugin configures the MCP connection, adds rules that teach your agent when to pull context from NeoHive, and includes hooks that capture learnings at the end of each session.
 
-{% tabs %}
-{% tab title="Claude Code" %}
+<Tabs>
+<TabItem label="Claude Code">
+
 Open Claude Code in any project and run:
 
 ```
@@ -68,20 +74,24 @@ Finally, run the setup wizard:
 ```
 
 The wizard verifies the MCP connection, walks you through creating a project, and optionally migrates any existing `CLAUDE.md` context into NeoHive.
-{% endtab %}
 
-{% tab title="Cursor" %}
+</TabItem>
+<TabItem label="Cursor">
+
 Install the NeoHive plugin from the [NeoHiveAi/NeoHiveCursor](https://github.com/NeoHiveAi/NeoHiveCursor) repository. Follow the README for Cursor-specific setup steps, then run the getting-started skill from within Cursor.
-{% endtab %}
 
-{% tab title="Codex" %}
+</TabItem>
+<TabItem label="Codex">
+
 Install the NeoHive plugin from the [NeoHiveAi/NeoHiveCodex](https://github.com/NeoHiveAi/NeoHiveCodex) repository. Follow the README for Codex-specific setup steps, then run the getting-started skill from within Codex.
-{% endtab %}
 
-{% tab title="Other agents" %}
+</TabItem>
+<TabItem label="Other agents">
+
 NeoHive works with any coding agent that supports MCP, including Copilot, Windsurf, and ChatGPT. Each project's MCP endpoint URL is shown in the dashboard under the **Connect** section. Point your agent's MCP configuration at that URL to get started.
-{% endtab %}
-{% endtabs %}
+
+</TabItem>
+</Tabs>
 
 ## See it in action
 
@@ -108,6 +118,6 @@ This gets stored in NeoHive and will come back in future sessions when it's rele
 
 ## Next steps
 
-- [Core Concepts](concepts.md): understand projects, hives, and how knowledge is organized
-- [Using NeoHive](usage.md): day-to-day workflow with your agent
-- [Indexing Your Codebase](codebase.md): details on connecting repositories
+- [Core Concepts](/concepts/): understand projects, hives, and how knowledge is organized
+- [Using NeoHive](/usage/): day-to-day workflow with your agent
+- [Indexing Your Codebase](/codebase/): details on connecting repositories

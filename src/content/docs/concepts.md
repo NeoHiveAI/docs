@@ -1,4 +1,7 @@
-# Core Concepts
+---
+title: "Core Concepts"
+description: "How NeoHive organizes context into projects, hives, and memories."
+---
 
 NeoHive connects your coding agents to your codebase and your team's accumulated knowledge. It organizes this context into **projects**, **hives**, and **memories**.
 
@@ -16,7 +19,7 @@ A hive is a container for a specific kind of context within a project. Each hive
 
 There are three kinds of hives:
 
-- **Repo hives** hold indexed source code from a GitHub or GitLab repository. This is how NeoHive makes your agent aware of your actual codebase, letting it search your code by meaning, not just by filename or keyword. See [Indexing Your Codebase](codebase.md) for setup.
+- **Repo hives** hold indexed source code from a GitHub or GitLab repository. This is how NeoHive makes your agent aware of your actual codebase, letting it search your code by meaning, not just by filename or keyword. See [Indexing Your Codebase](/codebase/) for setup.
 
 - **Document hives** hold uploaded files: markdown, text, PDFs. Use these for content that doesn't live in a git repository, like runbooks, onboarding guides, or design docs. Drag and drop files into a document hive through the dashboard.
 

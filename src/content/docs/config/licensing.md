@@ -1,4 +1,7 @@
-# Licensing
+---
+title: "Licensing"
+description: "How NeoHive licensing works: first install, moving machines, and rotating licenses."
+---
 
 NeoHive requires a license file to run. Licenses are issued by the NeoHive team.
 

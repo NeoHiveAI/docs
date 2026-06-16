@@ -1,4 +1,7 @@
-# Updating
+---
+title: "Updating"
+description: "Update NeoHive by re-running the installer. Your data is preserved."
+---
 
 To update NeoHive, re-run the install command:
 

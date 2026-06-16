@@ -1,4 +1,7 @@
-# Uninstalling
+---
+title: "Uninstalling"
+description: "Completely remove NeoHive, its data, and the agent plugin."
+---
 
 To remove NeoHive from your machine:
 

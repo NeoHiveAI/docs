@@ -1,4 +1,7 @@
-# Recall Isn't Finding What I Need
+---
+title: "Recall Isn't Finding What I Need"
+description: "What to do when your agent isn't surfacing the context you expect."
+---
 
 If your agent isn't surfacing relevant context, the issue is usually how the query is phrased or whether the knowledge was ever stored.
 
