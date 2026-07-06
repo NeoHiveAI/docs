@@ -2,66 +2,60 @@
 title: "Agent Can't Connect"
 description: "Step-by-step checks when your coding agent can't reach NeoHive."
 ---
+import { Steps } from '@astrojs/starlight/components';
 
 If your coding agent can't reach NeoHive, work through these checks in order.
 
-## Is NeoHive running?
+<Steps>
 
-Check that the container is up:
+1. **Is NeoHive running?**
 
-```sh
-docker ps | grep neohive
-```
+   ```sh
+   docker ps | grep neohive
+   ```
 
-If it's not listed, start it:
+   If it's not listed, start it — and if it won't start, check the logs:
 
-```sh
-docker start neohive
-```
+   ```sh
+   docker start neohive
+   docker logs neohive --tail 50
+   ```
 
-If it won't start, check the logs:
+2. **Is the health endpoint responding?**
 
-```sh
-docker logs neohive --tail 50
-```
+   ```sh
+   curl http://localhost:3577/health
+   ```
 
-## Is the health endpoint responding?
+   You should see `{"status":"ok"}`. If not, NeoHive isn't ready yet — check the container logs.
 
-```sh
-curl http://localhost:3577/health
-```
+3. **Is port 3577 free?**
 
-You should see `{"status":"ok"}`. If not, NeoHive isn't ready yet. Check the container logs.
+   If another service holds port 3577, NeoHive can't bind to it. Stop the conflicting service, or move NeoHive to another port:
 
-## Is port 3577 available?
+   ```sh
+   NEOHIVE_PORT=4577 bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
+   ```
 
-If another service is using port 3577, NeoHive can't bind to it. Either stop the conflicting service or change NeoHive's port:
+   Then update your agent's MCP configuration to use the new port.
 
-```sh
-NEOHIVE_PORT=4577 bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
-```
+4. **Is the MCP URL correct?**
 
-Then update your agent's MCP configuration to use the new port.
+   Each project has its own endpoint, like `http://localhost:3577/hiveminds/<project-id>/mcp`. Find the exact URL in the dashboard under your project's **Connect** section, and make sure your agent's MCP config matches it exactly.
 
-## Is the MCP URL correct?
+5. **Plugin slash commands missing?**
 
-Each project has its own MCP endpoint. The URL looks like:
+   If `/neohive:*` commands aren't available after installing the plugin, reload plugins and try again:
 
-```
-http://localhost:3577/hiveminds/<project-id>/mcp
-```
+   ```
+   /reload-plugins
+   ```
 
-You can find the correct URL in the NeoHive dashboard under your project's **Connect** section. Make sure the URL in your agent's MCP configuration matches exactly.
+</Steps>
 
-## Plugin not finding slash commands?
-
-If you installed the NeoHive plugin but slash commands like `/neohive:getting-started` aren't available, reload your plugins:
-
-```
-/reload-plugins
-```
-
-Then try the command again.
+:::note
+The first request after a project has been idle can take a moment — NeoHive auto-suspends idle projects to free memory and wakes them on demand. That's expected, not a failure.
+:::
 
 ## Still stuck?
 

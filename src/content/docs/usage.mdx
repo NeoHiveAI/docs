@@ -1,13 +1,26 @@
 ---
 title: "Using NeoHive"
-description: "Your day-to-day workflow: how your agent pulls context and captures knowledge as you work."
+description: "Your day-to-day workflow — how your agent pulls context and captures knowledge as you work."
 ---
+import { Steps } from '@astrojs/starlight/components';
 
-Once NeoHive is installed and your agent is connected, most of the work happens in the background. Your agent pulls context from NeoHive when it needs it, and captures new knowledge as you work.
+Once NeoHive is installed and your agent is connected, most of the work happens in the background: your agent pulls context when it needs it and captures new knowledge as you go. Every session follows the same rhythm.
+
+<Steps>
+
+1. **Start** — your agent loads the context relevant to your task: conventions, recent decisions, related code.
+
+2. **Work** — as you go, it pulls the exact code and knowledge it needs instead of guessing or asking you to paste files.
+
+3. **Teach** — you correct it or tell it to remember something, and that sticks for next time.
+
+4. **Capture** — when the session ends, it extracts the learnings worth keeping, automatically.
+
+</Steps>
 
 ## Starting a session
 
-When you begin working, your agent loads relevant context from NeoHive: project conventions, recent decisions, and anything related to the task at hand. The NeoHive plugin handles this on session start.
+When you begin working, your agent loads relevant context from NeoHive — project conventions, recent decisions, and anything related to the task at hand. The plugin handles this on session start.
 
 You can also trigger it manually:
 
@@ -17,76 +30,51 @@ You can also trigger it manually:
 
 This pre-loads directives, conventions, and task-relevant knowledge so your agent starts with your project's context rather than guessing.
 
-**Tip:** If you're switching to a very different task mid-session, run `/neohive:load-context` again. It re-loads context based on what you're working on now.
+:::tip
+Switching to a very different task mid-session? Run `/neohive:load-context` again — it re-loads context based on what you're working on now.
+:::
 
 ## How your agent uses context
 
 With NeoHive connected, your agent draws on two kinds of context:
 
-**Your codebase.** If you've indexed a repository, your agent can find relevant code by describing what it does. When you ask "how does the retry logic work?" it pulls the actual implementation instead of guessing. Your agent stops hallucinating APIs and recommending libraries you don't use.
+- **Your codebase.** If you've indexed a repository, your agent finds relevant code by describing what it does. Ask "how does the retry logic work?" and it pulls the actual implementation instead of guessing — no more hallucinated APIs or libraries you don't use.
+- **Your team's knowledge.** Conventions, architectural decisions, debugging insights, and gotchas surface when they're relevant, so your agent follows your team's patterns because it knows what they are.
 
-**Your team's knowledge.** Conventions, architectural decisions, debugging insights, and gotchas stored in NeoHive come up when they're relevant. Your agent follows your team's patterns because it knows what they are.
-
-You'll see your agent call NeoHive tools like `memory_recall` and `memory_context` during your session. This is normal. It's pulling context as it works.
+You'll see your agent call tools like `memory_recall` and `memory_context` as it works. That's normal — it's pulling context.
 
 ## Teaching your agent
 
-Knowledge gets into NeoHive in two ways:
+Knowledge gets into NeoHive two ways.
 
-### Without you doing anything
+**Automatically.** The plugin's end-of-session hook reviews your conversation and extracts what's worth keeping: corrections you made, conventions you established, decisions you reached, gotchas you hit.
 
-The NeoHive plugin includes an end-of-session hook that reviews your conversation and extracts anything worth keeping: corrections you made, conventions you established, decisions you reached, gotchas you discovered.
-
-### By telling it directly
-
-You can tell your agent to store something at any time:
+**On demand.** Tell your agent to store something any time:
 
 > "Remember that the payments API requires idempotency keys on all POST requests."
 
-> "Store this: we decided to use Redis for session storage because our sessions are short-lived and don't need durability."
+> "Store this: we use Redis for session storage because our sessions are short-lived and don't need durability."
 
-> "Don't forget, the staging environment uses a different OAuth provider than production."
-
-These get stored and come back in future sessions when relevant, for you and for anyone else connected to the same project.
+These come back in future sessions when relevant — for you and for anyone else on the same project.
 
 ## Asking for context directly
 
-Your agent searches NeoHive on its own, but you can also ask directly:
+Your agent searches NeoHive on its own, but you can also ask outright:
 
 > "What do we know about the authentication flow?"
 
-> "Have we encountered issues with the batch processor before?"
+> "Have we hit issues with the batch processor before?"
 
 > "What conventions do we follow for error handling?"
 
-### Getting better results
-
-If your agent isn't finding what you expect, try being more specific. NeoHive searches by meaning, so phrasing matters.
-
-- **Be specific, not vague:** "PostgreSQL connection pooling configuration" works better than "database stuff"
-- **Use the terms you'd find in the answer:** If the stored knowledge mentions "idempotency keys," searching for "duplicate prevention" might not find it
-- **Describe the situation:** "Error handling in the payment webhook retry path" is more targeted than "error handling"
+For more on working with your agent to get sharper answers, see [Getting the Most](/getting-the-most/#working-with-your-agent).
 
 ## End of session
 
-When you finish working, the NeoHive plugin reviews the conversation and extracts learnings. This happens when the session ends.
-
-You can also trigger it manually:
+When you finish, the plugin reviews the conversation and stores the learnings. It runs automatically at session end; you can also trigger it:
 
 ```
 /neohive:capture-session-learnings
 ```
 
-This scans the conversation for corrections, conventions, decisions, and insights, then stores them in NeoHive. The next time you or a teammate work on something related, that context is there.
-
-## What builds up over time
-
-After a few weeks of use, your NeoHive project accumulates a body of context:
-
-- Your indexed codebase, kept fresh with periodic syncs
-- Coding conventions your team follows
-- Architectural decisions and why they were made
-- Gotchas and pitfalls in specific parts of the codebase
-- Debugging insights from past incidents
-
-New sessions start informed. Your agent stops recommending deprecated patterns, stops hallucinating APIs, and stops ignoring your team's conventions. Context that used to live in someone's head or buried in a Slack thread is now searchable and persistent, available to every agent your team uses.
+The next time you or a teammate work on something related, that context is already there.

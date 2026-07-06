@@ -3,32 +3,34 @@ title: "GPU vs CPU"
 description: "How NeoHive selects a GPU or CPU backend, and how to force CPU mode."
 ---
 
-NeoHive runs locally and uses your hardware to index and search your code and knowledge. This runs faster with a GPU but works fine on CPU.
+NeoHive uses your hardware to index and search your code and knowledge. It runs faster with a GPU but works fine on CPU.
 
 ## Auto-detection
 
-The installer automatically detects your hardware and selects the best backend:
+The installer detects your hardware and picks the best backend automatically:
 
-- **NVIDIA GPU** : uses CUDA
-- **AMD GPU** : uses ROCm
-- **Intel/other GPU** : uses Vulkan
-- **No GPU** : falls back to CPU
+| Hardware | Backend |
+|----------|---------|
+| NVIDIA GPU | CUDA |
+| AMD GPU | ROCm |
+| Intel / other GPU | Vulkan |
+| No GPU | CPU |
 
-**macOS (Apple Silicon):** Macs with M-series chips run the CPU backend. NeoHive is optimised for Apple Silicon, so performance is excellent : no GPU backend needed. The same applies to ARM Linux hosts like AWS Graviton.
+In most cases you don't need to configure anything.
 
-In most cases, you don't need to configure anything.
+:::note
+**macOS (Apple Silicon)** and ARM Linux hosts (e.g. AWS Graviton) run the CPU backend — NeoHive is optimised for it, so performance is excellent with no GPU backend needed.
+:::
 
 ## Forcing CPU mode
 
-If GPU detection picks the wrong backend, or the GPU backend fails to start, force CPU mode:
+If detection picks the wrong backend, or a GPU backend fails to start, force CPU mode:
 
 ```sh
 NEOHIVE_BACKEND=cpu bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
 ```
 
-CPU mode runs everywhere but is slower for indexing large repositories. Day-to-day use is fast on either backend.
-
-If the installer detects a backend issue, it will suggest this command automatically.
+CPU mode runs everywhere; it's just slower for indexing large repositories. Day-to-day use is fast on either backend. If the installer detects a backend issue, it suggests this command automatically.
 
 ## NVIDIA Container Toolkit
 

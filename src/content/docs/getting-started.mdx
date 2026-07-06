@@ -2,122 +2,212 @@
 title: "Getting Started"
 description: "Install NeoHive, connect your coding agent, and see it working with your codebase."
 ---
+import { Tabs, TabItem, Steps, CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-import { Tabs, TabItem } from '@astrojs/starlight/components';
-
-This guide walks you through installing NeoHive, connecting your coding agent, and seeing it in action.
+<figure class="media">
+  <video autoplay loop muted playsinline>
+    <source src="https://github.com/NeoHiveAI/docs/releases/download/docs-media/getting-started.mp4" type="video/mp4" />
+  </video>
+  <figcaption>Installing NeoHive</figcaption>
+</figure>
 
 ## Requirements
 
 - **Docker 20+**: [Docker Desktop](https://www.docker.com/products/docker-desktop/) on macOS/Windows, or [Docker Engine](https://docs.docker.com/engine/install/) on Linux
 - **Port 3577** available on localhost
 - **Linux, macOS, or WSL2** (Windows Subsystem for Linux)
-- A **NeoHive license file** provided by the NeoHive team
+- A **NeoHive license file**, provided by the NeoHive team
 
 ## Install NeoHive
 
-Open a terminal and run:
+<Steps>
 
-```sh
-bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
-```
+1. Open a terminal and run the installer:
 
-The installer will:
+   ```bash
+   bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
+   ```
 
-1. Detect your hardware (NVIDIA, AMD, Intel GPU, or CPU fallback)
-2. Pull the appropriate container image from Docker Hub
-3. Start NeoHive on `http://localhost:3577`
+   This pulls down the public install script and prompts for your license key — the key sent to you by the NeoHive team.
 
-### License file
+   :::note
+   You can supply the license and run the install in one command, either as a flag or an environment variable:
 
-The installer needs a license file. You can provide it in any of these ways:
+   ```bash
+   # Environment variable
+   NEOHIVE_LICENSE_FILE=/path/to/license.key \
+     bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
 
-- **Drop it in the current directory**: place `license.json` or `license.key` where you're running the command, and the installer finds it
-- **Pass it explicitly**: `bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh) --license-file /path/to/license.key`
-- **Set an environment variable**: `NEOHIVE_LICENSE_FILE=/path/to/license.key`
+   # Flag
+   bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh) --license-file /path/to/license.key
+   ```
+   :::
 
-The license key is cached after first install, so upgrades won't ask for it again.
+2. Open the dashboard in your browser.
 
-### Verify
+   NeoHive runs on `localhost:3577`. Open `http://localhost:3577` — or, if it's running on a remote machine, whatever address you use to reach that machine.
 
-Once the installer finishes, open `http://localhost:3577` in your browser. You should see the NeoHive dashboard.
+3. Create your first project.
+
+   From the dashboard, follow the onboarding flow to create a project and start indexing.
+
+   :::note
+   Once you create your first hive, NeoHive begins processing its contents in the background. You can carry on with the steps below while it works — what comes next depends on which agent you use.
+   :::
+
+</Steps>
 
 ## Connect your agent
 
-NeoHive ships a plugin for each supported agent. The plugin configures the MCP connection, adds rules that teach your agent when to pull context from NeoHive, and includes hooks that capture learnings at the end of each session.
+To get the most out of NeoHive, install the plugin for your coding agent. The steps differ slightly by agent:
 
+<div class="agent-tabs">
 <Tabs>
 <TabItem label="Claude Code">
 
-Open Claude Code in any project and run:
+<video autoplay loop muted playsinline width="800">
+  <source src="https://github.com/NeoHiveAI/docs/releases/download/docs-media/claude-plugin-install.mp4" type="video/mp4" />
+</video>
+
+Open Claude Code in any project:
+
+```bash
+cd path/to/project && claude
+```
+
+Then install the NeoHive plugin from within Claude Code:
 
 ```
-/plugin marketplace add NeoHiveAi/NeoHiveClaude
-```
-
-Then install the plugin:
-
-```
+/plugin marketplace add NeoHiveAI/NeoHiveClaude
 /plugin install neohive@neohive-claude
-```
-
-Reload plugins so the new slash commands are available:
-
-```
 /reload-plugins
-```
-
-Finally, run the setup wizard:
-
-```
 /neohive:getting-started
 ```
 
-The wizard verifies the MCP connection, walks you through creating a project, and optionally migrates any existing `CLAUDE.md` context into NeoHive.
+The final command, `/neohive:getting-started`, launches an interactive wizard: it verifies the MCP connection, walks you through creating a project, and optionally migrates any existing `CLAUDE.md` context into NeoHive.
 
 </TabItem>
-<TabItem label="Cursor">
+<TabItem label="Claude App">
 
-Install the NeoHive plugin from the [NeoHiveAi/NeoHiveCursor](https://github.com/NeoHiveAi/NeoHiveCursor) repository. Follow the README for Cursor-specific setup steps, then run the getting-started skill from within Cursor.
+Claude App (the Claude desktop app) connects to NeoHive through its MCP configuration.
+
+<Steps>
+
+1. In the NeoHive dashboard, open your project's **Connect** section and copy its MCP endpoint URL. It looks like `https://localhost:3577/hiveminds/<project-id>/mcp`.
+
+2. Add it to your Claude App MCP config, wrapping the endpoint with [`mcp-remote`](https://www.npmjs.com/package/mcp-remote) so the app can reach NeoHive's local HTTPS endpoint:
+
+   ```json
+   {
+     "mcpServers": {
+       "neohive": {
+         "command": "npx",
+         "args": ["-y", "mcp-remote", "https://localhost:3577/hiveminds/<project-id>/mcp"]
+       }
+     }
+   }
+   ```
+
+3. Restart Claude App. NeoHive's tools will be available in your next conversation.
+
+</Steps>
+
+:::note
+This connects the desktop app to NeoHive's tools over MCP — your prompts can call `memory_recall`, `memory_store`, and the rest directly. The plugin's automatic context hooks, skills, and `explore-neohive` subagent are specific to **Claude Code** and aren't available in the desktop app.
+:::
 
 </TabItem>
 <TabItem label="Codex">
 
-Install the NeoHive plugin from the [NeoHiveAi/NeoHiveCodex](https://github.com/NeoHiveAi/NeoHiveCodex) repository. Follow the README for Codex-specific setup steps, then run the getting-started skill from within Codex.
+<video autoplay loop muted playsinline width="800">
+  <source src="https://github.com/NeoHiveAI/docs/releases/download/docs-media/codex-plugin-install.mp4" type="video/mp4" />
+</video>
+
+Add the NeoHive plugin marketplace and install the plugin:
+
+```bash
+codex plugin marketplace add NeoHiveAI/NeoHiveCodex
+codex plugin add neohive@neohive-codex
+```
+
+Then run the `neohive:getting-started` skill from within Codex to verify the MCP connection and set up your project.
+
+</TabItem>
+<TabItem label="Cursor">
+
+NeoHive isn't on the public Cursor marketplace, so you install it straight from the repo. Cursor keeps the plugin (skills + rules) and the MCP connection separate — you set up both.
+
+<Steps>
+
+1. **Install the plugin.** Clone the [NeoHiveCursor](https://github.com/NeoHiveAI/NeoHiveCursor) repo and link it into Cursor's local plugins folder, then restart Cursor:
+
+   ```bash
+   git clone https://github.com/NeoHiveAI/NeoHiveCursor
+   ln -s "$(pwd)/NeoHiveCursor" ~/.cursor/plugins/local/neohive
+   ```
+
+   Managing a team? A Cursor workspace admin can instead import the repo as a team marketplace — **Dashboard → Plugins → Add Marketplace → Import from Repo** — so everyone installs it from **Customize**.
+
+2. **Connect NeoHive's MCP server.** Open **Cursor Settings → Tools & MCP Servers** and add your endpoint — copy it from the NeoHive dashboard's **Connect** section. The plugin doesn't bundle a server.
+
+3. **Run the `getting-started` skill** to verify the connection, set up auth, generate a project topology rule, and migrate any existing memory.
+
+</Steps>
 
 </TabItem>
 <TabItem label="Other agents">
 
-NeoHive works with any coding agent that supports MCP, including Copilot, Windsurf, and ChatGPT. Each project's MCP endpoint URL is shown in the dashboard under the **Connect** section. Point your agent's MCP configuration at that URL to get started.
+NeoHive works with any coding agent that speaks MCP — including Copilot, Windsurf, and ChatGPT. Copy your project's MCP endpoint URL from the dashboard's **Connect** section and point your agent's MCP configuration at it.
+
+We're always adding first-class plugins for new agents — tell us which you'd like to see at `support@neohive.ai`. In the meantime you can bootstrap your own: clone any of our plugin repositories (such as [NeoHiveClaude](https://github.com/NeoHiveAI/NeoHiveClaude)) and hand your agent the prompt below to adapt it to your harness.
+
+```text
+Take the NeoHive reference plugin in this repository and adapt it into a plugin/configuration for my agent (<name your agent / harness>).
+
+NeoHive is a local semantic-memory server exposed over the Model Context Protocol (MCP). The adapted plugin should:
+
+1. Register NeoHive's MCP endpoint (https://localhost:3577/hiveminds/<project-id>/mcp — find yours in the dashboard's Connect section). If the agent can't reach a local HTTPS endpoint directly, wrap it with the `mcp-remote` npm package.
+2. Add rules/instructions telling the agent to call NeoHive's `memory_recall` and `memory_context` tools before exploring the codebase, and `memory_store` to capture new conventions, decisions, and insights.
+3. Wire up whatever session hooks the agent supports to load context at the start of a session and capture learnings at the end.
+
+Keep the behaviour of the reference plugin as close as the harness allows, and call out anything it can't support.
+```
 
 </TabItem>
 </Tabs>
+</div>
 
 ## See it in action
 
 Once your agent is connected, the fastest way to see NeoHive working is to index a repository:
 
-1. Open the NeoHive dashboard at `http://localhost:3577`
-2. Navigate to your project and create a **repo hive**
-3. Enter your repository URL and credentials
-4. Wait for the initial sync to complete (you'll see progress in the dashboard)
+<Steps>
 
-Now open a session with your agent and try:
+1. Open the NeoHive dashboard at `http://localhost:3577`.
+2. Navigate to your project and create a **repo hive**.
+3. Enter your repository URL and credentials.
+4. Wait for the initial sync to finish — you'll see progress in the dashboard.
+
+</Steps>
+
+Now open a session with your agent and ask about the code:
 
 > "How does the authentication middleware work in this project?"
 
 > "Where do we handle payment retries?"
 
-Your agent pulls the relevant code from NeoHive instead of guessing or asking you to paste files. It's working with your actual codebase now.
+Your agent pulls the relevant code from NeoHive instead of guessing or asking you to paste files — it's working with your actual codebase now.
 
-You can also teach your agent things explicitly:
+You can also teach it things directly:
 
 > "Remember that we always use snake_case for database column names in this project."
 
-This gets stored in NeoHive and will come back in future sessions when it's relevant, across all your agents, not just the one you told.
+That gets stored in NeoHive and comes back in future sessions whenever it's relevant — across every agent your team connects, not just the one you told.
 
 ## Next steps
 
-- [Core Concepts](/concepts/): understand projects, hives, and how knowledge is organized
-- [Using NeoHive](/usage/): day-to-day workflow with your agent
-- [Indexing Your Codebase](/codebase/): details on connecting repositories
+<CardGrid>
+  <LinkCard title="Core Concepts" href="/concepts/" description="Understand projects, hives, and how knowledge is organized." />
+  <LinkCard title="Using NeoHive" href="/usage/" description="Your day-to-day workflow with your agent." />
+  <LinkCard title="Indexing Your Codebase" href="/codebase/" description="Connect your GitHub or GitLab repositories." />
+</CardGrid>

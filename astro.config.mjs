@@ -48,7 +48,8 @@ export default defineConfig({
 				{ label: 'Getting Started', slug: 'getting-started' },
 				{ label: 'Core Concepts', slug: 'concepts' },
 				{ label: 'Using NeoHive', slug: 'usage' },
-				{ label: 'Migrating from CLAUDE.md', slug: 'migration' },
+					{ label: 'Getting the Most', slug: 'getting-the-most' },
+				{ label: 'Migrating away from Markdown', slug: 'migration' },
 				{ label: 'Indexing Your Codebase', slug: 'codebase' },
 				{ label: 'Reference', slug: 'reference' },
 				{

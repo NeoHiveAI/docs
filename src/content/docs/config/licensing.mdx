@@ -3,24 +3,22 @@ title: "Licensing"
 description: "How NeoHive licensing works: first install, moving machines, and rotating licenses."
 ---
 
-NeoHive requires a license file to run. Licenses are issued by the NeoHive team.
+NeoHive requires a license file to run, issued by the NeoHive team.
 
 ## First install
 
-During installation, the installer looks for your license file in this order:
+During installation, NeoHive looks for your license file in this order:
 
-1. `--license-file /path/to/file` command-line flag
-2. `NEOHIVE_LICENSE_FILE=/path/to/file` environment variable
-3. A `license.json` or `license.key` file in the current working directory
-4. Interactive prompt
+1. The `--license-file /path/to/file` command-line flag
+2. The `NEOHIVE_LICENSE_FILE=/path/to/file` environment variable
+3. A `license.json` or `license.key` file in the current directory
+4. An interactive prompt
 
-The simplest approach: drop the license file in the directory where you run the installer and let auto-detection handle it.
-
-After first install, the license key is cached at `~/.cache/neohive/license-key`. Future upgrades won't ask for it again.
+The simplest approach: drop the license file in the directory where you run the installer and let auto-detection handle it. After the first install, the key is cached at `~/.cache/neohive/license-key`, so upgrades won't ask again.
 
 ## Moving to a new machine
 
-When you install NeoHive on a new machine, the previous machine's seat is released automatically. Just run the installer on the new machine with your license file. No cleanup is needed on the old one.
+Install NeoHive on the new machine with your license file — the previous machine's seat is released automatically. No cleanup needed on the old one.
 
 ## Rotating your license
 
@@ -34,6 +32,8 @@ NEOHIVE_ROTATE_LICENSE=1 \
 
 ## Viewing license status
 
-Open the NeoHive dashboard and navigate to **Settings**. The Licence page shows your current activation state, expiry, and remaining grace period.
+Open the NeoHive dashboard and go to **Settings → Licence** to see your activation state, expiry, and remaining grace period.
 
-NeoHive allows up to 72 hours of offline grace if the licensing service is briefly unreachable.
+:::note
+If the licensing service is briefly unreachable, NeoHive keeps running on up to **72 hours** of offline grace.
+:::

@@ -162,3 +162,99 @@
 		max-width: none;
 	}
 }
+
+/* --------------------------- Framed media --------------------------- */
+/* Centered, capped-width frame for videos/screenshots so they read as a
+   first-class element of the design (echoes the elevated code-block card). */
+.sl-markdown-content figure.media {
+	margin: 1.5rem auto;
+	max-width: 52rem;
+	padding: 0.4rem;
+	background: var(--sl-color-gray-6);
+	border: 1px solid var(--sl-color-hairline);
+	border-radius: var(--neo-radius);
+	box-shadow: var(--neo-shadow);
+}
+.sl-markdown-content figure.media > :is(video, img) {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: calc(var(--neo-radius) - 0.25rem);
+}
+.sl-markdown-content figure.media > figcaption {
+	margin-top: 0.5rem;
+	text-align: center;
+	font-size: 0.8125rem;
+	color: var(--sl-color-gray-3);
+}
+
+/* -------------------- Provider badge inside agent tabs -------------------- */
+/* A logo + name header for each <TabItem> in the "Connect your agent" tabs. */
+.sl-markdown-content .agent-head {
+	display: flex;
+	align-items: center;
+	gap: 0.55rem;
+	margin: 0 0 1rem;
+	font-size: 1.05rem;
+	font-weight: 600;
+	color: var(--sl-color-white);
+}
+.sl-markdown-content .agent-head img {
+	width: 1.5rem;
+	height: 1.5rem;
+	flex: none;
+}
+
+/* LobeHub mono icons (openai, cursor, codex…) use fill="currentColor"; loaded
+   via <img> they render black, so invert them to read on the dark theme. */
+:root[data-theme='dark'] .sl-markdown-content .agent-head img.mono {
+	filter: invert(1);
+}
+
+/* ---------- Provider logos ON the agent tab BUTTONS (positional) ---------- */
+/* Order: 1 Claude Code, 2 Claude App, 3 Codex, 4 Cursor (5 Other agents = none). */
+.agent-tabs [role='tablist'] .tab:nth-child(1) > a[role='tab']::before,
+.agent-tabs [role='tablist'] .tab:nth-child(2) > a[role='tab']::before,
+.agent-tabs [role='tablist'] .tab:nth-child(3) > a[role='tab']::before,
+.agent-tabs [role='tablist'] .tab:nth-child(4) > a[role='tab']::before {
+	content: '';
+	display: inline-block;
+	width: 1.05em;
+	height: 1.05em;
+	margin-right: 0.4em;
+	vertical-align: -0.18em;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+.agent-tabs [role='tablist'] .tab:nth-child(1) > a::before {
+	background-image: url('https://unpkg.com/@lobehub/icons-static-svg@latest/icons/claudecode-color.svg');
+}
+.agent-tabs [role='tablist'] .tab:nth-child(2) > a::before {
+	background-image: url('https://unpkg.com/@lobehub/icons-static-svg@latest/icons/claude-color.svg');
+}
+.agent-tabs [role='tablist'] .tab:nth-child(3) > a::before {
+	background-image: url('https://unpkg.com/@lobehub/icons-static-svg@latest/icons/codex.svg');
+}
+.agent-tabs [role='tablist'] .tab:nth-child(4) > a::before {
+	background-image: url('https://unpkg.com/@lobehub/icons-static-svg@latest/icons/cursor.svg');
+}
+/* codex & cursor are mono (render black as a background); invert on the dark theme */
+:root[data-theme='dark'] .agent-tabs [role='tablist'] .tab:nth-child(3) > a::before,
+:root[data-theme='dark'] .agent-tabs [role='tablist'] .tab:nth-child(4) > a::before {
+	filter: invert(1);
+}
+
+/* Wider demo video on the Welcome landing (vs the default framed media). */
+.sl-markdown-content figure.media.hero-demo { max-width: 64rem; }
+
+/* Welcome (splash) hero: logo centered ABOVE the headline, whole hero centered. */
+.hero { text-align: center; }
+.hero > img { width: 5.5rem; height: auto; margin-inline: auto; }
+.hero .stack { align-items: center; }
+.hero .actions { justify-content: center; }
+@media (min-width: 50rem) {
+	.hero { grid-template-columns: 1fr; }
+	.hero > img { order: -1; }
+}
+.sl-markdown-content figure.media.hero-demo { margin-top: 1rem; }

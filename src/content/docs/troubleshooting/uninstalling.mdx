@@ -2,48 +2,49 @@
 title: "Uninstalling"
 description: "Completely remove NeoHive, its data, and the agent plugin."
 ---
+import { Steps } from '@astrojs/starlight/components';
 
 To remove NeoHive from your machine:
 
-## Stop and remove the container
+<Steps>
 
-```sh
-docker rm -f neohive
-```
+1. **Stop and remove the container.**
 
-## Remove your data
+   ```sh
+   docker rm -f neohive
+   ```
 
-This permanently deletes all projects, hives, and indexed knowledge. Only run this if you're sure.
+2. **Remove your data.**
 
-```sh
-docker volume rm neohive-data
-```
+   :::caution
+   This permanently deletes all projects, hives, and indexed knowledge. Only run it if you're sure.
+   :::
 
-## Clean up cached files
+   ```sh
+   docker volume rm neohive-data
+   ```
 
-```sh
-rm -f ~/.cache/neohive/license-key
-```
+3. **Clean up cached files.**
 
-## Remove the agent plugin
+   ```sh
+   rm -f ~/.cache/neohive/license-key
+   ```
 
-In Claude Code:
+4. **Remove the agent plugin.** In Claude Code:
 
-```
-/plugin uninstall neohive@neohive-claude
-```
+   ```
+   /plugin uninstall neohive@neohive-claude
+   ```
 
-For Cursor or Codex, remove the NeoHive plugin configuration from your agent's settings.
+   For Cursor or Codex, remove the NeoHive plugin from your agent's settings.
 
-## Disconnect the MCP servers
+5. **Disconnect the MCP servers.** Removing the plugin may leave the MCP connections behind. In Claude Code, list and remove each NeoHive entry:
 
-Each NeoHive project has its own MCP connection configured in your agent. Removing the plugin may not remove these automatically.
+   ```
+   claude mcp list
+   claude mcp remove <neohive-project-name>
+   ```
 
-In Claude Code, list your MCP servers and remove each NeoHive entry:
+   Repeat for each project. For other agents, remove the NeoHive entries from your MCP configuration file (e.g. `.mcp.json`).
 
-```
-claude mcp list
-claude mcp remove <neohive-project-name>
-```
-
-Repeat for each NeoHive project. For other agents, remove the NeoHive entries from your MCP configuration file (e.g., `.mcp.json`).
+</Steps>
