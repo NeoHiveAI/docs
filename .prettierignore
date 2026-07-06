@@ -1,0 +1,13 @@
+# Docs content is hand-authored. Prettier must NEVER reformat Markdown/MDX:
+# it renumbers ordered lists (like markdownlint's MD029) and that breaks
+# Starlight's <Steps> component. ESLint lints these files instead.
+src/content/
+*.md
+*.mdx
+
+# Generated / vendored / lockfiles
+dist/
+.astro/
+node_modules/
+public/
+package-lock.json
