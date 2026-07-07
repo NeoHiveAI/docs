@@ -36,6 +36,16 @@ export default defineConfig({
 				// Click-to-expand for videos (see public/js/video-zoom.js + the
 				// .neo-zoom-* rules in src/styles/neohive.css).
 				{ tag: 'script', attrs: { src: '/js/video-zoom.js', defer: true } },
+				// Social card. Starlight already emits og:title/description/url and
+				// twitter:card=summary_large_image; we add the image (absolute URL).
+				{ tag: 'meta', attrs: { property: 'og:image', content: 'https://docs.neohive.ai/og.png' } },
+				{ tag: 'meta', attrs: { property: 'og:image:width', content: '1200' } },
+				{ tag: 'meta', attrs: { property: 'og:image:height', content: '630' } },
+				{ tag: 'meta', attrs: { property: 'og:image:alt', content: 'NeoHive — the context layer for your coding agents' } },
+				{ tag: 'meta', attrs: { name: 'twitter:image', content: 'https://docs.neohive.ai/og.png' } },
+				// Favicons: SVG (added by Starlight) + PNG for Google Search and iOS home screens.
+				{ tag: 'link', attrs: { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicon-96.png' } },
+				{ tag: 'link', attrs: { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' } },
 			],
 			// Code blocks on the elevated card surface with the app's radius.
 			expressiveCode: {
