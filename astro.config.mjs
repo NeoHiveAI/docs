@@ -1,6 +1,10 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import starlightSidebarTopics from 'starlight-sidebar-topics';
+import starlightTelescope from 'starlight-telescope';
+import starlightLlmsTxt from 'starlight-llms-txt';
+import starlightContextualMenu from 'starlight-contextual-menu';
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,8 +27,6 @@ export default defineConfig({
 			head: [
 				{ tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.googleapis.com' } },
 				{ tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true } },
-					// Click-to-expand for videos (see public/js/video-zoom.js + the .neo-zoom-* rules in src/styles/neohive.css).
-					{ tag: 'script', attrs: { src: '/js/video-zoom.js', defer: true } },
 				{
 					tag: 'link',
 					attrs: {
@@ -32,6 +34,9 @@ export default defineConfig({
 						href: 'https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap',
 					},
 				},
+				// Click-to-expand for videos (see public/js/video-zoom.js + the
+				// .neo-zoom-* rules in src/styles/neohive.css).
+				{ tag: 'script', attrs: { src: '/js/video-zoom.js', defer: true } },
 			],
 			// Code blocks on the elevated card surface with the app's radius.
 			expressiveCode: {
@@ -41,36 +46,53 @@ export default defineConfig({
 					codeBackground: 'var(--sl-color-gray-6)',
 				},
 			},
-			social: [
-				{ icon: 'github', label: 'GitHub', href: 'https://github.com/NeoHiveAI' },
-			],
-			// Mirrors the previous GitBook SUMMARY.md table of contents.
-			sidebar: [
-				{ label: 'Welcome', link: '/' },
-				{ label: 'Getting Started', slug: 'getting-started' },
-				{ label: 'Core Concepts', slug: 'concepts' },
-				{ label: 'Using NeoHive', slug: 'usage' },
-					{ label: 'Getting the Most', slug: 'getting-the-most' },
-				{ label: 'Migrating away from Markdown', slug: 'migration' },
-				{ label: 'Indexing Your Codebase', slug: 'codebase' },
-				{ label: 'Reference', slug: 'reference' },
-				{
-					label: 'Configuration',
-					items: [
-						{ label: 'Licensing', slug: 'config/licensing' },
-						{ label: 'Updating', slug: 'config/updating' },
-						{ label: 'GPU vs CPU', slug: 'config/gpu' },
-					],
-				},
-				{
-					label: 'Troubleshooting',
-					items: [
-						{ label: "Agent Can't Connect", slug: 'troubleshooting/connection' },
-						{ label: "Recall Isn't Finding What I Need", slug: 'troubleshooting/recall' },
-						{ label: 'Repository Sync Issues', slug: 'troubleshooting/sync' },
-						{ label: 'Uninstalling', slug: 'troubleshooting/uninstalling' },
-					],
-				},
+			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/NeoHiveAI' }],
+			plugins: [
+				// Group the docs into top-level topics with a switcher. Replaces the
+				// flat `sidebar` option — each topic carries its own sidebar.
+				starlightSidebarTopics([
+					{
+						label: 'Documentation',
+						link: '/getting-started/',
+						icon: 'open-book',
+						items: [
+							'getting-started',
+							'concepts',
+							'usage',
+							'getting-the-most',
+							'migration',
+							'codebase',
+							'reference',
+						],
+					},
+					{
+						label: 'Configuration',
+						link: '/config/licensing/',
+						icon: 'setting',
+						items: ['config/licensing', 'config/updating', 'config/gpu'],
+					},
+					{
+						label: 'Troubleshooting',
+						link: '/troubleshooting/connection/',
+						icon: 'warning',
+						items: [
+							'troubleshooting/connection',
+							'troubleshooting/recall',
+							'troubleshooting/sync',
+							'troubleshooting/uninstalling',
+						],
+					},
+				], { exclude: ['/'] }),
+				// Ctrl+/ fuzzy-search command palette (complements Starlight's Cmd+K).
+				starlightTelescope(),
+			// Per-page "Copy / View as Markdown / Open in ChatGPT/Claude" actions (great for LLMs).
+			starlightContextualMenu({ actions: ['copy', 'view', 'chatgpt', 'claude'] }),
+				// Generates /llms.txt, /llms-full.txt, /llms-small.txt for LLMs.
+				starlightLlmsTxt({
+					projectName: 'NeoHive',
+					description:
+						'NeoHive is a local semantic-memory server that connects coding agents (Claude Code, Cursor, Codex, and any MCP client) to your team’s codebase and knowledge over the Model Context Protocol.',
+				}),
 			],
 		}),
 	],
