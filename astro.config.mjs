@@ -23,6 +23,8 @@ export default defineConfig({
 			head: [
 				{ tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.googleapis.com' } },
 				{ tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true } },
+					// Click-to-expand for videos (see public/js/video-zoom.js + the .neo-zoom-* rules in src/styles/neohive.css).
+					{ tag: 'script', attrs: { src: '/js/video-zoom.js', defer: true } },
 				{
 					tag: 'link',
 					attrs: {

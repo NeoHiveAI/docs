@@ -59,7 +59,13 @@ import { Tabs, TabItem, Steps, CardGrid, LinkCard } from '@astrojs/starlight/com
 
 ## Connect your agent
 
-To get the most out of NeoHive, install the plugin for your coding agent. The steps differ slightly by agent:
+:::tip[Get more out of NeoHive]
+However you connect, NeoHive helps most when your agent reaches for it on its own. The plugins set this up for you — but you can also add a short instruction to your agent's rules (`CLAUDE.md`, `AGENTS.md`, or its system prompt) so it stores and recalls knowledge without being asked:
+
+> Use NeoHive to store decisions, conventions, and context worth keeping — any time it makes sense to remember something for later. If more than one hive is connected and you're unsure where a note belongs, check before storing. Retrieve the same way: pull relevant context back from NeoHive before starting work or answering questions in those areas.
+
+Tailor it to what your team cares about — point it at the kinds of decisions and context you most want to keep.
+:::
 
 <div class="agent-tabs">
 <Tabs>
@@ -89,13 +95,17 @@ The final command, `/neohive:getting-started`, launches an interactive wizard: i
 </TabItem>
 <TabItem label="Claude App">
 
-Claude App (the Claude desktop app) connects to NeoHive through its MCP configuration.
+<video autoplay loop muted playsinline width="800">
+  <source src="https://github.com/NeoHiveAI/docs/releases/download/docs-media/claude-desktop-plugin-install.mp4" type="video/mp4" />
+</video>
+
+Like Cursor, the desktop app keeps the plugin and the MCP connection separate — you set up both. Installing the plugin gives you NeoHive's skills (including the `getting-started` wizard); the MCP connection is what puts `memory_recall`, `memory_store`, and the rest within reach of your conversations.
 
 <Steps>
 
-1. In the NeoHive dashboard, open your project's **Connect** section and copy its MCP endpoint URL. It looks like `https://localhost:3577/hiveminds/<project-id>/mcp`.
+1. **Install the plugin.** In the desktop app, open **Customize → Plugins**. In the popup, click **Add → Marketplace** (top right), enter `NeoHiveAI/NeoHiveClaude` as the marketplace, then click the **+** to install the plugin.
 
-2. Add it to your Claude App MCP config, wrapping the endpoint with [`mcp-remote`](https://www.npmjs.com/package/mcp-remote) so the app can reach NeoHive's local HTTPS endpoint:
+2. **Connect NeoHive's MCP server.** In the NeoHive dashboard, open your project's **Connect** section and copy its MCP endpoint URL — it looks like `https://localhost:3577/hiveminds/<project-id>/mcp`. Add it to your Claude App MCP config, wrapping the endpoint with [`mcp-remote`](https://www.npmjs.com/package/mcp-remote) so the app can reach NeoHive's local HTTPS endpoint:
 
    ```json
    {
@@ -108,13 +118,9 @@ Claude App (the Claude desktop app) connects to NeoHive through its MCP configur
    }
    ```
 
-3. Restart Claude App. NeoHive's tools will be available in your next conversation.
+3. **Restart Claude App**, then run `/neohive:getting-started` to verify the connection and finish setting up your project.
 
 </Steps>
-
-:::note
-This connects the desktop app to NeoHive's tools over MCP — your prompts can call `memory_recall`, `memory_store`, and the rest directly. The plugin's automatic context hooks, skills, and `explore-neohive` subagent are specific to **Claude Code** and aren't available in the desktop app.
-:::
 
 </TabItem>
 <TabItem label="Codex">
@@ -179,28 +185,20 @@ Keep the behaviour of the reference plugin as close as the harness allows, and c
 
 ## See it in action
 
-Once your agent is connected, the fastest way to see NeoHive working is to index a repository:
+Once you've pointed NeoHive at a repository (see [Indexing Your Codebase](/codebase/)), ask your agent about the code:
 
-<Steps>
-
-1. Open the NeoHive dashboard at `http://localhost:3577`.
-2. Navigate to your project and create a **repo hive**.
-3. Enter your repository URL and credentials.
-4. Wait for the initial sync to finish — you'll see progress in the dashboard.
-
-</Steps>
-
-Now open a session with your agent and ask about the code:
-
-> "How does the authentication middleware work in this project?"
-
-> "Where do we handle payment retries?"
+<ul class="prompt-list">
+<li>How does the authentication middleware work in this project?</li>
+<li>Where do we handle payment retries?</li>
+</ul>
 
 Your agent pulls the relevant code from NeoHive instead of guessing or asking you to paste files — it's working with your actual codebase now.
 
 You can also teach it things directly:
 
-> "Remember that we always use snake_case for database column names in this project."
+<ul class="prompt-list">
+<li>Remember that we always use snake_case for database column names in this project.</li>
+</ul>
 
 That gets stored in NeoHive and comes back in future sessions whenever it's relevant — across every agent your team connects, not just the one you told.
 
