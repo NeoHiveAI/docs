@@ -1,7 +1,8 @@
 ---
-title: "Reference"
 description: "NeoHive's slash commands, MCP tools, and environment variables."
 ---
+
+# Reference
 
 ## Slash commands
 
@@ -12,7 +13,7 @@ Available in your agent after installing the NeoHive plugin. Run them directly i
 | `/neohive:getting-started` | First-time setup wizard. Verifies the MCP connection, creates a project, and optionally migrates existing context files. Run once per machine. |
 | `/neohive:load-context` | Pre-loads relevant context for your current task. Run at the start of a session, or when switching tasks mid-session. |
 | `/neohive:capture-session-learnings` | Scans the current conversation and stores corrections, conventions, decisions, and insights. Also runs at session end via the plugin hook. |
-| `/neohive:migrate-memory` | Imports knowledge from `CLAUDE.md`, `AGENTS.md`, `.cursor/rules`, and `.claude/rules`. See [Migrating away from Markdown](/migration/). |
+| `/neohive:migrate-memory` | Imports knowledge from `CLAUDE.md`, `AGENTS.md`, `.cursor/rules`, and `.claude/rules`. See [Migrating away from Markdown](migration.md). |
 | `/neohive:generate-claude-md` | Generates a NeoHive topology block in your project's `CLAUDE.md`. Re-run when hives are added or renamed. |
 | `/neohive:enable-smart-prompts` | Installs a hook that rewrites your prompts with a small model before searching NeoHive, improving recall relevance. |
 
@@ -35,10 +36,10 @@ Set these before running the installer or launching your agent.
 
 | Variable | Purpose |
 |----------|---------|
-| `NEOHIVE_LICENSE_FILE` | Path to your license file, used during install. See [Licensing](/config/licensing/). |
+| `NEOHIVE_LICENSE_FILE` | Path to your license file, used during install. See [Licensing](config/licensing.md). |
 | `NEOHIVE_ROTATE_LICENSE` | Set to `1` to rotate to a replacement license during install. |
-| `NEOHIVE_BACKEND` | Force a compute backend, e.g. `cpu`. See [GPU vs CPU](/config/gpu/). |
+| `NEOHIVE_BACKEND` | Force a compute backend, e.g. `cpu`. See [GPU vs CPU](config/gpu.md). |
 | `NEOHIVE_PORT` | Change the port NeoHive binds to (default `3577`). |
-| `NEOHIVE_PDF_BRIDGE_TIMEOUT_MS` | Raise the per-document PDF processing timeout for large PDFs. See [Repository Sync Issues](/troubleshooting/sync/). |
+| `NEOHIVE_PDF_BRIDGE_TIMEOUT_MS` | Raise the per-document PDF processing timeout for large PDFs. See [Repository Sync Issues](troubleshooting/sync.md). |
 | `NEOHIVE_TOKEN` | Bearer token for agents connecting to an authenticated server. |
 | `NEOHIVE_MCP_HINTS` | Set to `0` to suppress the recall/context hint appended to tool responses. |

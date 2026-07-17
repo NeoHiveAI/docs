@@ -1,7 +1,8 @@
 ---
-title: "GPU vs CPU"
 description: "How NeoHive selects a GPU or CPU backend, and how to force CPU mode."
 ---
+
+# GPU vs CPU
 
 NeoHive uses your hardware to index and search your code and knowledge. It runs faster with a GPU but works fine on CPU.
 
@@ -18,9 +19,9 @@ The installer detects your hardware and picks the best backend automatically:
 
 In most cases you don't need to configure anything.
 
-:::note
+{% hint style="info" %}
 **macOS (Apple Silicon)** and ARM Linux hosts (e.g. AWS Graviton) run the CPU backend — NeoHive is optimised for it, so performance is excellent with no GPU backend needed.
-:::
+{% endhint %}
 
 ## Forcing CPU mode
 

@@ -1,7 +1,8 @@
 ---
-title: "Licensing"
 description: "How NeoHive licensing works: first install, moving machines, and rotating licenses."
 ---
+
+# Licensing
 
 NeoHive requires a license file to run, issued by the NeoHive team.
 
@@ -34,6 +35,6 @@ NEOHIVE_ROTATE_LICENSE=1 \
 
 Open the NeoHive dashboard and go to **Settings → Licence** to see your activation state, expiry, and remaining grace period.
 
-:::note
+{% hint style="info" %}
 If the licensing service is briefly unreachable, NeoHive keeps running on up to **72 hours** of offline grace.
-:::
+{% endhint %}

@@ -1,15 +1,10 @@
 ---
-title: "Getting Started"
 description: "Install NeoHive, connect your coding agent, and see it working with your codebase."
 ---
-import { Tabs, TabItem, Steps, CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-<figure class="media">
-  <video autoplay loop muted playsinline>
-    <source src="https://github.com/NeoHiveAI/docs/releases/download/docs-media/getting-started.mp4" type="video/mp4" />
-  </video>
-  <figcaption>Installing NeoHive</figcaption>
-</figure>
+# Getting Started
+
+[▶ **Watch: Installing NeoHive**](https://github.com/NeoHiveAI/docs/releases/download/docs-media/getting-started.mp4)
 
 ## Requirements
 
@@ -20,8 +15,6 @@ import { Tabs, TabItem, Steps, CardGrid, LinkCard } from '@astrojs/starlight/com
 
 ## Install NeoHive
 
-<Steps>
-
 1. Open a terminal and run the installer:
 
    ```bash
@@ -30,7 +23,7 @@ import { Tabs, TabItem, Steps, CardGrid, LinkCard } from '@astrojs/starlight/com
 
    This pulls down the public install script and prompts for your license key — the key sent to you by the NeoHive team.
 
-   :::note
+   {% hint style="info" %}
    You can supply the license and run the install in one command, either as a flag or an environment variable:
 
    ```bash
@@ -41,7 +34,7 @@ import { Tabs, TabItem, Steps, CardGrid, LinkCard } from '@astrojs/starlight/com
    # Flag
    bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh) --license-file /path/to/license.key
    ```
-   :::
+   {% endhint %}
 
 2. Open the dashboard in your browser.
 
@@ -51,29 +44,25 @@ import { Tabs, TabItem, Steps, CardGrid, LinkCard } from '@astrojs/starlight/com
 
    From the dashboard, follow the onboarding flow to create a project and start indexing.
 
-   :::note
+   {% hint style="info" %}
    Once you create your first hive, NeoHive begins processing its contents in the background. You can carry on with the steps below while it works — what comes next depends on which agent you use.
-   :::
-
-</Steps>
+   {% endhint %}
 
 ## Connect your agent
 
-:::tip[Get more out of NeoHive]
+{% hint style="success" %}
+**Get more out of NeoHive**
+
 However you connect, NeoHive helps most when your agent reaches for it on its own. The plugins set this up for you — but you can also add a short instruction to your agent's rules (`CLAUDE.md`, `AGENTS.md`, or its system prompt) so it stores and recalls knowledge without being asked:
 
 > Use NeoHive to store decisions, conventions, and context worth keeping — any time it makes sense to remember something for later. If more than one hive is connected and you're unsure where a note belongs, check before storing. Retrieve the same way: pull relevant context back from NeoHive before starting work or answering questions in those areas.
 
 Tailor it to what your team cares about — point it at the kinds of decisions and context you most want to keep.
-:::
+{% endhint %}
 
-<div class="agent-tabs">
-<Tabs>
-<TabItem label="Claude Code">
-
-<video autoplay loop muted playsinline width="800">
-  <source src="https://github.com/NeoHiveAI/docs/releases/download/docs-media/claude-plugin-install.mp4" type="video/mp4" />
-</video>
+{% tabs %}
+{% tab title="Claude Code" %}
+[▶ **Watch: Claude Code plugin install**](https://github.com/NeoHiveAI/docs/releases/download/docs-media/claude-plugin-install.mp4)
 
 Open Claude Code in any project:
 
@@ -91,17 +80,12 @@ Then install the NeoHive plugin from within Claude Code:
 ```
 
 The final command, `/neohive:getting-started`, launches an interactive wizard: it verifies the MCP connection, walks you through creating a project, and optionally migrates any existing `CLAUDE.md` context into NeoHive.
+{% endtab %}
 
-</TabItem>
-<TabItem label="Claude App">
-
-<video autoplay loop muted playsinline width="800">
-  <source src="https://github.com/NeoHiveAI/docs/releases/download/docs-media/claude-desktop-plugin-install.mp4" type="video/mp4" />
-</video>
+{% tab title="Claude App" %}
+[▶ **Watch: Claude App plugin install**](https://github.com/NeoHiveAI/docs/releases/download/docs-media/claude-desktop-plugin-install.mp4)
 
 Like Cursor, the desktop app keeps the plugin and the MCP connection separate — you set up both. Installing the plugin gives you NeoHive's skills (including the `getting-started` wizard); the MCP connection is what puts `memory_recall`, `memory_store`, and the rest within reach of your conversations.
-
-<Steps>
 
 1. **Install the plugin.** In the desktop app, open **Customize → Plugins**. In the popup, click **Add → Marketplace** (top right), enter `NeoHiveAI/NeoHiveClaude` as the marketplace, then click the **+** to install the plugin.
 
@@ -119,15 +103,10 @@ Like Cursor, the desktop app keeps the plugin and the MCP connection separate �
    ```
 
 3. **Restart Claude App**, then run `/neohive:getting-started` to verify the connection and finish setting up your project.
+{% endtab %}
 
-</Steps>
-
-</TabItem>
-<TabItem label="Codex">
-
-<video autoplay loop muted playsinline width="800">
-  <source src="https://github.com/NeoHiveAI/docs/releases/download/docs-media/codex-plugin-install.mp4" type="video/mp4" />
-</video>
+{% tab title="Codex" %}
+[▶ **Watch: Codex plugin install**](https://github.com/NeoHiveAI/docs/releases/download/docs-media/codex-plugin-install.mp4)
 
 Add the NeoHive plugin marketplace and install the plugin:
 
@@ -137,13 +116,10 @@ codex plugin add neohive@neohive-codex
 ```
 
 Then run the `neohive:getting-started` skill from within Codex to verify the MCP connection and set up your project.
+{% endtab %}
 
-</TabItem>
-<TabItem label="Cursor">
-
+{% tab title="Cursor" %}
 NeoHive isn't on the public Cursor marketplace, so you install it straight from the repo. Cursor keeps the plugin (skills + rules) and the MCP connection separate — you set up both.
-
-<Steps>
 
 1. **Install the plugin.** Clone the [NeoHiveCursor](https://github.com/NeoHiveAI/NeoHiveCursor) repo and link it into Cursor's local plugins folder, then restart Cursor:
 
@@ -157,12 +133,9 @@ NeoHive isn't on the public Cursor marketplace, so you install it straight from 
 2. **Connect NeoHive's MCP server.** Open **Cursor Settings → Tools & MCP Servers** and add your endpoint — copy it from the NeoHive dashboard's **Connect** section. The plugin doesn't bundle a server.
 
 3. **Run the `getting-started` skill** to verify the connection, set up auth, generate a project topology rule, and migrate any existing memory.
+{% endtab %}
 
-</Steps>
-
-</TabItem>
-<TabItem label="Other agents">
-
+{% tab title="Other agents" %}
 NeoHive works with any coding agent that speaks MCP — including Copilot, Windsurf, and ChatGPT. Copy your project's MCP endpoint URL from the dashboard's **Connect** section and point your agent's MCP configuration at it.
 
 We're always adding first-class plugins for new agents — tell us which you'd like to see at `support@neohive.ai`. In the meantime you can bootstrap your own: clone any of our plugin repositories (such as [NeoHiveClaude](https://github.com/NeoHiveAI/NeoHiveClaude)) and hand your agent the prompt below to adapt it to your harness.
@@ -178,34 +151,49 @@ NeoHive is a local semantic-memory server exposed over the Model Context Protoco
 
 Keep the behaviour of the reference plugin as close as the harness allows, and call out anything it can't support.
 ```
-
-</TabItem>
-</Tabs>
-</div>
+{% endtab %}
+{% endtabs %}
 
 ## See it in action
 
-Once you've pointed NeoHive at a repository (see [Indexing Your Codebase](/codebase/)), ask your agent about the code:
+Once you've pointed NeoHive at a repository (see [Indexing Your Codebase](codebase.md)), ask your agent about the code:
 
-<ul class="prompt-list">
-<li>How does the authentication middleware work in this project?</li>
-<li>Where do we handle payment retries?</li>
-</ul>
+* How does the authentication middleware work in this project?
+* Where do we handle payment retries?
 
 Your agent pulls the relevant code from NeoHive instead of guessing or asking you to paste files — it's working with your actual codebase now.
 
 You can also teach it things directly:
 
-<ul class="prompt-list">
-<li>Remember that we always use snake_case for database column names in this project.</li>
-</ul>
+* Remember that we always use snake_case for database column names in this project.
 
 That gets stored in NeoHive and comes back in future sessions whenever it's relevant — across every agent your team connects, not just the one you told.
 
 ## Next steps
 
-<CardGrid>
-  <LinkCard title="Core Concepts" href="/concepts/" description="Understand projects, hives, and how knowledge is organized." />
-  <LinkCard title="Using NeoHive" href="/usage/" description="Your day-to-day workflow with your agent." />
-  <LinkCard title="Indexing Your Codebase" href="/codebase/" description="Connect your GitHub or GitLab repositories." />
-</CardGrid>
+<table data-view="cards">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th data-hidden data-card-target data-type="content-ref"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Core Concepts</strong></td>
+      <td>Understand projects, hives, and how knowledge is organized.</td>
+      <td><a href="concepts.md">concepts</a></td>
+    </tr>
+    <tr>
+      <td><strong>Using NeoHive</strong></td>
+      <td>Your day-to-day workflow with your agent.</td>
+      <td><a href="usage.md">usage</a></td>
+    </tr>
+    <tr>
+      <td><strong>Indexing Your Codebase</strong></td>
+      <td>Connect your GitHub or GitLab repositories.</td>
+      <td><a href="codebase.md">codebase</a></td>
+    </tr>
+  </tbody>
+</table>

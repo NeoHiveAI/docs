@@ -1,7 +1,8 @@
 ---
-title: "Updating"
 description: "Update NeoHive by re-running the installer. Your data is preserved."
 ---
+
+# Updating
 
 To update NeoHive, re-run the install command:
 
@@ -11,9 +12,9 @@ bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/insta
 
 The installer pulls the latest image and restarts the container.
 
-:::note
+{% hint style="info" %}
 Your data is preserved across updates — every project, hive, and indexed knowledge base lives in a Docker volume (`neohive-data`) that persists.
-:::
+{% endhint %}
 
 ## Update notifications
 

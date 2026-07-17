@@ -1,12 +1,10 @@
 ---
-title: "Uninstalling"
 description: "Completely remove NeoHive, its data, and the agent plugin."
 ---
-import { Steps } from '@astrojs/starlight/components';
+
+# Uninstalling
 
 To remove NeoHive from your machine:
-
-<Steps>
 
 1. **Stop and remove the container.**
 
@@ -16,9 +14,9 @@ To remove NeoHive from your machine:
 
 2. **Remove your data.**
 
-   :::caution
+   {% hint style="warning" %}
    This permanently deletes all projects, hives, and indexed knowledge. Only run it if you're sure.
-   :::
+   {% endhint %}
 
    ```sh
    docker volume rm neohive-data
@@ -46,5 +44,3 @@ To remove NeoHive from your machine:
    ```
 
    Repeat for each project. For other agents, remove the NeoHive entries from your MCP configuration file (e.g. `.mcp.json`).
-
-</Steps>

@@ -1,8 +1,8 @@
 ---
-title: "Migrating away from Markdown"
 description: "Import your CLAUDE.md, AGENTS.md, and rules files into NeoHive — searchable, shared, and always current."
 ---
-import { Steps } from '@astrojs/starlight/components';
+
+# Migrating away from Markdown
 
 If you've been giving your agent context through markdown files — `CLAUDE.md`, `AGENTS.md`, `.cursor/rules`, and the like — you can import all of it into NeoHive. Once it's in, that knowledge becomes searchable by meaning, shared across your team, and it stays current alongside everything else your agent learns.
 
@@ -24,15 +24,11 @@ Run the migration skill in your agent:
 /neohive:migrate-memory
 ```
 
-<Steps>
-
 1. **It scans your local context files** — `CLAUDE.md`, `AGENTS.md`, `.cursor/rules`, `.codex/rules`, and anything in `.claude/rules`.
 
 2. **It classifies each entry** into a memory type — `directive`, `convention`, `decision`, `insight`, and so on — so NeoHive can weigh and surface it appropriately.
 
 3. **It stores them in your project's knowledge hive**, where every agent on the project can retrieve them.
-
-</Steps>
 
 Your original files are never modified or deleted — keep them as a reference, or remove them once you're happy with the migration.
 
@@ -50,15 +46,13 @@ Nothing changes about how you work. Your agent pulls the migrated knowledge the 
 
 If something migrated wrong or goes stale, just tell your agent:
 
-<ul class="prompt-list">
-<li>That convention about semicolons is out of date — we switched to no-semicolons last month.</li>
-</ul>
+* That convention about semicolons is out of date — we switched to no-semicolons last month.
 
 It'll update or replace it in NeoHive.
 
-:::note
-Migrating markdown *notes* — an Obsidian vault, design docs, runbooks — works a little differently: those go into a **document hive** rather than through the migration skill. Upload them through the dashboard (a dedicated guide is on the way).
-:::
+{% hint style="info" %}
+Migrating markdown _notes_ — an Obsidian vault, design docs, runbooks — works a little differently: those go into a **document hive** rather than through the migration skill. Upload them through the dashboard (a dedicated guide is on the way).
+{% endhint %}
 
 ## What about new team members?
 

@@ -1,7 +1,8 @@
 ---
-title: "Repository Sync Issues"
 description: "Diagnose and fix repository sync failures."
 ---
+
+# Repository Sync Issues
 
 If a repository sync fails or seems stuck, here are the most common causes.
 

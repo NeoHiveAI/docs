@@ -1,12 +1,10 @@
 ---
-title: "Agent Can't Connect"
 description: "Step-by-step checks when your coding agent can't reach NeoHive."
 ---
-import { Steps } from '@astrojs/starlight/components';
+
+# Agent Can't Connect
 
 If your coding agent can't reach NeoHive, work through these checks in order.
-
-<Steps>
 
 1. **Is NeoHive running?**
 
@@ -51,11 +49,9 @@ If your coding agent can't reach NeoHive, work through these checks in order.
    /reload-plugins
    ```
 
-</Steps>
-
-:::note
+{% hint style="info" %}
 The first request after a project has been idle can take a moment — NeoHive auto-suspends idle projects to free memory and wakes them on demand. That's expected, not a failure.
-:::
+{% endhint %}
 
 ## Still stuck?
 

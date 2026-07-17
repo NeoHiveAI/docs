@@ -1,12 +1,10 @@
 ---
-title: "Using NeoHive"
 description: "Your day-to-day workflow — how your agent pulls context and captures knowledge as you work."
 ---
-import { Steps } from '@astrojs/starlight/components';
+
+# Using NeoHive
 
 Once NeoHive is installed and your agent is connected, most of the work happens in the background: your agent pulls context when it needs it and captures new knowledge as you go. Every session follows the same rhythm.
-
-<Steps>
 
 1. **Start** — your agent loads the context relevant to your task: conventions, recent decisions, related code.
 
@@ -15,8 +13,6 @@ Once NeoHive is installed and your agent is connected, most of the work happens 
 3. **Teach** — you correct it or tell it to remember something, and that sticks for next time.
 
 4. **Capture** — when the session ends, it extracts the learnings worth keeping, automatically.
-
-</Steps>
 
 ## Starting a session
 
@@ -30,9 +26,9 @@ You can also trigger it manually:
 
 This pre-loads directives, conventions, and task-relevant knowledge so your agent starts with your project's context rather than guessing.
 
-:::tip
+{% hint style="success" %}
 Switching to a very different task mid-session? Run `/neohive:load-context` again — it re-loads context based on what you're working on now.
-:::
+{% endhint %}
 
 ## How your agent uses context
 
@@ -51,10 +47,8 @@ Knowledge gets into NeoHive two ways.
 
 **On demand.** Tell your agent to store something any time:
 
-<ul class="prompt-list">
-<li>Remember that the payments API requires idempotency keys on all POST requests.</li>
-<li>Store this: we use Redis for session storage because our sessions are short-lived and don't need durability.</li>
-</ul>
+* Remember that the payments API requires idempotency keys on all POST requests.
+* Store this: we use Redis for session storage because our sessions are short-lived and don't need durability.
 
 These come back in future sessions when relevant — for you and for anyone else on the same project.
 
@@ -62,13 +56,11 @@ These come back in future sessions when relevant — for you and for anyone else
 
 Your agent searches NeoHive on its own, but you can also ask outright:
 
-<ul class="prompt-list">
-<li>What do we know about the authentication flow?</li>
-<li>Have we hit issues with the batch processor before?</li>
-<li>What conventions do we follow for error handling?</li>
-</ul>
+* What do we know about the authentication flow?
+* Have we hit issues with the batch processor before?
+* What conventions do we follow for error handling?
 
-For more on working with your agent to get sharper answers, see [Getting the Most](/getting-the-most/#working-with-your-agent).
+For more on working with your agent to get sharper answers, see [Getting the Most](getting-the-most.md#working-with-your-agent).
 
 ## End of session
 
