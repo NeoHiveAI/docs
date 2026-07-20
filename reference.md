@@ -15,7 +15,12 @@ Available in your agent after installing the NeoHive plugin. Run them directly i
 | `/neohive:capture-session-learnings` | Scans the current conversation and stores corrections, conventions, decisions, and insights. Also runs at session end via the plugin hook. |
 | `/neohive:migrate-memory` | Imports knowledge from `CLAUDE.md`, `AGENTS.md`, `.cursor/rules`, and `.claude/rules`. See [Migrating away from Markdown](migration.md). |
 | `/neohive:generate-claude-md` | Generates a NeoHive topology block in your project's `CLAUDE.md`. Re-run when hives are added or renamed. |
+| `/neohive:design-codebase-docs` | Guides you through defining a documentation standard for your codebase, saves it to NeoHive, and generates sample pages to validate it. |
 | `/neohive:enable-smart-prompts` | Installs a hook that rewrites your prompts with a small model before searching NeoHive, improving recall relevance. |
+
+{% hint style="info" %}
+The `/neohive:` prefix is Claude Code's syntax. In Codex and Cursor you invoke the same skills by name (for example, run the `load-context` skill) without the prefix. The topology command also differs by agent: Claude Code writes `CLAUDE.md` with `generate-claude-md`, Codex writes `AGENTS.md` with `generate-agents-md`, and Cursor writes a project rule with `generate-cursor-rules`.
+{% endhint %}
 
 ## MCP tools
 
@@ -41,5 +46,5 @@ Set these before running the installer or launching your agent.
 | `NEOHIVE_BACKEND` | Force a compute backend, e.g. `cpu`. See [GPU vs CPU](config/gpu.md). |
 | `NEOHIVE_PORT` | Change the port NeoHive binds to (default `3577`). |
 | `NEOHIVE_PDF_BRIDGE_TIMEOUT_MS` | Raise the per-document PDF processing timeout for large PDFs. See [Repository Sync Issues](troubleshooting/sync.md). |
-| `NEOHIVE_TOKEN` | Bearer token for agents connecting to an authenticated server. |
+| `NEOHIVE_TOKEN` | Bearer token your agent sends when your NeoHive deployment sits behind an authenticating proxy you run (for example a reverse proxy or VPN gateway). A standard local install needs no token. |
 | `NEOHIVE_MCP_HINTS` | Set to `0` to suppress the recall/context hint appended to tool responses. |
