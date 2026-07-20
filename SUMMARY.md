@@ -6,6 +6,7 @@
 * [The dashboard](dashboard.md)
 * [Using NeoHive](usage.md)
 * [Getting the Most](getting-the-most.md)
+* [How the plugin works](how-the-plugin-works.md)
 * [Migrating away from Markdown](migration.md)
 * [Indexing Your Codebase](codebase.md)
 * [Document hives](documents.md)
