@@ -6,7 +6,7 @@ description: "The context engineering layer that makes your coding agents aware 
 
 NeoHive makes Claude, Cursor, Copilot, and every MCP agent aware of your actual codebase and your team's knowledge, indexed locally, on your machine.
 
-<figure><img src="https://github.com/NeoHiveAI/docs/releases/download/docs-media/getting-started.webp" alt="NeoHive: from install to a context-aware answer"><figcaption></figcaption></figure>
+<figure><img src="https://github.com/NeoHiveAI/docs/releases/download/docs-media/getting-started.gif" alt="NeoHive: from install to a context-aware answer"><figcaption></figcaption></figure>
 
 ## The problem
 
