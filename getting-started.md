@@ -89,14 +89,14 @@ Like Cursor, the desktop app keeps the plugin and the MCP connection separate �
 
 1. **Install the plugin.** In the desktop app, open **Customize → Plugins**. In the popup, click **Add → Marketplace** (top right), enter `NeoHiveAI/NeoHiveClaude` as the marketplace, then click the **+** to install the plugin.
 
-2. **Connect NeoHive's MCP server.** In the NeoHive dashboard, open your project's **Connect** section and copy its MCP endpoint URL — it looks like `https://localhost:3577/hiveminds/<project-id>/mcp`. Add it to your Claude App MCP config, wrapping the endpoint with [`mcp-remote`](https://www.npmjs.com/package/mcp-remote) so the app can reach NeoHive's local HTTPS endpoint:
+2. **Connect NeoHive's MCP server.** In the NeoHive dashboard, open your project's **Connect** section and copy its MCP endpoint URL. It looks like `http://localhost:3577/hiveminds/<project-id>/mcp`. The Claude desktop app connects to MCP servers through a local command rather than a URL, so wrap the endpoint with [`mcp-remote`](https://www.npmjs.com/package/mcp-remote). It runs as that command and gives the app a streaming HTTP connection to NeoHive:
 
    ```json
    {
      "mcpServers": {
        "neohive": {
          "command": "npx",
-         "args": ["-y", "mcp-remote", "https://localhost:3577/hiveminds/<project-id>/mcp"]
+         "args": ["-y", "mcp-remote", "http://localhost:3577/hiveminds/<project-id>/mcp"]
        }
      }
    }
@@ -145,7 +145,7 @@ Take the NeoHive reference plugin in this repository and adapt it into a plugin/
 
 NeoHive is a local semantic-memory server exposed over the Model Context Protocol (MCP). The adapted plugin should:
 
-1. Register NeoHive's MCP endpoint (https://localhost:3577/hiveminds/<project-id>/mcp — find yours in the dashboard's Connect section). If the agent can't reach a local HTTPS endpoint directly, wrap it with the `mcp-remote` npm package.
+1. Register NeoHive's MCP endpoint (http://localhost:3577/hiveminds/<project-id>/mcp; find yours in the dashboard's Connect section). If the agent can't connect to the HTTP endpoint directly, wrap it with the `mcp-remote` npm package.
 2. Add rules/instructions telling the agent to call NeoHive's `memory_recall` and `memory_context` tools before exploring the codebase, and `memory_store` to capture new conventions, decisions, and insights.
 3. Wire up whatever session hooks the agent supports to load context at the start of a session and capture learnings at the end.
 
