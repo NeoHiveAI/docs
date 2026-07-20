@@ -4,11 +4,11 @@ description: "What to do when your agent isn't surfacing the context you expect.
 
 # Recall Isn't Finding What I Need
 
-If your agent isn't surfacing relevant context, it's usually one of a few things — how the query was phrased, or whether the knowledge was ever stored.
+If your agent isn't surfacing relevant context, it's usually one of a few things: how the query was phrased, or whether the knowledge was ever stored.
 
 ## Rephrase the ask
 
-NeoHive searches by meaning, so how your agent asks matters. If it comes up short, ask again in more specific, situation-shaped terms — see [Working with your agent](../getting-the-most.md#working-with-your-agent). Use the vocabulary you'd expect in the answer: if a note says "idempotency keys", searching for "duplicate prevention" may miss it.
+NeoHive searches by meaning, so how your agent asks matters. If it comes up short, ask again in more specific, situation-shaped terms. See [Working with your agent](../getting-the-most.md#working-with-your-agent). Use the vocabulary you'd expect in the answer: if a note says "idempotency keys", searching for "duplicate prevention" may miss it.
 
 ## Check the knowledge exists
 
@@ -18,7 +18,7 @@ Open the dashboard, go to your project, and browse the hive's contents. If what 
 
 ## Try a few phrasings
 
-Describing the same thing different ways surfaces different results — one usually hits:
+Describing the same thing different ways surfaces different results. One usually hits:
 
 * How do we handle authentication tokens?
 * JWT validation in the API gateway
@@ -26,8 +26,8 @@ Describing the same thing different ways surfaces different results — one usua
 
 ## Check you're in the right project
 
-Recall is scoped to the project your agent is connected to. If the knowledge lives in a different project, your agent won't find it — confirm the project in your MCP configuration.
+Recall is scoped to the project your agent is connected to. If the knowledge lives in a different project, your agent won't find it. Confirm the project in your MCP configuration.
 
 {% hint style="info" %}
-Knowledge is searchable immediately after it's stored. If you just saved something and can't find it, the issue is almost always phrasing — try the tips above.
+Knowledge is searchable immediately after it's stored. If you just saved something and can't find it, the issue is almost always phrasing. Try the tips above.
 {% endhint %}

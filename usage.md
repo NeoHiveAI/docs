@@ -1,22 +1,22 @@
 ---
-description: "Your day-to-day workflow — how your agent pulls context and captures knowledge as you work."
+description: "Your day-to-day workflow: how your agent pulls context and captures knowledge as you work."
 ---
 
 # Using NeoHive
 
 Once NeoHive is installed and your agent is connected, most of the work happens in the background: your agent pulls context when it needs it and captures new knowledge as you go. Every session follows the same rhythm.
 
-1. **Start** — your agent loads the context relevant to your task: conventions, recent decisions, related code.
+1. **Start.** Your agent loads the context relevant to your task: conventions, recent decisions, related code.
 
-2. **Work** — as you go, it pulls the exact code and knowledge it needs instead of guessing or asking you to paste files.
+2. **Work.** As you go, it pulls the exact code and knowledge it needs instead of guessing or asking you to paste files.
 
-3. **Teach** — you correct it or tell it to remember something, and that sticks for next time.
+3. **Teach.** You correct it or tell it to remember something, and that sticks for next time.
 
-4. **Capture** — when the session ends, it extracts the learnings worth keeping, automatically.
+4. **Capture.** When the session ends, it extracts the learnings worth keeping, automatically.
 
 ## Starting a session
 
-When you begin working, your agent loads relevant context from NeoHive — project conventions, recent decisions, and anything related to the task at hand. The plugin handles this on session start.
+When you begin working, your agent loads relevant context from NeoHive: project conventions, recent decisions, and anything related to the task at hand. The plugin handles this on session start.
 
 You can also trigger it manually:
 
@@ -27,17 +27,17 @@ You can also trigger it manually:
 This pre-loads directives, conventions, and task-relevant knowledge so your agent starts with your project's context rather than guessing.
 
 {% hint style="success" %}
-Switching to a very different task mid-session? Run `/neohive:load-context` again — it re-loads context based on what you're working on now.
+Switching to a very different task mid-session? Run `/neohive:load-context` again: it re-loads context based on what you're working on now.
 {% endhint %}
 
 ## How your agent uses context
 
 With NeoHive connected, your agent draws on two kinds of context:
 
-- **Your codebase.** If you've indexed a repository, your agent finds relevant code by describing what it does. Ask "how does the retry logic work?" and it pulls the actual implementation instead of guessing — no more hallucinated APIs or libraries you don't use.
+- **Your codebase.** If you've indexed a repository, your agent finds relevant code by describing what it does. Ask "how does the retry logic work?" and it pulls the actual implementation instead of guessing. No more hallucinated APIs or libraries you don't use.
 - **Your team's knowledge.** Conventions, architectural decisions, debugging insights, and gotchas surface when they're relevant, so your agent follows your team's patterns because it knows what they are.
 
-You'll see your agent call tools like `memory_recall` and `memory_context` as it works. That's normal — it's pulling context.
+You'll see your agent call tools like `memory_recall` and `memory_context` as it works. That's normal: it's pulling context.
 
 ## Teaching your agent
 
@@ -50,7 +50,7 @@ Knowledge gets into NeoHive two ways.
 * Remember that the payments API requires idempotency keys on all POST requests.
 * Store this: we use Redis for session storage because our sessions are short-lived and don't need durability.
 
-These come back in future sessions when relevant — for you and for anyone else on the same project.
+These come back in future sessions when relevant, for you and for anyone else on the same project.
 
 ## Asking for context directly
 

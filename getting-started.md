@@ -21,7 +21,7 @@ description: "Install NeoHive, connect your coding agent, and see it working wit
    bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
    ```
 
-   This pulls down the public install script and prompts for your license key — the key sent to you by the NeoHive team.
+   This pulls down the public install script and prompts for your license key: the key sent to you by the NeoHive team.
 
    {% hint style="info" %}
    You can supply the license and run the install in one command, either as a flag or an environment variable:
@@ -45,7 +45,7 @@ description: "Install NeoHive, connect your coding agent, and see it working wit
    From the dashboard, follow the onboarding flow to create a project and start indexing.
 
    {% hint style="info" %}
-   Once you create your first hive, NeoHive begins processing its contents in the background. You can carry on with the steps below while it works — what comes next depends on which agent you use.
+   Once you create your first hive, NeoHive begins processing its contents in the background. You can carry on with the steps below while it works. What comes next depends on which agent you use.
    {% endhint %}
 
 ## Connect your agent
@@ -53,11 +53,11 @@ description: "Install NeoHive, connect your coding agent, and see it working wit
 {% hint style="success" %}
 **Get more out of NeoHive**
 
-However you connect, NeoHive helps most when your agent reaches for it on its own. The plugins set this up for you — but you can also add a short instruction to your agent's rules (`CLAUDE.md`, `AGENTS.md`, or its system prompt) so it stores and recalls knowledge without being asked:
+However you connect, NeoHive helps most when your agent reaches for it on its own. The plugins set this up for you, but you can also add a short instruction to your agent's rules (`CLAUDE.md`, `AGENTS.md`, or its system prompt) so it stores and recalls knowledge without being asked:
 
-> Use NeoHive to store decisions, conventions, and context worth keeping — any time it makes sense to remember something for later. If more than one hive is connected and you're unsure where a note belongs, check before storing. Retrieve the same way: pull relevant context back from NeoHive before starting work or answering questions in those areas.
+> Use NeoHive to store decisions, conventions, and context worth keeping (any time it makes sense to remember something for later). If more than one hive is connected and you're unsure where a note belongs, check before storing. Retrieve the same way: pull relevant context back from NeoHive before starting work or answering questions in those areas.
 
-Tailor it to what your team cares about — point it at the kinds of decisions and context you most want to keep.
+Tailor it to what your team cares about: point it at the kinds of decisions and context you most want to keep.
 {% endhint %}
 
 {% tabs %}
@@ -85,7 +85,7 @@ The final command, `/neohive:getting-started`, launches an interactive wizard: i
 {% tab title="Claude App" %}
 <figure><img src="https://github.com/NeoHiveAI/docs/releases/download/docs-media/claude-desktop-plugin-install.webp" alt="Installing the Claude App plugin"><figcaption></figcaption></figure>
 
-Like Cursor, the desktop app keeps the plugin and the MCP connection separate — you set up both. Installing the plugin gives you NeoHive's skills (including the `getting-started` wizard); the MCP connection is what puts `memory_recall`, `memory_store`, and the rest within reach of your conversations.
+Like Cursor, the desktop app keeps the plugin and the MCP connection separate, so you set up both. Installing the plugin gives you NeoHive's skills (including the `getting-started` wizard); the MCP connection is what puts `memory_recall`, `memory_store`, and the rest within reach of your conversations.
 
 1. **Install the plugin.** In the desktop app, open **Customize → Plugins**. In the popup, click **Add → Marketplace** (top right), enter `NeoHiveAI/NeoHiveClaude` as the marketplace, then click the **+** to install the plugin.
 
@@ -119,7 +119,7 @@ Then run the `neohive:getting-started` skill from within Codex to verify the MCP
 {% endtab %}
 
 {% tab title="Cursor" %}
-NeoHive isn't on the public Cursor marketplace, so you install it straight from the repo. Cursor keeps the plugin (skills + rules) and the MCP connection separate — you set up both.
+NeoHive isn't on the public Cursor marketplace, so you install it straight from the repo. Cursor keeps the plugin (skills + rules) and the MCP connection separate, so you set up both.
 
 1. **Install the plugin.** Clone the [NeoHiveCursor](https://github.com/NeoHiveAI/NeoHiveCursor) repo and link it into Cursor's local plugins folder, then restart Cursor:
 
@@ -128,17 +128,17 @@ NeoHive isn't on the public Cursor marketplace, so you install it straight from 
    ln -s "$(pwd)/NeoHiveCursor" ~/.cursor/plugins/local/neohive
    ```
 
-   Managing a team? A Cursor workspace admin can instead import the repo as a team marketplace — **Dashboard → Plugins → Add Marketplace → Import from Repo** — so everyone installs it from **Customize**.
+   Managing a team? A Cursor workspace admin can instead import the repo as a team marketplace (**Dashboard → Plugins → Add Marketplace → Import from Repo**), so everyone installs it from **Customize**.
 
-2. **Connect NeoHive's MCP server.** Open **Cursor Settings → Tools & MCP Servers** and add your endpoint — copy it from the NeoHive dashboard's **Connect** section. The plugin doesn't bundle a server.
+2. **Connect NeoHive's MCP server.** Open **Cursor Settings → Tools & MCP Servers** and add your endpoint (copy it from the NeoHive dashboard's **Connect** section). The plugin doesn't bundle a server.
 
 3. **Run the `getting-started` skill** to verify the connection, set up auth, generate a project topology rule, and migrate any existing memory.
 {% endtab %}
 
 {% tab title="Other agents" %}
-NeoHive works with any coding agent that speaks MCP — including Copilot, Windsurf, and ChatGPT. Copy your project's MCP endpoint URL from the dashboard's **Connect** section and point your agent's MCP configuration at it.
+NeoHive works with any coding agent that speaks MCP, including Copilot, Windsurf, and ChatGPT. Copy your project's MCP endpoint URL from the dashboard's **Connect** section and point your agent's MCP configuration at it.
 
-We're always adding first-class plugins for new agents — tell us which you'd like to see at `support@neohive.ai`. In the meantime you can bootstrap your own: clone any of our plugin repositories (such as [NeoHiveClaude](https://github.com/NeoHiveAI/NeoHiveClaude)) and hand your agent the prompt below to adapt it to your harness.
+We're always adding first-class plugins for new agents. Tell us which you'd like to see at `support@neohive.ai`. In the meantime you can bootstrap your own: clone any of our plugin repositories (such as [NeoHiveClaude](https://github.com/NeoHiveAI/NeoHiveClaude)) and hand your agent the prompt below to adapt it to your harness.
 
 ```text
 Take the NeoHive reference plugin in this repository and adapt it into a plugin/configuration for my agent (<name your agent / harness>).
@@ -156,7 +156,7 @@ Keep the behaviour of the reference plugin as close as the harness allows, and c
 
 ## See it in action
 
-Watch the full walkthrough — from installing NeoHive to giving your agents a shared team memory:
+Watch the full walkthrough, from installing NeoHive to giving your agents a shared team memory:
 
 {% embed url="https://www.youtube.com/watch?v=2R2oPXgF2YY" %}
 
@@ -165,13 +165,13 @@ Once you've pointed NeoHive at a repository (see [Indexing Your Codebase](codeba
 * How does the authentication middleware work in this project?
 * Where do we handle payment retries?
 
-Your agent pulls the relevant code from NeoHive instead of guessing or asking you to paste files — it's working with your actual codebase now.
+Your agent pulls the relevant code from NeoHive instead of guessing or asking you to paste files. It's working with your actual codebase now.
 
 You can also teach it things directly:
 
 * Remember that we always use snake_case for database column names in this project.
 
-That gets stored in NeoHive and comes back in future sessions whenever it's relevant — across every agent your team connects, not just the one you told.
+That gets stored in NeoHive and comes back in future sessions whenever it's relevant, across every agent your team connects, not just the one you told.
 
 ## Next steps
 

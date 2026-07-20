@@ -19,7 +19,7 @@ The simplest approach: drop the license file in the directory where you run the 
 
 ## Moving to a new machine
 
-Install NeoHive on the new machine with your license file — the previous machine's seat is released automatically. No cleanup needed on the old one.
+Install NeoHive on the new machine with your license file. The previous machine's seat is released automatically. No cleanup needed on the old one.
 
 ## Rotating your license
 

@@ -43,8 +43,8 @@ The read tools (`memory_recall`, `memory_context`, `memory_stats`) take an optio
 
 | Parameter | Type | Default | Notes |
 |-----------|------|---------|-------|
-| `query` | string | — | A single search query. Use this or `queries`. |
-| `queries` | string list | — | One to five phrasings of the same need. Results are fused for broader recall. |
+| `query` | string | - | A single search query. Use this or `queries`. |
+| `queries` | string list | - | One to five phrasings of the same need. Results are fused for broader recall. |
 | `limit` | integer | `10` | Maximum results to return, from 1 to 50. |
 | `types` | string list | all | Restrict results to specific [memory types](#memory-types). |
 | `hive` | string | all hives | Search one hive instead of every hive. |
