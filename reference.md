@@ -120,3 +120,5 @@ Set these in the environment where your coding agent runs. They tune how the plu
 | `NEOHIVE_PRETOOL_STRICT` | Set to `1` to block file searches in indexed projects until memory has been checked first (Claude Code). |
 | `NEOHIVE_PRETOOL_DISABLED` | Set to `1` to turn off the pre-search reminder entirely (Claude Code). |
 | `NEOHIVE_SMART_DISABLED` | Set to `1` to turn off the smart-prompt rewriter, if you enabled it with `enable-smart-prompts`. |
+
+<figure><img src="https://github.com/NeoHiveAI/docs/releases/download/docs-media/proxytest.gif" alt="gif proxy test"><figcaption></figcaption></figure>
