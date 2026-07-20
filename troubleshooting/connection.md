@@ -12,7 +12,7 @@ If your coding agent can't reach NeoHive, work through these checks in order.
    docker ps | grep neohive
    ```
 
-   If it's not listed, start it — and if it won't start, check the logs:
+   If it's not listed, start it. If it won't start, check the logs:
 
    ```sh
    docker start neohive
@@ -25,7 +25,7 @@ If your coding agent can't reach NeoHive, work through these checks in order.
    curl http://localhost:3577/health
    ```
 
-   You should see `{"status":"ok"}`. If not, NeoHive isn't ready yet — check the container logs.
+   You should see `{"status":"ok"}`. If not, NeoHive isn't ready yet. Check the container logs.
 
 3. **Is port 3577 free?**
 
@@ -50,7 +50,7 @@ If your coding agent can't reach NeoHive, work through these checks in order.
    ```
 
 {% hint style="info" %}
-The first request after a project has been idle can take a moment — NeoHive auto-suspends idle projects to free memory and wakes them on demand. That's expected, not a failure.
+The first request after a project has been idle can take a moment. NeoHive auto-suspends idle projects to free memory and wakes them on demand. That's expected, not a failure.
 {% endhint %}
 
 ## Still stuck?

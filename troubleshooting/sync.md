@@ -8,7 +8,7 @@ If a repository sync fails or seems stuck, here are the most common causes.
 
 ## Credential problems
 
-The most frequent issue is an expired or invalid access token. Open the dashboard, go to the repo hive, and check the credential status — if the token has expired, replace it with a fresh one. For GitHub personal access tokens, make sure the token has `repo` scope.
+The most frequent issue is an expired or invalid access token. Open the dashboard, go to the repo hive, and check the credential status. If the token has expired, replace it with a fresh one. For GitHub personal access tokens, make sure the token has `repo` scope.
 
 ## Large repositories
 
@@ -18,7 +18,7 @@ Very large repositories take longer on the first sync. The dashboard shows live 
 docker logs neohive --tail 50
 ```
 
-Long-running syncs won't be interrupted by idle suspension — NeoHive keeps the worker active until the sync completes.
+Long-running syncs won't be interrupted by idle suspension. NeoHive keeps the worker active until the sync completes.
 
 ## PDF files timing out
 
