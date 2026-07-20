@@ -11,6 +11,7 @@
 
 ## Configuration
 
+* [Access & sharing](config/access.md)
 * [Licensing](config/licensing.md)
 * [Updating](config/updating.md)
 * [GPU vs CPU](config/gpu.md)

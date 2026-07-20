@@ -38,7 +38,7 @@ description: "Install NeoHive, connect your coding agent, and see it working wit
 
 2. Open the dashboard in your browser.
 
-   NeoHive runs on `localhost:3577`. Open `http://localhost:3577` — or, if it's running on a remote machine, whatever address you use to reach that machine.
+   NeoHive runs on `localhost:3577`. Open `http://localhost:3577`. If it's running on another machine, use that machine's address instead. See [Access & sharing](config/access.md) for running a shared instance for your team.
 
 3. Create your first project.
 
