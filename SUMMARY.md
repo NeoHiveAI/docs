@@ -3,10 +3,12 @@
 * [Welcome](README.md)
 * [Getting Started](getting-started.md)
 * [Core Concepts](concepts.md)
+* [The dashboard](dashboard.md)
 * [Using NeoHive](usage.md)
 * [Getting the Most](getting-the-most.md)
 * [Migrating away from Markdown](migration.md)
 * [Indexing Your Codebase](codebase.md)
+* [Document hives](documents.md)
 * [Reference](reference.md)
 
 ## Configuration
