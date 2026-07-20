@@ -156,6 +156,10 @@ Keep the behaviour of the reference plugin as close as the harness allows, and c
 
 ## See it in action
 
+Watch the full walkthrough — from installing NeoHive to giving your agents a shared team memory:
+
+{% embed url="https://www.youtube.com/watch?v=2R2oPXgF2YY" %}
+
 Once you've pointed NeoHive at a repository (see [Indexing Your Codebase](codebase.md)), ask your agent about the code:
 
 * How does the authentication middleware work in this project?
