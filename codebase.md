@@ -14,7 +14,7 @@ NeoHive can index your GitHub or GitLab repositories so your agents search your 
 
 ## Adding a repository
 
-[▶ **Watch: Adding a repository**](https://github.com/NeoHiveAI/docs/releases/download/docs-media/indexing-codebase.mp4)
+<figure><img src="https://github.com/NeoHiveAI/docs/releases/download/docs-media/indexing-codebase.webp" alt="Adding a repository to NeoHive"><figcaption></figcaption></figure>
 
 1. Open the NeoHive dashboard at `http://localhost:3577`.
 2. Navigate to your project and create a new **repo hive**.

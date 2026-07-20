@@ -4,7 +4,7 @@ description: "Install NeoHive, connect your coding agent, and see it working wit
 
 # Getting Started
 
-[▶ **Watch: Installing NeoHive**](https://github.com/NeoHiveAI/docs/releases/download/docs-media/getting-started.mp4)
+<figure><img src="https://github.com/NeoHiveAI/docs/releases/download/docs-media/getting-started.webp" alt="Installing NeoHive"><figcaption></figcaption></figure>
 
 ## Requirements
 
@@ -62,7 +62,7 @@ Tailor it to what your team cares about — point it at the kinds of decisions a
 
 {% tabs %}
 {% tab title="Claude Code" %}
-[▶ **Watch: Claude Code plugin install**](https://github.com/NeoHiveAI/docs/releases/download/docs-media/claude-plugin-install.mp4)
+<figure><img src="https://github.com/NeoHiveAI/docs/releases/download/docs-media/claude-plugin-install.webp" alt="Installing the Claude Code plugin"><figcaption></figcaption></figure>
 
 Open Claude Code in any project:
 
@@ -83,7 +83,7 @@ The final command, `/neohive:getting-started`, launches an interactive wizard: i
 {% endtab %}
 
 {% tab title="Claude App" %}
-[▶ **Watch: Claude App plugin install**](https://github.com/NeoHiveAI/docs/releases/download/docs-media/claude-desktop-plugin-install.mp4)
+<figure><img src="https://github.com/NeoHiveAI/docs/releases/download/docs-media/claude-desktop-plugin-install.webp" alt="Installing the Claude App plugin"><figcaption></figcaption></figure>
 
 Like Cursor, the desktop app keeps the plugin and the MCP connection separate — you set up both. Installing the plugin gives you NeoHive's skills (including the `getting-started` wizard); the MCP connection is what puts `memory_recall`, `memory_store`, and the rest within reach of your conversations.
 
@@ -106,7 +106,7 @@ Like Cursor, the desktop app keeps the plugin and the MCP connection separate �
 {% endtab %}
 
 {% tab title="Codex" %}
-[▶ **Watch: Codex plugin install**](https://github.com/NeoHiveAI/docs/releases/download/docs-media/codex-plugin-install.mp4)
+<figure><img src="https://github.com/NeoHiveAI/docs/releases/download/docs-media/codex-plugin-install.webp" alt="Installing the Codex plugin"><figcaption></figcaption></figure>
 
 Add the NeoHive plugin marketplace and install the plugin:
 
