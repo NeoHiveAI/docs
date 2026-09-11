@@ -4,8 +4,6 @@ description: "Install NeoHive, connect your coding agent, and see it working wit
 
 # Getting Started
 
-<figure><img src="https://github.com/NeoHiveAI/docs/releases/download/docs-media/getting-started.gif" alt="Installing NeoHive"><figcaption></figcaption></figure>
-
 ## Requirements
 
 - **Docker 20+**: [Docker Desktop](https://www.docker.com/products/docker-desktop/) on macOS/Windows, or [Docker Engine](https://docs.docker.com/engine/install/) on Linux
@@ -62,8 +60,6 @@ Tailor it to what your team cares about: point it at the kinds of decisions and 
 
 {% tabs %}
 {% tab title="Claude Code" %}
-<figure><img src="https://github.com/NeoHiveAI/docs/releases/download/docs-media/claude-plugin-install.gif" alt="Installing the Claude Code plugin"><figcaption></figcaption></figure>
-
 Open Claude Code in any project:
 
 ```bash
@@ -83,8 +79,6 @@ The final command, `/neohive:getting-started`, launches an interactive wizard: i
 {% endtab %}
 
 {% tab title="Claude App" %}
-<figure><img src="https://github.com/NeoHiveAI/docs/releases/download/docs-media/claude-desktop-plugin-install.gif" alt="Installing the Claude App plugin"><figcaption></figcaption></figure>
-
 Like Cursor, the desktop app keeps the plugin and the MCP connection separate, so you set up both. Installing the plugin gives you NeoHive's skills (including the `getting-started` wizard); the MCP connection is what puts `memory_recall`, `memory_store`, and the rest within reach of your conversations.
 
 1. **Install the plugin.** In the desktop app, open **Customize → Plugins**. In the popup, click **Add → Marketplace** (top right), enter `NeoHiveAI/NeoHiveClaude` as the marketplace, then click the **+** to install the plugin.
@@ -106,8 +100,6 @@ Like Cursor, the desktop app keeps the plugin and the MCP connection separate, s
 {% endtab %}
 
 {% tab title="Codex" %}
-<figure><img src="https://github.com/NeoHiveAI/docs/releases/download/docs-media/codex-plugin-install.gif" alt="Installing the Codex plugin"><figcaption></figcaption></figure>
-
 Add the NeoHive plugin marketplace and install the plugin:
 
 ```bash
@@ -154,11 +146,7 @@ Keep the behaviour of the reference plugin as close as the harness allows, and c
 {% endtab %}
 {% endtabs %}
 
-## See it in action
-
-Watch the full walkthrough, from installing NeoHive to giving your agents a shared team memory:
-
-{% embed url="https://www.youtube.com/watch?v=2R2oPXgF2YY" %}
+## Try it out
 
 Once you've pointed NeoHive at a repository (see [Indexing Your Codebase](codebase.md)), ask your agent about the code:
 
