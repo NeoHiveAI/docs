@@ -9,7 +9,7 @@
 * [How the plugin works](how-the-plugin-works.md)
 * [Migrating away from Markdown](migration.md)
 * [Indexing Your Codebase](codebase.md)
-* [Document hives](documents.md)
+* [Document Indexes](documents.md)
 * [Reference](reference.md)
 
 ## Configuration

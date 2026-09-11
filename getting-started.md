@@ -40,12 +40,12 @@ description: "Install NeoHive, connect your coding agent, and see it working wit
 
    NeoHive runs on `localhost:3577`. Open `http://localhost:3577`. If it's running on another machine, use that machine's address instead. See [Access & sharing](config/access.md) for running a shared instance for your team.
 
-3. Create your first project.
+3. Create your first Hive.
 
-   From the dashboard, follow the onboarding flow to create a project and start indexing.
+   From the dashboard, follow the onboarding flow to create a Hive and start indexing.
 
    {% hint style="info" %}
-   Once you create your first hive, NeoHive begins processing its contents in the background. You can carry on with the steps below while it works. What comes next depends on which agent you use.
+   Once you create your first Index, NeoHive begins processing its contents in the background. You can carry on with the steps below while it works. What comes next depends on which agent you use.
    {% endhint %}
 
 ## Connect your agent
@@ -55,7 +55,7 @@ description: "Install NeoHive, connect your coding agent, and see it working wit
 
 However you connect, NeoHive helps most when your agent reaches for it on its own. The plugins set this up for you, but you can also add a short instruction to your agent's rules (`CLAUDE.md`, `AGENTS.md`, or its system prompt) so it stores and recalls knowledge without being asked:
 
-> Use NeoHive to store decisions, conventions, and context worth keeping (any time it makes sense to remember something for later). If more than one hive is connected and you're unsure where a note belongs, check before storing. Retrieve the same way: pull relevant context back from NeoHive before starting work or answering questions in those areas.
+> Use NeoHive to store decisions, conventions, and context worth keeping (any time it makes sense to remember something for later). If more than one Index is available and you're unsure where a note belongs, check before storing. Retrieve the same way: pull relevant context back from NeoHive before starting work or answering questions in those areas.
 
 Tailor it to what your team cares about: point it at the kinds of decisions and context you most want to keep.
 {% endhint %}
@@ -79,7 +79,7 @@ Then install the NeoHive plugin from within Claude Code:
 /neohive:getting-started
 ```
 
-The final command, `/neohive:getting-started`, launches an interactive wizard: it verifies the MCP connection, walks you through creating a project, and optionally migrates any existing `CLAUDE.md` context into NeoHive.
+The final command, `/neohive:getting-started`, launches an interactive wizard: it verifies the MCP connection, walks you through creating a Hive, and optionally migrates any existing `CLAUDE.md` context into NeoHive.
 {% endtab %}
 
 {% tab title="Claude App" %}
@@ -89,20 +89,20 @@ Like Cursor, the desktop app keeps the plugin and the MCP connection separate, s
 
 1. **Install the plugin.** In the desktop app, open **Customize → Plugins**. In the popup, click **Add → Marketplace** (top right), enter `NeoHiveAI/NeoHiveClaude` as the marketplace, then click the **+** to install the plugin.
 
-2. **Connect NeoHive's MCP server.** In the NeoHive dashboard, open your project's **Connect** section and copy its MCP endpoint URL. It looks like `http://localhost:3577/hiveminds/<project-id>/mcp`. The Claude desktop app connects to MCP servers through a local command rather than a URL, so wrap the endpoint with [`mcp-remote`](https://www.npmjs.com/package/mcp-remote). It runs as that command and gives the app a streaming HTTP connection to NeoHive:
+2. **Connect NeoHive's MCP server.** In the NeoHive dashboard, open your Hive's **Connect** section and copy its MCP endpoint URL. It looks like `http://localhost:3577/hives/<hive-id>/mcp`. The Claude desktop app connects to MCP servers through a local command rather than a URL, so wrap the endpoint with [`mcp-remote`](https://www.npmjs.com/package/mcp-remote). It runs as that command and gives the app a streaming HTTP connection to NeoHive:
 
    ```json
    {
      "mcpServers": {
        "neohive": {
          "command": "npx",
-         "args": ["-y", "mcp-remote", "http://localhost:3577/hiveminds/<project-id>/mcp"]
+         "args": ["-y", "mcp-remote", "http://localhost:3577/hives/<hive-id>/mcp"]
        }
      }
    }
    ```
 
-3. **Restart Claude App**, then run `/neohive:getting-started` to verify the connection and finish setting up your project.
+3. **Restart Claude App**, then run `/neohive:getting-started` to verify the connection and finish setting up your Hive.
 {% endtab %}
 
 {% tab title="Codex" %}
@@ -115,7 +115,7 @@ codex plugin marketplace add NeoHiveAI/NeoHiveCodex
 codex plugin add neohive@neohive-codex
 ```
 
-Then run the `neohive:getting-started` skill from within Codex to verify the MCP connection and set up your project.
+Then run the `neohive:getting-started` skill from within Codex to verify the MCP connection and set up your Hive.
 {% endtab %}
 
 {% tab title="Cursor" %}
@@ -136,7 +136,7 @@ NeoHive isn't on the public Cursor marketplace, so you install it straight from 
 {% endtab %}
 
 {% tab title="Other agents" %}
-NeoHive works with any coding agent that speaks MCP, including Copilot, Windsurf, and ChatGPT. Copy your project's MCP endpoint URL from the dashboard's **Connect** section and point your agent's MCP configuration at it.
+NeoHive works with any coding agent that speaks MCP, including Copilot, Windsurf, and ChatGPT. Copy your Hive's MCP endpoint URL from the dashboard's **Connect** section and point your agent's MCP configuration at it.
 
 We're always adding first-class plugins for new agents. Tell us which you'd like to see at `support@neohive.ai`. In the meantime you can bootstrap your own: clone any of our plugin repositories (such as [NeoHiveClaude](https://github.com/NeoHiveAI/NeoHiveClaude)) and hand your agent the prompt below to adapt it to your harness.
 
@@ -145,7 +145,7 @@ Take the NeoHive reference plugin in this repository and adapt it into a plugin/
 
 NeoHive is a local semantic-memory server exposed over the Model Context Protocol (MCP). The adapted plugin should:
 
-1. Register NeoHive's MCP endpoint (http://localhost:3577/hiveminds/<project-id>/mcp; find yours in the dashboard's Connect section). If the agent can't connect to the HTTP endpoint directly, wrap it with the `mcp-remote` npm package.
+1. Register NeoHive's MCP endpoint (http://localhost:3577/hives/<hive-id>/mcp; find yours in the dashboard's Connect section). If the agent can't connect to the HTTP endpoint directly, wrap it with the `mcp-remote` npm package.
 2. Add rules/instructions telling the agent to call NeoHive's `memory_recall` and `memory_context` tools before exploring the codebase, and `memory_store` to capture new conventions, decisions, and insights.
 3. Wire up whatever session hooks the agent supports to load context at the start of a session and capture learnings at the end.
 
@@ -186,7 +186,7 @@ That gets stored in NeoHive and comes back in future sessions whenever it's rele
   <tbody>
     <tr>
       <td><strong>Core Concepts</strong></td>
-      <td>Understand projects, hives, and how knowledge is organized.</td>
+      <td>Understand Hives, Indexes, and how knowledge is organized.</td>
       <td><a href="concepts.md">concepts</a></td>
     </tr>
     <tr>

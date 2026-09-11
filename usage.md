@@ -50,7 +50,7 @@ Knowledge gets into NeoHive two ways.
 * Remember that the payments API requires idempotency keys on all POST requests.
 * Store this: we use Redis for session storage because our sessions are short-lived and don't need durability.
 
-These come back in future sessions when relevant, for you and for anyone else on the same project.
+These come back in future sessions when relevant, for you and for anyone else on the same Hive.
 
 ## Asking for context directly
 

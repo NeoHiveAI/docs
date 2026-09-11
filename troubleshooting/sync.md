@@ -8,7 +8,7 @@ If a repository sync fails or seems stuck, here are the most common causes.
 
 ## Credential problems
 
-The most frequent issue is an expired or invalid access token. Open the dashboard, go to the repo hive, and check the credential status. If the token has expired, replace it with a fresh one. For GitHub personal access tokens, make sure the token has `repo` scope.
+The most frequent issue is an expired or invalid access token. Open the dashboard, go to the Repo Index, and check the credential status. If the token has expired, replace it with a fresh one. For GitHub personal access tokens, make sure the token has `repo` scope.
 
 ## Large repositories
 
@@ -31,7 +31,7 @@ NEOHIVE_PDF_BRIDGE_TIMEOUT_MS=1800000 \
 
 ## Sync schedule
 
-Syncs run automatically on a configurable schedule. To trigger one immediately, use the manual sync button on the repo hive in the dashboard.
+Syncs run automatically on a configurable schedule. To trigger one immediately, use the manual sync button on the Repo Index in the dashboard.
 
 ## Still stuck?
 

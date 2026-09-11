@@ -8,7 +8,7 @@ NeoHive is built to be shared by a team, and the way it handles access reflects 
 
 ## How access works today
 
-NeoHive has no built-in user accounts. Anyone who can reach the dashboard and the MCP endpoint has full access to that instance, and everyone who connects sees the same projects and the same memory. There are no per-user logins, roles, or permissions.
+NeoHive has no built-in user accounts. Anyone who can reach the dashboard and the MCP endpoint has full access to that instance, and everyone who connects sees the same Hives and the same memory. There are no per-user logins, roles, or permissions.
 
 The practical consequence is that the network is your access control. An instance should be reachable only by the people who should be able to use it.
 
@@ -22,7 +22,7 @@ A default install listens on `http://localhost:3577` and is reachable only from 
 
 ## Sharing it with your team
 
-Run one instance on a machine your team can reach over a trusted network, and have everyone point their agent at that same endpoint. A company VPN is the setup NeoHive is designed for. Because memory lives on the instance rather than in each person's client, a convention one person teaches or a repository one person indexes is immediately available to everyone connected to the same project.
+Run one instance on a machine your team can reach over a trusted network, and have everyone point their agent at that same endpoint. A company VPN is the setup NeoHive is designed for. Because memory lives on the instance rather than in each person's client, a convention one person teaches or a repository one person indexes is immediately available to everyone connected to the same Hive.
 
 ```mermaid
 flowchart LR
@@ -32,7 +32,7 @@ flowchart LR
     V["VPN or trusted network"] --> N[("Shared NeoHive instance")]
 ```
 
-To make an instance reachable, run it on a host your team can route to and connect using that host's address in place of `localhost`, for example `http://neohive.internal:3577/hiveminds/<project-id>/mcp`. The exact address depends on your network.
+To make an instance reachable, run it on a host your team can route to and connect using that host's address in place of `localhost`, for example `http://neohive.internal:3577/hives/<hive-id>/mcp`. The exact address depends on your network.
 
 ## Exposing NeoHive beyond your network
 

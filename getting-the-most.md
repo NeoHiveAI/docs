@@ -40,7 +40,7 @@ NeoHive works out of the box, but it rewards a few small habits. Lean into these
     <tr>
       <td><i class="fa-star"></i></td>
       <td><strong>Use it as a team</strong></td>
-      <td>The value compounds with people: one person's correction, decision, or gotcha instantly benefits every agent on the project.</td>
+      <td>The value compounds with people: one person's correction, decision, or gotcha instantly benefits every agent on the Hive.</td>
     </tr>
   </tbody>
 </table>
@@ -69,7 +69,7 @@ A few ways teams get outsized value from NeoHive:
 
 ### Onboard a teammate with zero handover
 
-A new engineer connects their agent to the project and immediately inherits everything the team has taught NeoHive: conventions, decisions, and the reasons behind them. They ask "how do we handle auth here?" and get your team's real answer on day one, no onboarding doc required.
+A new engineer connects their agent to the Hive and immediately inherits everything the team has taught NeoHive: conventions, decisions, and the reasons behind them. They ask "how do we handle auth here?" and get your team's real answer on day one, no onboarding doc required.
 
 ### Debug with institutional memory
 
@@ -77,11 +77,11 @@ Hit a gnarly bug? Ask whether it's been seen before: _"Have we run into flaky fa
 
 ### Keep the whole team consistent
 
-Establish a convention once ("we use snake_case for database columns") and every agent on the project starts following it, not just yours. Standards stop living in someone's head or a stale doc and start being applied automatically.
+Establish a convention once ("we use snake_case for database columns") and every agent on the Hive starts following it, not just yours. Standards stop living in someone's head or a stale doc and start being applied automatically.
 
 ## What builds up over time
 
-After a few weeks, your project accumulates a real body of context:
+After a few weeks, your Hive accumulates a real body of context:
 
 - Your indexed codebase, kept fresh with periodic syncs
 - The conventions your team follows
