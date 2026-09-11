@@ -41,11 +41,11 @@ NeoHive indexes text-based source and skips anything with no semantic value:
 | Markdown, plain text, docs | Vendored dependencies (e.g. `node_modules/`, `vendor/`) |
 | Config files | Very large or generated files |
 
-The index understands the _structure_ of your code, not just keywords, so your agent finds relevant code by describing what it does.
+The Index understands the _structure_ of your code, not just keywords, so your agent finds relevant code by describing what it does.
 
 ## Scoping what gets indexed
 
-To narrow the index further and skip generated code, fixtures, or anything noisy, set file patterns in the Repo Index's **Sync Settings** tab. Both lists take [micromatch](https://github.com/micromatch/micromatch) globs, the same style as `.gitignore`:
+To narrow the Index further and skip generated code, fixtures, or anything noisy, set file patterns in the Repo Index's **Sync Settings** tab. Both lists take [micromatch](https://github.com/micromatch/micromatch) globs, the same style as `.gitignore`:
 
 - **Blocklist** excludes files that match. Use it to drop build output, bundles, and fixtures from an otherwise normal repository.
 - **Allowlist** keeps only files that match, and ignores everything else. Use it when you want to index a narrow slice, for example just `src/**` and `docs/**`.
@@ -60,7 +60,7 @@ dist/**
 docs/generated/**
 ```
 
-Excluding low-value files such as build output, minified bundles, test fixtures, and snapshots keeps retrieval sharp. The fewer near-duplicate and machine-generated chunks in the index, the more often the _right_ code comes back first.
+Excluding low-value files such as build output, minified bundles, test fixtures, and snapshots keeps retrieval sharp. The fewer near-duplicate and machine-generated chunks in the Index, the more often the _right_ code comes back first.
 
 ## Keeping it fresh
 
@@ -68,8 +68,8 @@ Once a Repo Index exists, NeoHive keeps it in sync on a schedule. Syncs are incr
 
 | Change since last sync | What happens |
 |------------------------|--------------|
-| New or modified file | Re-embedded and updated in the index |
-| Deleted file | Removed from the index |
+| New or modified file | Re-embedded and updated in the Index |
+| Deleted file | Removed from the Index |
 | Unchanged file | Left as-is, not re-processed |
 
 By default a repo re-syncs every 60 minutes. You can change the interval, in minutes, in **Sync Settings**. You never have to trigger a sync by hand, but each Repo Index also has a **Trigger Sync** button for when you want an update right now.
