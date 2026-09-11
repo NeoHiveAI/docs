@@ -117,6 +117,6 @@ Set these in the environment where your coding agent runs. They tune how the plu
 | `NEOHIVE_TOKEN` | Bearer token your agent sends when your NeoHive deployment sits behind an authenticating proxy you run (for example a reverse proxy or VPN gateway). A standard local install needs no token. |
 | `NEOHIVE_MCP_HINTS` | Set to `0` to suppress the hint appended to recall and context responses. |
 | `NEOHIVE_HOOK_DISABLED` | Set to `1` to turn off the automatic context injection that runs on each prompt (Claude Code). |
-| `NEOHIVE_PRETOOL_STRICT` | Set to `1` to block file searches in indexed projects until memory has been checked first (Claude Code). |
+| `NEOHIVE_PRETOOL_STRICT` | Set to `1` to block file searches in an indexed codebase until memory has been checked first (Claude Code). |
 | `NEOHIVE_PRETOOL_DISABLED` | Set to `1` to turn off the pre-search reminder entirely (Claude Code). |
 | `NEOHIVE_SMART_DISABLED` | Set to `1` to turn off the smart-prompt rewriter, if you enabled it with `enable-smart-prompts`. |

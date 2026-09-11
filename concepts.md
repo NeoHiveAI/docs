@@ -16,7 +16,7 @@ Most people run one Hive per codebase or team. If two codebases share a lot of c
 
 ## Indexes
 
-An Index is a container for one kind of context within a Hive. Each Index has its own database and is tuned for its content type:
+An Index is a memory store for one kind of context within a Hive. Each Index has its own database and is tuned for its content type:
 
 <table data-view="cards">
   <thead>

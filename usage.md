@@ -16,7 +16,7 @@ Once NeoHive is installed and your agent is connected, most of the work happens 
 
 ## Starting a session
 
-When you begin working, your agent loads relevant context from NeoHive: project conventions, recent decisions, and anything related to the task at hand. The plugin handles this on session start.
+When you begin working, your agent loads relevant context from NeoHive: your team's conventions, recent decisions, and anything related to the task at hand. The plugin handles this on session start.
 
 You can also trigger it manually:
 
@@ -24,7 +24,7 @@ You can also trigger it manually:
 /neohive:load-context
 ```
 
-This pre-loads directives, conventions, and task-relevant knowledge so your agent starts with your project's context rather than guessing.
+This pre-loads directives, conventions, and task-relevant knowledge so your agent starts with your codebase's context rather than guessing.
 
 {% hint style="success" %}
 Switching to a very different task mid-session? Run `/neohive:load-context` again: it re-loads context based on what you're working on now.
