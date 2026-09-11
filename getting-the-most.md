@@ -1,10 +1,10 @@
 ---
-description: "The habits, phrasing, and workflows that turn NeoHive from a passive index into compounding team memory."
+description: "The habits, phrasing, and workflows that turn NeoHive from a passive search tool into compounding team memory."
 ---
 
 # Getting the most out of NeoHive
 
-NeoHive works out of the box, but it rewards a few small habits. Lean into these and it stops being a passive index and starts compounding into real institutional memory.
+NeoHive works out of the box, but it rewards a few small habits. Lean into these and it stops being a passive search tool and starts compounding into real institutional memory.
 
 ## Habits that unlock it
 
