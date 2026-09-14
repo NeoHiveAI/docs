@@ -13,7 +13,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/insta
 The installer pulls the latest image and restarts the container.
 
 {% hint style="info" %}
-Your data is preserved across updates. Every project, hive, and indexed knowledge base lives in a Docker volume (`neohive-data`) that persists.
+Your data is preserved across updates. Every Hive, Index, and indexed knowledge base lives in a Docker volume (`neohive-data`) that persists.
 {% endhint %}
 
 ## Update notifications
@@ -24,7 +24,7 @@ The banner is informational and won't update anything on its own. You still re-r
 
 ## Backing up your data
 
-Everything NeoHive stores lives in the `neohive-data` Docker volume: your projects, hives, indexed code, and memories. To back it up, archive the volume with a throwaway container:
+Everything NeoHive stores lives in the `neohive-data` Docker volume: your Hives, Indexes, indexed code, and memories. To back it up, archive the volume with a throwaway container:
 
 ```sh
 docker run --rm -v neohive-data:/data -v "$PWD":/backup alpine \

@@ -15,7 +15,7 @@ To remove NeoHive from your machine:
 2. **Remove your data.**
 
    {% hint style="warning" %}
-   This permanently deletes all projects, hives, and indexed knowledge. Only run it if you're sure.
+   This permanently deletes all Hives, Indexes, and indexed knowledge. Only run it if you're sure.
    {% endhint %}
 
    ```sh
@@ -40,7 +40,7 @@ To remove NeoHive from your machine:
 
    ```
    claude mcp list
-   claude mcp remove <neohive-project-name>
+   claude mcp remove <neohive-hive-name>
    ```
 
-   Repeat for each project. For other agents, remove the NeoHive entries from your MCP configuration file (e.g. `.mcp.json`).
+   Repeat for each Hive. For other agents, remove the NeoHive entries from your MCP configuration file (e.g. `.mcp.json`).

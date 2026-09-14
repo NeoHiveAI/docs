@@ -16,7 +16,7 @@ Once NeoHive is installed and your agent is connected, most of the work happens 
 
 ## Starting a session
 
-When you begin working, your agent loads relevant context from NeoHive: project conventions, recent decisions, and anything related to the task at hand. The plugin handles this on session start.
+When you begin working, your agent loads relevant context from NeoHive: your team's conventions, recent decisions, and anything related to the task at hand. The plugin handles this on session start.
 
 You can also trigger it manually:
 
@@ -24,7 +24,7 @@ You can also trigger it manually:
 /neohive:load-context
 ```
 
-This pre-loads directives, conventions, and task-relevant knowledge so your agent starts with your project's context rather than guessing.
+This pre-loads directives, conventions, and task-relevant knowledge so your agent starts with your codebase's context rather than guessing.
 
 {% hint style="success" %}
 Switching to a very different task mid-session? Run `/neohive:load-context` again: it re-loads context based on what you're working on now.
@@ -50,7 +50,7 @@ Knowledge gets into NeoHive two ways.
 * Remember that the payments API requires idempotency keys on all POST requests.
 * Store this: we use Redis for session storage because our sessions are short-lived and don't need durability.
 
-These come back in future sessions when relevant, for you and for anyone else on the same project.
+These come back in future sessions when relevant, for you and for anyone else on the same Hive.
 
 ## Asking for context directly
 

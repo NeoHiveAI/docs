@@ -1,22 +1,22 @@
 ---
-description: "How NeoHive organizes context into projects, hives, and memories, and how it retrieves the right context at the right time."
+description: "How NeoHive organizes context into Hives, Indexes, and memories, and how it retrieves the right context at the right time."
 ---
 
 # Core Concepts
 
-NeoHive connects your coding agents to your codebase and your team's accumulated knowledge. It organizes that context into three things: **projects**, **hives**, and **memories**. Then it retrieves the right slice of it whenever your agent asks.
-
-## Projects
-
-A project is a workspace. It keeps context separate between unrelated work: your frontend app and your infrastructure tooling don't need to share the same knowledge.
-
-You create projects in the NeoHive dashboard at `http://localhost:3577`, and each one gets its own MCP endpoint that your agents connect to.
-
-Most people run one project per codebase or team. If two codebases share a lot of context (a monorepo, say), put them in one project; if they're unrelated, keep them separate.
+NeoHive connects your coding agents to your codebase and your team's accumulated knowledge. It organizes that context into three things: **Hives**, **Indexes**, and **memories**. Then it retrieves the right slice of it whenever your agent asks.
 
 ## Hives
 
-A hive is a container for one kind of context within a project. Each hive has its own database and is tuned for its content type:
+A Hive is a workspace. It keeps context separate between unrelated work: your frontend app and your infrastructure tooling don't need to share the same knowledge.
+
+You create Hives in the NeoHive dashboard at `http://localhost:3577`, and each one gets its own MCP endpoint that your agents connect to.
+
+Most people run one Hive per codebase or team. If two codebases share a lot of context (a monorepo, say), put them in one Hive; if they're unrelated, keep them separate.
+
+## Indexes
+
+An Index is a memory store for one kind of context within a Hive. Each Index has its own database and is tuned for its content type:
 
 <table data-view="cards">
   <thead>
@@ -29,27 +29,27 @@ A hive is a container for one kind of context within a project. Each hive has it
   <tbody>
     <tr>
       <td><i class="fa-github"></i></td>
-      <td><strong>Repo hives</strong></td>
+      <td><strong>Repo Indexes</strong></td>
       <td>Indexed source code from a GitHub or GitLab repository. This is how your agent searches your actual code by meaning, not by filename or keyword. See <a href="codebase.md">Indexing Your Codebase</a>.</td>
     </tr>
     <tr>
       <td><i class="fa-file-lines"></i></td>
-      <td><strong>Document hives</strong></td>
+      <td><strong>Document Indexes</strong></td>
       <td>Uploaded files: markdown, text, PDFs. Use these for content that doesn't live in git: runbooks, onboarding guides, design docs. Drag and drop them into the dashboard.</td>
     </tr>
     <tr>
       <td><i class="fa-star"></i></td>
-      <td><strong>Knowledge hives</strong></td>
-      <td>Where your agents store and retrieve learned context: conventions, decisions, insights, corrections. Created automatically with the project; your agents read and write here as you work.</td>
+      <td><strong>Knowledge Indexes</strong></td>
+      <td>Where your agents store and retrieve learned context: conventions, decisions, insights, corrections. Created automatically with the Hive; your agents read and write here as you work.</td>
     </tr>
   </tbody>
 </table>
 
-A project can hold multiple hives of any type. Your agent never has to pick one: a single query searches them all and comes back with the relevant code, the relevant convention, and the relevant doc together. (More on that in [How retrieval works](#how-retrieval-works).)
+A Hive can hold multiple Indexes of any type. Your agent never has to pick one: a single query searches them all and comes back with the relevant code, the relevant convention, and the relevant doc together. (More on that in [How retrieval works](#how-retrieval-works).)
 
 ## Memories
 
-A memory is a single piece of stored knowledge in a knowledge hive: a convention, a decision, an insight, a correction. Your agent creates and retrieves these as you work: when you tell it to remember something, or it discovers something worth keeping, it's stored as a memory and comes back in future sessions when it's relevant.
+A memory is a single piece of stored knowledge in a Knowledge Index: a convention, a decision, an insight, a correction. Your agent creates and retrieves these as you work: when you tell it to remember something, or it discovers something worth keeping, it's stored as a memory and comes back in future sessions when it's relevant.
 
 Each memory has a **type** (`directive`, `convention`, `decision`, `insight`, `error_pattern`, and a few others) that helps NeoHive weigh and surface it appropriately. You don't manage these by hand; your agent classifies them as it stores.
 
@@ -63,10 +63,10 @@ This is the part that makes NeoHive more than a searchable `CLAUDE.md`. When you
 
 1. **Your agent sends a query.** Usually through the `memory_recall` or `memory_context` tools, phrased as a natural description of what it needs, such as _"error handling in the payment webhook retry path."_
 
-2. **Each hive embeds the query with its own model.** A repo hive uses a code-tuned embedding model; a knowledge or document hive uses a text model. Embedding each query with the right model for its content gives sharper matches than forcing one model across everything.
+2. **Each Index embeds the query with its own model.** A Repo Index uses a code-tuned embedding model; a Knowledge or Document Index uses a text model. Embedding each query with the right model for its content gives sharper matches than forcing one model across everything.
 
-3. **Each hive runs a hybrid search.** NeoHive combines **dense vector search** (meaning) with **BM25 keyword search** (exact terms) and fuses the two with **Reciprocal Rank Fusion**, so you get semantic recall _and_ precise term matches, not one at the expense of the other.
+3. **Each Index runs a hybrid search.** NeoHive combines **dense vector search** (meaning) with **BM25 keyword search** (exact terms) and fuses the two with **Reciprocal Rank Fusion**, so you get semantic recall _and_ precise term matches, not one at the expense of the other.
 
-4. **The results merge into one ranked list.** Every hive's results are fused into a single response, and hives that weren't relevant drop out on their own. Your agent gets the relevant code, conventions, and docs together, as if they all lived in one place.
+4. **The results merge into one ranked list.** Every Index's results are fused into a single response, and Indexes that weren't relevant drop out on their own. Your agent gets the relevant code, conventions, and docs together, as if they all lived in one place.
 
 This is also why _phrasing matters_. Because search is by meaning, describing the situation in the terms you'd expect to see in the answer gets the best results. See [Getting better results](usage.md#getting-better-results) for how to ask.

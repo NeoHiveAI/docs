@@ -16,7 +16,7 @@ To turn it off, set `NEOHIVE_HOOK_DISABLED=1` in the environment where your agen
 
 ## Recall before searching
 
-Also in Claude Code, when the agent is about to search files (with glob or grep) inside a project NeoHive has indexed, the plugin reminds it to check memory first, since a single recall often answers the question faster than walking the file tree.
+Also in Claude Code, when the agent is about to search files (with glob or grep) inside a codebase NeoHive has indexed, the plugin reminds it to check memory first, since a single recall often answers the question faster than walking the file tree.
 
 Two switches control this:
 
@@ -27,7 +27,7 @@ Two switches control this:
 
 ## The explore-neohive subagent
 
-The Claude Code plugin also ships a subagent called `explore-neohive`. It is built to search memory first and only read files once memory has pointed it to the right place, which makes it faster and lighter than the built-in explorer for questions like "where is X handled?" in an indexed project. The plugin's rules tell your agent to reach for it in those cases.
+The Claude Code plugin also ships a subagent called `explore-neohive`. It is built to search memory first and only read files once memory has pointed it to the right place, which makes it faster and lighter than the built-in explorer for questions like "where is X handled?" in an indexed codebase. The plugin's rules tell your agent to reach for it in those cases.
 
 ## Smarter prompt rewriting (opt-in)
 
