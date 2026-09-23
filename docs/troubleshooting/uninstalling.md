@@ -1,0 +1,46 @@
+---
+description: "Completely remove NeoHive, its data, and the agent plugin."
+---
+
+# Uninstalling
+
+To remove NeoHive from your machine:
+
+1. **Stop and remove the container.**
+
+   ```sh
+   docker rm -f neohive
+   ```
+
+2. **Remove your data.**
+
+   {% hint style="warning" %}
+   This permanently deletes all projects, hives, and indexed knowledge. Only run it if you're sure.
+   {% endhint %}
+
+   ```sh
+   docker volume rm neohive-data
+   ```
+
+3. **Clean up cached files.**
+
+   ```sh
+   rm -f ~/.cache/neohive/license-key
+   ```
+
+4. **Remove the agent plugin.** In Claude Code:
+
+   ```
+   /plugin uninstall neohive@neohive-claude
+   ```
+
+   For Cursor or Codex, remove the NeoHive plugin from your agent's settings.
+
+5. **Disconnect the MCP servers.** Removing the plugin may leave the MCP connections behind. In Claude Code, list and remove each NeoHive entry:
+
+   ```
+   claude mcp list
+   claude mcp remove <neohive-project-name>
+   ```
+
+   Repeat for each project. For other agents, remove the NeoHive entries from your MCP configuration file (e.g. `.mcp.json`).
