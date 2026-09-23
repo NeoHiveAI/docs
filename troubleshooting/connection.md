@@ -39,7 +39,7 @@ If your coding agent can't reach NeoHive, work through these checks in order.
 
 4. **Is the MCP URL correct?**
 
-   Each project has its own endpoint, like `http://localhost:3577/hiveminds/<project-id>/mcp`. Find the exact URL in the dashboard under your project's **Connect** section, and make sure your agent's MCP config matches it exactly.
+   Each Hive has its own endpoint, like `http://localhost:3577/hives/<hive-id>/mcp`. Find the exact URL in the dashboard under your Hive's **Connect** section, and make sure your agent's MCP config matches it exactly.
 
 5. **Plugin slash commands missing?**
 
@@ -50,7 +50,7 @@ If your coding agent can't reach NeoHive, work through these checks in order.
    ```
 
 {% hint style="info" %}
-The first request after a project has been idle can take a moment. NeoHive auto-suspends idle projects to free memory and wakes them on demand. That's expected, not a failure.
+The first request after a Hive has been idle can take a moment. NeoHive auto-suspends idle Hives to free memory and wakes them on demand. That's expected, not a failure.
 {% endhint %}
 
 ## Still stuck?

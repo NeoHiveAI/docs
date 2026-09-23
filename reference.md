@@ -10,11 +10,11 @@ Available in your agent after installing the NeoHive plugin. Run them directly i
 
 | Command | What it does |
 |---------|-------------|
-| `/neohive:getting-started` | First-time setup wizard. Verifies the MCP connection, creates a project, and optionally migrates existing context files. Run once per machine. |
+| `/neohive:getting-started` | First-time setup wizard. Verifies the MCP connection, creates a Hive, and optionally migrates existing context files. Run once per machine. |
 | `/neohive:load-context` | Pre-loads relevant context for your current task. Run at the start of a session, or when switching tasks mid-session. |
 | `/neohive:capture-session-learnings` | Scans the current conversation and stores corrections, conventions, decisions, and insights. Also runs at session end via the plugin hook. |
 | `/neohive:migrate-memory` | Imports knowledge from `CLAUDE.md`, `AGENTS.md`, `.cursor/rules`, and `.claude/rules`. See [Migrating away from Markdown](migration.md). |
-| `/neohive:generate-claude-md` | Generates a NeoHive topology block in your project's `CLAUDE.md`. Re-run when hives are added or renamed. |
+| `/neohive:generate-claude-md` | Generates a NeoHive topology block in your project's `CLAUDE.md`. Re-run when Indexes are added or renamed. |
 | `/neohive:design-codebase-docs` | Guides you through defining a documentation standard for your codebase, saves it to NeoHive, and generates sample pages to validate it. |
 | `/neohive:enable-smart-prompts` | Installs a hook that rewrites your prompts with a small model before searching NeoHive, improving recall relevance. |
 
@@ -28,16 +28,16 @@ The plugin's rules and hooks call these tools under the hood, and any MCP-capabl
 
 | Tool | What it does |
 |------|-------------|
-| `memory_recall` | Semantic search across the project's hives. Returns the most relevant code and knowledge. |
+| `memory_recall` | Semantic search across the Hive's Indexes. Returns the most relevant code and knowledge. |
 | `memory_context` | Loads directives, conventions, and task-relevant knowledge at the start of a session or task. |
-| `memory_store` | Saves a new memory (a convention, decision, insight, or correction) to the project's Knowledge hive. |
+| `memory_store` | Saves a new memory (a convention, decision, insight, or correction) to the Hive's Knowledge Index. |
 | `memory_forget` | Retires an outdated memory, optionally pointing to the one that replaces it. |
-| `memory_stats` | Reports counts and statistics for the project's stored memories. |
-| `list_hives` | Lists the hives available in the current project. |
+| `memory_stats` | Reports counts and statistics for the Hive's stored memories. |
+| `list_indexes` | Lists the Indexes available in the current Hive. |
 
 ### Parameters
 
-The read tools (`memory_recall`, `memory_context`, `memory_stats`) take an optional `hive` to target a single hive. Omit it to search or aggregate across every hive in the project. The write tools always target the project's Knowledge hive, so they take no `hive` argument.
+The read tools (`memory_recall`, `memory_context`, `memory_stats`) take an optional `index` to target a single Index. Omit it to search or aggregate across every Index in the Hive. The write tools always target the Hive's Knowledge Index, so they take no `index` argument.
 
 **`memory_recall`**
 
@@ -47,14 +47,14 @@ The read tools (`memory_recall`, `memory_context`, `memory_stats`) take an optio
 | `queries` | string list | - | One to five phrasings of the same need. Results are fused for broader recall. |
 | `limit` | integer | `10` | Maximum results to return, from 1 to 50. |
 | `types` | string list | all | Restrict results to specific [memory types](#memory-types). |
-| `hive` | string | all hives | Search one hive instead of every hive. |
+| `index` | string | all Indexes | Search one Index instead of every Index. |
 
 **`memory_context`**
 
 | Parameter | Type | Default | Notes |
 |-----------|------|---------|-------|
 | `task` | string | required | A short description of what you are about to work on. |
-| `hive` | string | all hives | Load context from one hive instead of every hive. |
+| `index` | string | all Indexes | Load context from one Index instead of every Index. |
 
 **`memory_store`**
 
@@ -74,7 +74,7 @@ The read tools (`memory_recall`, `memory_context`, `memory_stats`) take an optio
 | `reason` | string | none | Why it is being retired. |
 | `superseded_by` | integer | none | The id of the memory that replaces it. |
 
-`memory_stats` takes only the optional `hive`. `list_hives` takes no arguments and returns each hive's id, name, type, status, embedding model, and description.
+`memory_stats` takes only the optional `index`. `list_indexes` takes no arguments and returns each Index's id, name, type, status, embedding model, and description.
 
 ## Memory types
 
@@ -117,6 +117,6 @@ Set these in the environment where your coding agent runs. They tune how the plu
 | `NEOHIVE_TOKEN` | Bearer token your agent sends when your NeoHive deployment sits behind an authenticating proxy you run (for example a reverse proxy or VPN gateway). A standard local install needs no token. |
 | `NEOHIVE_MCP_HINTS` | Set to `0` to suppress the hint appended to recall and context responses. |
 | `NEOHIVE_HOOK_DISABLED` | Set to `1` to turn off the automatic context injection that runs on each prompt (Claude Code). |
-| `NEOHIVE_PRETOOL_STRICT` | Set to `1` to block file searches in indexed projects until memory has been checked first (Claude Code). |
+| `NEOHIVE_PRETOOL_STRICT` | Set to `1` to block file searches in an indexed codebase until memory has been checked first (Claude Code). |
 | `NEOHIVE_PRETOOL_DISABLED` | Set to `1` to turn off the pre-search reminder entirely (Claude Code). |
 | `NEOHIVE_SMART_DISABLED` | Set to `1` to turn off the smart-prompt rewriter, if you enabled it with `enable-smart-prompts`. |

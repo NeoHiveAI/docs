@@ -12,7 +12,7 @@ NeoHive searches by meaning, so how your agent asks matters. If it comes up shor
 
 ## Check the knowledge exists
 
-Open the dashboard, go to your project, and browse the hive's contents. If what you're looking for was never stored, recall can't find it. You can store it now:
+Open the dashboard, go to your Hive, and browse the Index's contents. If what you're looking for was never stored, recall can't find it. You can store it now:
 
 * Remember that the staging environment uses a self-signed certificate and needs `NODE_TLS_REJECT_UNAUTHORIZED=0` for local testing.
 
@@ -24,9 +24,9 @@ Describing the same thing different ways surfaces different results. One usually
 * JWT validation in the API gateway
 * Auth middleware session management
 
-## Check you're in the right project
+## Check you're in the right Hive
 
-Recall is scoped to the project your agent is connected to. If the knowledge lives in a different project, your agent won't find it. Confirm the project in your MCP configuration.
+Recall is scoped to the Hive your agent is connected to. If the knowledge lives in a different Hive, your agent won't find it. Confirm the Hive in your MCP configuration.
 
 {% hint style="info" %}
 Knowledge is searchable immediately after it's stored. If you just saved something and can't find it, the issue is almost always phrasing. Try the tips above.
