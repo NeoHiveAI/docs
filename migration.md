@@ -28,7 +28,7 @@ Run the migration skill in your agent:
 
 2. **It classifies each entry** into a memory type (`directive`, `convention`, `decision`, `insight`, and so on), so NeoHive can weigh and surface it appropriately.
 
-3. **It stores them in your project's knowledge hive**, where every agent on the project can retrieve them.
+3. **It stores them in your Hive's Knowledge Index**, where every agent on the Hive can retrieve them.
 
 Your original files are never modified or deleted. Keep them as a reference, or remove them once you're happy with the migration.
 
@@ -51,9 +51,9 @@ If something migrated wrong or goes stale, just tell your agent:
 It'll update or replace it in NeoHive.
 
 {% hint style="info" %}
-Migrating markdown _notes_ (an Obsidian vault, design docs, runbooks) works a little differently: those go into a **document hive** rather than through the migration skill. Upload them through the dashboard (a dedicated guide is on the way).
+Migrating markdown _notes_ (an Obsidian vault, design docs, runbooks) works a little differently: those go into a **Document Index** rather than through the migration skill. Upload them through the dashboard (a dedicated guide is on the way).
 {% endhint %}
 
 ## What about new team members?
 
-When someone new joins and connects their agent to the same project, they inherit everything that's been stored, including the knowledge you migrated. No per-person `CLAUDE.md` setup required.
+When someone new joins and connects their agent to the same Hive, they inherit everything that's been stored, including the knowledge you migrated. No per-person `CLAUDE.md` setup required.
