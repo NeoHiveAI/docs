@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1000" height="440" viewBox="0 0 1000 440" font-family="'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap');
+    .mono { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .lbl { font-size: 11px; font-weight: 700; letter-spacing: 1.1px; }
+    .body { font-size: 12.5px; fill: #4A4458; }
+    .title { font-size: 14px; font-weight: 700; fill: #1A1A2E; }
+  </style>
+  <defs>
+    <marker id="arrV" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#7C3AED"/></marker>
+    <marker id="arrT" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#0D9488"/></marker>
+  </defs>
+  <rect width="1000" height="440" fill="#FAF9FD"/>
+
+  <!-- Header. Logo paths copied verbatim from refactor-docs-install-page.svg. -->
+  <g transform="translate(40,26) scale(0.0793)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
+  <text x="88" y="52" font-size="24" font-weight="800" letter-spacing="-0.5" fill="#1A1A2E">Your first session</text>
+  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#6D28D9">TEACH ONE THING IN SESSION 1, GET IT BACK IN SESSION 2</text>
+  <line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>
+
+  <!-- Session bands -->
+  <rect x="40" y="116" width="560" height="176" rx="12" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <text x="62" y="142" class="lbl" fill="#7C3AED">SESSION 1</text>
+  <rect x="660" y="116" width="300" height="176" rx="12" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <text x="682" y="142" class="lbl" fill="#7C3AED">SESSION 2  ·  LATER, ANY AGENT</text>
+
+  <!-- Timeline -->
+  <line x1="62" y1="170" x2="936" y2="170" stroke="#D9D4E6" stroke-width="2"/>
+  <line x1="612" y1="170" x2="648" y2="170" stroke="#FAF9FD" stroke-width="4"/>
+  <line x1="612" y1="170" x2="648" y2="170" stroke="#D9D4E6" stroke-width="2" stroke-dasharray="4 4"/>
+
+  <circle cx="90" cy="170" r="8" fill="#7C3AED"/>
+  <text x="62" y="202" class="title">1  Ask about your code</text>
+  <text x="62" y="222" class="body">"Where do we handle payment retries?"</text>
+  <text x="62" y="246" class="mono" font-size="12" fill="#6D28D9">memory_recall</text>
+  <text x="62" y="266" class="body">Answers with real file paths.</text>
+
+  <circle cx="352" cy="170" r="8" fill="#7C3AED"/>
+  <text x="330" y="202" class="title">2  Teach it one thing</text>
+  <text x="330" y="222" class="body">"Remember: snake_case for column names."</text>
+  <text x="330" y="246" class="mono" font-size="12" fill="#6D28D9">memory_store</text>
+  <text x="330" y="266" class="body">Saved as a memory.</text>
+
+  <circle cx="710" cy="170" r="8" fill="#0D9488"/>
+  <text x="682" y="202" class="title">3  Ask for new work</text>
+  <text x="682" y="222" class="body">"Add a table for customer invoices."</text>
+  <text x="682" y="246" class="mono" font-size="12" fill="#0D9488">memory_context</text>
+  <text x="682" y="266" class="body">Uses snake_case unprompted.</text>
+
+  <!-- Knowledge index -->
+  <rect x="330" y="340" width="400" height="64" rx="10" fill="#F5F3FF" stroke="#DDD6FE"/>
+  <text x="530" y="366" font-size="14" font-weight="700" text-anchor="middle" fill="#1A1A2E">The hive's Knowledge index</text>
+  <text x="530" y="387" font-size="12" text-anchor="middle" fill="#4A4458">kept on your NeoHive server, shared by everyone on the hive</text>
+
+  <path d="M430 278 L430 334" fill="none" stroke="#7C3AED" stroke-width="1.8" marker-end="url(#arrV)"/>
+  <text x="440" y="316" font-size="11.5" fill="#7C3AED">stored</text>
+  <path d="M730 340 L760 296" fill="none" stroke="#0D9488" stroke-width="1.8" marker-end="url(#arrT)"/>
+  <text x="770" y="330" font-size="11.5" fill="#0D9488">recalled</text>
+</svg>
