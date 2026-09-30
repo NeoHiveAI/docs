@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1000" height="600" viewBox="0 0 1000 600" font-family="'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap');
+    .mono { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .lbl { font-size: 11px; font-weight: 700; letter-spacing: 1.1px; }
+    .body { font-size: 12.5px; fill: #4A4458; }
+    .title { font-size: 15px; font-weight: 700; fill: #1A1A2E; }
+    .small { font-size: 11.5px; fill: #737373; }
+  </style>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#7C3AED"/></marker>
+    <marker id="arrT" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#0D9488"/></marker>
+    <marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#B45309"/></marker>
+  </defs>
+  <rect width="1000" height="600" fill="#FAF9FD"/>
+
+  <!-- Header. Logo paths copied verbatim from refactor-docs-install-page.svg. -->
+  <g transform="translate(40,26) scale(0.0793)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
+  <text x="88" y="52" font-size="24" font-weight="800" letter-spacing="-0.5" fill="#1A1A2E">What leaves your machine</text>
+  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#6D28D9">YOUR CONTENT STAYS INSIDE THE BOX. ONLY THESE CONNECTIONS CROSS THE LINE.</text>
+  <line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>
+  <rect x="40" y="120" width="470" height="420" rx="10" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.5"/>
+  <text x="62" y="148" class="lbl" fill="#7C3AED">YOUR MACHINE</text>
+  <rect x="62" y="166" width="426" height="190" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="82" y="192" class="title">NeoHive container</text>
+  <text x="468" y="192" class="mono" fill="#6D28D9" text-anchor="end" font-size="11">volume neohive-data</text>
+  <circle cx="88" cy="210" r="4" fill="#0D9488"/>
+  <text x="102" y="214" class="body">Your code and documents</text>
+  <circle cx="88" cy="236" r="4" fill="#0D9488"/>
+  <text x="102" y="240" class="body">Your Memories</text>
+  <circle cx="88" cy="262" r="4" fill="#0D9488"/>
+  <text x="102" y="266" class="body">Recall queries and results</text>
+  <circle cx="88" cy="288" r="4" fill="#0D9488"/>
+  <text x="102" y="292" class="body">Embeddings, made locally</text>
+  <circle cx="88" cy="314" r="4" fill="#0D9488"/>
+  <text x="102" y="318" class="body">Encrypted repository tokens</text>
+  <rect x="62" y="376" width="205" height="70" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="80" y="402" class="title">Your agent</text>
+  <text x="80" y="422" fill="#4A4458" font-size="11.5">calls NeoHive on port 3577</text>
+  <rect x="283" y="376" width="205" height="70" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="301" y="402" class="title">Your browser</text>
+  <text x="301" y="422" fill="#4A4458" font-size="11.5">opens the dashboard</text>
+  <text x="82" y="342" class="small">Usage metrics carry counts and timings, never your content.</text>
+  <rect x="640" y="156" width="320" height="40" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="656" y="181" fill="#1A1A2E" font-size="13" font-weight="700">License check</text>
+  <text x="944" y="181" class="mono" fill="#737373" text-anchor="end" font-size="11">api.keygen.sh</text>
+  <path d="M488 176 L636 176" fill="none" stroke="#B45309" stroke-width="2" marker-end="url(#arrA)"/>
+  <rect x="640" y="200" width="320" height="40" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="656" y="225" fill="#1A1A2E" font-size="13" font-weight="700">Usage metrics</text>
+  <text x="944" y="225" class="mono" fill="#737373" text-anchor="end" font-size="11">Grafana Cloud</text>
+  <path d="M488 220 L636 220" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="640" y="244" width="320" height="40" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="656" y="269" fill="#1A1A2E" font-size="13" font-weight="700">Update check</text>
+  <text x="944" y="269" class="mono" fill="#737373" text-anchor="end" font-size="11">hub.docker.com, GitHub</text>
+  <path d="M488 264 L636 264" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="640" y="288" width="320" height="40" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="656" y="313" fill="#1A1A2E" font-size="13" font-weight="700">Model download</text>
+  <text x="944" y="313" class="mono" fill="#737373" text-anchor="end" font-size="11">huggingface.co</text>
+  <path d="M488 308 L636 308" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="640" y="332" width="320" height="40" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="656" y="357" fill="#1A1A2E" font-size="13" font-weight="700">Your data sources</text>
+  <text x="944" y="357" class="mono" fill="#737373" text-anchor="end" font-size="11">GitHub, GitLab, Jira</text>
+  <path d="M488 352 L636 352" fill="none" stroke="#0D9488" stroke-width="2" marker-end="url(#arrT)"/>
+  <rect x="640" y="391" width="320" height="40" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="656" y="416" fill="#1A1A2E" font-size="13" font-weight="700">Dashboard fonts</text>
+  <text x="944" y="416" class="mono" fill="#737373" text-anchor="end" font-size="11">fonts.googleapis.com</text>
+  <path d="M488 411 L636 411" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="640" y="476" width="320" height="40" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1" stroke-dasharray="6 4"/>
+  <text x="656" y="501" fill="#1A1A2E" font-size="13" font-weight="700">Your agent's model</text>
+  <text x="944" y="501" fill="#737373" text-anchor="end" font-size="11">set by your agent</text>
+  <path d="M164 446 L164 516 L560 516 L560 496 L636 496" fill="none" stroke="#7C3AED" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+  <text x="572" y="150" class="lbl" fill="#737373" text-anchor="middle">OUTBOUND</text>
+  <line x1="40" y1="560" x2="960" y2="560" stroke="#E4DFF1"/>
+  <text x="40" y="582" class="small">Amber: needed at least once every 72 hours. Dashed: your agent, not NeoHive, sends this.</text>
+</svg>

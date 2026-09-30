@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1000" height="560" viewBox="0 0 1000 560" font-family="'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap');
+    .mono { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .lbl { font-size: 10.5px; font-weight: 700; letter-spacing: 1.1px; }
+    .body { font-size: 12px; fill: #4A4458; }
+    .title { font-size: 16px; font-weight: 700; fill: #1A1A2E; }
+    .item { font-size: 11px; fill: #1A1A2E; }
+    .tag { font-size: 9.5px; font-weight: 700; letter-spacing: 0.8px; }
+  </style>
+  <rect width="1000" height="560" fill="#FAF9FD"/>
+
+  <!-- Header. Logo paths copied verbatim from refactor-docs-install-page.svg. -->
+  <g transform="translate(40,26) scale(0.0793)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
+  <text x="88" y="52" font-size="24" font-weight="800" letter-spacing="-0.5" fill="#1A1A2E">Hives, Indexes and Memories</text>
+  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#6D28D9">A HIVE HOLDS INDEXES. AN INDEX HOLDS MEMORIES AND CHUNKS OF YOUR FILES.</text>
+  <line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>
+
+  <!-- The hive -->
+  <rect x="40" y="114" width="920" height="352" rx="14" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1.5"/>
+  <text x="62" y="142" class="lbl" fill="#7C3AED">HIVE</text>
+  <text x="62" y="164" class="title">One workspace, one MCP endpoint</text>
+  <text x="938" y="164" font-size="11.5" class="mono" text-anchor="end" fill="#6D28D9">/hives/&lt;hive-id&gt;/mcp</text>
+
+  <!-- Code -->
+  <rect x="62" y="182" width="164" height="264" rx="10" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <text x="76" y="206" class="lbl" fill="#7C3AED">INDEX</text>
+  <text x="76" y="228" font-size="15" font-weight="700" fill="#1A1A2E">Code</text>
+  <text x="76" y="246" font-size="11" fill="#4A4458">a GitHub or GitLab repo</text>
+  <rect x="74" y="262" width="140" height="34" rx="6" fill="#FAF9FD" stroke="#E5E5E5"/>
+  <text x="83" y="283" class="item mono">auth/session.ts</text>
+  <rect x="74" y="304" width="140" height="34" rx="6" fill="#FAF9FD" stroke="#E5E5E5"/>
+  <text x="83" y="325" class="item mono">billing/retry.ts</text>
+  <rect x="74" y="346" width="140" height="34" rx="6" fill="#FAF9FD" stroke="#E5E5E5"/>
+  <text x="83" y="367" class="item mono">api/routes.ts</text>
+  <text x="76" y="410" class="body">Updated on each sync.</text>
+  <text x="76" y="428" class="body">Agent reads.</text>
+
+  <!-- Documentation -->
+  <rect x="240" y="182" width="164" height="264" rx="10" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <text x="254" y="206" class="lbl" fill="#7C3AED">INDEX</text>
+  <text x="254" y="228" font-size="15" font-weight="700" fill="#1A1A2E">Documentation</text>
+  <text x="254" y="246" font-size="11" fill="#4A4458">docs in a repo</text>
+  <rect x="252" y="262" width="140" height="34" rx="6" fill="#FAF9FD" stroke="#E5E5E5"/>
+  <text x="261" y="283" class="item mono">docs/deploy.md</text>
+  <rect x="252" y="304" width="140" height="34" rx="6" fill="#FAF9FD" stroke="#E5E5E5"/>
+  <text x="261" y="325" class="item mono">docs/onboarding.md</text>
+  <rect x="252" y="346" width="140" height="34" rx="6" fill="#FAF9FD" stroke="#E5E5E5"/>
+  <text x="261" y="367" class="item mono">adr/0007.md</text>
+  <text x="254" y="410" class="body">Updated on each sync.</text>
+  <text x="254" y="428" class="body">Agent reads.</text>
+
+  <!-- Files -->
+  <rect x="418" y="182" width="164" height="264" rx="10" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <text x="432" y="206" class="lbl" fill="#7C3AED">INDEX</text>
+  <text x="432" y="228" font-size="15" font-weight="700" fill="#1A1A2E">Files</text>
+  <text x="432" y="246" font-size="11" fill="#4A4458">from File Upload</text>
+  <rect x="430" y="262" width="140" height="34" rx="6" fill="#FAF9FD" stroke="#E5E5E5"/>
+  <text x="439" y="283" class="item mono">runbook.pdf</text>
+  <rect x="430" y="304" width="140" height="34" rx="6" fill="#FAF9FD" stroke="#E5E5E5"/>
+  <text x="439" y="325" class="item mono">oncall-notes.md</text>
+  <rect x="430" y="346" width="140" height="34" rx="6" fill="#FAF9FD" stroke="#E5E5E5"/>
+  <text x="439" y="367" class="item mono">vendor-sla.txt</text>
+  <text x="432" y="410" class="body">Updated on upload.</text>
+  <text x="432" y="428" class="body">Agent reads.</text>
+
+  <!-- Knowledge -->
+  <rect x="596" y="182" width="164" height="264" rx="10" fill="#FFFFFF" stroke="#C084FC" stroke-width="1.5"/>
+  <text x="610" y="206" class="lbl" fill="#7C3AED">INDEX</text>
+  <text x="610" y="228" font-size="15" font-weight="700" fill="#1A1A2E">Knowledge</text>
+  <text x="610" y="246" font-size="11" fill="#4A4458">made with the Hive</text>
+  <rect x="608" y="262" width="140" height="34" rx="6" fill="#FAF9FD" stroke="#E5E5E5"/>
+  <text x="617" y="276" class="tag" fill="#0D9488">CONVENTION</text>
+  <text x="617" y="290" class="item">Use pnpm, never npm</text>
+  <rect x="608" y="304" width="140" height="34" rx="6" fill="#FAF9FD" stroke="#E5E5E5"/>
+  <text x="617" y="318" class="tag" fill="#0D9488">DECISION</text>
+  <text x="617" y="332" class="item">Retries use the queue</text>
+  <rect x="608" y="346" width="140" height="34" rx="6" fill="#FAF9FD" stroke="#E5E5E5"/>
+  <text x="617" y="360" class="tag" fill="#B45309">ERROR_PATTERN</text>
+  <text x="617" y="374" class="item">Webhook limit is 30s</text>
+  <text x="610" y="410" class="body">Each item is a Memory.</text>
+  <text x="610" y="428" class="body">Agent reads and writes.</text>
+
+  <!-- Another hive's -->
+  <rect x="774" y="182" width="164" height="264" rx="10" fill="#FFFFFF" stroke="#A78BFA" stroke-dasharray="6 4"/>
+  <text x="788" y="206" class="lbl" fill="#7C3AED">SHARED INDEX</text>
+  <text x="788" y="228" font-size="15" font-weight="700" fill="#1A1A2E">Another Hive's</text>
+  <text x="788" y="246" font-size="11" fill="#4A4458">reused, not copied</text>
+  <rect x="786" y="262" width="140" height="34" rx="6" fill="#FAF9FD" stroke="#E5E5E5" stroke-dasharray="3 3"/>
+  <text x="795" y="283" class="item mono">platform/terraform</text>
+  <rect x="786" y="304" width="140" height="34" rx="6" fill="#FAF9FD" stroke="#E5E5E5" stroke-dasharray="3 3"/>
+  <text x="795" y="325" class="item mono">libs/logging</text>
+  <text x="788" y="410" class="body">Recall searches it.</text>
+  <text x="788" y="428" class="body">Agent never writes.</text>
+
+  <!-- Footer rules -->
+  <rect x="40" y="484" width="448" height="48" rx="10" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <text x="58" y="505" font-size="12" class="mono" font-weight="600" fill="#6D28D9">memory_recall</text>
+  <text x="58" y="522" class="body">searches every Index in the Hive at once</text>
+  <rect x="512" y="484" width="448" height="48" rx="10" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <text x="530" y="505" font-size="12" class="mono" font-weight="600" fill="#6D28D9">memory_store, memory_forget</text>
+  <text x="530" y="522" class="body">always write to this Hive's own Knowledge Index</text>
+</svg>

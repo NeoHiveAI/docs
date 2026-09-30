@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1000" height="400" viewBox="0 0 1000 400" font-family="'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap');
+    .mono { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .lbl { font-size: 10.5px; font-weight: 700; letter-spacing: 1.1px; }
+    .body { font-size: 12.5px; fill: #4A4458; }
+    .title { font-size: 15px; font-weight: 700; fill: #1A1A2E; }
+    .item { font-size: 12px; fill: #1A1A2E; }
+    .muted { font-size: 11.5px; fill: #737373; }
+  </style>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#7C3AED"/></marker>
+    <marker id="arrT" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#0D9488"/></marker>
+    <marker id="arrM" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#A3A3A3"/></marker>
+  </defs>
+
+  <rect width="1000" height="400" fill="#FAF9FD"/>
+  <!-- Logo paths copied verbatim from refactor-docs-install-page.svg. -->
+  <g transform="translate(40,26) scale(0.0793)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
+  <text x="88" y="52" font-size="24" font-weight="800" letter-spacing="-0.5" fill="#1A1A2E">Add an Index: repository path</text>
+  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#6D28D9">WHAT YOU CLICK IN THE DIALOG, IN ORDER</text>
+  <line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>
+  <rect x="40" y="120" width="296" height="108" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <circle cx="70" cy="152" r="14" fill="#7C3AED"/>
+  <text x="70" y="157" class="item" fill="#FFFFFF" text-anchor="middle" font-weight="700">1</text>
+  <text x="94" y="158" class="title">+ next to Indexes</text>
+  <text x="60" y="188" class="body">on the Hive page</text>
+  <line x1="336" y1="174" x2="350" y2="174" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="352" y="120" width="296" height="108" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <circle cx="382" cy="152" r="14" fill="#7C3AED"/>
+  <text x="382" y="157" class="item" fill="#FFFFFF" text-anchor="middle" font-weight="700">2</text>
+  <text x="406" y="158" class="title">GitHub or GitLab</text>
+  <text x="372" y="188" class="body">pick the service card</text>
+  <line x1="648" y1="174" x2="662" y2="174" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="664" y="120" width="296" height="108" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <circle cx="694" cy="152" r="14" fill="#7C3AED"/>
+  <text x="694" y="157" class="item" fill="#FFFFFF" text-anchor="middle" font-weight="700">3</text>
+  <text x="718" y="158" class="title">Content type</text>
+  <text x="684" y="188" class="body">Code or Documentation</text>
+  <rect x="40" y="260" width="296" height="108" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <circle cx="70" cy="292" r="14" fill="#7C3AED"/>
+  <text x="70" y="297" class="item" fill="#FFFFFF" text-anchor="middle" font-weight="700">4</text>
+  <text x="94" y="298" class="title">Connection</text>
+  <text x="60" y="328" class="body">pick one, or paste a</text>
+  <text x="60" y="346" class="body">token and Save connection</text>
+  <line x1="336" y1="314" x2="350" y2="314" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="352" y="260" width="296" height="108" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <circle cx="382" cy="292" r="14" fill="#7C3AED"/>
+  <text x="382" y="297" class="item" fill="#FFFFFF" text-anchor="middle" font-weight="700">5</text>
+  <text x="406" y="298" class="title">Repository</text>
+  <text x="372" y="328" class="body">search, or paste a URL.</text>
+  <text x="372" y="346" class="body">Branch fills in.</text>
+  <line x1="648" y1="314" x2="662" y2="314" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="664" y="260" width="296" height="108" rx="10" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.5"/>
+  <circle cx="694" cy="292" r="14" fill="#7C3AED"/>
+  <text x="694" y="297" class="item" fill="#FFFFFF" text-anchor="middle" font-weight="700">6</text>
+  <text x="718" y="298" class="title">Create Index</text>
+  <text x="684" y="328" class="body">the first sync starts</text>
+  <text x="684" y="346" class="body">straight away</text>
+  <path d="M960 174 L976 174 L976 244 L180 244 L180 256" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
+</svg>

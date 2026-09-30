@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1000" height="470" viewBox="0 0 1000 470" font-family="'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap');
+    .mono { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .lbl { font-size: 11px; font-weight: 700; letter-spacing: 1.1px; }
+    .body { font-size: 12.5px; fill: #4A4458; }
+    .title { font-size: 15px; font-weight: 700; fill: #1A1A2E; }
+    .small { font-size: 11.5px; fill: #737373; }
+  </style>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#7C3AED"/></marker>
+    <marker id="arrT" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#0D9488"/></marker>
+    <marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#B45309"/></marker>
+  </defs>
+  <rect width="1000" height="470" fill="#FAF9FD"/>
+
+  <!-- Header. Logo paths copied verbatim from refactor-docs-install-page.svg. -->
+  <g transform="translate(40,26) scale(0.0793)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
+  <text x="88" y="52" font-size="24" font-weight="800" letter-spacing="-0.5" fill="#1A1A2E">One recall, start to finish</text>
+  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#6D28D9">YOUR AGENT ASKS IN PLAIN WORDS. NEOHIVE ANSWERS FROM EVERY INDEX IN THE HIVE.</text>
+  <line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>
+  <rect x="40" y="130" width="250" height="258" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="60" y="156" class="lbl" fill="#7C3AED">1. YOUR AGENT ASKS</text>
+  <text x="60" y="182" class="title">A plain description</text>
+  <rect x="60" y="200" width="210" height="92" rx="8" fill="#F5F3FF" stroke="#DDD6FE"/>
+  <text x="74" y="222" class="mono" fill="#6D28D9" font-size="12" font-weight="600">memory_recall</text>
+  <text x="74" y="244" fill="#1A1A2E" font-size="12.5">"error handling in the</text>
+  <text x="74" y="262" fill="#1A1A2E" font-size="12.5">payment webhook retry</text>
+  <text x="74" y="280" fill="#1A1A2E" font-size="12.5">path"</text>
+  <text x="60" y="320" class="body">Words, not file names.</text>
+  <text x="60" y="340" class="body">No Index to pick.</text>
+  <path d="M290 255 L340 255" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="344" y="130" width="300" height="258" rx="10" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1.5"/>
+  <text x="364" y="156" class="lbl" fill="#7C3AED">2. EVERY INDEX LOOKS</text>
+  <text x="364" y="182" class="title">Your Hive</text>
+  <rect x="364" y="198" width="260" height="28" rx="6" fill="#FFFFFF" stroke="#A78BFA" stroke-width="1"/>
+  <text x="378" y="216.5" fill="#1A1A2E" font-size="12.5" font-weight="600">Code</text>
+  <text x="610" y="216.5" class="small" text-anchor="end">finds matches</text>
+  <rect x="364" y="232" width="260" height="28" rx="6" fill="#FFFFFF" stroke="#A78BFA" stroke-width="1"/>
+  <text x="378" y="250.5" fill="#1A1A2E" font-size="12.5" font-weight="600">Documentation</text>
+  <text x="610" y="250.5" class="small" text-anchor="end">finds matches</text>
+  <rect x="364" y="266" width="260" height="28" rx="6" fill="#FFFFFF" stroke="#A78BFA" stroke-width="1"/>
+  <text x="378" y="284.5" fill="#1A1A2E" font-size="12.5" font-weight="600">Files</text>
+  <text x="610" y="284.5" class="small" text-anchor="end">finds matches</text>
+  <rect x="364" y="300" width="260" height="28" rx="6" fill="#FFFFFF" stroke="#C084FC" stroke-width="1"/>
+  <text x="378" y="318.5" fill="#1A1A2E" font-size="12.5" font-weight="600">Knowledge</text>
+  <text x="610" y="318.5" class="small" text-anchor="end">finds matches</text>
+  <rect x="364" y="334" width="260" height="28" rx="6" fill="#FFFFFF" stroke="#A78BFA" stroke-width="1" stroke-dasharray="6 4"/>
+  <text x="378" y="352.5" fill="#1A1A2E" font-size="12.5" font-weight="600">Shared Index</text>
+  <text x="610" y="352.5" class="small" text-anchor="end">finds matches</text>
+  <path d="M644 255 L694 255" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="698" y="130" width="262" height="258" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="718" y="156" class="lbl" fill="#7C3AED">3. ONE LIST COMES BACK</text>
+  <text x="718" y="182" class="title">Whole sections</text>
+  <rect x="718" y="198" width="222" height="38" rx="6" fill="#FAF9FD" stroke="#E5E5E5"/>
+  <text x="730" y="213" fill="#7C3AED" font-size="9.5" font-weight="700">CODE</text>
+  <text x="730" y="228" class="mono" fill="#1A1A2E" font-size="11.5">billing/retry.ts</text>
+  <rect x="718" y="244" width="222" height="38" rx="6" fill="#FAF9FD" stroke="#E5E5E5"/>
+  <text x="730" y="259" fill="#0D9488" font-size="9.5" font-weight="700">KNOWLEDGE</text>
+  <text x="730" y="274" fill="#1A1A2E" font-size="11.5">Retries use the queue</text>
+  <rect x="718" y="290" width="222" height="38" rx="6" fill="#FAF9FD" stroke="#E5E5E5"/>
+  <text x="730" y="305" fill="#7C3AED" font-size="9.5" font-weight="700">DOCUMENTATION</text>
+  <text x="730" y="320" class="mono" fill="#1A1A2E" font-size="11.5">runbooks/payments.md</text>
+  <text x="718" y="352" class="body">Enough text around each match</text>
+  <text x="718" y="370" class="body">for your agent to act on.</text>
+  <line x1="40" y1="430" x2="960" y2="430" stroke="#E4DFF1"/>
+  <text x="40" y="452" class="small">Name an Index with the index parameter to look in that one only.</text>
+</svg>

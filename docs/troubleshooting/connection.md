@@ -1,58 +1,76 @@
 ---
-description: "Step-by-step checks when your coding agent can't reach NeoHive."
+description: "Checks to run, in order, when your coding agent cannot reach NeoHive."
 ---
 
-# Agent Can't Connect
+# Agent can't connect
 
-If your coding agent can't reach NeoHive, work through these checks in order.
+Find where the link between your agent and NeoHive breaks, one check at a time.
 
-1. **Is NeoHive running?**
+<figure><img src="../.gitbook/assets/troubleshooting-connection.svg" alt="Decision tree: is the neohive container running, does /health say ok, does list_indexes work in the Playground, does the agent's MCP endpoint match Install Instructions, does the agent see the NeoHive tools. Each no leads to its fix; five yes answers mean the agent is connected."><figcaption></figcaption></figure>
 
-   ```sh
-   docker ps | grep neohive
-   ```
+Stop at the first check that fails and apply its fix.
 
-   If it's not listed, start it. If it won't start, check the logs:
+{% stepper %}
+{% step %}
+## Is the container running?
 
-   ```sh
-   docker start neohive
-   docker logs neohive --tail 50
-   ```
+```bash
+docker ps --filter name=neohive
+```
 
-2. **Is the health endpoint responding?**
+The `neohive` container shows a status of `Up`. If it is missing, start it and read why it stopped:
 
-   ```sh
-   curl http://localhost:3577/health
-   ```
+```bash
+docker start neohive
+docker logs neohive --tail 50
+```
 
-   You should see `{"status":"ok"}`. If not, NeoHive isn't ready yet. Check the container logs.
+`No such container` means it was removed. Run the [installer](../get-started/install.md) again; your data stays in the `neohive-data` volume. If the start fails with `port is already allocated`, another program holds port `3577`. Stop it, or install on another port with `NEOHIVE_PORT=4577` and change the port in your agent's MCP endpoint.
+{% endstep %}
 
-3. **Is port 3577 free?**
+{% step %}
+## Does NeoHive say it is healthy?
 
-   If another service holds port 3577, NeoHive can't bind to it. Stop the conflicting service, or move NeoHive to another port:
+```bash
+curl http://localhost:3577/health
+```
 
-   ```sh
-   NEOHIVE_PORT=4577 bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
-   ```
+| Reply contains | Meaning | Fix |
+|---|---|---|
+| `"status":"ok"` | NeoHive is ready. | Go to the next check. |
+| `"status":"error"` | NeoHive could not finish starting, or its embedding engine cannot run. | Look up the `error` text in [Common errors](common-errors.md). |
+| `"status":"degraded"` | At least one Hive failed its check. | On the dashboard home page, open that Hive's menu and click **Restart**. |
+{% endstep %}
 
-   Then update your agent's MCP configuration to use the new port.
+{% step %}
+## Does the Hive answer without your agent?
 
-4. **Is the MCP URL correct?**
+Open **Playground** in the dashboard, choose your Hive under **Hive**, set **Tool** to `list_indexes`, and click **Run**. A list of Indexes means the Hive works, so the fault is between it and your agent. An error means the Hive itself is broken: click **Restart** on it, then run the check again.
+{% endstep %}
 
-   Each project has its own endpoint, like `http://localhost:3577/hiveminds/<project-id>/mcp`. Find the exact URL in the dashboard under your project's **Connect** section, and make sure your agent's MCP config matches it exactly.
+{% step %}
+## Is the MCP endpoint right?
 
-5. **Plugin slash commands missing?**
+Each Hive has its own endpoint, `http://localhost:3577/hives/<hive-id>/mcp`. Open the Hive in the dashboard, copy the endpoint from **Install Instructions**, and compare it with your agent's MCP config character by character.
 
-   If `/neohive:*` commands aren't available after installing the plugin, reload plugins and try again:
+A wrong Hive id returns `Unknown Hive: <id>`. A wrong port or host returns a connection error. Once your agent reaches the Hive, **Install Instructions** shows a `CONNECTED` count.
+{% endstep %}
 
-   ```
-   /reload-plugins
-   ```
+{% step %}
+## Does your agent see the tools?
 
-{% hint style="info" %}
-The first request after a project has been idle can take a moment. NeoHive auto-suspends idle projects to free memory and wakes them on demand. That's expected, not a failure.
-{% endhint %}
+Ask your agent: `List my NeoHive indexes.` It calls `list_indexes` and answers. If it has no such tool, it has not loaded the MCP server: restart the agent after any config change. In Claude Code, run `/reload-plugins` if the `/neohive:` commands are missing.
+{% endstep %}
+{% endstepper %}
 
 ## Still stuck?
 
-Contact the NeoHive team at `support@neohive.ai` with the output of `docker logs neohive --tail 100`.
+Collect a diagnostics bundle and send it to `hello@neohive.ai` with what fails. The bundle holds logs and settings with secrets removed, never your Memories, code, or databases.
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/logs.sh | bash
+```
+
+## Next step
+
+Connected, but recall misses what you expect? See [Recall isn't finding what I need](recall.md).
