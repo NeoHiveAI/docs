@@ -1,0 +1,40 @@
+---
+description: "How NeoHive licensing works: first install, moving machines, and rotating licenses."
+---
+
+# Licensing
+
+NeoHive requires a license file to run, issued by the NeoHive team.
+
+## First install
+
+During installation, NeoHive looks for your license file in this order:
+
+1. The `--license-file /path/to/file` command-line flag
+2. The `NEOHIVE_LICENSE_FILE=/path/to/file` environment variable
+3. A `license.json` or `license.key` file in the current directory
+4. An interactive prompt
+
+The simplest approach: drop the license file in the directory where you run the installer and let auto-detection handle it. After the first install, the key is cached at `~/.cache/neohive/license-key`, so upgrades won't ask again.
+
+## Moving to a new machine
+
+Install NeoHive on the new machine with your license file. The previous machine's seat is released automatically. No cleanup needed on the old one.
+
+## Rotating your license
+
+If the NeoHive team issues you a replacement license:
+
+```sh
+NEOHIVE_LICENSE_FILE=/path/to/new-license.key \
+NEOHIVE_ROTATE_LICENSE=1 \
+  bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
+```
+
+## Viewing license status
+
+Open the NeoHive dashboard and go to **Settings → Licence** to see your activation state, expiry, and remaining grace period.
+
+{% hint style="info" %}
+If the licensing service is briefly unreachable, NeoHive keeps running on up to **72 hours** of offline grace.
+{% endhint %}
