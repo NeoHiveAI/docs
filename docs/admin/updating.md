@@ -30,7 +30,7 @@ See [Backups and restore](backups.md).
 bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
 ```
 
-The installer reuses your cached license key, unless a `license.key` or `license.json` sits in the current folder. On Apple Silicon it also updates the Metal embedding worker and keeps downloaded models.
+The installer reuses your cached license key unless you give it a license another way. A license passed with `--license-file`, set in `NEOHIVE_LICENSE_FILE` or `NEOHIVE_LICENSE_KEY`, or found as a `license.key` or `license.json` in the current folder or next to `install.sh` is used instead of the cached key. On Apple Silicon it also updates the Metal embedding worker and keeps downloaded models.
 {% endstep %}
 {% endstepper %}
 

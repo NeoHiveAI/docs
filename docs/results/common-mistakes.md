@@ -21,7 +21,7 @@ Nothing on this page shows an error message. Each mistake leaves NeoHive working
 
 ## What NeoHive already skips
 
-You do not need to block these. NeoHive never indexes folders named `node_modules`, `dist`, `build`, `vendor`, `coverage`, `venv` or `__pycache__`, lock files, minified `.min.js` and `.min.css` files, images, and binaries. [Choose which files are included](../context/repositories/file-patterns.md) shows allowlist and blocklist patterns.
+You do not need to block these. NeoHive never indexes folders named `node_modules`, `dist`, `build`, `vendor`, `coverage`, `venv` or `__pycache__`, the lock files `package-lock.json`, `yarn.lock`, `pnpm-lock.yaml` and `.terraform.lock.hcl`, minified `.min.js` and `.min.css` files, images, and binaries. [Choose which files are included](../context/repositories/file-patterns.md) shows allowlist and blocklist patterns.
 
 {% hint style="info" %}
 Seeing an actual error, such as a failed sync or a tool your agent cannot find? See [Common errors](../troubleshooting/common-errors.md).

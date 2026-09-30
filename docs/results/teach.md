@@ -21,7 +21,7 @@ Correct your agent while the reason is still in the conversation, because the re
 
 ## Name the system, the rule and the reason
 
-Recall finds a Memory by the words in it. A specific correction gives a specific Memory.
+Recall finds a Memory by the words and meaning in it. A specific correction gives a specific Memory.
 
 | Hard to find | Easy to find |
 |---|---|

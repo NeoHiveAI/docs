@@ -44,7 +44,7 @@ Without `/reload-plugins`, the next step fails with an unknown command. The plug
 | Part | What it does |
 |---|---|
 | Rules file | Installs `~/.claude/rules/neohive.md` at session start. It tells Claude when to call `memory_context`, `memory_recall`, and `memory_store`. |
-| Prompt hook | Adds relevant Memories to the context on every prompt you send. |
+| Prompt hook | Adds relevant Memories to the context on every prompt you send. It skips slash commands and prompts shorter than 10 characters. |
 | Glob and Grep reminder | Suggests `memory_recall` before a broad file search. It works only in a project whose `.mcp.json` names a NeoHive server. |
 | `explore-neohive` subagent | Searches NeoHive before reading files. |
 | Skills | `/neohive:getting-started`, `/neohive:load-context`, `/neohive:capture-session-learnings`, and others. See [Slash commands](../../reference/slash-commands.md). |

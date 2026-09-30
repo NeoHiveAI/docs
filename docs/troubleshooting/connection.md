@@ -39,7 +39,7 @@ curl http://localhost:3577/health
 |---|---|---|
 | `"status":"ok"` | NeoHive is ready. | Go to the next check. |
 | `"status":"error"` | NeoHive could not finish starting, or its embedding engine cannot run. | Look up the `error` text in [Common errors](common-errors.md). |
-| `"status":"degraded"` | One Hive failed its check. | On the dashboard home page, open that Hive's menu and click **Restart**. |
+| `"status":"degraded"` | At least one Hive failed its check. | On the dashboard home page, open that Hive's menu and click **Restart**. |
 {% endstep %}
 
 {% step %}

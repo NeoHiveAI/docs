@@ -36,7 +36,7 @@ The installer prints a failure as `FAIL [<code>]` followed by the message.
 | `E101`, `E601` | `... Contact hello@neohive.ai.` | Send the full message to `hello@neohive.ai`. |
 | none | `port is already allocated` (from Docker) | Another program holds port `3577`. Stop it, or run again with `NEOHIVE_PORT=4577`. |
 
-Before `E303` or `E310` the installer also prints `License rejected by Keygen: <reason>`.
+Before `E303` or `E310` the installer also prints `License rejected by Keygen: <reason>` or `License rejected by Keygen (HTTP <status>): <reason>`.
 
 ## Server and dashboard
 
@@ -45,7 +45,7 @@ Before `E303` or `E310` the installer also prints `License rejected by Keygen: <
 | `Failed to connect to localhost port 3577` | The container is not running. | Run `docker start neohive`, then see [Agent can't connect](connection.md). |
 | `"error":"warmup failed"` from `/health` | NeoHive could not finish starting. | Read `docker logs neohive --tail 50`, then run `docker restart neohive`. |
 | `"error":"embedder cannot run, so nothing can be stored or recalled"` from `/health` | The embedding engine in the container cannot start. | Read the log, then see [GPU and CPU](../admin/gpu-cpu.md). |
-| `"status":"degraded"` from `/health` | One Hive failed its check. | On the dashboard home page, open that Hive's menu and click **Restart**. |
+| `"status":"degraded"` from `/health` | At least one Hive failed its check. | On the dashboard home page, open that Hive's menu and click **Restart**. |
 | `Unknown Hive: <id>` | The Hive id in the MCP endpoint or webhook URL is wrong. | Copy the endpoint again from **Install Instructions**. |
 | `License check failed` (HTTP `402`) | The license expired or failed validation. | See [Licensing](../admin/licensing.md). |
 | `License check unavailable` (HTTP `503`) | NeoHive could not read its license state. | Run `docker restart neohive`. If it persists, contact `hello@neohive.ai`. |

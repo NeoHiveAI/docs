@@ -40,7 +40,7 @@ curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/uninstall.sh
   | bash -s -- --purge-data
 ```
 
-This also deletes the data volume, `~/.neohive`, and all of `~/.cache/neohive`. If NeoHive is running, the script offers a backup first. Then you type the volume name before it deletes anything.
+This also deletes the data volume, `~/.neohive`, and all of `~/.cache/neohive`. If NeoHive is running, the script offers a backup first. Then you type the volume name before it deletes anything. If the name you type does not match, the script still removes NeoHive but keeps the data volume, `~/.neohive`, and `~/.cache/neohive/machine-id`.
 
 {% hint style="danger" %}
 Deleting the volume removes every Hive, Index, and Memory for good. Only a backup brings them back. See [Backups and restore](backups.md).

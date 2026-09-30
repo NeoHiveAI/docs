@@ -33,7 +33,7 @@ Progress shows in the page header, with a button to cancel.
 
 When some files fail, NeoHive retries them on its own a little later. A file that keeps failing is left alone until you click **Trigger sync**, which gives it one more try.
 
-To sync right after every merge, call the webhook from your CI. See [Webhook refresh endpoint](../../reference/webhooks.md).
+To index changes right after every merge, have your CI call the webhook with the changed files. The webhook indexes the files it receives straight away. It does not start a sync, it does not add a row to **Sync history**, and it does not apply the **Allowlist** or **Blocklist**. See [Webhook refresh endpoint](../../reference/webhooks.md).
 
 ## Read the sync history
 

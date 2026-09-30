@@ -30,7 +30,7 @@ NeoHive serves plain HTTP. For outside access, put a reverse proxy or VPN gatewa
 
 ## What NeoHive checks today
 
-NeoHive checks no token, password or header on any request. The `NEOHIVE_TOKEN` variable is read only by the Claude Code plugin's hooks, which send it on to your proxy. Only the proxy checks the credential.
+NeoHive checks no token, password or header on any request to the dashboard or the MCP endpoints. The one exception is the [webhook refresh endpoint](../reference/webhooks.md), which checks the `X-Webhook-Secret` header. The `NEOHIVE_TOKEN` variable is read only by the Claude Code plugin's hooks, which send it on to your proxy. Only the proxy checks the credential.
 
 ## Pass the proxy's credential from each agent
 

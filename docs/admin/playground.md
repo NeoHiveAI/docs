@@ -8,7 +8,7 @@ Run the same read-only tools your agent calls, from the dashboard, and see exact
 
 Open **Playground** in the header bar, or click **Try in Playground** on a Hive page to arrive with that Hive picked. The screen is marked **Alpha**, an early preview.
 
-<figure><img src="../.gitbook/assets/admin-playground.svg" alt="The Playground screen. The sidebar lists your Hives and your recent queries. The main area has an Alpha notice, then Hive, Index (optional) and Tool pickers, a Try your own query box with a Run button, and the results below. Recent queries are kept in this browser; click one to run it again."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/admin-playground.svg" alt="The Playground screen. The sidebar lists your Hives and your recent queries. The main area has an Alpha notice, then Hive, Index (optional) and Tool pickers, a Try your own query box with a Run button, and the results below. Recent queries are kept in this browser; click one to load it back into the pickers and query box."><figcaption></figcaption></figure>
 
 | Tool | Needs a query | What it returns |
 |---|---|---|

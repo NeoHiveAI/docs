@@ -16,7 +16,7 @@
   <rect width="1000" height="400" fill="#FAF9FD"/>
   <!-- Logo paths copied verbatim from refactor-docs-install-page.svg. -->
   <g transform="translate(40,26) scale(0.0793)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
-  <text x="88" y="52" font-size="24" font-weight="800" letter-spacing="-0.5" fill="#1A1A2E">Three ways a sync starts</text>
+  <text x="88" y="52" font-size="24" font-weight="800" letter-spacing="-0.5" fill="#1A1A2E">Three ways changes reach an Index</text>
   <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#6D28D9">ONE DAY WITH THE DEFAULT SCHEDULE OF EVERY 4 HOURS</text>
   <line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>
   <line x1="70" y1="230" x2="930" y2="230" stroke="#A78BFA" stroke-width="2"/>

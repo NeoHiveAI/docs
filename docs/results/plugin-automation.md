@@ -12,10 +12,10 @@ In Claude Code, the plugin runs hooks: small scripts that Claude Code starts at 
 
 | Hook | Fires when | What it does | Turn it off |
 |---|---|---|---|
-| `SessionStart` | A session opens | Copies the rules file to `~/.claude/rules/neohive.md` if it is missing or older than the plugin, then shows a reminder to call `memory_context` | No switch |
+| `SessionStart` | A session opens | Copies the rules file to `~/.claude/rules/neohive.md` if it is missing or its version differs from the plugin's copy, then shows a reminder to call `memory_context` | No switch |
 | `UserPromptSubmit` | You send a prompt | Sends the first 400 characters to `memory_recall` and adds the top 5 matches to your agent's context | `NEOHIVE_HOOK_DISABLED=1` |
 | `PreToolUse` | Your agent runs `Glob` or `Grep` | Adds a reminder to try `memory_recall` first, then lets the search run | `NEOHIVE_PRETOOL_DISABLED=1` |
-| `PostToolUse` | Your agent calls a NeoHive tool | Logs the call to `~/.claude/neohive/sessions/<session-id>.jsonl`. Your agent never reads this log | `NEOHIVE_HOOK_DISABLED=1` |
+| `PostToolUse` | Your agent calls a NeoHive tool | Logs the call to `~/.claude/neohive/sessions/<session-id>.jsonl`. The prompt hook writes its own recalls to the same log. Your agent never reads this log | `NEOHIVE_HOOK_DISABLED=1` |
 
 To use a switch, set it to `1` in the environment Claude Code runs in (for example, your shell profile), then start a new session. Every hook except `SessionStart` needs `python3` on your `PATH` and does nothing without it. All switches are listed in [Environment variables](../reference/environment-variables.md).
 
@@ -25,7 +25,7 @@ To use a switch, set it to `1` in the environment Claude Code runs in (for examp
 |---|---|
 | Short prompt | Under 10 characters, such as `yes, go` |
 | Slash command | The prompt starts with `/` |
-| No NeoHive server found | The hook reads only `.mcp.json` in the current folder and the top level of `~/.claude.json`, and only a server whose name contains `neohive` |
+| No NeoHive server found | The hook reads only `.mcp.json` in the current folder and the top level of `~/.claude.json`, and only a server whose name contains `neohive` and that has a `url` |
 | Slow answer | The hook stops waiting after 8 seconds and sends your prompt without extra context |
 | Nothing matched | No context is added |
 
@@ -61,7 +61,7 @@ These plugins ship no hooks, so nothing runs per prompt, at session start, or be
 | Codex | `rules/neohive.md` in the plugin | The rules tell your agent to call `memory_context` first and to check memory before searching files |
 | Cursor | `rules/neohive.mdc` in the plugin, set to always apply | The same instructions, loaded in every chat |
 
-In both, `enable-smart-prompts` writes the helper script but cannot register it, because neither agent documents a prompt hook. You wire it up yourself.
+In both, `enable-smart-prompts` writes the helper script but does not register it, because the skill has no documented prompt hook to register it with in either agent. You wire it up yourself.
 
 ## Next step
 

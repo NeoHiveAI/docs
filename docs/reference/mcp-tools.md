@@ -28,7 +28,7 @@ The read tools take an optional `index`. Leave it out to cover every Index in th
 | `limit` | integer | `10` | Maximum results, `1` to `50`. |
 | `types` | string list | all types | Return only these [Memory types](memory-types.md). |
 | `index` | string | all Indexes | The id of one Index to search. |
-| `noAccessUpdate` | boolean | `false` | When `true`, the search does not count as a recall. The plugin's automatic hooks set it. |
+| `noAccessUpdate` | boolean | `false` | When `true`, the search does not count as a recall, so it does not raise the access count of the Memories it returns. It is meant for automated callers. |
 
 Each result starts with a heading that carries the Memory's id, such as `### Memory #1 (id: 482, ...)`, then its type, importance, access count, and tags. Pass the `id` to `memory_forget`. A result longer than 8,000 characters is cut off with a `(truncated, ...)` note.
 
@@ -46,6 +46,8 @@ The reply has two sections: `## Directives & Conventions` and `## Task-Relevant 
 | Parameter | Type | Default | Notes |
 |---|---|---|---|
 | `index` | string | all Indexes | The id of one Index to report on. |
+
+Without `index`, the reply lists only the total number of Memories and the counts by type for each Index. The most and least accessed Memories and the oldest and newest Memory appear only when you pass `index`.
 
 ## memory_store
 

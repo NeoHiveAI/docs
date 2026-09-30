@@ -41,7 +41,7 @@ Setting `NEOHIVE_LICENSE_FILE=/path/to/license.key` before the command does the 
 
 If port `3577` is taken, set `NEOHIVE_PORT=3600` (or any free port) before the command. Then use that port wherever these docs say `3577`.
 
-The installer detects your GPU (CUDA, ROCm, or Vulkan) and uses the CPU when it finds none. On an Apple Silicon Mac, it also sets up a small native worker that runs on the Metal GPU. If the installer picks a backend that fails, run it again with the CPU backend:
+The installer detects your GPU (CUDA, ROCm, or Vulkan) and uses the CPU when it finds none. On an arm64 machine, including an Apple Silicon Mac, it skips GPU detection and always uses the CPU backend. On an Apple Silicon Mac, it also sets up a small native worker that runs on the Metal GPU. If the installer picks a backend that fails, run it again with the CPU backend:
 
 ```bash
 NEOHIVE_BACKEND=cpu bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
