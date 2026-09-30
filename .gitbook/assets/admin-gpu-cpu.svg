@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1000" height="580" viewBox="0 0 1000 580" font-family="'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap');
+    .mono { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .lbl { font-size: 10.5px; font-weight: 700; letter-spacing: 1.1px; }
+    .body { font-size: 12px; fill: #4A4458; }
+    .title { font-size: 15px; font-weight: 700; fill: #1A1A2E; }
+    .al { font-size: 11px; font-weight: 600; }
+  </style>
+  <defs>
+    <marker id="arv" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#7C3AED"/></marker>
+    <marker id="art" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#0D9488"/></marker>
+    <marker id="ara" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#B45309"/></marker>
+    <marker id="arm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#737373"/></marker>
+    <marker id="aro" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#C084FC"/></marker>
+    <marker id="arl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#A78BFA"/></marker>
+    <marker id="ari" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#1A1A2E"/></marker>
+  </defs>
+  <rect width="1000" height="580" fill="#FAF9FD"/>
+  <!-- Header. Logo paths copied verbatim from refactor-docs-install-page.svg. -->
+  <g transform="translate(40,26) scale(0.0793)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
+  <text x="88" y="52" font-size="24" font-weight="800" letter-spacing="-0.5" fill="#1A1A2E">How the installer picks a backend</text>
+  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#6D28D9">EACH QUESTION IS ASKED IN ORDER. THE FIRST YES WINS.</text>
+  <line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>
+  <rect x="40" y="120" width="320" height="56" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="58" y="153" class="body" style="fill:#1A1A2E" font-size="13" font-weight="600">Is the machine arm64 or aarch64?</text>
+  <path d="M200 176 L200 206" fill="none" stroke="#737373" stroke-width="2" marker-end="url(#arm)"/>
+  <text x="210" y="196" class="al" style="fill:#737373">no</text>
+  <path d="M360 148 L706 148" fill="none" stroke="#0D9488" stroke-width="2" marker-end="url(#art)"/>
+  <text x="380" y="140" class="al" style="fill:#0D9488">yes</text>
+  <rect x="710" y="120" width="250" height="56" rx="10" fill="#FFFFFF" stroke="#99E6DC" stroke-width="1"/>
+  <text x="726" y="144" class="title">CPU</text>
+  <text x="726" y="163" class="body" font-size="11">Apple Silicon also gets the Metal worker</text>
+  <rect x="40" y="210" width="320" height="56" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="58" y="243" class="body" style="fill:#1A1A2E" font-size="13" font-weight="600">Does nvidia-smi work?</text>
+  <path d="M200 266 L200 296" fill="none" stroke="#737373" stroke-width="2" marker-end="url(#arm)"/>
+  <text x="210" y="286" class="al" style="fill:#737373">no</text>
+  <rect x="40" y="300" width="320" height="56" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="58" y="333" class="body" style="fill:#1A1A2E" font-size="13" font-weight="600">Does rocm-smi work?</text>
+  <path d="M200 356 L200 386" fill="none" stroke="#737373" stroke-width="2" marker-end="url(#arm)"/>
+  <text x="210" y="376" class="al" style="fill:#737373">no</text>
+  <path d="M360 328 L706 328" fill="none" stroke="#0D9488" stroke-width="2" marker-end="url(#art)"/>
+  <text x="380" y="320" class="al" style="fill:#0D9488">yes</text>
+  <rect x="710" y="300" width="250" height="56" rx="10" fill="#FFFFFF" stroke="#99E6DC" stroke-width="1"/>
+  <text x="726" y="324" class="title">ROCm</text>
+  <text x="726" y="343" class="body" font-size="11">AMD GPU</text>
+  <rect x="40" y="390" width="320" height="56" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="58" y="423" class="body" style="fill:#1A1A2E" font-size="13" font-weight="600">Does vulkaninfo work?</text>
+  <path d="M360 418 L706 418" fill="none" stroke="#0D9488" stroke-width="2" marker-end="url(#art)"/>
+  <text x="380" y="410" class="al" style="fill:#0D9488">yes</text>
+  <rect x="710" y="390" width="250" height="56" rx="10" fill="#FFFFFF" stroke="#99E6DC" stroke-width="1"/>
+  <text x="726" y="414" class="title">Vulkan</text>
+  <text x="726" y="433" class="body" font-size="11">Other GPU with Vulkan drivers</text>
+  <path d="M360 238 L416 238" fill="none" stroke="#0D9488" stroke-width="2" marker-end="url(#art)"/>
+  <text x="372" y="230" class="al" style="fill:#0D9488">yes</text>
+  <rect x="420" y="204" width="250" height="68" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="436" y="230" class="body" style="fill:#1A1A2E" font-size="13" font-weight="600">Can a test container</text>
+  <text x="436" y="248" class="body" style="fill:#1A1A2E" font-size="13" font-weight="600">reach the GPU?</text>
+  <path d="M670 222 L706 222" fill="none" stroke="#0D9488" stroke-width="2" marker-end="url(#art)"/>
+  <text x="688" y="214" class="al" text-anchor="middle" style="fill:#0D9488">yes</text>
+  <rect x="710" y="204" width="250" height="36" rx="10" fill="#FFFFFF" stroke="#99E6DC" stroke-width="1"/>
+  <text x="726" y="227" class="title">CUDA</text>
+  <path d="M670 256 L706 256" fill="none" stroke="#B45309" stroke-width="2" marker-end="url(#ara)"/>
+  <text x="688" y="272" class="al" text-anchor="middle" style="fill:#B45309">no</text>
+  <rect x="710" y="244" width="250" height="36" rx="10" fill="#FFFFFF" stroke="#F3D19C" stroke-width="1"/>
+  <text x="726" y="267" class="body" style="fill:#1A1A2E" font-size="12.5" font-weight="600">CPU, with a toolkit warning</text>
+  <path d="M200 446 L200 476" fill="none" stroke="#737373" stroke-width="2" marker-end="url(#arm)"/>
+  <text x="210" y="466" class="al" style="fill:#737373">no</text>
+  <rect x="40" y="480" width="320" height="50" rx="10" fill="#FFFFFF" stroke="#99E6DC" stroke-width="1"/>
+  <text x="58" y="510" class="title">CPU</text>
+  <text x="40" y="562" class="body" font-size="12.5">Image missing? CUDA and ROCm step down to Vulkan, then CPU. A backend forced with NEOHIVE_BACKEND never steps down.</text>
+</svg>
