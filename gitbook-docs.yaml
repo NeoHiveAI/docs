@@ -7,5 +7,6 @@ site:
       title: Docs
       path: docs
       default: true
+      draft: true
       content:
         directory: ./docs
