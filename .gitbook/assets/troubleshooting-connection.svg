@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1000" height="700" viewBox="0 0 1000 700" font-family="'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap');
+    .mono { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; }
+    .lbl { font-size: 11px; font-weight: 700; letter-spacing: 1.1px; }
+    .body { font-size: 12.5px; fill: #4A4458; }
+    .title { font-size: 15px; font-weight: 700; fill: #1A1A2E; }
+    .fix { font-size: 12.5px; fill: #1A1A2E; }
+  </style>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#0D9488"/></marker>
+    <marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#B45309"/></marker>
+  </defs>
+  <rect width="1000" height="700" fill="#FAF9FD"/>
+  <!-- Header. Logo paths copied verbatim from refactor-docs-install-page.svg. -->
+  <g transform="translate(40,26) scale(0.0793)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
+  <text x="88" y="52" font-size="24" font-weight="800" letter-spacing="-0.5" fill="#1A1A2E">Agent can't connect</text>
+  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#6D28D9">WORK DOWN THE CHECKS · STOP AT THE FIRST NO</text>
+  <line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>
+  <text x="740" y="116" class="lbl" fill="#B45309" text-anchor="middle">IF NO, DO THIS</text>
+  <rect x="40" y="124" width="520" height="66" rx="12" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <circle cx="70" cy="157.0" r="14" fill="#7C3AED"/>
+  <text x="70" y="162.0" font-size="14" font-weight="700" text-anchor="middle" fill="#FFFFFF">1</text>
+  <text x="98" y="152" class="title">Is the container running?</text>
+  <text x="98" y="173" class="body"><tspan class="mono" fill="#6D28D9">docker ps --filter name=neohive</tspan> shows Up</text>
+  <line x1="560" y1="157.0" x2="608" y2="157.0" stroke="#B45309" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrA)"/>
+  <text x="582" y="150.0" font-size="11" font-weight="700" text-anchor="middle" fill="#B45309">no</text>
+  <text x="618" y="152.0" class="fix"><tspan class="mono" fill="#6D28D9">docker start neohive</tspan></text>
+  <text x="618" y="170.0" class="fix">then read <tspan class="mono" fill="#6D28D9">docker logs neohive --tail 50</tspan></text>
+  <line x1="180" y1="190" x2="180" y2="218" stroke="#0D9488" stroke-width="1.8" marker-end="url(#arr)"/>
+  <text x="190" y="210" font-size="11" font-weight="700" fill="#0D9488">yes</text>
+  <rect x="40" y="220" width="520" height="66" rx="12" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <circle cx="70" cy="253.0" r="14" fill="#7C3AED"/>
+  <text x="70" y="258.0" font-size="14" font-weight="700" text-anchor="middle" fill="#FFFFFF">2</text>
+  <text x="98" y="248" class="title">Does NeoHive say it is healthy?</text>
+  <text x="98" y="269" class="body"><tspan class="mono" fill="#6D28D9">curl localhost:3577/health</tspan> has "status":"ok"</text>
+  <line x1="560" y1="253.0" x2="608" y2="253.0" stroke="#B45309" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrA)"/>
+  <text x="582" y="246.0" font-size="11" font-weight="700" text-anchor="middle" fill="#B45309">no</text>
+  <text x="618" y="248.0" class="fix">Look up the error in Common errors,</text>
+  <text x="618" y="266.0" class="fix">or click Restart on a degraded hive</text>
+  <line x1="180" y1="286" x2="180" y2="314" stroke="#0D9488" stroke-width="1.8" marker-end="url(#arr)"/>
+  <text x="190" y="306" font-size="11" font-weight="700" fill="#0D9488">yes</text>
+  <rect x="40" y="316" width="520" height="66" rx="12" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <circle cx="70" cy="349.0" r="14" fill="#7C3AED"/>
+  <text x="70" y="354.0" font-size="14" font-weight="700" text-anchor="middle" fill="#FFFFFF">3</text>
+  <text x="98" y="344" class="title">Does the hive answer without your agent?</text>
+  <text x="98" y="365" class="body"><tspan class="mono" fill="#6D28D9">list_indexes</tspan> in the Playground lists indexes</text>
+  <line x1="560" y1="349.0" x2="608" y2="349.0" stroke="#B45309" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrA)"/>
+  <text x="582" y="342.0" font-size="11" font-weight="700" text-anchor="middle" fill="#B45309">no</text>
+  <text x="618" y="353.0" class="fix">Click Restart on the hive</text>
+  <line x1="180" y1="382" x2="180" y2="410" stroke="#0D9488" stroke-width="1.8" marker-end="url(#arr)"/>
+  <text x="190" y="402" font-size="11" font-weight="700" fill="#0D9488">yes</text>
+  <rect x="40" y="412" width="520" height="66" rx="12" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <circle cx="70" cy="445.0" r="14" fill="#7C3AED"/>
+  <text x="70" y="450.0" font-size="14" font-weight="700" text-anchor="middle" fill="#FFFFFF">4</text>
+  <text x="98" y="440" class="title">Is the MCP endpoint right?</text>
+  <text x="98" y="461" class="body">Agent config matches Install Instructions</text>
+  <line x1="560" y1="445.0" x2="608" y2="445.0" stroke="#B45309" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrA)"/>
+  <text x="582" y="438.0" font-size="11" font-weight="700" text-anchor="middle" fill="#B45309">no</text>
+  <text x="618" y="440.0" class="fix">Copy the endpoint from</text>
+  <text x="618" y="458.0" class="fix">Install Instructions again</text>
+  <line x1="180" y1="478" x2="180" y2="506" stroke="#0D9488" stroke-width="1.8" marker-end="url(#arr)"/>
+  <text x="190" y="498" font-size="11" font-weight="700" fill="#0D9488">yes</text>
+  <rect x="40" y="508" width="520" height="66" rx="12" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <circle cx="70" cy="541.0" r="14" fill="#7C3AED"/>
+  <text x="70" y="546.0" font-size="14" font-weight="700" text-anchor="middle" fill="#FFFFFF">5</text>
+  <text x="98" y="536" class="title">Does your agent see the tools?</text>
+  <text x="98" y="557" class="body">Ask it: List my NeoHive indexes</text>
+  <line x1="560" y1="541.0" x2="608" y2="541.0" stroke="#B45309" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrA)"/>
+  <text x="582" y="534.0" font-size="11" font-weight="700" text-anchor="middle" fill="#B45309">no</text>
+  <text x="618" y="536.0" class="fix">Restart the agent</text>
+  <text x="618" y="554.0" class="fix">Claude Code: run <tspan class="mono" fill="#6D28D9">/reload-plugins</tspan></text>
+  <line x1="180" y1="574" x2="180" y2="602" stroke="#0D9488" stroke-width="1.8" marker-end="url(#arr)"/>
+  <text x="190" y="594" font-size="11" font-weight="700" fill="#0D9488">yes</text>
+  <rect x="40" y="604" width="520" height="56" rx="12" fill="#FFFFFF" stroke="#99E6DC"/>
+  <rect x="40" y="604" width="3.5" height="56" rx="1.75" fill="#0D9488"/>
+  <text x="64" y="628" class="lbl" fill="#0D9488">DONE</text>
+  <text x="64" y="648" class="title">Your agent is connected</text>
+</svg>
