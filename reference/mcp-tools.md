@@ -1,0 +1,89 @@
+---
+description: "The MCP tools each NeoHive hive exposes, with every parameter, type, and default."
+---
+
+# MCP tools
+
+Every tool your agent can call on a hive, its parameters, and what comes back.
+
+Each hive serves these tools at its MCP endpoint, `http://localhost:3577/hives/<hive-id>/mcp`, over Streamable HTTP.
+
+| Tool | What it does | Writes? |
+|---|---|---|
+| `list_indexes` | Lists the hive's indexes with each one's id, name, type, status, embedding model, and description. | No |
+| `memory_recall` | Searches the hive's indexes by meaning and keywords and returns the most relevant code, docs, and memories. | No |
+| `memory_context` | Returns the rules closest to your task plus other memories related to it. | No |
+| `memory_stats` | Reports memory counts by type, the most and least accessed memories, and the oldest and newest. | No |
+| `memory_store` | Saves a new memory to the hive's Knowledge index. | Yes |
+| `memory_forget` | Deactivates a memory so recall stops returning it. | Yes |
+
+The read tools take an optional `index`. Leave it out to cover every index in the hive. The write tools take no `index`: they always write to the hive's own Knowledge index, even when you read from a Shared Index. You can run the read tools by hand in the [Playground](../admin/playground.md).
+
+## memory_recall
+
+| Parameter | Type | Default | Notes |
+|---|---|---|---|
+| `query` | string | none | One search query. Pass this or `queries`, not both. |
+| `queries` | string list | none | One to five phrasings of the same need, merged into one result list. |
+| `limit` | integer | `10` | Maximum results, `1` to `50`. |
+| `types` | string list | all types | Return only these [memory types](memory-types.md). |
+| `index` | string | all indexes | The id of one index to search. |
+| `noAccessUpdate` | boolean | `false` | When `true`, the search does not count as a recall. The plugin's automatic hooks set it. |
+
+Each result starts with a heading such as `### Memory #1 (id: 482, score: 0.912)`, then its type, importance, and tags. Pass the `id` to `memory_forget`. A result longer than 8,000 characters is cut off with a `(truncated, ...)` note.
+
+## memory_context
+
+| Parameter | Type | Default | Notes |
+|---|---|---|---|
+| `task` | string | required | What you are about to work on, with specific terms. |
+| `index` | string | all indexes | The id of one index to load from. |
+
+The reply has two sections: `## Directives & Conventions` and `## Task-Relevant Context`. [Memory types](memory-types.md) shows which types land in each.
+
+## memory_stats
+
+| Parameter | Type | Default | Notes |
+|---|---|---|---|
+| `index` | string | all indexes | The id of one index to report on. |
+
+## memory_store
+
+| Parameter | Type | Default | Notes |
+|---|---|---|---|
+| `content` | string | required | The knowledge to store, written so it makes sense on its own later. |
+| `type` | string | required | One of the [memory types](memory-types.md). |
+| `importance` | integer | `5` | `1` (trivial) to `10` (critical). Higher importance helps a memory rank higher. |
+| `tags` | string list | none | Labels that help later searches find the memory. |
+| `format` | string | `auto` | How to split content of 6,000 characters or more: `auto`, `markdown`, `code`, `DSL`, or `text`. `auto` detects it. Shorter content is stored whole. |
+
+The reply is `Memory stored successfully (id: <id>, type: <type>, importance: <n>, Index: <index-id>)`. The memory is searchable straight away.
+
+## memory_forget
+
+| Parameter | Type | Default | Notes |
+|---|---|---|---|
+| `memory_id` | integer | required | The id of the memory to deactivate. |
+| `reason` | string | none | Why it is being retired. |
+| `superseded_by` | integer | none | The id of the memory that replaces it. |
+
+A forgotten memory is deactivated, not erased. Recall stops returning it, but it stays in the database.
+
+## list_indexes
+
+Takes no parameters. An index shared into your hive shows `shared_from: <owner hive>` and `access: read-only`. You can recall from it but not write to it.
+
+<details>
+
+<summary>Deprecated names that still work</summary>
+
+| Deprecated | Use instead |
+|---|---|
+| `list_hives` tool | `list_indexes` |
+| `hive` parameter on `memory_recall`, `memory_context`, `memory_stats` | `index` |
+
+</details>
+
+## Next step
+
+See [Memory types](memory-types.md) for the values `type` and `types` accept.
