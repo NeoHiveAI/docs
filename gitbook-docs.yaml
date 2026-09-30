@@ -1,6 +1,6 @@
 $schema: https://api.gitbook.com/gitbook-docs.yaml
 site:
-  title: draft-neohive-docs
+  title: NeoHive Docs
   structure:
     - type: space
       key: space-1
