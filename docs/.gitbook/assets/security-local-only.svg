@@ -26,7 +26,7 @@
   <circle cx="88" cy="210" r="4" fill="#0D9488"/>
   <text x="102" y="214" class="body">Your code and documents</text>
   <circle cx="88" cy="236" r="4" fill="#0D9488"/>
-  <text x="102" y="240" class="body">Your memories</text>
+  <text x="102" y="240" class="body">Your Memories</text>
   <circle cx="88" cy="262" r="4" fill="#0D9488"/>
   <text x="102" y="266" class="body">Recall queries and results</text>
   <circle cx="88" cy="288" r="4" fill="#0D9488"/>
@@ -39,7 +39,7 @@
   <rect x="283" y="376" width="205" height="70" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
   <text x="301" y="402" class="title">Your browser</text>
   <text x="301" y="422" fill="#4A4458" font-size="11.5">opens the dashboard</text>
-  <text x="82" y="342" class="small">Usage metrics carry counts and timings, never text.</text>
+  <text x="82" y="342" class="small">Usage metrics carry counts and timings, never your content.</text>
   <rect x="640" y="156" width="320" height="40" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
   <text x="656" y="181" fill="#1A1A2E" font-size="13" font-weight="700">License check</text>
   <text x="944" y="181" class="mono" fill="#737373" text-anchor="end" font-size="11">api.keygen.sh</text>
@@ -57,8 +57,8 @@
   <text x="944" y="313" class="mono" fill="#737373" text-anchor="end" font-size="11">huggingface.co</text>
   <path d="M488 308 L636 308" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
   <rect x="640" y="332" width="320" height="40" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
-  <text x="656" y="357" fill="#1A1A2E" font-size="13" font-weight="700">Your repositories</text>
-  <text x="944" y="357" class="mono" fill="#737373" text-anchor="end" font-size="11">GitHub or GitLab</text>
+  <text x="656" y="357" fill="#1A1A2E" font-size="13" font-weight="700">Your data sources</text>
+  <text x="944" y="357" class="mono" fill="#737373" text-anchor="end" font-size="11">GitHub, GitLab, Jira</text>
   <path d="M488 352 L636 352" fill="none" stroke="#0D9488" stroke-width="2" marker-end="url(#arrT)"/>
   <rect x="640" y="391" width="320" height="40" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
   <text x="656" y="416" fill="#1A1A2E" font-size="13" font-weight="700">Dashboard fonts</text>

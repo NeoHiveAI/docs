@@ -6,7 +6,7 @@ description: "The glob syntax the Allowlist and Blocklist accept, how the two co
 
 Write Allowlist and Blocklist patterns that include exactly the files you mean.
 
-The **Allowlist** and **Blocklist** boxes sit under **File filters** on a Code or Documentation index's **Sync Settings** tab. Put one pattern per line and click **Save settings**. Patterns use [micromatch](https://github.com/micromatch/micromatch) glob syntax and match paths from the repository root, such as `src/api/users.ts`.
+The **Allowlist** and **Blocklist** boxes sit under **File filters** on a Code or Documentation Index's **Sync Settings** tab. Put one pattern per line and click **Save settings**. Patterns use [micromatch](https://github.com/micromatch/micromatch) glob syntax and match paths from the repository root, such as `src/api/users.ts`.
 
 A file is indexed only when it passes all three checks, in this order:
 
@@ -17,6 +17,8 @@ A file is indexed only when it passes all three checks, in this order:
 | **Blocklist** | It matches no pattern. | Every file passes |
 
 The Blocklist wins over the Allowlist. Neither list can bring back a file the built-in skip list removes.
+
+A new pattern only affects files from the next sync onward. It does not remove files the Index already holds, even after they change or are deleted in the repository.
 
 Saving a change to either list makes the next sync re-read the whole repository, not only the files that changed.
 
@@ -69,4 +71,4 @@ The webhook refresh endpoint applies the built-in skip list but not your Allowli
 
 ## Next step
 
-See [Webhook refresh endpoint](webhooks.md) to update an index the moment a change merges.
+See [Webhook refresh endpoint](webhooks.md) to update an Index the moment a change merges.

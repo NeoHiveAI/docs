@@ -30,18 +30,18 @@
   <text x="40" y="301.0" font-size="13.5" font-weight="700" fill="#1A1A2E">Hive layout</text>
   <rect x="236" y="250" width="340" height="92" rx="12" fill="#FFFFFF" stroke="#F3D9C0"/>
   <rect x="236" y="250" width="3.5" height="92" rx="1.75" fill="#B45309"/>
-  <text x="258" y="290" font-size="13" fill="#1A1A2E">One hive holds the payments service</text>
+  <text x="258" y="290" font-size="13" fill="#1A1A2E">One Hive holds the payments service</text>
   <text x="258" y="312" font-size="13" fill="#1A1A2E">and an unrelated mobile app</text>
   <rect x="610" y="250" width="350" height="92" rx="12" fill="#FFFFFF" stroke="#99E6DC"/>
   <rect x="610" y="250" width="3.5" height="92" rx="1.75" fill="#0D9488"/>
-  <text x="632" y="290" font-size="13" fill="#1A1A2E">One hive per product; share an index</text>
-  <text x="632" y="312" font-size="13" fill="#1A1A2E">into another hive when you need it</text>
+  <text x="632" y="290" font-size="13" fill="#1A1A2E">One Hive per product; share an Index</text>
+  <text x="632" y="312" font-size="13" fill="#1A1A2E">into another Hive when you need it</text>
   <line x1="580" y1="296.0" x2="604" y2="296.0" stroke="#0D9488" stroke-width="2" marker-end="url(#arrT)"/>
   <text x="40" y="407.0" font-size="13.5" font-weight="700" fill="#1A1A2E">A fact changes</text>
   <rect x="236" y="356" width="340" height="92" rx="12" fill="#FFFFFF" stroke="#F3D9C0"/>
   <rect x="236" y="356" width="3.5" height="92" rx="1.75" fill="#B45309"/>
   <text x="258" y="396" font-size="13" fill="#1A1A2E">“We use Postgres for sessions now.”</text>
-  <text x="258" y="418" font-size="13" fill="#1A1A2E">The old Redis memory stays active.</text>
+  <text x="258" y="418" font-size="13" fill="#1A1A2E">The old Redis Memory stays active.</text>
   <rect x="610" y="356" width="350" height="92" rx="12" fill="#FFFFFF" stroke="#99E6DC"/>
   <rect x="610" y="356" width="3.5" height="92" rx="1.75" fill="#0D9488"/>
   <text x="632" y="396" font-size="13" fill="#1A1A2E">“That's out of date. We use Postgres</text>

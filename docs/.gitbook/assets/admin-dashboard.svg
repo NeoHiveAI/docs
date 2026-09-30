@@ -25,12 +25,12 @@
   <text x="56" y="146" class="lbl" fill="#7C3AED">HOME</text>
   <text x="56" y="168" class="title">Hives</text>
   <text x="56" y="187" class="mono" font-size="11.5" fill="#6D28D9">/</text>
-  <text x="56" y="204" class="body">Every hive as a card, with totals</text>
+  <text x="56" y="204" class="body">Every Hive as a card, with totals</text>
   <rect x="377" y="124" width="247" height="110" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
   <text x="393" y="146" class="lbl" fill="#7C3AED">HIVE</text>
   <text x="393" y="168" class="title">Hive page</text>
   <text x="393" y="187" class="mono" font-size="11.5" fill="#6D28D9">/hives/&lt;hive-id&gt;</text>
-  <text x="393" y="204" class="body">Install Instructions, indexes,</text>
+  <text x="393" y="204" class="body">Install Instructions, Indexes,</text>
   <text x="393" y="220" class="body">activity, tool usage</text>
   <rect x="713" y="124" width="247" height="110" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
   <text x="729" y="146" class="lbl" fill="#7C3AED">INDEX</text>

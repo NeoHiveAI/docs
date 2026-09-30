@@ -1,10 +1,10 @@
 ---
-description: "Update NeoHive to the latest release by re-running the installer. Your hives and memories are kept."
+description: "Update NeoHive to the latest release by re-running the installer. Your Hives and Memories are kept."
 ---
 
 # Update NeoHive
 
-Update to the latest release with the command you installed with. Your hives, indexes, and memories stay in place.
+Update to the latest release with the command you installed with. Your Hives, Indexes, and Memories stay in place.
 
 <figure><img src="../.gitbook/assets/admin-updating.svg" alt="Re-running the installer: 1 read the license, reusing the cached key; 2 check the license with the licensing service; 3 detect hardware again; 4 pull the latest image for your hardware; 5 stop the old container, which frees its license seat and waits up to 30 seconds; 6 start the new container on the same neohive-data volume and print what is new."><figcaption></figcaption></figure>
 
@@ -35,7 +35,7 @@ The installer reuses your cached license key, unless a `license.key` or `license
 {% endstepper %}
 
 {% hint style="warning" %}
-A repository sync still running when the old container stops is cut off. It runs again on its next schedule, or click **Trigger sync** on the index.
+A repository sync still running when the old container stops is cut off. It runs again on its next schedule, or click **Trigger sync** on the Index.
 {% endhint %}
 
 ## Repeat the settings you installed with

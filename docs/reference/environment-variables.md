@@ -49,7 +49,7 @@ Set these where your coding agent starts, for example in your shell profile.
 | Variable | Default | Purpose |
 |---|---|---|
 | `NEOHIVE_TOKEN` | unset | Bearer token the plugin hooks send. Needed only when NeoHive sits behind an authenticating proxy you run. |
-| `NEOHIVE_HOOK_DISABLED` | unset | Claude Code. Set to `1` to stop the hook that recalls context for each prompt, and the hook that records which memories a session used. |
+| `NEOHIVE_HOOK_DISABLED` | unset | Claude Code. Set to `1` to stop the hook that recalls context for each prompt, and the hook that records which Memories a session used. |
 | `NEOHIVE_PRETOOL_STRICT` | unset | Claude Code. Set to `1` to block `Glob` and `Grep` in an indexed project, instead of only reminding the agent to call `memory_recall` first. |
 | `NEOHIVE_PRETOOL_DISABLED` | unset | Claude Code. Set to `1` to turn that reminder off. |
 | `NEOHIVE_SMART_DISABLED` | unset | The off switch `enable-smart-prompts` suggests. Set to `1` to pause the smart-prompts hook. |
@@ -62,12 +62,13 @@ Set these where your coding agent starts, for example in your shell profile.
 The server reads these from the `neohive` container's environment. Setting them in your shell does nothing.
 
 {% hint style="warning" %}
-The installer passes only the license key, the three timeouts, and `NEOHIVE_UPDATE_REPO` into the container. Anything else you add with `docker run -e` is dropped the next time the installer recreates the container, so add it again after every upgrade.
+The installer passes only the license key, the three timeouts, `NEOHIVE_UPDATE_REPO`, and (on Apple silicon) the Metal worker address into the container. Anything else you add with `docker run -e` is dropped the next time the installer recreates the container, so add it again after every upgrade.
 {% endhint %}
 
 | Variable | Default | Purpose |
 |---|---|---|
 | `MEMVEC_WEBHOOK_SECRET` | unset | The secret for the [webhook refresh endpoint](webhooks.md). While unset, every webhook request gets `401`. |
+| `MEMVEC_ENCRYPTION_KEY` | unset | A 64-character hex key that encrypts stored connection secrets. While unset, NeoHive creates one in `/app/data/.encryption_key`. See [Credentials and secrets](../security/credentials.md). |
 | `NEOHIVE_MCP_HINTS` | on | Set to `0` to drop the short hint added to `memory_recall` and `memory_context` replies. |
 | `NEOHIVE_LOG_SIZE_MB` | `10` | Size of each log file before it rotates. |
 | `NEOHIVE_LOG_KEEP_FILES` | `20` | How many rotated log files to keep. |
@@ -75,6 +76,7 @@ The installer passes only the license key, the three timeouts, and `NEOHIVE_UPDA
 | `MEMVEC_SYNC_CONCURRENCY` | `3` | How many files one sync indexes in parallel. |
 | `MEMVEC_SYNC_MAX_RETRY_ATTEMPTS` | `3` | How many syncs retry a file that failed to index before NeoHive gives up on it. |
 | `MEMVEC_SYNC_RETRY_DELAY_MS` | `120000` (2 minutes) | Wait before an automatic retry after a sync where some files failed. |
+| `MEMVEC_COMMIT_IMPORT_WINDOW_DAYS` | `180` | How many days of commit history NeoHive imports from a repository. |
 | `MEMVEC_TOKEN_REVALIDATION_MS` | `82800000` (23 hours) | How long a connection's last token check counts before NeoHive checks the token again. |
 | `MEMVEC_MIGRATION_SNAPSHOT` | on | Set to `off` to skip the database copy NeoHive takes before an upgrade changes its databases. |
 | `MEMVEC_MIGRATION_SNAPSHOT_KEEP` | `5` | How many of those copies to keep per database. Each is a full copy, so lower it if disk is tight. |

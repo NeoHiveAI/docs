@@ -6,7 +6,7 @@ description: "Which files NeoHive indexes from an upload or a repository, and th
 
 Check whether NeoHive can index a file before you upload it or add its repository.
 
-## Uploads to a Files index
+## Uploads to a Files Index
 
 | Format | Extensions | How it is split |
 |---|---|---|
@@ -18,7 +18,7 @@ Check whether NeoHive can index a file before you upload it or add its repositor
 |---|---|
 | One file | 10 MB |
 | Files in one upload | 20 |
-| A file whose name is already in the index | Skipped with `<name> already exists, skipped` |
+| A file whose name is already in the Index | Skipped with `<name> already exists, skipped` |
 
 Any other extension is refused. To index a Word document or a slide deck, export it to PDF or markdown first.
 
@@ -59,7 +59,7 @@ These are always skipped, whatever your filters say:
 | Anything that looks binary | Checked by content, whatever the extension |
 
 {% hint style="info" %}
-Repository sync does not convert PDFs, so a PDF in a repository is skipped as binary. To make it searchable, upload it to a Files index.
+Repository sync does not convert PDFs, so a PDF in a repository is skipped as binary. To make it searchable, upload it to a Files Index.
 {% endhint %}
 
 ## Next step

@@ -1,14 +1,14 @@
 ---
-description: "Push changed files to a Code or Documentation index from CI with POST /hives/<hive-id>/webhook/refresh."
+description: "Push changed files to a Code or Documentation Index from CI with POST /hives/<hive-id>/webhook/refresh."
 ---
 
 # Webhook refresh endpoint
 
-Send changed files to NeoHive from CI, so a Code or Documentation index updates seconds after a merge.
+Send changed files to NeoHive from CI, so a Code or Documentation Index updates seconds after a merge.
 
-<figure><img src="../.gitbook/assets/reference-webhooks.svg" alt="Sequence: a CI job posts changed files to the hive's webhook route; NeoHive checks X-Webhook-Secret, finds every index that syncs the named repository, removes each path's old content, indexes the new content, and replies with counts."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/reference-webhooks.svg" alt="Sequence: a CI job posts changed files to the Hive's webhook route; NeoHive checks X-Webhook-Secret, finds every Index that syncs the named repository, removes each path's old content, indexes the new content, and replies with counts."><figcaption></figcaption></figure>
 
-Scheduled syncs already keep each Code or Documentation index current. Use the webhook only when the wait for the next scheduled sync is too long.
+Scheduled syncs already keep each Code or Documentation Index current. Use the webhook only when the wait for the next scheduled sync is too long.
 
 ```text
 POST http://<host>:3577/hives/<hive-id>/webhook/refresh
@@ -16,7 +16,7 @@ Content-Type: application/json
 X-Webhook-Secret: <secret>
 ```
 
-`<hive-id>` is the id in the hive's MCP endpoint, `http://<host>:3577/hives/<hive-id>/mcp`. One request updates every Code or Documentation index in that hive that syncs the repository you name.
+`<hive-id>` is the id in the Hive's MCP endpoint, `http://<host>:3577/hives/<hive-id>/mcp`. One request updates every Code or Documentation Index in that Hive that syncs the repository you name.
 
 ## Authentication
 
@@ -41,13 +41,13 @@ Treat the secret like a database password. Keep it in your CI secret store, neve
 
 | Field | Required | Notes |
 |---|---|---|
-| `repo` | Yes | The repository URL exactly as the index stores it, such as `https://github.com/acme/api`. `acme/api` alone does not match. |
+| `repo` | Yes | The repository URL exactly as the Index stores it, such as `https://github.com/acme/api`. `acme/api` alone does not match. |
 | `sha` | Yes | The commit the files come from. |
 | `files[].path` | Yes | Path from the repository root. |
 | `files[].content_base64` | For added and changed files | The whole file, base64-encoded. |
 | `files[].action` | For deleted files | `deleted` is the only value that does anything. |
 
-For each path, NeoHive first removes what it holds, then indexes `content_base64` if you sent it. **A file sent with neither `content_base64` nor `"action": "deleted"` is removed from the index.** NeoHive does not read the file from its own copy of the repository.
+For each path, NeoHive first removes what it holds, then indexes `content_base64` if you sent it. **A file sent with neither `content_base64` nor `"action": "deleted"` is removed from the Index.** NeoHive does not read the file from its own copy of the repository.
 
 The body can be at most 100 KB, and base64 makes each file about a third larger. Split a large change across several requests.
 
@@ -69,9 +69,10 @@ The body can be at most 100 KB, and base64 makes each file about a third larger.
 | `401` | `Invalid or missing webhook secret` | Wrong header, or `MEMVEC_WEBHOOK_SECRET` is not set on the container. |
 | `400` | `Missing required field: repo` (or `sha`, `files (array)`) | The body is missing a field. |
 | `400` | `Each file must have a path string` | An entry in `files` has no `path`. |
-| `404` | `No Index found syncing repo: <repo>` | No Code or Documentation index in that hive syncs that exact URL. |
-| `404` | `Unknown Hive: <hive-id>` | The hive id in the URL is wrong. |
+| `404` | `No Index found syncing repo: <repo>` | No Code or Documentation Index in that Hive syncs that exact URL. |
+| `404` | `Unknown Hive: <hive-id>` | The Hive id in the URL is wrong. |
 | `413` | `Payload Too Large` (an HTML page, not JSON) | The body is over 100 KB. |
+| `402` | `License check failed` | The license expired or failed validation. See [Licensing](../admin/licensing.md). |
 
 ## GitHub Actions template
 
@@ -123,7 +124,7 @@ jobs:
             "$NEOHIVE_URL/hives/$NEOHIVE_HIVE_ID/webhook/refresh"
 ```
 
-`--no-renames` reports a renamed file as a deletion plus an addition, so the old path leaves the index. The template sends one request, so a merge whose changed files add up to more than 100 KB gets `413`.
+`--no-renames` reports a renamed file as a deletion plus an addition, so the old path leaves the Index. The template sends one request, so a merge whose changed files add up to more than 100 KB gets `413`.
 
 ## Next step
 

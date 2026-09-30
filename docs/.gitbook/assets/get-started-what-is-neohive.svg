@@ -35,7 +35,7 @@
   <text x="80" y="351" class="title">You correct it</text>
   <text x="80" y="371" class="body">camelCase columns again. Next session, same mistake.</text>
 
-  <text x="64" y="420" font-size="12" fill="#737373">Every session starts with no project knowledge.</text>
+  <text x="64" y="420" font-size="12" fill="#737373">Every session starts from zero.</text>
 
   <!-- With -->
   <rect x="520" y="116" width="440" height="330" rx="12" fill="#FFFFFF" stroke="#DDD6FE"/>
@@ -47,7 +47,7 @@
   <line x1="740" y1="216" x2="740" y2="238" stroke="#7C3AED" stroke-width="1.6" marker-end="url(#arrV)"/>
 
   <rect x="544" y="244" width="392" height="56" rx="8" fill="#F5F3FF" stroke="#DDD6FE"/>
-  <text x="560" y="267" class="title">The agent recalls from your hive</text>
+  <text x="560" y="267" class="title">The agent recalls from your Hive</text>
   <text x="560" y="287" class="body">Your schema code, plus the <tspan class="mono" fill="#6D28D9">snake_case</tspan> convention.</text>
   <line x1="740" y1="300" x2="740" y2="322" stroke="#7C3AED" stroke-width="1.6" marker-end="url(#arrV)"/>
 

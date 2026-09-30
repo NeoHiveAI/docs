@@ -10,7 +10,9 @@ NeoHive needs a license file from the NeoHive team: a plain-text `license.key`, 
 
 <figure><img src="../.gitbook/assets/admin-licensing.svg" alt="The installer checks, in order, and uses the first it finds: 1 the --license-file flag or -l; 2 the NEOHIVE_LICENSE_FILE variable; 3 a license.json or license.key in the folder you run the installer from; 4 the key cached at ~/.cache/neohive/license-key by an earlier install; 5 a prompt for a file path, in an interactive terminal only. It then checks the key with the licensing service. Accepted keys are cached. Rejected keys clear the cache, and in a terminal you are asked for another file, up to three tries. NEOHIVE_LICENSE_KEY skips all five; NEOHIVE_ROTATE_LICENSE=1 skips 3 and 4."><figcaption></figcaption></figure>
 
-The simplest route is to put the file in the folder you run the installer from. After the first install the key is cached, so updates do not ask again.
+The simplest route is to put the file in the folder you run the installer from. If you downloaded `install.sh` and run it from disk, the installer also looks next to the script. After the first install the key is cached, so updates do not ask again.
+
+The first time you open the dashboard, it shows the **NeoHive Design Partner Licence** agreement. Click **I Understand** to accept it and continue. You can read it again later from **Settings** with **View licence**.
 
 ## Check your license status
 

@@ -27,11 +27,11 @@
   <text x="74" y="262" fill="#1A1A2E" font-size="12.5">payment webhook retry</text>
   <text x="74" y="280" fill="#1A1A2E" font-size="12.5">path"</text>
   <text x="60" y="320" class="body">Words, not file names.</text>
-  <text x="60" y="340" class="body">No index to pick.</text>
+  <text x="60" y="340" class="body">No Index to pick.</text>
   <path d="M290 255 L340 255" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
   <rect x="344" y="130" width="300" height="258" rx="10" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1.5"/>
   <text x="364" y="156" class="lbl" fill="#7C3AED">2. EVERY INDEX LOOKS</text>
-  <text x="364" y="182" class="title">Your hive</text>
+  <text x="364" y="182" class="title">Your Hive</text>
   <rect x="364" y="198" width="260" height="28" rx="6" fill="#FFFFFF" stroke="#A78BFA" stroke-width="1"/>
   <text x="378" y="216.5" fill="#1A1A2E" font-size="12.5" font-weight="600">Code</text>
   <text x="610" y="216.5" class="small" text-anchor="end">finds matches</text>
@@ -63,5 +63,5 @@
   <text x="718" y="352" class="body">Enough text around each match</text>
   <text x="718" y="370" class="body">for your agent to act on.</text>
   <line x1="40" y1="430" x2="960" y2="430" stroke="#E4DFF1"/>
-  <text x="40" y="452" class="small">Name an index with the index parameter to look in that one only.</text>
+  <text x="40" y="452" class="small">Name an Index with the index parameter to look in that one only.</text>
 </svg>

@@ -8,7 +8,7 @@ How to add a GitHub or GitLab connection, check that it still works, and replace
 
 A connection is a saved login that lets NeoHive read repositories from one account. Open **Data Sources** at the bottom of the sidebar, or go to `http://localhost:3577/sources`.
 
-<figure><img src="../.gitbook/assets/admin-data-sources.svg" alt="A GitHub or GitLab account gives a token to a connection saved on Data Sources, shown as PAT or SSH and Valid, Invalid or Unvalidated. Several Code and Documentation indexes sync through one connection, chosen under Connection on each index's Sync Settings tab. Deleting the connection leaves those indexes with their memories and a No connection badge, and they stop syncing."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/admin-data-sources.svg" alt="A GitHub or GitLab account gives a token to a connection saved on Data Sources, shown as PAT or SSH and Valid, Invalid or Unvalidated. Several Code and Documentation Indexes sync through one connection, chosen under Connection on each Index's Sync Settings tab. Deleting the connection leaves those Indexes with their Memories and a No connection badge, and they stop syncing."><figcaption></figcaption></figure>
 
 | Service | Use it for | Credential |
 |---|---|---|
@@ -22,7 +22,7 @@ A connection is a saved login that lets NeoHive read repositories from one accou
 {% step %}
 ## Open the form
 
-Under **Available**, click **Install** on the **GitHub** or **GitLab** card. You can also pick **Add a new connection** from the **Connection** list while you add an index.
+Under **Available**, click **Install** on the **GitHub** or **GitLab** card. You can also pick **Add a new connection** from the **Connection** list while you add an Index.
 {% endstep %}
 
 {% step %}
@@ -58,10 +58,10 @@ Click **Manage** on a card under **Connected**.
 | **Invalid** | The service rejected the credential. Replace it |
 | **Unvalidated** | Saved but not confirmed yet. Click **Validate** to check now |
 
-**Bound Indexes** lists the indexes in your current hive that sync through the connection. **Delete** removes the connection.
+**Bound Indexes** lists the Indexes in your current Hive that sync through the connection. **Delete** removes the connection.
 
 {% hint style="warning" %}
-To swap a token without a gap in syncing, add the new connection first. On each affected index, open **Sync Settings**, pick it under **Connection**, and click **Save settings**. Then delete the old one.
+To swap a token without a gap in syncing, add the new connection first. On each affected Index, open **Sync Settings**, pick it under **Connection**, and click **Save settings**. Then delete the old one.
 {% endhint %}
 
 How NeoHive stores these secrets is on [Credentials and secrets](../security/credentials.md).

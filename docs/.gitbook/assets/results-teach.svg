@@ -27,8 +27,8 @@
   <rect x="365" y="124" width="270" height="180" rx="12" fill="#FFFFFF" stroke="#E5E5E5"/>
   <rect x="365" y="124" width="3.5" height="180" rx="1.75" fill="#C084FC"/>
   <text x="387" y="152" class="lbl" fill="#C084FC">KNOWLEDGE INDEX</text>
-  <text x="387" y="178" class="title">Stored as one memory</text>
-  <text x="387" y="204" font-size="13" fill="#1A1A2E">Your hive keeps the correction</text>
+  <text x="387" y="178" class="title">Stored as one Memory</text>
+  <text x="387" y="204" font-size="13" fill="#1A1A2E">Your Hive keeps the correction</text>
   <text x="387" y="224" font-size="13" fill="#1A1A2E">and can recall it right away.</text>
   <line x1="387" y1="248" x2="613" y2="248" stroke="#EEEAF6"/>
   <text x="387" y="276" font-size="11.5" class="mono" fill="#6D28D9">found by its words</text>

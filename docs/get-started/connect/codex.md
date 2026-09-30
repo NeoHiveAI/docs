@@ -1,18 +1,18 @@
 ---
-description: "Connect Codex to a hive and install the NeoHive plugin."
+description: "Connect Codex to a Hive and install the NeoHive plugin."
 ---
 
 # Codex
 
-Add the hive to Codex's MCP config, install the plugin, and check that Codex can call NeoHive's tools.
+Add the Hive to Codex's MCP config, install the plugin, and check that Codex can call NeoHive's tools.
 
-**You need:** a running NeoHive with a hive, and the Codex CLI with plugin support.
+**You need:** a running NeoHive with a Hive, and the Codex CLI with plugin support.
 
 {% stepper %}
 {% step %}
 ## Add the MCP server
 
-Open the hive in the dashboard, go to **Install Instructions**, and pick **Codex**. Copy the block into `~/.codex/config.toml`, or into `.codex/config.toml` in your project to use it there only:
+Open the Hive in the dashboard, go to **Install Instructions**, and pick **Codex**. Copy the block into `~/.codex/config.toml`, or into `.codex/config.toml` in your project to use it there only:
 
 ```toml
 [mcp_servers.<name>]
@@ -42,14 +42,14 @@ The plugin adds a rules file that tells Codex when to call `memory_context`, `me
 {% step %}
 ## Run the setup skill
 
-Ask Codex to run the NeoHive `getting-started` skill. It checks the hive is reachable, offers to write a hive summary into your project's `AGENTS.md`, and can move existing rules files (`CLAUDE.md`, `AGENTS.md`, `.cursor/rules`, `.codex/rules`) into NeoHive.
+Ask Codex to run the NeoHive `getting-started` skill. It checks the Hive is reachable, offers to write a Hive summary into your project's `AGENTS.md`, and can move existing rules files (`CLAUDE.md`, `AGENTS.md`, `.cursor/rules`, `.codex/rules`) into NeoHive.
 {% endstep %}
 {% endstepper %}
 
 {% hint style="success" %}
-**Check:** Codex can reach the hive.
+**Check:** Codex can reach the Hive.
 
-Ask Codex: `List my NeoHive indexes.` It calls `list_indexes` and lists the hive's indexes. The dashboard's **Install Instructions** panel also marks **Codex** as connected.
+Ask Codex: `List my NeoHive Indexes.` It calls `list_indexes` and lists the Hive's Indexes. The dashboard's **Install Instructions** panel also marks **Codex** as connected.
 
 If the tool is missing, compare the `url` in your `config.toml` with the dashboard. Then see [Agent can't connect](../../troubleshooting/connection.md).
 {% endhint %}

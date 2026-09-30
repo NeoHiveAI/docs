@@ -12,7 +12,7 @@ Look up a NeoHive plugin command before you run it.
 | `/neohive:load-context` | Calls `memory_context` with your current task, so rules and related knowledge load before work starts. Run it at the start of a session or when you switch tasks. |
 | `/neohive:capture-session-learnings` | Reads the conversation and stores up to five new corrections, conventions, decisions, or gotchas, skipping ones NeoHive already has. Nothing runs it for you: run it before you close a session. |
 | `/neohive:migrate-memory` | Reads `CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, your rules folders, and any `CONVENTIONS*.md` or `CONTRIBUTING.md` under `docs/`, then imports the project-specific entries. It skips personal preferences and writes nothing until you confirm. |
-| `/neohive:generate-claude-md` | Surveys the indexes in your hive and writes a topology block into `./CLAUDE.md`: what each index holds and where new memories go. Re-run it after you add, remove, or rename an index. |
+| `/neohive:generate-claude-md` | Surveys the Indexes in your Hive and writes a topology block into `./CLAUDE.md`: what each Index holds and where new Memories go. Re-run it after you add, remove, or rename an Index. |
 | `/neohive:design-codebase-docs` | Agrees a documentation standard for your codebase with you, saves it to NeoHive, and writes two or three sample pages. It does not write the full doc set. |
 | `/neohive:enable-smart-prompts` | Installs a prompt hook that asks a small model (Haiku by default) to turn your prompt into a `memory_recall` query, then adds only the best results. It replaces the default hook, which sends your prompt as written. The hook needs `ANTHROPIC_API_KEY` and the `claude` CLI, and does nothing without them. |
 

@@ -21,7 +21,7 @@
   <line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>
   <rect x="40" y="118" width="440" height="84" rx="10" fill="#FFFFFF" stroke="#A78BFA" stroke-width="1.5"/>
   <text x="60" y="148" class="lbl" fill="#7C3AED">QUESTION 1</text>
-  <text x="60" y="174" class="title">Has another hive already indexed it?</text>
+  <text x="60" y="174" class="title">Has another Hive already indexed it?</text>
   <line x1="480" y1="160" x2="574" y2="160" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
   <text x="527" y="152" class="muted" text-anchor="middle">yes</text>
   <rect x="580" y="118" width="380" height="84" rx="10" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.5"/>
@@ -59,6 +59,6 @@
   <text x="527" y="476" class="muted" text-anchor="middle">yes</text>
   <rect x="580" y="442" width="380" height="84" rx="10" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
   <text x="600" y="472" class="title">Knowledge</text>
-  <text x="600" y="492" class="body">Nothing to add. Every hive has</text>
+  <text x="600" y="492" class="body">Nothing to add. Every Hive has</text>
   <text x="600" y="509" class="body">one, and your agent writes to it.</text>
 </svg>

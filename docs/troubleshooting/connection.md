@@ -39,21 +39,21 @@ curl http://localhost:3577/health
 |---|---|---|
 | `"status":"ok"` | NeoHive is ready. | Go to the next check. |
 | `"status":"error"` | NeoHive could not finish starting, or its embedding engine cannot run. | Look up the `error` text in [Common errors](common-errors.md). |
-| `"status":"degraded"` | One hive failed its check. | On the dashboard home page, open that hive's menu and click **Restart**. |
+| `"status":"degraded"` | One Hive failed its check. | On the dashboard home page, open that Hive's menu and click **Restart**. |
 {% endstep %}
 
 {% step %}
-## Does the hive answer without your agent?
+## Does the Hive answer without your agent?
 
-Open **Playground** in the dashboard, choose your hive under **Hive**, set **Tool** to `list_indexes`, and click **Run**. A list of indexes means the hive works, so the fault is between it and your agent. An error means the hive itself is broken: click **Restart** on it, then run the check again.
+Open **Playground** in the dashboard, choose your Hive under **Hive**, set **Tool** to `list_indexes`, and click **Run**. A list of Indexes means the Hive works, so the fault is between it and your agent. An error means the Hive itself is broken: click **Restart** on it, then run the check again.
 {% endstep %}
 
 {% step %}
 ## Is the MCP endpoint right?
 
-Each hive has its own endpoint, `http://localhost:3577/hives/<hive-id>/mcp`. Open the hive in the dashboard, copy the endpoint from **Install Instructions**, and compare it with your agent's MCP config character by character.
+Each Hive has its own endpoint, `http://localhost:3577/hives/<hive-id>/mcp`. Open the Hive in the dashboard, copy the endpoint from **Install Instructions**, and compare it with your agent's MCP config character by character.
 
-A wrong hive id returns `Unknown Hive: <id>`. A wrong port or host returns a connection error. Once your agent reaches the hive, **Install Instructions** shows a `CONNECTED` count.
+A wrong Hive id returns `Unknown Hive: <id>`. A wrong port or host returns a connection error. Once your agent reaches the Hive, **Install Instructions** shows a `CONNECTED` count.
 {% endstep %}
 
 {% step %}
@@ -65,7 +65,7 @@ Ask your agent: `List my NeoHive indexes.` It calls `list_indexes` and answers. 
 
 ## Still stuck?
 
-Collect a diagnostics bundle and send it to `hello@neohive.ai` with what fails. The bundle holds logs and settings with secrets removed, never your memories, code, or databases.
+Collect a diagnostics bundle and send it to `hello@neohive.ai` with what fails. The bundle holds logs and settings with secrets removed, never your Memories, code, or databases.
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/logs.sh | bash

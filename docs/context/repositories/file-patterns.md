@@ -4,7 +4,7 @@ description: "Choose which files in a repository get indexed, using the Allowlis
 
 # Choose which files are included
 
-Set an **Allowlist** and a **Blocklist** so the index holds the files that answer questions, not build output and fixtures.
+Set an **Allowlist** and a **Blocklist** so the Index holds the files that answer questions, not build output and fixtures.
 
 <figure><img src="../../.gitbook/assets/context-file-patterns.svg" alt="Every file on the branch passes three filters in order. First the built-in skip list, which always removes binaries, images, lock files and folders such as node_modules and dist. Then the Allowlist: when it has patterns, only matching files go on. Then the Blocklist, which removes matching files even if the Allowlist let them through. What is left is indexed."><figcaption></figcaption></figure>
 
@@ -15,7 +15,7 @@ Set an **Allowlist** and a **Blocklist** so the index holds the files that answe
 | Index a normal repository but drop generated code, fixtures, or snapshots | **Blocklist** only |
 | Index one slice, such as `src/**` and `docs/**` | **Allowlist** only |
 | Index a slice but leave out its tests | Both |
-| Keep a Documentation index to docs | **Allowlist** with `**/*.md` |
+| Keep a Documentation Index to docs | **Allowlist** with `**/*.md` |
 
 A typical Blocklist:
 
@@ -25,7 +25,7 @@ A typical Blocklist:
 docs/generated/**
 ```
 
-Patterns use the same glob style as `.gitignore`, one per line. [File pattern syntax](../../reference/file-patterns.md) covers wildcards, braces, and more examples.
+Write one glob pattern per line. Each pattern matches the file's path from the repository root, and a single `*` does not cross a `/`, so write `**/*.snap` rather than `*.snap`. [File pattern syntax](../../reference/file-patterns.md) covers wildcards, braces, and more examples.
 
 ## Set the patterns
 
@@ -33,7 +33,7 @@ Patterns use the same glob style as `.gitignore`, one per line. [File pattern sy
 {% step %}
 ## Open the filters
 
-Open the index, choose the **Sync Settings** tab, and find **File filters** under **Configuration**.
+Open the Index, choose the **Sync Settings** tab, and find **File filters** under **Configuration**.
 {% endstep %}
 
 {% step %}
@@ -50,7 +50,7 @@ Click **Save settings**, then **Trigger sync** at the top of the page. After a p
 {% endstepper %}
 
 {% hint style="warning" %}
-A new Blocklist pattern stops files from being indexed. It does not remove files the index already holds. Set the patterns early, before the index fills with files you do not want.
+A new Blocklist pattern stops files from being indexed. It does not remove files the Index already holds. Set the patterns early, before the Index fills with files you do not want.
 {% endhint %}
 
 If your agent cannot find a file, check both lists first: the file may be filtered out.

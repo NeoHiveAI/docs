@@ -1,10 +1,10 @@
 ---
-description: "Connect Claude Desktop, any other MCP app, or an agent with no NeoHive plugin to a hive."
+description: "Connect Claude Desktop, any other MCP app, or an agent with no NeoHive plugin to a Hive."
 ---
 
 # Claude Desktop and other MCP apps
 
-Point any MCP app at the hive's MCP endpoint. Apps that only run local commands reach it through `mcp-remote`, a small Node.js program that forwards to the endpoint.
+Point any MCP app at the Hive's MCP endpoint. Apps that only run local commands reach it through `mcp-remote`, a small Node.js program that forwards to the endpoint.
 
 | The app connects by | Examples | What you add |
 |---|---|---|
@@ -14,7 +14,7 @@ Point any MCP app at the hive's MCP endpoint. Apps that only run local commands 
 
 {% tabs %}
 {% tab title="Claude Desktop" %}
-Open the hive in the dashboard, go to **Install Instructions**, and pick **Claude Desktop**. In Claude Desktop, open **Settings**, then **Developer**, then **Edit Config**, and paste the JSON into `claude_desktop_config.json`:
+Open the Hive in the dashboard, go to **Install Instructions**, and pick **Claude Desktop**. In Claude Desktop, open **Settings**, then **Developer**, then **Edit Config**, and paste the JSON into `claude_desktop_config.json`:
 
 ```json
 {
@@ -64,7 +64,7 @@ Adapt the NeoHive plugin in this repository for my agent (<name your agent>).
 
 NeoHive is a local memory server that agents reach over MCP. The adapted plugin should:
 
-1. Register NeoHive's MCP endpoint (http://localhost:3577/hives/<hive-id>/mcp, from the hive's Install Instructions panel in the NeoHive dashboard). If the agent cannot use an HTTP endpoint, wrap it with the mcp-remote npm package.
+1. Register NeoHive's MCP endpoint (http://localhost:3577/hives/<hive-id>/mcp, from the Hive's Install Instructions panel in the NeoHive dashboard). If the agent cannot use an HTTP endpoint, wrap it with the mcp-remote npm package.
 2. Add rules telling the agent to call memory_context and memory_recall before exploring the codebase, and memory_store to save conventions, decisions, and lessons.
 3. Use whatever session hooks the agent supports to load context at the start of a session and save learnings at the end.
 
@@ -76,9 +76,9 @@ Want a plugin for your agent? Tell us at `hello@neohive.ai`.
 {% endtabs %}
 
 {% hint style="success" %}
-**Check:** the app can reach the hive.
+**Check:** the app can reach the Hive.
 
-Ask the app: `List my NeoHive indexes.` It calls `list_indexes` and lists the hive's indexes.
+Ask the app: `List my NeoHive Indexes.` It calls `list_indexes` and lists the Hive's Indexes.
 
 If the tool is missing, read the app's MCP log. Claude Desktop writes `mcp*.log` files to `~/Library/Logs/Claude/` on macOS and `%APPDATA%\Claude\logs\` on Windows. Then see [Agent can't connect](../../troubleshooting/connection.md).
 {% endhint %}

@@ -12,12 +12,12 @@ Everything NeoHive stores lives in the `neohive-data` Docker volume. The `backup
 
 | In the archive | Not in the archive |
 |---|---|
-| Every database: hives, indexes, memories, connections, sync history | The cached license key in `~/.cache/neohive` |
-| Every vector index, plus the local copies of your synced repositories | The license-seat file `machine-id` |
+| Every database: Hives, Indexes, Memories, connections, sync history | The cached license key in `~/.cache/neohive` |
+| Every vector Index, plus the local copies of your synced repositories | The license-seat file `machine-id` |
 | The keys that encrypt your saved GitHub and GitLab credentials | Apple Silicon models in `~/.neohive/models` |
 
 {% hint style="danger" %}
-A backup holds your memories, your indexed code, and the keys to your saved credentials. Store it like other private data, and never commit it to a repository.
+A backup holds your Memories, your indexed code, and the keys to your saved credentials. Store it like other private data, and never commit it to a repository.
 {% endhint %}
 
 ## Take a backup
@@ -51,7 +51,7 @@ curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/backup.sh \
 Type `neohive-data` when asked. `--yes` skips that question, for scripts only.
 
 {% hint style="success" %}
-**Check:** the script ends with **Restore complete.** Open `http://localhost:3577` and your hives are back.
+**Check:** the script ends with **Restore complete.** Open `http://localhost:3577` and your Hives are back.
 {% endhint %}
 
 ## Move to a new machine

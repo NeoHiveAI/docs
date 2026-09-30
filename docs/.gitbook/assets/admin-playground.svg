@@ -69,8 +69,8 @@
   <text x="194" y="260.5" font-size="12" font-weight="700" text-anchor="middle" fill="#FFFFFF">5</text>
   <circle cx="730" cy="150" r="11" fill="#7C3AED"/>
   <text x="730" y="154.5" font-size="12" font-weight="700" text-anchor="middle" fill="#FFFFFF">1</text>
-  <text x="750" y="148" class="body" style="fill:#1A1A2E" font-size="12.5">Pick the hive and, if you want,</text>
-  <text x="750" y="164" class="body" style="fill:#1A1A2E" font-size="12.5">one of its indexes</text>
+  <text x="750" y="148" class="body" style="fill:#1A1A2E" font-size="12.5">Pick the Hive and, if you want,</text>
+  <text x="750" y="164" class="body" style="fill:#1A1A2E" font-size="12.5">one of its Indexes</text>
   <circle cx="730" cy="224" r="11" fill="#7C3AED"/>
   <text x="730" y="228.5" font-size="12" font-weight="700" text-anchor="middle" fill="#FFFFFF">2</text>
   <text x="750" y="222" class="body" style="fill:#1A1A2E" font-size="12.5">Pick one of four</text>

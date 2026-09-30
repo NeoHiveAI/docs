@@ -17,7 +17,7 @@
 ## Core Concepts
 
 * [How NeoHive works](concepts/how-it-works.md)
-* [Hives, indexes and memories](concepts/hives-indexes-memories.md)
+* [Hives, Indexes and Memories](concepts/hives-indexes-memories.md)
 * [How retrieval works](concepts/retrieval.md)
 * [Glossary](concepts/glossary.md)
 
@@ -46,7 +46,7 @@
 ## Administration
 
 * [Dashboard tour](admin/dashboard.md)
-* [Manage hives and indexes](admin/manage.md)
+* [Manage Hives and Indexes](admin/manage.md)
 * [Data sources and credentials](admin/data-sources.md)
 * [Access and sharing](admin/access.md)
 * [Test queries in the Playground](admin/playground.md)

@@ -34,7 +34,7 @@
   <rect x="720" y="170" width="240" height="110" rx="10" fill="#FFFFFF" stroke="#1A1A2E" stroke-width="1"/>
   <text x="736" y="192" class="lbl" fill="#1A1A2E">DELETED</text>
   <text x="736" y="214" class="title">Gone for good</text>
-  <text x="736" y="233" class="body">Memories, indexes, sync</text>
+  <text x="736" y="233" class="body">Memories, Indexes, sync</text>
   <text x="736" y="249" class="body">history and settings removed.</text>
   <path d="M280 200 L376 200" fill="none" stroke="#B45309" stroke-width="2" marker-end="url(#ara)"/>
   <text x="328" y="191" class="al" text-anchor="middle" style="fill:#B45309">Archive</text>
@@ -45,7 +45,7 @@
   <text x="668" y="246" class="al" text-anchor="middle" style="fill:#1A1A2E">or Delete</text>
   <text x="668" y="260" class="al" text-anchor="middle" style="fill:#1A1A2E">Permanently</text>
   <path d="M160 170 C160 118, 840 118, 840 166" fill="none" stroke="#1A1A2E" stroke-width="2" marker-end="url(#ari)"/>
-  <text x="500" y="124" class="al" text-anchor="middle" style="fill:#1A1A2E">Delete, then type the hive name</text>
+  <text x="500" y="124" class="al" text-anchor="middle" style="fill:#1A1A2E">Delete, then type the Hive name</text>
   <rect x="40" y="312" width="920" height="52" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
   <text x="58" y="343" class="body" font-size="12.5">Indexes have no archive. Move Index… and Share Index… keep the data; Delete Index removes it at once.</text>
 </svg>

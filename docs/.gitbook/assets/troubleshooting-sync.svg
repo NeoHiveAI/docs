@@ -73,5 +73,5 @@
   <rect x="40" y="604" width="520" height="56" rx="12" fill="#FFFFFF" stroke="#99E6DC"/>
   <rect x="40" y="604" width="3.5" height="56" rx="1.75" fill="#0D9488"/>
   <text x="64" y="628" class="lbl" fill="#0D9488">DONE</text>
-  <text x="64" y="648" class="title">The index matches the repository</text>
+  <text x="64" y="648" class="title">The Index matches the repository</text>
 </svg>

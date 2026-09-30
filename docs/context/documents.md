@@ -1,26 +1,26 @@
 ---
-description: "Upload markdown, text, and PDF files to a Files index so your agent can recall them alongside your code."
+description: "Upload markdown, text, and PDF files to a Files Index so your agent can recall them alongside your code."
 ---
 
 # Add documents and PDFs
 
-Create a Files index, drop your documents in, and your agent recalls them the same way it recalls code.
+Create a Files Index, drop your documents in, and your agent recalls them the same way it recalls code.
 
-<figure><img src="../.gitbook/assets/context-documents.svg" alt="You upload a .md, .markdown, .txt or .pdf file of up to 10 MB. A PDF is first converted to text, which takes longer. The Files index splits the text into sections, markdown at its headings, and embeds each one. Your agent's memory_recall gets back the section that answers the question."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/context-documents.svg" alt="You upload a .md, .markdown, .txt or .pdf file of up to 10 MB. A PDF is first converted to text, which takes longer. The Files Index splits the text into sections, markdown at its headings, and embeds each one. Your agent's memory_recall gets back the section that answers the question."><figcaption></figcaption></figure>
 
-Use a Files index for specs, runbooks, design docs, meeting notes, or an exported notes vault. For markdown that already lives in a repository, add a Documentation index instead so it stays in sync; see [What to add, and where](what-to-add.md).
+Use a Files Index for specs, runbooks, design docs, meeting notes, or an exported notes vault. For markdown that already lives in a repository, add a Documentation Index instead so it stays in sync; see [What to add, and where](what-to-add.md).
 
 {% stepper %}
 {% step %}
-## Create the index
+## Create the Index
 
-Open your hive at `http://localhost:3577`, click **+** next to **Indexes**, and choose **File Upload**.
+Open your Hive at `http://localhost:3577`, click **+** next to **Indexes**, and choose **File Upload**.
 {% endstep %}
 
 {% step %}
 ## Add files
 
-Drag files onto the **Files** drop zone, up to 20 at a time. They upload once the index exists. You can also skip this and upload later.
+Drag files onto the **Files** drop zone, up to 20 at a time. They upload once the Index exists. You can also skip this and upload later.
 
 Accepted: `.md`, `.markdown`, `.txt`, and `.pdf`, up to 10 MB each. See [Supported file types](../reference/file-types.md).
 {% endstep %}
@@ -36,9 +36,9 @@ Each file is searchable as soon as it finishes processing. Then set a **Descript
 
 ## Manage files later
 
-Open the index and choose its **Files** tab. Drop more files on it at any time; the tab shows which file is processing and how far along it is. Deleting a file removes its content from the index.
+Open the Index and choose its **Files** tab. Drop more files on it at any time; the tab shows which file is processing and how far along it is. Deleting a file removes its content from the Index.
 
-A file with the same name as one already in the index is skipped with a warning. To replace a document, delete the old file first, then upload the new one.
+A file with the same name as one already in the Index is skipped with a warning. To replace a document, delete the old file first, then upload the new one.
 
 {% hint style="info" %}
 Moving an Obsidian or similar notes vault? Export it as markdown and upload the files.

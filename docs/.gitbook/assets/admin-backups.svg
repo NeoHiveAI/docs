@@ -25,7 +25,7 @@
   <rect x="40" y="136" width="280" height="90" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
   <text x="56" y="158" class="lbl" fill="#0D9488">VOLUME</text>
   <text x="56" y="180" class="title">neohive-data</text>
-  <text x="56" y="199" class="body">Hives, indexes, memories, keys</text>
+  <text x="56" y="199" class="body">Hives, Indexes, Memories, keys</text>
   <rect x="470" y="136" width="490" height="90" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
   <text x="486" y="158" class="lbl" fill="#0D9488">ARCHIVE</text>
   <text x="486" y="180" class="title">neohive-backup-&lt;timestamp&gt;.tar.gz</text>

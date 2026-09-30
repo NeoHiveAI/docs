@@ -1,18 +1,18 @@
 ---
-description: "Connect Cursor to a hive and install the NeoHive plugin."
+description: "Connect Cursor to a Hive and install the NeoHive plugin."
 ---
 
 # Cursor
 
-Add the hive to Cursor's MCP config, install the plugin, and check that Cursor can call NeoHive's tools.
+Add the Hive to Cursor's MCP config, install the plugin, and check that Cursor can call NeoHive's tools.
 
-**You need:** a running NeoHive with a hive, Cursor, and `git`.
+**You need:** a running NeoHive with a Hive, Cursor, and `git`.
 
 {% stepper %}
 {% step %}
 ## Add the MCP server
 
-Open the hive in the dashboard, go to **Install Instructions**, and pick **Cursor**. Copy the JSON into `.cursor/mcp.json` in your project, or into `~/.cursor/mcp.json` to use the hive in every project:
+Open the Hive in the dashboard, go to **Install Instructions**, and pick **Cursor**. Copy the JSON into `.cursor/mcp.json` in your project, or into `~/.cursor/mcp.json` to use the Hive in every project:
 
 ```json
 {
@@ -47,14 +47,14 @@ Restart Cursor. The plugin adds an always-on rule, `rules/neohive.mdc`, that tel
 {% step %}
 ## Run the setup skill
 
-Ask Cursor to run the `getting-started` skill. It checks the hive is reachable, offers to write a hive summary rule to `.cursor/rules/neohive-topology.mdc`, and can move existing rules files (`CLAUDE.md`, `AGENTS.md`, `.cursor/rules`, and similar) into NeoHive.
+Ask Cursor to run the `getting-started` skill. It checks the Hive is reachable, offers to write a Hive summary rule to `.cursor/rules/neohive-topology.mdc`, and can move existing rules files (`CLAUDE.md`, `AGENTS.md`, `.cursor/rules`, and similar) into NeoHive.
 {% endstep %}
 {% endstepper %}
 
 {% hint style="success" %}
-**Check:** Cursor can reach the hive.
+**Check:** Cursor can reach the Hive.
 
-Ask Cursor: `List my NeoHive indexes.` It calls `list_indexes` and lists the hive's indexes. The dashboard's **Install Instructions** panel also marks **Cursor** as connected.
+Ask Cursor: `List my NeoHive Indexes.` It calls `list_indexes` and lists the Hive's Indexes. The dashboard's **Install Instructions** panel also marks **Cursor** as connected.
 
 If the tool is missing, compare the `url` in your `mcp.json` with the dashboard. Then see [Agent can't connect](../../troubleshooting/connection.md).
 {% endhint %}

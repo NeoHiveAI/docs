@@ -6,13 +6,18 @@ description: "The shortest path from nothing to a coding agent that answers from
 
 One path, no options: NeoHive, one GitHub repository, and Claude Code. For checks after each step and other agents, use [Install NeoHive](install.md).
 
-**You need:** Docker running on Linux, macOS, or WSL2, your NeoHive license file, Claude Code, and a GitHub personal access token with `repo` scope.
+**You need:**
+
+* Docker 20 or later, running on Linux, macOS, or Windows with WSL2.
+* Your NeoHive license file (`license.key` or `license.json`).
+* Claude Code.
+* A GitHub personal access token with `repo` scope.
 
 {% stepper %}
 {% step %}
 ## Install NeoHive
 
-Run the installer. When it asks, enter the path to your license file.
+Run the installer from the folder that holds your license file. If the installer cannot find the file, it asks for the path.
 
 ```bash
 bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
@@ -20,24 +25,33 @@ bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/insta
 {% endstep %}
 
 {% step %}
-## Create a hive with your repository
+## Create a Hive with your repository
 
 Open `http://localhost:3577`. Click **I Understand** on the license, then **Get Started** and **Start setup**.
 
-Type a hive name and click **Continue**. Pick **GitHub**, paste your token, click **Fetch repositories**, choose your repository, and click **Continue**. Indexing starts in the background.
+1. Under **Hive name**, type a name and click **Continue**.
+2. Under **Where does your data live?**, pick **GitHub** and keep **Code** selected.
+3. Paste your token and click **Fetch repositories**.
+4. Choose your repository and click **Continue**.
+
+Indexing starts in the background.
 {% endstep %}
 
 {% step %}
 ## Connect Claude Code
 
-Setup now shows **Install for your AI tools** with **Claude** selected. Copy the command it shows and run it in your terminal.
+Setup now shows **Install for your AI tools** with **Claude** selected.
 
-Start Claude Code in your repository. When setup shows **Connected**, click **Open** with your hive's name. Then install the plugin inside Claude Code:
+1. Copy the command it shows and add `--scope user` directly after the quoted Hive URL. Run it in your terminal. Without `--scope user`, the plugin's automatic recall cannot find the Hive.
+2. Start Claude Code in your repository.
+3. When setup shows **Connected**, click **Open** followed by your Hive's name.
+4. Inside Claude Code, install the plugin and run its setup:
 
 ```text
 /plugin marketplace add NeoHiveAI/NeoHiveClaude
 /plugin install neohive@neohive-claude
 /reload-plugins
+/neohive:getting-started
 ```
 {% endstep %}
 

@@ -1,5 +1,5 @@
 ---
-description: "Every memory type NeoHive accepts, what each is for, and which ones load at the start of a task."
+description: "Every Memory type NeoHive accepts, what each is for, and which ones load at the start of a task."
 ---
 
 # Memory types
@@ -28,7 +28,7 @@ Your agent picks the type for you in most cases. The first five cover almost eve
 
 ## Importance
 
-Every memory also has an importance from `1` (trivial) to `10` (critical). `memory_store` defaults to `5`. Higher importance helps a memory rank higher, so keep `8` and above for rules that must not be missed.
+Every Memory also has an importance from `1` (trivial) to `10` (critical). `memory_store` defaults to `5`. Higher importance helps a Memory rank higher, so keep `8` and above for rules that must not be missed.
 
 {% hint style="info" %}
 When NeoHive indexes a file, it picks a type and importance for each piece from its wording. A piece with words like "always", "never", "must", "prefer", or "avoid" becomes a `directive` with importance `8` or more. That is why a stray "never" in a README can show up as a rule.

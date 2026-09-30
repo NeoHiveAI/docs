@@ -6,15 +6,15 @@ description: "Setups that raise no error but make recall worse, and how to fix e
 
 Nothing on this page shows an error message. Each mistake leaves NeoHive working, but returning weaker answers.
 
-<figure><img src="../.gitbook/assets/results-common-mistakes.svg" alt="Three before and after pairs. Index description: Backend, versus Payments service: refunds, invoicing, and the Stripe webhook handlers. Hive layout: one hive holding the payments service and an unrelated mobile app, versus one hive per product with an index shared into another hive when needed. A fact changes: stating the new fact while the old memory stays active, versus saying that's out of date, update it."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/results-common-mistakes.svg" alt="Three before and after pairs. Index description: Backend, versus Payments service: refunds, invoicing, and the Stripe webhook handlers. Hive layout: one Hive holding the payments service and an unrelated mobile app, versus one Hive per product with an Index shared into another Hive when needed. A fact changes: stating the new fact while the old Memory stays active, versus saying that's out of date, update it."><figcaption></figcaption></figure>
 
 | Mistake | What you notice | Fix |
 |---|---|---|
-| **Index with an empty or vague description** | Your agent searches the wrong index, or every index, when you ask about one area | On the index page, fill in **Description** under **Index settings**. Your agent reads it in `list_indexes` |
-| **Unrelated codebases in one hive** | Answers mix in code and conventions from another project | Give each product its own hive. To reuse an index elsewhere, add it to the other hive as a **Shared Index** |
+| **Index with an empty or vague description** | Your agent searches the wrong Index, or every Index, when you ask about one area | On the Index page, fill in **Description** under **Index settings**. Your agent reads it in `list_indexes` |
+| **Unrelated codebases in one Hive** | Answers mix in code and conventions from another project | Give each product its own Hive. To reuse an Index elsewhere, add it to the other Hive as a **Shared Index** |
 | **Indexing everything the defaults allow** | Generated code, snapshot fixtures and CSV or JSON data crowd out your source | Set an **Allowlist** for the folders you work in and a **Blocklist** for what to leave out inside them |
 | **Never correcting the agent** | The same wrong suggestion comes back session after session | Say what is right, and why, when it happens |
-| **Stating a new fact without retiring the old one** | Your agent quotes the old rule as often as the new one | Say "that's out of date" so it retires the old memory |
+| **Stating a new fact without retiring the old one** | Your agent quotes the old rule as often as the new one | Say "that's out of date" so it retires the old Memory |
 | **One session across unrelated tasks** | Loaded context fits the task you started with, not the one you are on | Start a new session or run `/neohive:load-context` with the new task |
 | **Skipping the end-of-session capture** | Decisions from long sessions never come back | Run `/neohive:capture-session-learnings` before you close |
 | **Wrong MCP server name or scope** | In Claude Code, prompts stop pulling in context on their own; tool calls still work | Keep `neohive` in the server name, and add it with `--scope user` or `--scope project`. See [What the plugin does automatically](plugin-automation.md) |

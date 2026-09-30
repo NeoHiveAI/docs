@@ -30,7 +30,7 @@
   <!-- 2 POST -->
   <rect x="230" y="124" width="160" height="128" rx="12" fill="#FFFFFF" stroke="#E5E5E5"/>
   <text x="248" y="150" class="lbl" fill="#7C3AED">2 · REQUEST</text>
-  <text x="248" y="174" class="title">POST to the hive</text>
+  <text x="248" y="174" class="title">POST to the Hive</text>
   <text x="248" y="196" class="code">/hives/&lt;hive-id&gt;/</text>
   <text x="248" y="214" class="code">webhook/refresh</text>
   <text x="248" y="234" class="body">at most 100 KB</text>
@@ -46,16 +46,16 @@
   <!-- 4 Match -->
   <rect x="610" y="124" width="160" height="128" rx="12" fill="#FFFFFF" stroke="#E5E5E5"/>
   <text x="628" y="150" class="lbl" fill="#7C3AED">4 · NEOHIVE</text>
-  <text x="628" y="174" class="title">Find the indexes</text>
-  <text x="628" y="196" class="body">Every index in the</text>
-  <text x="628" y="214" class="body">hive that syncs the</text>
+  <text x="628" y="174" class="title">Find the Indexes</text>
+  <text x="628" y="196" class="body">Every Index in the</text>
+  <text x="628" y="214" class="body">Hive that syncs the</text>
   <text x="628" y="232" class="body">exact <tspan class="code">repo</tspan> URL</text>
 
   <!-- 5 Update -->
   <rect x="800" y="124" width="160" height="128" rx="12" fill="#FFFFFF" stroke="#99E6DC"/>
   <rect x="800" y="124" width="3.5" height="128" rx="1.75" fill="#0D9488"/>
   <text x="818" y="150" class="lbl" fill="#0D9488">5 · PER FILE</text>
-  <text x="818" y="174" class="title">Update the index</text>
+  <text x="818" y="174" class="title">Update the Index</text>
   <text x="818" y="196" class="body">Remove the path's old</text>
   <text x="818" y="214" class="body">content, then index</text>
   <text x="818" y="232" class="body">the new content</text>

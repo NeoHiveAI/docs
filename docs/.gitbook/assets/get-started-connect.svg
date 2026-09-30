@@ -40,7 +40,7 @@
   <!-- Hive -->
   <rect x="580" y="116" width="380" height="270" rx="12" fill="#FFFFFF" stroke="#E5E5E5"/>
   <text x="602" y="144" class="lbl" fill="#7C3AED">NEOHIVE ON YOUR MACHINE</text>
-  <text x="602" y="168" class="title">One hive</text>
+  <text x="602" y="168" class="title">One Hive</text>
   <text x="602" y="188" class="mono" font-size="12" fill="#6D28D9">http://localhost:3577/hives/&lt;hive-id&gt;/mcp</text>
 
   <rect x="602" y="212" width="160" height="44" rx="8" fill="#FFFFFF" stroke="#C4B5FD"/>
@@ -51,5 +51,5 @@
   <text x="682" y="295" font-size="13.5" font-weight="600" text-anchor="middle" fill="#1A1A2E">Files</text>
   <rect x="778" y="268" width="160" height="44" rx="8" fill="#FFFFFF" stroke="#C4B5FD"/>
   <text x="858" y="295" font-size="13.5" font-weight="600" text-anchor="middle" fill="#1A1A2E">Knowledge</text>
-  <text x="602" y="350" font-size="12" fill="#737373">The endpoint reaches every index in the hive.</text>
+  <text x="602" y="350" font-size="12" fill="#737373">The endpoint reaches every Index in the Hive.</text>
 </svg>

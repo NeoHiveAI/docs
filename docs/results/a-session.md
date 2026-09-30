@@ -4,7 +4,7 @@ description: "What happens at each stage of a working session with NeoHive, from
 
 # A session, start to finish
 
-A session has four stages. In Claude Code the first two run on their own; the last two are yours.
+A session has four stages. In Claude Code, the first two run on their own. The last two are yours.
 
 <figure><img src="../.gitbook/assets/results-a-session.svg" alt="One session in four stages: start calls memory_context, work calls memory_recall, teach calls memory_store, and capture runs capture-session-learnings before you close."><figcaption></figcaption></figure>
 
@@ -12,29 +12,27 @@ A session has four stages. In Claude Code the first two run on their own; the la
 {% step %}
 ## Start: load context for the task
 
-When the session opens, the plugin reminds your agent to call `memory_context` with your task. It returns your team's rules and conventions, plus the memories that fit the task.
+When the session opens, the plugin's rules tell your agent to call `memory_context` with your task. It returns your team's rules and conventions, plus the Memories that fit the task.
 
-To load it yourself, or to reload after you switch task, run:
+To load context yourself, or to reload it after you switch task, run:
 
 ```text
 /neohive:load-context fixing the retry logic in the billing webhook handler
 ```
 
-With no text after the command, your agent describes the task from the conversation so far, or asks you.
+With no text after the command, your agent describes the task from the conversation, or asks you.
 {% endstep %}
 
 {% step %}
 ## Work: your agent pulls what it needs
 
-Each prompt you send is also used as a recall query. The plugin adds the best matches to your agent's context before it answers. Prompts under 10 characters and slash commands are skipped.
-
-Your agent also calls `memory_recall` when it needs something specific. These calls in the transcript are normal. [What the plugin does automatically](plugin-automation.md) lists every trigger.
+The plugin uses each prompt you send as a recall query and adds the best matches to your agent's context. Your agent also calls `memory_recall` when it needs something specific. [What the plugin does automatically](plugin-automation.md) lists every trigger.
 {% endstep %}
 
 {% step %}
 ## Teach: correct it and tell it to remember
 
-When your agent is wrong, give the right answer and the reason. Your agent stores it with `memory_store`, and everyone on the hive gets it in later sessions.
+When your agent is wrong, give the right answer and the reason. Your agent stores it with `memory_store`, and everyone on the Hive gets it in later sessions.
 
 ```text
 Remember that the payments API requires idempotency keys on every POST request.
@@ -50,25 +48,25 @@ Before you close the session, run:
 /neohive:capture-session-learnings
 ```
 
-Your agent reviews the conversation for corrections, conventions, decisions and gotchas. It skips anything the hive already knows and stores up to five new memories.
+Your agent reviews the conversation for corrections, conventions, decisions and gotchas. It skips what the Hive already knows and stores up to five new Memories.
 
 {% hint style="warning" %}
-No hook runs this for you. Close the session without it and only the memories your agent stored during the session are kept.
+No hook runs the capture for you. If you close the session without it, only the Memories your agent stored during the session are kept.
 {% endhint %}
 
-<details>
-
-<summary>Optional: other changes the capture skill can make</summary>
-
-If the session showed your agent using memory badly, for example never loading context at the start, the skill can add one instruction to the memory section of `~/CLAUDE.md`. It edits that section only and never rewrites the file.
-
-</details>
+If the session showed your agent using memory badly, for example never loading context, the skill can also add one instruction to your agent's instructions file. It edits only the memory section.
 {% endstep %}
 {% endstepper %}
 
 ## In Codex and Cursor
 
-These agents have no plugin hooks, so nothing runs per prompt or at session start. Their plugins add a rule that tells your agent to call `memory_context` first and to check memory before searching files. The `load-context` and `capture-session-learnings` skills ship with both, so ask your agent to run them by name.
+These plugins have no hooks, so nothing runs on its own. Their rules file tells your agent to call `memory_context` first. Ask your agent to run the skills by name, for example `Run the load-context skill`.
+
+| Agent | Start | Capture | Capture may edit |
+|---|---|---|---|
+| Claude Code | Automatic, or `/neohive:load-context` | `/neohive:capture-session-learnings` | `~/CLAUDE.md` |
+| Codex | Rules file, or the `load-context` skill | The `capture-session-learnings` skill | `~/AGENTS.md` or `~/.codex/AGENTS.md` |
+| Cursor | Rules file, or the `load-context` skill | The `capture-session-learnings` skill | Your `.cursor/rules/*.mdc` files |
 
 ## Next step
 

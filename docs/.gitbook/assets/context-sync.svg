@@ -45,5 +45,5 @@
   <rect x="473.16666666666663" y="290" width="240" height="50" rx="10" fill="#F0FDFA" stroke="#0D9488" stroke-width="1"/>
   <text x="593.1666666666666" y="311" class="item" text-anchor="middle" font-weight="700">CI calls the webhook after a merge</text>
   <text x="593.1666666666666" y="329" class="muted" text-anchor="middle">sends only the changed files</text>
-  <text x="40" y="380" class="muted">Only one sync runs per index at a time. Each one processes only what changed.</text>
+  <text x="40" y="380" class="muted">Only one sync runs per Index at a time. Each one processes only what changed.</text>
 </svg>
