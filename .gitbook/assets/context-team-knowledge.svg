@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1000" height="430" viewBox="0 0 1000 430" font-family="'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap');
+    .mono { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .lbl { font-size: 10.5px; font-weight: 700; letter-spacing: 1.1px; }
+    .body { font-size: 12.5px; fill: #4A4458; }
+    .title { font-size: 15px; font-weight: 700; fill: #1A1A2E; }
+    .item { font-size: 12px; fill: #1A1A2E; }
+    .muted { font-size: 11.5px; fill: #737373; }
+  </style>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#7C3AED"/></marker>
+    <marker id="arrT" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#0D9488"/></marker>
+    <marker id="arrM" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#A3A3A3"/></marker>
+  </defs>
+
+  <rect width="1000" height="430" fill="#FAF9FD"/>
+  <!-- Logo paths copied verbatim from refactor-docs-install-page.svg. -->
+  <g transform="translate(40,26) scale(0.0793)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
+  <text x="88" y="52" font-size="24" font-weight="800" letter-spacing="-0.5" fill="#1A1A2E">One hive, one Knowledge index</text>
+  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#6D28D9">WHAT ONE AGENT STORES, EVERY AGENT ON THE HIVE CAN RECALL</text>
+  <line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>
+  <rect x="40" y="150" width="250" height="140" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="56" y="174" class="lbl" fill="#7C3AED">ANA, MONDAY</text>
+  <text x="56" y="196" class="title">Corrects her agent</text>
+  <text x="56" y="216" class="body">"No, we use Redis for sessions."</text>
+  <text x="56" y="233" class="body">Her agent calls memory_store.</text>
+  <rect x="375" y="150" width="250" height="140" rx="10" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+  <text x="391" y="174" class="lbl" fill="#0D9488">KNOWLEDGE INDEX</text>
+  <text x="391" y="196" class="item mono" fill="#0D9488">decision</text>
+  <text x="391" y="216" class="title">Sessions are stored in Redis</text>
+  <text x="391" y="238" class="body">stored once, in this hive only</text>
+  <line x1="290" y1="220" x2="369" y2="220" stroke="#0D9488" stroke-width="2" marker-end="url(#arrT)"/>
+  <rect x="710" y="118" width="250" height="92" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="726" y="142" class="lbl" fill="#7C3AED">BEN, TUESDAY</text>
+  <text x="726" y="164" class="title">His agent recalls it</text>
+  <text x="726" y="184" class="body">while he edits the login code</text>
+  <rect x="710" y="230" width="250" height="92" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="726" y="254" class="lbl" fill="#7C3AED">NEW TEAMMATE, NEXT MONTH</text>
+  <text x="726" y="276" class="title">Recalls it on day one</text>
+  <text x="726" y="296" class="body">no rules file to copy</text>
+  <path d="M625 205 L680 205 L680 164 L704 164" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
+  <path d="M625 235 L680 235 L680 276 L704 276" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="40" y="380" class="muted">A different hive has its own Knowledge index and never sees this memory.</text>
+</svg>
