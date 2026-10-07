@@ -31,7 +31,7 @@ To share one instance with your team, do the following:
 {% step %}
 ## Install on a shared machine
 
-Choose a host that your team reaches over a trusted network, such as a company virtual private network (VPN). Note the host's address, for example `neohive.internal`.
+Choose a host that your team reaches over a trusted network, such as a company VPN. Note the host's address, for example `neohive.internal`.
 {% endstep %}
 
 {% step %}

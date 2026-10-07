@@ -6,7 +6,7 @@ description: "Add a GitHub or GitLab repository to a Code Index so your agent fi
 
 Connect a repository once, and your agent can find code by describing what the code does. NeoHive stores the code in a Code Index, which is one store of searchable context inside your Hive. A Hive is the workspace your agent connects to. For more terms, see the [NeoHive glossary](../../concepts/glossary.md). Scheduled syncs keep the Index up to date.
 
-<figure><img src="../../.gitbook/assets/context-repositories.svg" alt="NeoHive reads a GitHub or GitLab repository through a connection, which is a saved token or Secure Shell (SSH) key. NeoHive splits the code into functions and classes and stores them in a Code Index in a searchable form. Your agent finds the code with memory_recall. A sync runs every 4 hours, or when you select Trigger sync, and copies repository changes into the Index."><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/context-repositories.svg" alt="NeoHive reads a GitHub or GitLab repository through a connection, which is a saved token or SSH key. NeoHive splits the code into functions and classes and stores them in a Code Index in a searchable form. Your agent finds the code with memory_recall. A sync runs every 4 hours, or when you select Trigger sync, and copies repository changes into the Index."><figcaption></figcaption></figure>
 
 Your agent asks `how does the sync engine handle retries?` and gets back the functions that handle retries, even when those words never appear in the file. Code results come back in the same answer as your team's Memories, such as stored conventions and decisions.
 
@@ -21,7 +21,7 @@ Before you start, you need a Hive, read access to the repository, and a personal
 NeoHive copies the code and turns it into a searchable form on the machine that runs NeoHive. NeoHive never sends the code to an outside service. For details, see [What stays on your machine](../../security/local-only.md).
 
 {% hint style="info" %}
-The first sync reads every file. For a typical service, the first sync takes a few minutes. For a large monorepo (one repository that holds many projects), the first sync takes longer. Later syncs read only the files that changed. A graphics processing unit (GPU) makes indexing faster. For details, see [GPU and CPU](../../admin/gpu-cpu.md).
+The first sync reads every file. For a typical service, the first sync takes a few minutes. For a large monorepo (one repository that holds many projects), the first sync takes longer. Later syncs read only the files that changed. A GPU makes indexing faster. For details, see [GPU and CPU](../../admin/gpu-cpu.md).
 {% endhint %}
 
 ## Next step

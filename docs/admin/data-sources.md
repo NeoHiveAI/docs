@@ -10,11 +10,11 @@ A connection is a saved login that lets NeoHive read repositories from one accou
 
 To see your connections, open **Data Sources** at the bottom of the sidebar, or go to `http://localhost:3577/sources`.
 
-<figure><img src="../.gitbook/assets/admin-data-sources.svg" alt="A GitHub or GitLab account gives a token to a connection that you save on Data Sources. Each connection shows its credential type, personal access token (PAT) or Secure Shell (SSH) key. Each connection also shows its state: Valid, Invalid, or Unvalidated. Several Code and Documentation Indexes can sync through one connection. You choose the connection under Connection on each Index's Sync Settings tab. If you delete the connection, those Indexes keep their Memories and show a No connection badge, and they stop syncing."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/admin-data-sources.svg" alt="A GitHub or GitLab account gives a token to a connection that you save on Data Sources. Each connection shows its credential type, personal access token (PAT) or SSH key. Each connection also shows its state: Valid, Invalid, or Unvalidated. Several Code and Documentation Indexes can sync through one connection. You choose the connection under Connection on each Index's Sync Settings tab. If you delete the connection, those Indexes keep their Memories and show a No connection badge, and they stop syncing."><figcaption></figcaption></figure>
 
 | Service | Use it for | Credential |
 |---|---|---|
-| **GitHub** | Repositories on `github.com` | Personal access token (PAT) or Secure Shell (SSH) private key |
+| **GitHub** | Repositories on `github.com` | Personal access token (PAT) or SSH private key |
 | **GitLab** | Repositories on `gitlab.com` or your own GitLab server | Personal access token or SSH private key |
 | **Jira** | You cannot connect Jira. The card shows **Coming soon** | None |
 

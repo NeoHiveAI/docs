@@ -41,7 +41,7 @@ docker logs neohive --tail 50
 
 ## Schedule
 
-Each Index syncs on the **Sync interval** set on its **Sync Settings** tab. The interval ranges from **Every 15 minutes** to **Daily**. A repository added from the dashboard starts at **Every 4 hours**. To sync now, select **Trigger sync**, or call the [webhook refresh endpoint](../reference/webhooks.md) from your continuous integration (CI) system.
+Each Index syncs on the **Sync interval** set on its **Sync Settings** tab. The interval ranges from **Every 15 minutes** to **Daily**. A repository added from the dashboard starts at **Every 4 hours**. To sync now, select **Trigger sync**, or call the [webhook refresh endpoint](../reference/webhooks.md) from your CI system.
 
 ## Files that never appear
 

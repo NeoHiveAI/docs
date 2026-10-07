@@ -1,10 +1,10 @@
 ---
-description: "Push changed files to a Code or Documentation Index from a continuous integration (CI) pipeline with POST /hives/<hive-id>/webhook/refresh."
+description: "Push changed files to a Code or Documentation Index from a CI pipeline with POST /hives/<hive-id>/webhook/refresh."
 ---
 
 # Webhook refresh endpoint
 
-Send changed files to NeoHive from your continuous integration (CI) pipeline, so a Code or Documentation [Index](../concepts/glossary.md#index) updates seconds after a merge.
+Send changed files to NeoHive from your CI pipeline, so a Code or Documentation [Index](../concepts/glossary.md#index) updates seconds after a merge.
 
 <figure><img src="../.gitbook/assets/reference-webhooks.svg" alt="Sequence of a webhook refresh. A CI job posts changed files to the Hive's webhook route. NeoHive checks X-Webhook-Secret and finds every Index that syncs the named repository. NeoHive then removes each path's old content, indexes the new content, and replies with counts."><figcaption></figcaption></figure>
 

@@ -6,7 +6,7 @@ description: "Set how often a Code or Documentation Index syncs, sync it on dema
 
 Choose a sync schedule for a Code or Documentation Index. An Index is one store of searchable context inside a Hive, the workspace your agent connects to. For more terms, see the [NeoHive glossary](../../concepts/glossary.md). To index a change right away, select **Trigger sync**. When something looks wrong, read **Sync history**.
 
-<figure><img src="../../.gitbook/assets/context-sync.svg" alt="A one-day timeline. Scheduled syncs run every 4 hours at 00:00, 04:00, 08:00, and so on. At 10:12 you select Trigger sync, and a sync runs immediately. At 14:36 a continuous integration (CI) pipeline calls the webhook after a merge and sends only the changed files. Only one sync runs per Index at a time."><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/context-sync.svg" alt="A one-day timeline. Scheduled syncs run every 4 hours at 00:00, 04:00, 08:00, and so on. At 10:12 you select Trigger sync, and a sync runs immediately. At 14:36 a CI pipeline calls the webhook after a merge and sends only the changed files. Only one sync runs per Index at a time."><figcaption></figcaption></figure>
 
 Each sync reads only what changed since the last indexed commit. NeoHive indexes new, modified, and renamed files again, and removes deleted files from the Index.
 
@@ -43,7 +43,7 @@ The page header shows the sync progress and a button to cancel the sync.
 
 When some files fail, NeoHive tries them again automatically a little later. If a file keeps failing, NeoHive stops retrying it until you select **Trigger sync**. **Trigger sync** gives the file one more try.
 
-To index changes right after every merge, set up your continuous integration (CI) pipeline to call the webhook with the changed files. The webhook indexes the files it receives immediately. The webhook does not start a sync or add a row to **Sync history**. The webhook also does not apply the **Allowlist** or **Blocklist**. For details, see [Webhook refresh endpoint](../../reference/webhooks.md).
+To index changes right after every merge, set up your CI pipeline to call the webhook with the changed files. The webhook indexes the files it receives immediately. The webhook does not start a sync or add a row to **Sync history**. The webhook also does not apply the **Allowlist** or **Blocklist**. For details, see [Webhook refresh endpoint](../../reference/webhooks.md).
 
 ## Read the sync history
 

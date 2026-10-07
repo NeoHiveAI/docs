@@ -16,6 +16,10 @@ An AI coding assistant, such as Claude Code, Cursor, or Codex. Your agent connec
 
 The list of file patterns that a [Code Index](#code-index) or [Documentation Index](#documentation-index) includes. When the Allowlist is set, NeoHive indexes only the files that match it. Related: [Blocklist](#blocklist). See [Choose which files are included](../context/repositories/file-patterns.md).
 
+### API
+
+Application programming interface, the requests that a program accepts from other programs. NeoHive's webhook refresh endpoint is an API. See [Webhook refresh endpoint](../reference/webhooks.md).
+
 ### Archive
 
 The action that moves a [Hive](#hive) to the **Archived** section of the dashboard home screen. NeoHive deletes an archived Hive after a set number of days. Until then, you can restore the Hive with its Indexes and Memories. See [Manage Hives and Indexes](../admin/manage.md).
@@ -32,6 +36,14 @@ The list of file patterns that a [Code Index](#code-index) or [Documentation Ind
 
 A section of an indexed file, such as a function, or a heading and its text. When part of a chunk matches a search, [recall](#recall) returns the whole chunk.
 
+### CI
+
+Continuous integration, a system that builds and tests your code on every push or merge, such as GitHub Actions. A CI pipeline can call the [webhook](#webhook) to sync an Index. See [Webhook refresh endpoint](../reference/webhooks.md).
+
+### CLI
+
+Command-line interface, a program that you run by typing commands in a terminal, such as `claude` or `codex`.
+
 ### Code Index
 
 An [Index](#index) that holds source code from a GitHub or GitLab repository. [Sync](#sync) keeps a Code Index up to date. See [Add a code repository](../context/repositories/README.md).
@@ -43,6 +55,10 @@ A saved GitHub or GitLab credential on the **Data Sources** page. NeoHive uses a
 ### Container
 
 The Docker container named `neohive` that runs NeoHive on your machine. The container serves the [dashboard](#dashboard) and every [MCP endpoint](#mcp-endpoint). See [How NeoHive works](how-it-works.md).
+
+### CPU
+
+Central processing unit, the main processor in every computer. NeoHive runs its [embedding model](#embedding-model) on the CPU when no supported GPU is available. See [GPU and CPU](../admin/gpu-cpu.md).
 
 ## D
 
@@ -70,6 +86,12 @@ The model that turns text into [embeddings](#embedding). The embedding model run
 
 An [Index](#index) that holds Markdown, text, and PDF files that you add with **File Upload**. See [Add documents and PDFs](../context/documents.md).
 
+## G
+
+### GPU
+
+Graphics processing unit, a processor that runs many calculations at the same time. A GPU makes indexing faster. See [GPU and CPU](../admin/gpu-cpu.md).
+
 ## H
 
 ### Hive
@@ -81,6 +103,10 @@ Do not confuse a Hive with an Index. Older releases used the word "Hive" for wha
 ### Hook
 
 A script that the Claude Code [plugin](#plugin) runs at a fixed point, such as when a session starts or when you send a prompt. The Cursor and Codex plugins have no hooks. See [What the plugin does automatically](../results/plugin-automation.md).
+
+### HTTP and HTTPS
+
+Hypertext Transfer Protocol, the rules that browsers and servers use to exchange data. HTTPS is the encrypted version of HTTP. NeoHive serves plain HTTP on port `3577`. See [Exposing NeoHive beyond your network](../security/network.md).
 
 ## I
 
@@ -134,6 +160,12 @@ The label on a [Memory](#memory), such as `directive`, `convention`, or `error_p
 
 A program that runs embedding on the GPU of an Apple Silicon Mac. Docker on a Mac cannot reach the GPU, so the installer runs the Metal worker directly on macOS, outside the [container](#container). See [GPU and CPU](../admin/gpu-cpu.md).
 
+## O
+
+### OCR
+
+Optical character recognition, which reads the text in an image, such as a scanned PDF page. See [Supported file types](../reference/file-types.md).
+
 ## P
 
 ### Personal access token (PAT)
@@ -176,6 +208,10 @@ A named task that the [plugin](#plugin) adds to your agent, such as `load-contex
 
 A command that you type in Claude Code, starting with `/`, such as `/neohive:load-context`. See [Slash commands](../reference/slash-commands.md).
 
+### SSH
+
+Secure Shell, a secure way to connect to another computer, such as a Git server. An SSH key proves your identity to GitHub or GitLab without a password. See [Data sources and credentials](../admin/data-sources.md).
+
 ### Subagent
 
 A helper agent that your agent hands a task to. The NeoHive plugin includes one subagent, `explore-neohive`, which searches NeoHive before it reads files. See [What the plugin does automatically](../results/plugin-automation.md).
@@ -184,11 +220,21 @@ A helper agent that your agent hands a task to. The NeoHive plugin includes one 
 
 The process in which NeoHive fetches the latest commits of a repository and indexes the changed files again. A sync runs on a schedule, or when you select **Trigger sync**. See [Keep a repository up to date](../context/repositories/sync.md).
 
+## U
+
+### URL
+
+Uniform Resource Locator, the address of a web page or service, such as `http://localhost:3577`.
+
 ## V
 
 ### Volume
 
 The Docker volume named `neohive-data` that holds everything NeoHive stores, including every Hive, Index, and Memory. Removing the container keeps the volume. See [Backups and restore](../admin/backups.md).
+
+### VPN
+
+Virtual private network, which connects your computer to a private network over the internet. A company VPN is one way to give teammates access to NeoHive. See [Access and sharing](../admin/access.md).
 
 ## W
 

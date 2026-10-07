@@ -32,7 +32,7 @@ If you host your own GitLab, first enter your instance's address in **GitLab Bas
 {% endtab %}
 
 {% tab title="SSH key" %}
-In the connection form, select the **SSH** tab and paste a Secure Shell (SSH) private key into **SSH Private Key**. The key needs read access to the repository. For example, you can use a deploy key, which is a key added to a single repository.
+In the connection form, select the **SSH** tab and paste an SSH private key into **SSH Private Key**. The key needs read access to the repository. For example, you can use a deploy key, which is a key added to a single repository.
 {% endtab %}
 {% endtabs %}
 
@@ -71,7 +71,7 @@ Open the **Index Info** tab, and then fill in **Description**. Your agent reads 
 <details>
 <summary>Optional: switch to an embedding model specialized for code</summary>
 
-A new Code Index uses a general text embedding model, the model that turns content into a searchable form. The **Embedding model** setting on the **Index Info** tab also offers **Nomic Embed Code** models. These models match code more closely, but they need a lot of graphics processing unit (GPU) memory. The list marks each option **Fits** or **Won't fit** for your machine. When you save a new model, NeoHive processes the whole Index again with that model in the background. For details, see [GPU and CPU](../../admin/gpu-cpu.md).
+A new Code Index uses a general text embedding model, the model that turns content into a searchable form. The **Embedding model** setting on the **Index Info** tab also offers **Nomic Embed Code** models. These models match code more closely, but they need a lot of GPU memory. The list marks each option **Fits** or **Won't fit** for your machine. When you save a new model, NeoHive processes the whole Index again with that model in the background. For details, see [GPU and CPU](../../admin/gpu-cpu.md).
 
 </details>
 

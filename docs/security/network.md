@@ -13,7 +13,7 @@ This page explains who can reach your NeoHive instance and what each level of ac
 | Who needs to reach NeoHive | What to set up |
 |---|---|
 | Only you, on this machine | Use the default install. If the host is on a shared network, block port `3577` from other machines |
-| Your team, on a trusted network or virtual private network (VPN) | Run NeoHive on a host that their machines can reach. See [Access and sharing](../admin/access.md) |
+| Your team, on a trusted network or VPN | Run NeoHive on a host that their machines can reach. See [Access and sharing](../admin/access.md) |
 | Anyone outside a trusted network | Set up a reverse proxy that checks credentials and provides HTTPS. Never open port `3577` directly |
 
 ## The default install is reachable from your network

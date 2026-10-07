@@ -4,7 +4,7 @@ description: "Every Memory type NeoHive accepts, what each is for, and which one
 
 # Memory types
 
-Use this page to choose the `type` for `memory_store`, or to filter `memory_recall` results with `types`.
+Use this page to choose the `type` for a [Memory](../concepts/glossary.md#memory) you store with `memory_store`, or to filter `memory_recall` results with `types`.
 
 In most cases, your agent chooses the type for you. The first five types cover almost everything a person stores manually.
 

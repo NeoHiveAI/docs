@@ -6,7 +6,7 @@ description: "How the NeoHive installer picks a GPU or CPU backend, how Apple Si
 
 This page explains which hardware backend NeoHive chooses on your machine, how to confirm it, and how to change it. The backend is the processor type that NeoHive runs its models on.
 
-A graphics processing unit (GPU) makes indexing large repositories faster. Day-to-day recall is fast on any backend. The central processing unit (CPU) backend runs on every machine.
+A GPU makes indexing large repositories faster. Day-to-day recall is fast on any backend. The CPU backend runs on every machine.
 
 <figure><img src="../.gitbook/assets/admin-gpu-cpu.svg" alt="The installer asks these questions in order and uses the first answer that is yes. Is the machine arm64 or aarch64: CPU, and Apple Silicon also gets the Metal worker. Does nvidia-smi work: if a test container can reach the GPU, CUDA, otherwise CPU with a toolkit warning. Does rocm-smi work: ROCm. Does vulkaninfo work: Vulkan. Otherwise CPU. If an image is missing, CUDA and ROCm fall back to Vulkan, then CPU. A backend forced with NEOHIVE_BACKEND never falls back."><figcaption></figcaption></figure>
 

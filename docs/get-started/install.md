@@ -28,7 +28,7 @@ When the installer finishes, it prints two dashboard addresses: `On this machine
 
 <details>
 
-<summary>Optional: point to the license file, use another port, or force the central processing unit (CPU) backend</summary>
+<summary>Optional: point to the license file, use another port, or force the CPU backend</summary>
 
 To give the installer the license file path at the start, run the following command:
 
@@ -41,7 +41,7 @@ You can also set `NEOHIVE_LICENSE_FILE=/path/to/license.key` before the command.
 
 If port `3577` is already in use, set `NEOHIVE_PORT=3600` (or any free port) before the command. Then use that port wherever these docs say `3577`.
 
-The installer looks for a graphics processing unit (GPU) that supports CUDA, ROCm, or Vulkan. If it finds none, the installer uses the CPU. On an arm64 machine, including an Apple Silicon Mac, the installer skips GPU detection and always uses the CPU backend. On an Apple Silicon Mac, the installer also sets up a small native worker that runs on the Metal GPU. If the backend that the installer picks fails, run the installer again with the CPU backend:
+The installer looks for a GPU that supports CUDA, ROCm, or Vulkan. If it finds none, the installer uses the CPU. On an arm64 machine, including an Apple Silicon Mac, the installer skips GPU detection and always uses the CPU backend. On an Apple Silicon Mac, the installer also sets up a small native worker that runs on the Metal GPU. If the backend that the installer picks fails, run the installer again with the CPU backend:
 
 ```bash
 NEOHIVE_BACKEND=cpu bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)

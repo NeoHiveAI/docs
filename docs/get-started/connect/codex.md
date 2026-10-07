@@ -6,7 +6,7 @@ description: "Connect Codex to a Hive and install the NeoHive plugin."
 
 To connect Codex, you add your [Hive](../../concepts/glossary.md#hive) (your team's NeoHive workspace) to the Codex [MCP](../../concepts/glossary.md#mcp) configuration file. Then you install the plugin and check that Codex can call NeoHive's tools.
 
-Before you start, you need a running NeoHive server with a Hive, and a version of the Codex command-line interface (CLI) that supports plugins.
+Before you start, you need a running NeoHive server with a Hive, and a version of the Codex CLI that supports plugins.
 
 {% stepper %}
 {% step %}

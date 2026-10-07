@@ -12,7 +12,7 @@ Each **connection** on the **Data Sources** page (`http://localhost:3577/sources
 
 - A GitHub or GitLab personal access token.
 - A Jira API token or personal access token.
-- A Secure Shell (SSH) private key for GitHub or GitLab.
+- An SSH private key for GitHub or GitLab.
 
 | What | Where it lives | How it is protected |
 |---|---|---|
