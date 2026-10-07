@@ -8,7 +8,7 @@ This page lists every outbound connection NeoHive makes, what each one sends, an
 
 <figure><img src="../.gitbook/assets/security-local-only.svg" alt="Your content stays in the NeoHive container on your machine. Arrows leave the machine for the license check, usage metrics, the update check, model downloads, your data sources, dashboard fonts, and your agent's own model provider."><figcaption></figcaption></figure>
 
-**Your content never leaves your machine.** Your content means your code, documents, [Memories](../concepts/glossary.md), recall queries, and repository tokens. NeoHive clones, indexes, and embeds your repositories on your machine. NeoHive stores the clones and their Indexes in the `neohive-data` Docker volume. However, NeoHive is not fully offline. The container makes the connections listed in the next section.
+**Your content never leaves your machine.** Your content means your code, documents, [Memories](../concepts/glossary.md#memory), recall queries, and repository tokens. NeoHive clones, indexes, and embeds your repositories on your machine. NeoHive stores the clones and their Indexes in the `neohive-data` Docker volume. However, NeoHive is not fully offline. The container makes the connections listed in the next section.
 
 ## Outbound connections
 

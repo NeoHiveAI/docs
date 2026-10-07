@@ -4,7 +4,7 @@ description: "Connect Claude Code to a Hive and install the NeoHive plugin."
 
 # Claude Code
 
-To connect Claude Code, you register your [Hive](../../concepts/glossary.md) (your team's NeoHive workspace) as a Model Context Protocol (MCP) server. Then you install the plugin and check that Claude Code can call NeoHive's tools.
+To connect Claude Code, you register your [Hive](../../concepts/glossary.md#hive) (your team's NeoHive workspace) as a Model Context Protocol (MCP) server. Then you install the plugin and check that Claude Code can call NeoHive's tools.
 
 Before you start, you need a running NeoHive server with a Hive, and a version of Claude Code that supports plugins.
 
@@ -74,7 +74,7 @@ The wizard checks that the Hive is reachable and offers to write a Hive summary 
 {% hint style="success" %}
 **Check:** Claude Code can reach the Hive.
 
-Ask Claude Code: `List my NeoHive Indexes.` Claude Code calls `list_indexes` and lists the [Indexes](../../concepts/glossary.md), or content stores, in the Hive. The dashboard's **Install Instructions** panel also marks **Claude Code** as connected.
+Ask Claude Code: `List my NeoHive Indexes.` Claude Code calls `list_indexes` and lists the [Indexes](../../concepts/glossary.md#index), or content stores, in the Hive. The dashboard's **Install Instructions** panel also marks **Claude Code** as connected.
 
 If the `list_indexes` tool is missing, run `claude mcp get <name>` and compare the URL with the dashboard. Then see [Agent can't connect](../../troubleshooting/connection.md).
 {% endhint %}

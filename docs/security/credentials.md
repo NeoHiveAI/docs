@@ -38,7 +38,7 @@ The connection shows its new status.
 
 ## Rotate a token
 
-You cannot edit a connection's secret. To rotate a token, add a new connection. Then move each [Index](../concepts/glossary.md) (one store of context inside a Hive) onto the new connection.
+You cannot edit a connection's secret. To rotate a token, add a new connection. Then move each [Index](../concepts/glossary.md#index) (one store of context inside a Hive) onto the new connection.
 
 {% stepper %}
 {% step %}

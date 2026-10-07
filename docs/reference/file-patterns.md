@@ -6,7 +6,7 @@ description: "The glob syntax the Allowlist and Blocklist accept, how the two co
 
 Write Allowlist and Blocklist patterns that include exactly the files you mean.
 
-The **Allowlist** and **Blocklist** boxes are under **File filters** on the **Sync Settings** tab of a Code or Documentation [Index](../concepts/glossary.md). Enter one pattern per line, and then select **Save settings**. Patterns use [micromatch](https://github.com/micromatch/micromatch) glob syntax, which matches file paths with wildcards such as `*`. Each pattern matches paths from the repository root, such as `src/api/users.ts`.
+The **Allowlist** and **Blocklist** boxes are under **File filters** on the **Sync Settings** tab of a Code or Documentation [Index](../concepts/glossary.md#index). Enter one pattern per line, and then select **Save settings**. Patterns use [micromatch](https://github.com/micromatch/micromatch) glob syntax, which matches file paths with wildcards such as `*`. Each pattern matches paths from the repository root, such as `src/api/users.ts`.
 
 NeoHive indexes a file only when the file passes all three checks in the following table, in order:
 

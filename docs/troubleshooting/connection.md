@@ -39,7 +39,7 @@ curl http://localhost:3577/health
 |---|---|---|
 | `"status":"ok"` | NeoHive is ready. | Go to the next check. |
 | `"status":"error"` | NeoHive could not finish starting, or its embedding engine cannot run. | Look up the `error` text in [Common errors](common-errors.md). |
-| `"status":"degraded"` | At least one [Hive](../concepts/glossary.md) failed its check. | On the dashboard home page, open that Hive's menu and select **Restart**. |
+| `"status":"degraded"` | At least one [Hive](../concepts/glossary.md#hive) failed its check. | On the dashboard home page, open that Hive's menu and select **Restart**. |
 {% endstep %}
 
 {% step %}
@@ -52,7 +52,7 @@ To test the Hive from the dashboard, do the following:
 3. Set **Tool** to `list_indexes`.
 4. Select **Run**.
 
-If you see a list of [Indexes](../concepts/glossary.md), the Hive works. The problem is then between the Hive and your agent. If you see an error, the Hive itself is broken. Select **Restart** on the Hive, and then run the check again.
+If you see a list of [Indexes](../concepts/glossary.md#index), the Hive works. The problem is then between the Hive and your agent. If you see an error, the Hive itself is broken. Select **Restart** on the Hive, and then run the check again.
 {% endstep %}
 
 {% step %}

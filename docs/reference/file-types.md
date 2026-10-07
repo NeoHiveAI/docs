@@ -8,7 +8,7 @@ Check whether NeoHive can index a file before you upload it or add its repositor
 
 ## Uploads to a Files Index
 
-A [Files Index](../concepts/glossary.md) holds the files you upload. A Files Index accepts the following formats:
+A [Files Index](../concepts/glossary.md#files-index) holds the files you upload. A Files Index accepts the following formats:
 
 | Format | Extensions | How it is split |
 |---|---|---|

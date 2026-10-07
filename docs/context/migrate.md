@@ -4,7 +4,7 @@ description: "Import the rules in your CLAUDE.md, AGENTS.md, and rules folders i
 
 # Migrate from CLAUDE.md
 
-Run one skill to turn the project rules in your context files, such as `CLAUDE.md`, into [Memories](../concepts/glossary.md) (stored pieces of team knowledge). Every agent connected to your [Hive](../concepts/glossary.md) can then recall those Memories.
+Run one skill to turn the project rules in your context files, such as `CLAUDE.md`, into [Memories](../concepts/glossary.md#memory) (stored pieces of team knowledge). Every agent connected to your [Hive](../concepts/glossary.md#hive) can then recall those Memories.
 
 <figure><img src="../.gitbook/assets/context-migrate.svg" alt="A CLAUDE.md with sections on payments, testing, a database choice, and setup. The skill turns each rule into its own Memory with a type. 'Always send an idempotency key' becomes a directive. 'Tests use Vitest' becomes a convention. 'Postgres chosen for row-level locks' becomes a decision. The skill leaves out setup steps and personal preferences. The skill stores nothing until you approve the preview, and it does not change your files."><figcaption></figcaption></figure>
 

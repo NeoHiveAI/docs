@@ -8,7 +8,7 @@ This page explains who can reach your NeoHive instance and what each level of ac
 
 <figure><img src="../.gitbook/assets/security-network.svg" alt="Agents outside send HTTPS with a credential to a reverse proxy or VPN. The proxy checks the credential and forwards plain HTTP to NeoHive on port 3577 inside the trusted network. A direct path to port 3577 is crossed out."><figcaption></figcaption></figure>
 
-**NeoHive has no user accounts and checks no credentials.** Anyone who can reach port `3577` can read and write every [Hive](../concepts/glossary.md) on the instance. A Hive is a workspace with its own Model Context Protocol (MCP) endpoint. Your network is the access control.
+**NeoHive has no user accounts and checks no credentials.** Anyone who can reach port `3577` can read and write every [Hive](../concepts/glossary.md#hive) on the instance. A Hive is a workspace with its own Model Context Protocol (MCP) endpoint. Your network is the access control.
 
 | Who needs to reach NeoHive | What to set up |
 |---|---|

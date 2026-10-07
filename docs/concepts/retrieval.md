@@ -10,7 +10,7 @@ This page explains what one recall does for your agent, and how you can influenc
 
 Your agent does not search for file names or read files from top to bottom. Instead, your agent describes what it needs. NeoHive then finds context that matches the meaning of that description. An exact function name or error code in the query still finds the text that contains it.
 
-When a small part of a file matches, NeoHive returns the whole section that contains it. Your agent then has enough text to act on. NeoHive returns results from every [Index](glossary.md) in your [Hive](glossary.md) together in one ranked list. Results from an Index with strong matches rank above results from an Index with weak matches.
+When a small part of a file matches, NeoHive returns the whole section that contains it. Your agent then has enough text to act on. NeoHive returns results from every [Index](glossary.md#index) in your [Hive](glossary.md#hive) together in one ranked list. Results from an Index with strong matches rank above results from an Index with weak matches.
 
 ## Two ways to ask
 
@@ -43,4 +43,4 @@ How NeoHive orders results is internal and can change between releases. Do not w
 
 ## Next step
 
-To check what a term means, see the [Glossary](glossary.md).
+Put context into your Hive. Start with [What to add, and where](../context/what-to-add.md).

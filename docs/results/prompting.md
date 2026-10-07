@@ -4,7 +4,7 @@ description: "Phrase requests and memory queries so NeoHive returns the Memories
 
 # Write prompts that retrieve well
 
-Recall finds a stored [Memory](../concepts/glossary.md) by the words and meaning it shares with your query. Write the query the way the answer would be written.
+Recall finds a stored [Memory](../concepts/glossary.md#memory) by the words and meaning it shares with your query. Write the query the way the answer would be written.
 
 <figure><img src="../.gitbook/assets/results-prompting.svg" alt="Two queries against one stored Memory about batch processor retries. The question how do we handle errors shares few words and matches weakly. The statement error handling and retries in the async batch processor shares its words and matches strongly."><figcaption></figcaption></figure>
 

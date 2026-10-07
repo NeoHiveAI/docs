@@ -4,7 +4,7 @@ description: "Ask your agent directly what your Hive knows, instead of waiting f
 
 # Ask for context directly
 
-A [Hive](../concepts/glossary.md) is your team's workspace in NeoHive. Before your agent writes any code, ask your agent what the Hive knows. Your agent then starts from your team's decisions and known problems.
+A [Hive](../concepts/glossary.md#hive) is your team's workspace in NeoHive. Before your agent writes any code, ask your agent what the Hive knows. Your agent then starts from your team's decisions and known problems.
 
 | You want | Ask something like | Your agent calls |
 |---|---|---|

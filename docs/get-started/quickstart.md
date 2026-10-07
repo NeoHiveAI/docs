@@ -29,7 +29,7 @@ When the installer finishes, it prints the dashboard address.
 {% step %}
 ## Create a Hive with your repository
 
-A [Hive](../concepts/glossary.md) is a workspace for your team, with one address that agents connect to. To create the Hive, do the following:
+A [Hive](../concepts/glossary.md#hive) is a workspace for your team, with one address that agents connect to. To create the Hive, do the following:
 
 1. Open `http://localhost:3577`.
 2. To accept the license, select **I Understand**.
@@ -39,7 +39,7 @@ A [Hive](../concepts/glossary.md) is a workspace for your team, with one address
 6. Paste your token, and then select **Fetch repositories**.
 7. Select your repository, and then select **Continue**.
 
-NeoHive adds your repository to the Hive as a Code [Index](../concepts/glossary.md), a store inside the Hive. NeoHive then starts indexing the repository in the background. Indexing builds a searchable copy of your code.
+NeoHive adds your repository to the Hive as a Code [Index](../concepts/glossary.md#index), a store inside the Hive. NeoHive then starts indexing the repository in the background. Indexing builds a searchable copy of your code.
 {% endstep %}
 
 {% step %}

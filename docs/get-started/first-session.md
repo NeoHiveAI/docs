@@ -8,7 +8,7 @@ This page uses three prompts to show what NeoHive changes. Your agent answers fr
 
 <figure><img src="../.gitbook/assets/get-started-first-session.svg" alt="A timeline across two sessions. In session 1, you ask about your code (memory_recall) and teach a convention (memory_store). NeoHive saves the convention in the Hive's Knowledge Index. In session 2, you ask for new work, and memory_context brings the convention back."><figcaption></figcaption></figure>
 
-Before you start, you need an agent connected to a [Hive](../concepts/glossary.md), your team's NeoHive workspace. The Hive needs a **Code** [Index](../concepts/glossary.md) (the searchable copy of a repository) whose first sync has finished. To connect an agent, see [Connect your agent](connect/README.md).
+Before you start, you need an agent connected to a [Hive](../concepts/glossary.md#hive), your team's NeoHive workspace. The Hive needs a **Code** [Index](../concepts/glossary.md#index) (the searchable copy of a repository) whose first sync has finished. To connect an agent, see [Connect your agent](connect/README.md).
 
 {% stepper %}
 {% step %}

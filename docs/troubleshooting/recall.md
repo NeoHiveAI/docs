@@ -13,7 +13,7 @@ Check the causes in the following table in order. The first two are the quickest
 | Results are related but not the right ones | The query uses different words from the content | [Rephrase the query](#rephrase-the-query) |
 | `No relevant memories found for this query.` | The content was never stored or indexed | [Check the content exists](#check-the-content-exists) |
 | A file you know exists never comes back | Your file filters or the built-in skip list exclude it | [Check the file was indexed](#check-the-file-was-indexed) |
-| Nothing from a whole repository or [Index](../concepts/glossary.md) | Your agent is connected to a different [Hive](../concepts/glossary.md), or the first sync has not finished | [Check the Hive and the sync](#check-the-hive-and-the-sync) |
+| Nothing from a whole repository or [Index](../concepts/glossary.md#index) | Your agent is connected to a different [Hive](../concepts/glossary.md#hive), or the first sync has not finished | [Check the Hive and the sync](#check-the-hive-and-the-sync) |
 | Only rules come back, or only one kind of Memory | The agent passed `types` and narrowed the results | Ask again without naming Memory types |
 | A Memory you stored has stopped appearing | Someone ran `memory_forget` on it | Store the knowledge again |
 

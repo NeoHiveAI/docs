@@ -4,7 +4,7 @@ description: "Connect Codex to a Hive and install the NeoHive plugin."
 
 # Codex
 
-To connect Codex, you add your [Hive](../../concepts/glossary.md) (your team's NeoHive workspace) to the Codex Model Context Protocol (MCP) configuration file. Then you install the plugin and check that Codex can call NeoHive's tools.
+To connect Codex, you add your [Hive](../../concepts/glossary.md#hive) (your team's NeoHive workspace) to the Codex Model Context Protocol (MCP) configuration file. Then you install the plugin and check that Codex can call NeoHive's tools.
 
 Before you start, you need a running NeoHive server with a Hive, and a version of the Codex command-line interface (CLI) that supports plugins.
 
@@ -58,7 +58,7 @@ Ask Codex to run the NeoHive `getting-started` skill. The skill checks that the 
 {% hint style="success" %}
 **Check:** Codex can reach the Hive.
 
-Ask Codex: `List my NeoHive Indexes.` Codex calls `list_indexes` and lists the [Indexes](../../concepts/glossary.md), or content stores, in the Hive. The dashboard's **Install Instructions** panel also marks **Codex** as connected.
+Ask Codex: `List my NeoHive Indexes.` Codex calls `list_indexes` and lists the [Indexes](../../concepts/glossary.md#index), or content stores, in the Hive. The dashboard's **Install Instructions** panel also marks **Codex** as connected.
 
 If the `list_indexes` tool is missing, compare the `url` in your `config.toml` with the dashboard. Then see [Agent can't connect](../../troubleshooting/connection.md).
 {% endhint %}

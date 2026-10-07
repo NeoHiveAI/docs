@@ -32,7 +32,7 @@ The plugin uses each prompt you send as a recall query. The plugin then adds the
 {% step %}
 ## Teach: correct your agent and tell it to remember
 
-When your agent is wrong, give the correct answer and the reason for it. Your agent stores the correction with `memory_store`. Everyone who uses your [Hive](../concepts/glossary.md) then gets the correction in later sessions.
+When your agent is wrong, give the correct answer and the reason for it. Your agent stores the correction with `memory_store`. Everyone who uses your [Hive](../concepts/glossary.md#hive) then gets the correction in later sessions.
 
 ```text
 Remember that the payments API requires idempotency keys on every POST request.

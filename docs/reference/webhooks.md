@@ -4,7 +4,7 @@ description: "Push changed files to a Code or Documentation Index from a continu
 
 # Webhook refresh endpoint
 
-Send changed files to NeoHive from your continuous integration (CI) pipeline, so a Code or Documentation [Index](../concepts/glossary.md) updates seconds after a merge.
+Send changed files to NeoHive from your continuous integration (CI) pipeline, so a Code or Documentation [Index](../concepts/glossary.md#index) updates seconds after a merge.
 
 <figure><img src="../.gitbook/assets/reference-webhooks.svg" alt="Sequence of a webhook refresh. A CI job posts changed files to the Hive's webhook route. NeoHive checks X-Webhook-Secret and finds every Index that syncs the named repository. NeoHive then removes each path's old content, indexes the new content, and replies with counts."><figcaption></figcaption></figure>
 
@@ -16,7 +16,7 @@ Content-Type: application/json
 X-Webhook-Secret: <secret>
 ```
 
-`<hive-id>` is the id of your [Hive](../concepts/glossary.md), the NeoHive workspace your agent connects to. The same id appears in the Hive's Model Context Protocol (MCP) endpoint, `http://<host>:3577/hives/<hive-id>/mcp`. One request updates every Code or Documentation Index in that Hive that syncs the repository you name.
+`<hive-id>` is the id of your [Hive](../concepts/glossary.md#hive), the NeoHive workspace your agent connects to. The same id appears in the Hive's Model Context Protocol (MCP) endpoint, `http://<host>:3577/hives/<hive-id>/mcp`. One request updates every Code or Documentation Index in that Hive that syncs the repository you name.
 
 ## Authentication
 

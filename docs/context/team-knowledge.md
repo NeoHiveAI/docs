@@ -4,7 +4,7 @@ description: "How the Knowledge Index captures your team's conventions, decision
 
 # Capture team knowledge
 
-Every [Hive](../concepts/glossary.md) (your team's NeoHive workspace) has a Knowledge [Index](../concepts/glossary.md). When one person's agent stores a Memory in the Knowledge Index, every agent connected to the Hive can recall that Memory.
+Every [Hive](../concepts/glossary.md#hive) (your team's NeoHive workspace) has a Knowledge [Index](../concepts/glossary.md#index). When one person's agent stores a Memory in the Knowledge Index, every agent connected to the Hive can recall that Memory.
 
 <figure><img src="../.gitbook/assets/context-team-knowledge.svg" alt="On Monday Ana corrects her agent: no, we use Redis for sessions. Her agent calls memory_store, which stores the decision in the Hive's Knowledge Index. On Tuesday, Ben's agent recalls the decision while he edits the login code. A teammate who joins next month recalls the decision on their first day. A different Hive has its own Knowledge Index and never sees this Memory."><figcaption></figcaption></figure>
 

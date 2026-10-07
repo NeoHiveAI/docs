@@ -19,7 +19,6 @@
 * [How NeoHive works](concepts/how-it-works.md)
 * [Hives, Indexes, and Memories](concepts/hives-indexes-memories.md)
 * [How retrieval works](concepts/retrieval.md)
-* [Glossary](concepts/glossary.md)
 
 ## Add your context
 
@@ -78,3 +77,4 @@
 * [Supported file types](reference/file-types.md)
 * [File pattern syntax](reference/file-patterns.md)
 * [Webhook refresh endpoint](reference/webhooks.md)
+* [Glossary](concepts/glossary.md)

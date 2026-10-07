@@ -4,7 +4,7 @@ description: "Upload markdown, text, and PDF files to a Files Index so your agen
 
 # Add documents and PDFs
 
-Create a Files [Index](../concepts/glossary.md) and upload your documents to it. A Files Index stores files you upload. Your agent then recalls the documents the same way it recalls code.
+Create a Files [Index](../concepts/glossary.md#index) and upload your documents to it. A Files Index stores files you upload. Your agent then recalls the documents the same way it recalls code.
 
 <figure><img src="../.gitbook/assets/context-documents.svg" alt="You upload a .md, .markdown, .txt, or .pdf file of up to 10 MB. NeoHive first converts a PDF to text, which takes longer. The Files Index splits the text into sections (markdown at its headings) and embeds each section. Your agent's memory_recall gets back the section that answers the question."><figcaption></figcaption></figure>
 
@@ -16,7 +16,7 @@ Use a Files Index for specs, runbooks, design docs, meeting notes, or an exporte
 
 To create a Files Index, do the following:
 
-1. Open your [Hive](../concepts/glossary.md) at `http://localhost:3577`.
+1. Open your [Hive](../concepts/glossary.md#hive) at `http://localhost:3577`.
 2. Select **+** next to **Indexes**.
 3. Select **File Upload**.
 {% endstep %}

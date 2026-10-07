@@ -4,7 +4,7 @@ description: "How to correct your agent and tell it what to remember, so the kno
 
 # Teach your agent as you work
 
-Tell your agent something once, in plain words. Your agent stores what you said as a Memory (a stored piece of knowledge) for everyone who uses your [Hive](../concepts/glossary.md).
+Tell your agent something once, in plain words. Your agent stores what you said as a Memory (a stored piece of knowledge) for everyone who uses your [Hive](../concepts/glossary.md#hive).
 
 <figure><img src="../.gitbook/assets/results-teach.svg" alt="Today you give a correction, such as no, we validate tokens in the gateway. memory_store saves the correction as one Memory in the Knowledge Index. Later, a teammate asks to add auth checks to the orders service. Recall returns that Memory, and their agent validates tokens in the gateway."><figcaption></figcaption></figure>
 

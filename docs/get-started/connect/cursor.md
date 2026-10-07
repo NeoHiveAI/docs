@@ -4,7 +4,7 @@ description: "Connect Cursor to a Hive and install the NeoHive plugin."
 
 # Cursor
 
-To connect Cursor, you add your [Hive](../../concepts/glossary.md) (your team's NeoHive workspace) to the Cursor Model Context Protocol (MCP) configuration file. Then you install the plugin and check that Cursor can call NeoHive's tools.
+To connect Cursor, you add your [Hive](../../concepts/glossary.md#hive) (your team's NeoHive workspace) to the Cursor Model Context Protocol (MCP) configuration file. Then you install the plugin and check that Cursor can call NeoHive's tools.
 
 Before you start, you need a running NeoHive server with a Hive, Cursor, and `git`.
 
@@ -60,7 +60,7 @@ Ask Cursor to run the `getting-started` skill. The skill checks that the Hive is
 {% hint style="success" %}
 **Check:** Cursor can reach the Hive.
 
-Ask Cursor: `List my NeoHive Indexes.` Cursor calls `list_indexes` and lists the [Indexes](../../concepts/glossary.md), or content stores, in the Hive. The dashboard's **Install Instructions** panel also marks **Cursor** as connected.
+Ask Cursor: `List my NeoHive Indexes.` Cursor calls `list_indexes` and lists the [Indexes](../../concepts/glossary.md#index), or content stores, in the Hive. The dashboard's **Install Instructions** panel also marks **Cursor** as connected.
 
 If the `list_indexes` tool is missing, compare the `url` in your `mcp.json` with the dashboard. Then see [Agent can't connect](../../troubleshooting/connection.md).
 {% endhint %}

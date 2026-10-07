@@ -45,7 +45,7 @@ Before `E303` or `E310`, the installer also prints `License rejected by Keygen: 
 | `Failed to connect to localhost port 3577` | The container is not running. | Run `docker start neohive`, and then see [Agent can't connect](connection.md). |
 | `"error":"warmup failed"` from `/health` | NeoHive could not finish starting. | Read `docker logs neohive --tail 50`, and then run `docker restart neohive`. |
 | `"error":"embedder cannot run, so nothing can be stored or recalled"` from `/health` | The embedding engine in the container cannot start. | Read the log, and then see [GPU and CPU](../admin/gpu-cpu.md). |
-| `"status":"degraded"` from `/health` | At least one [Hive](../concepts/glossary.md) failed its check. | On the dashboard home page, open that Hive's menu and select **Restart**. |
+| `"status":"degraded"` from `/health` | At least one [Hive](../concepts/glossary.md#hive) failed its check. | On the dashboard home page, open that Hive's menu and select **Restart**. |
 | `Unknown Hive: <id>` | The Hive id in the Model Context Protocol (MCP) endpoint or webhook URL is wrong. | Copy the endpoint again from **Install Instructions**. |
 | `License check failed` (HTTP `402`) | The license expired or failed validation. | See [Licensing](../admin/licensing.md). |
 | `License check unavailable` (HTTP `503`) | NeoHive could not read its license state. | Run `docker restart neohive`. If the error continues, contact `hello@neohive.ai`. |
@@ -55,7 +55,7 @@ Before `E303` or `E310`, the installer also prints `License rejected by Keygen: 
 
 | Message | Cause | Fix |
 |---|---|---|
-| `No Indexes configured. Create an Index first.` | The Hive has no [Index](../concepts/glossary.md), or NeoHive cannot open any of its Indexes. | Add an Index to the Hive. If the Hive already has an Index, open the Hive's menu on the dashboard home page and select **Restart**. |
+| `No Indexes configured. Create an Index first.` | The Hive has no [Index](../concepts/glossary.md#index), or NeoHive cannot open any of its Indexes. | Add an Index to the Hive. If the Hive already has an Index, open the Hive's menu on the dashboard home page and select **Restart**. |
 | `Index "<id>" not found. Use list_indexes to see available Indexes.` | The `index` argument names an id this Hive does not have. | Call `list_indexes` and use an id from its reply. |
 | `Index "<id>" is <status>. Only active Indexes can be used.` | The Index is not `active`, for example `paused` or `error`. | Open the Index page in the dashboard, and fix the error that the page shows. See [Repository sync issues](sync.md). |
 | `Provide either query (string) or queries (string array).` | `memory_recall` received neither argument. | Pass one of the two arguments. See [MCP tools](../reference/mcp-tools.md). |

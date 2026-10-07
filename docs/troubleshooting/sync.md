@@ -4,7 +4,7 @@ description: "Diagnose a Code or Documentation Index that fails to sync, stalls,
 
 # Repository sync issues
 
-Use this page to find out why a Code or Documentation [Index](../concepts/glossary.md) is out of date, and to get it syncing again.
+Use this page to find out why a Code or Documentation [Index](../concepts/glossary.md#index) is out of date, and to get it syncing again.
 
 <figure><img src="../.gitbook/assets/troubleshooting-sync.svg" alt="Decision tree with five checks for a Code or Documentation Index. Is syncing turned on? Is the connection Valid on Data Sources? Did the last run in Sync history succeed? Did every file index? Does the missing file pass the filters? Each no leads to its fix. Five yes answers mean the Index matches the repository."><figcaption></figcaption></figure>
 
