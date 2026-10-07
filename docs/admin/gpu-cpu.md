@@ -4,14 +4,14 @@ description: "How the NeoHive installer picks a GPU or CPU backend, how Apple Si
 
 # GPU and CPU
 
-Which hardware backend NeoHive picks on your machine, how to confirm it, and how to change it.
+This page explains which hardware backend NeoHive chooses on your machine, how to confirm it, and how to change it. The backend is the processor type that NeoHive runs its models on.
 
-A GPU makes indexing large repositories faster. Day-to-day recall is fast on any backend, and CPU runs everywhere.
+A graphics processing unit (GPU) makes indexing large repositories faster. Day-to-day recall is fast on any backend. The central processing unit (CPU) backend runs on every machine.
 
-<figure><img src="../.gitbook/assets/admin-gpu-cpu.svg" alt="The installer asks in order and the first yes wins. Is the machine arm64 or aarch64: CPU, and Apple Silicon also gets the Metal worker. Does nvidia-smi work: if a test container can reach the GPU, CUDA, otherwise CPU with a toolkit warning. Does rocm-smi work: ROCm. Does vulkaninfo work: Vulkan. Otherwise CPU. If an image is missing, CUDA and ROCm step down to Vulkan, then CPU; a backend forced with NEOHIVE_BACKEND never steps down."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/admin-gpu-cpu.svg" alt="The installer asks these questions in order and uses the first answer that is yes. Is the machine arm64 or aarch64: CPU, and Apple Silicon also gets the Metal worker. Does nvidia-smi work: if a test container can reach the GPU, CUDA, otherwise CPU with a toolkit warning. Does rocm-smi work: ROCm. Does vulkaninfo work: Vulkan. Otherwise CPU. If an image is missing, CUDA and ROCm fall back to Vulkan, then CPU. A backend forced with NEOHIVE_BACKEND never falls back."><figcaption></figcaption></figure>
 
 {% hint style="success" %}
-**Check:** see which backend is running.
+**Check:** To see which backend is running, run the following command:
 
 ```bash
 docker ps --filter name=neohive
@@ -22,37 +22,43 @@ The tag in the `IMAGE` column names the backend, for example `neohivedev/neohive
 
 ## Apple Silicon uses the GPU anyway
 
-Docker on a Mac cannot reach the GPU, so the container runs on CPU. On Apple Silicon the installer also sets up a native worker that runs embedding, the step that turns text into numbers for search, on the Mac's Metal GPU. Indexing gets much faster.
+Docker on a Mac cannot reach the GPU, so the container runs on CPU. On Apple Silicon, the installer also sets up a native worker, a program that runs directly on macOS. The worker runs embedding on the Mac's Metal GPU. Embedding is the step that turns text into numbers for search. With the worker, indexing is much faster.
 
-- **It runs outside Docker,** from `~/.neohive/metal-worker/`, and starts again after a reboot.
-- **It listens on `127.0.0.1` only,** port `50051` by default, so nothing is exposed to your network.
+- **The worker runs outside Docker,** from `~/.neohive/metal-worker/`, and starts again after a reboot.
+- **The worker listens on `127.0.0.1` only,** port `50051` by default, so other machines on your network cannot reach it.
 - **Models download to `~/.neohive/models/`** on first use. Logs go to `~/.neohive/logs/`.
 - **If any part fails,** the installer warns you and NeoHive embeds on CPU inside the container.
 
-The end of the install output says which you got: `Embedding: native Metal worker on 127.0.0.1:50051`, or `Embedding: in-container CPU (no Metal worker)`.
+The end of the install output tells you which embedding setup you have: `Embedding: native Metal worker on 127.0.0.1:50051`, or `Embedding: in-container CPU (no Metal worker)`.
 
 | Variable | Default | Effect |
 |---|---|---|
-| `NEOHIVE_METAL_WORKER` | `1` | `0` skips the worker and keeps CPU embedding in the container |
-| `NEOHIVE_METAL_WORKER_PORT` | `50051` | Change it if another program already uses that port |
+| `NEOHIVE_METAL_WORKER` | `1` | Set it to `0` to skip the worker and keep CPU embedding in the container |
+| `NEOHIVE_METAL_WORKER_PORT` | `50051` | Change the port if another program already uses it |
 
 ## Force a backend
 
-If detection picks the wrong backend, or a GPU backend will not start, set `NEOHIVE_BACKEND` to `cpu`, `cuda`, `vulkan`, or `rocm`:
+If the installer picks the wrong backend, or a GPU backend does not start, set `NEOHIVE_BACKEND` to `cpu`, `cuda`, `vulkan`, or `rocm`:
 
 ```bash
 NEOHIVE_BACKEND=cpu \
   bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
 ```
 
-A forced backend has no fallback: if its image cannot be downloaded, the install stops with an error. Set the variable again on every update, because the installer does not remember it.
+A forced backend has no fallback. If the installer cannot download the image for that backend, the install stops with an error. The installer does not remember `NEOHIVE_BACKEND`, so set the variable again on every update.
 
 ## NVIDIA GPU but NeoHive runs on CPU
 
-`nvidia-smi` on the host is not enough. The container reaches the GPU through the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html). Without it, the installer's test container fails and it warns `NVIDIA Container Toolkit probe failed - falling back to CPU backend.`
+A working `nvidia-smi` on the host is not enough. The container reaches the GPU through the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html). Without the toolkit, the installer's test container fails, and the installer shows this warning: `NVIDIA Container Toolkit probe failed - falling back to CPU backend.`
 
-This happens most on Docker Desktop and WSL2. Install the toolkit, restart Docker, and run the installer again.
+This problem happens most often on Docker Desktop and Windows Subsystem for Linux (WSL2). To fix the problem, do the following:
+
+1. Install the NVIDIA Container Toolkit.
+2. Restart Docker.
+3. Run the installer again.
+
+The installer no longer shows the warning, and the `IMAGE` column of `docker ps` shows a `cuda` tag.
 
 ## Next step
 
-Continue to [Uninstall](uninstall.md) if you need to remove NeoHive from a machine.
+If you need to remove NeoHive from a machine, continue to [Uninstall](uninstall.md).

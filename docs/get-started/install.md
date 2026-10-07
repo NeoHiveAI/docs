@@ -4,11 +4,11 @@ description: "Install NeoHive, create your first Hive, and connect your agent. E
 
 # Install NeoHive
 
-Three steps, each ending with a check, take you from nothing to an agent that answers from your own code.
+This page has three steps, and each step ends with a check you can run. When you finish, your agent answers questions from your own code.
 
-<figure><img src="../.gitbook/assets/get-started-install.svg" alt="The install flow: run the installer in your terminal, which starts NeoHive on localhost port 3577. Then the dashboard setup has three steps: Name Hive, Configure first Index from GitHub, GitLab or File Upload, and Install for your AI tools until setup shows Connected."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/get-started-install.svg" alt="The install flow. You run the installer in your terminal, which starts NeoHive on localhost port 3577. The dashboard setup then has three steps: Name Hive, Configure first Index, and Install for your AI tools. The first Index comes from GitHub, GitLab, or File Upload. Setup finishes when it shows Connected."><figcaption></figcaption></figure>
 
-**You need:**
+Before you start, you need the following:
 
 * Docker 20 or later, installed and running on Linux, macOS, or Windows with WSL2.
 * Port `3577` free on the machine.
@@ -18,30 +18,30 @@ Three steps, each ending with a check, take you from nothing to an agent that an
 {% step %}
 ## Install
 
-Run the installer from the folder that holds your license file. It reads the license, then starts NeoHive in a Docker container named `neohive`. If it cannot find the license file, it asks for the path.
+Run the installer from the folder that holds your license file. The installer reads the license, and then starts NeoHive in a Docker container named `neohive`. If the installer cannot find the license file, it asks for the path.
 
 ```bash
 bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
 ```
 
-It ends by printing two dashboard addresses, `On this machine` and `From another host`. Use the second on a shared server.
+When the installer finishes, it prints two dashboard addresses: `On this machine` and `From another host`. On a shared server, use the `From another host` address.
 
 <details>
 
-<summary>Optional: point to the license file, use another port, or force the CPU backend</summary>
+<summary>Optional: point to the license file, use another port, or force the central processing unit (CPU) backend</summary>
 
-Pass the license file path up front:
+To give the installer the license file path at the start, run the following command:
 
 ```bash
 bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh) \
   --license-file /path/to/license.key
 ```
 
-Setting `NEOHIVE_LICENSE_FILE=/path/to/license.key` before the command does the same.
+You can also set `NEOHIVE_LICENSE_FILE=/path/to/license.key` before the command. The result is the same.
 
-If port `3577` is taken, set `NEOHIVE_PORT=3600` (or any free port) before the command. Then use that port wherever these docs say `3577`.
+If port `3577` is already in use, set `NEOHIVE_PORT=3600` (or any free port) before the command. Then use that port wherever these docs say `3577`.
 
-The installer detects your GPU (CUDA, ROCm, or Vulkan) and uses the CPU when it finds none. On an arm64 machine, including an Apple Silicon Mac, it skips GPU detection and always uses the CPU backend. On an Apple Silicon Mac, it also sets up a small native worker that runs on the Metal GPU. If the installer picks a backend that fails, run it again with the CPU backend:
+The installer looks for a graphics processing unit (GPU) that supports CUDA, ROCm, or Vulkan. If it finds none, the installer uses the CPU. On an arm64 machine, including an Apple Silicon Mac, the installer skips GPU detection and always uses the CPU backend. On an Apple Silicon Mac, the installer also sets up a small native worker that runs on the Metal GPU. If the backend that the installer picks fails, run the installer again with the CPU backend:
 
 ```bash
 NEOHIVE_BACKEND=cpu bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
@@ -56,37 +56,43 @@ NEOHIVE_BACKEND=cpu bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveA
 curl http://localhost:3577/health
 ```
 
-The reply contains `"status":"ok"`. If it does not, run `docker logs neohive --tail 50` and see [Common errors](../troubleshooting/common-errors.md).
+The reply contains `"status":"ok"`. If the reply does not contain `"status":"ok"`, run `docker logs neohive --tail 50` and then see [Common errors](../troubleshooting/common-errors.md).
 {% endhint %}
 {% endstep %}
 
 {% step %}
 ## Create your Hive
 
-1. Open the dashboard and click **I Understand** to accept the license.
-2. Click **Get Started**, then **Start setup**.
-3. Under **Hive name**, type a name and click **Continue**.
-4. Under **Where does your data live?**, pick the first source for the Hive, fill in its details, and click **Continue**.
+A [Hive](../concepts/glossary.md) is a workspace for one team or product. A Hive holds Indexes, the stores for your code, documents, files, and Memories. To create your Hive, do the following:
 
-| Source | Content you can pick | What you need |
+1. Open the dashboard.
+2. To accept the license, select **I Understand**.
+3. Select **Get Started**, and then select **Start setup**.
+4. Under **Hive name**, type a name, and then select **Continue**.
+5. Under **Where does your data live?**, select the first source for the Hive.
+6. Fill in the details for that source, and then select **Continue**.
+
+The following table shows what you can add from each source and what you need for it:
+
+| Source | Content you can select | What you need |
 |---|---|---|
 | **GitHub** | **Code** or **Documentation** from a repository | A personal access token with `repo` scope |
 | **GitLab** | **Code** or **Documentation** from a repository | A token with `read_api` and `read_repository` scope |
 | **File Upload** | `.md`, `.markdown`, `.txt`, and `.pdf` files, up to 10 MB each | The files |
 
-A **Jira** card is marked **Coming soon** and cannot be picked yet. Every Hive also gets a **Knowledge** Index for what your agent learns. You can add more Indexes later from the Hive page. [What to add, and where](../context/what-to-add.md) helps you choose.
+The **Jira** card is marked **Coming soon**, and you cannot select it. NeoHive also gives every Hive a **Knowledge** Index, which stores the Memories your agent saves. You can add more Indexes later from the Hive page. To decide which Indexes to add, see [What to add, and where](../context/what-to-add.md).
 
 {% hint style="success" %}
 **Check:** the Index is ready.
 
-Open the Index from the Hive page. For a repository, its **Sync history** shows the first sync as finished. If the sync failed, see [Repository sync issues](../troubleshooting/sync.md).
+Open the Index from the Hive page. For a repository Index, **Sync history** shows that the first sync finished. If the sync failed, see [Repository sync issues](../troubleshooting/sync.md).
 {% endhint %}
 {% endstep %}
 
 {% step %}
 ## Connect your agent
 
-Setup ends with **Install for your AI tools**. The Hive page's **Install Instructions** panel shows the same commands later. For Claude Code, run the first command in your terminal and the rest inside Claude Code:
+The last setup step is **Install for your AI tools**. Later, the **Install Instructions** panel on the Hive page shows the same commands. The first command registers the Hive as an MCP (Model Context Protocol) server, which is how agents call NeoHive's tools. For Claude Code, run the first command in your terminal:
 
 ```bash
 claude mcp add <name> '<hive-url>' \
@@ -95,7 +101,9 @@ claude mcp add <name> '<hive-url>' \
   --header 'x-mcp-client: claude-code'
 ```
 
-The dashboard's copy leaves out `--scope user`. Add it, or the plugin's automatic recall cannot find the Hive. [Claude Code](connect/claude-code.md) explains why.
+The command that the dashboard shows leaves out `--scope user`. Add `--scope user`, because without it the plugin's automatic recall cannot find the Hive. To learn why, see [Connect Claude Code](connect/claude-code.md).
+
+Then run the remaining commands inside Claude Code:
 
 ```text
 /plugin marketplace add NeoHiveAI/NeoHiveClaude
@@ -104,14 +112,14 @@ The dashboard's copy leaves out `--scope user`. Add it, or the plugin's automati
 /neohive:getting-started
 ```
 
-Other agents: [Cursor](connect/cursor.md), [Codex](connect/codex.md), [Claude Desktop and other MCP apps](connect/desktop-apps.md).
+To connect a different agent, see [Cursor](connect/cursor.md), [Codex](connect/codex.md), or [Claude Desktop and other MCP apps](connect/desktop-apps.md).
 
 {% hint style="success" %}
 **Check:** your agent answers from your content.
 
-Ask it something only your content can answer, such as `How does the authentication middleware work?`
+Ask your agent a question that only your content can answer, such as `How does the authentication middleware work?`
 
-It calls `memory_recall` and cites real paths from your repository or files. If the tool is missing, see [Agent can't connect](../troubleshooting/connection.md). If the answer is vague, see [Recall isn't finding what I need](../troubleshooting/recall.md).
+The agent calls `memory_recall` and cites real paths from your repository or files. If the `memory_recall` tool is missing, see [Agent can't connect](../troubleshooting/connection.md). If the answer is vague, see [Recall isn't finding what I need](../troubleshooting/recall.md).
 {% endhint %}
 {% endstep %}
 {% endstepper %}

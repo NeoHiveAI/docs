@@ -1,76 +1,76 @@
 ---
-description: "Run read-only NeoHive MCP tools against a Hive from the dashboard, to see what your agent would get back."
+description: "Run the read-only NeoHive Model Context Protocol (MCP) tools against a Hive from the dashboard, to see what your agent would get back."
 ---
 
 # Test queries in the Playground
 
-Run the same read-only tools your agent calls, from the dashboard, and see exactly what comes back.
+The Playground is a dashboard screen where you run the same read-only tools that your agent calls. You see exactly what each tool returns. You run each tool against a Hive, the workspace your agent connects to. A Hive holds Indexes, which are stores of searchable context. For more terms, see the [NeoHive glossary](../concepts/glossary.md).
 
-Open **Playground** in the header bar, or click **Try in Playground** on a Hive page to arrive with that Hive picked. The screen is marked **Alpha**, an early preview.
+Open **Playground** in the header bar. To open the Playground with a Hive already selected, select **Try in Playground** on that Hive's page. The screen is marked **Alpha**, which means it is an early preview.
 
-<figure><img src="../.gitbook/assets/admin-playground.svg" alt="The Playground screen. The sidebar lists your Hives and your recent queries. The main area has an Alpha notice, then Hive, Index (optional) and Tool pickers, a Try your own query box with a Run button, and the results below. Recent queries are kept in this browser; click one to load it back into the pickers and query box."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/admin-playground.svg" alt="The Playground screen. The sidebar lists your Hives and your recent queries. The main area has an Alpha notice and three pickers: Hive, Index (optional), and Tool. Under the pickers are a Try your own query box with a Run button, and then the results. The browser keeps your recent queries. Select one to load it back into the pickers and query box."><figcaption></figcaption></figure>
 
 | Tool | Needs a query | What it returns |
 |---|---|---|
 | `memory_recall` | Yes | The Memories and indexed content that best match |
-| `memory_context` | Yes | **DIRECTIVES**, **CONVENTIONS** and **TASK RELEVANT**: what an agent loads at the start of a task |
+| `memory_context` | Yes | **DIRECTIVES**, **CONVENTIONS**, and **TASK RELEVANT**, which an agent loads at the start of a task |
 | `list_indexes` | No | Every Index the Hive can search |
 | `memory_stats` | No | **Total memories**, **Top types**, **Recent growth** |
 
-Nothing you run here adds, changes, or deletes a Memory. Running `list_indexes` is also a quick way to test a Hive before any agent is connected.
+Nothing you run in the Playground adds, changes, or deletes a Memory. Running `list_indexes` is also a quick way to test a Hive before you connect any agent.
 
 ## Run a query
 
 {% stepper %}
 {% step %}
-## Pick the scope
+## Select the scope
 
-Choose a **Hive**. Leave **Index (optional)** on **All Indexes (cross-index fan-out)** to search the whole Hive, as your agent does, or pick one Index. Shared Indexes are included.
+Select a **Hive**. To search the whole Hive as your agent does, leave **Index (optional)** set to **All Indexes (cross-index fan-out)**. To search one Index, select that Index. The list includes Shared Indexes.
 {% endstep %}
 
 {% step %}
-## Pick the tool
+## Select the tool
 
-Choose a **Tool**. `memory_recall` is the default.
+Select a **Tool**. `memory_recall` is the default.
 {% endstep %}
 
 {% step %}
-## Run it
+## Run the tool
 
-For `memory_recall` or `memory_context`, type into **Try your own query...** and press `Enter` or click **Run**. The other two tools only need **Run**.
+For `memory_recall` or `memory_context`, type your query into **Try your own query...**, and then press `Enter` or select **Run**. For the other two tools, select **Run**.
 {% endstep %}
 {% endstepper %}
 
 {% hint style="success" %}
-**Check:** recall something you know is in the Hive; it comes back near the top. If you get **No memories matched this query.**, see [Recall isn't finding what I need](../troubleshooting/recall.md).
+**Check:** Run `memory_recall` with a query about something that you know is in the Hive. That content appears near the top of the results. If you get **No memories matched this query.**, see [Recall isn't finding what I need](../troubleshooting/recall.md).
 {% endhint %}
 
-## Use it to tune your prompts
+## Use the Playground to tune your prompts
 
-Try one question phrased two or three ways and compare. The Playground calls the same retrieval your agent does, so phrasing that works here works there.
+Try one question phrased two or three ways and compare the results. The Playground runs the same search that your agent runs, so phrasing that works in the Playground also works for your agent.
 
-Narrow to one Index to tell missing content from content another Index outranks. If one Index returns it and **All Indexes** does not, the content is there.
+Some content might be missing, or it might only rank below results from another Index. To find out which is true, narrow the search to one Index. If that Index returns the content and **All Indexes** does not, the content is in the Index but ranks below other results.
 
-## What it leaves alone
+## What the Playground does not change
 
 Playground runs do not count toward the query totals on the home screen or the Hive page.
 
-Each run is saved under **Recent queries** in the sidebar. Click one to load it back, or **Clear** to empty the list. The list lives in your browser, so teammates do not see it.
+The Playground saves each run under **Recent queries** in the sidebar. To load a run again, select it. To empty the list, select **Clear**. Your browser stores the list, so teammates do not see it.
 
 <details>
 
-<summary>Optional: link straight to a prepared query</summary>
+<summary>Optional: link directly to a prepared query</summary>
 
-The Playground reads its settings from the address, so a link can open with everything filled in:
+The Playground reads its settings from the URL, so a link can open the Playground with every field filled in:
 
 ```text
 http://localhost:3577/playground?hive=<hive-id>&tool=memory_recall&query=auth%20middleware
 ```
 
-Add `index=<index-id>` to narrow it to one Index.
+To narrow the query to one Index, add `index=<index-id>`.
 
 </details>
 
 ## Next step
 
-Continue to [Backups and restore](backups.md) to protect what your Hives hold.
+To protect what your Hives hold, continue to [Backups and restore](backups.md).

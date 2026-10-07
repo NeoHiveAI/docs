@@ -4,59 +4,68 @@ description: "Upload markdown, text, and PDF files to a Files Index so your agen
 
 # Add documents and PDFs
 
-Create a Files Index, drop your documents in, and your agent recalls them the same way it recalls code.
+Create a Files [Index](../concepts/glossary.md) and upload your documents to it. A Files Index stores files you upload. Your agent then recalls the documents the same way it recalls code.
 
-<figure><img src="../.gitbook/assets/context-documents.svg" alt="You upload a .md, .markdown, .txt or .pdf file of up to 10 MB. A PDF is first converted to text, which takes longer. The Files Index splits the text into sections, markdown at its headings, and embeds each one. Your agent's memory_recall gets back the section that answers the question."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/context-documents.svg" alt="You upload a .md, .markdown, .txt, or .pdf file of up to 10 MB. NeoHive first converts a PDF to text, which takes longer. The Files Index splits the text into sections (markdown at its headings) and embeds each section. Your agent's memory_recall gets back the section that answers the question."><figcaption></figcaption></figure>
 
-Use a Files Index for specs, runbooks, design docs, meeting notes, or an exported notes vault. For markdown that already lives in a repository, add a Documentation Index instead so it stays in sync; see [What to add, and where](what-to-add.md).
+Use a Files Index for specs, runbooks, design docs, meeting notes, or an exported notes vault. For markdown that already lives in a repository, add a Documentation Index instead. A Documentation Index stays in sync with the repository. For help choosing, see [What to add, and where](what-to-add.md).
 
 {% stepper %}
 {% step %}
 ## Create the Index
 
-Open your Hive at `http://localhost:3577`, click **+** next to **Indexes**, and choose **File Upload**.
+To create a Files Index, do the following:
+
+1. Open your [Hive](../concepts/glossary.md) at `http://localhost:3577`.
+2. Select **+** next to **Indexes**.
+3. Select **File Upload**.
 {% endstep %}
 
 {% step %}
 ## Add files
 
-Drag files onto the **Files** drop zone, up to 20 at a time. They upload once the Index exists. You can also skip this and upload later.
+Optional: Drag files onto the **Files** drop zone, up to 20 at a time. The files upload after NeoHive creates the Index. You can also skip this step and upload files later.
 
-Accepted: `.md`, `.markdown`, `.txt`, and `.pdf`, up to 10 MB each. See [Supported file types](../reference/file-types.md).
+NeoHive accepts `.md`, `.markdown`, `.txt`, and `.pdf` files of up to 10 MB each. For details, see [Supported file types](../reference/file-types.md).
 {% endstep %}
 
 {% step %}
-## Name it and create it
+## Name and create the Index
 
-**Index name** fills in from the first file. Rename it to say what the documents are, such as `Engineering Docs`, and click **Create Index**.
+NeoHive fills in **Index name** from the first file. To name and create the Index, do the following:
+
+1. Change **Index name** to describe the documents, for example `Engineering Docs`.
+2. Select **Create Index**.
+
+Each file becomes searchable as soon as it finishes processing.
 {% endstep %}
 {% endstepper %}
 
-Each file is searchable as soon as it finishes processing. Then set a **Description** on the **Index Info** tab that names the kind of documents it holds, because your agent reads it through `list_indexes`.
+To help your agent choose this Index, set a **Description** on the **Index Info** tab. Name the kind of documents the Index holds. Your agent reads this description through `list_indexes`.
 
 ## Manage files later
 
-Open the Index and choose its **Files** tab. Drop more files on it at any time; the tab shows which file is processing and how far along it is. Deleting a file removes its content from the Index.
+To manage files, open the Index and select its **Files** tab. You can drop more files on the tab at any time. The tab shows which file is processing and how much of that file is done. When you delete a file, NeoHive removes its content from the Index.
 
-A file with the same name as one already in the Index is skipped with a warning. To replace a document, delete the old file first, then upload the new one.
+If a file has the same name as a file already in the Index, NeoHive skips the new file and shows a warning. To replace a document, delete the old file first, and then upload the new one.
 
 {% hint style="info" %}
-Moving an Obsidian or similar notes vault? Export it as markdown and upload the files.
+To move an Obsidian vault or a similar notes vault, export it as markdown and upload the files.
 {% endhint %}
 
 ## Large PDFs
 
-Each PDF gets five minutes to convert by default. A 900-page PDF can need 25 to 30 minutes. Raise the limit, in milliseconds, when you run the installer:
+By default, NeoHive allows five minutes to convert each PDF. A 900-page PDF can take 25 to 30 minutes. To raise the limit, set `NEOHIVE_PDF_BRIDGE_TIMEOUT_MS` to a value in milliseconds when you run the installer:
 
 ```bash
 NEOHIVE_PDF_BRIDGE_TIMEOUT_MS=1800000 \
   bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
 ```
 
-The first PDF on a new machine also downloads the converter's model. If that step times out, raise `NEOHIVE_PDF_WARMUP_TIMEOUT_MS` the same way. See [Environment variables](../reference/environment-variables.md).
+When NeoHive converts the first PDF on a new machine, it also downloads the model that the converter uses. If that download times out, raise `NEOHIVE_PDF_WARMUP_TIMEOUT_MS` the same way. For details, see [Environment variables](../reference/environment-variables.md).
 
-A scanned PDF, or one that draws its text as shapes, fails with `No text could be extracted from this PDF`.
+If a PDF is scanned, or draws its text as shapes, the conversion fails with `No text could be extracted from this PDF`.
 
 ## Next step
 
-Your documents are in. Continue to [Capture team knowledge](team-knowledge.md) to see how your agent adds what it learns.
+Your documents are now in a Files Index. Continue to [Capture team knowledge](team-knowledge.md) to see how your agent adds what it learns.

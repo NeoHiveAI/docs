@@ -40,11 +40,11 @@
   <text x="40" y="407.0" font-size="13.5" font-weight="700" fill="#1A1A2E">A fact changes</text>
   <rect x="236" y="356" width="340" height="92" rx="12" fill="#FFFFFF" stroke="#F3D9C0"/>
   <rect x="236" y="356" width="3.5" height="92" rx="1.75" fill="#B45309"/>
-  <text x="258" y="396" font-size="13" fill="#1A1A2E">“We use Postgres for sessions now.”</text>
+  <text x="258" y="396" font-size="13" fill="#1A1A2E">"We use Postgres for sessions now."</text>
   <text x="258" y="418" font-size="13" fill="#1A1A2E">The old Redis Memory stays active.</text>
   <rect x="610" y="356" width="350" height="92" rx="12" fill="#FFFFFF" stroke="#99E6DC"/>
   <rect x="610" y="356" width="3.5" height="92" rx="1.75" fill="#0D9488"/>
-  <text x="632" y="396" font-size="13" fill="#1A1A2E">“That's out of date. We use Postgres</text>
-  <text x="632" y="418" font-size="13" fill="#1A1A2E">for sessions now. Update it.”</text>
+  <text x="632" y="396" font-size="13" fill="#1A1A2E">"That's out of date. We use Postgres</text>
+  <text x="632" y="418" font-size="13" fill="#1A1A2E">for sessions now. Update it."</text>
   <line x1="580" y1="402.0" x2="604" y2="402.0" stroke="#0D9488" stroke-width="2" marker-end="url(#arrT)"/>
 </svg>

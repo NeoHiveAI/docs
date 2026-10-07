@@ -4,11 +4,11 @@ description: "Checks to run, in order, when your coding agent cannot reach NeoHi
 
 # Agent can't connect
 
-Find where the link between your agent and NeoHive breaks, one check at a time.
+Use the checks on this page to find where the connection between your agent and NeoHive breaks.
 
-<figure><img src="../.gitbook/assets/troubleshooting-connection.svg" alt="Decision tree: is the neohive container running, does /health say ok, does list_indexes work in the Playground, does the agent's MCP endpoint match Install Instructions, does the agent see the NeoHive tools. Each no leads to its fix; five yes answers mean the agent is connected."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/troubleshooting-connection.svg" alt="Decision tree with five checks. Is the neohive container running? Does /health say ok? Does list_indexes work in the Playground? Does the agent's Model Context Protocol (MCP) endpoint match Install Instructions? Does the agent see the NeoHive tools? Each no leads to its fix. Five yes answers mean the agent is connected."><figcaption></figcaption></figure>
 
-Stop at the first check that fails and apply its fix.
+Run the checks in order. Stop at the first check that fails, and apply its fix.
 
 {% stepper %}
 {% step %}
@@ -18,14 +18,14 @@ Stop at the first check that fails and apply its fix.
 docker ps --filter name=neohive
 ```
 
-The `neohive` container shows a status of `Up`. If it is missing, start it and read why it stopped:
+The `neohive` container shows a status of `Up`. If the container is missing, start it and read the log to see why it stopped:
 
 ```bash
 docker start neohive
 docker logs neohive --tail 50
 ```
 
-`No such container` means it was removed. Run the [installer](../get-started/install.md) again; your data stays in the `neohive-data` volume. If the start fails with `port is already allocated`, another program holds port `3577`. Stop it, or install on another port with `NEOHIVE_PORT=4577` and change the port in your agent's MCP endpoint.
+The message `No such container` means the container no longer exists. Run the [installer](../get-started/install.md) again. Your data stays in the `neohive-data` volume. If the start fails with `port is already allocated`, another program is using port `3577`. Stop that program, or install on another port with `NEOHIVE_PORT=4577`. If you change the port, also change the port in your agent's Model Context Protocol (MCP) endpoint.
 {% endstep %}
 
 {% step %}
@@ -39,38 +39,55 @@ curl http://localhost:3577/health
 |---|---|---|
 | `"status":"ok"` | NeoHive is ready. | Go to the next check. |
 | `"status":"error"` | NeoHive could not finish starting, or its embedding engine cannot run. | Look up the `error` text in [Common errors](common-errors.md). |
-| `"status":"degraded"` | At least one Hive failed its check. | On the dashboard home page, open that Hive's menu and click **Restart**. |
+| `"status":"degraded"` | At least one [Hive](../concepts/glossary.md) failed its check. | On the dashboard home page, open that Hive's menu and select **Restart**. |
 {% endstep %}
 
 {% step %}
 ## Does the Hive answer without your agent?
 
-Open **Playground** in the dashboard, choose your Hive under **Hive**, set **Tool** to `list_indexes`, and click **Run**. A list of Indexes means the Hive works, so the fault is between it and your agent. An error means the Hive itself is broken: click **Restart** on it, then run the check again.
+To test the Hive from the dashboard, do the following:
+
+1. Open **Playground** in the dashboard.
+2. Under **Hive**, select your Hive.
+3. Set **Tool** to `list_indexes`.
+4. Select **Run**.
+
+If you see a list of [Indexes](../concepts/glossary.md), the Hive works. The problem is then between the Hive and your agent. If you see an error, the Hive itself is broken. Select **Restart** on the Hive, and then run the check again.
 {% endstep %}
 
 {% step %}
 ## Is the MCP endpoint right?
 
-Each Hive has its own endpoint, `http://localhost:3577/hives/<hive-id>/mcp`. Open the Hive in the dashboard, copy the endpoint from **Install Instructions**, and compare it with your agent's MCP config character by character.
+Each Hive has its own endpoint, `http://localhost:3577/hives/<hive-id>/mcp`. To check the endpoint, do the following:
 
-A wrong Hive id returns `Unknown Hive: <id>`. A wrong port or host returns a connection error. Once your agent reaches the Hive, **Install Instructions** shows a `CONNECTED` count.
+1. Open the Hive in the dashboard.
+2. Copy the endpoint from **Install Instructions**.
+3. Compare the endpoint with your agent's MCP configuration, character by character.
+
+A wrong Hive id returns `Unknown Hive: <id>`. A wrong port or host returns a connection error. After your agent reaches the Hive, **Install Instructions** shows a `CONNECTED` count.
 {% endstep %}
 
 {% step %}
 ## Does your agent see the tools?
 
-Ask your agent: `List my NeoHive indexes.` It calls `list_indexes` and answers. If it has no such tool, it has not loaded the MCP server: restart the agent after any config change. In Claude Code, run `/reload-plugins` if the `/neohive:` commands are missing.
+Ask your agent: `List my NeoHive indexes.` Your agent calls `list_indexes` and answers. If the agent does not have the `list_indexes` tool, the agent has not loaded the NeoHive MCP server. Restart the agent after any configuration change. In Claude Code, if the `/neohive:` commands are missing, run `/reload-plugins`.
 {% endstep %}
 {% endstepper %}
 
 ## Still stuck?
 
-Collect a diagnostics bundle and send it to `hello@neohive.ai` with what fails. The bundle holds logs and settings with secrets removed, never your Memories, code, or databases.
+To get help, do the following:
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/logs.sh | bash
-```
+1. Run the following command to collect a diagnostics bundle:
+
+   ```bash
+   curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/logs.sh | bash
+   ```
+
+2. Send the bundle to `hello@neohive.ai` with a description of what fails.
+
+The bundle holds logs and settings with secrets removed. The bundle never includes your Memories, code, or databases.
 
 ## Next step
 
-Connected, but recall misses what you expect? See [Recall isn't finding what I need](recall.md).
+If your agent connects but recall misses what you expect, see [Recall isn't finding what I need](recall.md).

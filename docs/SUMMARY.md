@@ -2,9 +2,9 @@
 
 * [Welcome](README.md)
 
-## Get Started
+## Get started
 
-* [What is NeoHive](get-started/what-is-neohive.md)
+* [What is NeoHive?](get-started/what-is-neohive.md)
 * [Quickstart](get-started/quickstart.md)
 * [Install NeoHive](get-started/install.md)
 * [Connect your agent](get-started/connect/README.md)
@@ -14,25 +14,25 @@
   * [Claude Desktop and other MCP apps](get-started/connect/desktop-apps.md)
 * [Your first session](get-started/first-session.md)
 
-## Core Concepts
+## Core concepts
 
 * [How NeoHive works](concepts/how-it-works.md)
-* [Hives, Indexes and Memories](concepts/hives-indexes-memories.md)
+* [Hives, Indexes, and Memories](concepts/hives-indexes-memories.md)
 * [How retrieval works](concepts/retrieval.md)
 * [Glossary](concepts/glossary.md)
 
-## Add Your Context
+## Add your context
 
 * [What to add, and where](context/what-to-add.md)
 * [Add a code repository](context/repositories/README.md)
   * [Connect GitHub or GitLab](context/repositories/connect.md)
   * [Choose which files are included](context/repositories/file-patterns.md)
-  * [Keep it up to date](context/repositories/sync.md)
+  * [Keep a repository up to date](context/repositories/sync.md)
 * [Add documents and PDFs](context/documents.md)
 * [Capture team knowledge](context/team-knowledge.md)
 * [Migrate from CLAUDE.md](context/migrate.md)
 
-## Get Better Results
+## Get better results
 
 * [A session, start to finish](results/a-session.md)
 * [Teach your agent as you work](results/teach.md)
@@ -56,7 +56,7 @@
 * [GPU and CPU](admin/gpu-cpu.md)
 * [Uninstall](admin/uninstall.md)
 
-## Security and Privacy
+## Security and privacy
 
 * [What stays on your machine](security/local-only.md)
 * [Credentials and secrets](security/credentials.md)

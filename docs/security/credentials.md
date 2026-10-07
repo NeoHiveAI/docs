@@ -1,64 +1,79 @@
 ---
-description: "How NeoHive stores, checks, rotates and removes the GitHub, GitLab and Jira tokens it uses to reach your data sources."
+description: "How NeoHive stores, checks, replaces, and removes the GitHub, GitLab, and Jira tokens it uses to reach your data sources."
 ---
 
 # Credentials and secrets
 
-You learn where your data source tokens live, how they are protected, and how to rotate or remove one.
+This page explains where NeoHive stores your data source tokens and how it protects them. It also explains how to rotate (replace) or remove a token.
 
-<figure><img src="../.gitbook/assets/security-credentials.svg" alt="A token goes from Data Sources, to a check with GitHub or GitLab, to NeoHive's database encrypted, to the clone's git config unencrypted, all in the neohive-data volume."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/security-credentials.svg" alt="You add a token on the Data Sources page. GitHub or GitLab checks the token. NeoHive stores the token encrypted in its database. The clone's git config holds the token unencrypted. The database and the clone are both in the neohive-data volume."><figcaption></figcaption></figure>
 
-Each **connection** on the **Data Sources** page (`http://localhost:3577/sources`) holds one secret: a GitHub or GitLab Personal Access Token, a Jira API token or personal access token, or an SSH private key for GitHub or GitLab.
+Each **connection** on the **Data Sources** page (`http://localhost:3577/sources`) holds one secret. The secret is one of the following:
+
+- A GitHub or GitLab personal access token.
+- A Jira API token or personal access token.
+- A Secure Shell (SSH) private key for GitHub or GitLab.
 
 | What | Where it lives | How it is protected |
 |---|---|---|
-| The token or SSH key | NeoHive's database in the `neohive-data` volume | Encrypted with AES-256-GCM. The dashboard and API never return it |
-| The encryption key | `/app/data/.encryption_key` in the same volume, created on first start | Readable only by its owner. If you start the container yourself, you can pass your own 64-hex-character key in `MEMVEC_ENCRYPTION_KEY` instead |
-| The token, for HTTPS clones | The clone's git config under `/app/data/repos/` | Not encrypted |
-| An SSH key during a git command | A temporary file inside the container | Readable only by its owner, deleted when the command ends |
+| The token or SSH key | NeoHive's database in the `neohive-data` volume | NeoHive encrypts it with AES-256-GCM. The dashboard and API never show it |
+| The encryption key | `/app/data/.encryption_key` in the same volume, created on first start | Only the file's owner can read it. If you start the container yourself, you can pass your own 64-hex-character key in `MEMVEC_ENCRYPTION_KEY` instead |
+| The token, for HTTPS clones | The clone's git config under `/app/data/repos/` | NeoHive does not encrypt it |
+| An SSH key during a git command | A temporary file inside the container | Only the file's owner can read it. NeoHive deletes the file when the command ends |
 
 {% hint style="warning" %}
-**Anyone who can read the `neohive-data` volume, or a backup of it, can read your tokens.** The volume holds the encrypted tokens, the key that decrypts them, and the plain token in each HTTPS clone. Protect backups as you would the tokens, and give tokens read-only scopes.
+**Anyone who can read the `neohive-data` volume, or a backup of it, can read your tokens.** The volume holds the encrypted tokens, the key that decrypts them, and the plain token in each HTTPS clone. Protect backups as carefully as the tokens themselves. Give each token read-only scopes.
 {% endhint %}
 
 ## How NeoHive checks a token
 
-NeoHive tests a new token with GitHub, GitLab or your Jira site before saving it. If the provider rejects it, nothing is saved. If the provider cannot be reached, or a Jira connection has no site URL, the connection is saved as **Unvalidated**.
+NeoHive tests a new token with GitHub, GitLab, or your Jira site before saving it. If the provider rejects the token, NeoHive does not save it. NeoHive saves the connection as **Unvalidated** in two cases: the provider cannot be reached, or a Jira connection has no site URL.
 
-Each connection shows **Valid**, **Invalid** or **Unvalidated**. NeoHive rechecks a connection at most once every 23 hours. To check now, click **Manage** on the service card, then **Validate** on the connection.
+Each connection shows **Valid**, **Invalid**, or **Unvalidated**. NeoHive rechecks a connection at most once every 23 hours. To check a connection now, do the following:
+
+1. On the service card, select **Manage**.
+2. On the connection, select **Validate**.
+
+The connection shows its new status.
 
 ## Rotate a token
 
-You cannot edit a connection's secret. Add a new connection and move your Indexes onto it.
+You cannot edit a connection's secret. To rotate a token, add a new connection. Then move each [Index](../concepts/glossary.md) (one store of context inside a Hive) onto the new connection.
 
 {% stepper %}
 {% step %}
 ## Add the new token
 
-Create a new token with the provider, keeping the old one active. On **Data Sources**, add it as a connection.
+Create a new token with the provider, and keep the old token active. On **Data Sources**, add the new token as a connection.
 {% endstep %}
 
 {% step %}
-## Move each Index onto it
+## Move each Index to the new connection
 
-Open each Index that used the old connection and pick the new one in its **Connection** field. The next sync writes the new token into that clone.
+Open each Index that used the old connection. In the Index's **Connection** field, select the new connection. The next sync writes the new token into that Index's clone.
 {% endstep %}
 
 {% step %}
-## Remove the old one
+## Remove the old connection
 
-Delete the old connection on **Data Sources**, then revoke the old token with the provider.
+On **Data Sources**, delete the old connection. Then revoke the old token with the provider.
 {% endstep %}
 {% endstepper %}
 
+From their next sync, your Indexes use the new token.
+
 ## Remove a connection
 
-Click **Manage** on the service card, then **Delete** on the connection. Any Index that used it is flagged "No connection" until you assign another.
+To remove a connection, do the following:
 
-Revoke the token with the provider as well. Deleting the connection removes NeoHive's encrypted copy, but an existing clone still holds the token in its git config.
+1. On the service card, select **Manage**.
+2. On the connection, select **Delete**.
+3. Revoke the token with the provider.
+
+Any Index that used the connection shows "No connection" until you assign another connection. Revoking the token matters because deleting the connection removes only NeoHive's encrypted copy. An existing clone still holds the token in its git config.
 
 {% hint style="danger" %}
-**Keep the encryption key with the data.** If `/app/data/.encryption_key` is lost, or `MEMVEC_ENCRYPTION_KEY` changes, NeoHive cannot decrypt the stored connections. You then have to add every connection again.
+**Keep the encryption key with the data.** If `/app/data/.encryption_key` is lost, or `MEMVEC_ENCRYPTION_KEY` changes, NeoHive cannot decrypt the stored connections. You then need to add every connection again.
 {% endhint %}
 
 ## Next step

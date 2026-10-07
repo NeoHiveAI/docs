@@ -4,15 +4,22 @@ description: "Connect Codex to a Hive and install the NeoHive plugin."
 
 # Codex
 
-Add the Hive to Codex's MCP config, install the plugin, and check that Codex can call NeoHive's tools.
+To connect Codex, you add your [Hive](../../concepts/glossary.md) (your team's NeoHive workspace) to the Codex Model Context Protocol (MCP) configuration file. Then you install the plugin and check that Codex can call NeoHive's tools.
 
-**You need:** a running NeoHive with a Hive, and the Codex CLI with plugin support.
+Before you start, you need a running NeoHive server with a Hive, and a version of the Codex command-line interface (CLI) that supports plugins.
 
 {% stepper %}
 {% step %}
 ## Add the MCP server
 
-Open the Hive in the dashboard, go to **Install Instructions**, and pick **Codex**. Copy the block into `~/.codex/config.toml`, or into `.codex/config.toml` in your project to use it there only:
+To add the Hive to Codex, do the following:
+
+1. Open the Hive in the dashboard, and go to **Install Instructions**.
+2. Select **Codex**.
+3. Copy the block into `~/.codex/config.toml`. To use the Hive in one project only, copy the block into `.codex/config.toml` in that project instead.
+4. Rename the `headers` key to `http_headers`. The dashboard names the key `headers`, but Codex reads `http_headers`.
+
+After you rename the key, the block looks like this:
 
 ```toml
 [mcp_servers.<name>]
@@ -20,9 +27,7 @@ url = "http://localhost:3577/hives/<hive-id>/mcp"
 http_headers = { "x-mcp-client" = "codex" }
 ```
 
-The dashboard's copy names that key `headers`. Codex reads `http_headers`, so rename it when you paste.
-
-Codex connects to the URL directly, so it needs no bridge.
+Codex connects to the URL directly, so Codex does not need `mcp-remote` or another program in between.
 {% endstep %}
 
 {% step %}
@@ -34,24 +39,28 @@ Add the NeoHive marketplace from your terminal:
 codex plugin marketplace add NeoHiveAI/NeoHiveCodex
 ```
 
-Start Codex, enter `/plugins`, and install **NeoHive** from the list. Then start a new Codex session so the plugin's skills load.
+After you add the marketplace, do the following:
 
-The plugin adds a rules file that tells Codex when to call `memory_context`, `memory_recall`, and `memory_store`, plus a set of skills. It does not add an MCP server, which is why step 1 comes first.
+1. Start Codex, and enter `/plugins`.
+2. Install **NeoHive** from the list.
+3. To load the plugin's skills, start a new Codex session.
+
+The plugin adds a set of skills and a rules file. The rules file tells Codex when to call `memory_context`, `memory_recall`, and `memory_store`. The plugin does not add an MCP server, which is why step 1 comes first.
 {% endstep %}
 
 {% step %}
 ## Run the setup skill
 
-Ask Codex to run the NeoHive `getting-started` skill. It checks the Hive is reachable, offers to write a Hive summary into your project's `AGENTS.md`, and can move existing rules files (`CLAUDE.md`, `AGENTS.md`, `.cursor/rules`, `.codex/rules`) into NeoHive.
+Ask Codex to run the NeoHive `getting-started` skill. The skill checks that the Hive is reachable and offers to write a Hive summary into your project's `AGENTS.md`. The skill can also move existing rules files (`CLAUDE.md`, `AGENTS.md`, `.cursor/rules`, and `.codex/rules`) into NeoHive.
 {% endstep %}
 {% endstepper %}
 
 {% hint style="success" %}
 **Check:** Codex can reach the Hive.
 
-Ask Codex: `List my NeoHive Indexes.` It calls `list_indexes` and lists the Hive's Indexes. The dashboard's **Install Instructions** panel also marks **Codex** as connected.
+Ask Codex: `List my NeoHive Indexes.` Codex calls `list_indexes` and lists the [Indexes](../../concepts/glossary.md), or content stores, in the Hive. The dashboard's **Install Instructions** panel also marks **Codex** as connected.
 
-If the tool is missing, compare the `url` in your `config.toml` with the dashboard. Then see [Agent can't connect](../../troubleshooting/connection.md).
+If the `list_indexes` tool is missing, compare the `url` in your `config.toml` with the dashboard. Then see [Agent can't connect](../../troubleshooting/connection.md).
 {% endhint %}
 
 ## Next step

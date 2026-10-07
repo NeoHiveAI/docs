@@ -1,12 +1,12 @@
 ---
-description: "Pick your agent and connect it to a Hive. Every agent uses the same MCP endpoint from the dashboard."
+description: "Select your agent and connect it to a Hive. Every agent uses the same MCP endpoint from the dashboard."
 ---
 
 # Connect your agent
 
-Every agent needs the Hive's MCP endpoint. Claude Code, Cursor, and Codex also get a plugin that tells them when to use it.
+Every agent connects to a [Hive](../../concepts/glossary.md), your team's NeoHive workspace. The agent needs the Hive's Model Context Protocol (MCP) endpoint, the web address that agents use to reach the Hive. Claude Code, Cursor, and Codex also get a plugin that tells them when to use NeoHive.
 
-<figure><img src="../../.gitbook/assets/get-started-connect.svg" alt="Your agent connects to one Hive through its MCP endpoint, which gives it the memory tools and reaches the Hive's Code, Documentation, Files and Knowledge Indexes. A plugin inside the agent tells it when to use those tools."><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/get-started-connect.svg" alt="Your agent connects to one Hive through the Hive's MCP endpoint. The endpoint gives the agent the memory tools and reaches the Hive's Code, Documentation, Files, and Knowledge Indexes. A plugin inside the agent tells the agent when to use those tools."><figcaption></figcaption></figure>
 
 | Agent | Page | What you set up |
 |---|---|---|
@@ -17,19 +17,25 @@ Every agent needs the Hive's MCP endpoint. Claude Code, Cursor, and Codex also g
 
 ## Where to copy the endpoint
 
-Open the Hive in the dashboard. The **Install Instructions** panel is open until an agent connects; after that, click **Install** or **Reinstall** to open it. Pick your agent, and the commands come filled in:
+The **Install Instructions** panel stays open on the Hive page until an agent connects. To copy the endpoint, do the following:
+
+1. Open the Hive in the dashboard.
+2. If an agent has already connected, select **Install** or **Reinstall** to open the **Install Instructions** panel.
+3. Select your agent.
+
+The panel fills in the commands with the Hive's endpoint:
 
 ```text
 http://localhost:3577/hives/<hive-id>/mcp
 ```
 
-The host is the address you opened the dashboard on, so a shared server shows its own address. The configs also send an `x-mcp-client` header naming your agent, which is how the panel shows which agents are connected and when each last made a request.
+The host is the address you used to open the dashboard, so a shared server shows its own address. The commands and config files also send an `x-mcp-client` header that names your agent. The panel uses that header to show which agents are connected and when each one last made a request.
 
 Keep `neohive` in the server name the dashboard gives you. The plugins find the Hive by looking for an MCP server whose name contains `neohive`.
 
 ## Tell your agent to use NeoHive
 
-The plugins add these instructions for you. Without a plugin, paste this into your agent's rules file (`CLAUDE.md`, `AGENTS.md`, or its system prompt) and adjust it to what your team wants kept:
+The plugins add the following instructions for you. If your agent has no plugin, paste the instructions into your agent's rules file (`CLAUDE.md` or `AGENTS.md`) or system prompt. Then adjust the instructions to match what your team wants to keep:
 
 ```text
 ## NeoHive

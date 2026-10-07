@@ -8,17 +8,17 @@ Look up a NeoHive plugin command before you run it.
 
 | Command | What it does |
 |---|---|
-| `/neohive:getting-started` | First-run setup, once per machine. Checks the MCP connection, sets up a token if your server needs one, writes a topology block into `CLAUDE.md`, and offers to migrate your context files and turn on smart prompts. |
+| `/neohive:getting-started` | Runs first-time setup. Run it once per machine. The command checks the Model Context Protocol (MCP) connection and sets up a token if your server needs one. It then writes a topology block into `CLAUDE.md`. Finally, it offers to migrate your context files and to turn on smart prompts. |
 | `/neohive:load-context` | Calls `memory_context` with your current task, so rules and related knowledge load before work starts. Run it at the start of a session or when you switch tasks. |
-| `/neohive:capture-session-learnings` | Reads the conversation and stores up to five new corrections, conventions, decisions, or gotchas, skipping ones NeoHive already has. Nothing runs it for you: run it before you close a session. |
-| `/neohive:migrate-memory` | Reads `CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, your rules folders, and any `CONVENTIONS*.md` or `CONTRIBUTING.md` under `docs/`, then imports the project-specific entries. It skips personal preferences and writes nothing until you confirm. |
-| `/neohive:generate-claude-md` | Surveys the Indexes in your Hive and writes a topology block into `./CLAUDE.md`: what each Index holds and where new Memories go. Re-run it after you add, remove, or rename an Index. |
-| `/neohive:design-codebase-docs` | Agrees a documentation standard for your codebase with you, saves it to NeoHive, and writes two or three sample pages. It does not write the full doc set. |
-| `/neohive:enable-smart-prompts` | Installs a prompt hook that asks a small model (Haiku by default) to turn your prompt into a `memory_recall` query, then adds only the best results. It replaces the default hook, which sends your prompt as written. The hook needs `ANTHROPIC_API_KEY` and the `claude` CLI, and does nothing without them. |
+| `/neohive:capture-session-learnings` | Reads the conversation and stores up to five new corrections, conventions, decisions, or pitfalls. It skips any that NeoHive already has. Nothing runs this command automatically, so run it before you close a session. |
+| `/neohive:migrate-memory` | Reads `CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, your rules folders, and any `CONVENTIONS*.md` or `CONTRIBUTING.md` under `docs/`. The command then imports the project-specific entries. It skips personal preferences and writes nothing until you confirm. |
+| `/neohive:generate-claude-md` | Checks which [Indexes](../concepts/glossary.md) are in your [Hive](../concepts/glossary.md) and writes a topology block into `./CLAUDE.md`: what each Index holds and where new Memories go. Re-run it after you add, remove, or rename an Index. |
+| `/neohive:design-codebase-docs` | Works with you to agree on a documentation standard for your codebase. The command saves the standard to NeoHive and writes two or three sample pages. It does not write the full set of docs. |
+| `/neohive:enable-smart-prompts` | Installs a prompt hook that asks a small model (Haiku by default) to turn your prompt into a `memory_recall` query. The hook then adds only the best results. The new hook replaces the default hook, which sends your prompt as written. The hook needs `ANTHROPIC_API_KEY` and the `claude` command-line interface (CLI). Without them, the hook does nothing. |
 
 ## In Codex and Cursor
 
-In Codex and Cursor the same commands are skills. Ask your agent to run the skill by name, for example `load-context`. Two things differ:
+In Codex and Cursor, the same commands are skills. Ask your agent to run the skill by name, for example `load-context`. The following table shows the two things that differ:
 
 | Agent | Topology skill | Writes to | Rules folders `migrate-memory` reads |
 |---|---|---|---|
@@ -30,7 +30,7 @@ In Codex and Cursor the same commands are skills. Ask your agent to run the skil
 
 <summary>Old command names that still work</summary>
 
-These names redirect to the new command and will be removed in a future release.
+These names redirect to the new commands. A future release will remove them.
 
 | Old name | Use instead |
 |---|---|
@@ -42,7 +42,7 @@ These names redirect to the new command and will be removed in a future release.
 </details>
 
 {% hint style="info" %}
-Commands missing after you install the plugin? Run `/reload-plugins` in Claude Code. If they still do not appear, see [Agent can't connect](../troubleshooting/connection.md).
+If the commands are missing after you install the plugin, run `/reload-plugins` in Claude Code. If they still do not appear, see [Agent can't connect](../troubleshooting/connection.md).
 {% endhint %}
 
 ## Next step

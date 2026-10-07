@@ -6,14 +6,14 @@ description: "Back up a running NeoHive instance to a single archive, and restor
 
 Take a backup of a running NeoHive in one command, and restore it when you need to.
 
-Everything NeoHive stores lives in the `neohive-data` Docker volume. The `backup.sh` script copies all of it into one archive while NeoHive keeps running.
+Everything NeoHive stores lives in the `neohive-data` Docker volume. That includes every [Hive, Index, and Memory](../concepts/glossary.md). The `backup.sh` script copies the whole volume into one archive while NeoHive keeps running.
 
-<figure><img src="../.gitbook/assets/admin-backups.svg" alt="Backup: backup.sh copies the neohive-data volume, while NeoHive runs, into neohive-backup-timestamp.tar.gz holding manifest.json, SHA256SUMS and a data folder. Restore with backup.sh --restore in four steps: verify every file, where a damaged archive changes nothing; confirm by typing neohive-data; stop NeoHive and replace the volume contents; start NeoHive again."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/admin-backups.svg" alt="Backup: while NeoHive runs, backup.sh copies the neohive-data volume into neohive-backup-timestamp.tar.gz. The archive holds manifest.json, SHA256SUMS, and a data folder. Restore: backup.sh --restore works in four steps. First, it verifies every file, and a damaged archive changes nothing. Second, you confirm by typing neohive-data. Third, it stops NeoHive and replaces the volume contents. Fourth, it starts NeoHive again."><figcaption></figcaption></figure>
 
 | In the archive | Not in the archive |
 |---|---|
-| Every database: Hives, Indexes, Memories, connections, sync history | The cached license key in `~/.cache/neohive` |
-| Every vector Index, plus the local copies of your synced repositories | The license-seat file `machine-id` |
+| Every database: Hives, Indexes, Memories, connections, and sync history | The cached license key in `~/.cache/neohive` |
+| The search data of every Index, plus the local copies of your synced repositories | The license-seat file `machine-id` |
 | The keys that encrypt your saved GitHub and GitLab credentials | Apple Silicon models in `~/.neohive/models` |
 
 {% hint style="danger" %}
@@ -22,13 +22,13 @@ A backup holds your Memories, your indexed code, and the keys to your saved cred
 
 ## Take a backup
 
-Run this on the machine where NeoHive runs. The container must be up.
+Before you start, make sure that the NeoHive container is running. To take a backup, run the following command on the machine where NeoHive runs:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/backup.sh | bash
 ```
 
-It writes `neohive-backup-<timestamp>.tar.gz` to the current folder. To write it elsewhere, pass a folder that exists:
+The script writes `neohive-backup-<timestamp>.tar.gz` to the current folder. To write the archive to a different folder, pass a folder that exists:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/backup.sh \
@@ -41,26 +41,38 @@ curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/backup.sh \
 
 ## Restore from a backup
 
-Restoring replaces everything in the volume. Anything added since the backup is lost. The container must exist, running or stopped.
+{% hint style="danger" %}
+Restoring replaces everything in the `neohive-data` volume. You permanently lose anything added since the backup.
+{% endhint %}
+
+The NeoHive container must exist, but it can be running or stopped. To restore from a backup, run the following command with the name of your archive:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/backup.sh \
   | bash -s -- --restore neohive-backup-<timestamp>.tar.gz
 ```
 
-Type `neohive-data` when asked. `--yes` skips that question, for scripts only.
+When the script asks you to confirm, type `neohive-data`. The `--yes` flag skips that question. Use `--yes` only in scripts.
 
 {% hint style="success" %}
-**Check:** the script ends with **Restore complete.** Open `http://localhost:3577` and your Hives are back.
+**Check:** the script ends with **Restore complete.** When you open `http://localhost:3577`, your Hives are back.
 {% endhint %}
 
 ## Move to a new machine
 
-Install NeoHive on the new machine first, so the container exists. Copy the archive across and run the restore there. It reuses the image the new install runs, so it downloads nothing.
+To move NeoHive to a new machine, do the following:
+
+1. Install NeoHive on the new machine, so that the container exists. Follow [Install NeoHive](../get-started/install.md).
+2. Copy the backup archive to the new machine.
+3. On the new machine, run the command in [Restore from a backup](#restore-from-a-backup).
+
+The restore reuses the Docker image that the new install runs, so the restore downloads nothing. When the restore finishes, your Hives are on the new machine.
 
 <details>
 
 <summary>Optional: non-default container, volume, or port, and Colima or Lima</summary>
+
+The script reads the following variables. Set them if your install does not use the defaults.
 
 | Variable | Default |
 |---|---|

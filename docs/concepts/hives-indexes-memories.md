@@ -1,71 +1,71 @@
 ---
-description: "How NeoHive organises your context: a Hive holds Indexes, and an Index holds Memories or chunks of your files."
+description: "How NeoHive organizes your context: a Hive holds Indexes, and an Index holds Memories or chunks of your files."
 ---
 
-# Hives, Indexes and Memories
+# Hives, Indexes, and Memories
 
-You learn the three levels NeoHive uses, and where each piece of your context lands.
+This page explains the three levels NeoHive uses to organize context, and where each piece of your context goes.
 
-<figure><img src="../.gitbook/assets/hives-indexes-memories.svg" alt="A Hive with one MCP endpoint holds Code, Documentation, Files and Knowledge Indexes and a Shared Index. memory_recall searches all of them; memory_store and memory_forget write only to the Hive's own Knowledge Index."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/hives-indexes-memories.svg" alt="A Hive with one MCP endpoint holds Code, Documentation, Files, and Knowledge Indexes, plus a Shared Index. memory_recall searches all of them; memory_store and memory_forget write only to the Hive's own Knowledge Index."><figcaption></figcaption></figure>
 
 ## Hives
 
-A Hive is a workspace: it keeps the context for one codebase or team apart from unrelated work. You create Hives in the dashboard at `http://localhost:3577`. Each Hive has one MCP endpoint, `/hives/<hive-id>/mcp`, and every agent connected to it sees the same context.
+A Hive is a workspace. A Hive keeps the context for one codebase or team separate from unrelated work. You create Hives in the dashboard at `http://localhost:3577`. Each Hive has one Model Context Protocol (MCP) endpoint, `/hives/<hive-id>/mcp`. Every agent connected to the Hive sees the same context.
 
 Put closely related code, such as the services in one monorepo, in one Hive. Keep unrelated codebases in separate Hives.
 
 ## Indexes
 
-An Index holds one kind of context inside a Hive. Each Index has its own storage and its own embedding model, the model that turns text into embeddings.
+An Index holds one kind of context inside a Hive. Each Index has its own storage and its own embedding model. An embedding model turns text into embeddings, which are lists of numbers that capture what the text means.
 
 | Index | Filled from | Who writes to it |
 |---|---|---|
 | **Code** | A GitHub or GitLab repository | NeoHive, on every sync |
 | **Documentation** | Docs in a GitHub or GitLab repository | NeoHive, on every sync |
-| **Files** | `.md`, `.markdown`, `.txt` and `.pdf` files you add with **File Upload** | NeoHive, on upload |
+| **Files** | `.md`, `.markdown`, `.txt`, and `.pdf` files you add with **File Upload** | NeoHive, on upload |
 | **Knowledge** | What your agents learn as you work | Your agents, through `memory_store` |
 
 Every Hive gets one Knowledge Index when you create it. You cannot add a second one.
 
-Your agent never has to pick an Index. One `memory_recall` searches every Index in the Hive and returns code, docs and Memories together.
+Your agent does not need to choose an Index. One `memory_recall` call searches every Index in the Hive and returns code, docs, and Memories together.
 
 ## Shared Index
 
-A **Shared Index** is a Code, Documentation or Files Index that another Hive owns, added to yours without copying or indexing it again. Recall searches it. Your agents never write to it: `memory_store` and `memory_forget` always go to your own Knowledge Index.
+A **Shared Index** is a Code, Documentation, or Files Index that another Hive owns. NeoHive adds the Shared Index to your Hive without copying the Index or indexing its files again. Recall searches the Shared Index, but your agents never write to it. `memory_store` and `memory_forget` always write to your own Knowledge Index.
 
-An Index reaches another Hive in one of two ways:
+You can add an Index to another Hive in one of two ways:
 
-| Who acts | What they do |
+| Where you start | What you do |
 |---|---|
-| The owning Hive | Clicks **Share Index…** on the Index's **Index Info** tab and adds your Hive |
-| Your Hive | Clicks **+** next to **Indexes**, then **Shared Index** under **or reuse an existing Index** |
+| The Hive that owns the Index | Select **Share Index…** on the Index's **Index Info** tab, and then add your Hive. |
+| Your Hive | Select **+** next to **Indexes**, and then select **Shared Index** under **or reuse an existing Index**. |
 
-In the dashboard, a Hive that uses a Shared Index can do almost everything the owner can:
+In the dashboard, a Hive that uses a Shared Index can do almost everything that the owning Hive can do:
 
-| Action | Owning Hive | Hive using it |
+| Action | Owning Hive | Hive using the Index |
 |---|---|---|
-| Sync it, change its connection, branch, filters and embedding model | Yes | Yes |
-| Delete its repository or files | Yes | Yes |
+| Sync the Index, or change its connection, branch, filters, and embedding model | Yes | Yes |
+| Delete repositories or files from the Index | Yes | Yes |
 | Delete the Index, share it further, or move it | Yes | No |
-| Stop using it (**Remove from Hive**) | Not applicable | Yes |
+| Stop using the Index (**Remove from Hive**) | Not applicable | Yes |
 
 {% hint style="warning" %}
-There is one Index, not a copy. Every change made from either Hive applies to both. Knowledge Indexes cannot be shared. See [Manage Hives and Indexes](../admin/manage.md).
+Both Hives use the same Index, not a copy. Every change made from either Hive applies to both Hives. You cannot share a Knowledge Index. See [Manage Hives and Indexes](../admin/manage.md).
 {% endhint %}
 
 ## Memories
 
-A Memory is one stored piece of knowledge in a Knowledge Index: a convention, a decision, a gotcha, a correction. Your agent stores one when you ask it to remember something, or when it finds something worth keeping.
+A Memory is one stored piece of knowledge in a Knowledge Index. Examples are a convention, a decision, a correction, or a problem to watch out for. Your agent stores a Memory when you ask it to remember something. Your agent also stores a Memory when it finds something worth keeping.
 
 | A Memory has | What it is |
 |---|---|
-| A type | Such as `directive`, `convention`, `decision` or `error_pattern`, picked by your agent. See [Memory types](../reference/memory-types.md) |
-| Tags | Words that help later searches find it |
-| An importance | From 1 to 10, default 5 |
+| A type | A label such as `directive`, `convention`, `decision`, or `error_pattern`. Your agent chooses the type. See [Memory types](../reference/memory-types.md) |
+| Tags | Words that help later searches find the Memory |
+| An importance | A number from 1 to 10. The default is 5. |
 
-When a Memory goes stale, your agent calls `memory_forget`. That deactivates the Memory rather than deleting it, and can name the Memory that replaces it.
+When a Memory is out of date, your agent calls `memory_forget`. `memory_forget` deactivates the Memory instead of deleting it. The call can also name the newer Memory that replaces the old one.
 
-Code, Documentation and Files Indexes hold chunks instead of Memories. A chunk is a section of a file, such as a function or a heading and its text.
+Code, Documentation, and Files Indexes hold chunks instead of Memories. A chunk is a section of a file, such as a function or a heading and its text.
 
 ## Next step
 

@@ -4,7 +4,7 @@ description: "Archive, restore, delete, move, and share Hives and Indexes from t
 
 # Manage Hives and Indexes
 
-Which action to use on a Hive or an Index, where to find it, and whether you can undo it.
+This page explains which action to use on a Hive or an Index, where to find the action, and whether you can undo it. A Hive is the workspace your agent connects to, and an Index is one store of searchable context inside a Hive. For more terms, see the [NeoHive glossary](../concepts/glossary.md).
 
 | Action | Applies to | Where | Undo |
 |---|---|---|---|
@@ -17,39 +17,82 @@ Which action to use on a Hive or an Index, where to find it, and whether you can
 
 ## Archive, restore, or delete a Hive
 
-<figure><img src="../.gitbook/assets/admin-manage.svg" alt="A Hive in use moves to the Archived section with Archive, and back with Restore. After 30 days, or with Delete Permanently, an archived Hive is deleted for good. Delete on an active Hive, after typing its name, also deletes it for good. Indexes have no archive: Move and Share keep the data, Delete Index removes it at once."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/admin-manage.svg" alt="Archive moves an active Hive to the Archived section, and Restore brings it back. NeoHive permanently deletes an archived Hive after 30 days, or when you select Delete Permanently. Delete on an active Hive, after you type its name, also permanently deletes the Hive. Indexes have no archive. Move and Share keep the data. Delete Index removes the Index immediately."><figcaption></figcaption></figure>
 
-**Archive** moves the Hive to the **Archived** section at the bottom of the home screen, which counts down the days left. Expand **Archived** and click **Restore** to bring it back with its Indexes and Memories.
+**Archive** moves the Hive to the **Archived** section at the bottom of the home screen. That section shows how many days are left before NeoHive deletes the Hive. To bring the Hive back with its Indexes and Memories, do the following:
 
-**Delete** asks you to type the Hive's name, then **Delete permanently** removes every Memory, Index, sync history, and setting. For an archived Hive, **Delete Permanently** then **Confirm** does the same.
+1. Expand **Archived**.
+2. On the Hive, select **Restore**.
+
+The Hive returns to the home screen.
+
+{% hint style="warning" %}
+Deleting a Hive removes every Memory, Index, sync history, and setting in the Hive. You cannot undo the deletion.
+{% endhint %}
+
+To delete an active Hive, do the following:
+
+1. In the Hive card menu, select **Delete**.
+2. Type the Hive's name.
+3. Select **Delete permanently**.
+
+NeoHive removes every Memory, Index, sync history, and setting in the Hive.
+
+To delete an archived Hive, do the following:
+
+1. Expand **Archived**.
+2. On the Hive, select **Delete Permanently**.
+3. Select **Confirm**.
 
 ## Move an Index to another Hive
 
-Choose **Move Index…**, pick a Hive under **Move to**, and click **Move Index**. Only running Hives are offered. Both Hives pause briefly while the data moves, then resume on their own.
+To move an Index, do the following:
+
+1. In the Index row menu on the Hive page, or on the **Index Info** tab, select **Move Index…**.
+2. Under **Move to**, select a Hive. Only running Hives appear in the list.
+3. Select **Move Index**.
+
+Both Hives pause briefly while the data moves, and then they resume on their own.
 
 ## Share an Index between Hives
 
-A Shared Index is one Index that several Hives search, so a repository is indexed once. Set one up from either side:
+A Shared Index is one Index that several Hives search, so NeoHive indexes a repository only once. You can set up a Shared Index from either Hive.
 
-- **Offer it:** on the owning Hive, choose **Share Index…**, pick a Hive under **Add a Hive**, and click **Share**.
-- **Take it:** on any Hive, click **+** on **Indexes**, choose **Shared Index**, pick an Index, and click **Add shared Index**. The owning Hive does not have to approve.
+To offer an Index from the Hive that owns it, do the following:
+
+1. On the owning Hive, select **Share Index…**.
+2. Under **Add a Hive**, select a Hive.
+3. Select **Share**.
+
+To add another Hive's Index to your Hive, do the following:
+
+1. On your Hive page, next to **Indexes**, select **+**.
+2. Select **Shared Index**.
+3. Select an Index.
+4. Select **Add shared Index**.
+
+The owning Hive does not have to approve.
 
 {% hint style="warning" %}
-Every Hive that uses a Shared Index can sync it, change its embedding model and connection, and delete its Memories. There is one Index, so each change reaches every Hive. Only your agent's own writes stay separate: `memory_store` always writes to the Hive's own Knowledge Index.
+Every Hive that uses a Shared Index can sync it, change its embedding model and connection, and delete its Memories. All of these Hives use the same Index, so each change affects every Hive. Only your agent's own writes stay separate: `memory_store` always writes to the Hive's own Knowledge Index.
 {% endhint %}
 
-The borrowing Hive sees a **Shared** badge on the row. **Owner Hive** in the row menu, or **Open in** on **Index Info**, opens the owning Hive.
+The borrowing Hive sees a **Shared** badge on the row. To open the owning Hive, select **Owner Hive** in the row menu, or select **Open in** on the **Index Info** tab.
 
-To end a share, the owner clicks **Revoke** in **Share Index…**, or the borrower chooses **Remove from Hive…**. Neither deletes anything. The owner cannot delete a Shared Index until every share is revoked.
+To end a share, the owner selects **Revoke** in **Share Index…**, or the borrower selects **Remove from Hive…**. Neither action deletes anything. The owner cannot delete a Shared Index until every share ends.
 
 ## Delete an Index
 
-**Delete repository** on the **Sync Settings** tab of a Code or Documentation Index stops syncing and deletes its Memories but keeps the empty Index. **Delete Index** removes the Index itself.
+{% hint style="warning" %}
+**Delete repository** and **Delete Index** both delete Memories, and you cannot undo either action.
+{% endhint %}
+
+On the **Sync Settings** tab of a Code or Documentation Index, **Delete repository** stops syncing and deletes the Index's Memories. The empty Index stays. **Delete Index** removes the Index itself.
 
 ## The Knowledge Index stays with its Hive
 
-Every Hive has one Knowledge Index, where your agent's Memories live. You cannot move, share, rename, or delete it on its own. It goes wherever its Hive goes, including into the archive.
+Every Hive has one Knowledge Index, where your agent's Memories live. You cannot move, share, rename, or delete the Knowledge Index on its own. The Knowledge Index goes wherever its Hive goes, including into the archive.
 
 ## Next step
 
-Continue to [Data sources and credentials](data-sources.md) to connect the accounts your Code and Documentation Indexes sync from.
+To connect the accounts that your Code and Documentation Indexes sync from, continue to [Data sources and credentials](data-sources.md).

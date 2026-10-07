@@ -1,26 +1,30 @@
 ---
-description: "Update NeoHive to the latest release by re-running the installer. Your Hives and Memories are kept."
+description: "Update NeoHive to the latest release by re-running the installer. NeoHive keeps your Hives, Indexes, and Memories."
 ---
 
 # Update NeoHive
 
-Update to the latest release with the command you installed with. Your Hives, Indexes, and Memories stay in place.
+To update to the latest release, run the command you installed with. Your [Hives, Indexes, and Memories](../concepts/glossary.md) stay in place.
 
-<figure><img src="../.gitbook/assets/admin-updating.svg" alt="Re-running the installer: 1 read the license, reusing the cached key; 2 check the license with the licensing service; 3 detect hardware again; 4 pull the latest image for your hardware; 5 stop the old container, which frees its license seat and waits up to 30 seconds; 6 start the new container on the same neohive-data volume and print what is new."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/admin-updating.svg" alt="When you re-run the installer, it does six things in order. 1: it reads the license and reuses the cached key. 2: it checks the license with the licensing service. 3: it detects your hardware again. 4: it pulls the latest image for your hardware. 5: it stops the old container, which frees the license seat. This step waits up to 30 seconds. 6: it starts the new container on the same neohive-data volume and prints what is new."><figcaption></figcaption></figure>
 
 ## Know when an update is out
 
-The bell at the top right opens **NeoHive updates**. When a release is out, it names your version and the new one, with release highlights and **View full changelog**. A dot also appears on the NeoHive logo in the sidebar.
+The bell icon in the dashboard opens the **NeoHive updates** panel. When a new release is available, the panel shows your version and the new version. The panel also shows release highlights and **View full changelog**. A dot also appears on the NeoHive logo in the sidebar.
 
-The dashboard checks on its own; the refresh button in the panel checks right away. It only tells you about an update and never installs one.
+The dashboard checks for updates automatically. To check right away, select the refresh button in the panel. The panel tells you about an update, but the panel never installs one.
 
 ## Run the update
+
+{% hint style="warning" %}
+If a repository sync is still running when the old container stops, the sync stops before it finishes. The sync runs again at its next scheduled time. To run the sync sooner, open the Index and select **Trigger sync**.
+{% endhint %}
 
 {% stepper %}
 {% step %}
 ## Take a backup
 
-See [Backups and restore](backups.md).
+Follow the steps in [Backups and restore](backups.md).
 {% endstep %}
 
 {% step %}
@@ -30,17 +34,13 @@ See [Backups and restore](backups.md).
 bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
 ```
 
-The installer reuses your cached license key unless you give it a license another way. A license passed with `--license-file`, set in `NEOHIVE_LICENSE_FILE` or `NEOHIVE_LICENSE_KEY`, or found as a `license.key` or `license.json` in the current folder or next to `install.sh` is used instead of the cached key. On Apple Silicon it also updates the Metal embedding worker and keeps downloaded models.
+The installer reuses your cached license key unless you provide a license another way. You can pass a license with `--license-file`, or set one in `NEOHIVE_LICENSE_FILE` or `NEOHIVE_LICENSE_KEY`. The installer also finds a `license.key` or `license.json` in the current folder or next to `install.sh`. Any of these replaces the cached key. On Apple Silicon, the installer also updates the Metal embedding worker and keeps downloaded models.
 {% endstep %}
 {% endstepper %}
 
-{% hint style="warning" %}
-A repository sync still running when the old container stops is cut off. It runs again on its next schedule, or click **Trigger sync** on the Index.
-{% endhint %}
-
 ## Repeat the settings you installed with
 
-The installer does not remember options from last time. Set any you used again:
+The installer does not remember options from the last install. When you update, set again any of the following variables that you used:
 
 | Variable | Why you set it |
 |---|---|
@@ -49,7 +49,7 @@ The installer does not remember options from last time. Set any you used again:
 | `NEOHIVE_METAL_WORKER`, `NEOHIVE_METAL_WORKER_PORT` | You turned off or moved the Apple Silicon worker |
 | `NEOHIVE_PDF_BRIDGE_TIMEOUT_MS`, `NEOHIVE_PDF_WARMUP_TIMEOUT_MS`, `NEOHIVE_CHUNKER_TIMEOUT_MS` | You gave large files more time |
 
-For example:
+For example, the following command sets a different port and forces the CPU backend:
 
 ```bash
 NEOHIVE_PORT=4000 \
@@ -57,10 +57,10 @@ NEOHIVE_BACKEND=cpu \
   bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
 ```
 
-Every variable is on [Environment variables](../reference/environment-variables.md).
+For the full list of variables, see [Environment variables](../reference/environment-variables.md).
 
 {% hint style="success" %}
-**Check:** NeoHive is back.
+**Check:** To confirm that NeoHive is running again, run the following command:
 
 ```bash
 curl http://localhost:3577/health

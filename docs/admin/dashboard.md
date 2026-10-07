@@ -4,39 +4,41 @@ description: "A map of the NeoHive dashboard: its main screens, how you move bet
 
 # Dashboard tour
 
-Where each screen of the dashboard lives and what you do there.
+This page explains where each screen of the dashboard is and what you do there. You use the dashboard to manage your Hives and Indexes. A Hive is the workspace your agent connects to, and an Index is one store of searchable context inside a Hive. For more terms, see the [NeoHive glossary](../concepts/glossary.md).
 
 The dashboard runs at `http://localhost:3577`.
 
-<figure><img src="../.gitbook/assets/admin-dashboard.svg" alt="Dashboard map. The Hives home screen at / leads to a Hive page at /hives/hive-id by clicking a card, and on to an Index page by clicking an Index row. New Hive opens Create Hive at /hives/new. Try in Playground on a Hive page opens /playground. Data Sources at /sources and Settings at /settings and /settings/license sit at the bottom of the sidebar."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/admin-dashboard.svg" alt="Dashboard map. The Hives home screen is at /. Select a card to open a Hive page at /hives/hive-id. On a Hive page, select an Index row to open an Index page. New Hive opens Create Hive at /hives/new. Try in Playground on a Hive page opens /playground. Data Sources at /sources and Settings at /settings and /settings/license are at the bottom of the sidebar."><figcaption></figcaption></figure>
 
-Two screens appear only while you set up: **Welcome** at `/welcome`, shown until your first Hive exists, and the setup wizard at `/setup`. Rerun the wizard from **Settings** with **Run setup wizard**.
+Two screens appear only while you set up NeoHive. **Welcome** at `/welcome` shows until you create your first Hive. The setup wizard is at `/setup`. To run the wizard again, select **Run setup wizard** in **Settings**.
 
 ## The home screen
 
-**Hives** shows every Hive as a card, with **Total Memories**, **Added via MCP** and **Queries (30d)** along the top. Switch on **Trends** to add a 30-day line under each total.
+**Hives** shows every Hive as a card, with **Total Memories**, **Added via MCP**, and **Queries (30d)** along the top. MCP stands for Model Context Protocol, the protocol that agents use to talk to NeoHive. To add a 30-day line under each total, turn on **Trends**.
+
+On the home screen, you can do the following:
 
 - **Pin** up to two Hives to keep them in a **Pinned** row at the top.
 - **Drag** the other cards to reorder them.
-- **Open a card's menu** for **Edit**, **Pin**, **Copy MCP command**, **Stop**, **Start** or **Restart**, **Archive** and **Delete**.
+- **Open a card's menu** to find **Edit**, **Pin**, **Copy MCP command**, **Stop**, **Start** or **Restart**, **Archive**, and **Delete**.
 
 ## The Hive page
 
-**Install Instructions** at the top gives ready-made commands for Claude Code, Claude Desktop, Codex and Cursor. It collapses once an agent connects; **Reinstall** opens it again.
+**Install Instructions** at the top gives ready-made commands for Claude Code, Claude Desktop, Codex, and Cursor. The section collapses after an agent connects. To open it again, select **Reinstall**.
 
 | Section | What it shows |
 |---|---|
 | **AT A GLANCE** | **Memories**, **Learnings 7d**, **Queries 7d**, **Last activity** |
 | Activity | **Recent learnings**, **Recent queries**, **All activity** |
-| **Indexes** | Every Index in the Hive, including **Shared Indexes** from other Hives. **+** adds one; each row's menu holds its actions |
+| **Indexes** | Every Index in the Hive, including **Shared Indexes** from other Hives. **+** adds an Index. Each row's menu holds the actions for that Index |
 | **Tool usage** | Requests per kind of agent, such as Claude Code or Cursor |
 | **Sync Queue** | Syncs running or waiting |
 
-A red **An Index stopped syncing** banner at the top names any Index whose sync failed, with the reason.
+The **An Index stopped syncing** banner at the top of the page names any Index whose sync failed and gives the reason.
 
 ## The Index page
 
-The top shows **Memories**, **Files**, **Last sync** and **On disk**. A GitHub or GitLab Index also has **Trigger sync**.
+The top of the page shows **Memories**, **Files**, **Last sync**, and **On disk**. A GitHub or GitLab Index also shows **Trigger sync**.
 
 | Tab | Shown for | What's there |
 |---|---|---|
@@ -45,24 +47,24 @@ The top shows **Memories**, **Files**, **Last sync** and **On disk**. A GitHub o
 | **Sync Settings** | Code and Documentation Indexes | **Sync history**, then connection, branch, **Sync interval**, file filters, and **Pause syncing** |
 | **Index Info** | Every Index | Name, description, embedding model, **Share Index…**, **Move Index…**, **Danger zone** |
 
-A new embedding model, the program that turns text into numbers for search, re-embeds every Memory in the background. A banner shows progress while it runs.
+An embedding model is the program that turns text into numbers for search. When an Index gets a new embedding model, NeoHive processes every Memory in the Index again with the new model. This work runs in the background, and a banner shows its progress.
 
 ## The Settings screen
 
 | Card | What you do there |
 |---|---|
-| **Default Index Type** | Pick **Knowledge Base** or **Code Repository** as the default for new Indexes. You can still choose per Index |
-| **Server Status** | See whether your browser can reach the server. **Retry** checks again |
-| **Setup Wizard** | **Run setup wizard** walks through setup again. Nothing is reset or deleted |
-| **Licence Key** | **Manage licence** opens your license status. See [Licensing](licensing.md) |
+| **Default Index Type** | Select **Knowledge Base** or **Code Repository** as the default for new Indexes. You can still choose a different type for each Index |
+| **Server Status** | See whether your browser can reach NeoHive. To check again, select **Retry** |
+| **Setup Wizard** | **Run setup wizard** takes you through setup again. The wizard does not reset or delete anything |
+| **Licence Key** | **Manage licence** opens your license status. For details, see [Licensing](licensing.md) |
 | **Design Partner Licence Agreement** | **View licence** shows the agreement you accepted on first run |
-| **Anonymous Telemetry** | Switch off sharing of anonymised performance data. Your prompts, code, and Memories are never sent |
+| **Anonymous Telemetry** | Turn off sharing of anonymized performance data. NeoHive never sends your prompts, code, or Memories |
 
 ## Keyboard shortcuts
 
 | Keys | Action |
 |---|---|
-| `Cmd+K` or `Ctrl+K`, or `/` | Search palette: jump to a Hive, a connection, **Data Sources** or **Settings** |
+| `Cmd+K` or `Ctrl+K`, or `/` | Search palette: jump to a Hive, a connection, **Data Sources**, or **Settings** |
 | `G` then `D` | Home screen |
 | `G` then `S` | **Settings** |
 | `Cmd+B` or `Ctrl+B` | Show or hide the sidebar |
@@ -70,4 +72,4 @@ A new embedding model, the program that turns text into numbers for search, re-e
 
 ## Next step
 
-Continue to [Manage Hives and Indexes](manage.md) to archive, move, share, or delete them.
+To archive, move, share, or delete Hives and Indexes, continue to [Manage Hives and Indexes](manage.md).
