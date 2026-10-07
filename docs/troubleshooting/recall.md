@@ -43,7 +43,7 @@ Open the Index's **Sync Settings** tab and read the **Allowlist** and **Blocklis
 
 ## Check the Hive and the sync
 
-Recall covers only the Hive in your agent's Model Context Protocol (MCP) endpoint, plus any Shared Index added to that Hive. Compare the endpoint with **Install Instructions** on the Hive you expect.
+Recall covers only the Hive in your agent's [MCP](../concepts/glossary.md#mcp) endpoint, plus any Shared Index added to that Hive. Compare the endpoint with **Install Instructions** on the Hive you expect.
 
 A new Code or Documentation Index returns nothing until its first sync finishes. The **Sync history** on the Index page shows each run. If a run failed, see [Repository sync issues](sync.md).
 

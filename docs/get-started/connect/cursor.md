@@ -4,7 +4,7 @@ description: "Connect Cursor to a Hive and install the NeoHive plugin."
 
 # Cursor
 
-To connect Cursor, you add your [Hive](../../concepts/glossary.md#hive) (your team's NeoHive workspace) to the Cursor Model Context Protocol (MCP) configuration file. Then you install the plugin and check that Cursor can call NeoHive's tools.
+To connect Cursor, you add your [Hive](../../concepts/glossary.md#hive) (your team's NeoHive workspace) to the Cursor [MCP](../../concepts/glossary.md#mcp) configuration file. Then you install the plugin and check that Cursor can call NeoHive's tools.
 
 Before you start, you need a running NeoHive server with a Hive, Cursor, and `git`.
 

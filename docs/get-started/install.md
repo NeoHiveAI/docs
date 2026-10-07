@@ -92,7 +92,7 @@ Open the Index from the Hive page. For a repository Index, **Sync history** show
 {% step %}
 ## Connect your agent
 
-The last setup step is **Install for your AI tools**. Later, the **Install Instructions** panel on the Hive page shows the same commands. The first command registers the Hive as an MCP (Model Context Protocol) server, which is how agents call NeoHive's tools. For Claude Code, run the first command in your terminal:
+The last setup step is **Install for your AI tools**. Later, the **Install Instructions** panel on the Hive page shows the same commands. The first command registers the Hive as an [MCP](../concepts/glossary.md#mcp) server, so your agent can call NeoHive's tools. For Claude Code, run the first command in your terminal:
 
 ```bash
 claude mcp add <name> '<hive-url>' \

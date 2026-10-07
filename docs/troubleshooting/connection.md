@@ -6,7 +6,7 @@ description: "Checks to run, in order, when your coding agent cannot reach NeoHi
 
 Use the checks on this page to find where the connection between your agent and NeoHive breaks.
 
-<figure><img src="../.gitbook/assets/troubleshooting-connection.svg" alt="Decision tree with five checks. Is the neohive container running? Does /health say ok? Does list_indexes work in the Playground? Does the agent's Model Context Protocol (MCP) endpoint match Install Instructions? Does the agent see the NeoHive tools? Each no leads to its fix. Five yes answers mean the agent is connected."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/troubleshooting-connection.svg" alt="Decision tree with five checks. Is the neohive container running? Does /health say ok? Does list_indexes work in the Playground? Does the agent's MCP endpoint match Install Instructions? Does the agent see the NeoHive tools? Each no leads to its fix. Five yes answers mean the agent is connected."><figcaption></figcaption></figure>
 
 Run the checks in order. Stop at the first check that fails, and apply its fix.
 
@@ -25,7 +25,7 @@ docker start neohive
 docker logs neohive --tail 50
 ```
 
-The message `No such container` means the container no longer exists. Run the [installer](../get-started/install.md) again. Your data stays in the `neohive-data` volume. If the start fails with `port is already allocated`, another program is using port `3577`. Stop that program, or install on another port with `NEOHIVE_PORT=4577`. If you change the port, also change the port in your agent's Model Context Protocol (MCP) endpoint.
+The message `No such container` means the container no longer exists. Run the [installer](../get-started/install.md) again. Your data stays in the `neohive-data` volume. If the start fails with `port is already allocated`, another program is using port `3577`. Stop that program, or install on another port with `NEOHIVE_PORT=4577`. If you change the port, also change the port in your agent's [MCP](../concepts/glossary.md#mcp) endpoint.
 {% endstep %}
 
 {% step %}

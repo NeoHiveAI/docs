@@ -46,7 +46,7 @@ Before `E303` or `E310`, the installer also prints `License rejected by Keygen: 
 | `"error":"warmup failed"` from `/health` | NeoHive could not finish starting. | Read `docker logs neohive --tail 50`, and then run `docker restart neohive`. |
 | `"error":"embedder cannot run, so nothing can be stored or recalled"` from `/health` | The embedding engine in the container cannot start. | Read the log, and then see [GPU and CPU](../admin/gpu-cpu.md). |
 | `"status":"degraded"` from `/health` | At least one [Hive](../concepts/glossary.md#hive) failed its check. | On the dashboard home page, open that Hive's menu and select **Restart**. |
-| `Unknown Hive: <id>` | The Hive id in the Model Context Protocol (MCP) endpoint or webhook URL is wrong. | Copy the endpoint again from **Install Instructions**. |
+| `Unknown Hive: <id>` | The Hive id in the [MCP](../concepts/glossary.md#mcp) endpoint or webhook URL is wrong. | Copy the endpoint again from **Install Instructions**. |
 | `License check failed` (HTTP `402`) | The license expired or failed validation. | See [Licensing](../admin/licensing.md). |
 | `License check unavailable` (HTTP `503`) | NeoHive could not read its license state. | Run `docker restart neohive`. If the error continues, contact `hello@neohive.ai`. |
 | `Gateway is warming up. Sync scheduling is not available yet, retry shortly.` | NeoHive has just started. | Wait a few seconds and try again. |

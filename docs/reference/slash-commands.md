@@ -8,7 +8,7 @@ Look up a NeoHive plugin command before you run it.
 
 | Command | What it does |
 |---|---|
-| `/neohive:getting-started` | Runs first-time setup. Run it once per machine. The command checks the Model Context Protocol (MCP) connection and sets up a token if your server needs one. It then writes a topology block into `CLAUDE.md`. Finally, it offers to migrate your context files and to turn on smart prompts. |
+| `/neohive:getting-started` | Runs first-time setup. Run it once per machine. The command checks the [MCP](../concepts/glossary.md#mcp) connection and sets up a token if your server needs one. It then writes a topology block into `CLAUDE.md`. Finally, it offers to migrate your context files and to turn on smart prompts. |
 | `/neohive:load-context` | Calls `memory_context` with your current task, so rules and related knowledge load before work starts. Run it at the start of a session or when you switch tasks. |
 | `/neohive:capture-session-learnings` | Reads the conversation and stores up to five new corrections, conventions, decisions, or pitfalls. It skips any that NeoHive already has. Nothing runs this command automatically, so run it before you close a session. |
 | `/neohive:migrate-memory` | Reads `CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, your rules folders, and any `CONVENTIONS*.md` or `CONTRIBUTING.md` under `docs/`. The command then imports the project-specific entries. It skips personal preferences and writes nothing until you confirm. |

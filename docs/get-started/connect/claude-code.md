@@ -4,7 +4,7 @@ description: "Connect Claude Code to a Hive and install the NeoHive plugin."
 
 # Claude Code
 
-To connect Claude Code, you register your [Hive](../../concepts/glossary.md#hive) (your team's NeoHive workspace) as a Model Context Protocol (MCP) server. Then you install the plugin and check that Claude Code can call NeoHive's tools.
+To connect Claude Code, you register your [Hive](../../concepts/glossary.md#hive) (your team's NeoHive workspace) as an [MCP](../../concepts/glossary.md#mcp) server. Then you install the plugin and check that Claude Code can call NeoHive's tools.
 
 Before you start, you need a running NeoHive server with a Hive, and a version of Claude Code that supports plugins.
 

@@ -6,11 +6,11 @@ description: "Three ways teams use one team Hive: onboarding, debugging with pas
 
 A [Hive](../concepts/glossary.md#hive) is a workspace in NeoHive that holds your Indexes and Memories. When every agent on the team connects to the same Hive, everything one person teaches reaches the whole team.
 
-<figure><img src="../.gitbook/assets/results-team-workflows.svg" alt="Two teammates teach the team Hive with memory_store. One states a convention, and the other stores a bug fix. The Hive has one Model Context Protocol (MCP) endpoint and holds a Knowledge Index plus Code and Documentation Indexes. Three agents get that knowledge back through memory_context and memory_recall. The first belongs to a new engineer on day one. The second belongs to the next person with the same symptom. The third is any agent writing code in that area."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/results-team-workflows.svg" alt="Two teammates teach the team Hive with memory_store. One states a convention, and the other stores a bug fix. The Hive has one MCP endpoint and holds a Knowledge Index plus Code and Documentation Indexes. Three agents get that knowledge back through memory_context and memory_recall. The first belongs to a new engineer on day one. The second belongs to the next person with the same symptom. The third is any agent writing code in that area."><figcaption></figcaption></figure>
 
 ## Connect each person to the team Hive
 
-A Hive has one Model Context Protocol (MCP) endpoint. Everyone who connects to the endpoint reads the same Indexes and writes to the same **Knowledge** Index. For this reason, each teammate connects to the team's Hive instead of creating their own Hive. [Access and sharing](../admin/access.md) explains how to run one NeoHive instance for a team.
+A Hive has one [MCP](../concepts/glossary.md#mcp) endpoint. Everyone who connects to the endpoint reads the same Indexes and writes to the same **Knowledge** Index. For this reason, each teammate connects to the team's Hive instead of creating their own Hive. [Access and sharing](../admin/access.md) explains how to run one NeoHive instance for a team.
 
 ## The three workflows
 

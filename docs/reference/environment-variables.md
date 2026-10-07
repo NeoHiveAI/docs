@@ -28,7 +28,7 @@ NEOHIVE_PORT=4577 \
 | `NEOHIVE_LICENSE_FILE` | none | The path to your license file (`.key` or `.json`). This variable does the same as the `--license-file` option. See [Licensing](../admin/licensing.md). |
 | `NEOHIVE_LICENSE_KEY` | none | The license key itself, for setups without a license file. This key takes priority over every other license source. |
 | `NEOHIVE_ROTATE_LICENSE` | unset | Set to `1` to read a new license file even when a key is already cached. |
-| `NEOHIVE_PORT` | `3577` | The port NeoHive is published on. Change your agent's Model Context Protocol (MCP) endpoint to match. |
+| `NEOHIVE_PORT` | `3577` | The port NeoHive is published on. Change your agent's [MCP](../concepts/glossary.md#mcp) endpoint to match. |
 | `NEOHIVE_BACKEND` | detected | Makes NeoHive use one compute backend instead of detecting it: `cpu`, `cuda`, `vulkan`, or `rocm`. See [GPU and CPU](../admin/gpu-cpu.md). |
 | `NEOHIVE_PDF_BRIDGE_TIMEOUT_MS` | `300000` (5 minutes) | The time allowed to convert one PDF. A 900-page file can need `1800000`. |
 | `NEOHIVE_PDF_WARMUP_TIMEOUT_MS` | `300000` (5 minutes) | The time allowed for the one-time PDF converter warm-up. Raise this value on a slow connection or machine. |

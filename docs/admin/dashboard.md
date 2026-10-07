@@ -14,7 +14,7 @@ Two screens appear only while you set up NeoHive. **Welcome** at `/welcome` show
 
 ## The home screen
 
-**Hives** shows every Hive as a card, with **Total Memories**, **Added via MCP**, and **Queries (30d)** along the top. MCP stands for Model Context Protocol, the protocol that agents use to talk to NeoHive. To add a 30-day line under each total, turn on **Trends**.
+**Hives** shows every Hive as a card, with **Total Memories**, **Added via MCP**, and **Queries (30d)** along the top. To add a 30-day line under each total, turn on **Trends**.
 
 On the home screen, you can do the following:
 

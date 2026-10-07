@@ -13,7 +13,7 @@ NeoHive gives your coding agent your code and your team's knowledge, from a serv
 | Part | What it is |
 |---|---|
 | **Server** | A Docker container on your machine or a shared host. The dashboard runs at `http://localhost:3577`. |
-| **Hive** | A workspace for one team or product. Each Hive has one MCP (Model Context Protocol) endpoint that agents connect to. |
+| **Hive** | A workspace for one team or product. Each Hive has one [MCP](../concepts/glossary.md#mcp) endpoint that agents connect to. |
 | **Index** | One content store in a Hive. A **Code** or **Documentation** Index comes from a GitHub or GitLab repository. You upload files to a **Files** Index. Every Hive also has one **Knowledge** Index, which holds its Memories. A **Shared Index** is an Index that another Hive already set up. |
 | **Memory** | One stored convention, decision, or lesson. Agents save a Memory with `memory_store` and get the Memory back with `memory_recall` or `memory_context`. |
 | **Plugin** | Rules and skills for Claude Code, Cursor, or Codex. The plugin tells the agent when to use NeoHive, so you do not have to ask. |

@@ -4,7 +4,7 @@ description: "Connect Claude Desktop, any other MCP app, or an agent with no Neo
 
 # Claude Desktop and other MCP apps
 
-To connect any Model Context Protocol (MCP) app, give the app the MCP endpoint of your [Hive](../../concepts/glossary.md#hive), your team's NeoHive workspace. Apps that only run local commands reach the endpoint through `mcp-remote`, a small Node.js program that forwards requests to the endpoint.
+To connect any [MCP](../../concepts/glossary.md#mcp) app, give the app the MCP endpoint of your [Hive](../../concepts/glossary.md#hive), your team's NeoHive workspace. Apps that only run local commands reach the endpoint through `mcp-remote`, a small Node.js program that forwards requests to the endpoint.
 
 | The app connects by | Examples | What you add |
 |---|---|---|

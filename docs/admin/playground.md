@@ -1,5 +1,5 @@
 ---
-description: "Run the read-only NeoHive Model Context Protocol (MCP) tools against a Hive from the dashboard, to see what your agent would get back."
+description: "Run the read-only NeoHive MCP tools against a Hive from the dashboard, to see what your agent would get back."
 ---
 
 # Test queries in the Playground

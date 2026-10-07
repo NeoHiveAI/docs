@@ -10,7 +10,7 @@ This page explains the three levels NeoHive uses to organize context, and where 
 
 ## Hives
 
-A Hive is a workspace. A Hive keeps the context for one codebase or team separate from unrelated work. You create Hives in the dashboard at `http://localhost:3577`. Each Hive has one Model Context Protocol (MCP) endpoint, `/hives/<hive-id>/mcp`. Every agent connected to the Hive sees the same context.
+A Hive is a workspace. A Hive keeps the context for one codebase or team separate from unrelated work. You create Hives in the dashboard at `http://localhost:3577`. Each Hive has one [MCP](glossary.md#mcp) endpoint, `/hives/<hive-id>/mcp`. Every agent connected to the Hive sees the same context.
 
 Put closely related code, such as the services in one monorepo, in one Hive. Keep unrelated codebases in separate Hives.
 

@@ -8,7 +8,7 @@ This page explains who can reach your NeoHive instance and how to point a whole 
 
 NeoHive has no user accounts, roles, or logins. Anyone who can reach port `3577` can read and write everything, and everyone sees the same Hives. A Hive is the workspace your agent connects to, and an Index is one store of searchable context inside a Hive. For more terms, see the [NeoHive glossary](../concepts/glossary.md).
 
-<figure><img src="../.gitbook/assets/admin-access.svg" alt="NeoHive serves the dashboard and every Model Context Protocol (MCP) endpoint over plain HTTP on port 3577. This machine always reaches NeoHive at localhost:3577. By default, other machines on the same network reach NeoHive at the machine's IP address. If you work alone, block port 3577 in your firewall. Agents outside your network should reach NeoHive only through an authenticating proxy you run, over HTTPS."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/admin-access.svg" alt="NeoHive serves the dashboard and every MCP endpoint over plain HTTP on port 3577. This machine always reaches NeoHive at localhost:3577. By default, other machines on the same network reach NeoHive at the machine's IP address. If you work alone, block port 3577 in your firewall. Agents outside your network should reach NeoHive only through an authenticating proxy you run, over HTTPS."><figcaption></figcaption></figure>
 
 ## A default install is open to your network
 
@@ -43,7 +43,7 @@ Each teammate opens `http://neohive.internal:3577`. **Install Instructions** bui
 {% step %}
 ## Connect each agent
 
-Each teammate runs the commands for their agent. Each Hive's Model Context Protocol (MCP) endpoint looks like this:
+Each teammate runs the commands for their agent. Each Hive's [MCP](../concepts/glossary.md#mcp) endpoint looks like this:
 
 ```text
 http://neohive.internal:3577/hives/<hive-id>/mcp

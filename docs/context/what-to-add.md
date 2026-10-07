@@ -35,7 +35,7 @@ Your agent searches every Index in the Hive with one query. To choose a single I
 
 ## Decide how many Hives
 
-Each Hive has its own Model Context Protocol (MCP) endpoint, the address your agent connects to. Each Hive also has its own Knowledge Index, so what your agent learns in one Hive stays in that Hive.
+Each Hive has its own [MCP](../concepts/glossary.md#mcp) endpoint, the address your agent connects to. Each Hive also has its own Knowledge Index, so what your agent learns in one Hive stays in that Hive.
 
 | Situation | Do this |
 |---|---|
