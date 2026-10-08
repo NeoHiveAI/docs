@@ -82,7 +82,7 @@ The following table shows what you can add from each source and what you need fo
 
 For the scopes each token needs, see [Add a connection](../admin/data-sources.md#add-a-connection). For the file types and size limits, see [Supported file types](../reference/file-types.md).
 
-The **Jira** card is marked **Coming soon**, and you cannot select it. NeoHive also gives every Hive a **Knowledge** Index, which stores the Memories your agent saves. You can add more Indexes later from the Hive page. To decide which Indexes to add, see [What to add, and where](../context/what-to-add.md).
+NeoHive also gives every Hive a **Knowledge** Index, which stores the Memories your agent saves. You can add more Indexes later from the Hive page. To decide which Indexes to add, see [What to add, and where](../context/what-to-add.md).
 
 {% hint style="success" %}
 **Check:** the Index is ready.

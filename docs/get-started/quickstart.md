@@ -56,7 +56,7 @@ Setup now shows **Install for your AI tools** with **Claude** selected. To conne
      --transport http \
      --header 'x-mcp-client: claude-code'
    ```
-3. Start Claude Code in your repository. When Claude Code asks you to approve the NeoHive server, approve it.
+3. Start Claude Code in your repository, and approve the NeoHive server when Claude Code asks. Setup shows **Connected** only after Claude Code connects, and Claude Code does not connect until you approve the server.
 4. When setup shows **Connected**, select **Open** followed by your Hive's name.
 5. To install the plugin and run its setup, run the following commands inside Claude Code:
 

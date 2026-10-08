@@ -29,8 +29,6 @@ The **Add an Index** dialog asks where your data comes from.
 
 [Add a code repository](repositories/README.md) covers both kinds of repository Index. A Documentation Index indexes every file that its filters allow, not only docs. To limit a Documentation Index to markdown files, give the Index an **Allowlist** such as `**/*.md`. For details, see [Choose which files are included](repositories/file-patterns.md).
 
-The dialog shows Jira as a **Coming soon** card. You cannot add content from Jira.
-
 {% hint style="info" %}
 Your agent searches every Index in the Hive with one query. To choose a single Index, your agent uses the descriptions it reads through `list_indexes`. Set each description on the Index's **Index Info** tab. Name the services, domains, and languages that the Index covers.
 {% endhint %}
