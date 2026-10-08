@@ -74,7 +74,7 @@
   <rect x="528.0" y="280" width="92" height="44" rx="8" fill="#FFFFFF" stroke="#A78BFA"/>
   <text x="574.0" y="306" font-size="12" font-weight="600" text-anchor="middle" fill="#1A1A2E">Code</text>
   <rect x="628.7" y="280" width="92" height="44" rx="8" fill="#FFFFFF" stroke="#A78BFA"/>
-  <text x="674.7" y="306" font-size="10.5" font-weight="600" text-anchor="middle" fill="#1A1A2E">Documentation</text>
+  <text x="674.7" y="306" font-size="10" font-weight="600" text-anchor="middle" fill="#1A1A2E">Documentation</text>
   <rect x="729.3" y="280" width="92" height="44" rx="8" fill="#FFFFFF" stroke="#A78BFA"/>
   <text x="775.3" y="306" font-size="12" font-weight="600" text-anchor="middle" fill="#1A1A2E">Files</text>
   <rect x="830.0" y="280" width="92" height="44" rx="8" fill="#FFFFFF" stroke="#C084FC"/>

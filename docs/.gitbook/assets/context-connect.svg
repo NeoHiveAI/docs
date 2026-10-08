@@ -56,5 +56,5 @@
   <text x="718" y="298" class="title">Create Index</text>
   <text x="684" y="328" class="body">the first sync starts</text>
   <text x="684" y="346" class="body">straight away</text>
-  <path d="M960 174 L976 174 L976 244 L180 244 L180 256" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
+  <path d="M812 228 L812 244 L188 244 L188 256" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
 </svg>

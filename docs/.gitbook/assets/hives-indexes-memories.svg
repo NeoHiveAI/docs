@@ -16,7 +16,7 @@
   <line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>
 
   <!-- The hive -->
-  <rect x="40" y="114" width="920" height="352" rx="14" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1.5"/>
+  <rect x="40" y="114" width="920" height="352" rx="12" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1.5"/>
   <text x="62" y="142" class="lbl" fill="#7C3AED">HIVE</text>
   <text x="62" y="164" class="title">One workspace, one MCP endpoint</text>
   <text x="938" y="164" font-size="11.5" class="mono" text-anchor="end" fill="#6D28D9">/hives/&lt;hive-id&gt;/mcp</text>
