@@ -8,15 +8,15 @@ This page shows where each part of NeoHive runs, and how the parts connect.
 
 <figure><img src="../.gitbook/assets/how-it-works.svg" alt="The coding agent and its NeoHive plugin call the NeoHive container over MCP. The container holds a Hive with Code, Documentation, Files, and Knowledge Indexes. The container also pulls repositories from GitHub or GitLab and serves the dashboard to your browser."><figcaption></figcaption></figure>
 
-NeoHive is one Docker container named `neohive` on your machine. The container serves the dashboard at `http://localhost:3577`. The container also serves one [MCP](glossary.md#mcp) endpoint for each [Hive](glossary.md#hive) at `/hives/<hive-id>/mcp`. A Hive is a workspace for one codebase or team. Each Hive holds several [Indexes](glossary.md#index), and each Index stores one kind of context, such as your code. Your data lives in the `neohive-data` Docker volume, mounted at `/app/data`.
+NeoHive is one Docker container named `neohive`, on your machine or a shared server. The container serves the dashboard at `http://localhost:3577`. The container also serves one [MCP](glossary.md#mcp) endpoint for each [Hive](glossary.md#hive) at `/hives/<hive-id>/mcp`. A Hive is a workspace for one codebase or team. Each Hive holds several [Indexes](glossary.md#index), and each Index stores one kind of context, such as your code. Your data lives in the `neohive-data` Docker volume, mounted at `/app/data`.
 
 ## The three parts
 
 | Part | Where it runs | What it does |
 |---|---|---|
-| Your agent | Your editor or terminal | Calls NeoHive tools such as `memory_recall` and `memory_store` over MCP. MCP is the standard protocol that agents use to call tools. |
+| Your agent | Your editor or terminal | Calls NeoHive tools such as `memory_recall` and `memory_store` over MCP. |
 | The NeoHive plugin | Inside Claude Code, Cursor, or Codex | Adds rules that tell the agent when to use memory. In Claude Code, the plugin also adds hooks. Hooks are scripts that run at fixed points in a session. |
-| The NeoHive container | Docker, on your machine | Stores your Hives and Indexes, finds context for each question, and syncs repositories |
+| The NeoHive container | Docker, on your machine or a shared server | Stores your Hives and Indexes, finds context for each question, and syncs repositories |
 
 Your agent never reads NeoHive's files. Your agent asks for context through an MCP tool, and the container replies with matching code, docs, and [Memories](glossary.md#memory).
 
@@ -34,7 +34,7 @@ When you add a repository, the container copies (clones) it from GitHub or GitLa
 
 On later syncs, the container indexes only the files that changed.
 
-Embedding and search run on your machine. [What stays on your machine](../security/local-only.md) lists every connection the container makes to services outside your machine.
+NeoHive embeds and searches your content on the machine it runs on. [What stays on your machine](../security/local-only.md) lists every connection the container makes to services outside your machine.
 
 ## Next step
 

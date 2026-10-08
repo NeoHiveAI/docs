@@ -4,7 +4,11 @@ description: "Phrase requests and memory queries so NeoHive returns the Memories
 
 # Write prompts that retrieve well
 
-Recall finds a stored [Memory](../concepts/glossary.md#memory) by the words and meaning it shares with your query. Write the query the way the answer would be written.
+Recall is how your agent searches your [Hive](../concepts/glossary.md#hive), your team's NeoHive workspace, for context. Your agent recalls when it calls `memory_recall` or `memory_context`. In Claude Code, the plugin also recalls with the start of each prompt you send.
+
+Recall finds a stored [Memory](../concepts/glossary.md#memory), code, or a document by the words and meaning it shares with your query. A query that uses the same words as the answer finds the answer. A vague question shares few words with anything, so recall returns weak matches.
+
+This page shows how to phrase prompts and queries so recall returns what you need. In short, write the query the way the answer would be written.
 
 <figure><img src="../.gitbook/assets/results-prompting.svg" alt="Two queries against one stored Memory about batch processor retries. The question how do we handle errors shares few words and matches weakly. The statement error handling and retries in the async batch processor shares its words and matches strongly."><figcaption></figcaption></figure>
 
@@ -36,7 +40,7 @@ Search memory a few different ways for how we rate-limit the billing API.
 | **It returns** | Rules and conventions, plus other Memories that fit the task | The best matches of any kind, including indexed code and documents |
 | **Narrow it with** | `index` | `index`, `types` (kinds of Memory), `limit` (default 10, at most 50) |
 
-Both tools search every [Index](../concepts/glossary.md#index) in your [Hive](../concepts/glossary.md#hive) unless you pass `index`. A Hive is your team's workspace, and each Index inside the Hive is one store of context. Describe the task as a statement. For example, `implementing rate limiting for the Express gateway` loads more context than `what do we know about the gateway?`.
+Both tools search every [Index](../concepts/glossary.md#index) in your Hive unless you pass `index`. Each Index is one store of context inside the Hive. Describe the task as a statement. For example, `implementing rate limiting for the Express gateway` loads more context than `what do we know about the gateway?`.
 
 <details>
 

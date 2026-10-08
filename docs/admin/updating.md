@@ -4,7 +4,11 @@ description: "Update NeoHive to the latest release by re-running the installer. 
 
 # Update NeoHive
 
-To update to the latest release, run the command you installed with. Your [Hives, Indexes, and Memories](../concepts/glossary.md) stay in place.
+An update replaces the NeoHive container with a new one that runs the latest release. Your data does not live inside the container. NeoHive keeps your data in the `neohive-data` Docker volume, and the new container starts on that same volume. Your [Hives](../concepts/glossary.md#hive), [Indexes](../concepts/glossary.md#index), and [Memories](../concepts/glossary.md#memory) stay in place.
+
+To update, run the same installer command that you used to install NeoHive. The dashboard tells you when a new release is out, but the dashboard does not install the release for you.
+
+This page shows how to spot a new release, take a backup, and run the update. The page also lists the settings you need to set again, because the installer does not remember them.
 
 <figure><img src="../.gitbook/assets/admin-updating.svg" alt="When you re-run the installer, it does six things in order. 1: it reads the license and reuses the cached key. 2: it checks the license with the licensing service. 3: it detects your hardware again. 4: it pulls the latest image for your hardware. 5: it stops the old container, which frees the license seat. This step waits up to 30 seconds. 6: it starts the new container on the same neohive-data volume and prints what is new."><figcaption></figcaption></figure>
 
@@ -17,14 +21,14 @@ The dashboard checks for updates automatically. To check right away, select the 
 ## Run the update
 
 {% hint style="warning" %}
-If a repository sync is still running when the old container stops, the sync stops before it finishes. The sync runs again at its next scheduled time. To run the sync sooner, open the [Index](../concepts/glossary.md#index) and select **Trigger sync**.
+If a repository sync is still running when the old container stops, the sync stops before it finishes. The sync runs again at its next scheduled time. To run the sync sooner, open the Index and select **Trigger sync**.
 {% endhint %}
 
 {% stepper %}
 {% step %}
 ## Take a backup
 
-Follow the steps in [Backups and restore](backups.md).
+A backup copies everything NeoHive stores into one archive. If the update fails, you can restore your data from that archive. Follow the steps in [Backups and restore](backups.md).
 {% endstep %}
 
 {% step %}
@@ -40,7 +44,7 @@ The installer reuses your cached license key unless you provide a license anothe
 
 ## Repeat the settings you installed with
 
-The installer does not remember options from the last install. When you update, set again any of the following variables that you used:
+The installer does not remember options from the last install. If you leave out a variable, the installer uses its default value. For example, NeoHive returns to port `3577`, so agents that use your old port cannot connect. When you update, set again any of the following variables that you used:
 
 | Variable | Why you set it |
 |---|---|

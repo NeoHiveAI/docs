@@ -4,7 +4,7 @@ description: "Every command the NeoHive plugin adds to your agent, and when to r
 
 # Slash commands
 
-Look up a NeoHive plugin command before you run it.
+The NeoHive plugin adds the following commands to Claude Code, where you type each one starting with `/neohive:`. Look up a command here to see what it does and when to run it. In Codex and Cursor, the same commands work as skills.
 
 | Command | What it does |
 |---|---|

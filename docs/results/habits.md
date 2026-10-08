@@ -4,7 +4,11 @@ description: "Small everyday habits that make NeoHive's answers more accurate ea
 
 # Habits that compound
 
-Each habit takes a few seconds. Each habit adds to what your [Hive](../concepts/glossary.md#hive) knows, so later sessions start with more of the right context. A Hive is your team's workspace in NeoHive. The [Glossary](../concepts/glossary.md) defines Hive, [Index](../concepts/glossary.md#index), and [Memory](../concepts/glossary.md#memory).
+A habit on this page is a small thing you say or do while you work with your agent. Each habit takes a few seconds.
+
+NeoHive knows only what you index and what your team teaches it. Each habit adds to what your [Hive](../concepts/glossary.md#hive) knows, or keeps that knowledge correct. A Hive is your team's workspace in NeoHive. Later sessions then start with more of the right context, for you and for your teammates.
+
+The benefit grows over time, which is why the habits compound. A correction you store today can come back in every later session. Use this page to learn each habit, what to say, and what changes as a result. The [Glossary](../concepts/glossary.md) defines Hive, [Index](../concepts/glossary.md#index), and [Memory](../concepts/glossary.md#memory).
 
 | Habit | What you say or do | Result |
 |---|---|---|

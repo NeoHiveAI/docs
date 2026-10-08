@@ -4,7 +4,7 @@ description: "What NeoHive is, who it is for, and what stays on your machine."
 
 # What is NeoHive?
 
-NeoHive is a memory server for coding agents such as Claude Code, Cursor, and Codex. It gives your agent your code and your team's knowledge, from a server you run yourself.
+NeoHive is a self-hosted memory that your team's coding agents share, such as Claude Code, Cursor, and Codex. NeoHive is not an agent itself. It gives your agents your code and your team's knowledge, from a server you run yourself.
 
 A coding agent starts each session with no knowledge of your project. It does not know how your code is organized or which conventions your team follows. It does not remember what you told it yesterday. As a result, you explain the same things again and correct the same mistakes.
 

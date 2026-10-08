@@ -4,7 +4,11 @@ description: "Ask your agent directly what your Hive knows, instead of waiting f
 
 # Ask for context directly
 
-A [Hive](../concepts/glossary.md#hive) is your team's workspace in NeoHive. Before your agent writes any code, ask your agent what the Hive knows. Your agent then starts from your team's decisions and known problems.
+A [Hive](../concepts/glossary.md#hive) is your team's workspace in NeoHive. The Hive holds your code and documents, plus the [Memories](../concepts/glossary.md#memory) your team has taught its agents.
+
+Your agent searches the Hive on its own when its rules tell it to. You can also ask your agent directly what the Hive knows. Ask before your agent writes any code. Your agent then starts from your team's decisions and known problems, instead of guessing.
+
+This page lists questions to ask and the tool your agent calls for each one. The page also shows how to narrow a question to one kind of Memory or one [Index](../concepts/glossary.md#index).
 
 | You want | Ask something like | Your agent calls |
 |---|---|---|
@@ -12,11 +16,11 @@ A [Hive](../concepts/glossary.md#hive) is your team's workspace in NeoHive. Befo
 | Whether the team has seen a problem before | `Have we hit flaky failures in the batch processor before? What fixed them?` | `memory_recall` |
 | The rules for an area | `What conventions do we follow for error handling in the API layer?` | `memory_recall`, limited to conventions |
 | How a piece of code works | `How does the retry logic in the billing webhook work?` | `memory_recall`, then reads the files that the results point to |
-| Which [Indexes](../concepts/glossary.md#index) your agent can search | `List my NeoHive indexes.` | `list_indexes` |
+| Which Indexes your agent can search | `List my NeoHive indexes.` | `list_indexes` |
 
 ## Narrow the ask
 
-An Index is one store of context inside a Hive, such as your code or your team's [Memories](../concepts/glossary.md#memory). By default, your agent searches every Index in the Hive. Each detail you add limits where your agent searches.
+An Index is one store of context inside a Hive, such as your code or your team's Memories. By default, your agent searches every Index in the Hive. Each detail you add limits where your agent searches.
 
 <figure><img src="../.gitbook/assets/results-ask-directly.svg" alt="Three narrowing levels. A plain question searches every Index in the Hive. Naming a kind of Memory, such as conventions, sets the types filter on memory_recall. Naming an Index sets the index parameter."><figcaption></figcaption></figure>
 

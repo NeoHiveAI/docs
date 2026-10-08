@@ -4,7 +4,11 @@ description: "Setups that raise no error but make recall worse, and how to fix e
 
 # Common mistakes to avoid
 
-None of the mistakes on this page shows an error message. NeoHive keeps working, but it returns weaker answers. The [Glossary](../concepts/glossary.md) defines the [Hive](../concepts/glossary.md#hive), [Index](../concepts/glossary.md#index), and [Memory](../concepts/glossary.md#memory) terms that this page uses.
+This page lists setup choices and habits that make NeoHive's answers worse. None of the mistakes on this page shows an error message. NeoHive keeps working, but it returns weaker answers.
+
+Your agent works only with the context that NeoHive returns. When an [Index](../concepts/glossary.md#index) covers the wrong files, the agent gets the wrong code. When a [Memory](../concepts/glossary.md#memory) is out of date, the agent repeats the old rule. Because nothing fails, these mistakes can go unnoticed.
+
+Use this page when answers seem off but nothing is broken. Each row in the table names one mistake, what you notice, and how to fix it. The [Glossary](../concepts/glossary.md) defines the [Hive](../concepts/glossary.md#hive), Index, and Memory terms that this page uses.
 
 <figure><img src="../.gitbook/assets/results-common-mistakes.svg" alt="Three before and after pairs. Index description: Backend, versus Payments service: refunds, invoicing, and the Stripe webhook handlers. Hive layout: one Hive holds the payments service and an unrelated mobile app, versus one Hive per product. When needed, an Index is added to another Hive as a Shared Index. A fact changes: stating the new fact while the old Memory stays active, versus saying that's out of date, update it."><figcaption></figcaption></figure>
 

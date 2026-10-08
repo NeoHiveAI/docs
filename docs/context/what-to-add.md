@@ -4,7 +4,9 @@ description: "Pick the right Index for each kind of content, and decide how many
 
 # What to add, and where
 
-Find the [Index](../concepts/glossary.md#index) that fits your content. An Index stores one kind of context. Then decide whether the content goes in an existing [Hive](../concepts/glossary.md#hive) or a new one.
+NeoHive can hold your source code, your docs, your other files, and what your team learns. Each kind of content goes in its own kind of [Index](../concepts/glossary.md#index), a searchable store inside NeoHive. Your Indexes live in a [Hive](../concepts/glossary.md#hive), the workspace your agent connects to.
+
+Read this page before you first add content. Read it again when you plan NeoHive for a new product or team. The page shows which Index fits each kind of content. It also shows whether the content belongs in an existing Hive or a new one.
 
 <figure><img src="../.gitbook/assets/context-what-to-add.svg" alt="A decision tree of four questions. Has another Hive already indexed it? Yes: add it as a Shared Index. Is it in a GitHub or GitLab repository? Yes: a Code or Documentation Index. Is it a file you have, such as a PDF? Yes: a Files Index from File Upload. Is it something the team decides or learns? Yes: the Knowledge Index, which every Hive already has."><figcaption></figcaption></figure>
 

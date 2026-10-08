@@ -4,7 +4,11 @@ description: "Every action the NeoHive plugin takes automatically in Claude Code
 
 # What the plugin does automatically
 
-In Claude Code, the plugin runs hooks. Hooks are small scripts that Claude Code starts at set points in a session. The hooks give your agent context without you asking for it.
+The NeoHive plugin is a package for Claude Code, Cursor, or Codex. The plugin tells your agent when to use NeoHive, so you do not have to ask each time.
+
+In Claude Code, the plugin runs hooks. Hooks are small scripts that Claude Code starts at set points in a session. The hooks give your agent context without you asking for it. For example, one hook adds matching context to each prompt you send.
+
+Read this page to see what runs in your sessions and how to turn each part off. The page lists each hook, when it runs, and its off switch. The page also covers the commands you run yourself, and how Codex and Cursor differ.
 
 <figure><img src="../.gitbook/assets/results-plugin-automation.svg" alt="Timeline of one Claude Code session. SessionStart installs or updates the rules file and reminds the agent to call memory_context. UserPromptSubmit recalls with the first 400 characters of each prompt and adds the top five matches, off with NEOHIVE_HOOK_DISABLED=1. PreToolUse on Glob or Grep adds a reminder to try memory_recall first, off with NEOHIVE_PRETOOL_DISABLED=1. PostToolUse writes each NeoHive tool call to a session log under ~/.claude/neohive/sessions/, off with NEOHIVE_HOOK_DISABLED=1. At session end nothing runs; you run /neohive:capture-session-learnings."><figcaption></figcaption></figure>
 
@@ -43,6 +47,8 @@ The **Install Instructions** command runs `claude mcp add` without `--scope`, so
 The hook adds context under `NeoHive auto-context` and cuts it off at 4,000 characters. If `NEOHIVE_TOKEN` is set, the hook sends that token as a bearer token (an access token in the request header).
 
 ## The Glob and Grep reminder
+
+`Glob` and `Grep` are the Claude Code tools that find files by name and search text inside files. The reminder asks your agent to try `memory_recall` first. Recall finds code by what it does, not by its file name.
 
 The reminder appears only when a `.mcp.json` file in the current folder, or in a folder above it, lists a NeoHive server. To block the search instead, set `NEOHIVE_PRETOOL_STRICT=1`. Your agent then sees the reminder as the reason for the block.
 

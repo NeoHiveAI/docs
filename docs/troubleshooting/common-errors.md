@@ -4,13 +4,15 @@ description: "Error messages from the NeoHive installer, server, tools, uploads,
 
 # Common errors
 
-Search this page for the message you see, and then apply the fix.
+When something goes wrong, NeoHive shows an error message. Each entry on this page quotes one message, says what caused the error, and gives a fix. The page groups the messages by where they appear. The groups are the installer, the server and dashboard, agent tools, uploads, and syncs.
 
-Each entry on this page is an error message. If NeoHive works but your agent recalls the wrong things, see [Common mistakes to avoid](../results/common-mistakes.md). Text in `<angle brackets>` stands for a value that changes.
+To find your error, search this page for the message you see, and then apply the fix. Text in `<angle brackets>` stands for a value that changes, such as a file name.
+
+If NeoHive works but your agent recalls the wrong things, see [Common mistakes to avoid](../results/common-mistakes.md).
 
 ## Installer
 
-The installer prints a failure as `FAIL [<code>]` followed by the message.
+The installer is the script that downloads and starts NeoHive. When the installer fails, it prints `FAIL [<code>]` followed by the message, and then stops.
 
 | Code | Message | Fix |
 |---|---|---|
@@ -40,6 +42,8 @@ Before `E303` or `E310`, the installer also prints `License rejected by Keygen: 
 
 ## Server and dashboard
 
+The NeoHive server returns the following messages. You see them in the dashboard, in a command's output, or in the reply from `/health`.
+
 | Message | Cause | Fix |
 |---|---|---|
 | `Failed to connect to localhost port 3577` | The container is not running. | Run `docker start neohive`, and then see [Agent can't connect](connection.md). |
@@ -52,6 +56,8 @@ Before `E303` or `E310`, the installer also prints `License rejected by Keygen: 
 | `Gateway is warming up. Sync scheduling is not available yet, retry shortly.` | NeoHive has just started. | Wait a few seconds and try again. |
 
 ## Agent tools
+
+Your agent receives the following messages from a NeoHive tool, such as `memory_recall`.
 
 | Message | Cause | Fix |
 |---|---|---|
@@ -67,6 +73,8 @@ Before `E303` or `E310`, the installer also prints `License rejected by Keygen: 
 
 ## Uploads
 
+NeoHive shows the following messages for a file that you upload to a [Files Index](../concepts/glossary.md#files-index).
+
 | Message | Cause | Fix |
 |---|---|---|
 | `Unsupported type: <ext>` or `Unsupported file type: <ext>. Allowed: .md, .markdown, .txt, .pdf` | The file is not one of those types. | Export the file to one of those types. See [Supported file types](../reference/file-types.md). |
@@ -78,6 +86,8 @@ Before `E303` or `E310`, the installer also prints `License rejected by Keygen: 
 | `PDF bridge timed out after 300s` | Converting the PDF took longer than the timeout. | Run the installer again with a higher `NEOHIVE_PDF_BRIDGE_TIMEOUT_MS`. |
 
 ## Syncs and connections
+
+The following messages come from repository syncs and from the GitHub or GitLab connections that the syncs use.
 
 | Message | Cause | Fix |
 |---|---|---|

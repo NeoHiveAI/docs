@@ -12,6 +12,8 @@ Your agent does not search for file names or read files from top to bottom. Inst
 
 When a small part of a file matches, NeoHive returns the whole section that contains it. Your agent then has enough text to act on. NeoHive returns results from every [Index](glossary.md#index) in your [Hive](glossary.md#hive) together in one ranked list. Results from an Index with strong matches rank above results from an Index with weak matches.
 
+Memories also rank by how your team uses them. Each time recall returns a Memory, that Memory ranks a little higher next time. A Memory that nobody recalls for a while slowly ranks lower. NeoHive does not delete it, so the Memory still comes back when a query matches it closely. A Memory's importance, from `1` to `10`, also raises its rank.
+
 ## Two ways to ask
 
 | Tool | Use it for |

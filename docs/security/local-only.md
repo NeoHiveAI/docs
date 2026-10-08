@@ -4,11 +4,13 @@ description: "What NeoHive keeps on your machine, every outbound connection it m
 
 # What stays on your machine
 
-This page lists every outbound connection NeoHive makes, what each one sends, and which ones you can block.
+NeoHive runs on your own machine or on a shared server for your team. NeoHive stores and searches your content there. The NeoHive container still connects to a few outside services, for example to check your license.
+
+An outbound connection is a request that NeoHive starts to another server. This page lists every outbound connection NeoHive makes, what each one sends, and which ones you can block. Use the list for a security review, or when you set up a firewall for the NeoHive server.
 
 <figure><img src="../.gitbook/assets/security-local-only.svg" alt="Your content stays in the NeoHive container on your machine. Arrows leave the machine for the license check, usage metrics, the update check, model downloads, your data sources, dashboard fonts, and your agent's own model provider."><figcaption></figcaption></figure>
 
-**Your content never leaves your machine.** Your content means your code, documents, [Memories](../concepts/glossary.md#memory), recall queries, and repository tokens. NeoHive clones, indexes, and embeds your repositories on your machine. NeoHive stores the clones and their [Indexes](../concepts/glossary.md#index) in the `neohive-data` Docker volume. However, NeoHive is not fully offline. The container makes the connections listed in the next section.
+**Your content never leaves the machine NeoHive runs on.** Your content means your code, documents, [Memories](../concepts/glossary.md#memory), recall queries, and repository tokens. NeoHive clones, indexes, and embeds your repositories on that machine. NeoHive stores the clones and their [Indexes](../concepts/glossary.md#index) in the `neohive-data` Docker volume. However, NeoHive is not fully offline. The container makes the connections listed in the next section.
 
 ## Outbound connections
 
@@ -28,7 +30,7 @@ Usage metrics never include file contents, Memory text, recall query text, or to
 
 ## Connections from other parts of your setup
 
-These connections do not come from the container, but they involve NeoHive.
+These connections do not come from the container, but they involve NeoHive. They come from the installer, your browser, and the Claude Code plugin. Check them too when you set up a firewall.
 
 | Connection | Goes to | When |
 |---|---|---|

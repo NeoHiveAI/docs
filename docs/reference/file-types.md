@@ -4,11 +4,11 @@ description: "Which files NeoHive indexes from an upload or a repository, and th
 
 # Supported file types
 
-Check whether NeoHive can index a file before you upload it or add its repository.
+NeoHive reads files from two places: uploads to a [Files Index](../concepts/glossary.md#files-index), and repositories that you connect. Each place accepts different file types and has its own limits. Check this page before you upload a file or add a repository. The page tells you which files NeoHive can index.
 
 ## Uploads to a Files Index
 
-A [Files Index](../concepts/glossary.md#files-index) holds the files you upload. A Files Index accepts the following formats:
+A Files Index holds the files you upload. A Files Index accepts the following formats:
 
 | Format | Extensions | How it is split |
 |---|---|---|

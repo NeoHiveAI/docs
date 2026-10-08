@@ -4,7 +4,9 @@ description: "What happens at each stage of a working session with NeoHive, from
 
 # A session, start to finish
 
-A session has four stages. In Claude Code, the first two stages run automatically. You run the last two stages yourself.
+A session is one conversation with your agent, from your first prompt until you close it. Your agent starts each session with no knowledge of your project. With NeoHive, your agent loads your team's context from your [Hive](../concepts/glossary.md#hive), your team's NeoHive workspace. Your agent also saves what you teach it, so the lesson comes back in later sessions.
+
+This page explains the four stages of a session. Each stage shows the tool your agent calls and what you type when a stage needs you. In Claude Code, the first two stages run automatically. You run the last two stages yourself.
 
 <figure><img src="../.gitbook/assets/results-a-session.svg" alt="One session in four stages: start calls memory_context, work calls memory_recall, teach calls memory_store, and capture runs capture-session-learnings before you close."><figcaption></figcaption></figure>
 
@@ -26,13 +28,13 @@ If you run the command without a task description, your agent describes the task
 {% step %}
 ## Work: your agent pulls what it needs
 
-The plugin uses each prompt you send as a recall query. The plugin then adds the best matches to your agent's context. Your agent also calls `memory_recall` when it needs something specific. [What the plugin does automatically](plugin-automation.md) lists every trigger.
+Recall is a search of your Hive for context that fits a description. The plugin uses each prompt you send as a recall query. The plugin then adds the best matches to your agent's context. Your agent also calls `memory_recall` when it needs something specific. [What the plugin does automatically](plugin-automation.md) lists every trigger.
 {% endstep %}
 
 {% step %}
 ## Teach: correct your agent and tell it to remember
 
-When your agent is wrong, give the correct answer and the reason for it. Your agent stores the correction with `memory_store`. Everyone who uses your [Hive](../concepts/glossary.md#hive) then gets the correction in later sessions.
+When your agent is wrong, give the correct answer and the reason for it. Your agent stores the correction with `memory_store`. Everyone who uses your Hive then gets the correction in later sessions.
 
 ```text
 Remember that the payments API requires idempotency keys on every POST request.

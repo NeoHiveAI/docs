@@ -4,7 +4,11 @@ description: "What protects a NeoHive instance on the network, and what to put i
 
 # Exposing NeoHive beyond your network
 
-This page explains who can reach your NeoHive instance and what each level of access needs.
+NeoHive runs as a server. Your agents and your browser reach NeoHive over the network on port `3577`. The dashboard and the endpoints your agents connect to all use that one port.
+
+Other people may need NeoHive too, such as a teammate on your office network. You may also run an agent on a laptop outside that network. Each case needs a different setup.
+
+This page shows the right setup for each case. The page also shows how to put a proxy in front of NeoHive. Then it shows how each agent sends the proxy's credential.
 
 <figure><img src="../.gitbook/assets/security-network.svg" alt="Agents outside send HTTPS with a credential to a reverse proxy or VPN. The proxy checks the credential and forwards plain HTTP to NeoHive on port 3577 inside the trusted network. A direct path to port 3577 is crossed out."><figcaption></figcaption></figure>
 

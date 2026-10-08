@@ -4,7 +4,11 @@ description: "Checks to run, in order, when your coding agent cannot reach NeoHi
 
 # Agent can't connect
 
-Use the checks on this page to find where the connection between your agent and NeoHive breaks.
+Your agent reaches NeoHive through the [MCP](../concepts/glossary.md#mcp) endpoint of a [Hive](../concepts/glossary.md#hive). The endpoint is a web address, such as `http://localhost:3577/hives/<hive-id>/mcp`.
+
+The connection depends on several parts in turn. The NeoHive container must be running, and the server must be healthy. The Hive must answer, and your agent must use the right endpoint. Finally, your agent must load the NeoHive tools. If any one part fails, your agent cannot use NeoHive. The agent shows a connection error, or the NeoHive tools do not appear.
+
+Use the checks on this page to find which part breaks, and then fix that part.
 
 <figure><img src="../.gitbook/assets/troubleshooting-connection.svg" alt="Decision tree with five checks. Is the neohive container running? Does /health say ok? Does list_indexes work in the Playground? Does the agent's MCP endpoint match Install Instructions? Does the agent see the NeoHive tools? Each no leads to its fix. Five yes answers mean the agent is connected."><figcaption></figcaption></figure>
 
@@ -25,7 +29,7 @@ docker start neohive
 docker logs neohive --tail 50
 ```
 
-The message `No such container` means the container no longer exists. Run the [installer](../get-started/install.md) again. Your data stays in the `neohive-data` volume. If the start fails with `port is already allocated`, another program is using port `3577`. Stop that program, or install on another port with `NEOHIVE_PORT=4577`. If you change the port, also change the port in your agent's [MCP](../concepts/glossary.md#mcp) endpoint.
+The message `No such container` means the container no longer exists. Run the [installer](../get-started/install.md) again. Your data stays in the `neohive-data` volume. If the start fails with `port is already allocated`, another program is using port `3577`. Stop that program, or install on another port with `NEOHIVE_PORT=4577`. If you change the port, also change the port in your agent's MCP endpoint.
 {% endstep %}
 
 {% step %}
@@ -39,7 +43,7 @@ curl http://localhost:3577/health
 |---|---|---|
 | `"status":"ok"` | NeoHive is ready. | Go to the next check. |
 | `"status":"error"` | NeoHive could not finish starting, or its embedding engine cannot run. | Look up the `error` text in [Common errors](common-errors.md). |
-| `"status":"degraded"` | At least one [Hive](../concepts/glossary.md#hive) failed its check. | On the dashboard home page, open that Hive's menu and select **Restart**. |
+| `"status":"degraded"` | At least one Hive failed its check. | On the dashboard home page, open that Hive's menu and select **Restart**. |
 {% endstep %}
 
 {% step %}

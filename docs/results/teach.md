@@ -4,7 +4,11 @@ description: "How to correct your agent and tell it what to remember, so the kno
 
 # Teach your agent as you work
 
-Tell your agent something once, in plain words. Your agent stores what you said as a [Memory](../concepts/glossary.md#memory) (a stored piece of knowledge) for everyone who uses your [Hive](../concepts/glossary.md#hive).
+Your agent does not remember what you told it in an earlier session. Without NeoHive, you explain the same things again and correct the same mistakes.
+
+With NeoHive, you tell your agent something once, in plain words. Your agent stores what you said as a [Memory](../concepts/glossary.md#memory) (a stored piece of knowledge). The Memory goes into your [Hive](../concepts/glossary.md#hive), your team's NeoHive workspace. Everyone who uses the Hive then gets the Memory in later sessions, whichever tool they use.
+
+This page shows what to say to your agent, and how to word a lesson so recall finds it later. The page also shows how to update a fact that changes.
 
 <figure><img src="../.gitbook/assets/results-teach.svg" alt="Today you give a correction, such as no, we validate tokens in the gateway. memory_store saves the correction as one Memory in the Knowledge Index. Later, a teammate asks to add auth checks to the orders service. Recall returns that Memory, and their agent validates tokens in the gateway."><figcaption></figcaption></figure>
 
@@ -17,7 +21,7 @@ Tell your agent something once, in plain words. Your agent stores what you said 
 
 ## Say it when it happens
 
-Correct your agent while the reason is still in the conversation. The reason is what makes the Memory useful later. `/neohive:capture-session-learnings` finds what you missed. It stores at most five Memories per run.
+Correct your agent while the reason is still in the conversation. The reason is what makes the Memory useful later. Before you close a session, `/neohive:capture-session-learnings` finds what you missed. It stores at most five Memories per run.
 
 ## Name the system, the rule, and the reason
 

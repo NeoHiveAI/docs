@@ -79,7 +79,7 @@ To use NeoHive with an agent that has no plugin, you connect the agent and then 
 ```text
 Adapt the NeoHive plugin in this repository for my agent (<name your agent>).
 
-NeoHive is a local memory server that agents reach over MCP. The adapted plugin should:
+NeoHive is a self-hosted memory that agents reach over MCP. The adapted plugin should:
 
 1. Register NeoHive's MCP endpoint (http://localhost:3577/hives/<hive-id>/mcp, from the Hive's Install Instructions panel in the NeoHive dashboard). If the agent cannot use an HTTP endpoint, wrap it with the mcp-remote npm package.
 2. Add rules telling the agent to call memory_context and memory_recall before exploring the codebase, and memory_store to save conventions, decisions, and lessons.
