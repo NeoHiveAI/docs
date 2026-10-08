@@ -6,7 +6,7 @@ description: "Add, check, and remove the GitHub and GitLab connections that NeoH
 
 This page explains how to add a GitHub or GitLab connection, check that it still works, and replace it without stopping sync.
 
-A connection is a saved login that lets NeoHive read repositories from one account. Code and Documentation Indexes sync through a connection. An Index is one store of searchable context inside a Hive, the workspace your agent connects to. For more terms, see the [NeoHive glossary](../concepts/glossary.md).
+A connection is a saved login that lets NeoHive read repositories from one account. [Code](../concepts/glossary.md#code-index) and [Documentation Indexes](../concepts/glossary.md#documentation-index) sync through a connection. An [Index](../concepts/glossary.md#index) is one store of searchable context inside a [Hive](../concepts/glossary.md#hive), the workspace your agent connects to. For more terms, see the [NeoHive glossary](../concepts/glossary.md).
 
 To see your connections, open **Data Sources** at the bottom of the sidebar, or go to `http://localhost:3577/sources`.
 
@@ -65,7 +65,7 @@ To check a connection, select **Manage** on its card under **Connected**. The co
 **Bound Indexes** lists the Indexes in your current Hive that sync through the connection. **Delete** removes the connection.
 
 {% hint style="warning" %}
-When you delete a connection, every Index that syncs through the connection stops syncing. The Indexes keep their Memories and show a **No connection** badge.
+When you delete a connection, every Index that syncs through the connection stops syncing. The Indexes keep their [Memories](../concepts/glossary.md#memory) and show a **No connection** badge.
 {% endhint %}
 
 To replace a token without a gap in syncing, do the following:

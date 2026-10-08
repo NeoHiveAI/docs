@@ -52,7 +52,7 @@ If you skip `/reload-plugins`, the next step fails with an unknown command error
 | Part | What it does |
 |---|---|
 | Rules file | Installs `~/.claude/rules/neohive.md` at session start. The file tells Claude Code when to call `memory_context`, `memory_recall`, and `memory_store`. |
-| Prompt hook | Adds relevant Memories to the context on every prompt you send. The hook skips slash commands and prompts shorter than 10 characters. |
+| Prompt hook | Adds relevant [Memories](../../concepts/glossary.md#memory) to the context on every prompt you send. The hook skips slash commands and prompts shorter than 10 characters. |
 | Glob and Grep reminder | Suggests `memory_recall` before a broad file search. The reminder works only in a project whose `.mcp.json` names a NeoHive server. |
 | `explore-neohive` subagent | Searches NeoHive before reading files. |
 | Skills | `/neohive:getting-started`, `/neohive:load-context`, `/neohive:capture-session-learnings`, and others. See [Slash commands](../../reference/slash-commands.md). |

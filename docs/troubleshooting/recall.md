@@ -14,7 +14,7 @@ Check the causes in the following table in order. The first two are the quickest
 | `No relevant memories found for this query.` | The content was never stored or indexed | [Check the content exists](#check-the-content-exists) |
 | A file you know exists never comes back | Your file filters or the built-in skip list exclude it | [Check the file was indexed](#check-the-file-was-indexed) |
 | Nothing from a whole repository or [Index](../concepts/glossary.md#index) | Your agent is connected to a different [Hive](../concepts/glossary.md#hive), or the first sync has not finished | [Check the Hive and the sync](#check-the-hive-and-the-sync) |
-| Only rules come back, or only one kind of Memory | The agent passed `types` and narrowed the results | Ask again without naming Memory types |
+| Only rules come back, or only one kind of [Memory](../concepts/glossary.md#memory) | The agent passed `types` and narrowed the results | Ask again without naming Memory types |
 | A Memory you stored has stopped appearing | Someone ran `memory_forget` on it | Store the knowledge again |
 
 ## Rephrase the query
@@ -43,9 +43,9 @@ Open the Index's **Sync Settings** tab and read the **Allowlist** and **Blocklis
 
 ## Check the Hive and the sync
 
-Recall covers only the Hive in your agent's [MCP](../concepts/glossary.md#mcp) endpoint, plus any Shared Index added to that Hive. Compare the endpoint with **Install Instructions** on the Hive you expect.
+Recall covers only the Hive in your agent's [MCP](../concepts/glossary.md#mcp) endpoint, plus any [Shared Index](../concepts/glossary.md#shared-index) added to that Hive. Compare the endpoint with **Install Instructions** on the Hive you expect.
 
-A new Code or Documentation Index returns nothing until its first sync finishes. The **Sync history** on the Index page shows each run. If a run failed, see [Repository sync issues](sync.md).
+A new [Code](../concepts/glossary.md#code-index) or [Documentation Index](../concepts/glossary.md#documentation-index) returns nothing until its first sync finishes. The **Sync history** on the Index page shows each run. If a run failed, see [Repository sync issues](sync.md).
 
 ## Next step
 

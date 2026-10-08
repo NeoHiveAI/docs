@@ -19,10 +19,10 @@ The **Add an Index** dialog asks where your data comes from.
 
 | Your content | In the dialog | Index you get |
 |---|---|---|
-| Source code in a repository | **GitHub** or **GitLab**, then **Code** | A Code Index, kept in sync with the branch |
-| Markdown docs in a repository | **GitHub** or **GitLab**, then **Documentation** | A Documentation Index, kept in sync with the branch |
-| Specs, runbooks, or PDFs outside git | **File Upload** | A Files Index, filled by uploading |
-| Conventions and decisions your team makes | Nothing to add | The Knowledge Index, created with every Hive |
+| Source code in a repository | **GitHub** or **GitLab**, then **Code** | A [Code Index](../concepts/glossary.md#code-index), kept in sync with the branch |
+| Markdown docs in a repository | **GitHub** or **GitLab**, then **Documentation** | A [Documentation Index](../concepts/glossary.md#documentation-index), kept in sync with the branch |
+| Specs, runbooks, or PDFs outside git | **File Upload** | A [Files Index](../concepts/glossary.md#files-index), filled by uploading |
+| Conventions and decisions your team makes | Nothing to add | The [Knowledge Index](../concepts/glossary.md#knowledge-index), created with every Hive |
 | An Index another Hive already set up | **Shared Index**, under **or reuse an existing Index** | The same Index, searchable from your Hive with no copy and no wait for indexing |
 
 [Add a code repository](repositories/README.md) covers both kinds of repository Index. A Documentation Index indexes every file that its filters allow, not only docs. To limit a Documentation Index to markdown files, give the Index an **Allowlist** such as `**/*.md`. For details, see [Choose which files are included](repositories/file-patterns.md).
@@ -44,7 +44,7 @@ Each Hive has its own [MCP](../concepts/glossary.md#mcp) endpoint, the address y
 | Unrelated products or teams | One Hive each, so results from one codebase do not outrank results from the other |
 | A library several products use | Index the library in one Hive. Then add that Index to the other Hives as a **Shared Index**. |
 
-A **Shared Index** can be a Code, Documentation, or Files Index, never a Knowledge Index. Your agent can recall from a Shared Index but cannot write to it. When you add a Shared Index, the list shows only active Indexes that your Hive does not already use.
+A **Shared Index** can be a Code, Documentation, or Files Index, never a Knowledge Index. Your agent can recall from a [Shared Index](../concepts/glossary.md#shared-index) but cannot write to it. When you add a Shared Index, the list shows only active Indexes that your Hive does not already use.
 
 {% hint style="warning" %}
 A Shared Index is one Index, not a copy. If anyone changes the Index's settings or syncs the Index from any Hive, the change applies to every Hive that uses the Index. Only the Hive that owns the Index can delete it.

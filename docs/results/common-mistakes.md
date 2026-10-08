@@ -4,7 +4,7 @@ description: "Setups that raise no error but make recall worse, and how to fix e
 
 # Common mistakes to avoid
 
-None of the mistakes on this page shows an error message. NeoHive keeps working, but it returns weaker answers. The [Glossary](../concepts/glossary.md) defines the Hive, Index, and Memory terms that this page uses.
+None of the mistakes on this page shows an error message. NeoHive keeps working, but it returns weaker answers. The [Glossary](../concepts/glossary.md) defines the [Hive](../concepts/glossary.md#hive), [Index](../concepts/glossary.md#index), and [Memory](../concepts/glossary.md#memory) terms that this page uses.
 
 <figure><img src="../.gitbook/assets/results-common-mistakes.svg" alt="Three before and after pairs. Index description: Backend, versus Payments service: refunds, invoicing, and the Stripe webhook handlers. Hive layout: one Hive holds the payments service and an unrelated mobile app, versus one Hive per product. When needed, an Index is added to another Hive as a Shared Index. A fact changes: stating the new fact while the old Memory stays active, versus saying that's out of date, update it."><figcaption></figcaption></figure>
 

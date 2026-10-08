@@ -100,7 +100,7 @@ To get help with an error that this page does not list, do the following:
 
 2. Send the bundle to `hello@neohive.ai` with the message you saw.
 
-The bundle holds logs and settings with secrets removed. The bundle never includes your Memories, code, or databases.
+The bundle holds logs and settings with secrets removed. The bundle never includes your [Memories](../concepts/glossary.md#memory), code, or databases.
 
 ## Next step
 

@@ -4,7 +4,7 @@ description: "Save a GitHub or GitLab connection, select a repository and branch
 
 # Connect GitHub or GitLab
 
-Create a token, save it as a connection, select the repository, and then select **Create Index**. The first sync starts automatically. An Index is one store of searchable context inside a Hive, and a Hive is the workspace your agent connects to. For more terms, see the [NeoHive glossary](../../concepts/glossary.md).
+Create a token, save it as a connection, select the repository, and then select **Create Index**. The first sync starts automatically. An [Index](../../concepts/glossary.md#index) is one store of searchable context inside a [Hive](../../concepts/glossary.md#hive), and a Hive is the workspace your agent connects to. For more terms, see the [NeoHive glossary](../../concepts/glossary.md).
 
 <figure><img src="../../.gitbook/assets/context-connect.svg" alt="The Add an Index dialog in six steps. First, on the Hive page, select + next to Indexes. Second, select the GitHub or GitLab card. Third, select Code or Documentation as the content type. Fourth, select or save a connection. Fifth, search for the repository or paste its URL. Sixth, select Create Index to start the first sync."><figcaption></figcaption></figure>
 
@@ -71,7 +71,7 @@ Open the **Index Info** tab, and then fill in **Description**. Your agent reads 
 <details>
 <summary>Optional: switch to an embedding model specialized for code</summary>
 
-A new Code Index uses a general text embedding model, the model that turns content into a searchable form. The **Embedding model** setting on the **Index Info** tab also offers **Nomic Embed Code** models. These models match code more closely, but they need a lot of GPU memory. The list marks each option **Fits** or **Won't fit** for your machine. When you save a new model, NeoHive processes the whole Index again with that model in the background. For details, see [GPU and CPU](../../admin/gpu-cpu.md).
+A new [Code Index](../../concepts/glossary.md#code-index) uses a general text embedding model, the model that turns content into a searchable form. The **Embedding model** setting on the **Index Info** tab also offers **Nomic Embed Code** models. These models match code more closely, but they need a lot of GPU memory. The list marks each option **Fits** or **Won't fit** for your machine. When you save a new model, NeoHive processes the whole Index again with that model in the background. For details, see [GPU and CPU](../../admin/gpu-cpu.md).
 
 </details>
 

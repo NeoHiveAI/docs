@@ -12,11 +12,11 @@ A [Hive](../concepts/glossary.md#hive) is your team's workspace in NeoHive. Befo
 | Whether the team has seen a problem before | `Have we hit flaky failures in the batch processor before? What fixed them?` | `memory_recall` |
 | The rules for an area | `What conventions do we follow for error handling in the API layer?` | `memory_recall`, limited to conventions |
 | How a piece of code works | `How does the retry logic in the billing webhook work?` | `memory_recall`, then reads the files that the results point to |
-| Which Indexes your agent can search | `List my NeoHive indexes.` | `list_indexes` |
+| Which [Indexes](../concepts/glossary.md#index) your agent can search | `List my NeoHive indexes.` | `list_indexes` |
 
 ## Narrow the ask
 
-An Index is one store of context inside a Hive, such as your code or your team's Memories. By default, your agent searches every Index in the Hive. Each detail you add limits where your agent searches.
+An Index is one store of context inside a Hive, such as your code or your team's [Memories](../concepts/glossary.md#memory). By default, your agent searches every Index in the Hive. Each detail you add limits where your agent searches.
 
 <figure><img src="../.gitbook/assets/results-ask-directly.svg" alt="Three narrowing levels. A plain question searches every Index in the Hive. Naming a kind of Memory, such as conventions, sets the types filter on memory_recall. Naming an Index sets the index parameter."><figcaption></figcaption></figure>
 

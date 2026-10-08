@@ -22,7 +22,7 @@ The following limits apply to each upload:
 |---|---|
 | One file | 10 MB |
 | Files in one upload | 20 |
-| A file whose name is already in the Index | NeoHive skips the file and shows `<name> already exists, skipped`. |
+| A file whose name is already in the [Index](../concepts/glossary.md#index) | NeoHive skips the file and shows `<name> already exists, skipped`. |
 
 NeoHive refuses a file with any other extension. To index a Word document or a slide deck, export it to PDF or Markdown first.
 

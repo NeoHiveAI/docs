@@ -17,7 +17,7 @@ The dashboard checks for updates automatically. To check right away, select the 
 ## Run the update
 
 {% hint style="warning" %}
-If a repository sync is still running when the old container stops, the sync stops before it finishes. The sync runs again at its next scheduled time. To run the sync sooner, open the Index and select **Trigger sync**.
+If a repository sync is still running when the old container stops, the sync stops before it finishes. The sync runs again at its next scheduled time. To run the sync sooner, open the [Index](../concepts/glossary.md#index) and select **Trigger sync**.
 {% endhint %}
 
 {% stepper %}

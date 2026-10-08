@@ -49,7 +49,7 @@ Set these variables where your coding agent starts, for example in your shell pr
 | Variable | Default | Purpose |
 |---|---|---|
 | `NEOHIVE_TOKEN` | unset | The bearer token that the plugin hooks send. You need the token only when NeoHive runs behind an authenticating proxy that you run. |
-| `NEOHIVE_HOOK_DISABLED` | unset | Claude Code only: set to `1` to stop the hook that recalls context for each prompt. This setting also stops the hook that records which Memories a session used. |
+| `NEOHIVE_HOOK_DISABLED` | unset | Claude Code only: set to `1` to stop the hook that recalls context for each prompt. This setting also stops the hook that records which [Memories](../concepts/glossary.md#memory) a session used. |
 | `NEOHIVE_PRETOOL_STRICT` | unset | Claude Code only: set to `1` to block `Glob` and `Grep` in an indexed project. Without this setting, the hook only reminds the agent to call `memory_recall` first. |
 | `NEOHIVE_PRETOOL_DISABLED` | unset | Claude Code only: set to `1` to turn off the reminder to call `memory_recall` first. |
 | `NEOHIVE_SMART_DISABLED` | unset | Set to `1` to pause the smart-prompts hook. `enable-smart-prompts` suggests this variable as the way to turn the hook off. |

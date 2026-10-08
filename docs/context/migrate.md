@@ -61,7 +61,7 @@ The skill turns each rule or decision into its own Memory and gives each Memory 
 {% step %}
 ## You confirm
 
-If the Hive has more than one Index, the skill asks which Index to use. Select **Knowledge**. The `memory_store` tool always writes to the Hive's Knowledge Index, whichever Index you name.
+If the Hive has more than one [Index](../concepts/glossary.md#index), the skill asks which Index to use. Select **Knowledge**. The `memory_store` tool always writes to the Hive's [Knowledge Index](../concepts/glossary.md#knowledge-index), whichever Index you name.
 
 The skill then shows a preview table of what it plans to store and what it skipped. The skill writes nothing until you approve. You can remove items, re-classify the ambiguous ones, or stop the migration.
 {% endstep %}
@@ -82,7 +82,7 @@ The skill does not change your original files. The skill also skips the block be
 Your agent recalls migrated rules like any other Memory. A teammate on the same Hive gets the same rules without copying your `CLAUDE.md`. If a rule migrated incorrectly or becomes out of date, tell your agent. Your agent then retires the old Memory. For details, see [Capture team knowledge](team-knowledge.md#correct-what-goes-stale).
 
 {% hint style="info" %}
-Long-form notes, such as an Obsidian vault, design docs, or runbooks, belong in a Files Index. See [Add documents and PDFs](documents.md).
+Long-form notes, such as an Obsidian vault, design docs, or runbooks, belong in a [Files Index](../concepts/glossary.md#files-index). See [Add documents and PDFs](documents.md).
 {% endhint %}
 
 ## Next step

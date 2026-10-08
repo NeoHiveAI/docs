@@ -4,7 +4,7 @@ description: "Archive, restore, delete, move, and share Hives and Indexes from t
 
 # Manage Hives and Indexes
 
-This page explains which action to use on a Hive or an Index, where to find the action, and whether you can undo it. A Hive is the workspace your agent connects to, and an Index is one store of searchable context inside a Hive. For more terms, see the [NeoHive glossary](../concepts/glossary.md).
+This page explains which action to use on a [Hive](../concepts/glossary.md#hive) or an [Index](../concepts/glossary.md#index), where to find the action, and whether you can undo it. A Hive is the workspace your agent connects to, and an Index is one store of searchable context inside a Hive. For more terms, see the [NeoHive glossary](../concepts/glossary.md).
 
 | Action | Applies to | Where | Undo |
 |---|---|---|---|
@@ -19,7 +19,7 @@ This page explains which action to use on a Hive or an Index, where to find the 
 
 <figure><img src="../.gitbook/assets/admin-manage.svg" alt="Archive moves an active Hive to the Archived section, and Restore brings it back. NeoHive permanently deletes an archived Hive after 30 days, or when you select Delete Permanently. Delete on an active Hive, after you type its name, also permanently deletes the Hive. Indexes have no archive. Move and Share keep the data. Delete Index removes the Index immediately."><figcaption></figcaption></figure>
 
-**Archive** moves the Hive to the **Archived** section at the bottom of the home screen. That section shows how many days are left before NeoHive deletes the Hive. To bring the Hive back with its Indexes and Memories, do the following:
+**Archive** moves the Hive to the **Archived** section at the bottom of the home screen. That section shows how many days are left before NeoHive deletes the Hive. To bring the Hive back with its Indexes and [Memories](../concepts/glossary.md#memory), do the following:
 
 1. Expand **Archived**.
 2. On the Hive, select **Restore**.
@@ -56,7 +56,7 @@ Both Hives pause briefly while the data moves, and then they resume on their own
 
 ## Share an Index between Hives
 
-A Shared Index is one Index that several Hives search, so NeoHive indexes a repository only once. You can set up a Shared Index from either Hive.
+A [Shared Index](../concepts/glossary.md#shared-index) is one Index that several Hives search, so NeoHive indexes a repository only once. You can set up a Shared Index from either Hive.
 
 To offer an Index from the Hive that owns it, do the following:
 
@@ -74,7 +74,7 @@ To add another Hive's Index to your Hive, do the following:
 The owning Hive does not have to approve.
 
 {% hint style="warning" %}
-Every Hive that uses a Shared Index can sync it, change its embedding model and connection, and delete its Memories. All of these Hives use the same Index, so each change affects every Hive. Only your agent's own writes stay separate: `memory_store` always writes to the Hive's own Knowledge Index.
+Every Hive that uses a Shared Index can sync it, change its embedding model and connection, and delete its Memories. All of these Hives use the same Index, so each change affects every Hive. Only your agent's own writes stay separate: `memory_store` always writes to the Hive's own [Knowledge Index](../concepts/glossary.md#knowledge-index).
 {% endhint %}
 
 The borrowing Hive sees a **Shared** badge on the row. To open the owning Hive, select **Owner Hive** in the row menu, or select **Open in** on the **Index Info** tab.
@@ -87,7 +87,7 @@ To end a share, the owner selects **Revoke** in **Share Index…**, or the borro
 **Delete repository** and **Delete Index** both delete Memories, and you cannot undo either action.
 {% endhint %}
 
-On the **Sync Settings** tab of a Code or Documentation Index, **Delete repository** stops syncing and deletes the Index's Memories. The empty Index stays. **Delete Index** removes the Index itself.
+On the **Sync Settings** tab of a [Code](../concepts/glossary.md#code-index) or [Documentation Index](../concepts/glossary.md#documentation-index), **Delete repository** stops syncing and deletes the Index's Memories. The empty Index stays. **Delete Index** removes the Index itself.
 
 ## The Knowledge Index stays with its Hive
 

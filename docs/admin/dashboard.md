@@ -4,7 +4,7 @@ description: "A map of the NeoHive dashboard: its main screens, how you move bet
 
 # Dashboard tour
 
-This page explains where each screen of the dashboard is and what you do there. You use the dashboard to manage your Hives and Indexes. A Hive is the workspace your agent connects to, and an Index is one store of searchable context inside a Hive. For more terms, see the [NeoHive glossary](../concepts/glossary.md).
+This page explains where each screen of the dashboard is and what you do there. You use the dashboard to manage your [Hives](../concepts/glossary.md#hive) and [Indexes](../concepts/glossary.md#index). A Hive is the workspace your agent connects to, and an Index is one store of searchable context inside a Hive. For more terms, see the [NeoHive glossary](../concepts/glossary.md).
 
 The dashboard runs at `http://localhost:3577`.
 
@@ -43,11 +43,11 @@ The top of the page shows **Memories**, **Files**, **Last sync**, and **On disk*
 | Tab | Shown for | What's there |
 |---|---|---|
 | **Showcase** | Every Index | A preview of what the Index holds |
-| **Files** | Files Indexes | Uploaded files and a drop zone for more |
-| **Sync Settings** | Code and Documentation Indexes | **Sync history**, then connection, branch, **Sync interval**, file filters, and **Pause syncing** |
+| **Files** | [Files Indexes](../concepts/glossary.md#files-index) | Uploaded files and a drop zone for more |
+| **Sync Settings** | [Code](../concepts/glossary.md#code-index) and [Documentation Indexes](../concepts/glossary.md#documentation-index) | **Sync history**, then connection, branch, **Sync interval**, file filters, and **Pause syncing** |
 | **Index Info** | Every Index | Name, description, embedding model, **Share Index…**, **Move Index…**, **Danger zone** |
 
-An embedding model is the program that turns text into numbers for search. When an Index gets a new embedding model, NeoHive processes every Memory in the Index again with the new model. This work runs in the background, and a banner shows its progress.
+An embedding model is the program that turns text into numbers for search. When an Index gets a new embedding model, NeoHive processes every [Memory](../concepts/glossary.md#memory) in the Index again with the new model. This work runs in the background, and a banner shows its progress.
 
 ## The Settings screen
 

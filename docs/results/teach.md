@@ -4,7 +4,7 @@ description: "How to correct your agent and tell it what to remember, so the kno
 
 # Teach your agent as you work
 
-Tell your agent something once, in plain words. Your agent stores what you said as a Memory (a stored piece of knowledge) for everyone who uses your [Hive](../concepts/glossary.md#hive).
+Tell your agent something once, in plain words. Your agent stores what you said as a [Memory](../concepts/glossary.md#memory) (a stored piece of knowledge) for everyone who uses your [Hive](../concepts/glossary.md#hive).
 
 <figure><img src="../.gitbook/assets/results-teach.svg" alt="Today you give a correction, such as no, we validate tokens in the gateway. memory_store saves the correction as one Memory in the Knowledge Index. Later, a teammate asks to add auth checks to the orders service. Recall returns that Memory, and their agent validates tokens in the gateway."><figcaption></figcaption></figure>
 
@@ -34,7 +34,7 @@ If you state only the new fact, both versions stay active. Your agent might then
 
 ## Where Memories go
 
-Everything your agent stores goes into your own Hive's **Knowledge** Index. Your agents can recall a new Memory immediately. Your agent never stores anything in a Shared Index. A Shared Index belongs to another Hive, and your agents can only read from it.
+Everything your agent stores goes into your own Hive's **Knowledge** [Index](../concepts/glossary.md#knowledge-index). Your agents can recall a new Memory immediately. Your agent never stores anything in a [Shared Index](../concepts/glossary.md#shared-index). A Shared Index belongs to another Hive, and your agents can only read from it.
 
 To see stored Memories, do the following:
 

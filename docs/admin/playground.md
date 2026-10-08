@@ -4,7 +4,7 @@ description: "Run the read-only NeoHive MCP tools against a Hive from the dashbo
 
 # Test queries in the Playground
 
-The Playground is a dashboard screen where you run the same read-only tools that your agent calls. You see exactly what each tool returns. You run each tool against a Hive, the workspace your agent connects to. A Hive holds Indexes, which are stores of searchable context. For more terms, see the [NeoHive glossary](../concepts/glossary.md).
+The Playground is a dashboard screen where you run the same read-only tools that your agent calls. You see exactly what each tool returns. You run each tool against a [Hive](../concepts/glossary.md#hive), the workspace your agent connects to. A Hive holds [Indexes](../concepts/glossary.md#index), which are stores of searchable context. For more terms, see the [NeoHive glossary](../concepts/glossary.md).
 
 Open **Playground** in the header bar. To open the Playground with a Hive already selected, select **Try in Playground** on that Hive's page. The screen is marked **Alpha**, which means it is an early preview.
 
@@ -12,7 +12,7 @@ Open **Playground** in the header bar. To open the Playground with a Hive alread
 
 | Tool | Needs a query | What it returns |
 |---|---|---|
-| `memory_recall` | Yes | The Memories and indexed content that best match |
+| `memory_recall` | Yes | The [Memories](../concepts/glossary.md#memory) and indexed content that best match |
 | `memory_context` | Yes | **DIRECTIVES**, **CONVENTIONS**, and **TASK RELEVANT**, which an agent loads at the start of a task |
 | `list_indexes` | No | Every Index the Hive can search |
 | `memory_stats` | No | **Total memories**, **Top types**, **Recent growth** |
@@ -25,7 +25,7 @@ Nothing you run in the Playground adds, changes, or deletes a Memory. Running `l
 {% step %}
 ## Select the scope
 
-Select a **Hive**. To search the whole Hive as your agent does, leave **Index (optional)** set to **All Indexes (cross-index fan-out)**. To search one Index, select that Index. The list includes Shared Indexes.
+Select a **Hive**. To search the whole Hive as your agent does, leave **Index (optional)** set to **All Indexes (cross-index fan-out)**. To search one Index, select that Index. The list includes [Shared Indexes](../concepts/glossary.md#shared-index).
 {% endstep %}
 
 {% step %}

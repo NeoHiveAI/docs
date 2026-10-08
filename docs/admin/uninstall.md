@@ -37,12 +37,12 @@ curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/uninstall.sh
 curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/uninstall.sh | bash
 ```
 
-If you install NeoHive again later, the new install finds your Hives as you left them.
+If you install NeoHive again later, the new install finds your [Hives](../concepts/glossary.md#hive) as you left them.
 {% endtab %}
 
 {% tab title="Delete everything" %}
 {% hint style="danger" %}
-Deleting the volume permanently removes every Hive, Index, and Memory. You can get them back only from a backup. See [Backups and restore](backups.md).
+Deleting the volume permanently removes every Hive, [Index](../concepts/glossary.md#index), and [Memory](../concepts/glossary.md#memory). You can get them back only from a backup. See [Backups and restore](backups.md).
 {% endhint %}
 
 ```bash

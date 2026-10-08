@@ -36,7 +36,7 @@ Search memory a few different ways for how we rate-limit the billing API.
 | **It returns** | Rules and conventions, plus other Memories that fit the task | The best matches of any kind, including indexed code and documents |
 | **Narrow it with** | `index` | `index`, `types` (kinds of Memory), `limit` (default 10, at most 50) |
 
-Both tools search every Index in your Hive unless you pass `index`. A Hive is your team's workspace, and each Index inside the Hive is one store of context. Describe the task as a statement. For example, `implementing rate limiting for the Express gateway` loads more context than `what do we know about the gateway?`.
+Both tools search every [Index](../concepts/glossary.md#index) in your [Hive](../concepts/glossary.md#hive) unless you pass `index`. A Hive is your team's workspace, and each Index inside the Hive is one store of context. Describe the task as a statement. For example, `implementing rate limiting for the Express gateway` loads more context than `what do we know about the gateway?`.
 
 <details>
 

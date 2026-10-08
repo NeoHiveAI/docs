@@ -8,7 +8,7 @@ This page shows where each part of NeoHive runs, and how the parts connect.
 
 <figure><img src="../.gitbook/assets/how-it-works.svg" alt="The coding agent and its NeoHive plugin call the NeoHive container over MCP. The container holds a Hive with Code, Documentation, Files, and Knowledge Indexes. The container also pulls repositories from GitHub or GitLab and serves the dashboard to your browser."><figcaption></figcaption></figure>
 
-NeoHive is one Docker container named `neohive` on your machine. The container serves the dashboard at `http://localhost:3577`. The container also serves one [MCP](glossary.md#mcp) endpoint for each Hive at `/hives/<hive-id>/mcp`. A [Hive](glossary.md#hive) is a workspace for one codebase or team. Each Hive holds several [Indexes](glossary.md#index), and each Index stores one kind of context, such as your code. Your data lives in the `neohive-data` Docker volume, mounted at `/app/data`.
+NeoHive is one Docker container named `neohive` on your machine. The container serves the dashboard at `http://localhost:3577`. The container also serves one [MCP](glossary.md#mcp) endpoint for each [Hive](glossary.md#hive) at `/hives/<hive-id>/mcp`. A Hive is a workspace for one codebase or team. Each Hive holds several [Indexes](glossary.md#index), and each Index stores one kind of context, such as your code. Your data lives in the `neohive-data` Docker volume, mounted at `/app/data`.
 
 ## The three parts
 
@@ -18,7 +18,7 @@ NeoHive is one Docker container named `neohive` on your machine. The container s
 | The NeoHive plugin | Inside Claude Code, Cursor, or Codex | Adds rules that tell the agent when to use memory. In Claude Code, the plugin also adds hooks. Hooks are scripts that run at fixed points in a session. |
 | The NeoHive container | Docker, on your machine | Stores your Hives and Indexes, finds context for each question, and syncs repositories |
 
-Your agent never reads NeoHive's files. Your agent asks for context through an MCP tool, and the container replies with matching code, docs, and Memories.
+Your agent never reads NeoHive's files. Your agent asks for context through an MCP tool, and the container replies with matching code, docs, and [Memories](glossary.md#memory).
 
 Claude Desktop and other MCP apps have no plugin. They connect to the same MCP endpoint and call the same tools.
 
@@ -30,7 +30,7 @@ Cursor and Codex have no hooks. Instead, the plugin for Cursor and Codex install
 
 ## Repositories
 
-When you add a repository, the container copies (clones) it from GitHub or GitLab into the `neohive-data` volume. The container splits the files into chunks. A chunk is a section of a file, such as a function or a heading and its text. The container turns each chunk into an embedding, which is a list of numbers that captures what the text means. The container stores the embeddings in a Code or Documentation Index.
+When you add a repository, the container copies (clones) it from GitHub or GitLab into the `neohive-data` volume. The container splits the files into chunks. A chunk is a section of a file, such as a function or a heading and its text. The container turns each chunk into an embedding, which is a list of numbers that captures what the text means. The container stores the embeddings in a [Code](glossary.md#code-index) or [Documentation Index](glossary.md#documentation-index).
 
 On later syncs, the container indexes only the files that changed.
 

@@ -4,7 +4,7 @@ description: "Set how often a Code or Documentation Index syncs, sync it on dema
 
 # Keep a repository up to date
 
-Choose a sync schedule for a Code or Documentation Index. An Index is one store of searchable context inside a Hive, the workspace your agent connects to. For more terms, see the [NeoHive glossary](../../concepts/glossary.md). To index a change right away, select **Trigger sync**. When something looks wrong, read **Sync history**.
+Choose a sync schedule for a [Code](../../concepts/glossary.md#code-index) or [Documentation Index](../../concepts/glossary.md#documentation-index). An [Index](../../concepts/glossary.md#index) is one store of searchable context inside a [Hive](../../concepts/glossary.md#hive), the workspace your agent connects to. For more terms, see the [NeoHive glossary](../../concepts/glossary.md). To index a change right away, select **Trigger sync**. When something looks wrong, read **Sync history**.
 
 <figure><img src="../../.gitbook/assets/context-sync.svg" alt="A one-day timeline. Scheduled syncs run every 4 hours at 00:00, 04:00, 08:00, and so on. At 10:12 you select Trigger sync, and a sync runs immediately. At 14:36 a CI pipeline calls the webhook after a merge and sends only the changed files. Only one sync runs per Index at a time."><figcaption></figcaption></figure>
 

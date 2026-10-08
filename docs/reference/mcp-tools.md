@@ -4,20 +4,20 @@ description: "The MCP tools each NeoHive Hive exposes, with every parameter, typ
 
 # MCP tools
 
-A [Hive](../concepts/glossary.md#hive) is a NeoHive workspace that holds your Indexes. This page lists every tool your agent can call on a Hive, the parameters each tool takes, and what each tool returns.
+A [Hive](../concepts/glossary.md#hive) is a NeoHive workspace that holds your [Indexes](../concepts/glossary.md#index). This page lists every tool your agent can call on a Hive, the parameters each tool takes, and what each tool returns.
 
 Each Hive serves these tools at its [MCP](../concepts/glossary.md#mcp) endpoint, `http://localhost:3577/hives/<hive-id>/mcp`, over Streamable HTTP.
 
 | Tool | What it does | Writes? |
 |---|---|---|
 | `list_indexes` | Lists the Hive's Indexes with each one's id, name, type, status, embedding model, and description. | No |
-| `memory_recall` | Searches the Hive's Indexes by meaning and keywords and returns the most relevant code, docs, and Memories. | No |
+| `memory_recall` | Searches the Hive's Indexes by meaning and keywords and returns the most relevant code, docs, and [Memories](../concepts/glossary.md#memory). | No |
 | `memory_context` | Returns the rules closest to your task plus other Memories related to it. | No |
 | `memory_stats` | Reports Memory counts by type, the most and least accessed Memories, and the oldest and newest. | No |
-| `memory_store` | Saves a new Memory to the Hive's Knowledge Index. | Yes |
+| `memory_store` | Saves a new Memory to the Hive's [Knowledge Index](../concepts/glossary.md#knowledge-index). | Yes |
 | `memory_forget` | Deactivates a Memory so recall stops returning it. | Yes |
 
-The read tools take an optional `index`. Leave it out to cover every Index in the Hive. The write tools take no `index`: they always write to the Hive's own Knowledge Index, even when you read from a Shared Index. You can run the read tools manually in the [Playground](../admin/playground.md).
+The read tools take an optional `index`. Leave it out to cover every Index in the Hive. The write tools take no `index`: they always write to the Hive's own Knowledge Index, even when you read from a [Shared Index](../concepts/glossary.md#shared-index). You can run the read tools manually in the [Playground](../admin/playground.md).
 
 ## memory_recall
 

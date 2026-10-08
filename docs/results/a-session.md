@@ -12,7 +12,7 @@ A session has four stages. In Claude Code, the first two stages run automaticall
 {% step %}
 ## Start: load context for the task
 
-When the session opens, the plugin's rules tell your agent to call `memory_context` with your task. `memory_context` returns your team's rules and conventions, plus the Memories that fit the task.
+When the session opens, the plugin's rules tell your agent to call `memory_context` with your task. `memory_context` returns your team's rules and conventions, plus the [Memories](../concepts/glossary.md#memory) that fit the task.
 
 To load context yourself, or to reload it after you switch to a different task, run the following command:
 

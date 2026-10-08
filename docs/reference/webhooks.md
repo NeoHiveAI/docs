@@ -8,7 +8,7 @@ Send changed files to NeoHive from your CI pipeline, so a Code or Documentation 
 
 <figure><img src="../.gitbook/assets/reference-webhooks.svg" alt="Sequence of a webhook refresh. A CI job posts changed files to the Hive's webhook route. NeoHive checks X-Webhook-Secret and finds every Index that syncs the named repository. NeoHive then removes each path's old content, indexes the new content, and replies with counts."><figcaption></figcaption></figure>
 
-Scheduled syncs already keep each Code or Documentation Index current. Use the webhook only when the wait for the next scheduled sync is too long.
+Scheduled syncs already keep each [Code](../concepts/glossary.md#code-index) or [Documentation Index](../concepts/glossary.md#documentation-index) current. Use the webhook only when the wait for the next scheduled sync is too long.
 
 ```text
 POST http://<host>:3577/hives/<hive-id>/webhook/refresh

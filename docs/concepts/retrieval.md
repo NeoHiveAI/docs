@@ -16,7 +16,7 @@ When a small part of a file matches, NeoHive returns the whole section that cont
 
 | Tool | Use it for |
 |---|---|
-| `memory_context` | The start of a task. `memory_context` returns the directives and conventions that match the task you describe. It also returns other Memories and indexed content that match the task. |
+| `memory_context` | The start of a task. `memory_context` returns the directives and conventions that match the task you describe. It also returns other [Memories](glossary.md#memory) and indexed content that match the task. |
 | `memory_recall` | A specific question in the middle of a task |
 
 Both tools search every Index in the Hive unless you name one Index.

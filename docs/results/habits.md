@@ -4,7 +4,7 @@ description: "Small everyday habits that make NeoHive's answers more accurate ea
 
 # Habits that compound
 
-Each habit takes a few seconds. Each habit adds to what your Hive knows, so later sessions start with more of the right context. A Hive is your team's workspace in NeoHive. The [Glossary](../concepts/glossary.md) defines Hive, Index, and Memory.
+Each habit takes a few seconds. Each habit adds to what your [Hive](../concepts/glossary.md#hive) knows, so later sessions start with more of the right context. A Hive is your team's workspace in NeoHive. The [Glossary](../concepts/glossary.md) defines Hive, [Index](../concepts/glossary.md#index), and [Memory](../concepts/glossary.md#memory).
 
 | Habit | What you say or do | Result |
 |---|---|---|
@@ -14,7 +14,7 @@ Each habit takes a few seconds. Each habit adds to what your Hive knows, so late
 | **Reload when the task changes** | Start a new session, or run `/neohive:load-context refactoring the settings page form validation` | Your agent loads context for the task you are working on now. |
 | **Fix out-of-date knowledge** | `That's out of date. We moved off Redis for sessions last month. Update it.` | Recall stops returning the old Memory. |
 | **Capture before you close** | Run `/neohive:capture-session-learnings` | Your agent can recall the session's corrections and decisions next time. |
-| **Keep repositories in sync** | Set a **Sync interval** on each Code or Documentation Index you work in. See [Keep a repository up to date](../context/repositories/sync.md) | Answers about code match the current code. |
+| **Keep repositories in sync** | Set a **Sync interval** on each [Code](../concepts/glossary.md#code-index) or [Documentation Index](../concepts/glossary.md#documentation-index) you work in. See [Keep a repository up to date](../context/repositories/sync.md) | Answers about code match the current code. |
 
 ## How you know the habits are working
 

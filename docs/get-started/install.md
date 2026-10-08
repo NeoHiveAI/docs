@@ -63,7 +63,7 @@ The reply contains `"status":"ok"`. If the reply does not contain `"status":"ok"
 {% step %}
 ## Create your Hive
 
-A [Hive](../concepts/glossary.md#hive) is a workspace for one team or product. A Hive holds Indexes, the stores for your code, documents, files, and Memories. To create your Hive, do the following:
+A [Hive](../concepts/glossary.md#hive) is a workspace for one team or product. A Hive holds [Indexes](../concepts/glossary.md#index), the stores for your code, documents, files, and [Memories](../concepts/glossary.md#memory). To create your Hive, do the following:
 
 1. Open the dashboard.
 2. To accept the license, select **I Understand**.

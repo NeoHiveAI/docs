@@ -12,7 +12,7 @@ Everything NeoHive stores lives in the `neohive-data` Docker volume. That includ
 
 | In the archive | Not in the archive |
 |---|---|
-| Every database: Hives, Indexes, Memories, connections, and sync history | The cached license key in `~/.cache/neohive` |
+| Every database: [Hives](../concepts/glossary.md#hive), [Indexes](../concepts/glossary.md#index), [Memories](../concepts/glossary.md#memory), connections, and sync history | The cached license key in `~/.cache/neohive` |
 | The search data of every Index, plus the local copies of your synced repositories | The license-seat file `machine-id` |
 | The keys that encrypt your saved GitHub and GitLab credentials | Apple Silicon models in `~/.neohive/models` |
 
