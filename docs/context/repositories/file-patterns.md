@@ -30,7 +30,7 @@ Write one glob pattern (a file path with wildcards) per line. Each pattern match
 ## Set the patterns
 
 {% hint style="warning" %}
-A new Blocklist pattern stops NeoHive from indexing matching files. The pattern does not remove files that the Index already holds. Set the patterns early, before the Index fills with files you do not want.
+A new pattern does not remove files that the Index already holds. Set the patterns early, before the Index fills with files you do not want. For how a pattern change applies, see [How the filters combine](../../reference/file-patterns.md#how-the-filters-combine).
 {% endhint %}
 
 To set the patterns, do the following:
@@ -57,7 +57,7 @@ Select **Save settings**.
 {% step %}
 ## Sync the Index
 
-At the top of the page, select **Trigger sync**. After you change a pattern, the next sync checks every file in the repository against the new filters, not only the files that changed.
+At the top of the page, select **Trigger sync**. The sync applies the new patterns.
 {% endstep %}
 {% endstepper %}
 

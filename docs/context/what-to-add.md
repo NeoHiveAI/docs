@@ -46,11 +46,7 @@ Each Hive has its own [MCP](../concepts/glossary.md#mcp) endpoint, the address y
 | Unrelated products or teams | One Hive each, so results from one codebase do not outrank results from the other |
 | A library several products use | Index the library in one Hive. Then add that Index to the other Hives as a **Shared Index**. |
 
-A **Shared Index** can be a Code, Documentation, or Files Index, never a Knowledge Index. Your agent can recall from a [Shared Index](../concepts/glossary.md#shared-index) but cannot write to it. When you add a Shared Index, the list shows only active Indexes that your Hive does not already use.
-
-{% hint style="warning" %}
-A Shared Index is one Index, not a copy. If anyone changes the Index's settings or syncs the Index from any Hive, the change applies to every Hive that uses the Index. Only the Hive that owns the Index can delete it.
-{% endhint %}
+A [Shared Index](../concepts/glossary.md#shared-index) is one Index that several Hives search, not a copy. For what a Shared Index is and what each Hive can change, see [Shared Index](../concepts/hives-indexes-memories.md#shared-index).
 
 ## Next step
 

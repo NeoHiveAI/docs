@@ -41,7 +41,7 @@ The plugins add the following instructions for you. If your agent has no plugin,
 ## NeoHive
 
 - At the start of every session, call `memory_context` with a short description of the task, for example "adding rate limits to the Express gateway". It loads the conventions and decisions that apply.
-- Before reading many files to learn how something works, call `memory_recall` with specific terms, for example "payment retry handler". The indexed code often answers it directly.
+- Before reading many files to learn how something works, call `memory_recall` with specific terms, for example "payment retry handler". The indexed code often answers it directly. If it does not, read the files that `memory_recall` returns.
 - When I correct you, set a convention, or point out a gotcha, call `memory_store`. Write one self-contained statement with the terms a later search would use and the reason behind it.
 - If more than one Hive is connected and you are unsure which one a Memory belongs in, ask before storing.
 ```

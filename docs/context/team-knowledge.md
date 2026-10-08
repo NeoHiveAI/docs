@@ -31,7 +31,7 @@ To see what your team's agents stored recently, check **Recent learnings** on th
 
 ## Correct what goes stale
 
-When a Memory is out of date, tell your agent, for example: `That convention about semicolons is out of date. We switched to no semicolons last month.` Your agent stores the correction and retires the old Memory with `memory_forget`. NeoHive keeps a retired Memory, but the Memory no longer appears in results.
+When a Memory is out of date, tell your agent. Your agent stores the new fact and switches off the old Memory. For what to say, see [Say "out of date" when a fact changes](../results/teach.md#say-out-of-date-when-a-fact-changes).
 
 Write each Memory so that a reader with no background can understand it. Name the service, the rule, and the reason. For more on phrasing, see [Teach your agent as you work](../results/teach.md).
 

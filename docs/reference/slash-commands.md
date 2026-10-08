@@ -14,7 +14,7 @@ The NeoHive plugin adds the following commands to Claude Code, where you type ea
 | `/neohive:migrate-memory` | Reads `CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, your rules folders, and any `CONVENTIONS*.md` or `CONTRIBUTING.md` under `docs/`. The command then imports the project-specific entries. It skips personal preferences and writes nothing until you confirm. |
 | `/neohive:generate-claude-md` | Checks which [Indexes](../concepts/glossary.md#index) are in your [Hive](../concepts/glossary.md#hive) and writes a topology block into `./CLAUDE.md`: what each Index holds and where new [Memories](../concepts/glossary.md#memory) go. Re-run it after you add, remove, or rename an Index. |
 | `/neohive:design-codebase-docs` | Works with you to agree on a documentation standard for your codebase. The command saves the standard to NeoHive and writes two or three sample pages. It does not write the full set of docs. |
-| `/neohive:enable-smart-prompts` | Installs a prompt hook that asks a small model (Haiku by default) to turn your prompt into a `memory_recall` query. The hook then adds only the best results. The new hook replaces the default hook, which sends your prompt as written. The hook needs `ANTHROPIC_API_KEY` and the `claude` CLI. Without them, the hook does nothing. |
+| `/neohive:enable-smart-prompts` | Adds a second prompt hook that asks a small model to rewrite your prompt before recall. For its requirements and how it runs beside the default hook, see [What you run yourself](../results/plugin-automation.md#what-you-run-yourself). |
 
 ## In Codex and Cursor
 

@@ -8,6 +8,8 @@ Write Allowlist and Blocklist patterns that include exactly the files you mean.
 
 The **Allowlist** and **Blocklist** boxes are under **File filters** on the **Sync Settings** tab of a Code or Documentation [Index](../concepts/glossary.md#index). Enter one pattern per line, and then select **Save settings**. Patterns use [micromatch](https://github.com/micromatch/micromatch) glob syntax, which matches file paths with wildcards such as `*`. Each pattern matches paths from the repository root, such as `src/api/users.ts`.
 
+## How the filters combine
+
 NeoHive indexes a file only when the file passes all three checks in the following table, in order:
 
 | Check | A file passes when | If the list is empty |
@@ -66,7 +68,7 @@ README.md
 You do not need `node_modules`, `dist`, `build`, `vendor`, `coverage`, lock files, or `.min.js` bundles in the Blocklist. The built-in skip list already removes them.
 
 {% hint style="info" %}
-The webhook refresh endpoint applies the built-in skip list but not your Allowlist or Blocklist. NeoHive indexes a file sent through the webhook even if your filters exclude it.
+The webhook refresh endpoint ignores your Allowlist and Blocklist. For details, see [How the webhook differs from a sync](webhooks.md#how-the-webhook-differs-from-a-sync).
 {% endhint %}
 
 ## Next step

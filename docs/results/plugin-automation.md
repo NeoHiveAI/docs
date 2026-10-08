@@ -63,7 +63,7 @@ A subagent is a helper agent your agent hands a task to. The plugin includes one
 | Save the session's learnings | `/neohive:capture-session-learnings` |
 | Rewrite each prompt with a small model before recall (optional) | `/neohive:enable-smart-prompts` |
 
-Smart prompts adds a second prompt hook. The default hook also keeps running unless you turn it off. Smart prompts needs the `claude` command-line tool, `python3`, `curl`, and the `ANTHROPIC_API_KEY` environment variable. You choose the name of its off switch during setup. The suggested name is `NEOHIVE_SMART_DISABLED`. [Slash commands](../reference/slash-commands.md) lists every other plugin command.
+Smart prompts adds a second prompt hook. The new hook asks a small model (Haiku by default) to rewrite each prompt into a `memory_recall` query. The default hook also keeps running unless you turn it off. Smart prompts needs the `claude` command-line tool, `python3`, `curl`, and the `ANTHROPIC_API_KEY` environment variable. Without `claude` or `ANTHROPIC_API_KEY`, the new hook adds nothing. You choose the name of its off switch during setup. The suggested name is `NEOHIVE_SMART_DISABLED`. [Slash commands](../reference/slash-commands.md) lists every other plugin command.
 
 ## In Codex and Cursor
 

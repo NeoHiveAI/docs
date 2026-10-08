@@ -41,7 +41,7 @@ You can also set `NEOHIVE_LICENSE_FILE=/path/to/license.key` before the command.
 
 If port `3577` is already in use, set `NEOHIVE_PORT=3600` (or any free port) before the command. Then use that port wherever these docs say `3577`.
 
-The installer looks for a GPU that supports CUDA, ROCm, or Vulkan. If it finds none, the installer uses the CPU. On an arm64 machine, including an Apple Silicon Mac, the installer skips GPU detection and always uses the CPU backend. On an Apple Silicon Mac, the installer also sets up a small native worker that runs on the Metal GPU. If the backend that the installer picks fails, run the installer again with the CPU backend:
+The installer looks for a GPU that supports CUDA, ROCm, or Vulkan. If it finds none, the installer uses the CPU. On an arm64 machine, including an Apple Silicon Mac, the installer skips GPU detection and always uses the CPU backend. On an Apple Silicon Mac, the installer also sets up a small native worker that runs on the Metal GPU. For details, see [GPU and CPU](../admin/gpu-cpu.md). If the backend that the installer picks fails, run the installer again with the CPU backend:
 
 ```bash
 NEOHIVE_BACKEND=cpu bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
@@ -76,9 +76,11 @@ The following table shows what you can add from each source and what you need fo
 
 | Source | Content you can select | What you need |
 |---|---|---|
-| **GitHub** | **Code** or **Documentation** from a repository | A personal access token with `repo` scope |
-| **GitLab** | **Code** or **Documentation** from a repository | A token with `read_api` and `read_repository` scope |
-| **File Upload** | `.md`, `.markdown`, `.txt`, and `.pdf` files, up to 10 MB each | The files |
+| **GitHub** | **Code** or **Documentation** from a repository | A GitHub personal access token |
+| **GitLab** | **Code** or **Documentation** from a repository | A GitLab personal access token |
+| **File Upload** | Markdown, text, and PDF files | The files |
+
+For the scopes each token needs, see [Add a connection](../admin/data-sources.md#add-a-connection). For the file types and size limits, see [Supported file types](../reference/file-types.md).
 
 The **Jira** card is marked **Coming soon**, and you cannot select it. NeoHive also gives every Hive a **Knowledge** Index, which stores the Memories your agent saves. You can add more Indexes later from the Hive page. To decide which Indexes to add, see [What to add, and where](../context/what-to-add.md).
 

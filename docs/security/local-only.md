@@ -25,7 +25,7 @@ An outbound connection is a request that NeoHive starts to another server. This 
 Usage metrics never include file contents, Memory text, recall query text, or tokens. Usage metrics record a Memory's length, not its words.
 
 {% hint style="warning" %}
-**The license check needs the internet at least once every 72 hours.** If `api.keygen.sh` is unreachable, NeoHive keeps running for 72 hours from the last successful check. After that, NeoHive stops at its next daily check. On a network with a strict firewall, allow outbound HTTPS to `api.keygen.sh`.
+**The license check needs the internet at least once every 72 hours.** On a network with a strict firewall, allow outbound HTTPS to `api.keygen.sh`. For what happens when the check cannot reach the internet, see [Check your license status](../admin/licensing.md#check-your-license-status).
 {% endhint %}
 
 ## Connections from other parts of your setup

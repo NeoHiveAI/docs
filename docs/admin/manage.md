@@ -58,6 +58,10 @@ Both Hives pause briefly while the data moves, and then they resume on their own
 
 A [Shared Index](../concepts/glossary.md#shared-index) is one Index that several Hives search, so NeoHive indexes a repository only once. You can set up a Shared Index from either Hive.
 
+{% hint style="warning" %}
+A Shared Index is one Index, not a copy. A change made from any Hive affects every Hive that uses the Index. For what each Hive can change, see [Shared Index](../concepts/hives-indexes-memories.md#shared-index).
+{% endhint %}
+
 To offer an Index from the Hive that owns it, do the following:
 
 1. On the owning Hive, select **Share Index…**.
@@ -68,18 +72,14 @@ To add another Hive's Index to your Hive, do the following:
 
 1. On your Hive page, next to **Indexes**, select **+**.
 2. Select **Shared Index**.
-3. Select an Index.
+3. Select an Index. The list shows only active Indexes that your Hive does not already use.
 4. Select **Add shared Index**.
 
 The owning Hive does not have to approve.
 
-{% hint style="warning" %}
-Every Hive that uses a Shared Index can sync it, change its embedding model and connection, and delete its Memories. All of these Hives use the same Index, so each change affects every Hive. Only your agent's own writes stay separate: `memory_store` always writes to the Hive's own [Knowledge Index](../concepts/glossary.md#knowledge-index).
-{% endhint %}
-
 The borrowing Hive sees a **Shared** badge on the row. To open the owning Hive, select **Owner Hive** in the row menu, or select **Open in** on the **Index Info** tab.
 
-To end a share, the owner selects **Revoke** in **Share Index…**, or the borrower selects **Remove from Hive…**. Neither action deletes anything. The owner cannot delete a Shared Index until every share ends.
+To end a share, the owner selects **Revoke** in **Share Index…**, or the borrower selects **Remove from Hive…**. Neither action deletes anything.
 
 ## Delete an Index
 
@@ -91,7 +91,7 @@ On the **Sync Settings** tab of a [Code](../concepts/glossary.md#code-index) or 
 
 ## The Knowledge Index stays with its Hive
 
-Every Hive has one Knowledge Index, where your agent's Memories live. You cannot move, share, rename, or delete the Knowledge Index on its own. The Knowledge Index goes wherever its Hive goes, including into the archive.
+Every Hive has one [Knowledge Index](../concepts/glossary.md#knowledge-index), where your agent's Memories live. You cannot move, share, rename, or delete the Knowledge Index on its own. The Knowledge Index goes wherever its Hive goes, including into the archive.
 
 ## Next step
 

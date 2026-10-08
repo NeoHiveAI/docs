@@ -35,7 +35,7 @@ NEOHIVE_PORT=4577 \
 | `NEOHIVE_CHUNKER_TIMEOUT_MS` | `30000` (30 seconds) | The time allowed to split one Markdown or code file. |
 | `NEOHIVE_UPDATE_REPO` | `neohivedev/neohive` | The Docker Hub repository the dashboard checks for new versions. |
 | `NEOHIVE_METAL_WORKER` | `1` | Apple Silicon only: set to `0` to embed on the CPU inside the container instead of on the Metal worker. |
-| `NEOHIVE_METAL_WORKER_PORT` | `50051` | Apple Silicon only: the port the Metal worker listens on. |
+| `NEOHIVE_METAL_WORKER_PORT` | `50051` | Apple Silicon only: the port the Metal worker listens on. Change it if another program already uses the port. |
 | `NEOHIVE_METAL_WORKER_IMAGE` | `docker.io/neohivedev/neohive-metal-worker` | Apple Silicon only: the image the Metal worker is installed from. |
 | `NEOHIVE_METAL_WORKER_TAG` | picked by the installer | Apple Silicon only: the exact Metal worker version to install. |
 | `NEOHIVE_METAL_WORKER_HEALTH_BUDGET_S` | `90` | Apple Silicon only: the number of seconds the installer waits for the Metal worker to answer. |

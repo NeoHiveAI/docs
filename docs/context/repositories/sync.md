@@ -24,7 +24,7 @@ Syncs run at fixed times of day. For example, **Every 4 hours** runs at 00:00, 0
 |---|---|
 | **Every 15 minutes**, **Every 30 minutes** | A busy repository where your agent needs changes quickly |
 | **Every hour** | Most repositories |
-| **Every 4 hours** | The default for a new Index |
+| **Every 4 hours** | The default for an Index you add from the dashboard |
 | **Daily** | A repository that rarely changes |
 
 You also set the **Branch** and the **Connection** on the same card. **Pause syncing** stops scheduled syncs without deleting anything, and **Resume syncing** starts them again.
@@ -43,7 +43,7 @@ The page header shows the sync progress and a button to cancel the sync.
 
 When some files fail, NeoHive tries them again automatically a little later. If a file keeps failing, NeoHive stops retrying it until you select **Trigger sync**. **Trigger sync** gives the file one more try.
 
-To index changes right after every merge, set up your CI pipeline to call the webhook with the changed files. The webhook indexes the files it receives immediately. The webhook does not start a sync or add a row to **Sync history**. The webhook also does not apply the **Allowlist** or **Blocklist**. For details, see [Webhook refresh endpoint](../../reference/webhooks.md).
+To index changes right after every merge, your CI pipeline can send the changed files to the webhook refresh endpoint. The webhook works differently from a sync, as [How the webhook differs from a sync](../../reference/webhooks.md#how-the-webhook-differs-from-a-sync) explains.
 
 ## Read the sync history
 

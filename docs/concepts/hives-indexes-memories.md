@@ -37,12 +37,7 @@ Your agent does not need to choose an Index. One `memory_recall` call searches e
 
 A **Shared Index** is a Code, Documentation, or Files Index that another Hive owns. NeoHive adds the Shared Index to your Hive without copying the Index or indexing its files again. Recall searches the Shared Index, but your agents never write to it. `memory_store` and `memory_forget` always write to your own Knowledge Index.
 
-You can add an Index to another Hive in one of two ways:
-
-| Where you start | What you do |
-|---|---|
-| The Hive that owns the Index | Select **Share Index…** on the Index's **Index Info** tab, and then add your Hive. |
-| Your Hive | Select **+** next to **Indexes**, and then select **Shared Index** under **or reuse an existing Index**. |
+You can share an Index from the Hive that owns it, or add another Hive's Index from your own Hive. For the steps, see [Share an Index between Hives](../admin/manage.md#share-an-index-between-hives).
 
 In the dashboard, a Hive that uses a Shared Index can do almost everything that the owning Hive can do:
 
@@ -50,11 +45,12 @@ In the dashboard, a Hive that uses a Shared Index can do almost everything that 
 |---|---|---|
 | Sync the Index, or change its connection, branch, filters, and embedding model | Yes | Yes |
 | Delete repositories or files from the Index | Yes | Yes |
-| Delete the Index, share it further, or move it | Yes | No |
+| Delete the Index | Yes, after every other Hive stops using it | No |
+| Share the Index further, or move it | Yes | No |
 | Stop using the Index (**Remove from Hive**) | Not applicable | Yes |
 
 {% hint style="warning" %}
-Both Hives use the same Index, not a copy. Every change made from either Hive applies to both Hives. You cannot share a Knowledge Index. See [Manage Hives and Indexes](../admin/manage.md).
+Both Hives use the same Index, not a copy. Every change made from either Hive applies to both Hives. You cannot share a Knowledge Index.
 {% endhint %}
 
 ## Memories

@@ -31,10 +31,7 @@ Docker on a Mac cannot reach the GPU, so the container runs on CPU. On Apple Sil
 
 The end of the install output tells you which embedding setup you have: `Embedding: native Metal worker on 127.0.0.1:50051`, or `Embedding: in-container CPU (no Metal worker)`.
 
-| Variable | Default | Effect |
-|---|---|---|
-| `NEOHIVE_METAL_WORKER` | `1` | Set it to `0` to skip the worker and keep CPU embedding in the container |
-| `NEOHIVE_METAL_WORKER_PORT` | `50051` | Change the port if another program already uses it |
+To skip the worker, set `NEOHIVE_METAL_WORKER` when you run the installer. To move the worker to another port, set `NEOHIVE_METAL_WORKER_PORT`. For the values and defaults, see the [Installer](../reference/environment-variables.md#installer) variables.
 
 ## Force a backend
 

@@ -29,7 +29,7 @@ NeoHive usually handles a renamed default branch, such as `master` to `main`, fo
 
 ## Connections
 
-To check a connection, open **Data Sources** and select **Manage** on the service. Each connection shows **Valid**, **Invalid**, or **Unvalidated**. If a token no longer works, each sync that uses the token fails with **A git command failed**. You cannot edit a token. Instead, add a new connection with a working token, and assign the new connection to the Index. For the steps, see [Credentials and secrets](../security/credentials.md).
+To check a connection, open **Data Sources** and select **Manage** on the service. Each connection shows **Valid**, **Invalid**, or **Unvalidated**. If a token no longer works, each sync that uses the token fails with **A git command failed**. You cannot edit a token. Instead, add a new connection with a working token, and assign the new connection to the Index. For the steps, see [Check or remove a connection](../admin/data-sources.md#check-or-remove-a-connection).
 
 ## Slow or stalled syncs
 
@@ -41,7 +41,7 @@ docker logs neohive --tail 50
 
 ## Schedule
 
-Each Index syncs on the **Sync interval** set on its **Sync Settings** tab. The interval ranges from **Every 15 minutes** to **Daily**. A repository added from the dashboard starts at **Every 4 hours**. To sync now, select **Trigger sync**, or call the [webhook refresh endpoint](../reference/webhooks.md) from your CI system.
+If an Index syncs too often or too rarely, change its **Sync interval** on the **Sync Settings** tab. For the intervals you can choose, see [Set the schedule](../context/repositories/sync.md#set-the-schedule). To sync now, select **Trigger sync**, or call the [webhook refresh endpoint](../reference/webhooks.md) from your CI system.
 
 ## Files that never appear
 

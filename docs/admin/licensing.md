@@ -10,7 +10,19 @@ NeoHive needs a license file from the NeoHive team: a plain-text `license.key`, 
 
 <figure><img src="../.gitbook/assets/admin-licensing.svg" alt="The installer checks five places in order and uses the first license it finds. 1: the --license-file or -l flag. 2: the NEOHIVE_LICENSE_FILE variable. 3: a license.json or license.key in the folder you run the installer from. 4: the key that an earlier install cached at ~/.cache/neohive/license-key. 5: a prompt for a file path, in an interactive terminal only. The installer then checks the key with the licensing service. Accepted keys are cached. A rejected key clears the cache. In a terminal, the installer then asks for another file, up to three tries. NEOHIVE_LICENSE_KEY skips all five. NEOHIVE_ROTATE_LICENSE=1 skips 3 and 4."><figcaption></figcaption></figure>
 
-The most direct option is to put the file in the folder you run the installer from. If you downloaded `install.sh` and run it from disk, the installer also looks next to the script. After the first install, NeoHive caches the key, so updates do not ask for it again.
+## Where the installer finds your license
+
+The most direct option is to put the file in the folder you run the installer from. After the first install, NeoHive caches the key, so updates do not ask for it again.
+
+The installer uses the first license it finds, in the following order:
+
+1. The file you pass with `--license-file` or `-l`.
+2. The file that the `NEOHIVE_LICENSE_FILE` variable names.
+3. A `license.json` or `license.key` in the folder you run the installer from. If you run `install.sh` from disk, the installer also looks next to the script.
+4. The key that an earlier install cached at `~/.cache/neohive/license-key`.
+5. A prompt for a file path, in an interactive terminal only.
+
+If the `NEOHIVE_LICENSE_KEY` variable holds a key, the installer uses that key and skips all five places. `NEOHIVE_ROTATE_LICENSE=1` skips places 3 and 4. A license from any place other than the cache replaces the cached key.
 
 The first time you open the dashboard, it shows the **NeoHive Design Partner Licence** agreement. To accept the agreement and continue, select **I Understand**. To read the agreement again later, go to **Settings** and select **View licence**.
 
@@ -32,7 +44,7 @@ The **Licence** page shows one of the following statuses.
 To check with the licensing service right away, select **Check expiry**.
 
 {% hint style="warning" %}
-NeoHive must reach the licensing service over the internet. When NeoHive is offline, it relies on its last successful check for up to 72 hours. After that, NeoHive stops serving requests until it can check again.
+NeoHive must reach the licensing service over the internet. NeoHive checks the license when it starts and once a day after that. When NeoHive cannot reach the service, it keeps running for 72 hours from its last successful check. The first daily check after those 72 hours stops NeoHive. NeoHive stops serving requests until it can check again.
 {% endhint %}
 
 ## Replace your license

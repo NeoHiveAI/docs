@@ -6,7 +6,7 @@ description: "Phrase requests and memory queries so NeoHive returns the Memories
 
 Recall is how your agent searches your [Hive](../concepts/glossary.md#hive), your team's NeoHive workspace, for context. Your agent recalls when it calls `memory_recall` or `memory_context`. In Claude Code, the plugin also recalls with the start of each prompt you send.
 
-Recall finds a stored [Memory](../concepts/glossary.md#memory), code, or a document by the words and meaning it shares with your query. A query that uses the same words as the answer finds the answer. A vague question shares few words with anything, so recall returns weak matches.
+Recall finds a stored [Memory](../concepts/glossary.md#memory), code, or a document by the words and meaning it shares with your query. A query that uses the same words as the answer finds the answer. A vague question shares few words with anything, so recall returns weak matches. [How retrieval works](../concepts/retrieval.md) explains how recall finds and ranks results.
 
 This page shows how to phrase prompts and queries so recall returns what you need. In short, write the query the way the answer would be written.
 
@@ -21,11 +21,11 @@ This page shows how to phrase prompts and queries so recall returns what you nee
 
 ## Put the subject first
 
-In Claude Code, the plugin sends the first 400 characters of each prompt to `memory_recall`. Put the system and the problem first. Then add background and instructions. A prompt under 10 characters, or a prompt that starts with `/`, does not start a recall.
+In Claude Code, the plugin recalls with only the start of each prompt, as [What the plugin does automatically](plugin-automation.md) explains. Put the system and the problem first. Then add background and instructions.
 
 ## Ask for several phrasings on important searches
 
-`memory_recall` accepts `queries`, a list of one to five phrasings. `memory_recall` returns one merged list of results. Use `queries` when you do not know the words your team uses.
+`memory_recall` accepts `queries`, a list of phrasings whose results it merges into one list. [MCP tools](../reference/mcp-tools.md#memory_recall) lists its parameters and limits. Use `queries` when you do not know the words your team uses.
 
 ```text
 Search memory a few different ways for how we rate-limit the billing API.
@@ -33,30 +33,11 @@ Search memory a few different ways for how we rate-limit the billing API.
 
 ## Pick the right tool
 
-| | `memory_context` | `memory_recall` |
-|---|---|---|
-| **Use it** | Once, at the start of a task | Any time you need something specific |
-| **You give it** | `task`: what you are doing, as a statement | `query`, or `queries` for several phrasings |
-| **It returns** | Rules and conventions, plus other Memories that fit the task | The best matches of any kind, including indexed code and documents |
-| **Narrow it with** | `index` | `index`, `types` (kinds of Memory), `limit` (default 10, at most 50) |
+Call `memory_context` once at the start of a task, and `memory_recall` any time you need something specific. [MCP tools](../reference/mcp-tools.md) lists the parameters of each tool.
 
 Both tools search every [Index](../concepts/glossary.md#index) in your Hive unless you pass `index`. Each Index is one store of context inside the Hive. Describe the task as a statement. For example, `implementing rate limiting for the Express gateway` loads more context than `what do we know about the gateway?`.
 
-<details>
-
-<summary>Rules to paste for an agent without the NeoHive plugin</summary>
-
-The plugin already gives your agent these rules. If your agent does not have the plugin, add the rules to its `CLAUDE.md` file, `AGENTS.md` file, or equivalent file:
-
-```text
-At the start of every session, call memory_context with a short description of the task, for example "implementing auth middleware for the Express gateway".
-
-Before reading many files to understand a subsystem, call memory_recall with specific domain terms, then read the files it returns.
-
-When the user corrects you, sets a convention, or points out a gotcha, call memory_store with a self-contained statement that names the system, the rule, and the reason.
-```
-
-</details>
+If your agent has no NeoHive plugin, paste the rules in [Tell your agent to use NeoHive](../get-started/connect/README.md#tell-your-agent-to-use-neohive) into its rules file.
 
 {% hint style="success" %}
 Before you rely on a phrasing, test it in the dashboard **Playground**. See [Test queries in the Playground](../admin/playground.md).

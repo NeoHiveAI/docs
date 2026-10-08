@@ -31,7 +31,7 @@ claude mcp add <name> '<hive-url>' \
 
 The command that the dashboard shows leaves out `--scope user`. Without `--scope user`, Claude Code saves the server for the current folder only. The plugin's prompt hook then cannot find the server.
 
-The prompt hook reads servers from the user-wide list in `~/.claude.json` and from your project's `.mcp.json`. To write the server to `.mcp.json` instead, use `--scope project`. Your team can commit `.mcp.json` to the repository. The file also turns on the Glob and Grep reminder, which is described later on this page.
+The prompt hook reads servers from the user-wide list in `~/.claude.json` and from your project's `.mcp.json`. To write the server to `.mcp.json` instead, use `--scope project`. Your team can commit `.mcp.json` to the repository. The file also turns on the plugin's Glob and Grep reminder.
 
 Keep the URL directly after the name. If the URL comes after a flag, Claude Code reads the URL as a header value and cannot reach the server. The command that the dashboard shows ends with `&& claude mcp get <name>`, which prints the saved entry.
 {% endstep %}
@@ -52,10 +52,12 @@ If you skip `/reload-plugins`, the next step fails with an unknown command error
 | Part | What it does |
 |---|---|
 | Rules file | Installs `~/.claude/rules/neohive.md` at session start. The file tells Claude Code when to call `memory_context`, `memory_recall`, and `memory_store`. |
-| Prompt hook | Adds relevant [Memories](../../concepts/glossary.md#memory) to the context on every prompt you send. The hook skips slash commands and prompts shorter than 10 characters. |
-| Glob and Grep reminder | Suggests `memory_recall` before a broad file search. The reminder works only in a project whose `.mcp.json` names a NeoHive server. |
+| Prompt hook | Adds relevant [Memories](../../concepts/glossary.md#memory) to the context when you send a prompt. |
+| Glob and Grep reminder | Suggests `memory_recall` before a broad file search. |
 | `explore-neohive` subagent | Searches NeoHive before reading files. |
 | Skills | `/neohive:getting-started`, `/neohive:load-context`, `/neohive:capture-session-learnings`, and others. See [Slash commands](../../reference/slash-commands.md). |
+
+[What the plugin does automatically](../../results/plugin-automation.md) explains when each part runs and how to turn each hook off. It also says when the prompt hook skips a prompt.
 {% endstep %}
 
 {% step %}
@@ -78,18 +80,6 @@ Ask Claude Code: `List my NeoHive Indexes.` Claude Code calls `list_indexes` and
 
 If the `list_indexes` tool is missing, run `claude mcp get <name>` and compare the URL with the dashboard. Then see [Agent can't connect](../../troubleshooting/connection.md).
 {% endhint %}
-
-<details>
-
-<summary>Optional: turn off the plugin's hooks</summary>
-
-| To do this | Set before you start Claude Code |
-|---|---|
-| Turn off the prompt hook | `NEOHIVE_HOOK_DISABLED=1` |
-| Turn off the Glob and Grep reminder | `NEOHIVE_PRETOOL_DISABLED=1` |
-| Block broad Glob and Grep searches instead of reminding | `NEOHIVE_PRETOOL_STRICT=1` |
-
-</details>
 
 ## Next step
 

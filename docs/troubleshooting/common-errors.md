@@ -42,14 +42,13 @@ Before `E303` or `E310`, the installer also prints `License rejected by Keygen: 
 
 ## Server and dashboard
 
-The NeoHive server returns the following messages. You see them in the dashboard, in a command's output, or in the reply from `/health`.
+The NeoHive server returns the following messages. You see them in the dashboard, in a command's output, or in the reply from `/health`. [Agent can't connect](connection.md) explains each `/health` status, including `"status":"degraded"`.
 
 | Message | Cause | Fix |
 |---|---|---|
 | `Failed to connect to localhost port 3577` | The container is not running. | Run `docker start neohive`, and then see [Agent can't connect](connection.md). |
 | `"error":"warmup failed"` from `/health` | NeoHive could not finish starting. | Read `docker logs neohive --tail 50`, and then run `docker restart neohive`. |
 | `"error":"embedder cannot run, so nothing can be stored or recalled"` from `/health` | The embedding engine in the container cannot start. | Read the log, and then see [GPU and CPU](../admin/gpu-cpu.md). |
-| `"status":"degraded"` from `/health` | At least one [Hive](../concepts/glossary.md#hive) failed its check. | On the dashboard home page, open that Hive's menu and select **Restart**. |
 | `Unknown Hive: <id>` | The Hive id in the [MCP](../concepts/glossary.md#mcp) endpoint or webhook URL is wrong. | Copy the endpoint again from **Install Instructions**. |
 | `License check failed` (HTTP `402`) | The license expired or failed validation. | See [Licensing](../admin/licensing.md). |
 | `License check unavailable` (HTTP `503`) | NeoHive could not read its license state. | Run `docker restart neohive`. If the error continues, contact `hello@neohive.ai`. |
@@ -93,10 +92,8 @@ The following messages come from repository syncs and from the GitHub or GitLab 
 |---|---|---|
 | `Invalid token or token has expired` | NeoHive tried to list your repositories with a GitHub or GitLab token that no longer works. | On **Data Sources**, add a new connection with a working token. See [Credentials and secrets](../security/credentials.md). |
 | `Token missing required scopes (needs repo)` | The GitHub token lacks the `repo` scope. For GitLab, the message ends at `scopes`. | Create a token with the right scope, and then add the token as a new connection. |
-| `A sync is already running for this Index` | A sync was already running when you selected **Trigger sync**. | Wait for the running sync to finish. |
-| `<n> files could not be indexed after 3 attempts. Trigger a sync to retry.` or `... could not be indexed after repeated attempts. Trigger a sync to retry.` | The same files failed three syncs in a row. | See [Repository sync issues](sync.md). |
 
-[Webhook refresh endpoint](../reference/webhooks.md) lists the webhook errors, such as `Invalid or missing webhook secret` and `No Index found syncing repo: <repo>`.
+[Repository sync issues](sync.md) covers the messages that a sync shows on an Index's page, such as `A sync is already running for this Index`. [Webhook refresh endpoint](../reference/webhooks.md) lists the webhook errors, such as `Invalid or missing webhook secret` and `No Index found syncing repo: <repo>`.
 
 ## Not listed here
 

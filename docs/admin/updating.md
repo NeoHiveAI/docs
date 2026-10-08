@@ -38,7 +38,7 @@ A backup copies everything NeoHive stores into one archive. If the update fails,
 bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
 ```
 
-The installer reuses your cached license key unless you provide a license another way. You can pass a license with `--license-file`, or set one in `NEOHIVE_LICENSE_FILE` or `NEOHIVE_LICENSE_KEY`. The installer also finds a `license.key` or `license.json` in the current folder or next to `install.sh`. Any of these replaces the cached key. On Apple Silicon, the installer also updates the Metal embedding worker and keeps downloaded models.
+The installer reuses your cached license key. To use a different license, see [Replace your license](licensing.md#replace-your-license). On Apple Silicon, the installer also updates the Metal embedding worker and keeps downloaded models.
 {% endstep %}
 {% endstepper %}
 

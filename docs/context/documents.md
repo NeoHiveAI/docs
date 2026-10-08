@@ -55,14 +55,7 @@ To move an Obsidian vault or a similar notes vault, export it as markdown and up
 
 ## Large PDFs
 
-By default, NeoHive allows five minutes to convert each PDF. A 900-page PDF can take 25 to 30 minutes. To raise the limit, set `NEOHIVE_PDF_BRIDGE_TIMEOUT_MS` to a value in milliseconds when you run the installer:
-
-```bash
-NEOHIVE_PDF_BRIDGE_TIMEOUT_MS=1800000 \
-  bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
-```
-
-When NeoHive converts the first PDF on a new machine, it also downloads the model that the converter uses. If that download times out, raise `NEOHIVE_PDF_WARMUP_TIMEOUT_MS` the same way. For details, see [Environment variables](../reference/environment-variables.md).
+A large PDF can fail because it takes too long to convert. To raise the time limit, see [Supported file types](../reference/file-types.md#uploads-to-a-files-index) and [Environment variables](../reference/environment-variables.md#installer).
 
 If a PDF is scanned, or draws its text as shapes, the conversion fails with `No text could be extracted from this PDF`.
 

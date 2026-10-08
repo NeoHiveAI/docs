@@ -25,7 +25,7 @@ Use this page when answers seem off but nothing is broken. Each row in the table
 
 ## What NeoHive already skips
 
-NeoHive never indexes the following files and folders, so you do not need to block them. NeoHive skips folders named `node_modules`, `dist`, `build`, `vendor`, `coverage`, `venv`, or `__pycache__`. It skips the lock files `package-lock.json`, `yarn.lock`, `pnpm-lock.yaml`, and `.terraform.lock.hcl`. It also skips minified `.min.js` and `.min.css` files, images, and binaries. [Choose which files are included](../context/repositories/file-patterns.md) shows allowlist and blocklist patterns.
+NeoHive always skips dependency and build folders, lock files, minified bundles, and binary files, so you do not need to block them. For the full list, see [Files in a repository](../reference/file-types.md#files-in-a-repository). To write your own allowlist and blocklist patterns, see [Choose which files are included](../context/repositories/file-patterns.md).
 
 {% hint style="info" %}
 If you see an actual error, such as a failed sync or a tool your agent cannot find, see [Common errors](../troubleshooting/common-errors.md).

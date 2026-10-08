@@ -27,13 +27,13 @@ Both tools search every Index in the Hive unless you name one Index.
 
 NeoHive sets the order of results automatically. You control recall through what you ask and which Index you ask.
 
-| `memory_recall` parameter | What it does |
-|---|---|
-| `query` | One search, written as a statement with the words you expect in the answer |
-| `queries` | Up to five phrasings of the same need in one call. Different phrasings find more of what you need. Use `query` or `queries`, not both. |
-| `index` | Searches one Index only. The search is faster and more focused when you know which Index holds the answer. |
-| `types` | Returns only results of the listed types, such as `directive` and `convention`. NeoHive also sets a type on each section of code and documents when it indexes them. Those sections can match the filter too. |
-| `limit` | The number of results to return. The default is 10 and the maximum is 50. |
+These parameters of `memory_recall` change what recall returns:
+
+- To find more of what you need, pass up to five phrasings of the same need in `queries`. Different phrasings match different text.
+- To search one Index only, set `index`. The search is faster and more focused when you know which Index holds the answer.
+- To get only certain kinds of result, list them in `types`, such as `directive` and `convention`. NeoHive also sets a type on each section of code and docs, so those sections can match too.
+
+[MCP tools](../reference/mcp-tools.md) lists every `memory_recall` parameter, with its default and limits.
 
 Search the whole Hive first to see which Index answers best. Then repeat the query with `index` set to that Index.
 

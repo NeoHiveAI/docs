@@ -6,7 +6,7 @@ description: >-
 
 # Welcome
 
-Your coding agents forget your project between sessions. NeoHive remembers it for them. NeoHive is a self-hosted memory that your team's coding agents share, holding your codebase and your team's knowledge. NeoHive works with Claude Code, Cursor, Codex, and any other agent that supports [MCP](concepts/glossary.md#mcp). NeoHive runs in a Docker container on your own machine or a shared server.
+Your coding agents forget your project between sessions. NeoHive remembers it for them. NeoHive is a self-hosted memory that your team's coding agents share, holding your codebase and your team's knowledge. NeoHive works with Claude Code, Cursor, Codex, and any other agent that supports [MCP](concepts/glossary.md#mcp). For a fuller introduction, see [What is NeoHive?](get-started/what-is-neohive.md).
 
 ## The problem
 

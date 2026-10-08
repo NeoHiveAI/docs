@@ -60,7 +60,9 @@ To check a connection, select **Manage** on its card under **Connected**. The co
 |---|---|
 | **Valid** | The last check passed |
 | **Invalid** | The service rejected the credential. Replace the credential |
-| **Unvalidated** | NeoHive saved the connection but has not checked it yet. To check now, select **Validate** |
+| **Unvalidated** | NeoHive saved the connection but could not check it, for example because the service was unreachable |
+
+By default, NeoHive rechecks a connection at most once every 23 hours. To check a connection now, select **Validate** on the connection.
 
 **Bound Indexes** lists the Indexes in your current Hive that sync through the connection. **Delete** removes the connection.
 
@@ -70,13 +72,15 @@ When you delete a connection, every Index that syncs through the connection stop
 
 To replace a token without a gap in syncing, do the following:
 
-1. Add a new connection with the new token.
-2. On each affected Index, open the **Sync Settings** tab.
-3. Under **Connection**, select the new connection.
-4. Select **Save settings**.
-5. Delete the old connection.
+1. Create a new token with the provider, and keep the old token active.
+2. Add a new connection with the new token.
+3. On each affected Index, open the **Sync Settings** tab.
+4. Under **Connection**, select the new connection.
+5. Select **Save settings**.
+6. Delete the old connection.
+7. Revoke the old token with the provider.
 
-The Indexes now sync through the new connection.
+The Indexes now sync through the new connection. The next sync writes the new token into each Index's clone.
 
 To learn how NeoHive stores these secrets, see [Credentials and secrets](../security/credentials.md).
 

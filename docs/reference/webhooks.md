@@ -8,7 +8,7 @@ Send changed files to NeoHive from your CI pipeline, so a Code or Documentation 
 
 <figure><img src="../.gitbook/assets/reference-webhooks.svg" alt="Sequence of a webhook refresh. A CI job posts changed files to the Hive's webhook route. NeoHive checks X-Webhook-Secret and finds every Index that syncs the named repository. NeoHive then removes each path's old content, indexes the new content, and replies with counts."><figcaption></figcaption></figure>
 
-Scheduled syncs already keep each [Code](../concepts/glossary.md#code-index) or [Documentation Index](../concepts/glossary.md#documentation-index) current. Use the webhook only when the wait for the next scheduled sync is too long.
+Scheduled syncs already keep each [Code](../concepts/glossary.md#code-index) or [Documentation Index](../concepts/glossary.md#documentation-index) current. Use the webhook only when the wait for the next scheduled sync is too long. To set the schedule, see [Keep a repository up to date](../context/repositories/sync.md).
 
 ```text
 POST http://<host>:3577/hives/<hive-id>/webhook/refresh
@@ -50,6 +50,15 @@ Treat the secret like a database password. Keep the secret in your CI secret sto
 For each path, NeoHive first removes the content it holds for that path. NeoHive then indexes `content_base64` if you sent it. **If you send a file with neither `content_base64` nor `"action": "deleted"`, NeoHive removes the file from the Index.** NeoHive does not read the file from its own copy of the repository.
 
 The request body can be at most 100 KB. Base64 encoding makes each file about a third larger. Split a large change across several requests.
+
+## How the webhook differs from a sync
+
+The webhook indexes the files it receives immediately, but it works differently from a scheduled sync or **Trigger sync**:
+
+- **The webhook ignores your file filters.** NeoHive still applies the built-in skip list, but not the Index's **Allowlist** or **Blocklist**. NeoHive indexes a file sent through the webhook even when your filters exclude it. To keep a file out of the Index, leave it out of the request.
+- **The webhook does not start a sync.** **Sync history** shows no row for a webhook request. To see what a request did, read its response.
+
+For how the filters work, see [File pattern syntax](file-patterns.md).
 
 ## Response
 
