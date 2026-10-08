@@ -8,22 +8,22 @@
   </style>
   <defs>
     <marker id="arrG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#008236"/></marker>
-    <marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#B45309"/></marker>
+    <marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#BB4D00"/></marker>
   </defs>
   <rect width="1000" height="700" fill="#FAF9FD"/>
   <!-- Header. Logo paths copied verbatim from refactor-docs-install-page.svg. -->
   <g transform="translate(40,26) scale(0.0793)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
   <text x="88" y="52" font-size="24" font-weight="800" letter-spacing="-0.5" fill="#1A1A2E">Repository sync issues</text>
-  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#6D28D9">OPEN THE INDEX IN THE DASHBOARD · STOP AT THE FIRST NO</text>
+  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#7008E7">OPEN THE INDEX IN THE DASHBOARD · STOP AT THE FIRST NO</text>
   <line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>
-  <text x="740" y="116" class="lbl" fill="#B45309" text-anchor="middle">IF NO, DO THIS</text>
+  <text x="740" y="116" class="lbl" fill="#BB4D00" text-anchor="middle">IF NO, DO THIS</text>
   <rect x="40" y="124" width="520" height="66" rx="12" fill="#FFFFFF" stroke="#E5E5E5"/>
   <circle cx="70" cy="157.0" r="14" fill="#7C3AED"/>
   <text x="70" y="162.0" font-size="14" font-weight="700" text-anchor="middle" fill="#FFFFFF">1</text>
   <text x="98" y="152" class="title">Is syncing turned on?</text>
   <text x="98" y="173" class="body">Sync Settings shows Pause syncing</text>
-  <line x1="560" y1="157.0" x2="608" y2="157.0" stroke="#B45309" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrA)"/>
-  <text x="582" y="150.0" font-size="11" font-weight="700" text-anchor="middle" fill="#B45309">no</text>
+  <line x1="560" y1="157.0" x2="608" y2="157.0" stroke="#BB4D00" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrA)"/>
+  <text x="582" y="150.0" font-size="11" font-weight="700" text-anchor="middle" fill="#BB4D00">no</text>
   <text x="618" y="161.0" class="fix">Click Resume syncing</text>
   <line x1="180" y1="190" x2="180" y2="218" stroke="#008236" stroke-width="1.8" marker-end="url(#arrG)"/>
   <text x="190" y="210" font-size="11" font-weight="700" fill="#008236">yes</text>
@@ -32,10 +32,10 @@
   <text x="70" y="258.0" font-size="14" font-weight="700" text-anchor="middle" fill="#FFFFFF">2</text>
   <text x="98" y="248" class="title">Is the connection valid?</text>
   <text x="98" y="269" class="body">Data Sources shows Valid for its connection</text>
-  <line x1="560" y1="253.0" x2="608" y2="253.0" stroke="#B45309" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrA)"/>
-  <text x="582" y="246.0" font-size="11" font-weight="700" text-anchor="middle" fill="#B45309">no</text>
+  <line x1="560" y1="253.0" x2="608" y2="253.0" stroke="#BB4D00" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrA)"/>
+  <text x="582" y="246.0" font-size="11" font-weight="700" text-anchor="middle" fill="#BB4D00">no</text>
   <text x="618" y="248.0" class="fix">Replace the token on Data Sources</text>
-  <text x="618" y="266.0" class="fix">GitHub tokens need the <tspan class="mono" fill="#6D28D9">repo</tspan> scope</text>
+  <text x="618" y="266.0" class="fix">GitHub tokens need the <tspan class="mono" fill="#7008E7">repo</tspan> scope</text>
   <line x1="180" y1="286" x2="180" y2="314" stroke="#008236" stroke-width="1.8" marker-end="url(#arrG)"/>
   <text x="190" y="306" font-size="11" font-weight="700" fill="#008236">yes</text>
   <rect x="40" y="316" width="520" height="66" rx="12" fill="#FFFFFF" stroke="#E5E5E5"/>
@@ -43,8 +43,8 @@
   <text x="70" y="354.0" font-size="14" font-weight="700" text-anchor="middle" fill="#FFFFFF">3</text>
   <text x="98" y="344" class="title">Did the last run succeed?</text>
   <text x="98" y="365" class="body">Sync history shows success, no red box</text>
-  <line x1="560" y1="349.0" x2="608" y2="349.0" stroke="#B45309" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrA)"/>
-  <text x="582" y="342.0" font-size="11" font-weight="700" text-anchor="middle" fill="#B45309">no</text>
+  <line x1="560" y1="349.0" x2="608" y2="349.0" stroke="#BB4D00" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrA)"/>
+  <text x="582" y="342.0" font-size="11" font-weight="700" text-anchor="middle" fill="#BB4D00">no</text>
   <text x="618" y="344.0" class="fix">Follow the fix in the red box,</text>
   <text x="618" y="362.0" class="fix">then click Trigger sync</text>
   <line x1="180" y1="382" x2="180" y2="410" stroke="#008236" stroke-width="1.8" marker-end="url(#arrG)"/>
@@ -54,8 +54,8 @@
   <text x="70" y="450.0" font-size="14" font-weight="700" text-anchor="middle" fill="#FFFFFF">4</text>
   <text x="98" y="440" class="title">Did every file index?</text>
   <text x="98" y="461" class="body">No amber partial badge or amber box</text>
-  <line x1="560" y1="445.0" x2="608" y2="445.0" stroke="#B45309" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrA)"/>
-  <text x="582" y="438.0" font-size="11" font-weight="700" text-anchor="middle" fill="#B45309">no</text>
+  <line x1="560" y1="445.0" x2="608" y2="445.0" stroke="#BB4D00" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrA)"/>
+  <text x="582" y="438.0" font-size="11" font-weight="700" text-anchor="middle" fill="#BB4D00">no</text>
   <text x="618" y="440.0" class="fix">Wait: failed files retry on their own</text>
   <text x="618" y="458.0" class="fix">After 3 tries, fix the file and Trigger sync</text>
   <line x1="180" y1="478" x2="180" y2="506" stroke="#008236" stroke-width="1.8" marker-end="url(#arrG)"/>
@@ -65,8 +65,8 @@
   <text x="70" y="546.0" font-size="14" font-weight="700" text-anchor="middle" fill="#FFFFFF">5</text>
   <text x="98" y="536" class="title">Does the missing file pass your filters?</text>
   <text x="98" y="557" class="body">Built-in skip list, Allowlist, Blocklist</text>
-  <line x1="560" y1="541.0" x2="608" y2="541.0" stroke="#B45309" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrA)"/>
-  <text x="582" y="534.0" font-size="11" font-weight="700" text-anchor="middle" fill="#B45309">no</text>
+  <line x1="560" y1="541.0" x2="608" y2="541.0" stroke="#BB4D00" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrA)"/>
+  <text x="582" y="534.0" font-size="11" font-weight="700" text-anchor="middle" fill="#BB4D00">no</text>
   <text x="618" y="545.0" class="fix">Edit File filters on Sync Settings</text>
   <line x1="180" y1="574" x2="180" y2="602" stroke="#008236" stroke-width="1.8" marker-end="url(#arrG)"/>
   <text x="190" y="594" font-size="11" font-weight="700" fill="#008236">yes</text>

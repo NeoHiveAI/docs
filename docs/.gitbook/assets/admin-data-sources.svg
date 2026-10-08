@@ -8,8 +8,8 @@
   </style>
   <defs>
     <marker id="arv" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#7C3AED"/></marker>
-    <marker id="art" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#0D9488"/></marker>
-    <marker id="ara" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#B45309"/></marker>
+    <marker id="art" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#009689"/></marker>
+    <marker id="ara" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#BB4D00"/></marker>
     <marker id="arm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#737373"/></marker>
     <marker id="aro" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#C084FC"/></marker>
     <marker id="arl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#A78BFA"/></marker>
@@ -19,7 +19,7 @@
   <!-- Header. Logo paths copied verbatim from refactor-docs-install-page.svg. -->
   <g transform="translate(40,26) scale(0.0793)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
   <text x="88" y="52" font-size="24" font-weight="800" letter-spacing="-0.5" fill="#1A1A2E">Connections feed Indexes</text>
-  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#6D28D9">ONE SAVED LOGIN CAN SYNC MANY INDEXES</text>
+  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#7008E7">ONE SAVED LOGIN CAN SYNC MANY INDEXES</text>
   <line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>
   <rect x="40" y="160" width="220" height="96" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
   <text x="56" y="182" class="lbl" fill="#737373">ACCOUNT</text>
@@ -33,16 +33,16 @@
   <text x="366" y="229" class="body">PAT or SSH key</text>
   <text x="366" y="245" class="body">Valid, Invalid or Unvalidated</text>
   <rect x="710" y="118" width="250" height="80" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
-  <text x="726" y="140" class="lbl" fill="#0D9488">CODE INDEX</text>
+  <text x="726" y="140" class="lbl" fill="#009689">CODE INDEX</text>
   <text x="726" y="162" class="body">Sync Settings, Connection</text>
   <rect x="710" y="218" width="250" height="80" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
-  <text x="726" y="240" class="lbl" fill="#0D9488">DOCUMENTATION INDEX</text>
+  <text x="726" y="240" class="lbl" fill="#009689">DOCUMENTATION INDEX</text>
   <text x="726" y="262" class="body">Sync Settings, Connection</text>
   <path d="M260 208 L346 208" fill="none" stroke="#737373" stroke-width="2" marker-end="url(#arm)"/>
   <text x="303" y="198" class="al" text-anchor="middle" style="fill:#737373">token</text>
-  <path d="M620 190 L706 158" fill="none" stroke="#0D9488" stroke-width="2" marker-end="url(#art)"/>
-  <path d="M620 226 L706 258" fill="none" stroke="#0D9488" stroke-width="2" marker-end="url(#art)"/>
-  <text x="664" y="212" class="al" text-anchor="middle" style="fill:#0D9488">syncs</text>
+  <path d="M620 190 L706 158" fill="none" stroke="#009689" stroke-width="2" marker-end="url(#art)"/>
+  <path d="M620 226 L706 258" fill="none" stroke="#009689" stroke-width="2" marker-end="url(#art)"/>
+  <text x="664" y="212" class="al" text-anchor="middle" style="fill:#009689">syncs</text>
   <rect x="40" y="318" width="920" height="44" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
   <text x="58" y="345" class="body" font-size="12.5">Delete a connection and its Indexes keep their Memories, show a No connection badge, and stop syncing until you pick another.</text>
 </svg>

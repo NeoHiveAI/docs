@@ -8,8 +8,8 @@
   </style>
   <defs>
     <marker id="arv" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#7C3AED"/></marker>
-    <marker id="art" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#0D9488"/></marker>
-    <marker id="ara" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#B45309"/></marker>
+    <marker id="art" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#009689"/></marker>
+    <marker id="ara" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#BB4D00"/></marker>
     <marker id="arm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#737373"/></marker>
     <marker id="aro" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#C084FC"/></marker>
     <marker id="arl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#A78BFA"/></marker>
@@ -19,46 +19,46 @@
   <!-- Header. Logo paths copied verbatim from refactor-docs-install-page.svg. -->
   <g transform="translate(40,26) scale(0.0793)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
   <text x="88" y="52" font-size="24" font-weight="800" letter-spacing="-0.5" fill="#1A1A2E">Backup and restore</text>
-  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#6D28D9">ONE ARCHIVE HOLDS THE WHOLE DATA VOLUME</text>
+  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#7008E7">ONE ARCHIVE HOLDS THE WHOLE DATA VOLUME</text>
   <line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>
-  <text x="40" y="124" class="lbl" style="fill:#0D9488">BACKUP, WHILE NEOHIVE RUNS</text>
+  <text x="40" y="124" class="lbl" style="fill:#009689">BACKUP, WHILE NEOHIVE RUNS</text>
   <rect x="40" y="136" width="280" height="90" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
-  <text x="56" y="158" class="lbl" fill="#0D9488">VOLUME</text>
+  <text x="56" y="158" class="lbl" fill="#009689">VOLUME</text>
   <text x="56" y="180" class="title">neohive-data</text>
   <text x="56" y="199" class="body">Hives, Indexes, Memories, keys</text>
   <rect x="470" y="136" width="490" height="90" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
-  <text x="486" y="158" class="lbl" fill="#0D9488">ARCHIVE</text>
+  <text x="486" y="158" class="lbl" fill="#009689">ARCHIVE</text>
   <text x="486" y="180" class="title">neohive-backup-&lt;timestamp&gt;.tar.gz</text>
   <text x="486" y="199" class="body">manifest.json, SHA256SUMS and a data/ folder</text>
-  <path d="M320 181 L466 181" fill="none" stroke="#0D9488" stroke-width="2" marker-end="url(#art)"/>
-  <text x="393" y="172" class="al mono" text-anchor="middle" style="fill:#0D9488">backup.sh</text>
-  <text x="160" y="280" class="lbl" style="fill:#B45309">RESTORE, WITH backup.sh --restore</text>
+  <path d="M320 181 L466 181" fill="none" stroke="#009689" stroke-width="2" marker-end="url(#art)"/>
+  <text x="393" y="172" class="al mono" text-anchor="middle" style="fill:#009689">backup.sh</text>
+  <text x="160" y="280" class="lbl" style="fill:#BB4D00">RESTORE, WITH backup.sh --restore</text>
   <rect x="40" y="292" width="206" height="100" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
-  <circle cx="66" cy="318" r="11" fill="#B45309"/>
+  <circle cx="66" cy="318" r="11" fill="#BB4D00"/>
   <text x="66" y="322.5" font-size="12" font-weight="700" text-anchor="middle" fill="#FFFFFF">1</text>
   <text x="86" y="323" class="title">Verify</text>
   <text x="56" y="352" class="body">Checks every file.</text>
   <text x="56" y="368" class="body">Damaged: nothing changes.</text>
-  <path d="M246 342 L274 342" fill="none" stroke="#B45309" stroke-width="2" marker-end="url(#ara)"/>
+  <path d="M246 342 L274 342" fill="none" stroke="#BB4D00" stroke-width="2" marker-end="url(#ara)"/>
   <rect x="278" y="292" width="206" height="100" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
-  <circle cx="304" cy="318" r="11" fill="#B45309"/>
+  <circle cx="304" cy="318" r="11" fill="#BB4D00"/>
   <text x="304" y="322.5" font-size="12" font-weight="700" text-anchor="middle" fill="#FFFFFF">2</text>
   <text x="324" y="323" class="title">Confirm</text>
   <text x="294" y="352" class="body">You type neohive-data</text>
   <text x="294" y="368" class="body">to continue.</text>
-  <path d="M484 342 L512 342" fill="none" stroke="#B45309" stroke-width="2" marker-end="url(#ara)"/>
+  <path d="M484 342 L512 342" fill="none" stroke="#BB4D00" stroke-width="2" marker-end="url(#ara)"/>
   <rect x="516" y="292" width="206" height="100" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
-  <circle cx="542" cy="318" r="11" fill="#B45309"/>
+  <circle cx="542" cy="318" r="11" fill="#BB4D00"/>
   <text x="542" y="322.5" font-size="12" font-weight="700" text-anchor="middle" fill="#FFFFFF">3</text>
   <text x="562" y="323" class="title">Replace</text>
   <text x="532" y="352" class="body">Stops NeoHive and swaps</text>
   <text x="532" y="368" class="body">the volume contents.</text>
-  <path d="M722 342 L750 342" fill="none" stroke="#B45309" stroke-width="2" marker-end="url(#ara)"/>
+  <path d="M722 342 L750 342" fill="none" stroke="#BB4D00" stroke-width="2" marker-end="url(#ara)"/>
   <rect x="754" y="292" width="206" height="100" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
-  <circle cx="780" cy="318" r="11" fill="#B45309"/>
+  <circle cx="780" cy="318" r="11" fill="#BB4D00"/>
   <text x="780" y="322.5" font-size="12" font-weight="700" text-anchor="middle" fill="#FFFFFF">4</text>
   <text x="800" y="323" class="title">Start</text>
   <text x="770" y="352" class="body">NeoHive starts again</text>
   <text x="770" y="368" class="body">and reports healthy.</text>
-  <path d="M715 226 L715 254 L143 254 L143 288" fill="none" stroke="#B45309" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ara)"/>
+  <path d="M715 226 L715 254 L143 254 L143 288" fill="none" stroke="#BB4D00" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ara)"/>
 </svg>

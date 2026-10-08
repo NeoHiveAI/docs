@@ -7,14 +7,14 @@
   </style>
   <defs>
     <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#7C3AED"/></marker>
-    <marker id="arrT" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#0D9488"/></marker>
-    <marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#B45309"/></marker>
+    <marker id="arrT" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#009689"/></marker>
+    <marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#BB4D00"/></marker>
   </defs>
   <rect width="1000" height="618" fill="#FAF9FD"/>
   <!-- Header. Logo paths copied verbatim from refactor-docs-install-page.svg. -->
   <g transform="translate(40,26) scale(0.0793)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
   <text x="88" y="52" font-size="24" font-weight="800" letter-spacing="-0.5" fill="#1A1A2E">What the plugin does automatically</text>
-  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#6D28D9">WHERE EACH CLAUDE CODE HOOK FIRES DURING ONE SESSION</text>
+  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#7008E7">WHERE EACH CLAUDE CODE HOOK FIRES DURING ONE SESSION</text>
   <line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>
   <line x1="76" y1="160.0" x2="76" y2="552.0" stroke="#D9D4E6" stroke-width="2"/>
   <circle cx="76" cy="160.0" r="9" fill="#7C3AED"/>
@@ -22,7 +22,7 @@
   <text x="134" y="154" font-size="14.5" font-weight="700" fill="#1A1A2E">A session starts</text>
   <text x="134" y="176" font-size="11" class="mono" fill="#7C3AED">SessionStart</text>
   <text x="400" y="154" class="body">Installs or updates the rules file, then</text>
-  <text x="400" y="174" class="body">reminds your agent to call <tspan class="mono" fill="#6D28D9">memory_context</tspan></text>
+  <text x="400" y="174" class="body">reminds your agent to call <tspan class="mono" fill="#7008E7">memory_context</tspan></text>
   <text x="940" y="148" font-size="9.5" font-weight="700" letter-spacing="0.9" text-anchor="end" fill="#737373">TURN OFF</text>
   <text x="940" y="170" font-size="12" text-anchor="end" fill="#737373">no switch</text>
   <circle cx="76" cy="258.0" r="9" fill="#7C3AED"/>
@@ -38,7 +38,7 @@
   <text x="134" y="350" font-size="14.5" font-weight="700" fill="#1A1A2E">Your agent runs Glob or Grep</text>
   <text x="134" y="372" font-size="11" class="mono" fill="#7C3AED">PreToolUse</text>
   <text x="400" y="350" class="body">In an indexed project, adds a reminder to</text>
-  <text x="400" y="370" class="body">try <tspan class="mono" fill="#6D28D9">memory_recall</tspan> first, then lets it run</text>
+  <text x="400" y="370" class="body">try <tspan class="mono" fill="#7008E7">memory_recall</tspan> first, then lets it run</text>
   <text x="940" y="344" font-size="9.5" font-weight="700" letter-spacing="0.9" text-anchor="end" fill="#737373">TURN OFF</text>
   <text x="940" y="366" font-size="11" class="mono" text-anchor="end" fill="#1A1A2E">NEOHIVE_PRETOOL_DISABLED=1</text>
   <circle cx="76" cy="454.0" r="9" fill="#7C3AED"/>
@@ -46,13 +46,13 @@
   <text x="134" y="448" font-size="14.5" font-weight="700" fill="#1A1A2E">Your agent calls a NeoHive tool</text>
   <text x="134" y="470" font-size="11" class="mono" fill="#7C3AED">PostToolUse</text>
   <text x="400" y="448" class="body">Writes the call to a local session log under</text>
-  <text x="400" y="468" font-size="11.5" class="mono" fill="#6D28D9">~/.claude/neohive/sessions/</text>
+  <text x="400" y="468" font-size="11.5" class="mono" fill="#7008E7">~/.claude/neohive/sessions/</text>
   <text x="940" y="442" font-size="9.5" font-weight="700" letter-spacing="0.9" text-anchor="end" fill="#737373">TURN OFF</text>
   <text x="940" y="464" font-size="11" class="mono" text-anchor="end" fill="#1A1A2E">NEOHIVE_HOOK_DISABLED=1</text>
-  <circle cx="76" cy="552.0" r="9" fill="#FAF9FD" stroke="#B45309" stroke-width="2.5"/>
-  <rect x="112" y="510" width="848" height="84" rx="12" fill="#FFFFFF" stroke="#F3D9C0"/>
+  <circle cx="76" cy="552.0" r="9" fill="#FAF9FD" stroke="#BB4D00" stroke-width="2.5"/>
+  <rect x="112" y="510" width="848" height="84" rx="12" fill="#FFFFFF" stroke="#FFE1B2"/>
   <text x="134" y="546" font-size="14.5" font-weight="700" fill="#1A1A2E">The session ends</text>
-  <text x="134" y="568" font-size="11" class="mono" fill="#B45309">no hook</text>
+  <text x="134" y="568" font-size="11" class="mono" fill="#BB4D00">no hook</text>
   <text x="400" y="546" class="body">Nothing runs. Before you close, run the skill</text>
-  <text x="400" y="566" font-size="11.5" class="mono" fill="#6D28D9">/neohive:capture-session-learnings</text>
+  <text x="400" y="566" font-size="11.5" class="mono" fill="#7008E7">/neohive:capture-session-learnings</text>
 </svg>

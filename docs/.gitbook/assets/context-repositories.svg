@@ -9,15 +9,15 @@
   </style>
   <defs>
     <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#7C3AED"/></marker>
-    <marker id="arrT" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#0D9488"/></marker>
-    <marker id="arrM" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#A3A3A3"/></marker>
+    <marker id="arrT" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#009689"/></marker>
+    <marker id="arrM" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#A1A1A1"/></marker>
   </defs>
 
   <rect width="1000" height="400" fill="#FAF9FD"/>
   <!-- Logo paths copied verbatim from refactor-docs-install-page.svg. -->
   <g transform="translate(40,26) scale(0.0793)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
   <text x="88" y="52" font-size="24" font-weight="800" letter-spacing="-0.5" fill="#1A1A2E">Add a code repository</text>
-  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#6D28D9">A CONNECTION READS THE REPOSITORY. SYNCS KEEP THE INDEX CURRENT.</text>
+  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#7008E7">A CONNECTION READS THE REPOSITORY. SYNCS KEEP THE INDEX CURRENT.</text>
   <line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>
   <rect x="40" y="130" width="210" height="120" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
   <text x="56" y="154" class="lbl" fill="#7C3AED">REPOSITORY</text>
@@ -39,9 +39,9 @@
   <line x1="250" y1="190" x2="268" y2="190" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
   <line x1="480" y1="190" x2="498" y2="190" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
   <line x1="710" y1="190" x2="728" y2="190" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
-  <path d="M145 250 L145 310 L250 310" fill="none" stroke="#0D9488" stroke-width="2" stroke-dasharray="5 4"/>
-  <path d="M550 310 L605 310 L605 256" fill="none" stroke="#0D9488" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrT)"/>
-  <rect x="250" y="292" width="300" height="36" rx="18" fill="#F0FDFA" stroke="#0D9488" stroke-width="1"/>
+  <path d="M145 250 L145 310 L250 310" fill="none" stroke="#009689" stroke-width="2" stroke-dasharray="5 4"/>
+  <path d="M550 310 L605 310 L605 256" fill="none" stroke="#009689" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrT)"/>
+  <rect x="250" y="292" width="300" height="36" rx="18" fill="#F0FDFA" stroke="#009689" stroke-width="1"/>
   <text x="400" y="315" class="item" text-anchor="middle">sync: every 4 hours, or Trigger sync</text>
   <text x="40" y="366" class="muted">Each sync reads only the files that changed since the last one.</text>
 </svg>

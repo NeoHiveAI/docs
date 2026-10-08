@@ -8,15 +8,15 @@
   </style>
   <defs>
     <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#7C3AED"/></marker>
-    <marker id="arrT" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#0D9488"/></marker>
-    <marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#B45309"/></marker>
+    <marker id="arrT" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#009689"/></marker>
+    <marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#BB4D00"/></marker>
   </defs>
   <rect width="1000" height="470" fill="#FAF9FD"/>
 
   <!-- Header. Logo paths copied verbatim from refactor-docs-install-page.svg. -->
   <g transform="translate(40,26) scale(0.0793)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
   <text x="88" y="52" font-size="24" font-weight="800" letter-spacing="-0.5" fill="#1A1A2E">Reaching NeoHive from outside</text>
-  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#6D28D9">A PROXY CHECKS A CREDENTIAL AND ADDS HTTPS BEFORE ANY REQUEST REACHES NEOHIVE.</text>
+  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#7008E7">A PROXY CHECKS A CREDENTIAL AND ADDS HTTPS BEFORE ANY REQUEST REACHES NEOHIVE.</text>
   <line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>
   <rect x="40" y="130" width="220" height="250" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
   <text x="60" y="156" class="lbl" fill="#737373">OUTSIDE</text>
@@ -27,7 +27,7 @@
   <rect x="60" y="260" width="180" height="46" rx="8" fill="#FAF9FD" stroke="#E5E5E5"/>
   <text x="74" y="280" fill="#1A1A2E" font-size="13" font-weight="600">CI runner</text>
   <text x="74" y="297" class="small">sends a credential</text>
-  <text x="60" y="350" class="mono" fill="#6D28D9" font-size="10.5">https://neohive.example.com</text>
+  <text x="60" y="350" class="mono" fill="#7008E7" font-size="10.5">https://neohive.example.com</text>
   <path d="M260 255 L336 255" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
   <text x="298" y="243" fill="#1A1A2E" text-anchor="middle" font-size="11" font-weight="700">HTTPS</text>
   <rect x="340" y="170" width="250" height="170" rx="10" fill="#FFFFFF" stroke="#008236" stroke-width="1.5"/>
@@ -43,10 +43,10 @@
   <text x="614" y="243" fill="#1A1A2E" text-anchor="middle" font-size="11" font-weight="700">HTTP</text>
   <rect x="680" y="200" width="260" height="110" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
   <text x="700" y="228" class="title">NeoHive</text>
-  <text x="700" y="250" class="mono" fill="#6D28D9" font-size="11.5">port 3577, plain HTTP</text>
+  <text x="700" y="250" class="mono" fill="#7008E7" font-size="11.5">port 3577, plain HTTP</text>
   <text x="700" y="274" class="body">No logins. Anyone who</text>
   <text x="700" y="292" class="body">reaches it can read and write.</text>
-  <path d="M150 380 L150 420 L810 420 L810 314" fill="none" stroke="#B45309" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrA)"/>
-  <g stroke="#B45309" stroke-width="3"><line x1="470" y1="410" x2="490" y2="430"/><line x1="490" y1="410" x2="470" y2="430"/></g>
-  <text x="500" y="410" fill="#B45309" font-size="11.5" font-weight="600">Never open port 3577 to the internet directly</text>
+  <path d="M150 380 L150 420 L810 420 L810 314" fill="none" stroke="#BB4D00" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrA)"/>
+  <g stroke="#BB4D00" stroke-width="3"><line x1="470" y1="410" x2="490" y2="430"/><line x1="490" y1="410" x2="470" y2="430"/></g>
+  <text x="500" y="410" fill="#BB4D00" font-size="11.5" font-weight="600">Never open port 3577 to the internet directly</text>
 </svg>

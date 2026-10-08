@@ -6,7 +6,7 @@
     .title { font-size: 14px; font-weight: 700; fill: #1A1A2E; }
   </style>
   <defs>
-    <marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#B45309"/></marker>
+    <marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#BB4D00"/></marker>
     <marker id="arrV" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#7C3AED"/></marker>
   </defs>
   <rect width="1000" height="470" fill="#FAF9FD"/>
@@ -14,31 +14,31 @@
   <!-- Header. Logo paths copied verbatim from refactor-docs-install-page.svg. -->
   <g transform="translate(40,26) scale(0.0793)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
   <text x="88" y="52" font-size="24" font-weight="800" letter-spacing="-0.5" fill="#1A1A2E">What NeoHive changes</text>
-  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#6D28D9">THE SAME REQUEST, WITHOUT AND WITH NEOHIVE</text>
+  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#7008E7">THE SAME REQUEST, WITHOUT AND WITH NEOHIVE</text>
   <line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>
 
   <!-- Without -->
   <rect x="40" y="116" width="440" height="330" rx="12" fill="#FFFFFF" stroke="#E5E5E5"/>
-  <text x="64" y="144" class="lbl" fill="#B45309">WITHOUT NEOHIVE</text>
+  <text x="64" y="144" class="lbl" fill="#BB4D00">WITHOUT NEOHIVE</text>
 
   <rect x="64" y="160" width="392" height="56" rx="8" fill="#FAF9FD" stroke="#E5E5E5"/>
   <text x="80" y="183" class="title">You ask</text>
   <text x="80" y="203" class="body">"Add a table for customer invoices."</text>
-  <line x1="260" y1="216" x2="260" y2="238" stroke="#B45309" stroke-width="1.6" marker-end="url(#arrA)"/>
+  <line x1="260" y1="216" x2="260" y2="238" stroke="#BB4D00" stroke-width="1.6" marker-end="url(#arrA)"/>
 
   <rect x="64" y="244" width="392" height="56" rx="8" fill="#FAF9FD" stroke="#E5E5E5"/>
   <text x="80" y="267" class="title">The agent guesses</text>
   <text x="80" y="287" class="body">It reads a few open files and picks a style.</text>
-  <line x1="260" y1="300" x2="260" y2="322" stroke="#B45309" stroke-width="1.6" marker-end="url(#arrA)"/>
+  <line x1="260" y1="300" x2="260" y2="322" stroke="#BB4D00" stroke-width="1.6" marker-end="url(#arrA)"/>
 
-  <rect x="64" y="328" width="392" height="56" rx="8" fill="#FFFBF5" stroke="#F3D9B5"/>
+  <rect x="64" y="328" width="392" height="56" rx="8" fill="#FFF5E6" stroke="#FFE1B2"/>
   <text x="80" y="351" class="title">You correct it</text>
   <text x="80" y="371" class="body">camelCase columns again. Next session, same mistake.</text>
 
   <text x="64" y="420" font-size="12" fill="#737373">Every session starts from zero.</text>
 
   <!-- With -->
-  <rect x="520" y="116" width="440" height="330" rx="12" fill="#FFFFFF" stroke="#DDD6FE"/>
+  <rect x="520" y="116" width="440" height="330" rx="12" fill="#FFFFFF" stroke="#DDD6FF"/>
   <text x="544" y="144" class="lbl" fill="#7C3AED">WITH NEOHIVE</text>
 
   <rect x="544" y="160" width="392" height="56" rx="8" fill="#FAF9FD" stroke="#E5E5E5"/>
@@ -46,9 +46,9 @@
   <text x="560" y="203" class="body">"Add a table for customer invoices."</text>
   <line x1="740" y1="216" x2="740" y2="238" stroke="#7C3AED" stroke-width="1.6" marker-end="url(#arrV)"/>
 
-  <rect x="544" y="244" width="392" height="56" rx="8" fill="#F5F3FF" stroke="#DDD6FE"/>
+  <rect x="544" y="244" width="392" height="56" rx="8" fill="#F5F3FF" stroke="#DDD6FF"/>
   <text x="560" y="267" class="title">The agent recalls from your Hive</text>
-  <text x="560" y="287" class="body">Your schema code, plus the <tspan class="mono" fill="#6D28D9">snake_case</tspan> convention.</text>
+  <text x="560" y="287" class="body">Your schema code, plus the <tspan class="mono" fill="#7008E7">snake_case</tspan> convention.</text>
   <line x1="740" y1="300" x2="740" y2="322" stroke="#7C3AED" stroke-width="1.6" marker-end="url(#arrV)"/>
 
   <rect x="544" y="328" width="392" height="56" rx="8" fill="#D9F7E5" stroke="#BFF2D3"/>

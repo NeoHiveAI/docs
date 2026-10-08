@@ -15,7 +15,7 @@
   <!-- Header. Logo paths copied verbatim from refactor-docs-install-page.svg. -->
   <g transform="translate(40,26) scale(0.0793)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
   <text x="88" y="52" font-size="24" font-weight="800" letter-spacing="-0.5" fill="#1A1A2E">The parts of NeoHive</text>
-  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#6D28D9">THE SERVER HOLDS HIVES. A HIVE HOLDS INDEXES. THE KNOWLEDGE INDEX HOLDS MEMORIES.</text>
+  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#7008E7">THE SERVER HOLDS HIVES. A HIVE HOLDS INDEXES. THE KNOWLEDGE INDEX HOLDS MEMORIES.</text>
   <line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>
 
   <!-- Agent with its plugin -->
@@ -24,7 +24,7 @@
   <text x="60" y="166" class="title">Coding agent</text>
   <text x="60" y="186" class="body">Claude Code, Cursor, or Codex</text>
 
-  <rect x="58" y="204" width="190" height="146" rx="10" fill="#F5F3FF" stroke="#DDD6FE"/>
+  <rect x="58" y="204" width="190" height="146" rx="10" fill="#F5F3FF" stroke="#DDD6FF"/>
   <text x="74" y="228" class="lbl" fill="#7C3AED">PLUGIN</text>
   <text x="74" y="250" font-size="14" font-weight="700" fill="#1A1A2E">NeoHive plugin</text>
   <text x="74" y="274" class="body">Rules and skills that tell</text>
@@ -37,13 +37,13 @@
   <text x="352" y="142" class="lbl" fill="#7C3AED">SERVER</text>
   <text x="352" y="166" class="title">Docker container</text>
   <text x="938" y="142" font-size="11" text-anchor="end" fill="#737373">dashboard</text>
-  <text x="938" y="166" font-size="11.5" class="mono" text-anchor="end" fill="#6D28D9">http://localhost:3577</text>
+  <text x="938" y="166" font-size="11.5" class="mono" text-anchor="end" fill="#7008E7">http://localhost:3577</text>
 
   <!-- Hive -->
   <rect x="352" y="184" width="586" height="214" rx="10" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1.5"/>
   <text x="368" y="206" class="lbl" fill="#7C3AED">HIVE</text>
   <text x="410" y="206" font-size="12.5" font-weight="600" fill="#1A1A2E">A workspace for one team or product</text>
-  <text x="922" y="206" font-size="11" class="mono" text-anchor="end" fill="#6D28D9">/hives/&lt;hive-id&gt;/mcp</text>
+  <text x="922" y="206" font-size="11" class="mono" text-anchor="end" fill="#7008E7">/hives/&lt;hive-id&gt;/mcp</text>
 
   <!-- Indexes -->
   <rect x="368" y="222" width="128" height="160" rx="8" fill="#FFFFFF" stroke="#E5E5E5"/>
@@ -78,10 +78,10 @@
   <text x="806" y="262" font-size="13" font-weight="700" fill="#1A1A2E">Knowledge</text>
   <text x="806" y="279" font-size="11" fill="#4A4458">one per Hive</text>
   <rect x="806" y="292" width="104" height="30" rx="6" fill="#FAF9FD" stroke="#C084FC"/>
-  <text x="814" y="304" class="tag" fill="#0D9488">MEMORY</text>
+  <text x="814" y="304" class="tag" fill="#009689">MEMORY</text>
   <text x="814" y="317" class="item">Use pnpm</text>
   <rect x="806" y="330" width="104" height="30" rx="6" fill="#FAF9FD" stroke="#C084FC"/>
-  <text x="814" y="342" class="tag" fill="#0D9488">MEMORY</text>
+  <text x="814" y="342" class="tag" fill="#009689">MEMORY</text>
   <text x="814" y="355" class="item">Queue retries</text>
 
   <!-- Agent to the server over MCP. The arrow stops at the server box edge so it crosses no other element. -->

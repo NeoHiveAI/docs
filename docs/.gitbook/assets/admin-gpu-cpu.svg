@@ -9,7 +9,7 @@
   <defs>
     <marker id="arv" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#7C3AED"/></marker>
     <marker id="arrG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#008236"/></marker>
-    <marker id="ara" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#B45309"/></marker>
+    <marker id="ara" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#BB4D00"/></marker>
     <marker id="arm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#737373"/></marker>
     <marker id="aro" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#C084FC"/></marker>
     <marker id="arl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#A78BFA"/></marker>
@@ -19,7 +19,7 @@
   <!-- Header. Logo paths copied verbatim from refactor-docs-install-page.svg. -->
   <g transform="translate(40,26) scale(0.0793)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
   <text x="88" y="52" font-size="24" font-weight="800" letter-spacing="-0.5" fill="#1A1A2E">How the installer picks a backend</text>
-  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#6D28D9">EACH QUESTION IS ASKED IN ORDER. THE FIRST YES WINS.</text>
+  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#7008E7">EACH QUESTION IS ASKED IN ORDER. THE FIRST YES WINS.</text>
   <line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>
   <rect x="40" y="120" width="320" height="56" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
   <text x="58" y="153" class="body" style="fill:#1A1A2E" font-size="13" font-weight="600">Is the machine arm64 or aarch64?</text>
@@ -59,9 +59,9 @@
   <text x="688" y="214" class="al" text-anchor="middle" style="fill:#008236">yes</text>
   <rect x="710" y="204" width="250" height="36" rx="10" fill="#FFFFFF" stroke="#BFF2D3" stroke-width="1"/>
   <text x="726" y="227" class="title">CUDA</text>
-  <path d="M670 256 L706 256" fill="none" stroke="#B45309" stroke-width="2" marker-end="url(#ara)"/>
-  <text x="688" y="272" class="al" text-anchor="middle" style="fill:#B45309">no</text>
-  <rect x="710" y="244" width="250" height="36" rx="10" fill="#FFFFFF" stroke="#F3D19C" stroke-width="1"/>
+  <path d="M670 256 L706 256" fill="none" stroke="#BB4D00" stroke-width="2" marker-end="url(#ara)"/>
+  <text x="688" y="272" class="al" text-anchor="middle" style="fill:#BB4D00">no</text>
+  <rect x="710" y="244" width="250" height="36" rx="10" fill="#FFFFFF" stroke="#FFE1B2" stroke-width="1"/>
   <text x="726" y="267" class="body" style="fill:#1A1A2E" font-size="12.5" font-weight="600">CPU, with a toolkit warning</text>
   <path d="M200 446 L200 476" fill="none" stroke="#737373" stroke-width="2" marker-end="url(#arm)"/>
   <text x="210" y="466" class="al" style="fill:#737373">no</text>
