@@ -45,13 +45,13 @@ Every MCP connection and the Claude Code hooks must send the header your proxy e
 ```bash
 export NEOHIVE_TOKEN="<your-token>"
 claude mcp add neohive 'https://neohive.example.com/hives/<hive-id>/mcp' \
-  --scope user \
+  --scope project \
   --transport http \
-  --header "Authorization: Bearer $NEOHIVE_TOKEN" \
+  --header 'Authorization: Bearer ${NEOHIVE_TOKEN}' \
   --header 'x-mcp-client: claude-code'
 ```
 
-Keep `NEOHIVE_TOKEN` exported where Claude Code runs. The hooks send it as `Authorization: Bearer $NEOHIVE_TOKEN`. The hooks find the endpoint only from an MCP server whose name contains `neohive`. That server must be in the project's `.mcp.json` or in the user-level servers of `~/.claude.json`.
+The single quotes around the header write `${NEOHIVE_TOKEN}` into `.mcp.json` instead of the token itself. Claude Code fills in the token from your environment when it starts, so you can commit `.mcp.json` without the secret. Keep `NEOHIVE_TOKEN` exported where Claude Code runs. The hooks send it as `Authorization: Bearer $NEOHIVE_TOKEN`. The hooks find the endpoint only from an MCP server whose name contains `neohive`. That server must be in the project's `.mcp.json` or in the user-level servers of `~/.claude.json`.
 {% endtab %}
 
 {% tab title="Cursor" %}
@@ -110,7 +110,3 @@ Desktop apps reach NeoHive through the `mcp-remote` bridge. Add each header with
 {% hint style="info" %}
 The hooks send only the `Authorization` header. Your proxy might need other headers, such as Cloudflare Access service-token headers. In that case, your agent's own tool calls still work. The automatic recall on each prompt does not reach NeoHive.
 {% endhint %}
-
-## Next step
-
-If an agent cannot reach NeoHive after you set up the proxy, see [Agent can't connect](../troubleshooting/connection.md).

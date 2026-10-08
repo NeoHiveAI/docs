@@ -84,7 +84,3 @@ Your agent recalls migrated rules like any other Memory. A teammate on the same 
 {% hint style="info" %}
 Long-form notes, such as an Obsidian vault, design docs, or runbooks, belong in a [Files Index](../concepts/glossary.md#files-index). See [Add documents and PDFs](documents.md).
 {% endhint %}
-
-## Next step
-
-Your rules are now in NeoHive. Continue to [A session, start to finish](../results/a-session.md) to see how your agent uses those rules.

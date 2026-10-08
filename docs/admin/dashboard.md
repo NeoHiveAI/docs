@@ -69,7 +69,3 @@ An embedding model is the program that turns text into numbers for search. When 
 | `G` then `S` | **Settings** |
 | `Cmd+B` or `Ctrl+B` | Show or hide the sidebar |
 | `?` | All shortcuts |
-
-## Next step
-
-To archive, move, share, or delete Hives and Indexes, continue to [Manage Hives and Indexes](manage.md).

@@ -29,7 +29,3 @@ To check your progress, do the following:
 1. In the dashboard, open your Hive.
 2. Select the **Recent learnings** tab to see what agents stored.
 3. Select the **Recent queries** tab to see what agents asked.
-
-## Next step
-
-Continue to [Team workflows](team-workflows.md).

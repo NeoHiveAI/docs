@@ -37,7 +37,3 @@ NeoHive is for anyone who works with an AI agent. You do not need to be a develo
 NeoHive helps teams most, because everyone connected to the same Hive shares its Memories. A convention that one person teaches comes back for every teammate's agent, whichever tool they use. A teammate who joins later gets that knowledge on their first day. [Team workflows](../results/team-workflows.md) shows how teams set this up.
 
 Developers get the most from NeoHive when a coding agent works in a codebase it does not know. NeoHive also helps when you correct the same mistakes again and again. If you work alone, run NeoHive on your own machine. Your agent then remembers your project from one session to the next.
-
-## Next step
-
-[Quickstart](quickstart.md)

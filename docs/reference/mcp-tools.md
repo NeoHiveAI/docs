@@ -85,7 +85,3 @@ The reply is `Memory #<id> has been deactivated (Index: <index-id>).`, followed 
 | `hive` parameter on `memory_recall`, `memory_context`, `memory_stats` | `index` |
 
 </details>
-
-## Next step
-
-See [Memory types](memory-types.md) for the values `type` and `types` accept.

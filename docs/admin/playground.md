@@ -70,7 +70,3 @@ http://localhost:3577/playground?hive=<hive-id>&tool=memory_recall&query=auth%20
 To narrow the query to one Index, add `index=<index-id>`.
 
 </details>
-
-## Next step
-
-To protect what your Hives hold, continue to [Backups and restore](backups.md).

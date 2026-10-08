@@ -83,7 +83,3 @@ The script reads the following variables. Set them if your install does not use 
 On Colima or Lima, a restore can stop because the container cannot see the extracted files. Your data is untouched. Set `TMPDIR` to a folder under your home directory, as the error message shows, and run the restore again.
 
 </details>
-
-## Next step
-
-Continue to [Update NeoHive](updating.md). Take a backup before any update.

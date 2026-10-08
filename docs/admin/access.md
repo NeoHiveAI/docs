@@ -56,7 +56,3 @@ http://neohive.internal:3577/hives/<hive-id>/mcp
 {% endhint %}
 
 To reach NeoHive from outside a trusted network, put an authenticating proxy in front of NeoHive. An authenticating proxy is a server that checks who is connecting before it passes requests on. Do not open the port instead. For details, see [Exposing NeoHive beyond your network](../security/network.md).
-
-## Next step
-
-To check what your Hives return before your agents rely on them, continue to [Test queries in the Playground](playground.md).

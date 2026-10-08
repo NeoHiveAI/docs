@@ -55,7 +55,3 @@ This problem happens most often on Docker Desktop and Windows Subsystem for Linu
 3. Run the installer again.
 
 The installer no longer shows the warning, and the `IMAGE` column of `docker ps` shows a `cuda` tag.
-
-## Next step
-
-If you need to remove NeoHive from a machine, continue to [Uninstall](uninstall.md).

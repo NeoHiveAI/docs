@@ -66,7 +66,3 @@ A Memory is one stored piece of knowledge in a Knowledge Index. Examples are a c
 When a Memory is out of date, your agent calls `memory_forget`. `memory_forget` deactivates the Memory instead of deleting it. The call can also name the newer Memory that replaces the old one.
 
 Code, Documentation, and Files Indexes hold chunks instead of Memories. A chunk is a section of a file, such as a function or a heading and its text.
-
-## Next step
-
-Continue to [How retrieval works](retrieval.md).

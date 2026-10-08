@@ -33,7 +33,3 @@ Every Memory also has an importance from `1` (trivial) to `10` (critical). `memo
 {% hint style="info" %}
 When NeoHive indexes a file, it gives each piece of the file a type and an importance. The choice depends on the piece's wording. A piece with words like "always", "never", "must", "prefer", or "avoid" becomes a `directive` with importance `8` or more. As a result, a stray "never" in a README can appear as a rule.
 {% endhint %}
-
-## Next step
-
-See [Environment variables](environment-variables.md) for the settings you can change.

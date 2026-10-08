@@ -45,7 +45,3 @@ The Claude Code plugin writes a log of each session's NeoHive calls, including q
 {% hint style="info" %}
 NeoHive returns context to your agent, and your agent sends that context to its own model provider as part of the conversation. Your agent's provider, not NeoHive, decides what happens to that context.
 {% endhint %}
-
-## Next step
-
-Continue to [Credentials and secrets](credentials.md).

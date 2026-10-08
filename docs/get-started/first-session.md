@@ -59,7 +59,3 @@ Check NeoHive before answering.
 
 To make the agent check NeoHive by default, add the rules from [Tell your agent to use NeoHive](connect/README.md#tell-your-agent-to-use-neohive).
 {% endhint %}
-
-## Next step
-
-[How NeoHive works](../concepts/how-it-works.md)

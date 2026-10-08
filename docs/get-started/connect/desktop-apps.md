@@ -99,7 +99,3 @@ Ask the app: `List my NeoHive Indexes.` The app calls `list_indexes` and lists t
 
 If the `list_indexes` tool is missing, read the app's MCP log. Claude Desktop writes `mcp*.log` files to `~/Library/Logs/Claude/` on macOS and `%APPDATA%\Claude\logs\` on Windows. Then see [Agent can't connect](../../troubleshooting/connection.md).
 {% endhint %}
-
-## Next step
-
-[Your first session](../first-session.md)

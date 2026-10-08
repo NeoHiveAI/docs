@@ -45,7 +45,3 @@ The plugins add the following instructions for you. If your agent has no plugin,
 - When I correct you, set a convention, or point out a gotcha, call `memory_store`. Write one self-contained statement with the terms a later search would use and the reason behind it.
 - If more than one Hive is connected and you are unsure which one a Memory belongs in, ask before storing.
 ```
-
-## Next step
-
-[Claude Code](claude-code.md)

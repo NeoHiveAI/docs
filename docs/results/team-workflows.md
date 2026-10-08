@@ -29,7 +29,3 @@ Each workflow works only after someone has done what the middle column describes
 {% hint style="info" %}
 To import rules your team already keeps in `CLAUDE.md` or `AGENTS.md` files, see [Migrate from CLAUDE.md](../context/migrate.md).
 {% endhint %}
-
-## Next step
-
-Continue to [What the plugin does automatically](plugin-automation.md).

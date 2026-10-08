@@ -46,7 +46,3 @@ Open the Index's **Sync Settings** tab and read the **Allowlist** and **Blocklis
 Recall covers only the Hive in your agent's [MCP](../concepts/glossary.md#mcp) endpoint, plus any [Shared Index](../concepts/glossary.md#shared-index) added to that Hive. Compare the endpoint with **Install Instructions** on the Hive you expect.
 
 A new [Code](../concepts/glossary.md#code-index) or [Documentation Index](../concepts/glossary.md#documentation-index) returns nothing until its first sync finishes. The **Sync history** on the Index page shows each run. If a run failed, see [Repository sync issues](sync.md).
-
-## Next step
-
-If a repository does not sync, see [Repository sync issues](sync.md).

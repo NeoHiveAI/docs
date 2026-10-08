@@ -42,7 +42,3 @@ The phrasing of a query matters. `GitHub Actions concurrency limit workaround` f
 {% hint style="warning" %}
 How NeoHive orders results is internal and can change between releases. Do not write rules or prompts that depend on a particular order. The way you phrase the query is the part you can rely on.
 {% endhint %}
-
-## Next step
-
-Put context into your Hive. Start with [What to add, and where](../context/what-to-add.md).

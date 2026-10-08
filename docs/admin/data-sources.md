@@ -83,7 +83,3 @@ To replace a token without a gap in syncing, do the following:
 The Indexes now sync through the new connection. The next sync writes the new token into each Index's clone.
 
 To learn how NeoHive stores these secrets, see [Credentials and secrets](../security/credentials.md).
-
-## Next step
-
-To decide who can reach your NeoHive instance, continue to [Access and sharing](access.md).

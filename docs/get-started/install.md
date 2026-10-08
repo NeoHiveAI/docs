@@ -94,16 +94,16 @@ Open the Index from the Hive page. For a repository Index, **Sync history** show
 {% step %}
 ## Connect your agent
 
-The last setup step is **Install for your AI tools**. Later, the **Install Instructions** panel on the Hive page shows the same commands. The first command registers the Hive as an [MCP](../concepts/glossary.md#mcp) server, so your agent can call NeoHive's tools. For Claude Code, run the first command in your terminal:
+The last setup step is **Install for your AI tools**. Later, the **Install Instructions** panel on the Hive page shows the same commands. The first command registers the Hive as an [MCP](../concepts/glossary.md#mcp) server, so your agent can call NeoHive's tools. For Claude Code, run the first command in your terminal, from your project's root folder:
 
 ```bash
 claude mcp add <name> '<hive-url>' \
-  --scope user \
+  --scope project \
   --transport http \
   --header 'x-mcp-client: claude-code'
 ```
 
-The command that the dashboard shows leaves out `--scope user`. Add `--scope user`, because without it the plugin's automatic recall cannot find the Hive. To learn why, see [Connect Claude Code](connect/claude-code.md).
+The `--scope project` flag saves the Hive in that folder's `.mcp.json`, where the plugin's automatic recall looks for it. Claude Code asks you to approve the server the next time it starts in the project. To learn why the scope matters, see [Connect Claude Code](connect/claude-code.md).
 
 Then run the remaining commands inside Claude Code:
 
@@ -128,4 +128,4 @@ The agent calls `memory_recall` and cites real paths from your repository or fil
 
 ## Next step
 
-[Your first session](first-session.md)
+Your agent is connected, so you can skip the pages for each agent. Continue with [Your first session](first-session.md).

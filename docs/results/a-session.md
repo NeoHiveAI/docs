@@ -69,7 +69,3 @@ The Codex and Cursor plugins have no hooks, so nothing runs automatically. Each 
 | Claude Code | Automatic, or `/neohive:load-context` | `/neohive:capture-session-learnings` | `~/CLAUDE.md` |
 | Codex | Rules file, or the `load-context` skill | The `capture-session-learnings` skill | `~/AGENTS.md` or `~/.codex/AGENTS.md` |
 | Cursor | Rules file, or the `load-context` skill | The `capture-session-learnings` skill | Your `.cursor/rules/*.mdc` files, or the plugin's `rules/neohive.mdc` if you have none |
-
-## Next step
-
-Continue to [Teach your agent as you work](teach.md).

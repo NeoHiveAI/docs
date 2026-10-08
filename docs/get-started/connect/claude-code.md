@@ -17,21 +17,23 @@ To add the Hive as an MCP server, do the following:
 1. Open the Hive in the dashboard, and go to **Install Instructions**.
 2. Select **Claude Code**.
 3. Copy the first command.
-4. Add `--scope user` directly after the URL.
-5. Run the command in your normal terminal, outside Claude Code.
+4. In your normal terminal, outside Claude Code, go to your project's root folder.
+5. Run the command there.
 
-The command with `--scope user` added looks like this:
+The command looks like this:
 
 ```bash
 claude mcp add <name> '<hive-url>' \
-  --scope user \
+  --scope project \
   --transport http \
   --header 'x-mcp-client: claude-code'
 ```
 
-The command that the dashboard shows leaves out `--scope user`. Without `--scope user`, Claude Code saves the server for the current folder only. The plugin's prompt hook then cannot find the server.
+The `--scope project` flag saves the server in a `.mcp.json` file in the folder where you run the command. The plugin's prompt hook reads that file first, so automatic recall uses the Hive for this project. Commit `.mcp.json` to the repository, and every teammate who opens the project gets the same Hive. The file also turns on the plugin's Glob and Grep reminder.
 
-The prompt hook reads servers from the user-wide list in `~/.claude.json` and from your project's `.mcp.json`. To write the server to `.mcp.json` instead, use `--scope project`. Your team can commit `.mcp.json` to the repository. The file also turns on the plugin's Glob and Grep reminder.
+The next time Claude Code starts in the project, it asks you to approve the server from `.mcp.json`. Approve the server, or Claude Code does not connect to the Hive.
+
+Do not add the server with `--scope user`. At user scope, the prompt hook uses the first NeoHive server it finds. If you add more than one Hive, every project then recalls from whichever Hive you added first. Without any scope, Claude Code saves the server where the prompt hook never looks, so automatic recall does nothing.
 
 Keep the URL directly after the name. If the URL comes after a flag, Claude Code reads the URL as a header value and cannot reach the server. The command that the dashboard shows ends with `&& claude mcp get <name>`, which prints the saved entry.
 {% endstep %}
@@ -83,4 +85,4 @@ If the `list_indexes` tool is missing, run `claude mcp get <name>` and compare t
 
 ## Next step
 
-[Your first session](../first-session.md)
+Claude Code is connected, so you can skip the pages for other agents. Continue with [Your first session](../first-session.md).

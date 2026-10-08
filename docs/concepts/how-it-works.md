@@ -35,7 +35,3 @@ When you add a repository, the container copies (clones) it from GitHub or GitLa
 On later syncs, the container indexes only the files that changed.
 
 NeoHive embeds and searches your content on the machine it runs on. [What stays on your machine](../security/local-only.md) lists every connection the container makes to services outside your machine.
-
-## Next step
-
-Continue to [Hives, Indexes, and Memories](hives-indexes-memories.md).

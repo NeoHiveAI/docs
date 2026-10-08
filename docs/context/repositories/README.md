@@ -23,7 +23,3 @@ NeoHive copies the code and turns it into a searchable form on the machine that 
 {% hint style="info" %}
 The first sync reads every file. For a typical service, the first sync takes a few minutes. For a large monorepo (one repository that holds many projects), the first sync takes longer. Later syncs read only the files that changed. A GPU makes indexing faster. For details, see [GPU and CPU](../../admin/gpu-cpu.md).
 {% endhint %}
-
-## Next step
-
-Start with the connection. Continue to [Connect GitHub or GitLab](connect.md).

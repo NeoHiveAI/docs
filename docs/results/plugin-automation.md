@@ -41,7 +41,7 @@ Every hook except `SessionStart` needs `python3` on your `PATH`. Without `python
 | Nothing matched | Recall finds no matching context, so the hook adds nothing. |
 
 {% hint style="warning" %}
-The **Install Instructions** command runs `claude mcp add` without `--scope`, so Claude Code saves the server at local scope. The prompt hook does not read local scope. Tool calls still work, but the hook adds no context to your prompts. To make the hook add context, add `--scope user` or `--scope project` to the command.
+The prompt hook finds your Hive through the `.mcp.json` that the **Install Instructions** command writes with `--scope project`. If you add the server without a scope, tool calls still work, but the hook adds no context to your prompts. [Connect Claude Code](../get-started/connect/claude-code.md) explains which scope to use.
 {% endhint %}
 
 The hook adds context under `NeoHive auto-context` and cuts it off at 4,000 characters. If `NEOHIVE_TOKEN` is set, the hook sends that token as a bearer token (an access token in the request header).
@@ -75,7 +75,3 @@ The Codex and Cursor plugins include no hooks. Nothing runs automatically when a
 | Cursor | `rules/neohive.mdc` in the plugin, set to always apply | The rules hold the same instructions and load in every chat. |
 
 In Codex and Cursor, `enable-smart-prompts` writes the helper script but does not register it. Neither agent has a documented prompt hook that the skill can register the script with. You need to connect the script yourself.
-
-## Next step
-
-Continue to [Common mistakes to avoid](common-mistakes.md).

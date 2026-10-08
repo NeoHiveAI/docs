@@ -44,7 +44,3 @@ These names redirect to the new commands. A future release will remove them.
 {% hint style="info" %}
 If the commands are missing after you install the plugin, run `/reload-plugins` in Claude Code. If they still do not appear, see [Agent can't connect](../troubleshooting/connection.md).
 {% endhint %}
-
-## Next step
-
-See [MCP tools](mcp-tools.md) for the tools these commands call.

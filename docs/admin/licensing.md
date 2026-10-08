@@ -86,7 +86,3 @@ A license covers one running machine at a time. That machine holds the license's
 The new machine now holds the seat.
 
 If the old machine is gone, its seat becomes free once the machine stops checking in with the licensing service. Reinstalling on the same machine reuses its seat, because the installer keeps the machine's identity in `~/.cache/neohive/machine-id`.
-
-## Next step
-
-Continue to [GPU and CPU](gpu-cpu.md) to see which hardware backend NeoHive picked and how to change it.

@@ -65,7 +65,3 @@ NeoHive always skips the following files, whatever your filters say:
 {% hint style="info" %}
 Repository sync does not convert PDFs, so NeoHive skips a PDF in a repository as a binary file. To make the PDF searchable, upload it to a Files Index.
 {% endhint %}
-
-## Next step
-
-See [File pattern syntax](file-patterns.md) to narrow a repository further.

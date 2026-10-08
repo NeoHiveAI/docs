@@ -140,7 +140,3 @@ jobs:
 ```
 
 `--no-renames` reports a renamed file as a deletion plus an addition, so NeoHive removes the old path from the Index. The template sends all changed files in one request. If the files add up to more than 100 KB, the request gets a `413` response.
-
-## Next step
-
-See [Common errors](../troubleshooting/common-errors.md) for any other message.

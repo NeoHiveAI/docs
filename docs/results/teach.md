@@ -48,7 +48,3 @@ To see stored Memories, do the following:
 The **Recent learnings** tab lists what agents stored in the last 7 days.
 
 To import rules your team already keeps in `CLAUDE.md` or `AGENTS.md`, see [Migrate from CLAUDE.md](../context/migrate.md).
-
-## Next step
-
-Continue to [Ask for context directly](ask-directly.md).

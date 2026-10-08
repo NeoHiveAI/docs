@@ -59,7 +59,3 @@ To index changes right after every merge, your CI pipeline can send the changed 
 | **Error** | What went wrong. Select the error to read the full message |
 
 If someone renames the branch, for example from `master` to `main`, the sync follows the new name when the match is clear. Otherwise, the page shows **Branch not found on the remote**. In that case, select the correct branch under **Sync a different branch**. For runs that keep failing, see [Repository sync issues](../../troubleshooting/sync.md).
-
-## Next step
-
-Your code is now in a Code Index. Next, add the documents that are not stored in git. Continue to [Add documents and PDFs](../documents.md).

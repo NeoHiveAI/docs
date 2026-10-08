@@ -70,7 +70,3 @@ You do not need `node_modules`, `dist`, `build`, `vendor`, `coverage`, lock file
 {% hint style="info" %}
 The webhook refresh endpoint ignores your Allowlist and Blocklist. For details, see [How the webhook differs from a sync](webhooks.md#how-the-webhook-differs-from-a-sync).
 {% endhint %}
-
-## Next step
-
-See [Webhook refresh endpoint](webhooks.md) to update an Index as soon as a change merges.

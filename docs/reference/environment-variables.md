@@ -84,7 +84,3 @@ The installer passes only these variables into the container: the license key, t
 {% hint style="info" %}
 Some plugin rules say to set `NEOHIVE_MCP_HINTS=0` in your agent's environment. Setting the variable there has no effect. The server adds the hint, so you must set the variable on the container.
 {% endhint %}
-
-## Next step
-
-See [Supported file types](file-types.md) for what NeoHive can index.

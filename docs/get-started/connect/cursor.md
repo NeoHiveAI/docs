@@ -67,4 +67,4 @@ If the `list_indexes` tool is missing, compare the `url` in your `mcp.json` with
 
 ## Next step
 
-[Your first session](../first-session.md)
+Cursor is connected, so you can skip the pages for other agents. Continue with [Your first session](../first-session.md).

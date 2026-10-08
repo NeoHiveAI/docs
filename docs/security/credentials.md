@@ -34,7 +34,3 @@ Deleting a connection removes only NeoHive's encrypted copy of the token. An exi
 {% hint style="danger" %}
 **Keep the encryption key with the data.** If `/app/data/.encryption_key` is lost, or `MEMVEC_ENCRYPTION_KEY` changes, NeoHive cannot decrypt the stored connections. You then need to add every connection again.
 {% endhint %}
-
-## Next step
-
-Continue to [Exposing NeoHive beyond your network](network.md).

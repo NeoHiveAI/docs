@@ -62,7 +62,3 @@ At the top of the page, select **Trigger sync**. The sync applies the new patter
 {% endstepper %}
 
 If your agent cannot find a file, check both lists first, because a pattern might filter the file out.
-
-## Next step
-
-Now that the Index includes the right files, keep them up to date. Continue to [Keep a repository up to date](sync.md).

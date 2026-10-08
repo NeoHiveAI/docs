@@ -9,7 +9,7 @@ This page takes one path with no options: NeoHive, one GitHub repository, and Cl
 Before you start, you need the following:
 
 * Docker 20 or later, running on Linux, macOS, or Windows with WSL2.
-* A NeoHive license file (`license.key` or `license.json`) from the [NeoHive team](https://www.neohive.ai/download/). [Licensing](../admin/licensing.md) explains how to get one.
+* A NeoHive license file (`license.key` or `license.json`) from the [NeoHive team](https://www.neohive.ai/download/).
 * Claude Code.
 * A GitHub personal access token with `repo` scope.
 
@@ -47,12 +47,18 @@ NeoHive adds your repository to the Hive as a Code [Index](../concepts/glossary.
 
 Setup now shows **Install for your AI tools** with **Claude** selected. To connect Claude Code, do the following:
 
-1. Copy the command that setup shows.
-2. Add `--scope user` directly after the quoted Hive URL. Without `--scope user`, the plugin's automatic recall cannot find the Hive.
-3. Run the command in your terminal.
-4. Start Claude Code in your repository.
-5. When setup shows **Connected**, select **Open** followed by your Hive's name.
-6. To install the plugin and run its setup, run the following commands inside Claude Code:
+1. In your terminal, go to your repository's root folder.
+2. Run the command that setup shows. The command looks like this:
+
+   ```bash
+   claude mcp add <name> '<hive-url>' \
+     --scope project \
+     --transport http \
+     --header 'x-mcp-client: claude-code'
+   ```
+3. Start Claude Code in your repository. When Claude Code asks you to approve the NeoHive server, approve it.
+4. When setup shows **Connected**, select **Open** followed by your Hive's name.
+5. To install the plugin and run its setup, run the following commands inside Claude Code:
 
 ```text
 /plugin marketplace add NeoHiveAI/NeoHiveClaude
@@ -79,4 +85,4 @@ Claude Code calls `memory_recall` and answers with real paths from your reposito
 
 ## Next step
 
-[Your first session](first-session.md)
+You have installed NeoHive and connected Claude Code, so you can skip **Install NeoHive** and **Connect your agent**. Continue with [Your first session](first-session.md).

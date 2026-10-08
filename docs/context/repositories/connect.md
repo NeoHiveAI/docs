@@ -76,7 +76,3 @@ A new [Code Index](../../concepts/glossary.md#code-index) uses a general text em
 </details>
 
 The **Data Sources** page lists your saved connections. For details, see [Data sources and credentials](../../admin/data-sources.md).
-
-## Next step
-
-Keep unwanted files out of the Index before the Index grows. Continue to [Choose which files are included](file-patterns.md).

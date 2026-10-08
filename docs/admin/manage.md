@@ -92,7 +92,3 @@ On the **Sync Settings** tab of a [Code](../concepts/glossary.md#code-index) or 
 ## The Knowledge Index stays with its Hive
 
 Every Hive has one [Knowledge Index](../concepts/glossary.md#knowledge-index), where your agent's Memories live. You cannot move, share, rename, or delete the Knowledge Index on its own. The Knowledge Index goes wherever its Hive goes, including into the archive.
-
-## Next step
-
-To connect the accounts that your Code and Documentation Indexes sync from, continue to [Data sources and credentials](data-sources.md).

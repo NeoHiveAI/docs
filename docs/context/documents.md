@@ -58,7 +58,3 @@ To move an Obsidian vault or a similar notes vault, export it as markdown and up
 A large PDF can fail because it takes too long to convert. To raise the time limit, see [Supported file types](../reference/file-types.md#uploads-to-a-files-index) and [Environment variables](../reference/environment-variables.md#installer).
 
 If a PDF is scanned, or draws its text as shapes, the conversion fails with `No text could be extracted from this PDF`.
-
-## Next step
-
-Your documents are now in a Files Index. Continue to [Capture team knowledge](team-knowledge.md) to see how your agent adds what it learns.

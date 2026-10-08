@@ -72,7 +72,3 @@ curl http://localhost:3577/health
 
 The reply contains `"status":"ok"`. The version at the bottom of the sidebar shows the new release.
 {% endhint %}
-
-## Next step
-
-Continue to [Licensing](licensing.md) to see how the installer finds your license and how to replace it.

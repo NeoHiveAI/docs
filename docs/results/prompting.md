@@ -42,7 +42,3 @@ If your agent has no NeoHive plugin, paste the rules in [Tell your agent to use 
 {% hint style="success" %}
 Before you rely on a phrasing, test it in the dashboard **Playground**. See [Test queries in the Playground](../admin/playground.md).
 {% endhint %}
-
-## Next step
-
-Continue to [Habits that compound](habits.md).

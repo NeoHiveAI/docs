@@ -91,7 +91,3 @@ To get help, do the following:
 2. Send the bundle to `hello@neohive.ai` with a description of what fails.
 
 The bundle holds logs and settings with secrets removed. The bundle never includes your [Memories](../concepts/glossary.md#memory), code, or databases.
-
-## Next step
-
-If your agent connects but recall misses what you expect, see [Recall isn't finding what I need](recall.md).

@@ -21,7 +21,7 @@ Use this page when answers seem off but nothing is broken. Each row in the table
 | **Stating a new fact without retiring the old one** | Your agent quotes the old rule as often as the new one. | Say "that's out of date" so your agent deactivates the old Memory. |
 | **One session across unrelated tasks** | Loaded context fits the task you started with, not the task you are working on now. | Start a new session, or run `/neohive:load-context` with the new task. |
 | **Skipping the end-of-session capture** | Your agent never recalls decisions from long sessions. | Run `/neohive:capture-session-learnings` before you close the session. |
-| **Wrong MCP server name or scope** | In Claude Code, prompts stop adding context automatically. Tool calls still work. | Keep `neohive` in the server name. Add the server with `--scope user` or `--scope project`. See [What the plugin does automatically](plugin-automation.md). |
+| **Wrong MCP server name or scope** | In Claude Code, prompts stop adding context automatically. Tool calls still work. | Keep `neohive` in the server name. Add the server with `--scope project`, from your project's root folder. See [What the plugin does automatically](plugin-automation.md). |
 
 ## What NeoHive already skips
 
@@ -30,7 +30,3 @@ NeoHive always skips dependency and build folders, lock files, minified bundles,
 {% hint style="info" %}
 If you see an actual error, such as a failed sync or a tool your agent cannot find, see [Common errors](../troubleshooting/common-errors.md).
 {% endhint %}
-
-## Next step
-
-Continue to [Dashboard tour](../admin/dashboard.md).

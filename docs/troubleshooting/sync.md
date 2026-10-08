@@ -58,7 +58,3 @@ To get help, do the following:
    ```
 
 2. Send the bundle to `hello@neohive.ai` with the name of the repository that fails.
-
-## Next step
-
-For any other message, see [Common errors](common-errors.md).

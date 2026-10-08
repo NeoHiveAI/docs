@@ -47,7 +47,3 @@ Each Hive has its own [MCP](../concepts/glossary.md#mcp) endpoint, the address y
 | A library several products use | Index the library in one Hive. Then add that Index to the other Hives as a **Shared Index**. |
 
 A [Shared Index](../concepts/glossary.md#shared-index) is one Index that several Hives search, not a copy. For what a Shared Index is and what each Hive can change, see [Shared Index](../concepts/hives-indexes-memories.md#shared-index).
-
-## Next step
-
-Most teams start with their code. Continue to [Add a code repository](repositories/README.md).

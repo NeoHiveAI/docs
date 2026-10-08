@@ -98,7 +98,3 @@ docker ps -a --filter name=neohive
 
 The list is empty, and `claude mcp list` shows no NeoHive entries.
 {% endhint %}
-
-## Next step
-
-To set NeoHive up again later, start from [Install NeoHive](../get-started/install.md).

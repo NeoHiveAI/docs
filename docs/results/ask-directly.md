@@ -36,7 +36,3 @@ For the full list of Memory types, see [Memory types](../reference/memory-types.
 {% hint style="info" %}
 If the first answer does not have what you need, ask again with different words. Two phrasings of the same idea often return different Memories.
 {% endhint %}
-
-## Next step
-
-Continue to [Write prompts that retrieve well](prompting.md).
