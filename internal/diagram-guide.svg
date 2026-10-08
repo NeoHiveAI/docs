@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1000" height="940" viewBox="0 0 1000 940" font-family="'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap');
+    .mono { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .lbl { font-size: 10.5px; font-weight: 700; letter-spacing: 1.1px; }
+    .title { font-size: 15px; font-weight: 700; fill: #1A1A2E; }
+    .body { font-size: 12.5px; fill: #4A4458; }
+    .item { font-size: 12px; fill: #1A1A2E; }
+    .muted { font-size: 11.5px; fill: #737373; }
+  </style>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#7C3AED"/></marker>
+    <marker id="arrT" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#009689"/></marker>
+    <marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#BB4D00"/></marker>
+    <marker id="arrG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#008236"/></marker>
+    <marker id="arrM" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#A1A1A1"/></marker>
+  </defs>
+  <rect width="1000" height="940" fill="#FAF9FD"/>
+
+  <!-- Header. Logo paths copied verbatim from frontend/src/lib/icons/NeoHiveIcon.svelte. -->
+  <g transform="translate(40,26) scale(0.0793)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
+  <text x="88" y="52" font-size="24" font-weight="800" letter-spacing="-0.5" fill="#1A1A2E">NeoHive diagram system</text>
+  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#7008E7">ONE CANVAS, ONE HEADER, AND ONE MEANING FOR EACH COLOR AND LINE</text>
+  <line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>
+
+
+  <!-- A. Anatomy of the canvas: a sketch on the left, the exact values on the right -->
+  <rect x="40" y="116" width="920" height="280" rx="10" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <text x="60" y="138" class="lbl" fill="#7C3AED">ANATOMY</text>
+  <rect x="60" y="150" width="500" height="230" rx="8" fill="#FAF9FD" stroke="#E4DFF1"/>
+  <g transform="translate(80,162) scale(0.042)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
+  <text x="108" y="178" font-size="14" font-weight="800" fill="#1A1A2E">Diagram title</text>
+  <text x="108" y="194" font-size="9" font-weight="600" letter-spacing="1.1" fill="#7008E7">ONE-LINE SUBTITLE</text>
+  <line x1="80" y1="206" x2="540" y2="206" stroke="#E4DFF1"/>
+  <line x1="80" y1="214" x2="80" y2="368" stroke="#D9D4E6" stroke-dasharray="3 3"/>
+  <line x1="540" y1="214" x2="540" y2="368" stroke="#D9D4E6" stroke-dasharray="3 3"/>
+  <rect x="96" y="226" width="208" height="128" rx="10" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <rect x="112" y="246" width="120" height="8" rx="4" fill="#F0EDF7"/>
+  <rect x="112" y="270" width="176" height="8" rx="4" fill="#F0EDF7"/>
+  <rect x="112" y="294" width="150" height="8" rx="4" fill="#F0EDF7"/>
+  <rect x="320" y="226" width="208" height="128" rx="10" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <rect x="336" y="246" width="120" height="8" rx="4" fill="#F0EDF7"/>
+  <rect x="336" y="270" width="176" height="8" rx="4" fill="#F0EDF7"/>
+  <rect x="336" y="294" width="150" height="8" rx="4" fill="#F0EDF7"/>
+  <text x="588" y="164" class="lbl" fill="#7C3AED">LOGO</text>
+  <text x="588" y="180" class="mono" font-size="11.5" fill="#7008E7">translate(40,26) scale(0.0793)</text>
+  <text x="588" y="200" class="lbl" fill="#7C3AED">TITLE</text>
+  <text x="588" y="216" class="mono" font-size="11.5" fill="#7008E7">x=88 y=52, 24px, weight 800</text>
+  <text x="588" y="236" class="lbl" fill="#7C3AED">SUBTITLE</text>
+  <text x="588" y="252" class="mono" font-size="11.5" fill="#7008E7">x=88 y=74, 12px, capitals</text>
+  <text x="588" y="272" class="lbl" fill="#7C3AED">DIVIDER</text>
+  <text x="588" y="288" class="mono" font-size="11.5" fill="#7008E7">y=96, #E4DFF1</text>
+  <text x="588" y="308" class="lbl" fill="#7C3AED">MARGINS</text>
+  <text x="588" y="324" class="mono" font-size="11.5" fill="#7008E7">x=40 to x=960, width 1000</text>
+  <text x="588" y="344" class="lbl" fill="#7C3AED">FIRST CONTENT</text>
+  <text x="588" y="360" class="mono" font-size="11.5" fill="#7008E7">about y=116</text>
+
+  <!-- B. Color: one meaning per color -->
+  <rect x="40" y="412" width="920" height="164" rx="10" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <text x="60" y="436" class="lbl" fill="#7C3AED">COLOR, ONE MEANING EACH</text>
+  <rect x="60" y="450" width="36" height="36" rx="6" fill="#7C3AED"/>
+  <text x="60" y="506" font-size="12.5" font-weight="700" fill="#1A1A2E">Violet</text>
+  <text x="60" y="522" class="mono" font-size="10.5" fill="#7008E7">#7C3AED</text>
+  <text x="60" y="540" class="muted">main flow</text>
+  <text x="60" y="556" class="muted">and labels</text>
+  <rect x="159" y="450" width="36" height="36" rx="6" fill="#A78BFA"/>
+  <text x="159" y="506" font-size="12.5" font-weight="700" fill="#1A1A2E">Lavender</text>
+  <text x="159" y="522" class="mono" font-size="10.5" fill="#7008E7">#A78BFA</text>
+  <text x="159" y="540" class="muted">a Hive's border</text>
+  <rect x="258" y="450" width="36" height="36" rx="6" fill="#C084FC"/>
+  <text x="258" y="506" font-size="12.5" font-weight="700" fill="#1A1A2E">Orchid</text>
+  <text x="258" y="522" class="mono" font-size="10.5" fill="#7008E7">#C084FC</text>
+  <text x="258" y="540" class="muted">Knowledge Index</text>
+  <text x="258" y="556" class="muted">and Memories</text>
+  <rect x="357" y="450" width="36" height="36" rx="6" fill="#008236"/>
+  <text x="357" y="506" font-size="12.5" font-weight="700" fill="#1A1A2E">Green</text>
+  <text x="357" y="522" class="mono" font-size="10.5" fill="#7008E7">#008236</text>
+  <text x="357" y="540" class="muted">done, right way,</text>
+  <text x="357" y="556" class="muted">checks pass</text>
+  <rect x="456" y="450" width="36" height="36" rx="6" fill="#009689"/>
+  <text x="456" y="506" font-size="12.5" font-weight="700" fill="#1A1A2E">Teal</text>
+  <text x="456" y="522" class="mono" font-size="10.5" fill="#7008E7">#009689</text>
+  <text x="456" y="540" class="muted">recall, sync,</text>
+  <text x="456" y="556" class="muted">automatic</text>
+  <rect x="555" y="450" width="36" height="36" rx="6" fill="#BB4D00"/>
+  <text x="555" y="506" font-size="12.5" font-weight="700" fill="#1A1A2E">Amber</text>
+  <text x="555" y="522" class="mono" font-size="10.5" fill="#7008E7">#BB4D00</text>
+  <text x="555" y="540" class="muted">by hand,</text>
+  <text x="555" y="556" class="muted">warnings</text>
+  <rect x="654" y="450" width="36" height="36" rx="6" fill="#A1A1A1"/>
+  <text x="654" y="506" font-size="12.5" font-weight="700" fill="#1A1A2E">Gray</text>
+  <text x="654" y="522" class="mono" font-size="10.5" fill="#7008E7">#A1A1A1</text>
+  <text x="654" y="540" class="muted">order only</text>
+  <rect x="753" y="450" width="36" height="36" rx="6" fill="#1A1A2E"/>
+  <text x="753" y="506" font-size="12.5" font-weight="700" fill="#1A1A2E">Ink</text>
+  <text x="753" y="522" class="mono" font-size="10.5" fill="#7008E7">#1A1A2E</text>
+  <text x="753" y="540" class="muted">titles, items</text>
+  <rect x="852" y="450" width="36" height="36" rx="6" fill="#737373"/>
+  <text x="852" y="506" font-size="12.5" font-weight="700" fill="#1A1A2E">Muted</text>
+  <text x="852" y="522" class="mono" font-size="10.5" fill="#7008E7">#737373</text>
+  <text x="852" y="540" class="muted">captions</text>
+
+  <!-- C. Shapes: nesting means holds, and the corner radius at each level -->
+  <rect x="40" y="592" width="452" height="196" rx="10" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <text x="60" y="616" class="lbl" fill="#7C3AED">SHAPES, NESTING MEANS HOLDS</text>
+  <rect x="60" y="628" width="262" height="144" rx="12" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1.5"/>
+  <text x="74" y="646" class="lbl" fill="#7C3AED">CONTAINER, RX 12</text>
+  <rect x="74" y="654" width="234" height="106" rx="10" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <text x="88" y="672" class="lbl" fill="#7C3AED">CARD, RX 10</text>
+  <rect x="88" y="680" width="206" height="68" rx="8" fill="#FAF9FD" stroke="#E5E5E5"/>
+  <text x="102" y="698" class="lbl" fill="#7C3AED">INNER CARD, RX 8</text>
+  <rect x="102" y="708" width="178" height="28" rx="6" fill="#FFFFFF" stroke="#DDD6FF"/>
+  <text x="114" y="726" class="mono" font-size="10.5" fill="#7008E7">chip, rx 6</text>
+  <text x="338" y="648" class="title">Box in a box</text>
+  <text x="338" y="668" class="body">means the outer</text>
+  <text x="338" y="685" class="body">thing holds the</text>
+  <text x="338" y="702" class="body">inner one.</text>
+  <rect x="338" y="724" width="138" height="36" rx="10" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <rect x="338" y="724" width="3.5" height="36" rx="1.75" fill="#009689"/>
+  <text x="352" y="746" class="item">accent bar</text>
+
+  <!-- C. Lines: one meaning per arrow and dash pattern -->
+  <rect x="508" y="592" width="452" height="196" rx="10" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <text x="528" y="616" class="lbl" fill="#7C3AED">LINES, ONE MEANING EACH</text>
+  <line x1="528" y1="640" x2="624" y2="640" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="644" y="644" class="body">always happens</text>
+  <line x1="528" y1="664" x2="624" y2="664" stroke="#7C3AED" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+  <text x="644" y="668" class="body">optional, automatic, or forbidden</text>
+  <line x1="528" y1="688" x2="624" y2="688" stroke="#BB4D00" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrA)"/>
+  <text x="644" y="692" class="body">failure branch, such as a 401</text>
+  <line x1="528" y1="712" x2="624" y2="712" stroke="#A1A1A1" stroke-width="2" marker-end="url(#arrM)"/>
+  <text x="644" y="716" class="body">order only</text>
+  <line x1="528" y1="736" x2="624" y2="736" stroke="#009689" stroke-width="2" marker-end="url(#arrT)"/>
+  <text x="644" y="740" class="body">comes back to the agent, or a sync</text>
+  <rect x="528" y="752" width="96" height="20" rx="6" fill="#FFFFFF" stroke="#A78BFA" stroke-dasharray="6 4"/>
+  <text x="644" y="766" class="body">outside NeoHive itself</text>
+
+  <!-- D. Type scale -->
+  <rect x="40" y="804" width="920" height="76" rx="10" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <text x="60" y="828" class="lbl" fill="#7C3AED">TYPE</text>
+  <text x="60" y="860" class="lbl" fill="#7C3AED">LABEL 10.5</text>
+  <text x="190" y="860" class="title">Title 15</text>
+  <text x="320" y="860" class="body">Body 12.5</text>
+  <text x="450" y="860" class="item">Item 12</text>
+  <text x="570" y="860" class="muted">Muted 11.5</text>
+  <text x="700" y="860" class="mono" font-size="12" fill="#7008E7">mono, for code</text>
+  <text x="850" y="860" font-size="9" fill="#737373">smallest: 9px</text>
+
+  <!-- Footer -->
+  <line x1="40" y1="900" x2="960" y2="900" stroke="#E4DFF1"/>
+  <text x="40" y="922" class="muted">Full rules and the checks to run before you commit: internal/diagram-guide.md</text>
+</svg>
