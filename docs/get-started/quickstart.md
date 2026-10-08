@@ -9,7 +9,7 @@ This page takes one path with no options: NeoHive, one GitHub repository, and Cl
 Before you start, you need the following:
 
 * Docker 20 or later, running on Linux, macOS, or Windows with WSL2.
-* Your NeoHive license file (`license.key` or `license.json`).
+* A NeoHive license file (`license.key` or `license.json`) from the [NeoHive team](https://www.neohive.ai/download/). [Licensing](../admin/licensing.md) explains how to get one.
 * Claude Code.
 * A GitHub personal access token with `repo` scope.
 
@@ -17,7 +17,7 @@ Before you start, you need the following:
 {% step %}
 ## Install NeoHive
 
-Run the installer from the folder that holds your license file. If the installer cannot find the file, it asks for the path.
+Run the installer from the folder that holds your license file.
 
 ```bash
 bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)

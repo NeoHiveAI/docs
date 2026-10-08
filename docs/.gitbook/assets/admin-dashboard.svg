@@ -62,6 +62,6 @@
   <path d="M142 234 L142 296" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arv)"/>
   <text x="152" y="270" class="al" style="fill:#7C3AED">New Hive</text>
   <path d="M470 234 L400 296" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arv)"/>
-  <text x="446" y="270" class="al" style="fill:#7C3AED">Try in Playground</text>
+  <text x="454" y="270" class="al" style="fill:#7C3AED">Try in Playground</text>
   <text x="40" y="436" class="body" font-size="12.5">Playground is a header tab, and Data Sources and Settings sit at the bottom of the sidebar, so all three are one click from any screen.</text>
 </svg>

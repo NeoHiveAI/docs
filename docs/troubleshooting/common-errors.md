@@ -25,11 +25,11 @@ The installer is the script that downloads and starts NeoHive. When the installe
 | `E301` | `No license. Set NEOHIVE_LICENSE_FILE (or pass --license-file), ...` | Pass `--license-file`, set `NEOHIVE_LICENSE_FILE`, or put `license.key` or `license.json` next to `install.sh`. |
 | `E301` | `<path> is not a readable file. Verify the path and re-run.` | Run the installer again, and type the full path to the file. |
 | `E302` | `Empty path.` | Run the installer again, and type the path at the prompt. |
-| `E303` | `License rejected and stdin is not a TTY - cannot re-prompt. ...` | Point `NEOHIVE_LICENSE_FILE` at your current license file. If the installer still rejects it, contact `hello@neohive.ai`. |
+| `E303` | `License rejected and stdin is not a TTY - cannot re-prompt. ...` | Point `NEOHIVE_LICENSE_FILE` at your current license file. If the installer still rejects it, request a new license from the [NeoHive team](https://www.neohive.ai/download/). |
 | `E304` to `E307` | `License file '<path>' is not readable.`, `... is empty.`, `... is JSON but no .key field found.`, `Could not extract license key from '<path>'.` | Use the license file that the NeoHive team sent you, without editing it. |
 | `E308` | `--license-file '<path>' does not exist.` | Correct the path to the license file. |
 | `E309` | `NEOHIVE_LICENSE_FILE '<path>' does not exist.` | Correct the path to the license file. |
-| `E310` | `License rejected after <n> attempts. Contact hello@neohive.ai.` | Check that you have the current license file, and then contact `hello@neohive.ai`. |
+| `E310` | `License rejected after <n> attempts. Contact hello@neohive.ai.` | Check that you have the current license file. If you do, request a new license from the [NeoHive team](https://www.neohive.ai/download/). |
 | `E501` | `image '<image>:<backend>' not found and NEOHIVE_BACKEND is set - unset it to allow automatic fallback.` | Unset `NEOHIVE_BACKEND` so that the installer chooses an image. |
 | `E502` | `no compatible image found on <image>. Check connectivity to Docker Hub and retry.` | Check your connection or proxy to Docker Hub, and then run the installer again. |
 | `E503` | `a compatible image exists on <image> but the download did not complete ...` | Run the installer again. The installer reuses the image layers it already downloaded. |

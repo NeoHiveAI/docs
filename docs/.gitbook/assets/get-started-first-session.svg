@@ -51,7 +51,7 @@
   <text x="530" y="366" font-size="14" font-weight="700" text-anchor="middle" fill="#1A1A2E">The Hive's Knowledge Index</text>
   <text x="530" y="387" font-size="12" text-anchor="middle" fill="#4A4458">kept on your NeoHive server, shared by everyone on the Hive</text>
 
-  <path d="M430 278 L430 334" fill="none" stroke="#7C3AED" stroke-width="1.8" marker-end="url(#arrV)"/>
+  <path d="M430 293 L430 334" fill="none" stroke="#7C3AED" stroke-width="1.8" marker-end="url(#arrV)"/>
   <text x="440" y="316" font-size="11.5" fill="#7C3AED">stored</text>
   <path d="M730 340 L760 296" fill="none" stroke="#0D9488" stroke-width="1.8" marker-end="url(#arrT)"/>
   <text x="770" y="330" font-size="11.5" fill="#0D9488">recalled</text>

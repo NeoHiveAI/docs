@@ -73,7 +73,7 @@
   <text x="690" y="302" font-size="12.5" font-weight="700" text-anchor="middle" fill="#B45309">404 if none match</text>
 
   <!-- Reply -->
-  <path d="M880 252 L880 348 L120 348 L120 254" fill="none" stroke="#0D9488" stroke-width="1.8" marker-end="url(#arrT)"/>
-  <rect x="330" y="334" width="340" height="28" rx="6" fill="#FAF9FD"/>
+  <path d="M880 252 L880 348 L676 348" fill="none" stroke="#0D9488" stroke-width="1.8"/>
+  <path d="M324 348 L120 348 L120 254" fill="none" stroke="#0D9488" stroke-width="1.8" marker-end="url(#arrT)"/>
   <text x="500" y="353" font-size="12.5" text-anchor="middle" fill="#0D9488"><tspan font-weight="700">Reply:</tspan> <tspan class="mono" font-size="11.5">processed · skipped · deleted · errors</tspan></text>
 </svg>

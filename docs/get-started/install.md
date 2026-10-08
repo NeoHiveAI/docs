@@ -12,7 +12,7 @@ Before you start, you need the following:
 
 * Docker 20 or later, installed and running on Linux, macOS, or Windows with WSL2.
 * Port `3577` free on the machine.
-* The license file the NeoHive team sent you (`license.key` or `license.json`).
+* A NeoHive license file (`license.key` or `license.json`) from the [NeoHive team](https://www.neohive.ai/download/). [Licensing](../admin/licensing.md) explains how to get one.
 
 {% stepper %}
 {% step %}

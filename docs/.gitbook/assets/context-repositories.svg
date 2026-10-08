@@ -39,7 +39,8 @@
   <line x1="250" y1="190" x2="268" y2="190" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
   <line x1="480" y1="190" x2="498" y2="190" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
   <line x1="710" y1="190" x2="728" y2="190" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
-  <path d="M145 250 L145 310 L605 310 L605 256" fill="none" stroke="#0D9488" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrT)"/>
+  <path d="M145 250 L145 310 L250 310" fill="none" stroke="#0D9488" stroke-width="2" stroke-dasharray="5 4"/>
+  <path d="M550 310 L605 310 L605 256" fill="none" stroke="#0D9488" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrT)"/>
   <rect x="250" y="292" width="300" height="36" rx="18" fill="#F0FDFA" stroke="#0D9488" stroke-width="1"/>
   <text x="400" y="315" class="item" text-anchor="middle">sync: every 4 hours, or Trigger sync</text>
   <text x="40" y="366" class="muted">Each sync reads only the files that changed since the last one.</text>

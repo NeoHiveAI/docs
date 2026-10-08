@@ -55,7 +55,7 @@
   <text x="88" y="419" class="body" style="fill:#1A1A2E" font-size="13" font-weight="600">Prompt for a file path</text>
   <text x="88" y="437" class="body">only in an interactive terminal</text>
   <path d="M520 423 L656 320" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arv)"/>
-  <text x="300" y="180" class="al" style="fill:#737373">not found: next</text>
+  <text x="300" y="181.5" class="al" font-size="10" style="fill:#737373">not found: next</text>
   <rect x="660" y="200" width="300" height="150" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
   <text x="676" y="222" class="lbl" fill="#7C3AED">THEN</text>
   <text x="676" y="244" class="title">Check with the licensing service</text>

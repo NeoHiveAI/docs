@@ -4,9 +4,9 @@ description: "How NeoHive finds your license, how to check its status, replace i
 
 # Licensing
 
-This page explains where the installer looks for your license, how to check the license in the dashboard, and how to replace or move it.
+This page explains how to get a license and where the installer looks for it. It also shows how to check the license in the dashboard, and how to replace or move it.
 
-NeoHive needs a license file from the NeoHive team: a plain-text `license.key`, or a `license.json` holding the key.
+NeoHive needs a license file from the NeoHive team: a plain-text `license.key`, or a `license.json` holding the key. To get a license file, request one from the [NeoHive team](https://www.neohive.ai/download/). Save the file in the folder you run the installer from, and the installer finds it there.
 
 <figure><img src="../.gitbook/assets/admin-licensing.svg" alt="The installer checks five places in order and uses the first license it finds. 1: the --license-file or -l flag. 2: the NEOHIVE_LICENSE_FILE variable. 3: a license.json or license.key in the folder you run the installer from. 4: the key that an earlier install cached at ~/.cache/neohive/license-key. 5: a prompt for a file path, in an interactive terminal only. The installer then checks the key with the licensing service. Accepted keys are cached. A rejected key clears the cache. In a terminal, the installer then asks for another file, up to three tries. NEOHIVE_LICENSE_KEY skips all five. NEOHIVE_ROTATE_LICENSE=1 skips 3 and 4."><figcaption></figcaption></figure>
 
@@ -39,7 +39,7 @@ The **Licence** page shows one of the following statuses.
 |---|---|
 | **Valid** | The license is active. The page shows the days remaining, **Holder**, **Expires**, and **Last validated** |
 | **Offline grace** | NeoHive could not reach the licensing service. NeoHive keeps running for up to 72 hours and shows a countdown |
-| **Expired** or **Suspended** | The license is no longer active. Email `hello@neohive.ai` for a new license. After the license expires, NeoHive stops answering requests |
+| **Expired** or **Suspended** | The license is no longer active. Request a new license from the [NeoHive team](https://www.neohive.ai/download/). After the license expires, NeoHive stops answering requests |
 
 To check with the licensing service right away, select **Check expiry**.
 
