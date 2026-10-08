@@ -8,7 +8,7 @@
   </style>
   <defs>
     <marker id="arv" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#7C3AED"/></marker>
-    <marker id="art" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#0D9488"/></marker>
+    <marker id="arrG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#008236"/></marker>
     <marker id="ara" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#B45309"/></marker>
     <marker id="arm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#737373"/></marker>
     <marker id="aro" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#C084FC"/></marker>
@@ -21,8 +21,8 @@
   <text x="88" y="52" font-size="24" font-weight="800" letter-spacing="-0.5" fill="#1A1A2E">Archive, restore, delete</text>
   <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#6D28D9">ARCHIVE CAN BE UNDONE FOR 30 DAYS. DELETE CANNOT.</text>
   <line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>
-  <rect x="40" y="170" width="240" height="110" rx="10" fill="#FFFFFF" stroke="#99E6DC" stroke-width="1"/>
-  <text x="56" y="192" class="lbl" fill="#0D9488">ACTIVE</text>
+  <rect x="40" y="170" width="240" height="110" rx="10" fill="#FFFFFF" stroke="#BFF2D3" stroke-width="1"/>
+  <text x="56" y="192" class="lbl" fill="#008236">ACTIVE</text>
   <text x="56" y="214" class="title">Hive in use</text>
   <text x="56" y="233" class="body">In the sidebar and card grid.</text>
   <text x="56" y="249" class="body">Agents can connect.</text>
@@ -38,8 +38,8 @@
   <text x="736" y="249" class="body">history and settings removed.</text>
   <path d="M280 200 L376 200" fill="none" stroke="#B45309" stroke-width="2" marker-end="url(#ara)"/>
   <text x="328" y="191" class="al" text-anchor="middle" style="fill:#B45309">Archive</text>
-  <path d="M380 250 L284 250" fill="none" stroke="#0D9488" stroke-width="2" marker-end="url(#art)"/>
-  <text x="332" y="270" class="al" text-anchor="middle" style="fill:#0D9488">Restore</text>
+  <path d="M380 250 L284 250" fill="none" stroke="#008236" stroke-width="2" marker-end="url(#arrG)"/>
+  <text x="332" y="270" class="al" text-anchor="middle" style="fill:#008236">Restore</text>
   <path d="M620 225 L716 225" fill="none" stroke="#1A1A2E" stroke-width="2" marker-end="url(#ari)"/>
   <text x="668" y="206" class="al" text-anchor="middle" style="fill:#1A1A2E">after 30 days</text>
   <text x="668" y="246" class="al" text-anchor="middle" style="fill:#1A1A2E">or Delete</text>

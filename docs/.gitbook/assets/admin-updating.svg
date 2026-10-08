@@ -52,8 +52,8 @@
   <text x="378" y="332" class="body">Frees its license seat.</text>
   <text x="378" y="348" class="body">Waits up to 30 seconds.</text>
   <path d="M640 318 L676 318" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arv)"/>
-  <rect x="680" y="270" width="280" height="110" rx="10" fill="#FFFFFF" stroke="#99E6DC" stroke-width="1"/>
-  <circle cx="708" cy="298" r="11" fill="#0D9488"/>
+  <rect x="680" y="270" width="280" height="110" rx="10" fill="#FFFFFF" stroke="#BFF2D3" stroke-width="1"/>
+  <circle cx="708" cy="298" r="11" fill="#008236"/>
   <text x="708" y="302.5" font-size="12" font-weight="700" text-anchor="middle" fill="#FFFFFF">6</text>
   <text x="728" y="303" class="title">Start the new one</text>
   <text x="698" y="332" class="body">Same volume, then prints</text>

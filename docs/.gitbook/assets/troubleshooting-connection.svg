@@ -7,7 +7,7 @@
     .fix { font-size: 12.5px; fill: #1A1A2E; }
   </style>
   <defs>
-    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#0D9488"/></marker>
+    <marker id="arrG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#008236"/></marker>
     <marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#B45309"/></marker>
   </defs>
   <rect width="1000" height="700" fill="#FAF9FD"/>
@@ -26,8 +26,8 @@
   <text x="582" y="150.0" font-size="11" font-weight="700" text-anchor="middle" fill="#B45309">no</text>
   <text x="618" y="152.0" class="fix"><tspan class="mono" fill="#6D28D9">docker start neohive</tspan></text>
   <text x="618" y="170.0" class="fix">then read <tspan class="mono" fill="#6D28D9">docker logs neohive --tail 50</tspan></text>
-  <line x1="180" y1="190" x2="180" y2="218" stroke="#0D9488" stroke-width="1.8" marker-end="url(#arr)"/>
-  <text x="190" y="210" font-size="11" font-weight="700" fill="#0D9488">yes</text>
+  <line x1="180" y1="190" x2="180" y2="218" stroke="#008236" stroke-width="1.8" marker-end="url(#arrG)"/>
+  <text x="190" y="210" font-size="11" font-weight="700" fill="#008236">yes</text>
   <rect x="40" y="220" width="520" height="66" rx="12" fill="#FFFFFF" stroke="#E5E5E5"/>
   <circle cx="70" cy="253.0" r="14" fill="#7C3AED"/>
   <text x="70" y="258.0" font-size="14" font-weight="700" text-anchor="middle" fill="#FFFFFF">2</text>
@@ -37,8 +37,8 @@
   <text x="582" y="246.0" font-size="11" font-weight="700" text-anchor="middle" fill="#B45309">no</text>
   <text x="618" y="248.0" class="fix">Look up the error in Common errors,</text>
   <text x="618" y="266.0" class="fix">or click Restart on a degraded Hive</text>
-  <line x1="180" y1="286" x2="180" y2="314" stroke="#0D9488" stroke-width="1.8" marker-end="url(#arr)"/>
-  <text x="190" y="306" font-size="11" font-weight="700" fill="#0D9488">yes</text>
+  <line x1="180" y1="286" x2="180" y2="314" stroke="#008236" stroke-width="1.8" marker-end="url(#arrG)"/>
+  <text x="190" y="306" font-size="11" font-weight="700" fill="#008236">yes</text>
   <rect x="40" y="316" width="520" height="66" rx="12" fill="#FFFFFF" stroke="#E5E5E5"/>
   <circle cx="70" cy="349.0" r="14" fill="#7C3AED"/>
   <text x="70" y="354.0" font-size="14" font-weight="700" text-anchor="middle" fill="#FFFFFF">3</text>
@@ -47,8 +47,8 @@
   <line x1="560" y1="349.0" x2="608" y2="349.0" stroke="#B45309" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrA)"/>
   <text x="582" y="342.0" font-size="11" font-weight="700" text-anchor="middle" fill="#B45309">no</text>
   <text x="618" y="353.0" class="fix">Click Restart on the Hive</text>
-  <line x1="180" y1="382" x2="180" y2="410" stroke="#0D9488" stroke-width="1.8" marker-end="url(#arr)"/>
-  <text x="190" y="402" font-size="11" font-weight="700" fill="#0D9488">yes</text>
+  <line x1="180" y1="382" x2="180" y2="410" stroke="#008236" stroke-width="1.8" marker-end="url(#arrG)"/>
+  <text x="190" y="402" font-size="11" font-weight="700" fill="#008236">yes</text>
   <rect x="40" y="412" width="520" height="66" rx="12" fill="#FFFFFF" stroke="#E5E5E5"/>
   <circle cx="70" cy="445.0" r="14" fill="#7C3AED"/>
   <text x="70" y="450.0" font-size="14" font-weight="700" text-anchor="middle" fill="#FFFFFF">4</text>
@@ -58,8 +58,8 @@
   <text x="582" y="438.0" font-size="11" font-weight="700" text-anchor="middle" fill="#B45309">no</text>
   <text x="618" y="440.0" class="fix">Copy the endpoint from</text>
   <text x="618" y="458.0" class="fix">Install Instructions again</text>
-  <line x1="180" y1="478" x2="180" y2="506" stroke="#0D9488" stroke-width="1.8" marker-end="url(#arr)"/>
-  <text x="190" y="498" font-size="11" font-weight="700" fill="#0D9488">yes</text>
+  <line x1="180" y1="478" x2="180" y2="506" stroke="#008236" stroke-width="1.8" marker-end="url(#arrG)"/>
+  <text x="190" y="498" font-size="11" font-weight="700" fill="#008236">yes</text>
   <rect x="40" y="508" width="520" height="66" rx="12" fill="#FFFFFF" stroke="#E5E5E5"/>
   <circle cx="70" cy="541.0" r="14" fill="#7C3AED"/>
   <text x="70" y="546.0" font-size="14" font-weight="700" text-anchor="middle" fill="#FFFFFF">5</text>
@@ -69,10 +69,10 @@
   <text x="582" y="534.0" font-size="11" font-weight="700" text-anchor="middle" fill="#B45309">no</text>
   <text x="618" y="536.0" class="fix">Restart the agent</text>
   <text x="618" y="554.0" class="fix">Claude Code: run <tspan class="mono" fill="#6D28D9">/reload-plugins</tspan></text>
-  <line x1="180" y1="574" x2="180" y2="602" stroke="#0D9488" stroke-width="1.8" marker-end="url(#arr)"/>
-  <text x="190" y="594" font-size="11" font-weight="700" fill="#0D9488">yes</text>
-  <rect x="40" y="604" width="520" height="56" rx="12" fill="#FFFFFF" stroke="#99E6DC"/>
-  <rect x="40" y="604" width="3.5" height="56" rx="1.75" fill="#0D9488"/>
-  <text x="64" y="628" class="lbl" fill="#0D9488">DONE</text>
+  <line x1="180" y1="574" x2="180" y2="602" stroke="#008236" stroke-width="1.8" marker-end="url(#arrG)"/>
+  <text x="190" y="594" font-size="11" font-weight="700" fill="#008236">yes</text>
+  <rect x="40" y="604" width="520" height="56" rx="12" fill="#FFFFFF" stroke="#BFF2D3"/>
+  <rect x="40" y="604" width="3.5" height="56" rx="1.75" fill="#008236"/>
+  <text x="64" y="628" class="lbl" fill="#008236">DONE</text>
   <text x="64" y="648" class="title">Your agent is connected</text>
 </svg>

@@ -51,7 +51,7 @@
   <text x="560" y="287" class="body">Your schema code, plus the <tspan class="mono" fill="#6D28D9">snake_case</tspan> convention.</text>
   <line x1="740" y1="300" x2="740" y2="322" stroke="#7C3AED" stroke-width="1.6" marker-end="url(#arrV)"/>
 
-  <rect x="544" y="328" width="392" height="56" rx="8" fill="#F0FDFA" stroke="#99E6DC"/>
+  <rect x="544" y="328" width="392" height="56" rx="8" fill="#D9F7E5" stroke="#BFF2D3"/>
   <text x="560" y="351" class="title">It follows your conventions</text>
   <text x="560" y="371" class="body">No correction needed. Teammates get the same result.</text>
 

@@ -8,7 +8,7 @@
   </style>
   <defs>
     <marker id="arv" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#7C3AED"/></marker>
-    <marker id="art" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#0D9488"/></marker>
+    <marker id="arrG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#008236"/></marker>
     <marker id="ara" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#B45309"/></marker>
     <marker id="arm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#737373"/></marker>
     <marker id="aro" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#C084FC"/></marker>
@@ -25,9 +25,9 @@
   <text x="58" y="153" class="body" style="fill:#1A1A2E" font-size="13" font-weight="600">Is the machine arm64 or aarch64?</text>
   <path d="M200 176 L200 206" fill="none" stroke="#737373" stroke-width="2" marker-end="url(#arm)"/>
   <text x="210" y="196" class="al" style="fill:#737373">no</text>
-  <path d="M360 148 L706 148" fill="none" stroke="#0D9488" stroke-width="2" marker-end="url(#art)"/>
-  <text x="380" y="140" class="al" style="fill:#0D9488">yes</text>
-  <rect x="710" y="120" width="250" height="56" rx="10" fill="#FFFFFF" stroke="#99E6DC" stroke-width="1"/>
+  <path d="M360 148 L706 148" fill="none" stroke="#008236" stroke-width="2" marker-end="url(#arrG)"/>
+  <text x="380" y="140" class="al" style="fill:#008236">yes</text>
+  <rect x="710" y="120" width="250" height="56" rx="10" fill="#FFFFFF" stroke="#BFF2D3" stroke-width="1"/>
   <text x="726" y="144" class="title">CPU</text>
   <text x="726" y="163" class="body" font-size="11">Apple Silicon also gets the Metal worker</text>
   <rect x="40" y="210" width="320" height="56" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
@@ -38,26 +38,26 @@
   <text x="58" y="333" class="body" style="fill:#1A1A2E" font-size="13" font-weight="600">Does rocm-smi work?</text>
   <path d="M200 356 L200 386" fill="none" stroke="#737373" stroke-width="2" marker-end="url(#arm)"/>
   <text x="210" y="376" class="al" style="fill:#737373">no</text>
-  <path d="M360 328 L706 328" fill="none" stroke="#0D9488" stroke-width="2" marker-end="url(#art)"/>
-  <text x="380" y="320" class="al" style="fill:#0D9488">yes</text>
-  <rect x="710" y="300" width="250" height="56" rx="10" fill="#FFFFFF" stroke="#99E6DC" stroke-width="1"/>
+  <path d="M360 328 L706 328" fill="none" stroke="#008236" stroke-width="2" marker-end="url(#arrG)"/>
+  <text x="380" y="320" class="al" style="fill:#008236">yes</text>
+  <rect x="710" y="300" width="250" height="56" rx="10" fill="#FFFFFF" stroke="#BFF2D3" stroke-width="1"/>
   <text x="726" y="324" class="title">ROCm</text>
   <text x="726" y="343" class="body" font-size="11">AMD GPU</text>
   <rect x="40" y="390" width="320" height="56" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
   <text x="58" y="423" class="body" style="fill:#1A1A2E" font-size="13" font-weight="600">Does vulkaninfo work?</text>
-  <path d="M360 418 L706 418" fill="none" stroke="#0D9488" stroke-width="2" marker-end="url(#art)"/>
-  <text x="380" y="410" class="al" style="fill:#0D9488">yes</text>
-  <rect x="710" y="390" width="250" height="56" rx="10" fill="#FFFFFF" stroke="#99E6DC" stroke-width="1"/>
+  <path d="M360 418 L706 418" fill="none" stroke="#008236" stroke-width="2" marker-end="url(#arrG)"/>
+  <text x="380" y="410" class="al" style="fill:#008236">yes</text>
+  <rect x="710" y="390" width="250" height="56" rx="10" fill="#FFFFFF" stroke="#BFF2D3" stroke-width="1"/>
   <text x="726" y="414" class="title">Vulkan</text>
   <text x="726" y="433" class="body" font-size="11">Other GPU with Vulkan drivers</text>
-  <path d="M360 238 L416 238" fill="none" stroke="#0D9488" stroke-width="2" marker-end="url(#art)"/>
-  <text x="372" y="230" class="al" style="fill:#0D9488">yes</text>
+  <path d="M360 238 L416 238" fill="none" stroke="#008236" stroke-width="2" marker-end="url(#arrG)"/>
+  <text x="372" y="230" class="al" style="fill:#008236">yes</text>
   <rect x="420" y="204" width="250" height="68" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
   <text x="436" y="230" class="body" style="fill:#1A1A2E" font-size="13" font-weight="600">Can a test container</text>
   <text x="436" y="248" class="body" style="fill:#1A1A2E" font-size="13" font-weight="600">reach the GPU?</text>
-  <path d="M670 222 L706 222" fill="none" stroke="#0D9488" stroke-width="2" marker-end="url(#art)"/>
-  <text x="688" y="214" class="al" text-anchor="middle" style="fill:#0D9488">yes</text>
-  <rect x="710" y="204" width="250" height="36" rx="10" fill="#FFFFFF" stroke="#99E6DC" stroke-width="1"/>
+  <path d="M670 222 L706 222" fill="none" stroke="#008236" stroke-width="2" marker-end="url(#arrG)"/>
+  <text x="688" y="214" class="al" text-anchor="middle" style="fill:#008236">yes</text>
+  <rect x="710" y="204" width="250" height="36" rx="10" fill="#FFFFFF" stroke="#BFF2D3" stroke-width="1"/>
   <text x="726" y="227" class="title">CUDA</text>
   <path d="M670 256 L706 256" fill="none" stroke="#B45309" stroke-width="2" marker-end="url(#ara)"/>
   <text x="688" y="272" class="al" text-anchor="middle" style="fill:#B45309">no</text>
@@ -65,7 +65,7 @@
   <text x="726" y="267" class="body" style="fill:#1A1A2E" font-size="12.5" font-weight="600">CPU, with a toolkit warning</text>
   <path d="M200 446 L200 476" fill="none" stroke="#737373" stroke-width="2" marker-end="url(#arm)"/>
   <text x="210" y="466" class="al" style="fill:#737373">no</text>
-  <rect x="40" y="480" width="320" height="50" rx="10" fill="#FFFFFF" stroke="#99E6DC" stroke-width="1"/>
+  <rect x="40" y="480" width="320" height="50" rx="10" fill="#FFFFFF" stroke="#BFF2D3" stroke-width="1"/>
   <text x="58" y="510" class="title">CPU</text>
   <text x="40" y="562" class="body" font-size="12.5">Image missing? CUDA and ROCm step down to Vulkan, then CPU. A backend forced with NEOHIVE_BACKEND never steps down.</text>
 </svg>
