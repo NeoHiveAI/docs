@@ -1,5 +1,5 @@
 ---
-description: "What protects a NeoHive instance on the network, and what to put in front of it before anyone outside a trusted network can reach it."
+description: "What protects NeoHive on the network, and what to add before people outside your network can reach it."
 ---
 
 # Exposing NeoHive beyond your network
