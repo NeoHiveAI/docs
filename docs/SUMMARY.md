@@ -16,50 +16,50 @@
 
 ## Core concepts
 
-* [How NeoHive works](concepts/how-it-works.md)
-* [Hives, Indexes, and Memories](concepts/hives-indexes-memories.md)
-* [How retrieval works](concepts/retrieval.md)
+* [How NeoHive works](core-concepts/how-it-works.md)
+* [Hives, Indexes, and Memories](core-concepts/hives-indexes-memories.md)
+* [How retrieval works](core-concepts/retrieval.md)
 
 ## Add your context
 
-* [What to add, and where](context/what-to-add.md)
-* [Add a code repository](context/repositories/README.md)
-  * [Connect GitHub or GitLab](context/repositories/connect.md)
-  * [Choose which files are included](context/repositories/file-patterns.md)
-  * [Keep a repository up to date](context/repositories/sync.md)
-* [Add documents and PDFs](context/documents.md)
-* [Capture team knowledge](context/team-knowledge.md)
-* [Migrate from CLAUDE.md](context/migrate.md)
+* [What to add, and where](add-your-context/what-to-add.md)
+* [Add a code repository](add-your-context/repositories/README.md)
+  * [Connect GitHub or GitLab](add-your-context/repositories/connect.md)
+  * [Choose which files are included](add-your-context/repositories/file-patterns.md)
+  * [Keep a repository up to date](add-your-context/repositories/sync.md)
+* [Add documents and PDFs](add-your-context/documents.md)
+* [Capture team knowledge](add-your-context/team-knowledge.md)
+* [Migrate from CLAUDE.md](add-your-context/migrate.md)
 
 ## Get better results
 
-* [A session, start to finish](results/a-session.md)
-* [Teach your agent as you work](results/teach.md)
-* [Ask for context directly](results/ask-directly.md)
-* [Write prompts that retrieve well](results/prompting.md)
-* [Habits that compound](results/habits.md)
-* [Team workflows](results/team-workflows.md)
-* [What the plugin does automatically](results/plugin-automation.md)
-* [Common mistakes to avoid](results/common-mistakes.md)
+* [A session, start to finish](get-better-results/a-session.md)
+* [Teach your agent as you work](get-better-results/teach.md)
+* [Ask for context directly](get-better-results/ask-directly.md)
+* [Write prompts that retrieve well](get-better-results/prompting.md)
+* [Habits that compound](get-better-results/habits.md)
+* [Team workflows](get-better-results/team-workflows.md)
+* [What the plugin does automatically](get-better-results/plugin-automation.md)
+* [Common mistakes to avoid](get-better-results/common-mistakes.md)
 
 ## Administration
 
-* [Dashboard tour](admin/dashboard.md)
-* [Manage Hives and Indexes](admin/manage.md)
-* [Data sources and credentials](admin/data-sources.md)
-* [Access and sharing](admin/access.md)
-* [Test queries in the Playground](admin/playground.md)
-* [Backups and restore](admin/backups.md)
-* [Update NeoHive](admin/updating.md)
-* [Licensing](admin/licensing.md)
-* [GPU and CPU](admin/gpu-cpu.md)
-* [Uninstall](admin/uninstall.md)
+* [Dashboard tour](administration/dashboard.md)
+* [Manage Hives and Indexes](administration/manage.md)
+* [Data sources and credentials](administration/data-sources.md)
+* [Access and sharing](administration/access.md)
+* [Test queries in the Playground](administration/playground.md)
+* [Backups and restore](administration/backups.md)
+* [Update NeoHive](administration/updating.md)
+* [Licensing](administration/licensing.md)
+* [GPU and CPU](administration/gpu-cpu.md)
+* [Uninstall](administration/uninstall.md)
 
 ## Security and privacy
 
-* [What stays on your machine](security/local-only.md)
-* [Credentials and secrets](security/credentials.md)
-* [Exposing NeoHive beyond your network](security/network.md)
+* [What stays on your machine](security-and-privacy/local-only.md)
+* [Credentials and secrets](security-and-privacy/credentials.md)
+* [Exposing NeoHive beyond your network](security-and-privacy/network.md)
 
 ## Troubleshooting
 
@@ -77,4 +77,4 @@
 * [Supported file types](reference/file-types.md)
 * [File pattern syntax](reference/file-patterns.md)
 * [Webhook refresh endpoint](reference/webhooks.md)
-* [Glossary](concepts/glossary.md)
+* [Glossary](reference/glossary.md)

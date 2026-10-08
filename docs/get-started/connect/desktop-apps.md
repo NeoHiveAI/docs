@@ -1,16 +1,18 @@
 ---
-description: "Connect Claude Desktop, any other MCP app, or an agent with no NeoHive plugin to a Hive."
+description: >-
+  Connect Claude Desktop, any other MCP app, or an agent with no NeoHive plugin
+  to a Hive.
 ---
 
 # Claude Desktop and other MCP apps
 
-To connect any [MCP](../../concepts/glossary.md#mcp) app, give the app the MCP endpoint of your [Hive](../../concepts/glossary.md#hive), your team's NeoHive workspace. Apps that only run local commands reach the endpoint through `mcp-remote`, a small Node.js program that forwards requests to the endpoint.
+To connect any [MCP](../../reference/glossary.md#mcp) app, give the app the MCP endpoint of your [Hive](../../reference/glossary.md#hive), your team's NeoHive workspace. Apps that only run local commands reach the endpoint through `mcp-remote`, a small Node.js program that forwards requests to the endpoint.
 
-| The app connects by | Examples | What you add |
-|---|---|---|
-| URL | Cursor, Codex, and Windsurf | The endpoint, plus an `x-mcp-client` header if the app takes headers |
-| Local command only | Claude Desktop | An `npx mcp-remote` command that forwards to the endpoint. The command needs Node.js. |
-| The provider's own servers | ChatGPT connectors | A public HTTPS address. The provider's servers cannot reach `localhost`. |
+| The app connects by        | Examples                    | What you add                                                                          |
+| -------------------------- | --------------------------- | ------------------------------------------------------------------------------------- |
+| URL                        | Cursor, Codex, and Windsurf | The endpoint, plus an `x-mcp-client` header if the app takes headers                  |
+| Local command only         | Claude Desktop              | An `npx mcp-remote` command that forwards to the endpoint. The command needs Node.js. |
+| The provider's own servers | ChatGPT connectors          | A public HTTPS address. The provider's servers cannot reach `localhost`.              |
 
 {% tabs %}
 {% tab title="Claude Desktop" %}
@@ -65,7 +67,7 @@ npx -y mcp-remote@latest \
 
 If the address starts with `https://`, remove `--allow-http`.
 
-**If the app runs on the provider's servers**, put NeoHive behind a public HTTPS address first. See [Exposing NeoHive beyond your network](../../security/network.md).
+**If the app runs on the provider's servers**, put NeoHive behind a public HTTPS address first. See [Exposing NeoHive beyond your network](../../security-and-privacy/network.md).
 {% endtab %}
 
 {% tab title="Agents with no plugin" %}
@@ -76,7 +78,7 @@ To use NeoHive with an agent that has no plugin, you connect the agent and then 
 3. Open the plugin in your agent.
 4. Paste the following prompt:
 
-```text
+```
 Adapt the NeoHive plugin in this repository for my agent (<name your agent>).
 
 NeoHive is a self-hosted memory that agents reach over MCP. The adapted plugin should:
@@ -95,7 +97,7 @@ To ask for a plugin for your agent, email `hello@neohive.ai`.
 {% hint style="success" %}
 **Check:** the app can reach the Hive.
 
-Ask the app: `List my NeoHive Indexes.` The app calls `list_indexes` and lists the [Indexes](../../concepts/glossary.md#index), or content stores, in the Hive.
+Ask the app: `List my NeoHive Indexes.` The app calls `list_indexes` and lists the [Indexes](../../reference/glossary.md#index), or content stores, in the Hive.
 
 If the `list_indexes` tool is missing, read the app's MCP log. Claude Desktop writes `mcp*.log` files to `~/Library/Logs/Claude/` on macOS and `%APPDATA%\Claude\logs\` on Windows. Then see [Agent can't connect](../../troubleshooting/connection.md).
 {% endhint %}

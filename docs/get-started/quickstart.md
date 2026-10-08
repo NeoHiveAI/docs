@@ -1,5 +1,7 @@
 ---
-description: "The shortest path from nothing to a coding agent that answers from your own repository."
+description: >-
+  The shortest path from nothing to a coding agent that answers from your own
+  repository.
 ---
 
 # Quickstart
@@ -29,7 +31,7 @@ When the installer finishes, it prints the dashboard address.
 {% step %}
 ## Create a Hive with your repository
 
-A [Hive](../concepts/glossary.md#hive) is a workspace for your team, with one address that agents connect to. To create the Hive, do the following:
+A [Hive](../reference/glossary.md#hive) is a workspace for your team, with one address that agents connect to. To create the Hive, do the following:
 
 1. Open `http://localhost:3577`.
 2. To accept the license, select **I Understand**.
@@ -39,7 +41,7 @@ A [Hive](../concepts/glossary.md#hive) is a workspace for your team, with one ad
 6. Paste your token, and then select **Fetch repositories**.
 7. Select your repository, and then select **Continue**.
 
-NeoHive adds your repository to the Hive as a Code [Index](../concepts/glossary.md#index), a store inside the Hive. NeoHive then starts indexing the repository in the background. Indexing builds a searchable copy of your code.
+NeoHive adds your repository to the Hive as a Code [Index](../reference/glossary.md#index), a store inside the Hive. NeoHive then starts indexing the repository in the background. Indexing builds a searchable copy of your code.
 {% endstep %}
 
 {% step %}
@@ -54,7 +56,7 @@ Setup now shows **Install for your AI tools** with **Claude** selected. To conne
 5. When setup shows **Connected**, select **Open** followed by your Hive's name.
 6. To install the plugin and run its setup, run the following commands inside Claude Code:
 
-```text
+```
 /plugin marketplace add NeoHiveAI/NeoHiveClaude
 /plugin install neohive@neohive-claude
 /reload-plugins
@@ -69,7 +71,7 @@ The setup wizard checks that Claude Code can reach the Hive.
 
 When indexing finishes, ask Claude Code a question that only your code can answer:
 
-```text
+```
 How does the authentication middleware work?
 ```
 

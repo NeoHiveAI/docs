@@ -1,18 +1,20 @@
 ---
-description: "Select your agent and connect it to a Hive. Every agent uses the same MCP endpoint from the dashboard."
+description: >-
+  Select your agent and connect it to a Hive. Every agent uses the same MCP
+  endpoint from the dashboard.
 ---
 
 # Connect your agent
 
-Every agent connects to a [Hive](../../concepts/glossary.md#hive), your team's NeoHive workspace. The agent needs the Hive's [MCP](../../concepts/glossary.md#mcp) endpoint, the web address that agents use to reach the Hive. Claude Code, Cursor, and Codex also get a plugin that tells them when to use NeoHive.
+Every agent connects to a [Hive](../../reference/glossary.md#hive), your team's NeoHive workspace. The agent needs the Hive's [MCP](../../reference/glossary.md#mcp) endpoint, the web address that agents use to reach the Hive. Claude Code, Cursor, and Codex also get a plugin that tells them when to use NeoHive.
 
-<figure><img src="../../.gitbook/assets/get-started-connect.svg" alt="Your agent connects to one Hive through the Hive's MCP endpoint. The endpoint gives the agent the memory tools and reaches the Hive's Code, Documentation, Files, and Knowledge Indexes. A plugin inside the agent tells the agent when to use those tools."><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/get-started-connect.svg" alt="Your agent connects to one Hive through the Hive&#x27;s MCP endpoint. The endpoint gives the agent the memory tools and reaches the Hive&#x27;s Code, Documentation, Files, and Knowledge Indexes. A plugin inside the agent tells the agent when to use those tools."><figcaption></figcaption></figure>
 
-| Agent | Page | What you set up |
-|---|---|---|
-| **Claude Code** | [Claude Code](claude-code.md) | `claude mcp add`, then the NeoHive plugin |
-| **Cursor** | [Cursor](cursor.md) | `.cursor/mcp.json`, then the NeoHive plugin |
-| **Codex** | [Codex](codex.md) | `~/.codex/config.toml`, then the NeoHive plugin |
+| Agent                                   | Page                                                 | What you set up                                                     |
+| --------------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------- |
+| **Claude Code**                         | [Claude Code](claude-code.md)                        | `claude mcp add`, then the NeoHive plugin                           |
+| **Cursor**                              | [Cursor](cursor.md)                                  | `.cursor/mcp.json`, then the NeoHive plugin                         |
+| **Codex**                               | [Codex](codex.md)                                    | `~/.codex/config.toml`, then the NeoHive plugin                     |
 | **Claude Desktop** or any other MCP app | [Claude Desktop and other MCP apps](desktop-apps.md) | The endpoint, or `mcp-remote` for apps that only run local commands |
 
 ## Where to copy the endpoint
@@ -25,7 +27,7 @@ The **Install Instructions** panel stays open on the Hive page until an agent co
 
 The panel fills in the commands with the Hive's endpoint:
 
-```text
+```
 http://localhost:3577/hives/<hive-id>/mcp
 ```
 
@@ -37,7 +39,7 @@ Keep `neohive` in the server name the dashboard gives you. The plugins find the 
 
 The plugins add the following instructions for you. If your agent has no plugin, paste the instructions into your agent's rules file (`CLAUDE.md` or `AGENTS.md`) or system prompt. Then adjust the instructions to match what your team wants to keep:
 
-```text
+```
 ## NeoHive
 
 - At the start of every session, call `memory_context` with a short description of the task, for example "adding rate limits to the Express gateway". It loads the conventions and decisions that apply.

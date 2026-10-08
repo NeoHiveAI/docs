@@ -1,22 +1,24 @@
 ---
-description: "Push changed files to a Code or Documentation Index from a CI pipeline with POST /hives/<hive-id>/webhook/refresh."
+description: >-
+  Push changed files to a Code or Documentation Index from a CI pipeline with
+  POST /hives/<hive-id>/webhook/refresh.
 ---
 
 # Webhook refresh endpoint
 
-Send changed files to NeoHive from your CI pipeline, so a Code or Documentation [Index](../concepts/glossary.md#index) updates seconds after a merge.
+Send changed files to NeoHive from your CI pipeline, so a Code or Documentation [Index](glossary.md#index) updates seconds after a merge.
 
-<figure><img src="../.gitbook/assets/reference-webhooks.svg" alt="Sequence of a webhook refresh. A CI job posts changed files to the Hive's webhook route. NeoHive checks X-Webhook-Secret and finds every Index that syncs the named repository. NeoHive then removes each path's old content, indexes the new content, and replies with counts."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/reference-webhooks.svg" alt="Sequence of a webhook refresh. A CI job posts changed files to the Hive&#x27;s webhook route. NeoHive checks X-Webhook-Secret and finds every Index that syncs the named repository. NeoHive then removes each path&#x27;s old content, indexes the new content, and replies with counts."><figcaption></figcaption></figure>
 
-Scheduled syncs already keep each [Code](../concepts/glossary.md#code-index) or [Documentation Index](../concepts/glossary.md#documentation-index) current. Use the webhook only when the wait for the next scheduled sync is too long. To set the schedule, see [Keep a repository up to date](../context/repositories/sync.md).
+Scheduled syncs already keep each [Code](glossary.md#code-index) or [Documentation Index](glossary.md#documentation-index) current. Use the webhook only when the wait for the next scheduled sync is too long. To set the schedule, see [Keep a repository up to date](../add-your-context/repositories/sync.md).
 
-```text
+```
 POST http://<host>:3577/hives/<hive-id>/webhook/refresh
 Content-Type: application/json
 X-Webhook-Secret: <secret>
 ```
 
-`<hive-id>` is the id of your [Hive](../concepts/glossary.md#hive), the NeoHive workspace your agent connects to. The same id appears in the Hive's [MCP](../concepts/glossary.md#mcp) endpoint, `http://<host>:3577/hives/<hive-id>/mcp`. One request updates every Code or Documentation Index in that Hive that syncs the repository you name.
+`<hive-id>` is the id of your [Hive](glossary.md#hive), the NeoHive workspace your agent connects to. The same id appears in the Hive's [MCP](glossary.md#mcp) endpoint, `http://<host>:3577/hives/<hive-id>/mcp`. One request updates every Code or Documentation Index in that Hive that syncs the repository you name.
 
 ## Authentication
 
@@ -39,13 +41,13 @@ Treat the secret like a database password. Keep the secret in your CI secret sto
 }
 ```
 
-| Field | Required | Notes |
-|---|---|---|
-| `repo` | Yes | The repository URL exactly as the Index stores it, such as `https://github.com/acme/api`. `acme/api` alone does not match. |
-| `sha` | Yes | The commit the files come from. |
-| `files[].path` | Yes | The file's path from the repository root. |
-| `files[].content_base64` | For added and changed files | The whole file, base64-encoded. |
-| `files[].action` | For deleted files | `deleted` is the only value that has an effect. |
+| Field                    | Required                    | Notes                                                                                                                      |
+| ------------------------ | --------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `repo`                   | Yes                         | The repository URL exactly as the Index stores it, such as `https://github.com/acme/api`. `acme/api` alone does not match. |
+| `sha`                    | Yes                         | The commit the files come from.                                                                                            |
+| `files[].path`           | Yes                         | The file's path from the repository root.                                                                                  |
+| `files[].content_base64` | For added and changed files | The whole file, base64-encoded.                                                                                            |
+| `files[].action`         | For deleted files           | `deleted` is the only value that has an effect.                                                                            |
 
 For each path, NeoHive first removes the content it holds for that path. NeoHive then indexes `content_base64` if you sent it. **If you send a file with neither `content_base64` nor `"action": "deleted"`, NeoHive removes the file from the Index.** NeoHive does not read the file from its own copy of the repository.
 
@@ -55,8 +57,8 @@ The request body can be at most 100 KB. Base64 encoding makes each file about a 
 
 The webhook indexes the files it receives immediately, but it works differently from a scheduled sync or **Trigger sync**:
 
-- **The webhook ignores your file filters.** NeoHive still applies the built-in skip list, but not the Index's **Allowlist** or **Blocklist**. NeoHive indexes a file sent through the webhook even when your filters exclude it. To keep a file out of the Index, leave it out of the request.
-- **The webhook does not start a sync.** **Sync history** shows no row for a webhook request. To see what a request did, read its response.
+* **The webhook ignores your file filters.** NeoHive still applies the built-in skip list, but not the Index's **Allowlist** or **Blocklist**. NeoHive indexes a file sent through the webhook even when your filters exclude it. To keep a file out of the Index, leave it out of the request.
+* **The webhook does not start a sync.** **Sync history** shows no row for a webhook request. To see what a request did, read its response.
 
 For how the filters work, see [File pattern syntax](file-patterns.md).
 
@@ -68,28 +70,28 @@ A successful request returns counts like the following:
 { "processed": 2, "skipped": 0, "deleted": 7, "errors": [], "duration_ms": 412 }
 ```
 
-| Field | Counts |
-|---|---|
-| `processed` | Files indexed, plus files removed with `"action": "deleted"` |
-| `skipped` | Files the built-in skip list excludes, files that look binary, and files sent with no content |
-| `deleted` | Stored pieces removed, not files |
-| `errors` | One `{ "path", "error" }` entry per file that failed |
+| Field       | Counts                                                                                        |
+| ----------- | --------------------------------------------------------------------------------------------- |
+| `processed` | Files indexed, plus files removed with `"action": "deleted"`                                  |
+| `skipped`   | Files the built-in skip list excludes, files that look binary, and files sent with no content |
+| `deleted`   | Stored pieces removed, not files                                                              |
+| `errors`    | One `{ "path", "error" }` entry per file that failed                                          |
 
 A failed request returns one of the following statuses:
 
-| Status | Body | Cause |
-|---|---|---|
-| `401` | `Invalid or missing webhook secret` | The header is wrong, or `MEMVEC_WEBHOOK_SECRET` is not set on the container. |
-| `400` | `Missing required field: repo` (or `sha`, `files (array)`) | The body is missing a field. |
-| `400` | `Each file must have a path string` | An entry in `files` has no `path`. |
-| `404` | `No Index found syncing repo: <repo>` | No Code or Documentation Index in that Hive syncs that exact URL. |
-| `404` | `Unknown Hive: <hive-id>` | The Hive id in the URL is wrong. |
-| `413` | `Payload Too Large` (an HTML page, not JSON) | The body is over 100 KB. |
-| `402` | `License check failed` | The license expired or failed validation. See [Licensing](../admin/licensing.md). |
+| Status | Body                                                       | Cause                                                                                      |
+| ------ | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| `401`  | `Invalid or missing webhook secret`                        | The header is wrong, or `MEMVEC_WEBHOOK_SECRET` is not set on the container.               |
+| `400`  | `Missing required field: repo` (or `sha`, `files (array)`) | The body is missing a field.                                                               |
+| `400`  | `Each file must have a path string`                        | An entry in `files` has no `path`.                                                         |
+| `404`  | `No Index found syncing repo: <repo>`                      | No Code or Documentation Index in that Hive syncs that exact URL.                          |
+| `404`  | `Unknown Hive: <hive-id>`                                  | The Hive id in the URL is wrong.                                                           |
+| `413`  | `Payload Too Large` (an HTML page, not JSON)               | The body is over 100 KB.                                                                   |
+| `402`  | `License check failed`                                     | The license expired or failed validation. See [Licensing](../administration/licensing.md). |
 
 ## GitHub Actions template
 
-The runner must be able to reach your NeoHive server. A GitHub-hosted runner cannot reach `localhost`, so use a self-hosted runner on the same network, or read [Exposing NeoHive beyond your network](../security/network.md) first.
+The runner must be able to reach your NeoHive server. A GitHub-hosted runner cannot reach `localhost`, so use a self-hosted runner on the same network, or read [Exposing NeoHive beyond your network](../security-and-privacy/network.md) first.
 
 The following workflow sends the files that changed in each push to `main`:
 

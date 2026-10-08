@@ -1,16 +1,16 @@
 ---
-description: "Checks to run, in order, when your coding agent cannot reach NeoHive."
+description: Checks to run, in order, when your coding agent cannot reach NeoHive.
 ---
 
 # Agent can't connect
 
-Your agent reaches NeoHive through the [MCP](../concepts/glossary.md#mcp) endpoint of a [Hive](../concepts/glossary.md#hive). The endpoint is a web address, such as `http://localhost:3577/hives/<hive-id>/mcp`.
+Your agent reaches NeoHive through the [MCP](../reference/glossary.md#mcp) endpoint of a [Hive](../reference/glossary.md#hive). The endpoint is a web address, such as `http://localhost:3577/hives/<hive-id>/mcp`.
 
 The connection depends on several parts in turn. The NeoHive container must be running, and the server must be healthy. The Hive must answer, and your agent must use the right endpoint. Finally, your agent must load the NeoHive tools. If any one part fails, your agent cannot use NeoHive. The agent shows a connection error, or the NeoHive tools do not appear.
 
 Use the checks on this page to find which part breaks, and then fix that part.
 
-<figure><img src="../.gitbook/assets/troubleshooting-connection.svg" alt="Decision tree with five checks. Is the neohive container running? Does /health say ok? Does list_indexes work in the Playground? Does the agent's MCP endpoint match Install Instructions? Does the agent see the NeoHive tools? Each no leads to its fix. Five yes answers mean the agent is connected."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/troubleshooting-connection.svg" alt="Decision tree with five checks. Is the neohive container running? Does /health say ok? Does list_indexes work in the Playground? Does the agent&#x27;s MCP endpoint match Install Instructions? Does the agent see the NeoHive tools? Each no leads to its fix. Five yes answers mean the agent is connected."><figcaption></figcaption></figure>
 
 Run the checks in order. Stop at the first check that fails, and apply its fix.
 
@@ -39,11 +39,11 @@ The message `No such container` means the container no longer exists. Run the [i
 curl http://localhost:3577/health
 ```
 
-| Reply contains | Meaning | Fix |
-|---|---|---|
-| `"status":"ok"` | NeoHive is ready. | Go to the next check. |
-| `"status":"error"` | NeoHive could not finish starting, or its embedding engine cannot run. | Look up the `error` text in [Common errors](common-errors.md). |
-| `"status":"degraded"` | At least one Hive failed its check. | On the dashboard home page, open that Hive's menu and select **Restart**. |
+| Reply contains        | Meaning                                                                | Fix                                                                       |
+| --------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `"status":"ok"`       | NeoHive is ready.                                                      | Go to the next check.                                                     |
+| `"status":"error"`    | NeoHive could not finish starting, or its embedding engine cannot run. | Look up the `error` text in [Common errors](common-errors.md).            |
+| `"status":"degraded"` | At least one Hive failed its check.                                    | On the dashboard home page, open that Hive's menu and select **Restart**. |
 {% endstep %}
 
 {% step %}
@@ -56,7 +56,7 @@ To test the Hive from the dashboard, do the following:
 3. Set **Tool** to `list_indexes`.
 4. Select **Run**.
 
-If you see a list of [Indexes](../concepts/glossary.md#index), the Hive works. The problem is then between the Hive and your agent. If you see an error, the Hive itself is broken. Select **Restart** on the Hive, and then run the check again.
+If you see a list of [Indexes](../reference/glossary.md#index), the Hive works. The problem is then between the Hive and your agent. If you see an error, the Hive itself is broken. Select **Restart** on the Hive, and then run the check again.
 {% endstep %}
 
 {% step %}
@@ -82,15 +82,14 @@ Ask your agent: `List my NeoHive indexes.` Your agent calls `list_indexes` and a
 
 To get help, do the following:
 
-1. Run the following command to collect a diagnostics bundle:
+1.  Run the following command to collect a diagnostics bundle:
 
-   ```bash
-   curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/logs.sh | bash
-   ```
-
+    ```bash
+    curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/logs.sh | bash
+    ```
 2. Send the bundle to `hello@neohive.ai` with a description of what fails.
 
-The bundle holds logs and settings with secrets removed. The bundle never includes your [Memories](../concepts/glossary.md#memory), code, or databases.
+The bundle holds logs and settings with secrets removed. The bundle never includes your [Memories](../reference/glossary.md#memory), code, or databases.
 
 ## Next step
 
