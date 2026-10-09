@@ -8,9 +8,9 @@ NeoHive is a self-hosted memory that your team's coding agents share, such as Cl
 
 A coding agent starts each session with no knowledge of your project. It does not know how your code is organized or which conventions your team follows. It does not remember what you told it yesterday. As a result, you explain the same things again and correct the same mistakes.
 
-NeoHive keeps that context for the agent, in a [Hive](../concepts/glossary.md#hive), a workspace for one team or product. NeoHive copies your repositories and documents into [Indexes](../concepts/glossary.md#index), the searchable stores inside a Hive. The agent then finds code by what it does, not by its file name. NeoHive also stores what your team teaches the agent, such as a convention or a bug fix. Each stored lesson is a [Memory](../concepts/glossary.md#memory).
+NeoHive keeps that context for the agent, in a [Hive](../concepts/glossary.md#hive), a workspace for one codebase or team. NeoHive copies your repositories and documents into [Indexes](../concepts/glossary.md#index), the searchable stores inside a Hive. The agent then finds code by what it does, not by its file name. NeoHive also stores what your team teaches the agent, such as a convention or a bug fix. Each stored lesson is a [Memory](../concepts/glossary.md#memory).
 
-NeoHive gives the agent only the context that the current task needs. When the agent needs context, it asks NeoHive through [MCP](../concepts/glossary.md#mcp), and NeoHive returns just the matching parts. The agent no longer loads a whole context file of thousands of lines. That leaves more of the agent's context window, the text it can read at once, for your actual work.
+NeoHive gives the agent only the context that the current task needs. When the agent needs context, it asks NeoHive through [MCP](../concepts/glossary.md#mcp), and NeoHive returns only the matching parts. The agent no longer loads a whole context file of thousands of lines. That leaves more of the agent's context window, the text it can read at once, for your actual work.
 
 You run NeoHive yourself, so your code, documents, and Memories stay on a machine you control. For the details, see [What stays on your machine](../security/local-only.md). NeoHive runs in a Docker container, either on your own machine or on a shared server for your team. The same container serves a dashboard, where you manage your Hives and their content in your browser. [How NeoHive works](../concepts/how-it-works.md) shows how these parts fit together.
 
@@ -23,7 +23,7 @@ NeoHive is made of the following parts. For the full explanation of Hives, Index
 | Part | What it is |
 |---|---|
 | **Server** | A Docker container on your machine or a shared server. The dashboard runs at `http://localhost:3577`. |
-| **Hive** | A workspace for one team or product. Each Hive has one MCP endpoint that agents connect to. |
+| **Hive** | A workspace for one codebase or team. Each Hive has one MCP endpoint that agents connect to. |
 | **Index** | A searchable store inside a Hive. Each Index holds one kind of content, such as your code, your docs, or your team's Memories. |
 | **Memory** | One lesson your team teaches the agent, such as a convention, a decision, or the fix for a bug. NeoHive keeps each Memory, so any agent connected to the Hive can use the lesson in a later session. |
 | **Plugin** | Rules and skills for Claude Code, Cursor, or Codex. The plugin tells the agent when to use NeoHive, so you do not have to ask. |

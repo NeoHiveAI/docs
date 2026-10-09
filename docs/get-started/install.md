@@ -4,7 +4,7 @@ description: "Install NeoHive, create your first Hive, and connect your agent. E
 
 # Install NeoHive
 
-This page has three steps, and each step ends with a check you can run. When you finish, your agent answers questions from your own code.
+NeoHive runs in a Docker container on a machine you control, and your coding agent connects to it. You install NeoHive once, on your own machine or on a server your team shares. Installation takes three steps, and each step ends with a check you can run. When you finish, your agent answers questions from your own code.
 
 <figure><img src="../.gitbook/assets/get-started-install.svg" alt="The install flow. You run the installer in your terminal, which starts NeoHive on localhost port 3577. The dashboard setup then has three steps: Name Hive, Configure first Index, and Install for your AI tools. The first Index comes from GitHub, GitLab, or File Upload. Setup finishes when it shows Connected."><figcaption></figcaption></figure>
 
@@ -63,14 +63,17 @@ The reply contains `"status":"ok"`. If the reply does not contain `"status":"ok"
 {% step %}
 ## Create your Hive
 
-A [Hive](../concepts/glossary.md#hive) is a workspace for one team or product. A Hive holds [Indexes](../concepts/glossary.md#index), the stores for your code, documents, files, and [Memories](../concepts/glossary.md#memory). To create your Hive, do the following:
+A [Hive](../concepts/glossary.md#hive) is a workspace for one codebase or team. A Hive holds [Indexes](../concepts/glossary.md#index), the stores for your code, documents, files, and [Memories](../concepts/glossary.md#memory). To create your Hive, do the following:
 
 1. Open the dashboard.
 2. To accept the license, select **I Understand**.
-3. Select **Get Started**, and then select **Start setup**.
-4. Under **Hive name**, type a name, and then select **Continue**.
-5. Under **Where does your data live?**, select the first source for the Hive.
-6. Fill in the details for that source, and then select **Continue**.
+3. Select **Get Started**.
+4. Select **Start setup**.
+5. Under **Hive name**, type a name.
+6. Select **Continue**.
+7. Under **Where does your data live?**, select the first source for the Hive.
+8. Fill in the details for that source.
+9. Select **Continue**.
 
 The following table shows what you can add from each source and what you need for it:
 
@@ -82,7 +85,7 @@ The following table shows what you can add from each source and what you need fo
 
 For the scopes each token needs, see [Add a connection](../admin/data-sources.md#add-a-connection). For the file types and size limits, see [Supported file types](../reference/file-types.md).
 
-NeoHive also gives every Hive a **Knowledge** Index, which stores the Memories your agent saves. You can add more Indexes later from the Hive page. To decide which Indexes to add, see [What to add, and where](../context/what-to-add.md).
+NeoHive also gives every Hive a **Knowledge** [Index](../concepts/glossary.md#knowledge-index), which stores the Memories your agent saves. You can add more Indexes later from the Hive page. To decide which Indexes to add, see [What to add, and where](../context/what-to-add.md).
 
 {% hint style="success" %}
 **Check:** the Index is ready.
@@ -94,25 +97,29 @@ Open the Index from the Hive page. For a repository Index, **Sync history** show
 {% step %}
 ## Connect your agent
 
-The last setup step is **Install for your AI tools**. Later, the **Install Instructions** panel on the Hive page shows the same commands. The first command registers the Hive as an [MCP](../concepts/glossary.md#mcp) server, so your agent can call NeoHive's tools. For Claude Code, run the first command in your terminal, from your project's root folder:
+The last setup step is **Install for your AI tools**. Later, the **Install Instructions** panel on the Hive page shows the same commands. The first command registers the Hive as an [MCP](../concepts/glossary.md#mcp) server, so your agent can call NeoHive's tools. To connect Claude Code, do the following:
 
-```bash
-claude mcp add <name> '<hive-url>' \
-  --scope project \
-  --transport http \
-  --header 'x-mcp-client: claude-code'
-```
+1. In your terminal, go to your project's root folder.
+2. Run the first command. The command looks like this:
 
-The `--scope project` flag saves the Hive in that folder's `.mcp.json`, where the plugin's automatic recall looks for it. Claude Code asks you to approve the server the next time it starts in the project. To learn why the scope matters, see [Connect Claude Code](connect/claude-code.md).
+   ```bash
+   claude mcp add <name> '<hive-url>' \
+     --scope project \
+     --transport http \
+     --header 'x-mcp-client: claude-code'
+   ```
 
-Then run the remaining commands inside Claude Code:
+   The `--scope project` flag saves the Hive in that folder's `.mcp.json`, where the plugin's automatic recall looks for it. To learn why the scope matters, see [Connect Claude Code](connect/claude-code.md).
+3. Start Claude Code in the project.
+4. When Claude Code asks, approve the NeoHive server. Claude Code does not connect to the Hive until you approve the server. After Claude Code connects, setup shows **Connected**.
+5. Run the remaining commands inside Claude Code:
 
-```text
-/plugin marketplace add NeoHiveAI/NeoHiveClaude
-/plugin install neohive@neohive-claude
-/reload-plugins
-/neohive:getting-started
-```
+   ```text
+   /plugin marketplace add NeoHiveAI/NeoHiveClaude
+   /plugin install neohive@neohive-claude
+   /reload-plugins
+   /neohive:getting-started
+   ```
 
 To connect a different agent, see [Cursor](connect/cursor.md), [Codex](connect/codex.md), or [Claude Desktop and other MCP apps](connect/desktop-apps.md).
 

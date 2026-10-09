@@ -14,10 +14,11 @@ Before you start, you need a running NeoHive server with a Hive, and a version o
 
 To add the Hive to Codex, do the following:
 
-1. Open the Hive in the dashboard, and go to **Install Instructions**.
-2. Select **Codex**.
-3. Copy the block into `~/.codex/config.toml`. To use the Hive in one project only, copy the block into `.codex/config.toml` in that project instead.
-4. Rename the `headers` key to `http_headers`. The dashboard names the key `headers`, but Codex reads `http_headers`.
+1. Open the Hive in the dashboard.
+2. Go to **Install Instructions**.
+3. Select **Codex**.
+4. Copy the block into `~/.codex/config.toml`. To use the Hive in one project only, copy the block into `.codex/config.toml` in that project instead.
+5. Rename the `headers` key to `http_headers`. The dashboard names the key `headers`, but Codex reads `http_headers`.
 
 After you rename the key, the block looks like this:
 
@@ -41,11 +42,12 @@ codex plugin marketplace add NeoHiveAI/NeoHiveCodex
 
 After you add the marketplace, do the following:
 
-1. Start Codex, and enter `/plugins`.
-2. Install **NeoHive** from the list.
-3. To load the plugin's skills, start a new Codex session.
+1. Start Codex.
+2. Enter `/plugins`.
+3. Install **NeoHive** from the list.
+4. To load the plugin's skills, start a new Codex session.
 
-The plugin adds a set of skills and a rules file. The rules file tells Codex when to call `memory_context`, `memory_recall`, and `memory_store`. The plugin does not add an MCP server, which is why step 1 comes first.
+The plugin adds a set of skills and a rules file. The rules file tells Codex when to call `memory_context`, `memory_recall`, and `memory_store`. The plugin does not add an MCP server, which is why you add the MCP server first.
 {% endstep %}
 
 {% step %}

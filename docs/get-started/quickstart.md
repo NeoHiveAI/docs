@@ -33,13 +33,17 @@ A [Hive](../concepts/glossary.md#hive) is a workspace for your team, with one ad
 
 1. Open `http://localhost:3577`.
 2. To accept the license, select **I Understand**.
-3. Select **Get Started**, and then select **Start setup**.
-4. Under **Hive name**, type a name, and then select **Continue**.
-5. Under **Where does your data live?**, select **GitHub** and keep **Code** selected.
-6. Paste your token, and then select **Fetch repositories**.
-7. Select your repository, and then select **Continue**.
+3. Select **Get Started**.
+4. Select **Start setup**.
+5. Under **Hive name**, type a name.
+6. Select **Continue**.
+7. Under **Where does your data live?**, select **GitHub** and keep **Code** selected.
+8. Paste your token.
+9. Select **Fetch repositories**.
+10. Select your repository.
+11. Select **Continue**.
 
-NeoHive adds your repository to the Hive as a Code [Index](../concepts/glossary.md#index), a store inside the Hive. NeoHive then starts indexing the repository in the background. Indexing builds a searchable copy of your code.
+NeoHive adds your repository to the Hive as a [Code Index](../concepts/glossary.md#code-index), a store inside the Hive. NeoHive then starts indexing the repository in the background. Indexing builds a searchable copy of your code.
 {% endstep %}
 
 {% step %}
@@ -56,9 +60,10 @@ Setup now shows **Install for your AI tools** with **Claude** selected. To conne
      --transport http \
      --header 'x-mcp-client: claude-code'
    ```
-3. Start Claude Code in your repository, and approve the NeoHive server when Claude Code asks. Setup shows **Connected** only after Claude Code connects, and Claude Code does not connect until you approve the server.
-4. When setup shows **Connected**, select **Open** followed by your Hive's name.
-5. To install the plugin and run its setup, run the following commands inside Claude Code:
+3. Start Claude Code in your repository.
+4. When Claude Code asks, approve the NeoHive server. Setup shows **Connected** only after Claude Code connects, and Claude Code does not connect until you approve the server.
+5. When setup shows **Connected**, select **Open** followed by your Hive's name.
+6. To install the plugin and run its setup, run the following commands inside Claude Code:
 
 ```text
 /plugin marketplace add NeoHiveAI/NeoHiveClaude

@@ -39,13 +39,23 @@ To set the patterns, do the following:
 {% step %}
 ## Open the filters
 
-Open the Index, and then select the **Sync Settings** tab. **File filters** is under **Configuration**.
+Open the Index's **Sync Settings** tab. **File filters** is under **Configuration**.
+{% endstep %}
+
+{% step %}
+## Optional: draft the patterns with your agent
+
+To get a first draft of the patterns, do the following:
+
+1. Select **Copy AI prompt**.
+2. Paste the prompt into your agent.
+3. Describe your repository to your agent.
 {% endstep %}
 
 {% step %}
 ## Enter the patterns
 
-Type one pattern per line into **Allowlist**, **Blocklist**, or both. To get a first draft of the patterns, select **Copy AI prompt**. Paste the prompt into your agent, and then describe your repository.
+Type one pattern per line into **Allowlist**, **Blocklist**, or both.
 {% endstep %}
 
 {% step %}

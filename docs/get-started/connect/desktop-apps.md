@@ -16,10 +16,13 @@ To connect any [MCP](../../concepts/glossary.md#mcp) app, give the app the MCP e
 {% tab title="Claude Desktop" %}
 To add the Hive to Claude Desktop, do the following:
 
-1. Open the Hive in the dashboard, and go to **Install Instructions**.
-2. Select **Claude Desktop**.
-3. In Claude Desktop, open **Settings**, then **Developer**, then **Edit Config**.
-4. Paste the JSON into `claude_desktop_config.json`.
+1. Open the Hive in the dashboard.
+2. Go to **Install Instructions**.
+3. Select **Claude Desktop**.
+4. In Claude Desktop, open **Settings**.
+5. Select **Developer**.
+6. Select **Edit Config**.
+7. Paste the JSON into `claude_desktop_config.json`.
 
 The JSON looks like this:
 
@@ -85,7 +88,7 @@ NeoHive is a self-hosted memory that agents reach over MCP. The adapted plugin s
 2. Add rules telling the agent to call memory_context and memory_recall before exploring the codebase, and memory_store to save conventions, decisions, and lessons.
 3. Use whatever session hooks the agent supports to load context at the start of a session and save learnings at the end.
 
-Keep the behaviour as close to the original plugin as the agent allows, and list anything it cannot support.
+Keep the behavior as close to the original plugin as the agent allows, and list anything it cannot support.
 ```
 
 To ask for a plugin for your agent, email `hello@neohive.ai`.

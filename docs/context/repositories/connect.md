@@ -71,7 +71,7 @@ Open the **Index Info** tab, and then fill in **Description**. Your agent reads 
 <details>
 <summary>Optional: switch to an embedding model specialized for code</summary>
 
-A new [Code Index](../../concepts/glossary.md#code-index) uses a general text embedding model, the model that turns content into a searchable form. The **Embedding model** setting on the **Index Info** tab also offers **Nomic Embed Code** models. These models match code more closely, but they need a lot of GPU memory. The list marks each option **Fits** or **Won't fit** for your machine. When you save a new model, NeoHive processes the whole Index again with that model in the background. For details, see [GPU and CPU](../../admin/gpu-cpu.md).
+A new [Code Index](../../concepts/glossary.md#code-index) uses a general text embedding model, the model that turns content into a searchable form. The **Embedding model** setting on the **Index Info** tab also offers models whose names start with `nomic-embed-code`. These models match code more closely, but they need a lot of GPU memory. The list marks each option **Fits** or **Won't fit** for your machine. When you save a new model, NeoHive processes the whole Index again with that model in the background. For details, see [GPU and CPU](../../admin/gpu-cpu.md).
 
 </details>
 

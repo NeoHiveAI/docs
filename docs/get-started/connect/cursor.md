@@ -14,9 +14,10 @@ Before you start, you need a running NeoHive server with a Hive, Cursor, and `gi
 
 To add the Hive to Cursor, do the following:
 
-1. Open the Hive in the dashboard, and go to **Install Instructions**.
-2. Select **Cursor**.
-3. Copy the JSON into `.cursor/mcp.json` in your project. To use the Hive in every project, copy the JSON into `~/.cursor/mcp.json` instead.
+1. Open the Hive in the dashboard.
+2. Go to **Install Instructions**.
+3. Select **Cursor**.
+4. Copy the JSON into `.cursor/mcp.json` in your project. To use the Hive in every project, copy the JSON into `~/.cursor/mcp.json` instead.
 
 The JSON looks like this:
 
@@ -39,15 +40,18 @@ If the file already has an `mcpServers` block, add the entry inside that block. 
 {% step %}
 ## Install the plugin
 
-To install the plugin, clone the plugin and link the plugin into Cursor's local plugins folder:
+To install the plugin, do the following:
 
-```bash
-git clone https://github.com/NeoHiveAI/NeoHiveCursor.git
-mkdir -p ~/.cursor/plugins/local
-ln -s "$(pwd)/NeoHiveCursor" ~/.cursor/plugins/local/neohive
-```
+1. Run the following commands, which clone the plugin and link it into Cursor's local plugins folder:
 
-Then restart Cursor. The plugin adds a set of skills and an always-on rule, `rules/neohive.mdc`. The rule tells Cursor when to call `memory_context`, `memory_recall`, and `memory_store`. The plugin does not add an MCP server, which is why step 1 comes first.
+   ```bash
+   git clone https://github.com/NeoHiveAI/NeoHiveCursor.git
+   mkdir -p ~/.cursor/plugins/local
+   ln -s "$(pwd)/NeoHiveCursor" ~/.cursor/plugins/local/neohive
+   ```
+2. Restart Cursor.
+
+The plugin adds a set of skills and an always-on rule, `rules/neohive.mdc`. The rule tells Cursor when to call `memory_context`, `memory_recall`, and `memory_store`. The plugin does not add an MCP server, which is why you add the MCP server first.
 {% endstep %}
 
 {% step %}

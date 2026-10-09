@@ -14,11 +14,12 @@ Before you start, you need a running NeoHive server with a Hive, and a version o
 
 To add the Hive as an MCP server, do the following:
 
-1. Open the Hive in the dashboard, and go to **Install Instructions**.
-2. Select **Claude Code**.
-3. Copy the first command.
-4. In your normal terminal, outside Claude Code, go to your project's root folder.
-5. Run the command there.
+1. Open the Hive in the dashboard.
+2. Go to **Install Instructions**.
+3. Select **Claude Code**.
+4. Copy the first command.
+5. In your normal terminal, outside Claude Code, go to your project's root folder.
+6. Run the command there.
 
 The command looks like this:
 
@@ -49,7 +50,7 @@ To install the plugin, start Claude Code in your project, and then run the follo
 /reload-plugins
 ```
 
-If you skip `/reload-plugins`, the next step fails with an unknown command error. The plugin does not add an MCP server, which is why step 1 comes first. The plugin adds the following parts:
+If you skip `/reload-plugins`, the next step fails with an unknown command error. The plugin does not add an MCP server, which is why you add the MCP server first. The plugin adds the following parts:
 
 | Part | What it does |
 |---|---|

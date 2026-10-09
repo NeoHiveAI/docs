@@ -57,4 +57,4 @@ To move an Obsidian vault or a similar notes vault, export it as markdown and up
 
 A large PDF can fail because it takes too long to convert. To raise the time limit, see [Supported file types](../reference/file-types.md#uploads-to-a-files-index) and [Environment variables](../reference/environment-variables.md#installer).
 
-If a PDF is scanned, or draws its text as shapes, the conversion fails with `No text could be extracted from this PDF`.
+If a PDF is scanned, or draws its text as shapes, the conversion fails with `No text could be extracted from this PDF`. To fix the error, run optical character recognition (OCR) on the PDF, or export its text, and then upload the result.
