@@ -57,7 +57,7 @@ Without `index`, the reply lists only the total number of Memories and the count
 | `type` | string | required | One of the [Memory types](memory-types.md). |
 | `importance` | integer | `5` | `1` (trivial) to `10` (critical). Higher importance helps a Memory rank higher. |
 | `tags` | string list | none | Labels that help later searches find the Memory. |
-| `format` | string | `auto` | How to split content of 6,000 characters or more: `auto`, `markdown`, `code`, `DSL`, or `text`. `auto` detects the format. NeoHive stores shorter content whole. |
+| `format` | string | `auto` | How to split content of 6,000 characters or more: `auto`, `markdown`, `code`, or `text`. `auto` detects the format. NeoHive stores shorter content whole. |
 
 The reply is `Memory stored successfully (id: <id>, type: <type>, importance: <n>, Index: <index-id>)`. You can search for the Memory immediately.
 

@@ -30,7 +30,7 @@ Cursor and Codex have no hooks. Instead, the plugin for Cursor and Codex install
 
 ## Repositories
 
-When you add a repository, the container copies (clones) it from GitHub or GitLab into the `neohive-data` volume. The container splits the files into chunks. A chunk is a section of a file, such as a function or a heading and its text. The container turns each chunk into an embedding, which is a list of numbers that captures what the text means. The container stores the embeddings in a [Code](glossary.md#code-index) or [Documentation Index](glossary.md#documentation-index).
+When you add a repository, the container copies (clones) it from GitHub or GitLab into the `neohive-data` volume. The container splits the files into [chunks](glossary.md#chunk) and turns each chunk into an embedding, which is a list of numbers that captures what the text means. The container stores the embeddings in a [Code](glossary.md#code-index) or [Documentation Index](glossary.md#documentation-index).
 
 On later syncs, the container indexes only the files that changed.
 

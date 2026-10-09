@@ -34,7 +34,7 @@ The list of file patterns that a [Code Index](#code-index) or [Documentation Ind
 
 ### Chunk
 
-A section of an indexed file, such as a function, or a heading and its text. When part of a chunk matches a search, [recall](#recall) returns the whole chunk.
+A section of an indexed file, such as a function, or a heading and its text.
 
 ### CI
 

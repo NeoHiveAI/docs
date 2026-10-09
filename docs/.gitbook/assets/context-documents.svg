@@ -31,9 +31,9 @@
   <text x="286" y="207" class="body">allowed per PDF by default</text>
   <rect x="500" y="124" width="210" height="130" rx="10" fill="#FFFFFF" stroke="#A78BFA" stroke-width="1.5"/>
   <text x="516" y="148" class="lbl" fill="#7C3AED">FILES INDEX</text>
-  <text x="516" y="170" class="title">Split into sections</text>
-  <text x="516" y="190" class="body">markdown splits at headings,</text>
-  <text x="516" y="207" class="body">each section is embedded</text>
+  <text x="516" y="170" class="title">Made searchable</text>
+  <text x="516" y="190" class="body">stored so your agent can</text>
+  <text x="516" y="207" class="body">find it by meaning</text>
   <rect x="730" y="124" width="210" height="130" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
   <text x="746" y="148" class="lbl" fill="#7C3AED">YOUR AGENT</text>
   <text x="746" y="170" class="title mono">memory_recall</text>

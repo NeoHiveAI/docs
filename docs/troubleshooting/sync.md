@@ -21,7 +21,7 @@ Open the Index in the dashboard. **Sync history** lists every run with its statu
 | Red box: **A git command failed** | The repository URL is wrong, or the connection cannot read the repository. | Check the connection on **Data Sources**, and then select **Trigger sync**. |
 | Red box: **The sync failed** | Something else failed. The box shows the error message. | Look up the message in [Common errors](common-errors.md). |
 | Red box: **Embedding dimension mismatch. Sorry about this!** | NeoHive built the Index with the wrong embedding dimensions, and you cannot repair the Index. | Follow the steps in the box. Delete the Index under **Danger Zone** on **Index Info**, and then add the Index again with **Add Index**. |
-| Amber `partial` badge, or `... files failed to index and will be reindexed automatically.` | Some files failed to index, often while the embedding engine restarted. | Wait for the automatic retry. NeoHive retries those files after two minutes. |
+| Amber `partial` badge, or `... files failed to index and will be reindexed automatically.` | Some files failed to index. | Wait for the automatic retry. NeoHive retries those files after two minutes. |
 | Amber box: `... could not be indexed after 3 attempts. Trigger a sync to retry.` | The same files failed three syncs in a row. | Read the file error in **Sync history**. Fix the file or filter it out, and then select **Trigger sync**. |
 | `A sync is already running for this Index` | You selected **Trigger sync** while a sync was running. | No fix is needed. Wait for the running sync to finish. |
 

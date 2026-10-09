@@ -10,11 +10,11 @@ NeoHive reads files from two places: uploads to a [Files Index](../concepts/glos
 
 A Files Index holds the files you upload. A Files Index accepts the following formats:
 
-| Format | Extensions | How it is split |
-|---|---|---|
-| Markdown | `.md`, `.markdown` | NeoHive splits the file by heading, so each section stays with its heading. |
-| Plain text | `.txt` | NeoHive splits the file the same way as Markdown. |
-| PDF | `.pdf` | NeoHive converts the file to Markdown, then splits it by heading. |
+| Format | Extensions |
+|---|---|
+| Markdown | `.md`, `.markdown` |
+| Plain text | `.txt` |
+| PDF | `.pdf` |
 
 The following limits apply to each upload:
 
@@ -34,23 +34,7 @@ A PDF that takes longer than five minutes to convert fails. To allow more time, 
 
 ## Files in a repository
 
-A repository sync reads every text file that passes your file filters. For the languages in the following table, NeoHive splits code along functions and classes. Each search result is then a whole unit of code. NeoHive splits other text files, such as `.json` or `.yaml`, into chunks of readable size.
-
-| Language | Extensions |
-|---|---|
-| TypeScript | `.ts`, `.tsx` |
-| JavaScript | `.js`, `.jsx` |
-| Python | `.py` |
-| Java | `.java` |
-| Go | `.go` |
-| Ruby | `.rb` |
-| Rust | `.rs` |
-| C++ and C headers | `.cpp`, `.cc`, `.hpp`, `.h` |
-| PHP | `.php` |
-| Scala | `.scala` |
-| Swift | `.swift` |
-| Starlang | `.star`, `.starlang` |
-| Markdown and text | `.md`, `.markdown`, `.txt` (split by heading) |
+A repository sync reads every text file that passes your file filters, including code, Markdown, and configuration files such as `.json` or `.yaml`.
 
 NeoHive always skips the following files, whatever your filters say:
 

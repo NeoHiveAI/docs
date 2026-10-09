@@ -6,7 +6,7 @@ description: "Add a GitHub or GitLab repository to a Code Index so your agent fi
 
 Connect a repository once, and your agent can find code by describing what the code does. NeoHive stores the code in a [Code Index](../../concepts/glossary.md#code-index), which is one store of searchable context inside your [Hive](../../concepts/glossary.md#hive). A Hive is the workspace your agent connects to. For more terms, see the [NeoHive glossary](../../concepts/glossary.md). Scheduled syncs keep the [Index](../../concepts/glossary.md#index) up to date.
 
-<figure><img src="../../.gitbook/assets/context-repositories.svg" alt="NeoHive reads a GitHub or GitLab repository through a connection, which is a saved token or SSH key. NeoHive splits the code into functions and classes and stores them in a Code Index in a searchable form. Your agent finds the code with memory_recall. A sync runs every 4 hours, or when you select Trigger sync, and copies repository changes into the Index."><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/context-repositories.svg" alt="NeoHive reads a GitHub or GitLab repository through a connection, which is a saved token or SSH key. NeoHive stores the code in a Code Index in a searchable form. Your agent finds the code with memory_recall. A sync runs every 4 hours, or when you select Trigger sync, and copies repository changes into the Index."><figcaption></figcaption></figure>
 
 Your agent asks `how does the sync engine handle retries?` and gets back the functions that handle retries, even when those words never appear in the file. Code results come back in the same answer as your team's [Memories](../../concepts/glossary.md#memory), such as stored conventions and decisions.
 

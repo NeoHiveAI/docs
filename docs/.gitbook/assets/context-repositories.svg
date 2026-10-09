@@ -30,8 +30,8 @@
   <rect x="500" y="130" width="210" height="120" rx="10" fill="#FFFFFF" stroke="#A78BFA" stroke-width="1.5"/>
   <text x="516" y="154" class="lbl" fill="#7C3AED">INDEX</text>
   <text x="516" y="176" class="title">Code</text>
-  <text x="516" y="196" class="body">split into functions</text>
-  <text x="516" y="213" class="body">and classes, then embedded</text>
+  <text x="516" y="196" class="body">stored so your agent can</text>
+  <text x="516" y="213" class="body">find it by meaning</text>
   <rect x="730" y="130" width="210" height="120" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
   <text x="746" y="154" class="lbl" fill="#7C3AED">YOUR AGENT</text>
   <text x="746" y="176" class="title mono">memory_recall</text>

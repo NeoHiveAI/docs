@@ -6,7 +6,7 @@ description: "Upload markdown, text, and PDF files to a Files Index so your agen
 
 Create a Files [Index](../concepts/glossary.md#index) and upload your documents to it. A [Files Index](../concepts/glossary.md#files-index) stores files you upload. Your agent then recalls the documents the same way it recalls code.
 
-<figure><img src="../.gitbook/assets/context-documents.svg" alt="You upload a .md, .markdown, .txt, or .pdf file of up to 10 MB. NeoHive first converts a PDF to text, which takes longer. The Files Index splits the text into sections (markdown at its headings) and embeds each section. Your agent's memory_recall gets back the section that answers the question."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/context-documents.svg" alt="You upload a .md, .markdown, .txt, or .pdf file of up to 10 MB. NeoHive first converts a PDF to text, which takes longer. The Files Index stores the text in a searchable form. Your agent's memory_recall gets back the section that answers the question."><figcaption></figcaption></figure>
 
 Use a Files Index for specs, runbooks, design docs, meeting notes, or an exported notes vault. For markdown that already lives in a repository, add a [Documentation Index](../concepts/glossary.md#documentation-index) instead. A Documentation Index stays in sync with the repository. For help choosing, see [What to add, and where](what-to-add.md).
 
