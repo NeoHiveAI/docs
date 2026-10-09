@@ -38,13 +38,13 @@ On the **GitHub** or **GitLab** card under **Available**, select **Install**. If
 | **Name** | Enter a label, such as `Acme GitHub`. You can use each name only once for each service |
 | **PAT** or **SSH** | Paste a **Personal Access Token**, or switch to **SSH** and paste an **SSH Private Key** |
 
-**Create a PAT** opens your provider's token page with the required scopes already selected. Scopes are the permissions the token grants. On GitHub, the scope is `repo`. On GitLab, the scopes are `read_api` and `read_repository`.
+**Create a PAT** opens your provider's token page with the required scopes already selected. Scopes are the permissions the token grants. On GitHub, the scope is `repo`. On GitLab, the scopes are `read_api` and `read_repository`. For your own GitLab server, fill in **GitLab Base URL** before you select **Create a PAT**, or the link opens `gitlab.com`.
 {% endstep %}
 
 {% step %}
 ## Save the connection
 
-Select **Save connection**. NeoHive checks the token with the service first. If the service rejects the token, NeoHive does not save it. If you already saved the same token or account, the form warns you. To keep both, select **Add anyway**.
+Select **Save connection**. If you already added the same token, or another connection uses the same account, the form shows a warning. To keep both, select **Add anyway**. NeoHive then checks the token with the service. If the service rejects the token, NeoHive does not save the connection.
 {% endstep %}
 {% endstepper %}
 
