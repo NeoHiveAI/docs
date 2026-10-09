@@ -20,9 +20,7 @@ NeoHive indexes a file only when the file passes all three checks in the followi
 
 The Blocklist wins over the Allowlist. Neither list can include a file that the built-in skip list removes.
 
-A new pattern affects only files from the next sync onward. The pattern does not remove files that the Index already holds, even after those files change or are deleted in the repository.
-
-Saving a change to either list makes the next sync re-read the whole repository, not only the files that changed.
+Saving a change to either list makes the next sync re-read the whole repository. That sync removes the files the new patterns exclude and adds the files they now include.
 
 ## Syntax
 
@@ -68,5 +66,5 @@ README.md
 You do not need `node_modules`, `dist`, `build`, `vendor`, `coverage`, lock files, or `.min.js` bundles in the Blocklist. The built-in skip list already removes them.
 
 {% hint style="info" %}
-The webhook refresh endpoint ignores your Allowlist and Blocklist. For details, see [How the webhook differs from a sync](webhooks.md#how-the-webhook-differs-from-a-sync).
+The webhook refresh endpoint applies the same Allowlist and Blocklist. For other differences, see [How the webhook differs from a sync](webhooks.md#how-the-webhook-differs-from-a-sync).
 {% endhint %}

@@ -55,7 +55,7 @@ The request body can be at most 100 KB. Base64 encoding makes each file about a 
 
 The webhook indexes the files it receives immediately, but it works differently from a scheduled sync or **Trigger sync**:
 
-- **The webhook ignores your file filters.** NeoHive still applies the built-in skip list, but not the Index's **Allowlist** or **Blocklist**. NeoHive indexes a file sent through the webhook even when your filters exclude it. To keep a file out of the Index, leave it out of the request.
+- **The webhook applies your file filters.** NeoHive applies the built-in skip list and the Index's **Allowlist** and **Blocklist**. A file your filters exclude is not indexed, and NeoHive removes any content it already holds for that file.
 - **The webhook does not start a sync.** **Sync history** shows no row for a webhook request. To see what a request did, read its response.
 
 For how the filters work, see [File pattern syntax](file-patterns.md).
@@ -71,7 +71,7 @@ A successful request returns counts like the following:
 | Field | Counts |
 |---|---|
 | `processed` | Files indexed, plus files removed with `"action": "deleted"` |
-| `skipped` | Files the built-in skip list excludes, files that look binary, and files sent with no content |
+| `skipped` | Files the built-in skip list or your file filters exclude, files that look binary, and files sent with no content |
 | `deleted` | Stored pieces removed, not files |
 | `errors` | One `{ "path", "error" }` entry per file that failed |
 
