@@ -4,11 +4,11 @@ description: "Push changed files to a Code or Documentation Index from a CI pipe
 
 # Webhook refresh endpoint
 
-Send changed files to NeoHive from your CI pipeline, so a Code or Documentation [Index](../concepts/glossary.md#index) updates seconds after a merge.
+Send changed files to NeoHive from your CI pipeline, so a [Code](../concepts/glossary.md#code-index) or [Documentation Index](../concepts/glossary.md#documentation-index) updates seconds after a merge.
 
-<figure><img src="../.gitbook/assets/reference-webhooks.svg" alt="Sequence of a webhook refresh. A CI job posts changed files to the Hive's webhook route. NeoHive checks X-Webhook-Secret and finds every Index that syncs the named repository. NeoHive then removes each path's old content, indexes the new content, and replies with counts."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/reference-webhooks.svg" alt="The diagram shows the sequence of a webhook refresh. A CI job posts changed files to the Hive's webhook route. NeoHive checks X-Webhook-Secret and finds every Index that syncs the named repository. NeoHive then removes each path's old content, indexes the new content, and replies with counts."><figcaption></figcaption></figure>
 
-Scheduled syncs already keep each [Code](../concepts/glossary.md#code-index) or [Documentation Index](../concepts/glossary.md#documentation-index) current. Use the webhook only when the wait for the next scheduled sync is too long. To set the schedule, see [Keep a repository up to date](../context/repositories/sync.md).
+Scheduled syncs already keep each Code or Documentation Index current. Use the webhook only when the wait for the next scheduled sync is too long. To set the schedule, see [Keep a repository up to date](../context/repositories/sync.md).
 
 ```text
 POST http://<host>:3577/hives/<hive-id>/webhook/refresh
@@ -41,7 +41,7 @@ Treat the secret like a database password. Keep the secret in your CI secret sto
 
 | Field | Required | Notes |
 |---|---|---|
-| `repo` | Yes | The repository URL exactly as the Index stores it, such as `https://github.com/acme/api`. `acme/api` alone does not match. |
+| `repo` | Yes | The repository URL exactly as the [Index](../concepts/glossary.md#index) stores it, such as `https://github.com/acme/api`. `acme/api` alone does not match. |
 | `sha` | Yes | The commit the files come from. |
 | `files[].path` | Yes | The file's path from the repository root. |
 | `files[].content_base64` | For added and changed files | The whole file, base64-encoded. |

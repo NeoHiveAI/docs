@@ -4,7 +4,7 @@ description: "Every Memory type NeoHive accepts, what each is for, and which one
 
 # Memory types
 
-Use this page to choose the `type` for a [Memory](../concepts/glossary.md#memory) you store with `memory_store`, or to filter `memory_recall` results with `types`.
+Every [Memory](../concepts/glossary.md#memory) has a type, such as `directive` or `decision`, that says what kind of knowledge it holds. The type also decides whether `memory_context` loads the Memory at the start of a task. Check the following table when you pick the `type` for a Memory you store with `memory_store`, or when you filter `memory_recall` results with `types`.
 
 In most cases, your agent chooses the type for you. The first five types cover almost everything a person stores manually.
 

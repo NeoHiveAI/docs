@@ -6,7 +6,7 @@ description: "What NeoHive keeps on your machine, every outbound connection it m
 
 NeoHive runs on your own machine or on a shared server for your team. NeoHive stores and searches your content there. The NeoHive container still connects to a few outside services, for example to check your license.
 
-An outbound connection is a request that NeoHive starts to another server. This page lists every outbound connection NeoHive makes, what each one sends, and which ones you can block. Use the list for a security review, or when you set up a firewall for the NeoHive server.
+An outbound connection is a request that NeoHive starts to another server. The following table lists each one, what it sends, and whether you can block it. Use the table for a security review, or when you set up a firewall for the NeoHive server.
 
 <figure><img src="../.gitbook/assets/security-local-only.svg" alt="Your content stays in the NeoHive container on your machine. Usage metrics never carry files, Memories, or recall queries. Arrows leave the machine for the license check, usage metrics, the update check, model downloads, your data sources, dashboard fonts, and your agent's own model provider."><figcaption></figcaption></figure>
 
@@ -18,7 +18,7 @@ An outbound connection is a request that NeoHive starts to another server. This 
 |---|---|---|---|---|
 | License check | `api.keygen.sh` | At start, once a day, about every hour as a heartbeat, and when the container stops. Also when you change or recheck your license key in the dashboard | Your license key, a random machine ID, and the container's platform and host name. The host name is the container's ID, not your computer's name | No. See the license warning later on this page |
 | Usage metrics | A Grafana Cloud OpenTelemetry endpoint | Every minute while usage metrics are turned on. They are on by default | Metrics and traces, described after this table | Yes. On the **Settings** page, under **Anonymous Telemetry**, turn off **Share anonymous performance data with the NeoHive team**. NeoHive keeps working |
-| Update check | `hub.docker.com` and `raw.githubusercontent.com` | A minute after start, then once a day. Also when you select **Check for updates now** in the dashboard | Nothing. The check reads the published version list and changelog | No setting exists. If you block both hosts, the dashboard stops showing new versions |
+| Update check | `hub.docker.com` and `raw.githubusercontent.com` | A minute after start, then once a day. Also when you select the refresh button in the **NeoHive updates** panel | Nothing. The check reads the published version list and changelog | No setting exists. If you block both hosts, the dashboard stops showing new versions |
 | Model download | `huggingface.co` | When an embedding model is not cached in the container yet. An update replaces the container, so the first use after an update downloads the model again. The PDF converter's models come with the container | Only the request for the file | No. The downloads stop once the model is cached |
 | Data sources | `github.com`, `api.github.com`, `gitlab.com`, or your own GitLab host. A connection with an SSH key uses SSH on port `22` | When you add a connection or an Index, on each sync, and when NeoHive checks a connection. Syncs also run on a schedule | Your stored token or SSH key, to authenticate | Yes. Remove the Index and its connection |
 

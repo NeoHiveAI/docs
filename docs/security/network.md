@@ -8,7 +8,7 @@ NeoHive runs as a server. Your agents and your browser reach NeoHive over the ne
 
 Other people may need NeoHive too, such as a teammate on your office network. You may also run an agent on a laptop outside that network. Each case needs a different setup.
 
-This page shows the right setup for each case. The page also shows how to put a proxy in front of NeoHive, and how each agent sends the proxy's credential.
+The right setup depends on who connects and from where. For access from outside your network, you put a proxy in front of NeoHive, and each agent sends that proxy a credential.
 
 <figure><img src="../.gitbook/assets/security-network.svg" alt="Agents outside send HTTPS with a credential to a reverse proxy or VPN. The proxy checks the credential and forwards plain HTTP to NeoHive on port 3577 inside the trusted network. A direct path to port 3577 is crossed out."><figcaption></figcaption></figure>
 
@@ -51,7 +51,7 @@ claude mcp add neohive 'https://neohive.example.com/hives/<hive-id>/mcp' \
   --header 'x-mcp-client: claude-code'
 ```
 
-The single quotes around the header write `${NEOHIVE_TOKEN}` into `.mcp.json` instead of the token itself. Claude Code fills in the token from your environment when it starts, so you can commit `.mcp.json` without the secret. Keep `NEOHIVE_TOKEN` exported where Claude Code runs. The hooks send it as `Authorization: Bearer $NEOHIVE_TOKEN`. The hooks find the endpoint only from an MCP server whose name contains `neohive`, and they use the first one they find. That server must be in the project's `.mcp.json` or in the user-level servers of `~/.claude.json`. The hooks do not find a server added with the default local scope, which is why the command uses `--scope project`.
+The single quotes around the header write `${NEOHIVE_TOKEN}` into `.mcp.json` instead of the token itself. Claude Code fills in the token from your environment when it starts, so you can commit `.mcp.json` without the secret. Keep `NEOHIVE_TOKEN` exported where Claude Code runs. The hooks send it as `Authorization: Bearer $NEOHIVE_TOKEN`. The command uses `--scope project` so that the hooks can find the server. For how the hooks find it, see [What the plugin does automatically](../results/plugin-automation.md#when-the-prompt-recall-adds-nothing).
 {% endtab %}
 
 {% tab title="Cursor" %}
@@ -63,13 +63,15 @@ Add the following entry to `.cursor/mcp.json`:
     "neohive": {
       "url": "https://neohive.example.com/hives/<hive-id>/mcp",
       "headers": {
-        "Authorization": "Bearer <your-token>",
+        "Authorization": "Bearer ${env:NEOHIVE_TOKEN}",
         "x-mcp-client": "cursor"
       }
     }
   }
 }
 ```
+
+Cursor fills in `${env:NEOHIVE_TOKEN}` from your environment when it loads the file, so `.cursor/mcp.json` holds no secret.
 {% endtab %}
 
 {% tab title="Codex" %}

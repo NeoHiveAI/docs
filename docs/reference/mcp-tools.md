@@ -4,7 +4,7 @@ description: "The MCP tools each NeoHive Hive exposes, with every parameter, typ
 
 # MCP tools
 
-A [Hive](../concepts/glossary.md#hive) is a NeoHive workspace that holds your [Indexes](../concepts/glossary.md#index). This page lists every tool your agent can call on a Hive, the parameters each tool takes, and what each tool returns.
+A [Hive](../concepts/glossary.md#hive) is a NeoHive workspace that holds your [Indexes](../concepts/glossary.md#index). Your agent works with a Hive through the following tools. Each entry gives the tool's parameters and what the tool returns.
 
 Each Hive serves these tools at its [MCP](../concepts/glossary.md#mcp) endpoint, `http://localhost:3577/hives/<hive-id>/mcp`, over Streamable HTTP.
 
