@@ -4,9 +4,9 @@ description: "Add, check, and remove the GitHub and GitLab connections that NeoH
 
 # Data sources and credentials
 
-This page explains how to add a GitHub or GitLab connection, check that it still works, and replace it without stopping sync.
+A connection is a saved login that lets NeoHive read repositories from one GitHub or GitLab account. [Code](../concepts/glossary.md#code-index) and [Documentation Indexes](../concepts/glossary.md#documentation-index) sync through a connection, so a connection that stops working stops their syncs too. Here you add a connection, check that it still works, and replace its token without a gap in syncing.
 
-A connection is a saved login that lets NeoHive read repositories from one account. [Code](../concepts/glossary.md#code-index) and [Documentation Indexes](../concepts/glossary.md#documentation-index) sync through a connection. An [Index](../concepts/glossary.md#index) is one store of searchable context inside a [Hive](../concepts/glossary.md#hive), the workspace your agent connects to. For more terms, see the [NeoHive glossary](../concepts/glossary.md).
+An [Index](../concepts/glossary.md#index) is one store of searchable context inside a [Hive](../concepts/glossary.md#hive), the workspace your agent connects to. For more terms, see the [NeoHive glossary](../concepts/glossary.md).
 
 To see your connections, open **Data Sources** at the bottom of the sidebar, or go to `http://localhost:3577/sources`.
 

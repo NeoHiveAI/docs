@@ -4,11 +4,11 @@ description: "A map of the NeoHive dashboard: its main screens, how you move bet
 
 # Dashboard tour
 
-This page explains where each screen of the dashboard is and what you do there. You use the dashboard to manage your [Hives](../concepts/glossary.md#hive) and [Indexes](../concepts/glossary.md#index). A Hive is the workspace your agent connects to, and an Index is one store of searchable context inside a Hive. For more terms, see the [NeoHive glossary](../concepts/glossary.md).
+The dashboard is the web app where you manage your [Hives](../concepts/glossary.md#hive) and [Indexes](../concepts/glossary.md#index), and it runs at `http://localhost:3577`. You open it to create a Hive, connect a repository, or see what your agents stored and searched. The map and the sections after it show where each screen is and what you do there.
 
-The dashboard runs at `http://localhost:3577`.
+A Hive is the workspace your agent connects to, and an Index is one store of searchable context inside a Hive. For more terms, see the [NeoHive glossary](../concepts/glossary.md).
 
-<figure><img src="../.gitbook/assets/admin-dashboard.svg" alt="Dashboard map. The Hives home screen is at /. Select a card to open a Hive page at /hives/hive-id. On a Hive page, select an Index row to open an Index page. New Hive opens Create Hive at /hives/new. Try in Playground on a Hive page opens /playground. Data Sources at /sources and Settings at /settings and /settings/license are at the bottom of the sidebar."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/admin-dashboard.svg" alt="The diagram maps the dashboard. The Hives home screen is at /. Select a card to open a Hive page at /hives/hive-id. On a Hive page, select an Index row to open an Index page. New Hive opens Create Hive at /hives/new. Try in Playground on a Hive page opens /playground. Data Sources at /sources and Settings at /settings and /settings/license are at the bottom of the sidebar."><figcaption></figcaption></figure>
 
 Two screens appear only while you set up NeoHive. **Welcome** at `/welcome` shows until you create your first Hive. The setup wizard is at `/setup`. To run the wizard again, select **Run setup wizard** in **Settings**.
 

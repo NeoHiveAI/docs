@@ -4,7 +4,7 @@ description: "How NeoHive finds your license, how to check its status, replace i
 
 # Licensing
 
-This page explains how to get a license and where the installer looks for it. It also shows how to check the license in the dashboard, and how to replace or move it.
+NeoHive needs a license to run. The installer reads the license when you install, and the dashboard shows the license's status. Come back to these steps when the license is close to expiring, or when you replace the license or move NeoHive to another machine.
 
 NeoHive needs a license file from the NeoHive team: a plain-text `license.key`, or a `license.json` holding the key. To get a license file, request one from the [NeoHive team](https://www.neohive.ai/download/). Save the file in the folder you run the installer from, and the installer finds it there.
 

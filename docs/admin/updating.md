@@ -4,11 +4,9 @@ description: "Update NeoHive to the latest release by re-running the installer. 
 
 # Update NeoHive
 
-An update replaces the NeoHive container with a new one that runs the latest release. Your data does not live inside the container. NeoHive keeps your data in the `neohive-data` Docker volume, and the new container starts on that same volume. Your [Hives](../concepts/glossary.md#hive), [Indexes](../concepts/glossary.md#index), and [Memories](../concepts/glossary.md#memory) stay in place.
+An update replaces the NeoHive container with a new one that runs the latest release. Your data does not live inside the container: NeoHive keeps it in the `neohive-data` Docker volume, and the new container starts on that same volume. Your [Hives](../concepts/glossary.md#hive), [Indexes](../concepts/glossary.md#index), and [Memories](../concepts/glossary.md#memory) stay in place.
 
-To update, run the same installer command that you used to install NeoHive. The dashboard tells you when a new release is out, but the dashboard does not install the release for you.
-
-This page shows how to spot a new release, take a backup, and run the update. The page also lists the settings you need to set again, because the installer does not remember them.
+To update, run the same installer command that you used to install NeoHive. The dashboard tells you when a new release is out, but the dashboard does not install the release for you. Take a backup first, and set again any installer settings you changed, because the installer does not remember them.
 
 <figure><img src="../.gitbook/assets/admin-updating.svg" alt="When you re-run the installer, it does six things in order. 1: it reads the license and reuses the cached key. 2: it checks the license with the licensing service. 3: it detects your hardware again. 4: it pulls the latest image for your hardware. 5: it stops the old container, which frees the license seat. This step waits up to 30 seconds. 6: it starts the new container on the same neohive-data volume and prints what is new."><figcaption></figcaption></figure>
 
@@ -38,7 +36,7 @@ A backup copies everything NeoHive stores into one archive. If the update fails,
 bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
 ```
 
-The installer reuses your cached license key. To use a different license, see [Replace your license](licensing.md#replace-your-license). On Apple Silicon, the installer also updates the Metal embedding worker and keeps downloaded models.
+The installer reuses your cached license key. To use a different license, see [Replace your license](licensing.md#replace-your-license). On Apple Silicon, the installer also updates the [Metal worker](../concepts/glossary.md#metal-worker) and keeps downloaded models. The Metal worker is the program that turns text into numbers for search on the Mac's GPU.
 {% endstep %}
 {% endstepper %}
 
@@ -50,7 +48,7 @@ The installer does not remember options from the last install. If you leave out 
 |---|---|
 | `NEOHIVE_PORT` | NeoHive runs on a port other than `3577` |
 | `NEOHIVE_BACKEND` | You forced a backend. See [GPU and CPU](gpu-cpu.md) |
-| `NEOHIVE_METAL_WORKER`, `NEOHIVE_METAL_WORKER_PORT` | You turned off or moved the Apple Silicon worker |
+| `NEOHIVE_METAL_WORKER`, `NEOHIVE_METAL_WORKER_PORT` | You turned off or moved the Metal worker |
 | `NEOHIVE_PDF_BRIDGE_TIMEOUT_MS`, `NEOHIVE_PDF_WARMUP_TIMEOUT_MS`, `NEOHIVE_CHUNKER_TIMEOUT_MS` | You gave large files more time |
 
 For example, the following command sets a different port and forces the CPU backend:

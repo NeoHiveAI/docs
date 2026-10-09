@@ -4,11 +4,9 @@ description: "How the NeoHive installer picks a GPU or CPU backend, how Apple Si
 
 # GPU and CPU
 
-This page explains which hardware backend NeoHive chooses on your machine, how to confirm it, and how to change it. The backend is the processor type that NeoHive runs its models on.
+NeoHive runs its models on a backend, which is the type of processor it uses, such as a GPU or the CPU. A GPU makes indexing large repositories faster. Day-to-day recall is fast on any backend, and the CPU backend runs on every machine. The installer chooses the backend for you. If indexing is slow or your GPU sits unused, confirm which backend the installer chose, and change the backend if needed.
 
-A GPU makes indexing large repositories faster. Day-to-day recall is fast on any backend. The CPU backend runs on every machine.
-
-<figure><img src="../.gitbook/assets/admin-gpu-cpu.svg" alt="The installer asks these questions in order and uses the first answer that is yes. Is the machine arm64 or aarch64: CPU, and Apple Silicon also gets the Metal worker. Does nvidia-smi work: if a test container can reach the GPU, CUDA, otherwise CPU with a toolkit warning. Does rocm-smi work: ROCm. Does vulkaninfo work: Vulkan. Otherwise CPU. If an image is missing, CUDA and ROCm fall back to Vulkan, then CPU. A backend forced with NEOHIVE_BACKEND never falls back."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/admin-gpu-cpu.svg" alt="The installer checks these conditions in order and uses the first one that is true. If the machine is arm64 or aarch64, NeoHive uses CPU, and Apple Silicon also gets the Metal worker. If nvidia-smi works and a test container can reach the GPU, NeoHive uses CUDA. If nvidia-smi works but the test fails, NeoHive uses CPU and shows a toolkit warning. If rocm-smi works, NeoHive uses ROCm. If vulkaninfo works, NeoHive uses Vulkan. Otherwise, NeoHive uses CPU. If an image is missing, CUDA and ROCm fall back to Vulkan, then CPU. A backend forced with NEOHIVE_BACKEND never falls back."><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 **Check:** To see which backend is running, run the following command:
@@ -22,7 +20,7 @@ The tag in the `IMAGE` column names the backend, for example `neohivedev/neohive
 
 ## Apple Silicon uses the GPU anyway
 
-Docker on a Mac cannot reach the GPU, so the container runs on CPU. On Apple Silicon, the installer also sets up a native worker, a program that runs directly on macOS. The worker runs embedding on the Mac's Metal GPU. Embedding is the step that turns text into numbers for search. With the worker, indexing is much faster.
+Docker on a Mac cannot reach the GPU, so the container runs on CPU. On Apple Silicon, the installer also sets up the [Metal worker](../concepts/glossary.md#metal-worker), a program that runs directly on macOS. The worker runs embedding on the Mac's Metal GPU. Embedding is the step that turns text into numbers for search. With the worker, indexing is much faster.
 
 - **The worker runs outside Docker,** from `~/.neohive/metal-worker/`, and starts again after a reboot.
 - **The worker listens on `127.0.0.1` only,** port `50051` by default, so other machines on your network cannot reach it.

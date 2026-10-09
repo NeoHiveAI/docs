@@ -4,7 +4,9 @@ description: "Archive, restore, delete, move, and share Hives and Indexes from t
 
 # Manage Hives and Indexes
 
-This page explains which action to use on a [Hive](../concepts/glossary.md#hive) or an [Index](../concepts/glossary.md#index), where to find the action, and whether you can undo it. A Hive is the workspace your agent connects to, and an Index is one store of searchable context inside a Hive. For more terms, see the [NeoHive glossary](../concepts/glossary.md).
+As your work changes, you tidy up your [Hives](../concepts/glossary.md#hive) and [Indexes](../concepts/glossary.md#index): you retire a Hive you no longer use, move an Index to another Hive, or let two Hives search one Index. You can undo some of these actions but not others, so check the following table before you act. The table shows each action, where to find it, and how to undo it.
+
+A Hive is the workspace your agent connects to, and an Index is one store of searchable context inside a Hive. For more terms, see the [NeoHive glossary](../concepts/glossary.md).
 
 | Action | Applies to | Where | Undo |
 |---|---|---|---|

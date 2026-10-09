@@ -4,15 +4,15 @@ description: "Back up a running NeoHive instance to a single archive, and restor
 
 # Backups and restore
 
-Take a backup of a running NeoHive in one command, and restore it when you need to.
+A backup is one archive of everything NeoHive stores. Take one before an update, and use it to recover your data or to move NeoHive to a new machine. The `backup.sh` script takes the backup while NeoHive keeps running, and the same script restores it.
 
-Everything NeoHive stores lives in the `neohive-data` Docker volume. That includes every [Hive, Index, and Memory](../concepts/glossary.md). The `backup.sh` script copies the whole volume into one archive while NeoHive keeps running.
+Everything NeoHive stores lives in the `neohive-data` Docker volume. That includes every [Hive](../concepts/glossary.md#hive), [Index](../concepts/glossary.md#index), and [Memory](../concepts/glossary.md#memory).
 
 <figure><img src="../.gitbook/assets/admin-backups.svg" alt="Backup: while NeoHive runs, backup.sh copies the neohive-data volume into neohive-backup-timestamp.tar.gz. The archive holds manifest.json, SHA256SUMS, and a data folder. Restore: backup.sh --restore works in four steps. First, it verifies every file, and a damaged archive changes nothing. Second, you confirm by typing neohive-data. Third, it stops NeoHive and replaces the volume contents. Fourth, it starts NeoHive again."><figcaption></figcaption></figure>
 
 | In the archive | Not in the archive |
 |---|---|
-| Every database: [Hives](../concepts/glossary.md#hive), [Indexes](../concepts/glossary.md#index), [Memories](../concepts/glossary.md#memory), connections, and sync history | The cached license key in `~/.cache/neohive` |
+| Every database: Hives, Indexes, Memories, connections, and sync history | The cached license key in `~/.cache/neohive` |
 | The search data of every Index, plus the local copies of your synced repositories | The license-seat file `machine-id` |
 | The keys that encrypt your saved GitHub and GitLab credentials | Apple Silicon models in `~/.neohive/models` |
 

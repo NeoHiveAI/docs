@@ -4,9 +4,9 @@ description: "Remove NeoHive from a machine, keeping or deleting your data, and 
 
 # Uninstall
 
-This page explains how to remove NeoHive from this machine, choose whether to delete your data, and clean up your agents.
+When you no longer want NeoHive on this machine, the uninstall script removes what the installer put there. You decide whether your data goes too. Your data is every [Hive](../concepts/glossary.md#hive), [Index](../concepts/glossary.md#index), and [Memory](../concepts/glossary.md#memory) on this machine, and the script keeps it unless you pass `--purge-data`. After the script runs, you disconnect your agents by hand.
 
-The uninstall script lists what it found and asks you to confirm once. Then the script removes what the installer put on this machine. The script keeps your data unless you pass `--purge-data`. Your data is every [Hive, Index, and Memory](../concepts/glossary.md) on this machine.
+The uninstall script lists what it found and asks you to confirm once.
 
 <figure><img src="../.gitbook/assets/admin-uninstall.svg" alt="Removed by uninstall.sh: the neohive container, stopped cleanly to free the license seat; ~/.cache/neohive/license-key; and the Metal worker on Apple Silicon. Kept, and removed only with --purge-data: the neohive-data volume with every Hive, Index, and Memory; ~/.cache/neohive/machine-id; and ~/.neohive models and logs. Removed manually, using steps the script prints: the agent plugin and each NeoHive MCP entry, one per Hive."><figcaption></figcaption></figure>
 
@@ -37,12 +37,12 @@ curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/uninstall.sh
 curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/uninstall.sh | bash
 ```
 
-If you install NeoHive again later, the new install finds your [Hives](../concepts/glossary.md#hive) as you left them.
+If you install NeoHive again later, the new install finds your Hives as you left them.
 {% endtab %}
 
 {% tab title="Delete everything" %}
 {% hint style="danger" %}
-Deleting the volume permanently removes every Hive, [Index](../concepts/glossary.md#index), and [Memory](../concepts/glossary.md#memory). You can get them back only from a backup. See [Backups and restore](backups.md).
+Deleting the volume permanently removes every Hive, Index, and Memory. You can get them back only from a backup. See [Backups and restore](backups.md).
 {% endhint %}
 
 ```bash
