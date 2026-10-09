@@ -4,7 +4,7 @@ description: "Definitions of the NeoHive terms and the less common technical ter
 
 # Glossary
 
-This page defines the terms that these docs use, in alphabetical order. It includes NeoHive's own terms, such as Hive and Index, and technical terms that may be new to you. To find a term, use the page outline or your browser's search. Older names for some terms are listed in [Older names](#older-names) at the end of the page.
+This page defines the terms that these docs use, in alphabetical order. It includes NeoHive's own terms, such as Hive and Index, and technical terms that may be new to you. To find a term, use the page outline or your browser's search. The [Older names](#older-names) section at the end of the page lists older names for some terms.
 
 ## A
 
@@ -154,7 +154,7 @@ Written in lowercase, "memory" means the general capability, as in "the plugin t
 
 ### Memory type
 
-The label on a [Memory](#memory), such as `directive`, `convention`, or `error_pattern`. The type decides which section of the recall reply the Memory appears in. See [Memory types](../reference/memory-types.md).
+The label on a [Memory](#memory), such as `directive`, `convention`, or `error_pattern`. The type decides which section of the `memory_context` reply the Memory appears in. See [Memory types](../reference/memory-types.md).
 
 ### Metal worker
 
@@ -240,7 +240,7 @@ Virtual private network, which connects your computer to a private network over 
 
 ### Webhook
 
-An address on your Hive that a continuous integration (CI) pipeline calls to send changed files to NeoHive. NeoHive indexes those files immediately, without waiting for the next sync. See [Webhook refresh endpoint](../reference/webhooks.md).
+An address on your Hive that a CI pipeline calls to send changed files to NeoHive. NeoHive indexes those files immediately, without waiting for the next sync. See [Webhook refresh endpoint](../reference/webhooks.md).
 
 ## Older names
 

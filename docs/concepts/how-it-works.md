@@ -4,7 +4,7 @@ description: "How your agent, the NeoHive plugin, and the NeoHive container fit 
 
 # How NeoHive works
 
-This page shows where each part of NeoHive runs, and how the parts connect.
+NeoHive has three parts: your coding agent, the NeoHive plugin that tells the agent when to use memory, and the NeoHive container that stores and searches your context. Each part runs in a different place. Knowing where each one runs and how the parts connect helps you set NeoHive up, and helps you find the cause when an agent cannot reach it.
 
 <figure><img src="../.gitbook/assets/how-it-works.svg" alt="The coding agent and its NeoHive plugin call the NeoHive container over MCP. The container holds a Hive with Code, Documentation, Files, and Knowledge Indexes. The container also pulls repositories from GitHub or GitLab and serves the dashboard to your browser."><figcaption></figcaption></figure>
 
@@ -26,7 +26,7 @@ Claude Desktop and other MCP apps have no plugin. They connect to the same MCP e
 
 When you send a prompt, a hook sends the prompt directly to `memory_recall` in the container. The hook then adds the results to the agent's context before the agent starts its answer. No hook runs when a session ends. To save what your agent learned in a session, run `/neohive:capture-session-learnings`.
 
-Cursor and Codex have no hooks. Instead, the plugin for Cursor and Codex installs a rule file. The rule file tells the agent to load context at the start of a session. The rule file also tells the agent to recall context before it searches files. [What the plugin does automatically](../results/plugin-automation.md) lists every hook and the switch that turns it off.
+Cursor and Codex have no hooks. Instead, the plugin for Cursor and Codex installs a [rules file](glossary.md#rules-file). The rules file tells the agent to load context at the start of a session. The rules file also tells the agent to recall context before it searches files. [What the plugin does automatically](../results/plugin-automation.md) lists every hook and the switch that turns it off.
 
 ## Repositories
 

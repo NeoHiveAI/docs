@@ -4,7 +4,7 @@ description: "What happens between your agent asking a question and NeoHive answ
 
 # How retrieval works
 
-This page explains what one recall does for your agent, and how you can influence the results.
+Recall is how your agent gets context from NeoHive while it works: matching code, docs, and [Memories](glossary.md#memory). You cannot change how NeoHive ranks the results, but you can change what your agent asks and where it looks. Knowing what one recall does shows you which of those choices improve the results.
 
 <figure><img src="../.gitbook/assets/concepts-retrieval.svg" alt="Three steps. Your agent calls memory_recall with a plain description. Every Index in the Hive finds matches: Code, Documentation, Files, Knowledge, and any Shared Index. One list comes back with whole sections from code, Memories, and docs."><figcaption></figcaption></figure>
 
@@ -18,7 +18,7 @@ A Memory's importance, from `1` to `10`, raises its rank.
 
 | Tool | Use it for |
 |---|---|
-| `memory_context` | The start of a task. `memory_context` returns the directives and conventions that match the task you describe. It also returns other [Memories](glossary.md#memory) and indexed content that match the task. |
+| `memory_context` | The start of a task. `memory_context` returns the directives and conventions that match the task you describe. It also returns other Memories and indexed content that match the task. |
 | `memory_recall` | A specific question in the middle of a task |
 
 Both tools search every Index in the Hive unless you name one Index.

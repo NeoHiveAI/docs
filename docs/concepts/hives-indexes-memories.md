@@ -4,11 +4,9 @@ description: "How NeoHive organizes your context: a Hive holds Indexes, and an I
 
 # Hives, Indexes, and Memories
 
-NeoHive organizes everything your agent can recall in three levels. A Hive is a workspace for one team or codebase. Each Hive holds Indexes, and each Index stores one kind of content, such as your code. A Memory is one lesson that your agent stores, such as a convention.
+NeoHive organizes everything your agent can recall in three levels. A Hive is a workspace for one codebase or team. Each Index in a Hive stores one kind of content, such as your code. A Memory is one lesson that your agent stores, such as a convention.
 
-The three levels decide what your agent searches and where the agent saves what it learns. Knowing the levels helps you decide where to put new content.
-
-This page explains each level and what a Memory contains. It also shows how one Hive can use an Index that another Hive owns.
+The levels decide what your agent searches and where the agent saves what it learns. Knowing the levels helps you decide where to put new content, and when one Hive should use an Index that another Hive owns.
 
 <figure><img src="../.gitbook/assets/hives-indexes-memories.svg" alt="A Hive with one MCP endpoint holds Code, Documentation, Files, and Knowledge Indexes, plus a Shared Index. memory_recall searches all of them; memory_store and memory_forget write only to the Hive's own Knowledge Index."><figcaption></figcaption></figure>
 
