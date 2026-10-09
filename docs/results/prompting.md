@@ -8,7 +8,7 @@ Recall is how your agent searches your [Hive](../concepts/glossary.md#hive), you
 
 Recall finds a stored [Memory](../concepts/glossary.md#memory), code, or a document by the words and meaning it shares with your query. A query that uses the same words as the answer finds the answer. A vague question shares few words with anything, so recall returns weak matches. [How retrieval works](../concepts/retrieval.md) explains how recall finds and ranks results.
 
-This page shows how to phrase prompts and queries so recall returns what you need. In short, write the query the way the answer would be written.
+To get strong matches, write each prompt and query the way the answer would be written. The examples that follow show how to phrase each kind of request so recall returns what you need.
 
 <figure><img src="../.gitbook/assets/results-prompting.svg" alt="Two queries against one stored Memory about batch processor retries. The question how do we handle errors shares few words and matches weakly. The statement error handling and retries in the async batch processor shares its words and matches strongly."><figcaption></figcaption></figure>
 

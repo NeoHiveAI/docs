@@ -6,7 +6,7 @@ description: "What happens at each stage of a working session with NeoHive, from
 
 A session is one conversation with your agent, from your first prompt until you close it. Your agent starts each session with no knowledge of your project. With NeoHive, your agent loads your team's context from your [Hive](../concepts/glossary.md#hive), your team's NeoHive workspace. Your agent also saves what you teach it, so the lesson comes back in later sessions.
 
-This page explains the four stages of a session. Each stage shows the tool your agent calls and what you type when a stage needs you. In Claude Code, the first two stages run automatically. You run the last two stages yourself.
+A session moves through four stages. For each stage, the steps that follow name the tool your agent calls and what you type when the stage needs you. In Claude Code, the first two stages run automatically, and you run the last two yourself.
 
 <figure><img src="../.gitbook/assets/results-a-session.svg" alt="One session in four stages: start calls memory_context, work calls memory_recall, teach calls memory_store, and capture runs capture-session-learnings before you close."><figcaption></figcaption></figure>
 

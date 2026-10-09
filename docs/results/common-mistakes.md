@@ -4,11 +4,11 @@ description: "Setups that raise no error but make recall worse, and how to fix e
 
 # Common mistakes to avoid
 
-This page lists setup choices and habits that make NeoHive's answers worse. None of the mistakes on this page shows an error message. NeoHive keeps working, but it returns weaker answers.
+Some setup choices and habits make NeoHive's answers worse without ever showing an error message. NeoHive keeps working, but it returns weaker answers, and because nothing fails, the mistake can go unnoticed.
 
-Your agent works only with the context that NeoHive returns. When an [Index](../concepts/glossary.md#index) covers the wrong files, the agent gets the wrong code. When a [Memory](../concepts/glossary.md#memory) is out of date, the agent repeats the old rule. Because nothing fails, these mistakes can go unnoticed.
+Your agent works only with the context that NeoHive returns. When an [Index](../concepts/glossary.md#index) covers the wrong files, the agent gets the wrong code. When a [Memory](../concepts/glossary.md#memory) is out of date, the agent repeats the old rule.
 
-Use this page when answers seem off but nothing is broken. Each row in the table names one mistake, what you notice, and how to fix it. The [Glossary](../concepts/glossary.md) defines the [Hive](../concepts/glossary.md#hive), Index, and Memory terms that this page uses.
+When answers seem off but nothing is broken, check the following table. Each row names one mistake, what you notice, and how to fix it. The [Glossary](../concepts/glossary.md) defines the [Hive](../concepts/glossary.md#hive), Index, and Memory terms used here.
 
 <figure><img src="../.gitbook/assets/results-common-mistakes.svg" alt="Three before and after pairs. Index description: Backend, versus Payments service: refunds, invoicing, and the Stripe webhook handlers. Hive layout: one Hive holds the payments service and an unrelated mobile app, versus one Hive per product. When needed, an Index is added to another Hive as a Shared Index. A fact changes: stating the new fact while the old Memory stays active, versus saying that's out of date, update it."><figcaption></figcaption></figure>
 
@@ -18,10 +18,10 @@ Use this page when answers seem off but nothing is broken. Each row in the table
 | **Unrelated codebases in one Hive** | Answers include code and conventions from another product. | Give each product its own Hive. To reuse an Index elsewhere, add it to the other Hive as a **Shared Index**. |
 | **Indexing everything the defaults allow** | Generated code, snapshot fixtures, and CSV or JSON data fill results that should show your source code. | Set an **Allowlist** for the folders you work in. Then set a **Blocklist** for files to leave out inside those folders. |
 | **Never correcting the agent** | The same wrong suggestion comes back in every session. | When your agent is wrong, say what is correct and why. |
-| **Stating a new fact without retiring the old one** | Your agent quotes the old rule as often as the new one. | Say "that's out of date" so your agent deactivates the old Memory. |
+| **Stating a new fact without retiring the old one** | Your agent quotes the old rule as often as the new one. | Say "that's out of date" so your agent deactivates the old Memory. See [Teach your agent as you work](teach.md). |
 | **One session across unrelated tasks** | Loaded context fits the task you started with, not the task you are working on now. | Start a new session, or run `/neohive:load-context` with the new task. |
 | **Skipping the end-of-session capture** | Your agent never recalls decisions from long sessions. | Run `/neohive:capture-session-learnings` before you close the session. |
-| **Wrong MCP server name or scope** | In Claude Code, prompts stop adding context automatically. Tool calls still work. | Keep `neohive` in the server name. Add the server with `--scope project`, from your project's root folder. See [What the plugin does automatically](plugin-automation.md). |
+| **Wrong [MCP](../concepts/glossary.md#mcp) server name or scope** | In Claude Code, prompts stop adding context automatically. Tool calls still work. | Keep `neohive` in the server name. Add the server with `--scope project`, from your project's root folder. See [What the plugin does automatically](plugin-automation.md). |
 
 ## What NeoHive already skips
 

@@ -8,7 +8,7 @@ A [Hive](../concepts/glossary.md#hive) is your team's workspace in NeoHive. The 
 
 Your agent searches the Hive on its own when its rules tell it to. You can also ask your agent directly what the Hive knows. Ask before your agent writes any code. Your agent then starts from your team's decisions and known problems, instead of guessing.
 
-This page lists questions to ask and the tool your agent calls for each one. The page also shows how to narrow a question to one kind of Memory or one [Index](../concepts/glossary.md#index).
+The following table pairs common questions with the tool your agent calls for each one. To narrow a question to one kind of Memory or one [Index](../concepts/glossary.md#index), see [Narrow the ask](#narrow-the-ask).
 
 | You want | Ask something like | Your agent calls |
 |---|---|---|
