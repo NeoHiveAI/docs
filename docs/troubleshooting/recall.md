@@ -4,7 +4,7 @@ description: "What to check when your agent's NeoHive recall comes back empty or
 
 # Recall isn't finding what I need
 
-Use this page to find out why a recall (a search of your stored knowledge) missed. Then fix the query or the content behind it.
+A recall is your agent's search of the knowledge NeoHive stores. When a recall comes back empty or misses what you expected, the cause is usually the query's wording or the content behind it. Each cause on this page comes with a fix.
 
 Check the causes in the following table in order. The first two are the quickest to fix.
 
@@ -39,7 +39,7 @@ You can recall a stored Memory as soon as `memory_store` replies.
 
 ## Check the file was indexed
 
-Open the Index's **Sync Settings** tab and read the **Allowlist** and **Blocklist**. NeoHive never indexes a file outside the Allowlist or inside the Blocklist. NeoHive also always skips some files. For the pattern rules and the files that are always skipped, see [File pattern syntax](../reference/file-patterns.md).
+Open the Index's **Sync Settings** tab and read the **Allowlist** and **Blocklist**. NeoHive never indexes a file outside the Allowlist or inside the Blocklist. NeoHive also always skips some files. For the pattern rules, see [File pattern syntax](../reference/file-patterns.md). For the files NeoHive always skips, see [Supported file types](../reference/file-types.md).
 
 ## Check the Hive and the sync
 
