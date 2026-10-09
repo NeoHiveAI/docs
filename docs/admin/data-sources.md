@@ -80,6 +80,6 @@ To replace a token without a gap in syncing, do the following:
 6. Delete the old connection.
 7. Revoke the old token with the provider.
 
-The Indexes now sync through the new connection. The next sync writes the new token into each Index's clone.
+The Indexes now sync through the new connection.
 
 To learn how NeoHive stores these secrets, see [Credentials and secrets](../security/credentials.md).

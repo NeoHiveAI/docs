@@ -10,9 +10,9 @@ This page explains what one recall does for your agent, and how you can influenc
 
 Your agent does not search for file names or read files from top to bottom. Instead, your agent describes what it needs. NeoHive then finds context that matches the meaning of that description. An exact function name or error code in the query still finds the text that contains it.
 
-When a small part of a file matches, NeoHive returns the whole section that contains it. Your agent then has enough text to act on. NeoHive returns results from every [Index](glossary.md#index) in your [Hive](glossary.md#hive) together in one ranked list. Results from an Index with strong matches rank above results from an Index with weak matches.
+When a small part of a file matches, NeoHive returns the whole section that contains it. Your agent then has enough text to act on. NeoHive returns results from every [Index](glossary.md#index) in your [Hive](glossary.md#hive) together in one ranked list.
 
-Memories also rank by how your team uses them. Each time recall returns a Memory, that Memory ranks a little higher next time. A Memory that nobody recalls for a while slowly ranks lower. NeoHive does not delete it, so the Memory still comes back when a query matches it closely. A Memory's importance, from `1` to `10`, also raises its rank.
+A Memory's importance, from `1` to `10`, raises its rank.
 
 ## Two ways to ask
 

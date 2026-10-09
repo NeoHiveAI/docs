@@ -31,5 +31,5 @@ In most cases, your agent chooses the type for you. The first five types cover a
 Every Memory also has an importance from `1` (trivial) to `10` (critical). `memory_store` defaults to `5`. Higher importance helps a Memory rank higher. Use `8` and above only for rules that must not be missed.
 
 {% hint style="info" %}
-When NeoHive indexes a file, it gives each piece of the file a type and an importance. The choice depends on the piece's wording. A piece with words like "always", "never", "must", "prefer", or "avoid" becomes a `directive` with importance `8` or more. As a result, a stray "never" in a README can appear as a rule.
+NeoHive also gives each indexed piece of a file a type and an importance, based on its wording. Indexed text that reads like a rule, such as a sentence with "never" in a README, can come back from `memory_recall` and `memory_context` as a `directive`.
 {% endhint %}
