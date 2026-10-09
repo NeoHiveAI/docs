@@ -1,0 +1,32 @@
+---
+description: "Setups that raise no error but make recall worse, and how to fix each one."
+---
+
+# Common mistakes to avoid
+
+Some setup choices and habits make NeoHive's answers worse without ever showing an error message. NeoHive keeps working, but it returns weaker answers, and because nothing fails, the mistake can go unnoticed.
+
+Your agent works only with the context that NeoHive returns. When an [Index](../concepts/glossary.md#index) covers the wrong files, the agent gets the wrong code. When a [Memory](../concepts/glossary.md#memory) is out of date, the agent repeats the old rule.
+
+When answers seem off but nothing is broken, check the following table. Each row names one mistake, what you notice, and how to fix it. The [Glossary](../concepts/glossary.md) defines the [Hive](../concepts/glossary.md#hive), Index, and Memory terms used here.
+
+<figure><img src="../.gitbook/assets/results-common-mistakes.svg" alt="Three before and after pairs. Index description: Backend, versus Payments service: refunds, invoicing, and the Stripe webhook handlers. Hive layout: one Hive holds the payments service and an unrelated mobile app, versus one Hive per product. When needed, an Index is added to another Hive as a Shared Index. A fact changes: stating the new fact while the old Memory stays active, versus saying that's out of date, update it."><figcaption></figcaption></figure>
+
+| Mistake | What you notice | Fix |
+|---|---|---|
+| **Index with an empty or vague description** | Your agent searches the wrong Index, or every Index, when you ask about one area. | On the Index page, fill in **Description** under **Index settings**. Your agent reads the description in `list_indexes`. |
+| **Unrelated codebases in one Hive** | Answers include code and conventions from another product. | Give each product its own Hive. To reuse an Index elsewhere, add it to the other Hive as a **Shared Index**. |
+| **Indexing everything the defaults allow** | Generated code, snapshot fixtures, and CSV or JSON data fill results that should show your source code. | Set an **Allowlist** for the folders you work in. Then set a **Blocklist** for files to leave out inside those folders. |
+| **Never correcting the agent** | The same wrong suggestion comes back in every session. | When your agent is wrong, say what is correct and why. |
+| **Stating a new fact without retiring the old one** | Your agent quotes the old rule as often as the new one. | Say "that's out of date" so your agent deactivates the old Memory. See [Teach your agent as you work](teach.md). |
+| **One session across unrelated tasks** | Loaded context fits the task you started with, not the task you are working on now. | Start a new session, or run `/neohive:load-context` with the new task. |
+| **Skipping the end-of-session capture** | Your agent never recalls decisions from long sessions. | Run `/neohive:capture-session-learnings` before you close the session. |
+| **Wrong [MCP](../concepts/glossary.md#mcp) server name or scope** | In Claude Code, prompts stop adding context automatically. Tool calls still work. | Keep `neohive` in the server name. Add the server with `--scope project`, from your project's root folder. See [What the plugin does automatically](plugin-automation.md). |
+
+## What NeoHive already skips
+
+NeoHive always skips dependency and build folders, lock files, minified bundles, and binary files, so you do not need to block them. For the full list, see [Files in a repository](../reference/file-types.md#files-in-a-repository). To write your own allowlist and blocklist patterns, see [Choose which files are included](../context/repositories/file-patterns.md).
+
+{% hint style="info" %}
+If you see an actual error, such as a failed sync or a tool your agent cannot find, see [Common errors](../troubleshooting/common-errors.md).
+{% endhint %}

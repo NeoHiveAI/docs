@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1000" height="460" viewBox="0 0 1000 460" font-family="'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap');
+    .mono { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .lbl { font-size: 10.5px; font-weight: 700; letter-spacing: 1.1px; }
+    .body { font-size: 12px; fill: #4A4458; }
+    .title { font-size: 15px; font-weight: 700; fill: #1A1A2E; }
+    .al { font-size: 11px; font-weight: 600; }
+  </style>
+  <defs>
+    <marker id="arv" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#7C3AED"/></marker>
+    <marker id="art" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#009689"/></marker>
+    <marker id="ara" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#BB4D00"/></marker>
+    <marker id="arm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#737373"/></marker>
+    <marker id="aro" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#C084FC"/></marker>
+    <marker id="arl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#A78BFA"/></marker>
+    <marker id="ari" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#1A1A2E"/></marker>
+  </defs>
+  <rect width="1000" height="460" fill="#FAF9FD"/>
+  <!-- Header. Logo paths copied verbatim from refactor-docs-install-page.svg. -->
+  <g transform="translate(40,26) scale(0.0793)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
+  <text x="88" y="52" font-size="24" font-weight="800" letter-spacing="-0.5" fill="#1A1A2E">Dashboard map</text>
+  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#7008E7">THE MAIN SCREENS AND THE CLICK THAT TAKES YOU BETWEEN THEM</text>
+  <line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>
+  <rect x="40" y="124" width="247" height="110" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="56" y="146" class="lbl" fill="#7C3AED">HOME</text>
+  <text x="56" y="168" class="title">Hives</text>
+  <text x="56" y="187" class="mono" font-size="11.5" fill="#7008E7">/</text>
+  <text x="56" y="204" class="body">Every Hive as a card, with totals</text>
+  <rect x="377" y="124" width="247" height="110" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="393" y="146" class="lbl" fill="#7C3AED">HIVE</text>
+  <text x="393" y="168" class="title">Hive page</text>
+  <text x="393" y="187" class="mono" font-size="11.5" fill="#7008E7">/hives/&lt;hive-id&gt;</text>
+  <text x="393" y="204" class="body">Install Instructions, Indexes,</text>
+  <text x="393" y="220" class="body">activity, tool usage</text>
+  <rect x="713" y="124" width="247" height="110" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="729" y="146" class="lbl" fill="#7C3AED">INDEX</text>
+  <text x="729" y="168" class="title">Index page</text>
+  <text x="729" y="187" class="mono" font-size="10.5" fill="#7008E7">/hives/&lt;id&gt;/index/&lt;index-id&gt;</text>
+  <text x="729" y="204" class="body">Showcase, Files, Sync Settings,</text>
+  <text x="729" y="220" class="body">Index Info tabs</text>
+  <path d="M287 179 L373 179" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arv)"/>
+  <text x="330" y="170" class="al" text-anchor="middle" style="fill:#7C3AED">click a card</text>
+  <path d="M624 179 L709 179" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arv)"/>
+  <text x="667" y="170" class="al" text-anchor="middle" style="fill:#7C3AED">click a row</text>
+  <rect x="40" y="300" width="205" height="100" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="56" y="322" class="title">Create Hive</text>
+  <text x="56" y="341" class="mono" font-size="11.5" fill="#7008E7">/hives/new</text>
+  <text x="56" y="358" class="body">New Hive card or sidebar</text>
+  <rect x="278" y="300" width="205" height="100" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="294" y="322" class="title">Playground</text>
+  <text x="294" y="341" class="mono" font-size="11.5" fill="#7008E7">/playground</text>
+  <text x="294" y="358" class="body">Try read-only MCP tools</text>
+  <rect x="516" y="300" width="205" height="100" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="532" y="322" class="title">Data Sources</text>
+  <text x="532" y="341" class="mono" font-size="11.5" fill="#7008E7">/sources</text>
+  <text x="532" y="358" class="body">GitHub and GitLab logins</text>
+  <rect x="754" y="300" width="206" height="100" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="770" y="322" class="title">Settings</text>
+  <text x="770" y="341" class="mono" font-size="11.5" fill="#7008E7">/settings</text>
+  <text x="770" y="358" class="mono" font-size="11.5" fill="#7008E7">/settings/license</text>
+  <text x="770" y="375" class="body">License, telemetry, setup</text>
+  <path d="M142 234 L142 296" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arv)"/>
+  <text x="152" y="270" class="al" style="fill:#7C3AED">New Hive</text>
+  <path d="M470 234 L400 296" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arv)"/>
+  <text x="454" y="270" class="al" style="fill:#7C3AED">Try in Playground</text>
+  <text x="40" y="436" class="body" font-size="12.5">Playground is a header tab, and Data Sources and Settings sit at the bottom of the sidebar, so all three are one click from any screen.</text>
+</svg>

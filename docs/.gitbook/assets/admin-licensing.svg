@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1000" height="500" viewBox="0 0 1000 500" font-family="'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap');
+    .mono { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .lbl { font-size: 10.5px; font-weight: 700; letter-spacing: 1.1px; }
+    .body { font-size: 12px; fill: #4A4458; }
+    .title { font-size: 15px; font-weight: 700; fill: #1A1A2E; }
+    .al { font-size: 11px; font-weight: 600; }
+  </style>
+  <defs>
+    <marker id="arv" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#7C3AED"/></marker>
+    <marker id="art" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#009689"/></marker>
+    <marker id="ara" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#BB4D00"/></marker>
+    <marker id="arm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#737373"/></marker>
+    <marker id="aro" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#C084FC"/></marker>
+    <marker id="arl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#A78BFA"/></marker>
+    <marker id="ari" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#1A1A2E"/></marker>
+  </defs>
+  <rect width="1000" height="500" fill="#FAF9FD"/>
+  <!-- Header. Logo paths copied verbatim from refactor-docs-install-page.svg. -->
+  <g transform="translate(40,26) scale(0.0793)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
+  <text x="88" y="52" font-size="24" font-weight="800" letter-spacing="-0.5" fill="#1A1A2E">Where the installer finds your license</text>
+  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#7008E7">IT CHECKS THESE IN ORDER AND USES THE FIRST ONE IT FINDS</text>
+  <line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>
+  <rect x="40" y="116" width="480" height="54" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <circle cx="66" cy="143" r="11" fill="#7C3AED"/>
+  <text x="66" y="147.5" font-size="12" font-weight="700" text-anchor="middle" fill="#FFFFFF">1</text>
+  <text x="88" y="139" class="body mono" style="fill:#1A1A2E" font-size="13" font-weight="600">--license-file &lt;path&gt;</text>
+  <text x="88" y="157" class="body">flag on the install command, or -l</text>
+  <path d="M280 170 L280 182" fill="none" stroke="#737373" stroke-width="2" marker-end="url(#arm)"/>
+  <path d="M520 143 L656 260" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arv)"/>
+  <rect x="40" y="186" width="480" height="54" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <circle cx="66" cy="213" r="11" fill="#7C3AED"/>
+  <text x="66" y="217.5" font-size="12" font-weight="700" text-anchor="middle" fill="#FFFFFF">2</text>
+  <text x="88" y="209" class="body mono" style="fill:#1A1A2E" font-size="13" font-weight="600">NEOHIVE_LICENSE_FILE</text>
+  <text x="88" y="227" class="body">environment variable</text>
+  <path d="M280 240 L280 252" fill="none" stroke="#737373" stroke-width="2" marker-end="url(#arm)"/>
+  <path d="M520 213 L656 275" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arv)"/>
+  <rect x="40" y="256" width="480" height="54" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <circle cx="66" cy="283" r="11" fill="#7C3AED"/>
+  <text x="66" y="287.5" font-size="12" font-weight="700" text-anchor="middle" fill="#FFFFFF">3</text>
+  <text x="88" y="279" class="body mono" style="fill:#1A1A2E" font-size="13" font-weight="600">license.json or license.key</text>
+  <text x="88" y="297" class="body">in the folder you run the installer from</text>
+  <path d="M280 310 L280 322" fill="none" stroke="#737373" stroke-width="2" marker-end="url(#arm)"/>
+  <path d="M520 283 L656 290" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arv)"/>
+  <rect x="40" y="326" width="480" height="54" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <circle cx="66" cy="353" r="11" fill="#7C3AED"/>
+  <text x="66" y="357.5" font-size="12" font-weight="700" text-anchor="middle" fill="#FFFFFF">4</text>
+  <text x="88" y="349" class="body mono" style="fill:#1A1A2E" font-size="13" font-weight="600">~/.cache/neohive/license-key</text>
+  <text x="88" y="367" class="body">cached by an earlier install</text>
+  <path d="M280 380 L280 392" fill="none" stroke="#737373" stroke-width="2" marker-end="url(#arm)"/>
+  <path d="M520 353 L656 305" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arv)"/>
+  <rect x="40" y="396" width="480" height="54" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <circle cx="66" cy="423" r="11" fill="#7C3AED"/>
+  <text x="66" y="427.5" font-size="12" font-weight="700" text-anchor="middle" fill="#FFFFFF">5</text>
+  <text x="88" y="419" class="body" style="fill:#1A1A2E" font-size="13" font-weight="600">Prompt for a file path</text>
+  <text x="88" y="437" class="body">only in an interactive terminal</text>
+  <path d="M520 423 L656 320" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arv)"/>
+  <text x="300" y="181.5" class="al" font-size="10" style="fill:#737373">not found: next</text>
+  <rect x="660" y="200" width="300" height="150" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="676" y="222" class="lbl" fill="#7C3AED">THEN</text>
+  <text x="676" y="244" class="title">Check with the licensing service</text>
+  <text x="676" y="263" class="body">Accepted: key cached, install goes on.</text>
+  <text x="676" y="279" class="body">Rejected: cache cleared, and in a</text>
+  <text x="676" y="295" class="body">terminal you are asked for another</text>
+  <text x="676" y="311" class="body">file, up to three tries.</text>
+  <text x="40" y="484" class="body" font-size="12.5">A raw key in NEOHIVE_LICENSE_KEY skips all five. NEOHIVE_ROTATE_LICENSE=1 skips 3 and 4.</text>
+</svg>

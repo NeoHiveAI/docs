@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1000" height="360" viewBox="0 0 1000 360" font-family="'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap');
+    .mono { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .lbl { font-size: 11px; font-weight: 700; letter-spacing: 1.1px; }
+    .body { font-size: 12.5px; fill: #4A4458; }
+    .title { font-size: 15px; font-weight: 700; fill: #1A1A2E; }
+  </style>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#7C3AED"/></marker>
+    <marker id="arrT" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#009689"/></marker>
+    <marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#BB4D00"/></marker>
+  </defs>
+  <rect width="1000" height="360" fill="#FAF9FD"/>
+  <!-- Header. Logo paths copied verbatim from refactor-docs-install-page.svg. -->
+  <g transform="translate(40,26) scale(0.0793)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
+  <text x="88" y="52" font-size="24" font-weight="800" letter-spacing="-0.5" fill="#1A1A2E">A session, start to finish</text>
+  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#7008E7">FOUR STAGES · TWO RUN ON THEIR OWN IN CLAUDE CODE, TWO ARE YOURS</text>
+  <line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>
+  <line x1="120" y1="140" x2="880" y2="140" stroke="#D9D4E6" stroke-width="2"/>
+  <circle cx="147.5" cy="140" r="18" fill="#7C3AED"/>
+  <text x="147.5" y="146" font-size="16" font-weight="700" text-anchor="middle" fill="#FFFFFF">1</text>
+  <rect x="40" y="176" width="215" height="160" rx="12" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <text x="58" y="202" class="lbl" fill="#7C3AED">START</text>
+  <text x="237" y="202" font-size="10" font-weight="700" letter-spacing="0.8" text-anchor="end" fill="#009689">AUTOMATIC</text>
+  <text x="58" y="228" class="title">Session opens</text>
+  <text x="58" y="252" class="body">Plugin reminds your agent</text>
+  <text x="58" y="270" class="body">to load context for the task</text>
+  <rect x="58" y="290" width="179" height="28" rx="6" fill="#F5F3FF" stroke="#DDD6FF"/>
+  <text x="147.5" y="308" font-size="11" class="mono" text-anchor="middle" fill="#7008E7">memory_context</text>
+  <circle cx="382.5" cy="140" r="18" fill="#7C3AED"/>
+  <text x="382.5" y="146" font-size="16" font-weight="700" text-anchor="middle" fill="#FFFFFF">2</text>
+  <rect x="275" y="176" width="215" height="160" rx="12" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <text x="293" y="202" class="lbl" fill="#7C3AED">WORK</text>
+  <text x="472" y="202" font-size="10" font-weight="700" letter-spacing="0.8" text-anchor="end" fill="#009689">AUTOMATIC</text>
+  <text x="293" y="228" class="title">Each prompt you send</text>
+  <text x="293" y="252" class="body">Plugin adds the best matches;</text>
+  <text x="293" y="270" class="body">agent recalls more as needed</text>
+  <rect x="293" y="290" width="179" height="28" rx="6" fill="#F5F3FF" stroke="#DDD6FF"/>
+  <text x="382.5" y="308" font-size="11" class="mono" text-anchor="middle" fill="#7008E7">memory_recall</text>
+  <circle cx="617.5" cy="140" r="18" fill="#7C3AED"/>
+  <text x="617.5" y="146" font-size="16" font-weight="700" text-anchor="middle" fill="#FFFFFF">3</text>
+  <rect x="510" y="176" width="215" height="160" rx="12" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <text x="528" y="202" class="lbl" fill="#7C3AED">TEACH</text>
+  <text x="707" y="202" font-size="10" font-weight="700" letter-spacing="0.8" text-anchor="end" fill="#BB4D00">YOU DO THIS</text>
+  <text x="528" y="228" class="title">You correct it</text>
+  <text x="528" y="252" class="body">Say what is right and why;</text>
+  <text x="528" y="270" class="body">agent stores it for everyone</text>
+  <rect x="528" y="290" width="179" height="28" rx="6" fill="#F5F3FF" stroke="#DDD6FF"/>
+  <text x="617.5" y="308" font-size="11" class="mono" text-anchor="middle" fill="#7008E7">memory_store</text>
+  <circle cx="852.5" cy="140" r="18" fill="#7C3AED"/>
+  <text x="852.5" y="146" font-size="16" font-weight="700" text-anchor="middle" fill="#FFFFFF">4</text>
+  <rect x="745" y="176" width="215" height="160" rx="12" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <text x="763" y="202" class="lbl" fill="#7C3AED">CAPTURE</text>
+  <text x="942" y="202" font-size="10" font-weight="700" letter-spacing="0.8" text-anchor="end" fill="#BB4D00">YOU DO THIS</text>
+  <text x="763" y="228" class="title">Before you close</text>
+  <text x="763" y="252" class="body">You run the skill; it saves</text>
+  <text x="763" y="270" class="body">up to five new Memories</text>
+  <rect x="763" y="290" width="179" height="28" rx="6" fill="#F5F3FF" stroke="#DDD6FF"/>
+  <text x="852.5" y="308" font-size="10.5" class="mono" text-anchor="middle" fill="#7008E7">capture-session-learnings</text>
+</svg>

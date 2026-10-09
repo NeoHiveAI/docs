@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1000" height="472" viewBox="0 0 1000 472" font-family="'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap');
+    .mono { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .lbl { font-size: 11px; font-weight: 700; letter-spacing: 1.1px; }
+    .body { font-size: 12.5px; fill: #4A4458; }
+    .title { font-size: 15px; font-weight: 700; fill: #1A1A2E; }
+  </style>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#7C3AED"/></marker>
+    <marker id="arrG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#008236"/></marker>
+    <marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#BB4D00"/></marker>
+  </defs>
+  <rect width="1000" height="472" fill="#FAF9FD"/>
+  <!-- Header. Logo paths copied verbatim from refactor-docs-install-page.svg. -->
+  <g transform="translate(40,26) scale(0.0793)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
+  <text x="88" y="52" font-size="24" font-weight="800" letter-spacing="-0.5" fill="#1A1A2E">Common mistakes to avoid</text>
+  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#7008E7">NO ERROR MESSAGE, JUST WEAKER ANSWERS · BEFORE AND AFTER THE FIX</text>
+  <line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>
+  <text x="258" y="128" class="lbl" fill="#BB4D00">BEFORE: RECALL GETS WORSE</text>
+  <text x="632" y="128" class="lbl" fill="#008236">AFTER: RECALL FINDS THE RIGHT THING</text>
+  <text x="40" y="195.0" font-size="13.5" font-weight="700" fill="#1A1A2E">Index description</text>
+  <rect x="236" y="144" width="340" height="92" rx="12" fill="#FFFFFF" stroke="#FFE1B2"/>
+  <rect x="236" y="144" width="3.5" height="92" rx="1.75" fill="#BB4D00"/>
+  <text x="258" y="195.0" font-size="13" fill="#1A1A2E">Backend</text>
+  <rect x="610" y="144" width="350" height="92" rx="12" fill="#FFFFFF" stroke="#BFF2D3"/>
+  <rect x="610" y="144" width="3.5" height="92" rx="1.75" fill="#008236"/>
+  <text x="632" y="184" font-size="13" fill="#1A1A2E">Payments service: refunds, invoicing,</text>
+  <text x="632" y="206" font-size="13" fill="#1A1A2E">and the Stripe webhook handlers</text>
+  <line x1="580" y1="190.0" x2="604" y2="190.0" stroke="#008236" stroke-width="2" marker-end="url(#arrG)"/>
+  <text x="40" y="301.0" font-size="13.5" font-weight="700" fill="#1A1A2E">Hive layout</text>
+  <rect x="236" y="250" width="340" height="92" rx="12" fill="#FFFFFF" stroke="#FFE1B2"/>
+  <rect x="236" y="250" width="3.5" height="92" rx="1.75" fill="#BB4D00"/>
+  <text x="258" y="290" font-size="13" fill="#1A1A2E">One Hive holds the payments service</text>
+  <text x="258" y="312" font-size="13" fill="#1A1A2E">and an unrelated mobile app</text>
+  <rect x="610" y="250" width="350" height="92" rx="12" fill="#FFFFFF" stroke="#BFF2D3"/>
+  <rect x="610" y="250" width="3.5" height="92" rx="1.75" fill="#008236"/>
+  <text x="632" y="290" font-size="13" fill="#1A1A2E">One Hive per product; share an Index</text>
+  <text x="632" y="312" font-size="13" fill="#1A1A2E">into another Hive when you need it</text>
+  <line x1="580" y1="296.0" x2="604" y2="296.0" stroke="#008236" stroke-width="2" marker-end="url(#arrG)"/>
+  <text x="40" y="407.0" font-size="13.5" font-weight="700" fill="#1A1A2E">A fact changes</text>
+  <rect x="236" y="356" width="340" height="92" rx="12" fill="#FFFFFF" stroke="#FFE1B2"/>
+  <rect x="236" y="356" width="3.5" height="92" rx="1.75" fill="#BB4D00"/>
+  <text x="258" y="396" font-size="13" fill="#1A1A2E">"We use Postgres for sessions now."</text>
+  <text x="258" y="418" font-size="13" fill="#1A1A2E">The old Redis Memory stays active.</text>
+  <rect x="610" y="356" width="350" height="92" rx="12" fill="#FFFFFF" stroke="#BFF2D3"/>
+  <rect x="610" y="356" width="3.5" height="92" rx="1.75" fill="#008236"/>
+  <text x="632" y="396" font-size="13" fill="#1A1A2E">"That's out of date. We use Postgres</text>
+  <text x="632" y="418" font-size="13" fill="#1A1A2E">for sessions now. Update it."</text>
+  <line x1="580" y1="402.0" x2="604" y2="402.0" stroke="#008236" stroke-width="2" marker-end="url(#arrG)"/>
+</svg>

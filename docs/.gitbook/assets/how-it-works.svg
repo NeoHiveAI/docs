@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1000" height="580" viewBox="0 0 1000 580" font-family="'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap');
+    .mono { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .lbl { font-size: 11px; font-weight: 700; letter-spacing: 1.1px; }
+    .body { font-size: 12.5px; fill: #4A4458; }
+    .title { font-size: 16px; font-weight: 700; fill: #1A1A2E; }
+  </style>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#7C3AED"/></marker>
+    <marker id="arrT" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#009689"/></marker>
+  </defs>
+  <rect width="1000" height="580" fill="#FAF9FD"/>
+
+  <!-- Header. Logo paths copied verbatim from refactor-docs-install-page.svg. -->
+  <g transform="translate(40,26) scale(0.0793)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
+  <text x="88" y="52" font-size="24" font-weight="800" letter-spacing="-0.5" fill="#1A1A2E">How NeoHive works</text>
+  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#7008E7">YOUR AGENT TALKS MCP TO ONE LOCAL CONTAINER THAT HOLDS YOUR CONTEXT</text>
+  <line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>
+
+  <!-- Left: the agent and its plugin -->
+  <rect x="40" y="116" width="310" height="390" rx="12" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <text x="62" y="144" class="lbl" fill="#7C3AED">YOUR EDITOR OR TERMINAL</text>
+  <text x="62" y="168" class="title">Coding agent</text>
+  <text x="62" y="188" class="body">Claude Code, Cursor, Codex, Claude Desktop</text>
+
+  <rect x="58" y="204" width="274" height="286" rx="10" fill="#F5F3FF" stroke="#DDD6FF"/>
+  <text x="74" y="228" font-size="13.5" font-weight="700" fill="#1A1A2E">NeoHive plugin hooks</text>
+  <text x="74" y="246" font-size="11.5" fill="#737373">Claude Code only</text>
+
+  <circle cx="80" cy="274" r="5" fill="#7C3AED"/>
+  <text x="94" y="272" class="lbl" fill="#7C3AED">SESSION START</text>
+  <text x="94" y="290" class="body">Installs rules, asks for context</text>
+
+  <circle cx="80" cy="322" r="5" fill="#7C3AED"/>
+  <text x="94" y="320" class="lbl" fill="#7C3AED">EVERY PROMPT</text>
+  <text x="94" y="338" class="body">Recalls context for your prompt</text>
+
+  <circle cx="80" cy="370" r="5" fill="#7C3AED"/>
+  <text x="94" y="368" class="lbl" fill="#7C3AED">BEFORE FILE SEARCH</text>
+  <text x="94" y="386" class="body">Suggests a recall first</text>
+
+  <line x1="74" y1="408" x2="316" y2="408" stroke="#DDD6FF" stroke-dasharray="3 3"/>
+  <circle cx="80" cy="432" r="5" fill="none" stroke="#BB4D00" stroke-width="2"/>
+  <text x="94" y="430" class="lbl" fill="#BB4D00">SESSION END</text>
+  <text x="94" y="448" class="body">No hook. You run the skill:</text>
+  <text x="94" y="468" font-size="11" class="mono" fill="#7008E7">/neohive:capture-session-learnings</text>
+
+  <!-- Arrows agent -> container -->
+  <line x1="350" y1="168" x2="486" y2="168" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="418" y="158" font-size="12" font-weight="700" text-anchor="middle" fill="#1A1A2E">MCP over HTTP</text>
+  <text x="418" y="186" font-size="10.5" class="mono" text-anchor="middle" fill="#737373">agent tool calls</text>
+
+  <path d="M332 322 L420 322 L420 210 L486 210" fill="none" stroke="#7C3AED" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+  <text x="428" y="262" font-size="10.5" class="mono" fill="#737373">hook</text>
+  <text x="428" y="276" font-size="10.5" class="mono" fill="#737373">recall</text>
+
+  <!-- Right: the container -->
+  <rect x="490" y="116" width="470" height="300" rx="12" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <text x="512" y="144" class="lbl" fill="#7C3AED">DOCKER CONTAINER ON YOUR MACHINE</text>
+  <text x="512" y="168" class="title">NeoHive</text>
+  <text x="938" y="168" font-size="11.5" class="mono" text-anchor="end" fill="#737373">container neohive, port 3577</text>
+
+  <rect x="512" y="182" width="206" height="52" rx="8" fill="#FAF9FD" stroke="#E5E5E5"/>
+  <text x="526" y="203" font-size="13" font-weight="700" fill="#1A1A2E">MCP endpoint, per Hive</text>
+  <text x="526" y="222" font-size="11" class="mono" fill="#7008E7">/hives/&lt;hive-id&gt;/mcp</text>
+
+  <rect x="732" y="182" width="206" height="52" rx="8" fill="#FAF9FD" stroke="#E5E5E5"/>
+  <text x="746" y="203" font-size="13" font-weight="700" fill="#1A1A2E">Dashboard</text>
+  <text x="746" y="222" font-size="11" class="mono" fill="#7008E7">http://localhost:3577</text>
+
+  <rect x="512" y="248" width="426" height="92" rx="10" fill="#F5F3FF" stroke="#DDD6FF"/>
+  <text x="528" y="268" class="lbl" fill="#7C3AED">HIVE</text>
+  <text x="922" y="268" font-size="11.5" text-anchor="end" fill="#737373">one query searches every Index</text>
+  <rect x="528.0" y="280" width="92" height="44" rx="8" fill="#FFFFFF" stroke="#A78BFA"/>
+  <text x="574.0" y="306" font-size="12" font-weight="600" text-anchor="middle" fill="#1A1A2E">Code</text>
+  <rect x="628.7" y="280" width="92" height="44" rx="8" fill="#FFFFFF" stroke="#A78BFA"/>
+  <text x="674.7" y="306" font-size="10" font-weight="600" text-anchor="middle" fill="#1A1A2E">Documentation</text>
+  <rect x="729.3" y="280" width="92" height="44" rx="8" fill="#FFFFFF" stroke="#A78BFA"/>
+  <text x="775.3" y="306" font-size="12" font-weight="600" text-anchor="middle" fill="#1A1A2E">Files</text>
+  <rect x="830.0" y="280" width="92" height="44" rx="8" fill="#FFFFFF" stroke="#C084FC"/>
+  <text x="876.0" y="306" font-size="12" font-weight="600" text-anchor="middle" fill="#1A1A2E">Knowledge</text>
+
+  <text x="512" y="366" class="body">Embedding and search run on your machine, not in a cloud service.</text>
+  <text x="512" y="392" font-size="11.5" class="mono" fill="#7008E7">Docker volume neohive-data at /app/data</text>
+
+  <!-- Bottom: outside sources -->
+  <rect x="490" y="460" width="220" height="56" rx="10" fill="#FFFFFF" stroke="#99E6DC"/>
+  <text x="508" y="484" font-size="13.5" font-weight="700" fill="#1A1A2E">GitHub or GitLab</text>
+  <text x="508" y="503" class="body">your repositories</text>
+  <line x1="600" y1="460" x2="600" y2="420" stroke="#009689" stroke-width="2" marker-end="url(#arrT)"/>
+  <text x="610" y="444" font-size="11" class="mono" fill="#009689">clone and sync</text>
+
+  <rect x="740" y="460" width="220" height="56" rx="10" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <text x="758" y="484" font-size="13.5" font-weight="700" fill="#1A1A2E">Your browser</text>
+  <text x="758" y="503" class="body">manage Hives and Indexes</text>
+  <line x1="850" y1="460" x2="850" y2="420" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
+
+  <line x1="40" y1="540" x2="960" y2="540" stroke="#E4DFF1"/>
+  <text x="40" y="562" font-size="11.5" fill="#737373">Cursor and Codex have no hooks. Their plugin installs a rule file that tells the agent to load context and recall before searching.</text>
+</svg>
