@@ -1,33 +1,48 @@
 ---
-description: "What to do when your agent isn't surfacing the context you expect."
+description: "What to check when your agent's NeoHive recall comes back empty or misses what you expected."
 ---
 
-# Recall Isn't Finding What I Need
+# Recall isn't finding what I need
 
-If your agent isn't surfacing relevant context, it's usually one of a few things: how the query was phrased, or whether the knowledge was ever stored.
+A recall is your agent's search of the knowledge NeoHive stores. When a recall comes back empty or misses what you expected, the cause is usually the query's wording or the content behind it. Each cause on this page comes with a fix.
 
-## Rephrase the ask
+Check the causes in the following table in order. The first two are the quickest to fix.
 
-NeoHive searches by meaning, so how your agent asks matters. If it comes up short, ask again in more specific, situation-shaped terms. See [Working with your agent](../getting-the-most.md#working-with-your-agent). Use the vocabulary you'd expect in the answer: if a note says "idempotency keys", searching for "duplicate prevention" may miss it.
+| Symptom | Likely cause | Fix |
+|---|---|---|
+| Results are related but not the right ones | The query uses different words from the content | [Rephrase the query](#rephrase-the-query) |
+| `No relevant memories found for this query.` | The content was never stored or indexed | [Check the content exists](#check-the-content-exists) |
+| A file you know exists never comes back | Your file filters or the built-in skip list exclude it | [Check the file was indexed](#check-the-file-was-indexed) |
+| Nothing from a whole repository or [Index](../concepts/glossary.md#index) | Your agent is connected to a different [Hive](../concepts/glossary.md#hive), or the first sync has not finished | [Check the Hive and the sync](#check-the-hive-and-the-sync) |
+| Only rules come back, or only one kind of [Memory](../concepts/glossary.md#memory) | The agent passed `types` and narrowed the results | Ask again without naming Memory types |
+| A Memory you stored has stopped appearing | Someone ran `memory_forget` on it | Store the knowledge again |
 
-## Check the knowledge exists
+## Rephrase the query
 
-Open the dashboard, go to your project, and browse the hive's contents. If what you're looking for was never stored, recall can't find it. You can store it now:
+Recall matches by meaning, but words still matter. A Memory about "idempotency keys" might not appear for a query about "duplicate prevention". Ask again with the words you expect in the answer. Write the query as a statement, not a question. For example:
 
-* Remember that the staging environment uses a self-signed certificate and needs `NODE_TLS_REJECT_UNAUTHORIZED=0` for local testing.
+```text
+JWT validation in the API gateway auth middleware
+```
 
-## Try a few phrasings
+`memory_recall` accepts up to five phrasings in its `queries` parameter and merges the results. For more examples, see [Write prompts that retrieve well](../results/prompting.md).
 
-Describing the same thing different ways surfaces different results. One usually hits:
+## Check the content exists
 
-* How do we handle authentication tokens?
-* JWT validation in the API gateway
-* Auth middleware session management
+Run the same query in the dashboard's [Playground](../admin/playground.md) against the Index you expect to hold the answer. If the answer is missing there too, the content is not in the Index. Tell your agent to store the information. For example:
 
-## Check you're in the right project
+```text
+Remember that the staging environment uses a self-signed certificate, so local tests need NODE_TLS_REJECT_UNAUTHORIZED=0.
+```
 
-Recall is scoped to the project your agent is connected to. If the knowledge lives in a different project, your agent won't find it. Confirm the project in your MCP configuration.
+You can recall a stored Memory as soon as `memory_store` replies.
 
-{% hint style="info" %}
-Knowledge is searchable immediately after it's stored. If you just saved something and can't find it, the issue is almost always phrasing. Try the tips above.
-{% endhint %}
+## Check the file was indexed
+
+Open the Index's **Sync Settings** tab and read the **Allowlist** and **Blocklist**. NeoHive never indexes a file outside the Allowlist or inside the Blocklist. NeoHive also always skips some files. For the pattern rules, see [File pattern syntax](../reference/file-patterns.md). For the files NeoHive always skips, see [Supported file types](../reference/file-types.md).
+
+## Check the Hive and the sync
+
+Recall covers only the Hive in your agent's [MCP](../concepts/glossary.md#mcp) endpoint, plus any [Shared Index](../concepts/glossary.md#shared-index) added to that Hive. Compare the endpoint with **Install Instructions** on the Hive you expect.
+
+A new [Code](../concepts/glossary.md#code-index) or [Documentation Index](../concepts/glossary.md#documentation-index) returns nothing until its first sync finishes. The **Sync history** on the Index page shows each run. If a run failed, see [Repository sync issues](sync.md).
