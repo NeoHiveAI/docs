@@ -1,14 +1,18 @@
 ---
-description: "Push changed files to a Code or Documentation Index from a CI pipeline with POST /hives/<hive-id>/webhook/refresh."
+description: "Send changed files to a Code or Documentation Index from a CI pipeline with POST /hives/<hive-id>/webhook/refresh."
 ---
 
 # Webhook refresh endpoint
 
 Send changed files to NeoHive from your CI pipeline, so a [Code](../concepts/glossary.md#code-index) or [Documentation Index](../concepts/glossary.md#documentation-index) updates seconds after a merge.
 
-<figure><img src="../.gitbook/assets/reference-webhooks.svg" alt="The diagram shows the sequence of a webhook refresh. A CI job posts changed files to the Hive's webhook route. NeoHive checks X-Webhook-Secret and finds every Index that syncs the named repository. NeoHive then removes each path's old content, indexes the new content, and replies with counts."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/reference-webhooks.svg" alt="The diagram shows the sequence of a webhook refresh across two boxes, your CI pipeline and NeoHive. In your CI pipeline, a job collects the changed files as base64 and the deleted files as a path only. The job posts them, at most 100 KB, to the Hive's webhook/refresh route, which crosses into NeoHive. NeoHive checks that X-Webhook-Secret equals MEMVEC_WEBHOOK_SECRET, and replies 401 if it does not. NeoHive then finds every Index in the Hive that syncs the exact repo URL, and replies 404 if none match. For each file, NeoHive removes the path's old content and indexes the new content. NeoHive replies to your CI pipeline with processed, skipped, deleted, and errors counts."><figcaption></figcaption></figure>
 
-Scheduled syncs already keep each Code or Documentation Index current. Use the webhook only when the wait for the next scheduled sync is too long. To set the schedule, see [Keep a repository up to date](../context/repositories/sync.md).
+Scheduled syncs already keep each Code or Documentation Index current. Use the webhook when you want an Index to update as soon as you merge, instead of at the next scheduled sync. To set the schedule, see [Keep a repository up to date](../context/repositories/sync.md).
+
+To set up the webhook, set a secret on the container (see [Authentication](#authentication)), and then send the following HTTP request from your CI pipeline after each merge. For GitHub, start from the [GitHub Actions template](#github-actions-template).
+
+Every request uses the following method, URL, and headers. Replace `<host>`, `<hive-id>`, and `<secret>` with your own values:
 
 ```text
 POST http://<host>:3577/hives/<hive-id>/webhook/refresh
@@ -62,7 +66,7 @@ For how the filters work, see [File pattern syntax](file-patterns.md).
 
 ## Response
 
-A successful request returns counts like the following:
+A successful request returns counts like the following. If more than one Index syncs the repository, the counts add up across those Indexes:
 
 ```json
 { "processed": 2, "skipped": 0, "deleted": 7, "errors": [], "duration_ms": 412 }
@@ -79,19 +83,21 @@ A failed request returns one of the following statuses:
 
 | Status | Body | Cause |
 |---|---|---|
-| `401` | `Invalid or missing webhook secret` | The header is wrong, or `MEMVEC_WEBHOOK_SECRET` is not set on the container. |
 | `400` | `Missing required field: repo` (or `sha`, `files (array)`) | The body is missing a field. |
 | `400` | `Each file must have a path string` | An entry in `files` has no `path`. |
+| `401` | `Invalid or missing webhook secret` | The header is wrong, or `MEMVEC_WEBHOOK_SECRET` is not set on the container. |
+| `402` | `License check failed` | The license expired or failed validation. See [Licensing](../admin/licensing.md). |
 | `404` | `No Index found syncing repo: <repo>` | No Code or Documentation Index in that Hive syncs that exact URL. |
 | `404` | `Unknown Hive: <hive-id>` | The Hive id in the URL is wrong. |
 | `413` | `Payload Too Large` (an HTML page, not JSON) | The body is over 100 KB. |
-| `402` | `License check failed` | The license expired or failed validation. See [Licensing](../admin/licensing.md). |
 
 ## GitHub Actions template
 
 The runner must be able to reach your NeoHive server. A GitHub-hosted runner cannot reach `localhost`, so use a self-hosted runner on the same network, or read [Exposing NeoHive beyond your network](../security/network.md) first.
 
-The following workflow sends the files that changed in each push to `main`:
+The workflow reads three repository secrets. Add `NEOHIVE_URL` (such as `http://<host>:3577`, with no trailing slash), `NEOHIVE_HIVE_ID`, and `NEOHIVE_WEBHOOK_SECRET`, which has the same value as `MEMVEC_WEBHOOK_SECRET`.
+
+The following workflow sends the files that changed in each push to `main`. Adapt it to your branches and runner:
 
 ```yaml
 name: NeoHive refresh
@@ -108,7 +114,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 0
 
       - name: Send changed files to NeoHive
         env:
@@ -117,7 +123,7 @@ jobs:
           NEOHIVE_WEBHOOK_SECRET: ${{ secrets.NEOHIVE_WEBHOOK_SECRET }}
           REPO_URL: ${{ github.server_url }}/${{ github.repository }}
         run: |
-          git diff --no-renames --name-status HEAD~1 HEAD > changed.txt
+          git diff --no-renames --name-status "${{ github.event.before }}" HEAD > changed.txt
           python3 - > payload.json <<'EOF'
           import base64, json, os
           files = []
