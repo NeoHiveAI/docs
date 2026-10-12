@@ -6,7 +6,7 @@ description: "Environment variables the NeoHive installer, agent plugin, and ser
 
 Find the variable that changes a NeoHive setting, where to set it, and its default.
 
-A variable takes effect only in the place that reads it. Set each variable in the place shown in the following table:
+Set each variable in the place shown in the following table. A variable set anywhere else does nothing.
 
 | Where you set it | Who reads it | Takes effect |
 |---|---|---|
@@ -16,7 +16,7 @@ A variable takes effect only in the place that reads it. Set each variable in th
 
 ## Installer
 
-Put the variable on the installer's command line, or export it first. To change a variable later, run the installer again.
+Set the variable on the installer's command line, as in the following example, or export it first with `export NEOHIVE_PORT=4577`. To change a variable later, run the installer again.
 
 ```bash
 NEOHIVE_PORT=4577 \
@@ -34,17 +34,24 @@ NEOHIVE_PORT=4577 \
 | `NEOHIVE_PDF_WARMUP_TIMEOUT_MS` | `300000` (5 minutes) | The time allowed for the one-time PDF converter warm-up. Raise this value on a slow connection or machine. |
 | `NEOHIVE_CHUNKER_TIMEOUT_MS` | `30000` (30 seconds) | The time allowed to split one Markdown or code file. |
 | `NEOHIVE_UPDATE_REPO` | `neohivedev/neohive` | The Docker Hub repository the dashboard checks for new versions. |
-| `NEOHIVE_METAL_WORKER` | `1` | Apple Silicon only: set to `0` to embed on the CPU inside the container instead of on the Metal worker. |
-| `NEOHIVE_METAL_WORKER_PORT` | `50051` | Apple Silicon only: the port the Metal worker listens on. Change it if another program already uses the port. |
-| `NEOHIVE_METAL_WORKER_IMAGE` | `docker.io/neohivedev/neohive-metal-worker` | Apple Silicon only: the image the Metal worker is installed from. |
-| `NEOHIVE_METAL_WORKER_TAG` | picked by the installer | Apple Silicon only: the exact Metal worker version to install. |
-| `NEOHIVE_METAL_WORKER_HEALTH_BUDGET_S` | `90` | Apple Silicon only: the number of seconds the installer waits for the Metal worker to answer. |
 
 The three timeout variables accept only whole numbers of milliseconds. Any other value stops the installer with error `E603`.
 
+### Apple Silicon
+
+These variables apply only on a Mac with Apple Silicon, where the installer also sets up the Metal worker.
+
+| Variable | Default | Purpose |
+|---|---|---|
+| `NEOHIVE_METAL_WORKER` | `1` | Set to `0` to embed on the CPU inside the container instead of on the Metal worker. |
+| `NEOHIVE_METAL_WORKER_PORT` | `50051` | The port the Metal worker listens on. Change it if another program already uses the port. |
+| `NEOHIVE_METAL_WORKER_IMAGE` | `docker.io/neohivedev/neohive-metal-worker` | The image the Metal worker is installed from. |
+| `NEOHIVE_METAL_WORKER_TAG` | picked by the installer | The exact Metal worker version to install. |
+| `NEOHIVE_METAL_WORKER_HEALTH_BUDGET_S` | `90` | The number of seconds the installer waits for the Metal worker to answer. |
+
 ## Agent plugin
 
-Set these variables where your coding agent starts, for example in your shell profile.
+Set these variables where your coding agent starts, for example with a line such as `export NEOHIVE_PRETOOL_DISABLED=1` in your shell profile (`~/.zshrc` or `~/.bashrc`).
 
 | Variable | Default | Purpose |
 |---|---|---|
