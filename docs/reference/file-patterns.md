@@ -4,9 +4,9 @@ description: "The glob syntax the Allowlist and Blocklist accept, how the two co
 
 # File pattern syntax
 
-Write Allowlist and Blocklist patterns that include exactly the files you mean.
+Use Allowlist and Blocklist patterns to choose which files NeoHive indexes and which it skips.
 
-The **Allowlist** and **Blocklist** boxes are under **File filters** on the **Sync Settings** tab of a [Code](../concepts/glossary.md#code-index) or [Documentation Index](../concepts/glossary.md#documentation-index). Enter one pattern per line, and then select **Save settings**. Patterns use [micromatch](https://github.com/micromatch/micromatch) glob syntax, which matches file paths with wildcards such as `*`. Each pattern matches paths from the repository root, such as `src/api/users.ts`.
+Open a [Code](../concepts/glossary.md#code-index) or [Documentation Index](../concepts/glossary.md#documentation-index), select the **Sync Settings** tab, and find the **Allowlist** and **Blocklist** boxes under **File filters**. Enter one pattern per line, and then select **Save settings**. Patterns use [micromatch](https://github.com/micromatch/micromatch) glob syntax, where wildcards such as `*` let one pattern match many files. Each pattern matches paths from the repository root, so `src/**` matches `src/api/users.ts` but not `packages/web/src/app.ts`.
 
 ## How the filters combine
 
@@ -39,9 +39,9 @@ Saving a change to either list makes the next sync re-read the whole repository.
 **Never put a `!` pattern in the Allowlist.** The Allowlist allows a file that matches any line. The pattern `!**/*.test.ts` matches every file that is not a test, including every config file. Put exclusions in the Blocklist instead.
 {% endhint %}
 
-Patterns skip files and folders whose names start with a dot. `**/*.md` does not match `.github/PULL_REQUEST_TEMPLATE.md`. To match a path that starts with a dot, name it directly, such as `.github/**`.
+Wildcards do not match files or folders whose names start with a dot. For example, `**/*.md` does not match `.github/PULL_REQUEST_TEMPLATE.md`. In the Allowlist, that leaves the file out. In the Blocklist, it lets the file through. To match a path that starts with a dot, name it directly, such as `.github/**`.
 
-## Starting points
+## Example patterns
 
 **Only the source and docs of a service.** Add the following patterns to the Allowlist:
 

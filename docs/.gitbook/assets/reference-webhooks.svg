@@ -1,9 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1000" height="369" viewBox="0 0 1000 369" font-family="'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1000" height="372" viewBox="0 0 1000 372" font-family="'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
   <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap');
     .mono { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
-    .lbl { font-size: 11px; font-weight: 700; letter-spacing: 1.1px; }
-    .body { font-size: 12.5px; fill: #4A4458; }
+    .lbl { font-size: 10.5px; font-weight: 700; letter-spacing: 1.1px; }
     .title { font-size: 15px; font-weight: 700; fill: #1A1A2E; }
+    .body { font-size: 12.5px; fill: #4A4458; }
+    .muted { font-size: 11.5px; fill: #737373; }
     .code { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 11.5px; fill: #7008E7; }
   </style>
   <defs>
@@ -11,72 +12,69 @@
     <marker id="arrT" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#009689"/></marker>
     <marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#BB4D00"/></marker>
   </defs>
-  <rect width="1000" height="369" fill="#FAF9FD"/>
+  <rect width="1000" height="372" fill="#FAF9FD"/>
 
-  <!-- Content keeps the coordinates it had under the old top header. This group moves it up by 83 so its
-       top edge sits at y=40. Draw new content inside the group with the same coordinates as the rest. -->
-  <g transform="translate(0,-83)">
-  <!-- 1 CI -->
-  <rect x="40" y="124" width="160" height="128" rx="5" fill="#FFFFFF" stroke="#E5E5E5"/>
-  <text x="58" y="150" class="lbl" fill="#7C3AED">1 · YOUR CI</text>
-  <text x="58" y="174" class="title">Collect changes</text>
-  <text x="58" y="196" class="body">Changed files as</text>
-  <text x="58" y="214" class="body">base64, deleted files</text>
-  <text x="58" y="232" class="body">as a path only</text>
+  <!-- Your CI pipeline: outside NeoHive, so a dashed border -->
+  <rect x="40" y="40" width="190" height="188" rx="5" fill="none" stroke="#A78BFA" stroke-dasharray="6 4"/>
+  <text x="60" y="64" class="lbl" fill="#7C3AED">YOUR CI PIPELINE</text>
 
-  <!-- 2 POST -->
-  <rect x="230" y="124" width="160" height="128" rx="5" fill="#FFFFFF" stroke="#E5E5E5"/>
-  <text x="248" y="150" class="lbl" fill="#7C3AED">2 · REQUEST</text>
-  <text x="248" y="174" class="title">POST to the Hive</text>
-  <text x="248" y="196" class="code">/hives/&lt;hive-id&gt;/</text>
-  <text x="248" y="214" class="code">webhook/refresh</text>
-  <text x="248" y="234" class="body">at most 100 KB</text>
+  <rect x="60" y="80" width="150" height="128" rx="5" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <text x="74" y="106" class="lbl" fill="#7C3AED">STEP 1</text>
+  <text x="74" y="130" class="title">Collect changes</text>
+  <text x="74" y="152" class="body">Changed files as</text>
+  <text x="74" y="170" class="body">base64, deleted files</text>
+  <text x="74" y="188" class="body">as a path only</text>
 
-  <!-- 3 Secret -->
-  <rect x="420" y="124" width="160" height="128" rx="5" fill="#FFFFFF" stroke="#E5E5E5"/>
-  <text x="438" y="150" class="lbl" fill="#7C3AED">3 · NEOHIVE</text>
-  <text x="438" y="174" class="title">Check the secret</text>
-  <text x="438" y="196" class="code">X-Webhook-Secret</text>
-  <text x="438" y="214" class="body">must equal</text>
-  <text x="438" y="232" class="code" style="font-size:10.5px">MEMVEC_WEBHOOK_SECRET</text>
+  <!-- NeoHive -->
+  <rect x="390" y="40" width="570" height="188" rx="5" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.5"/>
+  <text x="410" y="64" class="lbl" fill="#7C3AED">NEOHIVE</text>
 
-  <!-- 4 Match -->
-  <rect x="610" y="124" width="160" height="128" rx="5" fill="#FFFFFF" stroke="#E5E5E5"/>
-  <text x="628" y="150" class="lbl" fill="#7C3AED">4 · NEOHIVE</text>
-  <text x="628" y="174" class="title">Find the Indexes</text>
-  <text x="628" y="196" class="body">Every Index in the</text>
-  <text x="628" y="214" class="body">Hive that syncs the</text>
-  <text x="628" y="232" class="body">exact <tspan class="code">repo</tspan> URL</text>
+  <rect x="410" y="80" width="160" height="128" rx="5" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <text x="424" y="106" class="lbl" fill="#7C3AED">STEP 3</text>
+  <text x="424" y="130" class="title">Check the secret</text>
+  <text x="424" y="152" class="code">X-Webhook-Secret</text>
+  <text x="424" y="170" class="body">must equal</text>
+  <text x="424" y="188" class="code" style="font-size:10.5px">MEMVEC_WEBHOOK_SECRET</text>
 
-  <!-- 5 Update -->
-  <rect x="800" y="124" width="160" height="128" rx="5" fill="#FFFFFF" stroke="#99E6DC"/>
-  <rect x="800" y="124" width="3.5" height="128" rx="1.75" fill="#009689"/>
-  <text x="818" y="150" class="lbl" fill="#009689">5 · PER FILE</text>
-  <text x="818" y="174" class="title">Update the Index</text>
-  <text x="818" y="196" class="body">Remove the path's old</text>
-  <text x="818" y="214" class="body">content, then index</text>
-  <text x="818" y="232" class="body">the new content</text>
+  <rect x="595" y="80" width="160" height="128" rx="5" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <text x="609" y="106" class="lbl" fill="#7C3AED">STEP 4</text>
+  <text x="609" y="130" class="title">Find the Indexes</text>
+  <text x="609" y="152" class="body">Every Index in the</text>
+  <text x="609" y="170" class="body">Hive that syncs the</text>
+  <text x="609" y="188" class="body">exact <tspan class="code">repo</tspan> URL</text>
 
-  <!-- Forward arrows -->
-  <line x1="200" y1="188" x2="228" y2="188" stroke="#7C3AED" stroke-width="1.8" marker-end="url(#arr)"/>
-  <line x1="390" y1="188" x2="418" y2="188" stroke="#7C3AED" stroke-width="1.8" marker-end="url(#arr)"/>
-  <line x1="580" y1="188" x2="608" y2="188" stroke="#7C3AED" stroke-width="1.8" marker-end="url(#arr)"/>
-  <line x1="770" y1="188" x2="798" y2="188" stroke="#7C3AED" stroke-width="1.8" marker-end="url(#arr)"/>
+  <rect x="780" y="80" width="160" height="128" rx="5" fill="#FFFFFF" stroke="#99E6DC"/>
+  <rect x="780" y="80" width="3.5" height="128" rx="1.75" fill="#009689"/>
+  <text x="794" y="106" class="lbl" fill="#009689">STEP 5 · PER FILE</text>
+  <text x="794" y="130" class="title">Update the Index</text>
+  <text x="794" y="152" class="body">Remove the path's old</text>
+  <text x="794" y="170" class="body">content, then index</text>
+  <text x="794" y="188" class="body">the new content</text>
+
+  <!-- Step 2: the request leaves CI and enters NeoHive -->
+  <text x="310" y="102" class="lbl" fill="#7C3AED" text-anchor="middle">STEP 2 · POST</text>
+  <text x="310" y="120" class="code" text-anchor="middle">/hives/&lt;hive-id&gt;/</text>
+  <text x="310" y="135" class="code" text-anchor="middle">webhook/refresh</text>
+  <line x1="210" y1="148" x2="408" y2="148" stroke="#7C3AED" stroke-width="1.8" marker-end="url(#arr)"/>
+  <text x="310" y="170" class="muted" text-anchor="middle">at most 100 KB</text>
+
+  <!-- Forward arrows inside NeoHive -->
+  <line x1="570" y1="148" x2="593" y2="148" stroke="#7C3AED" stroke-width="1.8" marker-end="url(#arr)"/>
+  <line x1="755" y1="148" x2="778" y2="148" stroke="#7C3AED" stroke-width="1.8" marker-end="url(#arr)"/>
 
   <!-- Failure exits -->
-  <line x1="500" y1="252" x2="500" y2="284" stroke="#BB4D00" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrA)"/>
-  <text x="500" y="302" font-size="12.5" font-weight="700" text-anchor="middle" fill="#BB4D00">401 if it does not</text>
-  <line x1="690" y1="252" x2="690" y2="284" stroke="#BB4D00" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrA)"/>
-  <text x="690" y="302" font-size="12.5" font-weight="700" text-anchor="middle" fill="#BB4D00">404 if none match</text>
+  <line x1="490" y1="208" x2="490" y2="244" stroke="#BB4D00" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrA)"/>
+  <text x="490" y="262" font-size="12.5" font-weight="700" text-anchor="middle" fill="#BB4D00">401 if it does not</text>
+  <line x1="675" y1="208" x2="675" y2="244" stroke="#BB4D00" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrA)"/>
+  <text x="675" y="262" font-size="12.5" font-weight="700" text-anchor="middle" fill="#BB4D00">404 if none match</text>
 
   <!-- Reply -->
-  <path d="M880 252 L880 348 L676 348" fill="none" stroke="#009689" stroke-width="1.8"/>
-  <path d="M324 348 L120 348 L120 254" fill="none" stroke="#009689" stroke-width="1.8" marker-end="url(#arrT)"/>
-  <text x="500" y="353" font-size="12.5" text-anchor="middle" fill="#009689"><tspan font-weight="700">Reply:</tspan> <tspan class="mono" font-size="11.5">processed · skipped · deleted · errors</tspan></text>
-  </g>
+  <path d="M860 208 L860 296 L676 296" fill="none" stroke="#009689" stroke-width="1.8"/>
+  <path d="M324 296 L135 296 L135 210" fill="none" stroke="#009689" stroke-width="1.8" marker-end="url(#arrT)"/>
+  <text x="500" y="301" font-size="12.5" text-anchor="middle" fill="#009689"><tspan font-weight="700">Reply:</tspan> <tspan class="mono" font-size="11.5">processed · skipped · deleted · errors</tspan></text>
 
-  <!-- Footer. Logo paths copied verbatim from frontend/src/lib/icons/NeoHiveIcon.svelte. -->
-  <line x1="40" y1="321" x2="960" y2="321" stroke="#E4DFF1"/>
-  <g transform="translate(40,335) scale(0.04)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
-  <text x="64" y="350" font-size="13" font-weight="700" fill="#1A1A2E">Webhook refresh<tspan dx="12" font-size="10" font-weight="600" letter-spacing="1" fill="#737373">ONE REQUEST FROM CI UPDATES EVERY INDEX THAT SYNCS THE REPOSITORY</tspan></text>
+  <!-- Footer. Logo paths copied verbatim from frontend/src/lib/icons/NeoHiveIcon.svelte. y values: height - 48, height - 34, height - 19. -->
+  <line x1="40" y1="324" x2="960" y2="324" stroke="#E4DFF1"/>
+  <g transform="translate(40,338) scale(0.04)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
+  <text x="64" y="353" font-size="13" font-weight="700" fill="#1A1A2E">Webhook refresh<tspan dx="12" font-size="10" font-weight="600" letter-spacing="1" fill="#737373">ONE REQUEST FROM CI UPDATES EVERY INDEX THAT SYNCS THE REPOSITORY</tspan></text>
 </svg>

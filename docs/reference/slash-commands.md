@@ -4,9 +4,9 @@ description: "Every command the NeoHive plugin adds to your agent, and when to r
 
 # Slash commands
 
-The NeoHive plugin adds the following commands to Claude Code, where you type each one starting with `/neohive:`. Look up a command here to see what it does and when to run it. In Codex and Cursor, the same commands work as skills.
+The NeoHive plugin adds the following commands to Claude Code, Codex, and Cursor. Look up a command here to see what it does and when to run it. In Claude Code, type the command as shown. In Codex and Cursor, each command is a skill, so ask your agent to run it by name, for example `load-context`.
 
-| Command | What it does |
+| Claude Code command | What it does |
 |---|---|
 | `/neohive:getting-started` | Runs first-time setup. Run it once per machine. The command checks the [MCP](../concepts/glossary.md#mcp) connection and sets up a token if your server needs one. It then writes a topology block into `CLAUDE.md`. Finally, it offers to migrate your context files and to turn on smart prompts. |
 | `/neohive:load-context` | Calls `memory_context` with your current task, so rules and related knowledge load before work starts. Run it at the start of a session or when you switch tasks. |
@@ -16,9 +16,9 @@ The NeoHive plugin adds the following commands to Claude Code, where you type ea
 | `/neohive:design-codebase-docs` | Works with you to agree on a documentation standard for your codebase. The command saves the standard to NeoHive and writes two or three sample pages. It does not write the full set of docs. |
 | `/neohive:enable-smart-prompts` | Adds a second prompt hook that asks a small model to rewrite your prompt before recall. For its requirements and how it runs beside the default hook, see [What you run yourself](../results/plugin-automation.md#what-you-run-yourself). |
 
-## In Codex and Cursor
+## Where the agents differ
 
-In Codex and Cursor, the same commands are skills. Ask your agent to run the skill by name, for example `load-context`. The following table shows the two things that differ:
+Each agent has its own topology skill and file, and `migrate-memory` reads a different set of rules folders:
 
 | Agent | Topology skill | Writes to | Rules folders `migrate-memory` reads |
 |---|---|---|---|

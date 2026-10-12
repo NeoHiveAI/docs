@@ -4,9 +4,9 @@ description: "Every Memory type NeoHive accepts, what each is for, and which one
 
 # Memory types
 
-Every [Memory](../concepts/glossary.md#memory) has a type, such as `directive` or `decision`, that says what kind of knowledge it holds. The type also decides whether `memory_context` loads the Memory at the start of a task. Check the following table when you pick the `type` for a Memory you store with `memory_store`, or when you filter `memory_recall` results with `types`.
+Every [Memory](../concepts/glossary.md#memory) has a type, such as `directive` or `decision`, that says what kind of knowledge it holds. The type also decides whether `memory_context` loads the Memory at the start of a task. Check the following table to see what each `type` means when you or your agent store a Memory with `memory_store`, or filter `memory_recall` results with `types`.
 
-In most cases, your agent chooses the type for you. The first five types cover almost everything a person stores manually.
+Your agent picks the type when it stores a Memory, usually without asking you. To choose the type yourself, name it in your request, for example "store this as a `directive`". Five types cover almost everything a person stores manually: `directive`, `convention`, `decision`, `insight`, and `error_pattern`.
 
 | Type | Use it for | `memory_context` section |
 |---|---|---|
@@ -28,8 +28,8 @@ In most cases, your agent chooses the type for you. The first five types cover a
 
 ## Importance
 
-Every Memory also has an importance from `1` (trivial) to `10` (critical). `memory_store` defaults to `5`. Higher importance helps a Memory rank higher. Use `8` and above only for rules that must not be missed.
+Every Memory also has an importance from `1` (trivial) to `10` (critical). Higher importance helps a Memory rank higher. Your agent picks the importance when it stores a Memory, and `memory_store` uses `5` if the agent leaves it out. To set it yourself, name it in your request. Use `8` and above only for rules that must not be missed.
 
 {% hint style="info" %}
-NeoHive also gives each indexed piece of a file a type and an importance, based on its wording. Indexed text that reads like a rule, such as a sentence with "never" in a README, can come back from `memory_recall` and `memory_context` as a `directive`.
+Types are not only for Memories. Code, Documentation, and Files Indexes hold [chunks](../concepts/glossary.md#chunk) of your files, and NeoHive gives each chunk a type and an importance based on its wording. A chunk that reads like a rule, such as a README sentence with "never" in it, can come back from `memory_recall` and `memory_context` as a `directive`. For how Memories and chunks differ, see [Hives, Indexes, and Memories](../concepts/hives-indexes-memories.md#memories).
 {% endhint %}
