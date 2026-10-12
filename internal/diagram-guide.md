@@ -1,10 +1,10 @@
 # NeoHive diagram guide
 
-**Scope:** how to make the SVG diagrams in the NeoHive user docs, the files in `docs/.gitbook/assets/`. It covers the canvas, the header, colors, type, shapes, arrows, file names, alt text, and the checks to run before you commit. It does not cover screenshots or GIFs, and it does not cover the wording on the page around a diagram, which follows `internal/style-guide.md`.
+**Scope:** how to make the SVG diagrams in the NeoHive user docs, the files in `docs/.gitbook/assets/`. It covers the canvas, the footer, colors, type, shapes, arrows, file names, alt text, and the checks to run before you commit. It does not cover screenshots or GIFs, and it does not cover the wording on the page around a diagram, which follows `internal/style-guide.md`.
 
-**Provenance:** written on 2026-10-08 from the diagrams in `docs/.gitbook/assets/` at that date, and from the logo in `frontend/src/lib/icons/NeoHiveIcon.svelte` in the MemVec repository. Every diagram shares the header exactly. For other tokens, where the existing diagrams used more than one value, this guide picks the most common one and names the older variants, so new diagrams converge on one value.
+**Provenance:** written on 2026-10-08 from the diagrams in `docs/.gitbook/assets/` at that date, and from the logo in `frontend/src/lib/icons/NeoHiveIcon.svelte` in the MemVec repository. Updated on 2026-10-12, when the team moved the title from a header to a footer, made corners squarer, and kept the grey background, after comparing each option in place on the live docs pages. Every diagram shares the footer exactly. For other tokens, where the existing diagrams used more than one value, this guide picks the most common one and names the older variants, so new diagrams converge on one value.
 
-![The NeoHive diagram system on one page. Anatomy: a sketch of the canvas with the logo, title, one-line subtitle, divider, and side margins, next to the exact values, such as the logo at translate(40,26) scale(0.0793), the title at x=88 y=52 in 24px, the subtitle at x=88 y=74 in 12px capitals, the divider at y=96, margins from x=40 to x=960, and content from about y=116. Color: violet for the main flow and labels, lavender for a Hive's border, orchid for the Knowledge Index and Memories, green for done, the right way, and checks that pass, teal for recall, sync, and automatic steps, amber for manual steps and warnings, gray for order only, ink for titles, and muted gray for captions. Shapes: a container with rx 12 holds a card with rx 10, which holds an inner card with rx 8, which holds a chip with rx 6, showing that nesting means holds, plus a card with a teal accent bar. Lines: a solid violet arrow means always happens, a dashed violet arrow means optional, automatic, or forbidden, a dashed amber arrow means a failure branch, a gray arrow means order only, a teal arrow means something comes back to the agent or a sync, and a dashed border means something outside NeoHive itself. Type: label 10.5, title 15, body 12.5, item 12, muted 11.5, mono for code, and 9px as the smallest size.](diagram-guide.svg)
+![The NeoHive diagram system on one page. Anatomy: a sketch of the canvas with content at the top, side margins, and a footer row of logo, title, and subtitle under a divider, next to the exact values: content from y=40, margins from x=40 to x=960, the footer divider at height minus 48, the logo at translate(40, height minus 34) scale(0.04), the title at x=64 in 13px with the subtitle after it in 10px muted capitals, and the background #FAF9FD. Color: violet for the main flow and labels, lavender for a Hive's border, orchid for the Knowledge Index and Memories, green for done, the right way, and checks that pass, teal for recall, sync, and automatic steps, amber for manual steps and warnings, gray for order only, ink for titles, and muted gray for captions. Shapes: a container with rx 5 holds a card with rx 5, which holds an inner card with rx 4, which holds a chip with rx 3, showing that nesting means holds, plus a card with a teal accent bar. Lines: a solid violet arrow means always happens, a dashed violet arrow means optional, automatic, or forbidden, a dashed amber arrow means a failure branch, a gray arrow means order only, a teal arrow means something comes back to the agent or a sync, and a dashed border means something outside NeoHive itself. Type: label 10.5, title 15, body 12.5, item 12, muted 11.5, mono for code, and 9px as the smallest size.](diagram-guide.svg)
 
 `diagram-guide.svg` shows this guide on one page, and it follows every rule here. When you change a value in this guide, change the image in the same commit, or the two disagree and readers trust the wrong one.
 
@@ -15,28 +15,31 @@
 - **Show one idea per diagram.** When a page needs two ideas, make two diagrams. A diagram that tries to show a whole system becomes too small to read at the page width.
 - **Explain a topic in the diagram on its owner page only.** Check `internal/topic-owners.md` first. A diagram on a summary page repeats the owner page's diagram and drifts from it.
 
-## Canvas and header (Must Follow)
+## Canvas and footer (Must Follow)
 
-Every diagram starts from the same canvas and header. All existing diagrams match it exactly, so a reader moving between pages sees one visual system.
+Every diagram starts from the same canvas and ends with the same footer. All existing diagrams match it exactly, so a reader moving between pages sees one visual system.
 
 | Element | Value |
 | --- | --- |
-| Width | `width="1000"` with `viewBox="0 0 1000 <height>"`. Choose the height to fit the content. |
+| Width | `width="1000"` with `viewBox="0 0 1000 <height>"`. Choose the height to fit the content plus the 52px footer band. |
 | Background | `<rect width="1000" height="<height>" fill="#FAF9FD"/>` |
 | Side margins | Content runs from `x=40` to `x=960`. Nothing crosses those lines. |
-| Logo | The group at `translate(40,26) scale(0.0793)`, shown in the template later in this guide |
-| Title | `x="88" y="52"`, `font-size="24"`, `font-weight="800"`, `letter-spacing="-0.5"`, `fill="#1A1A2E"`, written in sentence case |
-| Subtitle | `x="88" y="74"`, `font-size="12"`, `font-weight="600"`, `letter-spacing="1.1"`, `fill="#7008E7"`, written in capitals, one line stating the diagram's point. Keep code identifiers in their own case, as in `neohive-data`. |
-| Divider | `<line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>` |
-| First content | Starts at least 8px below the divider, usually at about `y=116` and never lower than `y=140` |
-| Footer (optional) | A divider from `x=40` to `x=960` about 40px above the bottom, then one caption line under it at `x=40`, in the `.muted` style (11.5px, `#737373`) |
+| First content | Its top edge sits at `y=40`, the same distance as the side margins |
+| Caption (optional) | One line at `x=40` in the `.muted` style (11.5px, `#737373`), at least 20px above the footer divider, with no divider of its own |
+| Footer divider | `<line x1="40" y1="<height - 48>" x2="960" y2="<height - 48>" stroke="#E4DFF1"/>`, the only full-width divider in the diagram |
+| Footer logo | The logo group at `translate(40,<height - 34>) scale(0.04)`, shown in the template later in this guide |
+| Footer title | `x="64" y="<height - 19>"`, `font-size="13"`, `font-weight="700"`, `fill="#1A1A2E"`, written in sentence case |
+| Footer subtitle | A `<tspan>` inside the title's `<text>`, with `dx="12"`, `font-size="10"`, `font-weight="600"`, `letter-spacing="1"`, `fill="#737373"`, written in capitals, stating the diagram's point. Keep code identifiers in their own case, as in `neohive-data`. |
 
+- **Put the title and subtitle in the footer, never back at the top.** The page already shows a heading above the diagram, so a large title at the top repeated it and pushed the content down. The footer keeps the diagram branded without competing with the page.
+- **Keep the background grey `#FAF9FD`, not white.** Cards are white `#FFFFFF`, so on a white background they lose their fill contrast and rely on a 1px border alone. The team compared both in place on the docs site and kept grey.
 - **Copy the logo paths verbatim from `NeoHiveIcon.svelte`.** Never redraw, trace, or hand-edit the logo. A redrawn logo drifts from the brand, and the drift is invisible until two diagrams sit side by side.
-- **Keep the subtitle to one line.** It states the one idea of the diagram, for example "A HIVE HOLDS INDEXES. AN INDEX HOLDS MEMORIES AND CHUNKS OF YOUR FILES." A second line pushes the divider down and breaks the shared header.
+- **Keep the footer to one line.** Title and subtitle together must end before `x=960`. Measure it in the render: a subtitle that runs past the margin is cut off on narrow screens and breaks the shared footer. Shorten the subtitle rather than wrapping it.
+- **Do not remove the `translate(0,-N)` group in older diagrams (don't "fix" without checking).** The diagrams that predate the footer kept their original coordinates and sit inside one group that moves them up to `y=40`. Removing the group drops the content about 75px, back under a header that no longer exists, so its bottom runs over the footer. Draw new elements in those files inside the group, with the same coordinates as their neighbours.
 
 ## Template (Quick Reference)
 
-Start every new diagram from this skeleton. Replace `<height>` in all three places.
+Start every new diagram from this skeleton. Replace `<height>` in the first three places, then set the footer's `y` values from it as the comments say.
 
 ```xml
 <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1000" height="<height>" viewBox="0 0 1000 <height>" font-family="'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
@@ -57,13 +60,12 @@ Start every new diagram from this skeleton. Replace `<height>` in all three plac
   </defs>
   <rect width="1000" height="<height>" fill="#FAF9FD"/>
 
-  <!-- Header. Logo paths copied verbatim from frontend/src/lib/icons/NeoHiveIcon.svelte. -->
-  <g transform="translate(40,26) scale(0.0793)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
-  <text x="88" y="52" font-size="24" font-weight="800" letter-spacing="-0.5" fill="#1A1A2E">Diagram title</text>
-  <text x="88" y="74" font-size="12" font-weight="600" letter-spacing="1.1" fill="#7008E7">ONE LINE THAT STATES THE DIAGRAM'S POINT</text>
-  <line x1="40" y1="96" x2="960" y2="96" stroke="#E4DFF1"/>
+  <!-- Content starts with its top edge at y=40. -->
 
-  <!-- Content starts at about y=116. -->
+  <!-- Footer. Logo paths copied verbatim from frontend/src/lib/icons/NeoHiveIcon.svelte. y values: height - 48, height - 34, height - 19. -->
+  <line x1="40" y1="<height - 48>" x2="960" y2="<height - 48>" stroke="#E4DFF1"/>
+  <g transform="translate(40,<height - 34>) scale(0.04)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
+  <text x="64" y="<height - 19>" font-size="13" font-weight="700" fill="#1A1A2E">Diagram title<tspan dx="12" font-size="10" font-weight="600" letter-spacing="1" fill="#737373">ONE LINE THAT STATES THE DIAGRAM'S POINT</tspan></text>
 </svg>
 ```
 
@@ -113,15 +115,16 @@ Each color carries one meaning across every diagram. A reader who has learned th
 
 | Shape | Corner radius | Use it for |
 | --- | --- | --- |
-| Outer container, such as a machine or a Hive | `rx="12"` | Things that hold other things |
-| Card | `rx="10"` | One thing, such as an Index, a step, or a service |
-| Inner card | `rx="8"` | A thing inside a card |
-| Chip | `rx="6"` | A file name, a Memory, or a code sample inside a card |
-| Field in a drawing of a screen | `rx="5"` | An input or a dropdown, as in `admin-playground.svg` |
-| Placeholder bar | `rx="4"` | A gray bar standing for a line of text in a drawing of a screen |
+| Outer container, such as a machine or a Hive | `rx="5"` | Things that hold other things |
+| Card | `rx="5"` | One thing, such as an Index, a step, or a service |
+| Inner card | `rx="4"` | A thing inside a card |
+| Chip | `rx="3"` | A file name, a Memory, or a code sample inside a card |
+| Field in a drawing of a screen | `rx="3"` | An input or a dropdown, as in `admin-playground.svg` |
+| Placeholder bar | `rx="2"` | A gray bar standing for a line of text in a drawing of a screen |
 | Accent bar | half the width (`rx="1.75"` on a 3.5px bar) | A colored strip down the left edge of a card, in the color of the card's meaning from the color table, such as green for the right way and amber for the wrong way |
 | Pill label | half the height | A label that sits on a line, such as the sync label in `context-repositories.svg` |
 
+- **Keep corners at these radii, copied from the securisource dashboard tiles (`.tile { border-radius: 5px }`).** The earlier 12/10/8/6 scale read as soft and bubbly at the docs page width. The radius still steps down one level at a time inside a container, so a reader can tell an inner box from its parent. A pill label is the one exception, since a fully round end is what makes it read as a label on a line.
 - **Use nesting to mean "holds".** A box drawn inside another box means the outer thing contains the inner one, such as Indexes inside a Hive. Never place boxes inside each other for layout alone, because the reader will read containment into it.
 - **Use a solid arrow for something that always happens, and a dashed line for something optional, automatic, or forbidden.** Label every dashed line, so the reader knows which of those meanings it carries. Use these dash patterns, so one pattern always means one thing:
 
@@ -171,7 +174,8 @@ google-chrome \
 
 | Check | How to check |
 | --- | --- |
-| **The header matches the template.** | Compare the logo group, title, subtitle, and divider lines with the template, character for character. |
+| **The footer matches the template.** | Compare the footer divider, logo group, and title line with the template, character for character, and check that the `y` values are the height minus 48, 34, and 19. |
+| **Corner radii come from the shapes table.** | Search the file for `rx=`. Only 5, 4, 3, 2, a pill's half height, and an accent bar's half width belong. |
 | **No element overlaps another.** | Look at every label, arrow, and box edge in the render. The only allowed overlaps are an arrow crossing a container's edge and a timeline line behind its stops. |
 | **Every color is in the color table.** | Search the file for `#` and compare each value with the table. |
 | **No text is smaller than 9px.** | Search the file for `font-size`. |
