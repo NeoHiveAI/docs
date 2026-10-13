@@ -22,7 +22,7 @@ Run the checks in order. Stop at the first check that fails, and apply its fix.
 docker ps --filter name=neohive
 ```
 
-The `neohive` container shows a status of `Up`. If the container is missing, start it and read the log to see why it stopped:
+The `neohive` container shows a status of `Up`. A status of `Up` followed by `(unhealthy)` means the container runs but NeoHive reports a problem, so go to the next check. If the container is missing, start it and read the log to see why it stopped:
 
 ```bash
 docker start neohive
@@ -44,6 +44,8 @@ curl http://localhost:3577/health
 | `"status":"ok"` | NeoHive is ready. | Go to the next check. |
 | `"status":"error"` | NeoHive could not finish starting, or its embedding engine cannot run. | Look up the `error` text in [Common errors](common-errors.md). |
 | `"status":"degraded"` | At least one Hive failed its check. | On the dashboard home page, open that Hive's menu and select **Restart**. |
+
+If `curl` reports `Failed to connect`, the container is not running. Go back to the first check.
 {% endstep %}
 
 {% step %}
@@ -53,10 +55,10 @@ To test the Hive from the dashboard, do the following:
 
 1. Open **Playground** in the dashboard.
 2. Under **Hive**, select your Hive.
-3. Set **Tool** to `list_indexes`.
+3. Under **Tool**, select `list_indexes`.
 4. Select **Run**.
 
-If you see a list of [Indexes](../concepts/glossary.md#index), the Hive works. The problem is then between the Hive and your agent. If you see an error, the Hive itself is broken. Select **Restart** on the Hive, and then run the check again.
+If you see a list of [Indexes](../concepts/glossary.md#index), the Hive works. The problem is then between the Hive and your agent. If you see an error, the Hive itself is broken. On the dashboard home page, open the Hive's menu, select **Restart**, and then run the check again.
 {% endstep %}
 
 {% step %}
@@ -66,7 +68,7 @@ Each Hive has its own endpoint, `http://localhost:3577/hives/<hive-id>/mcp`. To 
 
 1. Open the Hive in the dashboard.
 2. Copy the endpoint from **Install Instructions**.
-3. Compare the endpoint with your agent's MCP configuration, character by character.
+3. Compare the endpoint with your agent's MCP configuration, character by character. In Claude Code, `claude mcp get <name>` prints the URL.
 
 A wrong Hive id returns `Unknown Hive: <id>`. A wrong port or host returns a connection error. After your agent reaches the Hive, **Install Instructions** shows a `CONNECTED` count.
 {% endstep %}
@@ -74,7 +76,9 @@ A wrong Hive id returns `Unknown Hive: <id>`. A wrong port or host returns a con
 {% step %}
 ## Does your agent see the tools?
 
-Ask your agent: `List my NeoHive indexes.` Your agent calls `list_indexes` and answers. If the agent does not have the `list_indexes` tool, the agent has not loaded the NeoHive MCP server. Restart the agent after any configuration change. In Claude Code, if the `/neohive:` commands are missing, run `/reload-plugins`.
+Ask your agent: `List my NeoHive indexes.` Your agent calls `list_indexes` and answers. If the agent does not have the `list_indexes` tool, the agent has not loaded the NeoHive MCP server. Restart the agent after any configuration change.
+
+In Claude Code, the command from **Install Instructions** saves the server in `.mcp.json` in the folder where you ran it, so start Claude Code in that folder. If the `/neohive:` commands are missing, run `/reload-plugins`. For the full setup, see [Claude Code](../get-started/connect/claude-code.md).
 {% endstep %}
 {% endstepper %}
 
