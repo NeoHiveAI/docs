@@ -28,7 +28,11 @@ To turn off a hook, do the following:
 
 The hook does not run in the new session.
 
-Every hook except `SessionStart` needs `python3` on your `PATH`. Without `python3`, those hooks do nothing. [Environment variables](../reference/environment-variables.md) lists all the switches.
+Every hook except `SessionStart` needs `python3` on your `PATH`, and the prompt hook also needs `curl`. Without those tools, the hooks do nothing. [Environment variables](../reference/environment-variables.md) lists all the switches.
+
+## What the prompt recall counts as
+
+NeoHive treats the prompt hook's recall the same as a recall your agent makes on purpose. The recall appears in the **Recent queries** tab of your [Hive](../concepts/glossary.md#hive) page, and it adds to the access count of each [Memory](../concepts/glossary.md#memory) it returns. `memory_recall` shows that count as **Accessed** in each result, and `memory_stats` lists the most accessed Memories. The smart prompts hook, described later on this page, counts the same way.
 
 ## When the prompt recall adds nothing
 
@@ -41,7 +45,7 @@ Every hook except `SessionStart` needs `python3` on your `PATH`. Without `python
 | Nothing matched | Recall finds no matching context, so the hook adds nothing. |
 
 {% hint style="warning" %}
-The prompt hook finds your [Hive](../concepts/glossary.md#hive) through the `.mcp.json` that the **Install Instructions** command writes with `--scope project`. If you add the server without a scope, tool calls still work, but the hook adds no context to your prompts. [Connect Claude Code](../get-started/connect/claude-code.md) explains which scope to use.
+The prompt hook finds your Hive through the `.mcp.json` that the **Install Instructions** command writes with `--scope project`. If you add the server without a scope, tool calls still work, but the hook adds no context to your prompts. [Connect Claude Code](../get-started/connect/claude-code.md) explains which scope to use.
 {% endhint %}
 
 The hook adds context under `NeoHive auto-context` and cuts it off at 4,000 characters. If `NEOHIVE_TOKEN` is set, the hook sends that token as a bearer token (an access token in the request header).
@@ -63,7 +67,9 @@ A subagent is a helper agent your agent hands a task to. The plugin includes one
 | Save the session's learnings | `/neohive:capture-session-learnings` |
 | Rewrite each prompt with a small model before recall (optional) | `/neohive:enable-smart-prompts` |
 
-Smart prompts adds a second prompt hook. The new hook asks a small model (Haiku by default) to rewrite each prompt into a `memory_recall` query. The default hook also keeps running unless you turn it off. Smart prompts needs the `claude` command-line tool, `python3`, `curl`, and the `ANTHROPIC_API_KEY` environment variable. Without `claude` or `ANTHROPIC_API_KEY`, the new hook adds nothing. You choose the name of its off switch during setup. The suggested name is `NEOHIVE_SMART_DISABLED`. [Slash commands](../reference/slash-commands.md) lists every other plugin command.
+Nothing runs the capture command for you. The command's own description inside the plugin says that a stop hook runs it, but the plugin registers no such hook. Run the command before you close the session.
+
+Smart prompts adds a second prompt hook. The new hook asks a small model (Haiku by default) to rewrite each prompt into a `memory_recall` query. The default hook also keeps running unless you turn it off. Smart prompts needs the `claude` command-line tool, `python3`, `curl`, and the `ANTHROPIC_API_KEY` environment variable. If any of these is missing, the new hook adds nothing. You choose the name of its off switch during setup. The suggested name is `NEOHIVE_SMART_DISABLED`. [Slash commands](../reference/slash-commands.md) lists every other plugin command.
 
 ## In Codex and Cursor
 
