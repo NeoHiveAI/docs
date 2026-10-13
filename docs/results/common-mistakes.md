@@ -20,7 +20,7 @@ When answers seem off but nothing is broken, check the following table. Each row
 | **Never correcting the agent** | The same wrong suggestion comes back in every session. | When your agent is wrong, say what is correct and why. |
 | **Stating a new fact without retiring the old one** | Your agent quotes the old rule as often as the new one. | Say "that's out of date" so your agent deactivates the old Memory. See [Teach your agent as you work](teach.md). |
 | **One session across unrelated tasks** | Loaded context fits the task you started with, not the task you are working on now. | Start a new session, or run `/neohive:load-context` with the new task. |
-| **Skipping the end-of-session capture** | Your agent never recalls decisions from long sessions. | Run `/neohive:capture-session-learnings` before you close the session. |
+| **Skipping the end-of-session capture** | Decisions from long sessions never come back, because nobody told the agent to store them. | Run `/neohive:capture-session-learnings` before you close the session. Nothing runs the command for you. |
 | **Wrong [MCP](../concepts/glossary.md#mcp) server name or scope** | In Claude Code, prompts stop adding context automatically. Tool calls still work. | Keep `neohive` in the server name. Add the server with `--scope project`, from your project's root folder. See [What the plugin does automatically](plugin-automation.md). |
 
 ## What NeoHive already skips

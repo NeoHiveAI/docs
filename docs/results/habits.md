@@ -28,4 +28,4 @@ To check your progress, do the following:
 
 1. In the dashboard, open your Hive.
 2. Select the **Recent learnings** tab to see what agents stored.
-3. Select the **Recent queries** tab to see what agents asked.
+3. Select the **Recent queries** tab to see what agents asked. In Claude Code, the list also includes the recall the plugin runs for each prompt you send.
