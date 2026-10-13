@@ -42,14 +42,23 @@ If the file already has an `mcpServers` block, add the entry inside that block. 
 
 To install the plugin, do the following:
 
-1. Run the following commands, which clone the plugin and link it into Cursor's local plugins folder:
+1. If you linked the plugin into Cursor's local plugins folder before, delete the link. Cursor skips a link there that points to another place on disk, so the old link never loaded, and it makes the next step fail with `already exists and is not an empty directory`:
 
    ```bash
-   git clone https://github.com/NeoHiveAI/NeoHiveCursor.git
-   mkdir -p ~/.cursor/plugins/local
-   ln -s "$(pwd)/NeoHiveCursor" ~/.cursor/plugins/local/neohive
+   rm ~/.cursor/plugins/local/neohive
    ```
-2. Restart Cursor.
+2. Run the following command, which clones the plugin into Cursor's local plugins folder:
+
+   ```bash
+   git clone https://github.com/NeoHiveAI/NeoHiveCursor.git ~/.cursor/plugins/local/neohive
+   ```
+
+   Clone the plugin into that folder rather than linking to a copy somewhere else, because Cursor ignores a link to a copy outside the folder.
+3. Restart Cursor, or run **Developer: Reload Window** from the Command Palette.
+
+{% hint style="info" %}
+On Cursor Enterprise, Cursor loads local plugins only after an admin turns on **Allow Local Plugin Imports**. The setting is off by default.
+{% endhint %}
 
 The plugin adds a set of skills and an always-on rule, `rules/neohive.mdc`. The rule tells Cursor when to call `memory_context`, `memory_recall`, and `memory_store`. The plugin does not add an MCP server, which is why you add the MCP server first.
 {% endstep %}
