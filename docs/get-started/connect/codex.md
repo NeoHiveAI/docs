@@ -18,9 +18,8 @@ To add the Hive to Codex, do the following:
 2. Go to **Install Instructions**.
 3. Select **Codex**.
 4. Copy the block into `~/.codex/config.toml`. To use the Hive in one project only, copy the block into `.codex/config.toml` in that project instead.
-5. Rename the `headers` key to `http_headers`. The dashboard names the key `headers`, but Codex reads `http_headers`.
 
-After you rename the key, the block looks like this:
+The block looks like this:
 
 ```toml
 [mcp_servers.<name>]
