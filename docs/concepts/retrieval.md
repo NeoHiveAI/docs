@@ -23,7 +23,7 @@ When part of a document matches, NeoHive returns the whole section under that he
 | `memory_context` | The start of a task. `memory_context` returns the directives and conventions that match the task you describe, and then other Memories and indexed content that match the task. |
 | `memory_recall` | A specific question in the middle of a task. |
 
-Both tools search every Index in the Hive unless you name one Index. In Claude Code, the plugin also calls `memory_recall` with each prompt you send, as [What the plugin does automatically](../results/plugin-automation.md) explains. To see what a recall returns before your agent does, run the same tools in the [Playground](../admin/playground.md).
+Both tools search every Index in the Hive unless you name one Index. In Claude Code, the plugin also calls `memory_recall` with each prompt you send, as [What the plugin does automatically](../results/plugin-automation.md) explains.
 
 ## What you control
 
