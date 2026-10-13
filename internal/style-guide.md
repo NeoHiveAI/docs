@@ -127,9 +127,12 @@ NeoHive opens the new Index page and starts the first sync.
 | **Document only what the reader can see, set, or act on.** | Nothing internal-only goes in the docs. That covers dashboard text, command output, slash commands, MCP tools, endpoints the reader calls, environment variables they set, files they can open, and hosts they can block. Leave out database tables and columns, source file paths, function names, migration numbers, internal job names, and ranking or chunking internals. A reader cannot find or change any of these, so the text costs reading time and goes stale with the next refactor. A security or backup fact stays when the reader needs it for a decision, written as what they can observe, such as where a file lives. Google's guide has no matching rule, so this one is a house rule stricter than Google. |
 | **Do not document how a feature works until readers can use it.** | A feature that is gated or shows **Coming soon**, such as Jira today, gets one line on the page that lists what exists (the data sources list) and nothing anywhere else. Leave its fields, tokens, checks, network calls, and stored data out of every other page, security and reference pages included. A reader cannot act on them, and they read as a promise the product does not keep yet. When the feature ships, document it then, from the released code. Google's guide says the same: avoid documenting future features, even in innocuous ways. |
 | **Use sentence case for titles and headings.** | Write "Connect a repository", not "Connect A Repository". Sentence case is easier to read and matches how labels appear in the app. This includes the section titles in `SUMMARY.md`. |
+| **Start a task title or heading with a verb in its base form.** | Write "Expose NeoHive beyond your network", not "Exposing NeoHive beyond your network". Google's headings rule reserves the base form for task pages, and an "-ing" title reads as a concept page, so a reader scanning the menu for something to do skips past it. Concept titles stay noun phrases, such as "What stays on your machine". |
 | **Keep page titles and navigation titles the same.** | When you change a page's `# H1`, change its entry in `SUMMARY.md` and the text of every link to it. A reader who follows a link expects to land on a page with the same name. |
 | **Use code font only for text the reader types or reads literally.** | This covers commands, file names, environment variables, and values to enter, for example `config.json`. Code font on ordinary words makes them look like something to type. |
 | **Give every fenced code block a language.** | Use `bash`, `json`, `toml`, `text`, and so on. Without a language, GitBook shows no syntax highlighting. |
+| **Introduce every code block with a sentence that ends in a colon.** | Write "Run the following command:" directly before the block. A block with no lead-in sentence, or one after an unrelated sentence, leaves the reader guessing what to do with it and where to run it. |
+| **Indent a code block that belongs to a numbered step by three spaces.** | The indent keeps the block inside the step. Without it, the block ends the list, GitBook restarts the numbering, and the step reads as if it had no command. |
 | **Never put a secret in an example that writes a file the reader commits.** | Use a variable that the tool fills in at run time, in single quotes so the shell does not fill it in first: `'Authorization: Bearer ${NEOHIVE_TOKEN}'`. A token typed into a command that writes `.mcp.json` lands in a file the docs tell teams to commit, and anyone with the repository can then use it. |
 | **Use the serial comma.** | Write "files, folders, and links". Without the last comma, the final two items can read as one item. |
 
@@ -188,6 +191,8 @@ Put a caution or warning before the step it applies to, not after. A reader who 
 | simply, just, easy | (remove) |
 | please | (remove) |
 | above, below (for page location) | earlier, later, or a link |
+| may (for something that might happen) | might, or can for something the reader is able to do |
+| today, currently, now (for what NeoHive does) | (remove), because the docs always describe the current product |
 
 ## Before you publish (Quick Reference)
 
