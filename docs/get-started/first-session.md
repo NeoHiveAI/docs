@@ -20,13 +20,13 @@ Ask your agent a question that only your repository can answer:
 Where do we handle payment retries?
 ```
 
-Your agent calls `memory_recall` and answers from the indexed code, with real file paths. You do not paste files into the chat.
+Your agent calls `memory_recall` and answers from the indexed code, with real file paths. You don't paste files into the chat.
 {% endstep %}
 
 {% step %}
 ## Teach your agent one thing
 
-Tell your agent a convention that it cannot work out from the code:
+Tell your agent a convention that it can't work out from the code:
 
 ```text
 Remember that we always use snake_case for database column names.

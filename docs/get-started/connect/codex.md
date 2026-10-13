@@ -27,7 +27,7 @@ url = "http://localhost:3577/hives/<hive-id>/mcp"
 http_headers = { "x-mcp-client" = "codex" }
 ```
 
-Codex connects to the URL directly, so Codex does not need `mcp-remote` or another program in between.
+Codex connects to the URL directly, so Codex doesn't need `mcp-remote` or another program in between.
 {% endstep %}
 
 {% step %}
@@ -46,7 +46,7 @@ After you add the marketplace, do the following:
 3. Install **NeoHive** from the list.
 4. To load the plugin's skills, start a new Codex session.
 
-The plugin adds a set of skills and a rules file. The rules file tells Codex when to call `memory_context`, `memory_recall`, and `memory_store`. The plugin does not add an MCP server, which is why you add the MCP server first.
+The plugin adds a set of skills and a rules file. The rules file tells Codex when to call `memory_context`, `memory_recall`, and `memory_store`. The plugin doesn't add an MCP server, which is why you add the MCP server first.
 {% endstep %}
 
 {% step %}

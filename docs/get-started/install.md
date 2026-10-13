@@ -18,7 +18,7 @@ Before you start, you need the following:
 {% step %}
 ## Install
 
-Run the installer from the folder that holds your license file. The installer reads the license, and then starts NeoHive in a Docker container named `neohive`. If the installer cannot find the license file, it asks for the path.
+The installer reads your license file, and then starts NeoHive in a Docker container named `neohive`. If the installer can't find the license file, it asks for the path. To install NeoHive, run the following command from the folder that holds your license file:
 
 ```bash
 bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
@@ -56,7 +56,7 @@ NEOHIVE_BACKEND=cpu bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveA
 curl http://localhost:3577/health
 ```
 
-The reply contains `"status":"ok"`. If the reply does not contain `"status":"ok"`, run `docker logs neohive --tail 50` and then see [Common errors](../troubleshooting/common-errors.md).
+The reply contains `"status":"ok"`. If the reply doesn't contain `"status":"ok"`, run `docker logs neohive --tail 50` and then see [Common errors](../troubleshooting/common-errors.md).
 {% endhint %}
 {% endstep %}
 
@@ -111,7 +111,7 @@ The last setup step is **Install for your AI tools**. Later, the **Install Instr
 
    The `--scope project` flag saves the Hive in that folder's `.mcp.json`, where the plugin's automatic recall looks for it. To learn why the scope matters, see [Connect Claude Code](connect/claude-code.md).
 3. Start Claude Code in the project.
-4. When Claude Code asks, approve the NeoHive server. Claude Code does not connect to the Hive until you approve the server. After Claude Code connects, setup shows **Connected**.
+4. When Claude Code asks, approve the NeoHive server. Claude Code doesn't connect to the Hive until you approve the server. After Claude Code connects, setup shows **Connected**.
 5. Run the remaining commands inside Claude Code:
 
    ```text

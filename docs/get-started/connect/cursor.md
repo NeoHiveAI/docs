@@ -34,7 +34,7 @@ The JSON looks like this:
 }
 ```
 
-If the file already has an `mcpServers` block, add the entry inside that block. Cursor connects to the URL directly, so Cursor does not need `mcp-remote` or another program in between.
+If the file already has an `mcpServers` block, add the entry inside that block. Cursor connects to the URL directly, so Cursor doesn't need `mcp-remote` or another program in between.
 {% endstep %}
 
 {% step %}
@@ -60,7 +60,7 @@ To install the plugin, do the following:
 On Cursor Enterprise, Cursor loads local plugins only after an admin turns on **Allow Local Plugin Imports**. The setting is off by default.
 {% endhint %}
 
-The plugin adds a set of skills and an always-on rule, `rules/neohive.mdc`. The rule tells Cursor when to call `memory_context`, `memory_recall`, and `memory_store`. The plugin does not add an MCP server, which is why you add the MCP server first.
+The plugin adds a set of skills and an always-on rule, `rules/neohive.mdc`. The rule tells Cursor when to call `memory_context`, `memory_recall`, and `memory_store`. The plugin doesn't add an MCP server, which is why you add the MCP server first.
 {% endstep %}
 
 {% step %}
