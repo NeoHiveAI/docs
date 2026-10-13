@@ -6,7 +6,7 @@ description: "What happens at each stage of a working session with NeoHive, from
 
 A session is one conversation with your agent, from your first prompt until you close it. Your agent starts each session with no knowledge of your project. With NeoHive, your agent loads your team's context from your [Hive](../concepts/glossary.md#hive), your team's NeoHive workspace. Your agent also saves what you teach it, so the lesson comes back in later sessions.
 
-A session moves through four stages. For each stage, the steps that follow name the tool your agent calls and what you type when the stage needs you. In Claude Code, the first two stages run automatically, and you run the last two yourself.
+A session moves through four stages. For each stage, the steps that follow name the tool your agent calls and what you type when the stage needs you. In Claude Code, the plugin reminds your agent to do the first stage and runs the second for you. You do the last two yourself.
 
 <figure><img src="../.gitbook/assets/results-a-session.svg" alt="One session in four stages: start calls memory_context, work calls memory_recall, teach calls memory_store, and capture runs capture-session-learnings before you close."><figcaption></figcaption></figure>
 
@@ -14,7 +14,7 @@ A session moves through four stages. For each stage, the steps that follow name 
 {% step %}
 ## Start: load context for the task
 
-When the session opens, the plugin's rules tell your agent to call `memory_context` with your task. `memory_context` returns your team's rules and conventions, plus the [Memories](../concepts/glossary.md#memory) that fit the task.
+When the session opens, the plugin reminds your agent to call `memory_context` with your task, and the plugin's rules file tells your agent the same. `memory_context` returns your team's rules and conventions, plus the [Memories](../concepts/glossary.md#memory) that fit the task.
 
 To load context yourself, or to reload it after you switch to a different task, run the following command:
 
@@ -53,10 +53,10 @@ Before you close the session, run the following command:
 Your agent reviews the conversation for corrections, conventions, decisions, and known problems. Your agent skips what the Hive already knows and stores up to five new Memories.
 
 {% hint style="warning" %}
-No hook runs the capture for you. If you close the session without running the capture, NeoHive keeps only the Memories your agent stored during the session.
+No hook runs the capture for you, even though the command's own description inside the plugin says that one does. If you close the session without running the capture, NeoHive keeps only the Memories your agent stored during the session.
 {% endhint %}
 
-If your agent used memory poorly during the session, the capture skill can also add one instruction to your agent's instructions file. For example, the skill might add an instruction if your agent never loaded context. The skill edits only the memory section of that file.
+If your agent used memory poorly during the session, the capture skill can also add or change an instruction in your agent's instructions file. For example, the skill might add an instruction if your agent never loaded context. The skill edits only the memory section of that file.
 {% endstep %}
 {% endstepper %}
 
