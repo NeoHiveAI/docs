@@ -83,7 +83,8 @@ Setup now shows **Install for your AI tools** with **Claude** selected. To conne
    ```
 3. Start Claude Code in your repository.
 4. When Claude Code asks, approve the NeoHive server.
-5. Run the following commands inside Claude Code to install the plugin and run its setup:
+5. When setup shows **Connected**, select **Open** followed by your Hive's name.
+6. Run the following commands inside Claude Code to install the plugin and run its setup:
 
    ```text
    /plugin marketplace add NeoHiveAI/NeoHiveClaude
@@ -92,7 +93,7 @@ Setup now shows **Install for your AI tools** with **Claude** selected. To conne
    /neohive:getting-started
    ```
 
-**What you should see.** Setup shows **Connected** as soon as Claude Code makes its first request, which happens after you approve the server. The setup wizard then confirms that Claude Code can reach the Hive. If **Connected** does not appear, Claude Code has not connected yet: check that you approved the server, then see the table at the end of this page.
+**What you should see.** Setup shows **Connected** as soon as Claude Code makes its first request, which happens after you approve the server. The plugin's setup wizard then confirms that Claude Code can reach the Hive. If **Connected** does not appear, Claude Code has not connected yet: check that you approved the server, then see the table at the end of this page.
 {% endstep %}
 
 {% step %}

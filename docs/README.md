@@ -20,7 +20,7 @@ NeoHive is a self-hosted memory that your team's coding agents share. It works w
 * **Context files do not scale.** A `CLAUDE.md` or `AGENTS.md` grows to thousands of lines, and the agent loads all of it whether the task needs it or not.
 * **Pasting code is a chore.** You do it every session, and the agent can only read so much at once.
 
-NeoHive indexes your repositories and documents, stores what your team teaches the agent, and returns only the parts the current task needs.
+NeoHive indexes your repositories and documents, stores what your team teaches the agent, and returns only the parts the current task needs. Your content lives in a [Hive](concepts/glossary.md#hive), your team's workspace. A Hive holds [Indexes](concepts/glossary.md#index), the stores for your code, documents, files, and [Memories](concepts/glossary.md#memory).
 
 ## What NeoHive does
 
@@ -28,6 +28,6 @@ NeoHive indexes your repositories and documents, stores what your team teaches t
 
 ## Built for teams
 
-* **One Hive, every agent.** A [Hive](concepts/glossary.md#hive) is your team's workspace. Each teammate's agent reads from it, whichever tool they use.
+* **One Hive, every agent.** Each teammate's agent reads from the same Hive, whichever tool they use.
 * **Teach once.** When you correct your agent or explain a convention, it saves the lesson as a [Memory](concepts/glossary.md#memory). Every teammate's agent recalls it.
 * **Nothing is lost when people change.** A teammate who joins next month gets the same lessons on their first day.

@@ -8,18 +8,14 @@ NeoHive is a self-hosted memory that your team's coding agents share, such as Cl
 
 ## The problem it solves
 
-A coding agent starts every session with no knowledge of your project:
-
-* It does not know how your code is organized or which conventions your team follows.
-* It does not remember what you told it yesterday.
-* You explain the same things again and correct the same mistakes.
+A coding agent starts every session with no knowledge of your project. It does not know how your code is organized, which conventions your team follows, or what you told it yesterday, so you explain the same things again and correct the same mistakes.
 
 ## What changes with NeoHive
 
 * **Your code is searchable.** NeoHive copies your repositories and documents into [Indexes](../concepts/glossary.md#index). The agent finds code by what it does, not by its file name.
 * **Lessons stick.** What your team teaches the agent, such as a convention or a bug fix, is stored as a [Memory](../concepts/glossary.md#memory) in your [Hive](../concepts/glossary.md#hive).
 * **Only what the task needs.** The agent asks NeoHive through [MCP](../concepts/glossary.md#mcp) and gets back the matching parts, not a whole context file. More of the agent's context window is left for your work.
-* **Everything stays with you.** NeoHive runs in a Docker container on your machine or a shared server. Your code, documents, and Memories stay there. See [What stays on your machine](../security/local-only.md).
+* **Everything stays with you.** NeoHive runs in a Docker container on your machine or a shared server, and your code, documents, and Memories stay there. The same container serves a dashboard, where you manage your Hives and their content in your browser. See [What stays on your machine](../security/local-only.md).
 
 <figure><img src="../.gitbook/assets/get-started-what-is-neohive.svg" alt="Two panels compare an agent without and with NeoHive. Without NeoHive, the agent guesses a style, and you correct the agent every session. With NeoHive, the agent recalls your code and the snake_case convention from your Hive, and uses the right style on the first try."><figcaption></figcaption></figure>
 
