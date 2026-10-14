@@ -17,7 +17,7 @@ Before you start, you need the following:
 {% step %}
 ## Install NeoHive
 
-Run the installer from the folder that holds your license file.
+Run the installer from the folder that holds your license file:
 
 ```bash
 bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
@@ -61,16 +61,16 @@ Setup now shows **Install for your AI tools** with **Claude** selected. To conne
      --header 'x-mcp-client: claude-code'
    ```
 3. Start Claude Code in your repository.
-4. When Claude Code asks, approve the NeoHive server. Setup shows **Connected** only after Claude Code connects, and Claude Code does not connect until you approve the server.
+4. When Claude Code asks, approve the NeoHive server. Setup shows **Connected** only after Claude Code connects, and Claude Code doesn't connect until you approve the server.
 5. When setup shows **Connected**, select **Open** followed by your Hive's name.
 6. To install the plugin and run its setup, run the following commands inside Claude Code:
 
-```text
-/plugin marketplace add NeoHiveAI/NeoHiveClaude
-/plugin install neohive@neohive-claude
-/reload-plugins
-/neohive:getting-started
-```
+   ```text
+   /plugin marketplace add NeoHiveAI/NeoHiveClaude
+   /plugin install neohive@neohive-claude
+   /reload-plugins
+   /neohive:getting-started
+   ```
 
 The setup wizard checks that Claude Code can reach the Hive.
 {% endstep %}
@@ -90,4 +90,4 @@ Claude Code calls `memory_recall` and answers with real paths from your reposito
 
 ## Next step
 
-You have installed NeoHive and connected Claude Code, so you can skip **Install NeoHive** and **Connect your agent**. Continue with [Your first session](first-session.md).
+You've installed NeoHive and connected Claude Code, so you can skip **Install NeoHive** and **Connect your agent**. Continue with [Your first session](first-session.md).

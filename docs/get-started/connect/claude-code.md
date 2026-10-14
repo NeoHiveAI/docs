@@ -30,13 +30,15 @@ claude mcp add <name> '<hive-url>' \
   --header 'x-mcp-client: claude-code'
 ```
 
-The `--scope project` flag saves the server in a `.mcp.json` file in the folder where you run the command. The plugin's prompt hook reads that file first, so automatic recall uses the Hive for this project. Commit `.mcp.json` to the repository, and every teammate who opens the project gets the same Hive. The file also turns on the plugin's Glob and Grep reminder.
+Keep the URL directly after the name. If the URL comes after a flag, Claude Code reads the URL as a header value and can't reach the server. The command that the dashboard shows ends with `&& claude mcp get <name>`, which prints the saved entry.
 
-The next time Claude Code starts in the project, it asks you to approve the server from `.mcp.json`. Approve the server, or Claude Code does not connect to the Hive.
+{% hint style="warning" %}
+**Keep `--scope project`.** The flag saves the server in a `.mcp.json` file in the folder where you run the command, and the plugin's prompt hook reads that file first, so automatic recall uses the Hive for this project. With `--scope user`, the hook uses the first NeoHive server it finds, so once you add a second Hive, every project recalls from whichever Hive you added first. With no scope, Claude Code saves the server where the hook never looks, and automatic recall does nothing.
+{% endhint %}
 
-Do not add the server with `--scope user`. At user scope, the prompt hook uses the first NeoHive server it finds. If you add more than one Hive, every project then recalls from whichever Hive you added first. Without any scope, Claude Code saves the server where the prompt hook never looks, so automatic recall does nothing.
+Commit `.mcp.json` to the repository, and every teammate who opens the project gets the same Hive. The file also turns on the plugin's Glob and Grep reminder.
 
-Keep the URL directly after the name. If the URL comes after a flag, Claude Code reads the URL as a header value and cannot reach the server. The command that the dashboard shows ends with `&& claude mcp get <name>`, which prints the saved entry.
+The next time Claude Code starts in the project, it asks you to approve the server from `.mcp.json`. Approve the server, or Claude Code doesn't connect to the Hive.
 {% endstep %}
 
 {% step %}
@@ -50,7 +52,7 @@ To install the plugin, start Claude Code in your project, and then run the follo
 /reload-plugins
 ```
 
-If you skip `/reload-plugins`, the next step fails with an unknown command error. The plugin does not add an MCP server, which is why you add the MCP server first. The plugin adds the following parts:
+If you skip `/reload-plugins`, the next step fails with an unknown command error. The plugin doesn't add an MCP server, which is why you add the MCP server first. The plugin adds the following parts:
 
 | Part | What it does |
 |---|---|

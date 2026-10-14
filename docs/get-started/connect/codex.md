@@ -18,9 +18,8 @@ To add the Hive to Codex, do the following:
 2. Go to **Install Instructions**.
 3. Select **Codex**.
 4. Copy the block into `~/.codex/config.toml`. To use the Hive in one project only, copy the block into `.codex/config.toml` in that project instead.
-5. Rename the `headers` key to `http_headers`. The dashboard names the key `headers`, but Codex reads `http_headers`.
 
-After you rename the key, the block looks like this:
+The block looks like this:
 
 ```toml
 [mcp_servers.<name>]
@@ -28,7 +27,7 @@ url = "http://localhost:3577/hives/<hive-id>/mcp"
 http_headers = { "x-mcp-client" = "codex" }
 ```
 
-Codex connects to the URL directly, so Codex does not need `mcp-remote` or another program in between.
+Codex connects to the URL directly, so Codex doesn't need `mcp-remote` or another program in between.
 {% endstep %}
 
 {% step %}
@@ -47,7 +46,7 @@ After you add the marketplace, do the following:
 3. Install **NeoHive** from the list.
 4. To load the plugin's skills, start a new Codex session.
 
-The plugin adds a set of skills and a rules file. The rules file tells Codex when to call `memory_context`, `memory_recall`, and `memory_store`. The plugin does not add an MCP server, which is why you add the MCP server first.
+The plugin adds a set of skills and a rules file. The rules file tells Codex when to call `memory_context`, `memory_recall`, and `memory_store`. The plugin doesn't add an MCP server, which is why you add the MCP server first.
 {% endstep %}
 
 {% step %}
