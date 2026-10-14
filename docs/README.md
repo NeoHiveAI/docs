@@ -6,9 +6,9 @@ description: >-
 
 # Welcome
 
-**Your coding agents forget your project between sessions. NeoHive remembers it for them.**
+**Coding agents that share what your whole team knows.**
 
-NeoHive is a self-hosted memory that your team's coding agents share. It works with Claude Code, Cursor, Codex, and any other agent that supports [MCP](concepts/glossary.md#mcp).
+NeoHive is a self-hosted context layer. Connect your repositories, documents, and team knowledge once, and every agent on your team reads the same memory: Claude Code, Cursor, Codex, or any other agent that supports [MCP](concepts/glossary.md#mcp). Fix something once, and it is fixed for everyone.
 
 ## Start here
 
@@ -16,11 +16,12 @@ NeoHive is a self-hosted memory that your team's coding agents share. It works w
 
 ## Why it exists
 
-* **Every session starts from zero.** The agent does not know your conventions, the library you moved off, or that a function it called does not exist.
-* **Context files do not scale.** A `CLAUDE.md` or `AGENTS.md` grows to thousands of lines, and the agent loads all of it whether the task needs it or not.
-* **Pasting code is a chore.** You do it every session, and the agent can only read so much at once.
+* **Every agent starts from zero.** It does not know your codebase, your conventions, or the library you moved off last quarter.
+* **Every developer teaches their own.** A correction made in one person's Claude Code never reaches a teammate's Cursor.
+* **Context files do not scale.** A `CLAUDE.md` grows to thousands of lines, and the agent loads all of it whether the task needs it or not.
+* **The reasoning gets lost first.** Why a decision was made is the thing nobody writes down, and the thing the next agent most needs.
 
-NeoHive indexes your repositories and documents, stores what your team teaches the agent, and returns only the parts the current task needs. Your content lives in a [Hive](concepts/glossary.md#hive), your team's workspace. A Hive holds [Indexes](concepts/glossary.md#index), the stores for your code, documents, files, and [Memories](concepts/glossary.md#memory).
+NeoHive indexes your repositories and documents, keeps what your team teaches the agent beside the code it applies to, and returns only the parts the current task needs. Your content lives in a [Hive](concepts/glossary.md#hive), your team's workspace. A Hive holds [Indexes](concepts/glossary.md#index), the stores for your code, documents, files, and [Memories](concepts/glossary.md#memory).
 
 ## What NeoHive does
 
