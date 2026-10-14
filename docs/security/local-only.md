@@ -22,14 +22,14 @@ An outbound connection is a request that NeoHive starts to another server. The f
 | Model download | `huggingface.co` | When an embedding model isn't cached in the container yet. An update replaces the container, so the first use after an update downloads the model again. The PDF converter's models come with the container | Only the request for the file | No. The downloads stop once the model is cached |
 | Data sources | `github.com`, `api.github.com`, `gitlab.com`, or your own GitLab host. A connection with an SSH key uses SSH on port `22` | When you add a connection or an Index, on each sync, and when NeoHive checks a connection. Syncs also run on a schedule | Your stored token or SSH key, to authenticate | Yes. Remove the Index and its connection |
 
-Usage metrics send two kinds of data. Both carry the NeoHive version, a hashed license ID, and the random machine ID.
+Usage metrics never include file contents, Memory text, recall query text, or tokens. They record a Memory's length, not its words. They send two kinds of data, and both carry the NeoHive version, a hashed license ID, and the random machine ID:
 
 - **Metrics:** request counts and timings, [MCP](../concepts/glossary.md#mcp) tool names, [Hive](../concepts/glossary.md#hive) and Index IDs, counts of Memories, chunks, and files, embedding batch sizes and timings, and Node.js runtime statistics.
 - **Traces:** the name, duration, and outcome of each request and tool call. A request's trace also holds the request path and query string, and the IP address and user agent of the agent or browser that sent the request. A failed request adds the error message and stack trace.
 
-Usage metrics never include file contents, Memory text, recall query text, or tokens. Usage metrics record a Memory's length, not its words. A query string can still hold text you typed into the dashboard. For example, a search for a repository sends the search text.
+A query string can still hold text you typed into the dashboard. For example, a search for a repository sends the search text.
 
-NeoHive starts usage metrics before it reads your setting. When usage metrics are turned off, each start of the container still sends one batch of Node.js runtime statistics before they stop.
+Because NeoHive starts usage metrics before it reads your setting, each start of the container sends one batch of Node.js runtime statistics, even when usage metrics are turned off. After that batch, usage metrics stop.
 
 {% hint style="warning" %}
 **The license check needs the internet at least once every 72 hours.** On a network with a strict firewall, allow outbound HTTPS to `api.keygen.sh`. For what happens when the check can't reach the internet, see [Check your license status](../admin/licensing.md#check-your-license-status).

@@ -4,15 +4,13 @@ description: "What protects NeoHive on the network, and what to add before peopl
 
 # Expose NeoHive beyond your network
 
-NeoHive runs as a server. Your agents and your browser reach NeoHive over the network on port `3577`, unless you chose another port with `NEOHIVE_PORT` when you installed. The dashboard and the endpoints your agents connect to all use that one port.
-
-Other people might need NeoHive too, such as a teammate on your office network. You might also run an agent on a laptop outside that network. Each case needs a different setup.
-
-The right setup depends on who connects and from where. For access from outside your network, you put a proxy in front of NeoHive, and each agent sends that proxy a credential.
-
-<figure><img src="../.gitbook/assets/security-network.svg" alt="Agents outside send HTTPS with a credential to a reverse proxy or VPN. The proxy checks the credential and forwards plain HTTP to NeoHive on port 3577 inside the trusted network. A direct path to port 3577 is crossed out."><figcaption></figcaption></figure>
+NeoHive runs as a server, so your agents and your browser reach it over the network on port `3577`, unless you chose another port with `NEOHIVE_PORT` when you installed. The dashboard and the endpoints your agents connect to all use that one port.
 
 **NeoHive has no user accounts and checks no credentials.** Anyone who can reach port `3577` can read and write every [Hive](../concepts/glossary.md#hive) on the instance. A Hive is a workspace with its own [MCP](../concepts/glossary.md#mcp) endpoint. Your network is the access control.
+
+What you set up depends on who else needs NeoHive. A teammate on your office network needs one setup, and an agent on a laptop outside that network needs another. For access from outside your network, you put a proxy in front of NeoHive, and each agent sends that proxy a credential.
+
+<figure><img src="../.gitbook/assets/security-network.svg" alt="Agents outside send HTTPS with a credential to a reverse proxy or VPN. The proxy checks the credential and forwards plain HTTP to NeoHive on port 3577 inside the trusted network. A direct path to port 3577 is crossed out."><figcaption></figcaption></figure>
 
 | Who needs to reach NeoHive | What to set up |
 |---|---|

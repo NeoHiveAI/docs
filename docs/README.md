@@ -24,7 +24,7 @@ NeoHive indexes your repositories and documents, and stores what your team teach
 
 ## Built for teams
 
-A Hive is shared, so what one person teaches their agent helps the whole team. When you correct your agent or explain a convention, the agent saves that lesson as a Memory in the Hive. Every teammate's agent reads from the same Hive, so each agent recalls that Memory, whichever tool the teammate uses. The Memory stays in the Hive, so a teammate who joins next month gets the lesson on their first day.
+A Hive is shared, so what one person teaches their agent helps the whole team. When you correct your agent or explain a convention, the agent saves that lesson as a Memory in your Hive. Your teammates' agents read from the same Hive and recall that Memory, whichever tool each teammate uses. The lesson stays in the Hive, too, so someone who joins next month has it on their first day.
 
 ## Start here
 
