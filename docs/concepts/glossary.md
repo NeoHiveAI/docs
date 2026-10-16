@@ -22,19 +22,19 @@ Application programming interface, the requests that a program accepts from othe
 
 ### Archive
 
-The action that moves a [Hive](#hive) to the **Archived** section of the dashboard home screen. NeoHive deletes an archived Hive after a set number of days. Until then, you can restore the Hive with its Indexes and Memories. See [Manage Hives and Indexes](../admin/manage.md).
+The action that moves a [Hive](#hive) to the **Archived** section of the dashboard home screen. NeoHive deletes an archived Hive after 30 days. Until then, you can restore the Hive with its Indexes and Memories. See [Manage Hives and Indexes](../admin/manage.md).
 
 ## B
 
 ### Blocklist
 
-The list of file patterns that a [Code Index](#code-index) or [Documentation Index](#documentation-index) leaves out. The Blocklist wins over the Allowlist: NeoHive never indexes a file that matches the Blocklist, even when the file also matches the [Allowlist](#allowlist).
+The list of file patterns that a [Code Index](#code-index) or [Documentation Index](#documentation-index) leaves out. The Blocklist wins over the Allowlist: NeoHive never indexes a file that matches the Blocklist, even when the file also matches the [Allowlist](#allowlist). See [Choose which files are included](../context/repositories/file-patterns.md).
 
 ## C
 
 ### Chunk
 
-A section of an indexed file, such as a function, or a heading and its text.
+A section of an indexed file, such as a function, or a heading and its text. Code, Documentation, and Files Indexes hold chunks. See [Hives, Indexes, and Memories](hives-indexes-memories.md).
 
 ### CI
 
@@ -68,7 +68,7 @@ The NeoHive web interface at `http://localhost:3577`. In the dashboard, you crea
 
 ### Documentation Index
 
-An [Index](#index) that holds docs from a GitHub or GitLab repository. [Sync](#sync) keeps a Documentation Index up to date.
+An [Index](#index) that holds docs from a GitHub or GitLab repository. [Sync](#sync) keeps a Documentation Index up to date. See [Add a code repository](../context/repositories/README.md).
 
 ## E
 
@@ -116,7 +116,7 @@ A number from `1` (trivial) to `10` (critical) on each [Memory](#memory). A Memo
 
 ### Index
 
-One store of searchable content inside a [Hive](#hive). An Index is a [Code Index](#code-index), [Documentation Index](#documentation-index), [Files Index](#files-index), or [Knowledge Index](#knowledge-index), or a [Shared Index](#shared-index) from another Hive. Each Index has its own storage and [embedding model](#embedding-model).
+One store of searchable content inside a [Hive](#hive). An Index is a [Code Index](#code-index), [Documentation Index](#documentation-index), [Files Index](#files-index), or [Knowledge Index](#knowledge-index), or a [Shared Index](#shared-index) from another Hive. Each Index has its own storage and [embedding model](#embedding-model). See [Hives, Indexes, and Memories](hives-indexes-memories.md).
 
 Written in lowercase, "index" is the verb: NeoHive indexes a file when it splits the file into [chunks](#chunk) and stores their embeddings in an Index.
 
@@ -148,7 +148,7 @@ An npm package that forwards a local command to an MCP endpoint. Apps that only 
 
 ### Memory
 
-One stored piece of knowledge in a [Knowledge Index](#knowledge-index), such as a convention, a decision, or a correction. Your agent stores a Memory with `memory_store`.
+One stored piece of knowledge in a [Knowledge Index](#knowledge-index), such as a convention, a decision, or a correction. Your agent stores a Memory with `memory_store`. See [Hives, Indexes, and Memories](hives-indexes-memories.md).
 
 Written in lowercase, "memory" means the general capability, as in "the plugin tells your agent when to use memory".
 
@@ -178,7 +178,7 @@ A dashboard screen where you run the same read-only tools that your agent calls,
 
 ### Plugin
 
-The NeoHive package for Claude Code, Cursor, or Codex. The plugin adds a [rules file](#rules-file), [skills](#skill), and the `explore-neohive` [subagent](#subagent). In Claude Code, the plugin also adds [hooks](#hook). See [What the plugin does automatically](../results/plugin-automation.md).
+The NeoHive package for Claude Code, Cursor, or Codex. The plugin adds a [rules file](#rules-file) and [skills](#skill). In Claude Code, the plugin also adds [hooks](#hook) and the `explore-neohive` [subagent](#subagent). See [What the plugin does automatically](../results/plugin-automation.md).
 
 ## R
 
@@ -188,7 +188,7 @@ Asking a [Hive](#hive) for context. Your agent recalls with `memory_recall`, or 
 
 ### Rules file
 
-A file of instructions that the [plugin](#plugin) installs for your agent. The rules file tells your agent when to call `memory_context`, `memory_recall`, and `memory_store`.
+A file of instructions that the [plugin](#plugin) installs for your agent. The rules file tells your agent when to call `memory_context`, `memory_recall`, and `memory_store`. See [What the plugin does automatically](../results/plugin-automation.md).
 
 ## S
 
@@ -198,11 +198,11 @@ One conversation with your agent, from your first prompt until you close it. See
 
 ### Shared Index
 
-A Code, Documentation, or Files [Index](#index) that another Hive owns, added to your Hive without a copy. Your agents recall from a Shared Index but never write Memories to it. See [Manage Hives and Indexes](../admin/manage.md).
+A Code, Documentation, or Files [Index](#index) that another Hive owns, added to your Hive without a copy. Your agents recall from a Shared Index but never write Memories to it. See [Shared Index](hives-indexes-memories.md#shared-index).
 
 ### Skill
 
-A named task that the [plugin](#plugin) adds to your agent, such as `load-context` or `capture-session-learnings`. In Claude Code, you run a skill as a [slash command](#slash-command). In Cursor and Codex, you ask your agent to run the skill by name.
+A named task that the [plugin](#plugin) adds to your agent, such as `load-context` or `capture-session-learnings`. In Claude Code, you run a skill as a [slash command](#slash-command). In Cursor and Codex, you ask your agent to run the skill by name. See [Slash commands](../reference/slash-commands.md).
 
 ### Slash command
 
@@ -214,7 +214,7 @@ Secure Shell, a secure way to connect to another computer, such as a Git server.
 
 ### Subagent
 
-A helper agent that your agent hands a task to. The NeoHive plugin includes one subagent, `explore-neohive`, which searches NeoHive before it reads files. See [What the plugin does automatically](../results/plugin-automation.md).
+A helper agent that your agent hands a task to. The Claude Code plugin includes one subagent, `explore-neohive`, which searches NeoHive before it reads files. See [What the plugin does automatically](../results/plugin-automation.md).
 
 ### Sync
 
