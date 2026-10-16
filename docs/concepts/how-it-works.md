@@ -4,36 +4,76 @@ description: "How your agent, the NeoHive plugin, and the NeoHive container fit 
 
 # How NeoHive works
 
-NeoHive has three parts. Your coding agent asks for context over [MCP](glossary.md#mcp), the NeoHive plugin tells the agent when to ask, and the NeoHive container stores and searches your context. The agent and the plugin run on your computer. The container runs in Docker, on your machine or on a shared server. Knowing where each part runs and how the parts connect helps you set NeoHive up, and helps you find the cause when an agent cannot reach it.
+NeoHive has three parts, and together they give every agent on your team one shared memory.
 
-<figure><img src="../.gitbook/assets/how-it-works.svg" alt="The coding agent and its NeoHive plugin call the NeoHive container over MCP. The container holds a Hive with Code, Documentation, Files, and Knowledge Indexes. The container also pulls repositories from GitHub or GitLab and serves the dashboard to your browser."><figcaption></figcaption></figure>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>1</strong></td><td><strong>Your coding agent asks</strong></td><td>It describes what it needs and calls NeoHive over MCP.</td><td><a href="../get-started/connect/README.md">../get-started/connect/README.md</a></td></tr><tr><td><strong>2</strong></td><td><strong>The plugin decides when</strong></td><td>Inside the agent, it says when to ask for context and when to store a lesson.</td><td><a href="../results/plugin-automation.md">../results/plugin-automation.md</a></td></tr><tr><td><strong>3</strong></td><td><strong>The container answers</strong></td><td>It holds your code, docs, and team knowledge, and returns the right part.</td><td><a href="hives-indexes-memories.md">hives-indexes-memories.md</a></td></tr></tbody></table>
+
+{% hint style="info" %}
+Whatever tool a teammate uses, their agent reads the same memory. What one person teaches it, every agent gets back.
+{% endhint %}
+
+<figure><img src="../.gitbook/assets/how-it-works.svg" alt="Three parts. Your coding agent, with the NeoHive plugin inside it, runs in your editor or terminal and calls the NeoHive container over MCP. The container runs in Docker on your machine or a shared server, serves an MCP endpoint and the dashboard, and holds a Hive with Code, Documentation, Files, and Knowledge Indexes. GitHub or GitLab feeds the container through clone and sync, and your browser manages it through the dashboard."><figcaption></figcaption></figure>
 
 ## The three parts
 
 | Part | Where it runs | What it does |
 |---|---|---|
-| Your agent | Your editor or terminal | Calls NeoHive tools such as `memory_recall` and `memory_store` over MCP. |
-| The NeoHive plugin | Inside Claude Code, Cursor, or Codex | Installs a [rules file](glossary.md#rules-file) that tells the agent when to use memory. In Claude Code, the plugin also runs hooks, which are scripts that run at fixed points in a session. |
-| The NeoHive container | Docker, on your machine or a shared server | Stores your [Hives](glossary.md#hive) and [Indexes](glossary.md#index), finds the context for each question, and syncs your repositories. |
+| Your agent | Your editor or terminal | Calls NeoHive's tools, such as `memory_recall` and `memory_store`. |
+| The NeoHive plugin | Inside Claude Code, Cursor, or Codex | Installs a [rules file](glossary.md#rules-file) that says when to use memory. In Claude Code, it also runs hooks at fixed points in a session. |
+| The NeoHive container | Docker, on your machine or a shared server | Stores your [Hives](glossary.md#hive) and [Indexes](glossary.md#index), answers each question, and syncs your repositories. |
 
-Your agent never reads NeoHive's files. Your agent asks for context through an MCP tool, and the container replies with matching code, docs, and [Memories](glossary.md#memory). [MCP tools](../reference/mcp-tools.md) lists every tool.
-
-Claude Desktop and other MCP apps have no plugin. They connect to the same MCP endpoint and call the same tools.
+* **Your agent never reads NeoHive's files.** It asks through an MCP tool and gets matching code, docs, and [Memories](glossary.md#memory) back. [MCP tools](../reference/mcp-tools.md) lists every tool.
 
 ## The container
 
-NeoHive is one Docker container named `neohive`. The container serves the dashboard at `http://localhost:3577`, where you manage your Hives in your browser. The same container serves one MCP endpoint for each Hive, at `/hives/<hive-id>/mcp`. Everything the container stores lives in the `neohive-data` Docker volume, which is mounted at `/app/data` inside the container.
+NeoHive is one Docker container named `neohive`. Your code, documents, and Memories never leave the machine it runs on.
 
-A Hive is a workspace for one codebase or team. Each Index in a Hive stores one kind of context, such as your code or your team's Memories. [Hives, Indexes, and Memories](hives-indexes-memories.md) explains the three levels.
+Inside it, a Hive is a workspace for one codebase or team, and each Index holds one kind of context, such as your code or your team's Memories. [Hives, Indexes, and Memories](hives-indexes-memories.md) explains the three levels.
 
-## Hooks in Claude Code
+| What | Where |
+|---|---|
+| Dashboard, where you manage your Hives | Your browser, at the address the installer prints |
+| MCP endpoint, one for each Hive | `/hives/<hive-id>/mcp` |
+| Everything the container stores | The `neohive-data` Docker volume, mounted at `/app/data` inside the container |
 
-In Claude Code, two hooks do most of the work. When a session starts, a hook installs the plugin's rules file. When you send a prompt, a hook sends the prompt to `memory_recall` in the container and adds the results to the agent's context before the agent starts its answer. No hook runs when a session ends. To save what your agent learned in a session, run `/neohive:capture-session-learnings`. [What the plugin does automatically](../results/plugin-automation.md) lists every hook and the switch that turns it off.
+## What the plugin runs
 
-The Cursor and Codex plugins have no hooks. Their rules file tells the agent to load context at the start of a session, and to recall context before it searches files.
+{% tabs %}
+{% tab title="Claude Code" %}
+Two hooks do most of the work:
+
+* **When a session starts**, a hook installs the plugin's rules file.
+* **When you send a prompt**, a hook runs `memory_recall` on it and adds the results to the agent's context before the agent answers.
+
+No hook runs when a session ends. To save what your agent learned, run `/neohive:capture-session-learnings`.
+{% endtab %}
+
+{% tab title="Cursor and Codex" %}
+These plugins have no hooks. Their rules file tells the agent to load context at the start of a session and to recall before it searches files.
+{% endtab %}
+
+{% tab title="Other MCP apps" %}
+Claude Desktop and other MCP apps have no plugin. Add the rules from [Tell your agent to use NeoHive](../get-started/connect/README.md#tell-your-agent-to-use-neohive) so the agent knows when to call NeoHive.
+{% endtab %}
+{% endtabs %}
+
+[What the plugin does automatically](../results/plugin-automation.md) lists every hook and how to turn it off.
 
 ## Repositories
 
-When you add a repository, the container copies (clones) it from GitHub or GitLab into the `neohive-data` volume. The container then splits each file into [chunks](glossary.md#chunk) and turns each chunk into an embedding, which is a list of numbers that captures what the text means. The container stores the chunks and their embeddings in a [Code](glossary.md#code-index) or [Documentation Index](glossary.md#documentation-index). On later syncs, the container indexes only the files that changed.
+When you add a repository, the container does the following:
 
-NeoHive embeds and searches your content on the machine it runs on. [What stays on your machine](../security/local-only.md) lists every connection the container makes to services outside your machine.
+1. Copies (clones) the repository from GitHub or GitLab into the `neohive-data` volume.
+2. Splits each file into [chunks](glossary.md#chunk).
+3. Turns each chunk into an [embedding](glossary.md#embedding).
+4. Stores the chunks and their embeddings in a [Code](glossary.md#code-index) or [Documentation Index](glossary.md#documentation-index).
+
+Later syncs index only the files that changed, so the memory keeps itself current with no upkeep.
+
+Embedding and search both run inside the container. [What stays on your machine](../security/local-only.md) lists every connection it makes to outside services.
+
+## Next
+
+{% content-ref url="hives-indexes-memories.md" %}
+[Hives, Indexes, and Memories](hives-indexes-memories.md)
+{% endcontent-ref %}
