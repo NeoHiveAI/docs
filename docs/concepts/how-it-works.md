@@ -4,13 +4,13 @@ description: "How your agent, the NeoHive plugin, and the NeoHive container fit 
 
 # How NeoHive works
 
-NeoHive has three parts, and together they give every agent on your team one shared memory.
+NeoHive has three parts, and together they give every agent on your team one shared memory:
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>1</strong></td><td><strong>Your coding agent asks</strong></td><td>It describes what it needs and calls NeoHive over MCP.</td><td><a href="../get-started/connect/README.md">../get-started/connect/README.md</a></td></tr><tr><td><strong>2</strong></td><td><strong>The plugin decides when</strong></td><td>Inside the agent, it says when to ask for context and when to store a lesson.</td><td><a href="../results/plugin-automation.md">../results/plugin-automation.md</a></td></tr><tr><td><strong>3</strong></td><td><strong>The container answers</strong></td><td>It holds your code, docs, and team knowledge, and returns the right part.</td><td><a href="hives-indexes-memories.md">hives-indexes-memories.md</a></td></tr></tbody></table>
+1. **Your coding agent asks.** It describes what it needs and calls NeoHive over [MCP](glossary.md#mcp).
+2. **The plugin decides when.** Inside the agent, it says when to ask for context and when to store a lesson.
+3. **The container answers.** It holds your code, docs, and team knowledge, and returns the right part.
 
-{% hint style="info" %}
-Whatever tool a teammate uses, their agent reads the same memory. What one person teaches it, every agent gets back.
-{% endhint %}
+Whatever tool a teammate uses, their agent reads the same memory, and what one person teaches it, every agent gets back.
 
 <figure><img src="../.gitbook/assets/how-it-works.svg" alt="Three parts. Your coding agent, with the NeoHive plugin inside it, runs in your editor or terminal and calls the NeoHive container over MCP. The container runs in Docker on your machine or a shared server, serves an MCP endpoint and the dashboard, and holds a Hive with Code, Documentation, Files, and Knowledge Indexes. GitHub or GitLab feeds the container through clone and sync, and your browser manages it through the dashboard."><figcaption></figcaption></figure>
 
