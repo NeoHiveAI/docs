@@ -66,18 +66,7 @@ The script cannot reach your editors, so the script ends by printing the Claude 
 /plugin uninstall neohive@neohive-claude
 ```
 
-To remove the Cursor plugin, delete its folder, then restart Cursor:
-
-```bash
-rm -rf ~/.cursor/plugins/local/neohive
-```
-
-To remove the Codex plugin, run the following commands from your terminal:
-
-```bash
-codex plugin remove neohive@neohive-codex
-codex plugin marketplace remove neohive-codex
-```
+For Cursor, delete the `~/.cursor/plugins/local/neohive` link. For Codex, delete the `NeoHiveCodex` folder you cloned.
 {% endstep %}
 
 {% step %}
