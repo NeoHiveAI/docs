@@ -61,9 +61,8 @@
 <text x="394" y="64" class="lbl" fill="#7C3AED">NEOHIVE CONTAINER</text>
 <text x="370" y="346" class="muted">Docker, on your machine or a shared server</text>
 <rect x="370" y="78" width="324" height="240" rx="5" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1.4"/>
-<g transform="translate(386,89) scale(0.08)"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED" stroke-width="20" fill="#FFFFFF"/></g>
-<text x="416" y="100" class="lbl" fill="#7C3AED">HIVE</text>
-<text x="416" y="119" class="title">One shared memory</text>
+<text x="386" y="100" class="lbl" fill="#7C3AED">HIVE</text>
+<text x="386" y="119" class="title">One shared memory</text>
 <rect x="386" y="134" width="144" height="76" rx="4" fill="#FFFFFF" stroke="#A78BFA" stroke-width="1"/>
 <g transform="translate(400,148) scale(0.6667)" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 <path d="m16 18 6-6-6-6"/>

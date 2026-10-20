@@ -4,7 +4,7 @@ description: "Definitions of the NeoHive terms and the less common technical ter
 
 # Glossary
 
-This page defines the terms that these docs use, in alphabetical order. It includes NeoHive's own terms, such as Hive and Index, and less common technical terms. To find a term, use the page outline or your browser's search. The [Older names](#older-names) section at the end of the page lists older names for some terms.
+This page defines the terms that these docs use, in alphabetical order. It includes NeoHive's own terms, such as Hive and Index, and less common technical terms. To find a term, use the page outline or your browser's search.
 
 ## A
 
@@ -97,8 +97,6 @@ Graphics processing unit, a processor that runs many calculations at the same ti
 ### Hive
 
 A workspace in NeoHive for one codebase or team. A Hive holds [Indexes](#index) and has one [MCP endpoint](#mcp-endpoint). Every agent connected to the same Hive sees the same context. See [Hives, Indexes, and Memories](hives-indexes-memories.md).
-
-Do not confuse a Hive with an Index. Older releases used the word "Hive" for what is now an Index. See [Older names](#older-names).
 
 ### Hook
 
@@ -237,20 +235,3 @@ Virtual private network, which connects your computer to a private network over 
 ### Webhook
 
 An address on your Hive that a CI pipeline calls to send changed files to NeoHive. NeoHive indexes those files immediately, without waiting for the next sync. See [Webhook refresh endpoint](../reference/webhooks.md).
-
-## Older names
-
-What used to be a **project** is now a **Hive**, and what used to be a **Hive** is now an **Index**. Older configs and scripts keep working through aliases. Use the current names in new configs and scripts.
-
-| Older name | Current name | Still accepted |
-|---|---|---|
-| Project | Hive | Not applicable, dashboard label only |
-| Hive, meaning one store of context | Index | Not applicable, dashboard label only |
-| `list_hives` tool | `list_indexes` | Yes, as a deprecated alias |
-| `hive` parameter on `memory_recall`, `memory_context`, and `memory_stats` | `index` | Yes, as a deprecated alias |
-| `/projects/<id>/mcp` | `/hives/<id>/mcp` | Yes |
-| `/projects/<id>/webhook/refresh` | `/hives/<id>/webhook/refresh` | Yes |
-
-{% hint style="warning" %}
-Guides written before the rename say "Hive" where they mean an Index. When an older guide tells you to choose a Hive for a query, choose an Index instead.
-{% endhint %}

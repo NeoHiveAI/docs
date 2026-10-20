@@ -6,13 +6,11 @@ description: "What happens between your agent asking a question and NeoHive answ
 
 Recall is how your agent gets context from NeoHive while it works. The agent asks in plain words, and NeoHive answers from every Index at once: the matching code, docs, and [Memories](glossary.md#memory), in one list.
 
-You cannot change how NeoHive ranks the results. You can change what your agent asks and where it looks.
-
-<figure><img src="../.gitbook/assets/concepts-retrieval.svg" alt="Three steps. Your agent calls memory_recall with a plain description. Every Index in the Hive finds matches: Code, Documentation, Files, Knowledge, and any Shared Index. One list comes back with whole sections from code, Memories, and docs."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/concepts-retrieval.svg" alt="Three steps. Your agent asks with a plain description. Every Index in the Hive finds matches: Code, Documentation, Files, Knowledge, and any Shared Index. One list comes back with whole sections from code, Memories, and docs."><figcaption></figcaption></figure>
 
 ## What one recall does
 
-Your agent does not search for file names or read files from top to bottom. It describes what it needs, in plain words, and NeoHive does the rest:
+Your agent describes what it needs in plain words, and NeoHive does the rest:
 
 * **Matches meaning and exact words.** NeoHive finds the text that matches the meaning of the description, and the text that contains its exact words. So a function name or an error code in the query finds the text that contains it.
 * **Includes Shared Indexes.** Any [Shared Index](glossary.md#shared-index) is searched with the rest, and one ranked list comes back. A Memory's importance, from `1` to `10`, raises its rank.

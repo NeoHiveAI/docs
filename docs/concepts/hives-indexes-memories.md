@@ -10,13 +10,13 @@ One Hive is one shared memory: every agent connected to it sees the same context
 * An **Index** stores one kind of content inside a Hive, such as your code.
 * A **Memory** is one lesson that your agent stores, such as a convention.
 
-The levels decide what your agent searches and where it saves what it learns. For which Index to use for each kind of content, see [What to add, and where](../context/what-to-add.md).
+For which Index to use for each kind of content, see [What to add, and where](../context/what-to-add.md).
 
-<figure><img src="../.gitbook/assets/hives-indexes-memories.svg" alt="A Hive with one MCP endpoint holds Code, Documentation, Files, and Knowledge Indexes, plus a Shared Index. memory_recall searches all of them, and memory_store and memory_forget write only to the Hive's own Knowledge Index."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/hives-indexes-memories.svg" alt="A Hive with one MCP endpoint holds Code, Documentation, Files, and Knowledge Indexes, plus a Shared Index from another Hive. Recall searches all of them, and storing or forgetting a Memory writes only to the Hive's own Knowledge Index."><figcaption></figcaption></figure>
 
 ## Hives
 
-A Hive keeps the context for one codebase or team separate from unrelated work. You create Hives in the dashboard.
+A Hive keeps the context for one codebase or team separate from unrelated work.
 
 * Each Hive has one [MCP](glossary.md#mcp) endpoint. A convention one teammate teaches comes back for everyone connected to it.
 * Put closely related code, such as the services in one monorepo, in one Hive.
@@ -30,7 +30,7 @@ An Index holds one kind of content inside a Hive, with its own storage and its o
 |---|---|---|
 | **Code** | The source code of a GitHub or GitLab repository | NeoHive, on every sync |
 | **Documentation** | The docs in a GitHub or GitLab repository | NeoHive, on every sync |
-| **Files** | `.md`, `.markdown`, `.txt`, and `.pdf` files that you add with **File Upload** | NeoHive, on each upload |
+| **Files** | Documents and PDFs that you add with **File Upload** | NeoHive, on each upload |
 | **Knowledge** | What your agents learn as you work | Your agents, through `memory_store` |
 
 NeoHive creates one Knowledge Index with each Hive, and you cannot add a second one. Your agent does not need to choose an Index: one `memory_recall` call searches every Index in the Hive and returns code, docs, and Memories together. [How retrieval works](retrieval.md) explains what one recall does.

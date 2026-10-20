@@ -16,7 +16,7 @@ Your agent never reads NeoHive's files. It asks through an MCP tool, such as `me
 
 NeoHive is one Docker container named `neohive`. Your code, documents, and Memories never leave the machine it runs on.
 
-Inside it, a Hive is a workspace for one codebase or team, and each Index holds one kind of context, such as your code or your team's Memories. [Hives, Indexes, and Memories](hives-indexes-memories.md) explains the three levels.
+It holds your Hives and their Indexes, which [Hives, Indexes, and Memories](hives-indexes-memories.md) explains.
 
 * **The dashboard**, where you manage your Hives, opens in your browser at the address the installer prints.
 * **Each Hive has its own MCP endpoint**, at `/hives/<hive-id>/mcp`.
