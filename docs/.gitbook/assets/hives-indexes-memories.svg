@@ -16,7 +16,6 @@
   <rect x="40" y="114" width="920" height="352" rx="5" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1.5"/>
   <text x="62" y="142" class="lbl" fill="#7C3AED">HIVE</text>
   <text x="62" y="164" class="title">One workspace, one MCP endpoint</text>
-  <text x="938" y="164" font-size="11.5" class="mono" text-anchor="end" fill="#7008E7">/hives/&lt;hive-id&gt;/mcp</text>
 
   <!-- Code -->
   <rect x="62" y="182" width="164" height="264" rx="5" fill="#FFFFFF" stroke="#E5E5E5"/>
@@ -91,10 +90,10 @@
 
   <!-- Footer rules -->
   <rect x="40" y="484" width="448" height="48" rx="5" fill="#FFFFFF" stroke="#E5E5E5"/>
-  <text x="58" y="505" font-size="12" class="mono" font-weight="600" fill="#7008E7">memory_recall</text>
+  <text x="58" y="505" font-size="12" font-weight="700" fill="#7008E7">Recall</text>
   <text x="58" y="522" class="body">searches every Index in the Hive at once</text>
   <rect x="512" y="484" width="448" height="48" rx="5" fill="#FFFFFF" stroke="#E5E5E5"/>
-  <text x="530" y="505" font-size="12" class="mono" font-weight="600" fill="#7008E7">memory_store, memory_forget</text>
+  <text x="530" y="505" font-size="12" font-weight="700" fill="#7008E7">Storing and forgetting</text>
   <text x="530" y="522" class="body">always write to this Hive's own Knowledge Index</text>
   </g>
 

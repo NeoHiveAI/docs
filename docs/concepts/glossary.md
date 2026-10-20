@@ -4,7 +4,7 @@ description: "Definitions of the NeoHive terms and the less common technical ter
 
 # Glossary
 
-This page defines the terms that these docs use, in alphabetical order. It includes NeoHive's own terms, such as Hive and Index, and technical terms that may be new to you. To find a term, use the page outline or your browser's search. The [Older names](#older-names) section at the end of the page lists older names for some terms.
+This page defines the terms that these docs use, in alphabetical order. It includes NeoHive's own terms, such as Hive and Index, and less common technical terms. To find a term, use the page outline or your browser's search. The [Older names](#older-names) section at the end of the page lists older names for some terms.
 
 ## A
 
@@ -54,7 +54,7 @@ A saved GitHub or GitLab credential on the **Data Sources** page. NeoHive uses a
 
 ### Container
 
-The Docker container named `neohive` that runs NeoHive on your machine. The container serves the [dashboard](#dashboard) and every [MCP endpoint](#mcp-endpoint). See [How NeoHive works](how-it-works.md).
+The Docker container named `neohive` that runs NeoHive, on your machine or a shared server. The container serves the [dashboard](#dashboard) and every [MCP endpoint](#mcp-endpoint). See [How NeoHive works](how-it-works.md).
 
 ### CPU
 
@@ -64,7 +64,7 @@ Central processing unit, the main processor in every computer. NeoHive runs its 
 
 ### Dashboard
 
-The NeoHive web interface at `http://localhost:3577`. In the dashboard, you create Hives, add Indexes, manage connections, and test queries. See [Dashboard tour](../admin/dashboard.md).
+The NeoHive web interface, which opens in your browser at the address the installer prints. In the dashboard, you create Hives, add Indexes, manage connections, and test queries. See [Dashboard tour](../admin/dashboard.md).
 
 ### Documentation Index
 
@@ -140,7 +140,7 @@ Model Context Protocol, the open standard that your agent uses to call NeoHive's
 
 ### MCP endpoint
 
-The address that an agent connects to for one [Hive](#hive): `http://localhost:3577/hives/<hive-id>/mcp`. See [MCP tools](../reference/mcp-tools.md).
+The address that an agent connects to for one [Hive](#hive). It ends in `/hives/<hive-id>/mcp`. See [MCP tools](../reference/mcp-tools.md).
 
 ### mcp-remote
 
@@ -171,10 +171,6 @@ Optical character recognition, which reads the text in an image, such as a scann
 ### Personal access token (PAT)
 
 A token that you create with GitHub or GitLab to give NeoHive read access to a repository. You save the token as a [connection](#connection). See [Credentials and secrets](../security/credentials.md).
-
-### Playground
-
-A dashboard screen where you run the same read-only tools that your agent calls, and see exactly what each tool returns. See [Test queries in the Playground](../admin/playground.md).
 
 ### Plugin
 
@@ -224,7 +220,7 @@ The process in which NeoHive fetches the latest commits of a repository and inde
 
 ### URL
 
-Uniform Resource Locator, the address of a web page or service, such as `http://localhost:3577`.
+Uniform Resource Locator, the address of a web page or service, such as `https://docs.neohive.ai`.
 
 ## V
 
@@ -246,7 +242,7 @@ An address on your Hive that a CI pipeline calls to send changed files to NeoHiv
 
 What used to be a **project** is now a **Hive**, and what used to be a **Hive** is now an **Index**. Older configs and scripts keep working through aliases. Use the current names in new configs and scripts.
 
-| You may see | Current name | Still accepted |
+| Older name | Current name | Still accepted |
 |---|---|---|
 | Project | Hive | Not applicable, dashboard label only |
 | Hive, meaning one store of context | Index | Not applicable, dashboard label only |

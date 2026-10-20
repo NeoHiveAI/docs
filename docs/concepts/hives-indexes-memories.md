@@ -12,7 +12,7 @@ One Hive is one shared memory: every agent connected to it sees the same context
 
 The levels decide what your agent searches and where it saves what it learns. For which Index to use for each kind of content, see [What to add, and where](../context/what-to-add.md).
 
-<figure><img src="../.gitbook/assets/hives-indexes-memories.svg" alt="A Hive with one MCP endpoint holds Code, Documentation, Files, and Knowledge Indexes, plus a Shared Index. memory_recall searches all of them; memory_store and memory_forget write only to the Hive's own Knowledge Index."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/hives-indexes-memories.svg" alt="A Hive with one MCP endpoint holds Code, Documentation, Files, and Knowledge Indexes, plus a Shared Index. memory_recall searches all of them, and memory_store and memory_forget write only to the Hive's own Knowledge Index."><figcaption></figcaption></figure>
 
 ## Hives
 
@@ -33,8 +33,7 @@ An Index holds one kind of content inside a Hive, with its own storage and its o
 | **Files** | `.md`, `.markdown`, `.txt`, and `.pdf` files that you add with **File Upload** | NeoHive, on each upload |
 | **Knowledge** | What your agents learn as you work | Your agents, through `memory_store` |
 
-* NeoHive creates one Knowledge Index with each Hive. You cannot add a second one.
-* Your agent does not need to choose an Index. One `memory_recall` call searches every Index in the Hive and returns code, docs, and Memories together. [How retrieval works](retrieval.md) explains what one recall does.
+NeoHive creates one Knowledge Index with each Hive, and you cannot add a second one. Your agent does not need to choose an Index: one `memory_recall` call searches every Index in the Hive and returns code, docs, and Memories together. [How retrieval works](retrieval.md) explains what one recall does.
 
 ## Shared Index
 
@@ -72,17 +71,12 @@ Your agent stores a Memory when you ask it to remember something, and when it fi
 
 > Remember that we always use snake_case for database column names.
 
-| Each Memory has | What it is |
-|---|---|
-| A type | A label such as `directive`, `convention`, `decision`, or `error_pattern`. Your agent chooses the type. [Memory types](../reference/memory-types.md) lists every type. |
-| Tags | Words that help later searches find the Memory. |
-| An importance | A number from `1` to `10`. The default is `5`, and a higher number helps the Memory rank higher in recall. |
+Each Memory has:
 
-* **When a Memory is out of date**, your agent calls `memory_forget`. The Memory is deactivated, not deleted, so recall stops returning it, and the call can name the Memory that replaces it. [Teach your agent as you work](../results/teach.md) shows what to say.
-* **Code, Documentation, and Files Indexes hold chunks instead of Memories.** A chunk is a section of a file, such as a function, or a heading and its text. NeoHive gives each chunk a type and an importance too, so a rule written in a README can come back from recall like a Memory does.
+* **A type**, a label such as `directive`, `convention`, `decision`, or `error_pattern`. Your agent chooses the type. [Memory types](../reference/memory-types.md) lists every type.
+* **Tags**, words that help later searches find the Memory.
+* **An importance**, a number from `1` to `10`. The default is `5`, and a higher number helps the Memory rank higher in recall.
 
-## Next
+When a Memory is out of date, your agent calls `memory_forget`. The Memory is deactivated, not deleted, so recall stops returning it, and the call can name the Memory that replaces it. [Teach your agent as you work](../results/teach.md) shows what to say.
 
-{% content-ref url="retrieval.md" %}
-[How retrieval works](retrieval.md)
-{% endcontent-ref %}
+Code, Documentation, and Files Indexes hold [chunks](glossary.md#chunk) instead of Memories. A chunk is a section of a file, such as a function, or a heading and its text. NeoHive gives each chunk a type and an importance too, so a rule written in a README can come back from recall like a Memory does.

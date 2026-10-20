@@ -23,10 +23,8 @@ Each result shows its id, type, importance, how many times it has been recalled,
 
 ## Two ways to ask
 
-| Tool | Use it for |
-|---|---|
-| `memory_context` | The start of a task. `memory_context` returns the directives and conventions that match the task you describe, and then other Memories and indexed content that match the task. |
-| `memory_recall` | A specific question in the middle of a task. |
+* **`memory_context`, at the start of a task.** It returns the directives and conventions that match the task you describe, and then other Memories and indexed content that match the task.
+* **`memory_recall`, for a specific question in the middle of a task.**
 
 Both tools search every Index unless you name one. In Claude Code, the plugin also calls `memory_recall` with each prompt you send. See [What the plugin does automatically](../results/plugin-automation.md).
 
@@ -43,7 +41,8 @@ NeoHive sets the order. You set what to ask and where to look:
 
 [MCP tools](../reference/mcp-tools.md) lists every parameter, with its default and limits.
 
-* **Search the whole Hive first** to see which Index answers best. Then repeat the query with `index` set to that Index.
+When you do not know which Index holds the answer, search the whole Hive first to see which Index answers best. Then repeat the query with `index` set to that Index.
+
 **Phrasing matters.** Specific terms find more than a general question:
 
 {% columns %}
@@ -68,8 +67,6 @@ how do I fix GitHub Actions
 How NeoHive orders results is internal and can change between releases. Do not write rules or prompts that depend on a particular order. The way you phrase the query is the part you can rely on.
 {% endhint %}
 
-## Next
+## Put it into practice
 
-{% content-ref url="../results/prompting.md" %}
-[Write prompts that retrieve well](../results/prompting.md)
-{% endcontent-ref %}
+If your repositories and documents are already added, you can skip **Add your context** and go to [Write prompts that retrieve well](../results/prompting.md).

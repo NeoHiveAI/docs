@@ -1,78 +1,143 @@
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1000" height="430" viewBox="0 0 1000 430" font-family="'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1000" height="436" viewBox="0 0 1000 436" font-family="'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
   <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap');
     .mono { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
-    .lbl { font-size: 11px; font-weight: 700; letter-spacing: 1.1px; }
+    .lbl { font-size: 10.5px; font-weight: 700; letter-spacing: 1.1px; }
+    .title { font-size: 15px; font-weight: 700; fill: #1A1A2E; }
     .body { font-size: 12.5px; fill: #4A4458; }
-    .title { font-size: 16px; font-weight: 700; fill: #1A1A2E; }
+    .item { font-size: 12px; fill: #1A1A2E; }
     .muted { font-size: 11.5px; fill: #737373; }
-    .chip { font-size: 11px; font-weight: 600; fill: #1A1A2E; }
+    .pill { font-size: 11.5px; font-weight: 700; }
+    .chip { font-size: 13.5px; font-weight: 700; fill: #1A1A2E; }
   </style>
   <defs>
     <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#7C3AED"/></marker>
     <marker id="arrT" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#009689"/></marker>
   </defs>
-  <rect width="1000" height="430" fill="#FAF9FD"/>
-
-  <!-- Left: the agent, with the plugin inside it -->
-  <rect x="40" y="40" width="330" height="246" rx="5" fill="#FFFFFF" stroke="#E5E5E5"/>
-  <text x="62" y="68" class="lbl" fill="#7C3AED">YOUR EDITOR OR TERMINAL</text>
-  <text x="62" y="92" class="title">Coding agent</text>
-  <text x="62" y="112" class="muted">Claude Code, Cursor, Codex, Claude Desktop</text>
-
-  <rect x="58" y="130" width="294" height="138" rx="5" fill="#F5F3FF" stroke="#DDD6FF"/>
-  <text x="74" y="154" font-size="13.5" font-weight="700" fill="#1A1A2E">NeoHive plugin</text>
-  <text x="74" y="172" class="muted">Claude Code, Cursor, Codex</text>
-  <rect x="74" y="186" width="126" height="34" rx="4" fill="#FFFFFF" stroke="#A78BFA"/>
-  <text x="137" y="207" class="chip" text-anchor="middle">Rules file</text>
-  <rect x="210" y="186" width="126" height="34" rx="4" fill="#FFFFFF" stroke="#A78BFA"/>
-  <text x="273" y="207" class="chip" text-anchor="middle">Claude Code hooks</text>
-  <text x="74" y="244" class="body">When to ask for context,</text>
-  <text x="74" y="260" class="body">and when to store a lesson</text>
-
-  <!-- Agent to container -->
-  <line x1="370" y1="150" x2="526" y2="150" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
-  <text x="448" y="140" font-size="12" font-weight="700" text-anchor="middle" fill="#1A1A2E">MCP</text>
-  <text x="448" y="168" font-size="10.5" class="mono" text-anchor="middle" fill="#737373">tool calls</text>
-
-  <!-- Right: the container, what it serves, and the Hive it holds -->
-  <rect x="530" y="40" width="430" height="246" rx="5" fill="#FFFFFF" stroke="#E5E5E5"/>
-  <text x="552" y="68" class="lbl" fill="#7C3AED">DOCKER, ON YOUR MACHINE OR A SHARED SERVER</text>
-  <text x="552" y="92" class="title">NeoHive container</text>
-
-  <rect x="552" y="106" width="190" height="46" rx="4" fill="#FAF9FD" stroke="#E5E5E5"/>
-  <text x="566" y="125" font-size="13" font-weight="700" fill="#1A1A2E">MCP endpoint</text>
-  <text x="566" y="143" class="muted">one for each Hive</text>
-  <rect x="750" y="106" width="190" height="46" rx="4" fill="#FAF9FD" stroke="#E5E5E5"/>
-  <text x="764" y="125" font-size="13" font-weight="700" fill="#1A1A2E">Dashboard</text>
-  <text x="764" y="143" class="muted">manage Hives and Indexes</text>
-
-  <rect x="552" y="164" width="388" height="88" rx="5" fill="#F5F3FF" stroke="#DDD6FF"/>
-  <text x="568" y="186" class="lbl" fill="#7C3AED">HIVE</text>
-  <text x="924" y="186" class="muted" text-anchor="end">one query searches every Index</text>
-  <rect x="568" y="198" width="84" height="40" rx="4" fill="#FFFFFF" stroke="#A78BFA"/>
-  <text x="610" y="222" class="chip" text-anchor="middle">Code</text>
-  <rect x="659" y="198" width="84" height="40" rx="4" fill="#FFFFFF" stroke="#A78BFA"/>
-  <text x="701" y="222" class="chip" text-anchor="middle" font-size="9.5">Documentation</text>
-  <rect x="750" y="198" width="84" height="40" rx="4" fill="#FFFFFF" stroke="#A78BFA"/>
-  <text x="792" y="222" class="chip" text-anchor="middle">Files</text>
-  <rect x="841" y="198" width="84" height="40" rx="4" fill="#FFFFFF" stroke="#C084FC"/>
-  <text x="883" y="222" class="chip" text-anchor="middle">Knowledge</text>
-
-  <text x="552" y="272" class="muted">Embedding and search run inside the container.</text>
-
-  <!-- Below: what feeds the container, and who manages it -->
-  <rect x="552" y="318" width="180" height="46" rx="5" fill="#FFFFFF" stroke="#99E6DC"/>
-  <text x="642" y="346" font-size="13.5" font-weight="700" text-anchor="middle" fill="#1A1A2E">GitHub or GitLab</text>
-  <line x1="642" y1="318" x2="642" y2="288" stroke="#009689" stroke-width="2" marker-end="url(#arrT)"/>
-  <text x="652" y="307" font-size="11" class="mono" fill="#009689">clone and sync</text>
-
-  <rect x="760" y="318" width="180" height="46" rx="5" fill="#FFFFFF" stroke="#E5E5E5"/>
-  <text x="850" y="346" font-size="13.5" font-weight="700" text-anchor="middle" fill="#1A1A2E">Your browser</text>
-  <line x1="850" y1="318" x2="850" y2="288" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
-  <text x="860" y="307" font-size="11" class="mono" fill="#7C3AED">manage</text>
-
+  <rect width="1000" height="436" fill="#FAF9FD"/>
+  <!-- Logos and icons are copied from frontend/src/lib/icons/*.svelte and the app's lucide icons in NeoHiveAI/MemVec. -->
+<text x="40" y="52" class="lbl" fill="#7C3AED">YOUR TEAM'S AGENTS</text>
+<rect x="40" y="76" width="230" height="76" rx="5" fill="#FFFFFF" stroke="#DDD6FF" stroke-dasharray="6 4"/>
+<circle cx="68" cy="114" r="18" fill="#F5F3FF" stroke="#DDD6FF"/>
+<g transform="translate(59,105) scale(0.7500)" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+<circle cx="12" cy="7" r="4"/>
+</g>
+<g transform="translate(98.00,90.00) scale(0.7500)">
+<path d="M4.709 15.955l4.72-2.647.08-.23-.08-.128H9.2l-.79-.048-2.698-.073-2.339-.097-2.266-.122-.571-.121L0 11.784l.055-.352.48-.321.686.06 1.52.103 2.278.158 1.652.097 2.449.255h.389l.055-.157-.134-.098-.103-.097-2.358-1.596-2.552-1.688-1.336-.972-.724-.491-.364-.462-.158-1.008.656-.722.881.06.225.061.893.686 1.908 1.476 2.491 1.833.365.304.145-.103.019-.073-.164-.274-1.355-2.446-1.446-2.49-.644-1.032-.17-.619a2.97 2.97 0 01-.104-.729L6.283.134 6.696 0l.996.134.42.364.62 1.414 1.002 2.229 1.555 3.03.456.898.243.832.091.255h.158V9.01l.128-1.706.237-2.095.23-2.695.08-.76.376-.91.747-.492.584.28.48.685-.067.444-.286 1.851-.559 2.903-.364 1.942h.212l.243-.242.985-1.306 1.652-2.064.73-.82.85-.904.547-.431h1.033l.76 1.129-.34 1.166-1.064 1.347-.881 1.142-1.264 1.7-.79 1.36.073.11.188-.02 2.856-.606 1.543-.28 1.841-.315.833.388.091.395-.328.807-1.969.486-2.309.462-3.439.813-.042.03.049.061 1.549.146.662.036h1.622l3.02.225.79.522.474.638-.079.485-1.215.62-1.64-.389-3.829-.91-1.312-.329h-.182v.11l1.093 1.068 2.006 1.81 2.509 2.33.127.578-.322.455-.34-.049-2.205-1.657-.851-.747-1.926-1.62h-.128v.17l.444.649 2.345 3.521.122 1.08-.17.353-.608.213-.668-.122-1.374-1.925-1.415-2.167-1.143-1.943-.14.08-.674 7.254-.316.37-.729.28-.607-.461-.322-.747.322-1.476.389-1.924.315-1.53.286-1.9.17-.632-.012-.042-.14.018-1.434 1.967-2.18 2.945-1.726 1.845-.414.164-.717-.37.067-.662.401-.589 2.388-3.036 1.44-1.882.93-1.086-.006-.158h-.055L4.132 18.56l-1.13.146-.487-.456.061-.746.231-.243 1.908-1.312-.006.006z" fill="#D97757" fill-rule="evenodd"/>
+</g>
+<text x="122" y="105" class="title">Claude Code</text>
+<text x="258" y="105" class="muted" text-anchor="end">you</text>
+<rect x="98" y="118" width="108" height="20" rx="10" fill="#F5F3FF" stroke="#DDD6FF"/>
+<text x="152" y="132" class="pill" fill="#7C3AED" text-anchor="middle">NeoHive plugin</text>
+<rect x="40" y="170" width="230" height="76" rx="5" fill="#FFFFFF" stroke="#DDD6FF" stroke-dasharray="6 4"/>
+<circle cx="68" cy="208" r="18" fill="#F5F3FF" stroke="#DDD6FF"/>
+<g transform="translate(59,199) scale(0.7500)" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+<circle cx="12" cy="7" r="4"/>
+</g>
+<g transform="translate(98.00,184.00) scale(0.7500)">
+<path d="M22.106 5.68L12.5.135a.998.998 0 00-.998 0L1.893 5.68a.84.84 0 00-.419.726v11.186c0 .3.16.577.42.727l9.607 5.547a.999.999 0 00.998 0l9.608-5.547a.84.84 0 00.42-.727V6.407a.84.84 0 00-.42-.726zm-.603 1.176L12.228 22.92c-.063.108-.228.064-.228-.061V12.34a.59.59 0 00-.295-.51l-9.11-5.26c-.107-.062-.063-.228.062-.228h18.55c.264 0 .428.286.296.514z" fill="#1A1A2E" fill-rule="evenodd"/>
+</g>
+<text x="122" y="199" class="title">Cursor</text>
+<text x="258" y="199" class="muted" text-anchor="end">teammate</text>
+<rect x="98" y="212" width="108" height="20" rx="10" fill="#F5F3FF" stroke="#DDD6FF"/>
+<text x="152" y="226" class="pill" fill="#7C3AED" text-anchor="middle">NeoHive plugin</text>
+<rect x="40" y="264" width="230" height="76" rx="5" fill="#FFFFFF" stroke="#DDD6FF" stroke-dasharray="6 4"/>
+<circle cx="68" cy="302" r="18" fill="#F5F3FF" stroke="#DDD6FF"/>
+<g transform="translate(59,293) scale(0.7500)" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+<circle cx="12" cy="7" r="4"/>
+</g>
+<g transform="translate(98.00,278.00) scale(0.7500)">
+<path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.998 5.998 0 0 0-3.998 2.9 6.05 6.05 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073ZM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.143-.08 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.496 4.494ZM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646ZM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872v.024Zm16.597 3.855-5.833-3.387L15.119 7.2a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.407-.667Zm2.01-3.023-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66v.018Zm-12.64 4.135-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08L8.704 5.46a.795.795 0 0 0-.393.681l-.004 6.722Zm1.098-2.365 2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5-.005-2.999Z" fill="#1A1A2E" fill-rule="evenodd"/>
+</g>
+<text x="122" y="293" class="title">Codex</text>
+<text x="258" y="293" class="muted" text-anchor="end">teammate</text>
+<rect x="98" y="306" width="108" height="20" rx="10" fill="#F5F3FF" stroke="#DDD6FF"/>
+<text x="152" y="320" class="pill" fill="#7C3AED" text-anchor="middle">NeoHive plugin</text>
+<text x="40" y="364" class="muted">or any other MCP app</text>
+<rect x="352" y="40" width="360" height="320" rx="5" fill="#FFFFFF" stroke="#DDD6FF"/>
+<g transform="translate(370,49) scale(0.04)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
+<text x="394" y="64" class="lbl" fill="#7C3AED">NEOHIVE CONTAINER</text>
+<text x="370" y="346" class="muted">Docker, on your machine or a shared server</text>
+<rect x="370" y="78" width="324" height="240" rx="5" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1.4"/>
+<g transform="translate(386,89) scale(0.08)"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED" stroke-width="20" fill="#FFFFFF"/></g>
+<text x="416" y="100" class="lbl" fill="#7C3AED">HIVE</text>
+<text x="416" y="119" class="title">One shared memory</text>
+<rect x="386" y="134" width="144" height="76" rx="4" fill="#FFFFFF" stroke="#A78BFA" stroke-width="1"/>
+<g transform="translate(400,148) scale(0.6667)" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="m16 18 6-6-6-6"/>
+<path d="m8 6-6 6 6 6"/>
+</g>
+<text x="400" y="181" class="chip">Code</text>
+<text x="400" y="197" class="item" fill="#4A4458">synced from Git</text>
+<rect x="540" y="134" width="144" height="76" rx="4" fill="#FFFFFF" stroke="#A78BFA" stroke-width="1"/>
+<g transform="translate(554,148) scale(0.6667)" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 7v14"/>
+<path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/>
+</g>
+<text x="554" y="181" class="chip">Documentation</text>
+<text x="554" y="197" class="item" fill="#4A4458">synced from Git</text>
+<rect x="386" y="222" width="144" height="76" rx="4" fill="#FFFFFF" stroke="#A78BFA" stroke-width="1"/>
+<g transform="translate(400,236) scale(0.6667)" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/>
+<path d="M14 2v5a1 1 0 0 0 1 1h5"/>
+</g>
+<text x="400" y="269" class="chip">Files</text>
+<text x="400" y="285" class="item" fill="#4A4458">files you upload</text>
+<rect x="540" y="222" width="144" height="76" rx="4" fill="#FFFFFF" stroke="#C084FC" stroke-width="1.4"/>
+<g transform="translate(554,236) scale(0.6667)" fill="none" stroke="#C084FC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 18V5"/>
+<path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"/>
+<path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"/>
+<path d="M17.997 5.125a4 4 0 0 1 2.526 5.77"/>
+<path d="M18 18a4 4 0 0 0 2-7.464"/>
+<path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517"/>
+<path d="M6 18a4 4 0 0 1-2-7.464"/>
+<path d="M6.003 5.125a4 4 0 0 0-2.526 5.77"/>
+</g>
+<text x="554" y="269" class="chip">Knowledge</text>
+<text x="554" y="285" class="item" fill="#4A4458">what agents learn</text>
+<line x1="272" y1="114" x2="368" y2="114" stroke="#7C3AED" stroke-width="1.8" marker-end="url(#arr)"/>
+<rect x="274.0" y="104" width="92" height="20" rx="10" fill="#FFFFFF" stroke="#DDD6FF"/>
+<text x="320" y="118" class="pill" fill="#7C3AED" text-anchor="middle">store a lesson</text>
+<line x1="368" y1="208" x2="272" y2="208" stroke="#009689" stroke-width="1.8" marker-end="url(#arrT)"/>
+<rect x="295.0" y="198" width="50" height="20" rx="10" fill="#FFFFFF" stroke="#99E6DC"/>
+<text x="320" y="212" class="pill" fill="#009689" text-anchor="middle">recall</text>
+<line x1="368" y1="302" x2="272" y2="302" stroke="#009689" stroke-width="1.8" marker-end="url(#arrT)"/>
+<rect x="295.0" y="292" width="50" height="20" rx="10" fill="#FFFFFF" stroke="#99E6DC"/>
+<text x="320" y="306" class="pill" fill="#009689" text-anchor="middle">recall</text>
+<text x="780" y="52" class="lbl" fill="#7C3AED">YOUR SOURCES</text>
+<rect x="780" y="104" width="180" height="82" rx="5" fill="#FFFFFF" stroke="#DDD6FF" stroke-dasharray="6 4"/>
+<g transform="translate(798.00,118.00) scale(0.8333)">
+<path d="M12 0c6.63 0 12 5.276 12 11.79-.001 5.067-3.29 9.567-8.175 11.187-.6.118-.825-.25-.825-.56 0-.398.015-1.665.015-3.242 0-1.105-.375-1.813-.81-2.181 2.67-.295 5.475-1.297 5.475-5.822 0-1.297-.465-2.344-1.23-3.169.12-.295.54-1.503-.12-3.125 0 0-1.005-.324-3.3 1.209a11.32 11.32 0 00-3-.398c-1.02 0-2.04.133-3 .398-2.295-1.518-3.3-1.209-3.3-1.209-.66 1.622-.24 2.83-.12 3.125-.765.825-1.23 1.887-1.23 3.169 0 4.51 2.79 5.527 5.46 5.822-.345.294-.66.81-.765 1.577-.69.31-2.415.81-3.495-.973-.225-.354-.9-1.223-1.845-1.209-1.005.015-.405.56.015.781.51.28 1.095 1.327 1.23 1.666.24.663 1.02 1.93 4.035 1.385 0 .988.015 1.916.015 2.196 0 .31-.225.664-.825.56C3.303 21.374-.003 16.867 0 11.791 0 5.276 5.37 0 12 0z" fill="#1A1A2E" fill-rule="evenodd"/>
+</g>
+<g transform="translate(814.33,106.92) scale(0.1167)">
+<path d="M265.26416,174.37243l-.2134-.55822-21.19899-55.30908c-.4236-1.08359-1.18542-1.99642-2.17699-2.62689-.98837-.63373-2.14749-.93253-3.32305-.87014-1.1689.06239-2.29195.48925-3.20809,1.21821-.90957.73554-1.56629,1.73047-1.87493,2.85346l-14.31327,43.80662h-57.90965l-14.31327-43.80662c-.30864-1.12299-.96536-2.11791-1.87493-2.85346-.91614-.72895-2.03911-1.15582-3.20809-1.21821-1.17548-.06239-2.33468.23641-3.32297.87014-.99166.63047-1.75348,1.5433-2.17707,2.62689l-21.19891,55.31237-.21348.55493c-6.28158,16.38521-.92929,34.90803,13.05891,45.48782.02621.01641.04922.03611.07552.05582l.18719.14119,32.29094,24.17392,15.97151,12.09024,9.71951,7.34871c2.34117,1.77316,5.57877,1.77316,7.92002,0l9.71943-7.34871,15.96822-12.09024,32.48142-24.31511c.02958-.02299.05588-.04269.08538-.06568,13.97834-10.57977,19.32735-29.09604,13.04905-45.47796Z" fill="#e24329" fill-rule="evenodd"/>
+<path d="M265.26416,174.37243l-.2134-.55822c-10.5174,2.16062-20.20405,6.6099-28.49844,12.81593-.1346.0985-25.20497,19.05805-46.55171,35.19699,15.84998,11.98517,29.6477,22.40405,29.6477,22.40405l32.48142-24.31511c.02958-.02299.05588-.04269.08538-.06568,13.97834-10.57977,19.32735-29.09604,13.04905-45.47796Z" fill="#fc6d26" fill-rule="evenodd"/>
+<path d="M160.34962,244.23117l15.97151,12.09024,9.71951,7.34871c2.34117,1.77316,5.57877,1.77316,7.92002,0l9.71943-7.34871,15.96822-12.09024s-13.79772-10.41888-29.6477-22.40405c-15.85327,11.98517-29.65099,22.40405-29.65099,22.40405Z" fill="#fca326" fill-rule="evenodd"/>
+<path d="M143.44561,186.63014c-8.29111-6.20274-17.97446-10.65531-28.49507-12.81264l-.21348.55493c-6.28158,16.38521-.92929,34.90803,13.05891,45.48782.02621.01641.04922.03611.07552.05582l.18719.14119,32.29094,24.17392s13.79772-10.41888,29.65099-22.40405c-21.34673-16.13894-46.42031-35.09848-46.55499-35.19699Z" fill="#fc6d26" fill-rule="evenodd"/>
+</g>
+<text x="798" y="160" class="title">GitHub or GitLab</text>
+<text x="798" y="177" class="body">your repositories</text>
+<rect x="780" y="214" width="180" height="82" rx="5" fill="#FFFFFF" stroke="#DDD6FF" stroke-dasharray="6 4"/>
+<g transform="translate(800.00,228.00) scale(0.5000)">
+<path d="M25.6686 26.0962C25.1812 26.2401 24.4656 26.2563 23.6984 26.145C22.875 26.0256 22.0351 25.7739 21.2096 25.403C22.6817 25.1888 23.8237 25.2548 24.8005 25.6009C25.0319 25.6829 25.412 25.9021 25.6686 26.0962ZM17.4552 24.7459C17.3953 24.7622 17.3363 24.7776 17.2776 24.7939C16.8815 24.9017 16.4961 25.0069 16.1247 25.1005L15.6239 25.2275C14.6165 25.4824 13.5865 25.7428 12.5692 26.0529C12.9558 25.1206 13.315 24.178 13.6667 23.2564C13.9271 22.5742 14.193 21.8773 14.468 21.1894C14.6075 21.4198 14.7531 21.6503 14.9046 21.8814C15.5948 22.9326 16.4624 23.9045 17.4552 24.7459ZM14.8927 14.2326C14.958 15.383 14.7098 16.4897 14.3457 17.5514C13.8972 16.2386 13.6882 14.7889 14.2489 13.6185C14.3927 13.3185 14.5105 13.1581 14.5869 13.0744C14.7049 13.2566 14.8601 13.6642 14.8927 14.2326ZM9.63347 28.8054C9.38148 29.2562 9.12426 29.6782 8.86063 30.0767C8.22442 31.0355 7.18393 32.0621 6.64941 32.0621C6.59681 32.0621 6.53316 32.0536 6.44015 31.9554C6.38028 31.8926 6.37069 31.8476 6.37359 31.7862C6.39161 31.4337 6.85867 30.8059 7.53527 30.2238C8.14939 29.6957 8.84352 29.2262 9.63347 28.8054ZM27.3706 26.1461C27.2889 24.9719 25.3123 24.2186 25.2928 24.2116C24.5287 23.9407 23.6986 23.8091 22.7552 23.8091C21.7453 23.8091 20.6565 23.9552 19.2582 24.2819C18.014 23.3999 16.9392 22.2957 16.1362 21.0733C15.7816 20.5332 15.4628 19.9941 15.1849 19.4675C15.8633 17.8454 16.4742 16.1013 16.3632 14.1479C16.2737 12.5816 15.5674 11.5295 14.6069 11.5295C13.948 11.5295 13.3807 12.0175 12.9194 12.9813C12.0965 14.6987 12.3128 16.8962 13.562 19.5184C13.1121 20.5751 12.6941 21.6706 12.2895 22.7311C11.7861 24.0498 11.2674 25.4103 10.6828 26.7045C9.04334 27.3532 7.69648 28.1399 6.57402 29.1057C5.8387 29.7373 4.95223 30.7028 4.90163 31.7107C4.87693 32.1854 5.03969 32.6207 5.37044 32.9695C5.72183 33.3398 6.16329 33.5348 6.6487 33.5354C8.25189 33.5354 9.79489 31.3327 10.0876 30.8909C10.6767 30.0029 11.2281 29.0124 11.7684 27.8699C13.1292 27.3781 14.5794 27.011 15.985 26.6562L16.4884 26.5283C16.8668 26.4321 17.2601 26.3257 17.6635 26.2153C18.0904 26.0999 18.5296 25.9802 18.976 25.8665C20.4193 26.7844 21.9714 27.3831 23.4851 27.6028C24.7601 27.7883 25.8924 27.6807 26.6589 27.2811C27.3486 26.9219 27.3866 26.3676 27.3706 26.1461ZM30.4755 36.2428C30.4755 38.3932 28.5802 38.5258 28.1978 38.5301H3.74486C1.60224 38.5301 1.47322 36.6218 1.46913 36.2428L1.46884 3.75642C1.46884 1.6039 3.36763 1.4734 3.74457 1.46908H20.263L20.2718 1.4778V7.92396C20.2718 9.21763 21.0539 11.6669 24.0158 11.6669H30.4203L30.4753 11.7218L30.4755 36.2428ZM28.9572 10.1976H24.0169C21.8749 10.1976 21.7453 8.29969 21.7424 7.92417V2.95307L28.9572 10.1976ZM31.9447 36.2428V11.1157L21.7424 0.871022V0.823357H21.6936L20.8742 0H3.74491C2.44954 0 0 0.785336 0 3.75711V36.2435C0 37.5427 0.782956 40 3.74491 40H28.2001C29.4952 39.9997 31.9447 39.2143 31.9447 36.2428Z" fill="#EB5757" fill-rule="evenodd"/>
+</g>
+<g transform="translate(824,229) scale(0.7917)" fill="none" stroke="#4A4458" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/>
+<path d="M14 2v5a1 1 0 0 0 1 1h5"/>
+</g>
+<text x="798" y="270" class="title">Your files</text>
+<text x="798" y="287" class="body">docs and PDFs</text>
+<line x1="778" y1="145" x2="696" y2="145" stroke="#009689" stroke-width="1.8" marker-end="url(#arrT)"/>
+<rect x="715.0" y="135" width="44" height="20" rx="10" fill="#FFFFFF" stroke="#99E6DC"/>
+<text x="737" y="149" class="pill" fill="#009689" text-anchor="middle">sync</text>
+<line x1="778" y1="255" x2="696" y2="255" stroke="#009689" stroke-width="1.8" marker-end="url(#arrT)"/>
+<rect x="711.0" y="245" width="52" height="20" rx="10" fill="#FFFFFF" stroke="#99E6DC"/>
+<text x="737" y="259" class="pill" fill="#009689" text-anchor="middle">upload</text>
   <!-- Footer. Logo paths copied verbatim from frontend/src/lib/icons/NeoHiveIcon.svelte. -->
-  <line x1="40" y1="382" x2="960" y2="382" stroke="#E4DFF1"/>
-  <g transform="translate(40,396) scale(0.04)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
-  <text x="64" y="411" font-size="13" font-weight="700" fill="#1A1A2E">How NeoHive works<tspan dx="12" font-size="10" font-weight="600" letter-spacing="1" fill="#737373">YOUR AGENT TALKS MCP TO ONE CONTAINER THAT HOLDS YOUR CONTEXT</tspan></text>
+  <line x1="40" y1="388" x2="960" y2="388" stroke="#E4DFF1"/>
+  <g transform="translate(40,402) scale(0.04)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
+  <text x="64" y="417" font-size="13" font-weight="700" fill="#1A1A2E">How NeoHive works<tspan dx="12" font-size="10" font-weight="600" letter-spacing="1" fill="#737373">EVERY AGENT ON YOUR TEAM SHARES ONE MEMORY</tspan></text>
 </svg>
