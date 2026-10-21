@@ -10,14 +10,15 @@ Recall is how your agent gets context from NeoHive while it works. The agent ask
 
 ## What one recall does
 
-Your agent describes what it needs in plain words, and NeoHive does the rest:
+Your agent describes what it needs in plain words. In one recall, NeoHive does the following:
 
-* **Matches meaning and exact words.** NeoHive finds the text that matches the meaning of the description, and the text that contains its exact words. So a function name or an error code in the query finds the text that contains it.
-* **Includes Shared Indexes.** Any [Shared Index](glossary.md#shared-index) is searched with the rest, and one ranked list comes back. A Memory's importance, from `1` to `10`, raises its rank.
-* **Returns whole sections.** When part of a document matches, NeoHive returns the whole section under that heading, so your agent has enough text to act on. When part of a code file matches, NeoHive returns the whole file. For a code file longer than about 8,000 characters, NeoHive returns the first 200 lines, with a note that names the file and its length.
-* **Lists each section once**, even when several parts of it match.
+1. **Searches every Index at once**, including any [Shared Index](glossary.md#shared-index).
+2. **Matches meaning and exact words.** A description finds text about the same thing, even when it uses different words. A function name or an error code finds the text that contains it.
+3. **Ranks the matches into one list.** A Memory with a higher importance ranks higher.
+4. **Returns whole sections.** A match in a document returns the whole section under its heading. A match in code returns the whole file, or the first 200 lines of a long file.
+5. **Lists each section once**, even when several parts of it match.
 
-Each result shows its id, type, importance, how many times it has been recalled, its tags, and the text.
+Each result also shows its type, importance, and tags.
 
 ## Two ways to ask
 
@@ -41,29 +42,10 @@ NeoHive sets the order. You set what to ask and where to look:
 
 When you do not know which Index holds the answer, search the whole Hive first to see which Index answers best. Then repeat the query with `index` set to that Index.
 
-**Phrasing matters.** Specific terms find more than a general question:
+**Phrasing matters.** Name the tool and the problem, not just the topic:
 
-{% columns %}
-{% column %}
-**Finds more**
-
-```text
-GitHub Actions concurrency limit workaround
-```
-{% endcolumn %}
-
-{% column %}
-**Finds less**
-
-```text
-how do I fix GitHub Actions
-```
-{% endcolumn %}
-{% endcolumns %}
-
-{% hint style="warning" %}
-How NeoHive orders results is internal and can change between releases. Do not write rules or prompts that depend on a particular order. The way you phrase the query is the part you can rely on.
-{% endhint %}
+* **Finds less:** "how do I fix GitHub Actions"
+* **Finds more:** "GitHub Actions concurrency limit workaround"
 
 ## Put it into practice
 

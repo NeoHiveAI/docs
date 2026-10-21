@@ -43,10 +43,6 @@ A Shared Index is a Code, Documentation, or Files Index that another Hive owns. 
 * You cannot share a Knowledge Index.
 * You can share an Index from the Hive that owns it, or add another Hive's Index from your own Hive. For the steps, see [Share an Index between Hives](../admin/manage.md#share-an-index-between-hives).
 
-<details>
-
-<summary>What each Hive can change on a Shared Index</summary>
-
 A Hive that uses a Shared Index can change almost everything that the owning Hive can change:
 
 | Action | Owning Hive | Hive that uses the Index |
@@ -56,8 +52,6 @@ A Hive that uses a Shared Index can change almost everything that the owning Hiv
 | Delete the Index | Yes, after every other Hive stops using it | No |
 | Share the Index with another Hive, or move it | Yes | No |
 | Stop using the Index (**Remove from Hive**) | Not applicable | Yes |
-
-</details>
 
 {% hint style="warning" %}
 Both Hives use the same Index, not a copy. A change made from either Hive applies to both.
