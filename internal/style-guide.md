@@ -41,6 +41,25 @@ Every other rule in this guide serves this section. If a sentence follows every 
 | **Explain each topic in full on one page only. Elsewhere, summarize it and link to that page.** | Before you explain a topic, look it up in `internal/topic-owners.md` in the `NeoHiveAI/docs` repository, which names the page that owns each topic. When you add, move, rename, or delete a page, update that file in the same change. An out-of-date map lets the next writer explain a topic a second time. On other pages, give a one or two sentence summary, then link to the full page, for example "For the full explanation, see [Hives, Indexes, and Memories](../concepts/hives-indexes-memories.md)." Two full explanations of one topic drift apart as each is edited, and the reader cannot tell which is right. If no page covers the topic and it needs more than a short summary, give it its own page. |
 | **Do not set a word limit for a page. Limit its scope instead.** | Explain as much as the topic needs. Each page covers one task or one idea, so length stays reasonable. When a page grows long because it covers two topics, split it into two pages. Do not cut needed explanation to make a page shorter. |
 | **Reference pages can have a shorter introduction.** | A reference page, such as a list of commands or settings, is for looking things up. Its introduction still says what the list covers and when the reader needs it, in two or three sentences. |
+| **Keep the introduction to about two short paragraphs before the first diagram.** | Do not open straight into a diagram, and do not let the introduction run longer than the reader needs to know what the page is about. |
+| **Do not describe the page itself.** | Cut sentences such as "This page lists..." or "The steps that follow name...". Say what the product does instead. |
+| **Say each thing once on a page.** | When a sentence, a diagram, and a list all name the same stages, keep the diagram and the list and cut the sentence. Do not redefine a term the page already links to the glossary. |
+| **Cut sentences that state the obvious.** | For example, "You create Hives in the dashboard" on a concepts page. A sentence the reader already knows slows them down on the way to the one they need. |
+
+## Page layout (Must Follow)
+
+A page mixes a few kinds of block, and each block earns its place. A page that is all bullets, all tables, or all callouts is hard to scan, and a page that forces in a block it does not need looks busy.
+
+| Rule | Explanation |
+| --- | --- |
+| **Mix block types on a page, and use each only where it fits.** | Combine prose with a list, a table, a diagram, or tabs as the content needs. Do not add a block type to fill a quota. |
+| **Use at most one list or one table in each section.** | Two lists or a list and a table back to back read like slides, and the reader loses the thread between them. |
+| **Keep some plain sentences on every page.** | Lists and tables hold facts. Sentences carry the reasoning that connects them. |
+| **Do not nest bullets, and avoid long runs of bullets.** | When several items share the same fields, such as a mistake, what you notice, and the fix, use a table instead. |
+| **Use a table for lookups and real comparisons.** | Good uses are "what you notice and the fix" and "what you say and what it narrows to". A two-row table or a table of single facts is a list. |
+| **Use tabs for content that differs by tool.** | For example, one tab each for Claude Code, Codex, and Cursor. Each reader opens their own tab instead of reading every tool's steps. |
+| **Do not hide content the reader needs in a collapsible block.** | Readers skip a closed block, and browser search may not find text inside it. Keep `<details>` for optional detail. |
+| **Use a numbered list, not numbered cards, for a short sequence.** | Cards suit links to other pages. Three big cards for three short points look heavy. |
 
 ## Voice and tone (Must Follow)
 
@@ -53,6 +72,8 @@ Every other rule in this guide serves this section. If a sentence follows every 
 | **Do not call a task easy or simple.** | Avoid "simply", "just", "easy", and "obviously". A reader who is stuck now also feels slow, and the word adds no information. |
 | **Do not write "please" in instructions.** | Write "Enter your token", not "Please enter your token". "Please" lengthens every step and makes a required action sound optional. |
 | **Do not pre-announce features.** | Describe what NeoHive does today. A promise of a future feature goes stale, and readers plan around it. An on-screen label such as **Coming soon** may be quoted, because it describes what the reader sees. |
+| **Write "can", not "may".** | "May" can mean permission or possibility, and the reader cannot tell which. |
+| **Match the tone to the page type.** | Overview pages can use the public website's tone and lead with what the team gets. Concept, reference, and troubleshooting pages stay plain and direct. |
 
 ## Writing for a global audience (Must Follow)
 
@@ -125,6 +146,8 @@ NeoHive opens the new Index page and starts the first sync.
 | **Do not describe an element by its position or color.** | Write "Select **Export**", not "Select the blue button on the right". Layouts change between screen sizes, and readers using screen readers or who cannot see color get nothing from the description. If an element has no label, name what it is, such as "the bell icon". |
 | **Do not describe a disabled or "Coming soon" element on a task page.** | When the screen already labels an option **Coming soon** and the reader cannot select it, the screen has told them everything. A sentence repeating it interrupts the task. Mention an option that is not available yet only on the page a reader checks to find out whether it exists, such as the list of data sources. |
 | **Document only what the reader can see, set, or act on.** | Nothing internal-only goes in the docs. That covers dashboard text, command output, slash commands, MCP tools, endpoints the reader calls, environment variables they set, files they can open, and hosts they can block. Leave out database tables and columns, source file paths, function names, migration numbers, internal job names, and ranking or chunking internals. A reader cannot find or change any of these, so the text costs reading time and goes stale with the next refactor. A security or backup fact stays when the reader needs it for a decision, written as what they can observe, such as where a file lives. Google's guide has no matching rule, so this one is a house rule stricter than Google. |
+| **Do not document a bug or an inconsistency in NeoHive itself.** | For example, when a plugin's own description claims a hook runs and none does, report it to the team that owns the plugin. Documenting the bug makes the docs explain a mistake instead of the product. |
+| **Do not use older product names in user docs.** | Readers of the current release never saw them. When an upgrade note is needed, put it on a Reference page. |
 | **Do not document how a feature works until readers can use it.** | A feature that is gated or shows **Coming soon**, such as Jira today, gets one line on the page that lists what exists (the data sources list) and nothing anywhere else. Leave its fields, tokens, checks, network calls, and stored data out of every other page, security and reference pages included. A reader cannot act on them, and they read as a promise the product does not keep yet. When the feature ships, document it then, from the released code. Google's guide says the same: avoid documenting future features, even in innocuous ways. |
 | **Use sentence case for titles and headings.** | Write "Connect a repository", not "Connect A Repository". Sentence case is easier to read and matches how labels appear in the app. This includes the section titles in `SUMMARY.md`. |
 | **Keep page titles and navigation titles the same.** | When you change a page's `# H1`, change its entry in `SUMMARY.md` and the text of every link to it. A reader who follows a link expects to land on a page with the same name. |
@@ -153,6 +176,8 @@ NeoHive opens the new Index page and starts the first sync.
 ## Notes and warnings (Must Follow)
 
 Use a callout only when the reader must not miss the information. Too many callouts teach readers to skip all of them.
+
+Do not use a callout for emphasis or a side note. Rewrite that text as a plain sentence in the paragraph it belongs to.
 
 | Label | GitBook style | Use it when |
 | --- | --- | --- |
@@ -209,3 +234,5 @@ Put a caution or warning before the step it applies to, not after. A reader who 
 | **Every fact is something the reader can see, set, or act on.** | For each table name, code path, or internal mechanism on the page, ask where the reader would ever meet it. If nowhere, cut it. |
 | **No page explains a feature readers cannot use yet.** | Search the page for the name of each gated or **Coming soon** feature, such as Jira. Only the data sources list may mention one. |
 | **No page has an em-dash.** | Search the page for the em-dash character. Replace each one with a colon, a comma, parentheses, or a new sentence. |
+| **No page has a semicolon in its prose.** | Search the page for `;` outside code. Replace each one with a comma, a colon, or a new sentence. |
+| **No section has more than one list or table.** | Check the page in a preview, and look for runs of bullets or callouts. |

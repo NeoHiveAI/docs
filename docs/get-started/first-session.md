@@ -59,3 +59,7 @@ Check NeoHive before answering.
 
 To make the agent check NeoHive by default, add the rules from [Tell your agent to use NeoHive](connect/README.md#tell-your-agent-to-use-neohive).
 {% endhint %}
+
+## Next steps
+
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><i class="fa-file-lines">:file-lines:</i></td><td><strong>Add your documents</strong></td><td>Upload specs, runbooks, and PDFs so your agent recalls them too.</td><td><a href="../context/documents.md">../context/documents.md</a></td></tr><tr><td><i class="fa-file-import">:file-import:</i></td><td><strong>Migrate from CLAUDE.md</strong></td><td>Bring your existing context files into NeoHive.</td><td><a href="../context/migrate.md">../context/migrate.md</a></td></tr><tr><td><i class="fa-users">:users:</i></td><td><strong>Invite your team</strong></td><td>Share the Hive so every teammate's agent recalls the same lessons.</td><td><a href="../results/team-workflows.md">../results/team-workflows.md</a></td></tr></tbody></table>
