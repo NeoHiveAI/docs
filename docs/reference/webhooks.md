@@ -89,7 +89,7 @@ A failed request returns one of the following statuses:
 
 ## GitHub Actions template
 
-The runner must be able to reach your NeoHive server. A GitHub-hosted runner cannot reach `localhost`, so use a self-hosted runner on the same network, or read [Expose NeoHive beyond your network](../security/network.md) first.
+The runner must be able to reach your NeoHive server. A GitHub-hosted runner cannot reach `localhost`, so use a self-hosted runner on the same network, or read [Exposing NeoHive beyond your network](../security/network.md) first.
 
 The following workflow sends the files that changed in each push to `main`:
 
