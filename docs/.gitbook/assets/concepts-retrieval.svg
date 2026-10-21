@@ -19,7 +19,7 @@
   <text x="60" y="156" class="lbl" fill="#7C3AED">1. YOUR AGENT ASKS</text>
   <text x="60" y="182" class="title">A plain description</text>
   <rect x="60" y="200" width="210" height="92" rx="4" fill="#F5F3FF" stroke="#DDD6FF"/>
-  <text x="74" y="222" class="mono" fill="#7008E7" font-size="12" font-weight="600">memory_recall</text>
+  <text x="74" y="222" fill="#7008E7" font-size="12" font-weight="700">Looking for</text>
   <text x="74" y="244" fill="#1A1A2E" font-size="12.5">"error handling in the</text>
   <text x="74" y="262" fill="#1A1A2E" font-size="12.5">payment webhook retry</text>
   <text x="74" y="280" fill="#1A1A2E" font-size="12.5">path"</text>
@@ -50,13 +50,13 @@
   <text x="718" y="182" class="title">Whole sections</text>
   <rect x="718" y="198" width="222" height="38" rx="3" fill="#FAF9FD" stroke="#E5E5E5"/>
   <text x="730" y="213" fill="#7C3AED" font-size="9.5" font-weight="700">CODE</text>
-  <text x="730" y="228" class="mono" fill="#1A1A2E" font-size="11.5">billing/retry.ts</text>
+  <text x="730" y="228" fill="#1A1A2E" font-size="12">The retry handler</text>
   <rect x="718" y="244" width="222" height="38" rx="3" fill="#FAF9FD" stroke="#E5E5E5"/>
   <text x="730" y="259" fill="#009689" font-size="9.5" font-weight="700">KNOWLEDGE</text>
   <text x="730" y="274" fill="#1A1A2E" font-size="11.5">Retries use the queue</text>
   <rect x="718" y="290" width="222" height="38" rx="3" fill="#FAF9FD" stroke="#E5E5E5"/>
   <text x="730" y="305" fill="#7C3AED" font-size="9.5" font-weight="700">DOCUMENTATION</text>
-  <text x="730" y="320" class="mono" fill="#1A1A2E" font-size="11.5">runbooks/payments.md</text>
+  <text x="730" y="320" fill="#1A1A2E" font-size="12">The payments runbook</text>
   <text x="718" y="352" class="body">Enough text around each match</text>
   <text x="718" y="370" class="body">for your agent to act on.</text>
   <text x="40" y="452" class="small">Name an Index with the index parameter to look in that one only.</text>

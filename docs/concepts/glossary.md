@@ -4,7 +4,7 @@ description: "Definitions of the NeoHive terms and the less common technical ter
 
 # Glossary
 
-This page defines the terms that these docs use, in alphabetical order. It includes NeoHive's own terms, such as Hive and Index, and technical terms that may be new to you. To find a term, use the page outline or your browser's search. The [Older names](#older-names) section at the end of the page lists older names for some terms.
+This page defines the terms that these docs use, in alphabetical order. It includes NeoHive's own terms, such as Hive and Index, and less common technical terms. To find a term, use the page outline or your browser's search.
 
 ## A
 
@@ -22,19 +22,19 @@ Application programming interface, the requests that a program accepts from othe
 
 ### Archive
 
-The action that moves a [Hive](#hive) to the **Archived** section of the dashboard home screen. NeoHive deletes an archived Hive after a set number of days. Until then, you can restore the Hive with its Indexes and Memories. See [Manage Hives and Indexes](../admin/manage.md).
+The action that moves a [Hive](#hive) to the **Archived** section of the dashboard home screen. NeoHive deletes an archived Hive after 30 days. Until then, you can restore the Hive with its Indexes and Memories. See [Manage Hives and Indexes](../admin/manage.md).
 
 ## B
 
 ### Blocklist
 
-The list of file patterns that a [Code Index](#code-index) or [Documentation Index](#documentation-index) leaves out. The Blocklist wins over the Allowlist: NeoHive never indexes a file that matches the Blocklist, even when the file also matches the [Allowlist](#allowlist).
+The list of file patterns that a [Code Index](#code-index) or [Documentation Index](#documentation-index) leaves out. The Blocklist wins over the Allowlist: NeoHive never indexes a file that matches the Blocklist, even when the file also matches the [Allowlist](#allowlist). See [Choose which files are included](../context/repositories/file-patterns.md).
 
 ## C
 
 ### Chunk
 
-A section of an indexed file, such as a function, or a heading and its text.
+A section of an indexed file, such as a function, or a heading and its text. Code, Documentation, and Files Indexes hold chunks. See [Hives, Indexes, and Memories](hives-indexes-memories.md).
 
 ### CI
 
@@ -54,7 +54,7 @@ A saved GitHub or GitLab credential on the **Data Sources** page. NeoHive uses a
 
 ### Container
 
-The Docker container named `neohive` that runs NeoHive on your machine. The container serves the [dashboard](#dashboard) and every [MCP endpoint](#mcp-endpoint). See [How NeoHive works](how-it-works.md).
+The Docker container named `neohive` that runs NeoHive, on your machine or a shared server. The container serves the [dashboard](#dashboard) and every [MCP endpoint](#mcp-endpoint). See [How NeoHive works](how-it-works.md).
 
 ### CPU
 
@@ -64,11 +64,11 @@ Central processing unit, the main processor in every computer. NeoHive runs its 
 
 ### Dashboard
 
-The NeoHive web interface at `http://localhost:3577`. In the dashboard, you create Hives, add Indexes, manage connections, and test queries. See [Dashboard tour](../admin/dashboard.md).
+The NeoHive web interface, which opens in your browser at the address the installer prints. In the dashboard, you create Hives, add Indexes, manage connections, and test queries. See [Dashboard tour](../admin/dashboard.md).
 
 ### Documentation Index
 
-An [Index](#index) that holds docs from a GitHub or GitLab repository. [Sync](#sync) keeps a Documentation Index up to date.
+An [Index](#index) that holds docs from a GitHub or GitLab repository. [Sync](#sync) keeps a Documentation Index up to date. See [Add a code repository](../context/repositories/README.md).
 
 ## E
 
@@ -98,8 +98,6 @@ Graphics processing unit, a processor that runs many calculations at the same ti
 
 A workspace in NeoHive for one codebase or team. A Hive holds [Indexes](#index) and has one [MCP endpoint](#mcp-endpoint). Every agent connected to the same Hive sees the same context. See [Hives, Indexes, and Memories](hives-indexes-memories.md).
 
-Do not confuse a Hive with an Index. Older releases used the word "Hive" for what is now an Index. See [Older names](#older-names).
-
 ### Hook
 
 A script that the Claude Code [plugin](#plugin) runs at a fixed point, such as when a session starts or when you send a prompt. The Cursor and Codex plugins have no hooks. See [What the plugin does automatically](../results/plugin-automation.md).
@@ -116,7 +114,7 @@ A number from `1` (trivial) to `10` (critical) on each [Memory](#memory). A Memo
 
 ### Index
 
-One store of searchable content inside a [Hive](#hive). An Index is a [Code Index](#code-index), [Documentation Index](#documentation-index), [Files Index](#files-index), or [Knowledge Index](#knowledge-index), or a [Shared Index](#shared-index) from another Hive. Each Index has its own storage and [embedding model](#embedding-model).
+One store of searchable content inside a [Hive](#hive). An Index is a [Code Index](#code-index), [Documentation Index](#documentation-index), [Files Index](#files-index), or [Knowledge Index](#knowledge-index), or a [Shared Index](#shared-index) from another Hive. Each Index has its own storage and [embedding model](#embedding-model). See [Hives, Indexes, and Memories](hives-indexes-memories.md).
 
 Written in lowercase, "index" is the verb: NeoHive indexes a file when it splits the file into [chunks](#chunk) and stores their embeddings in an Index.
 
@@ -140,7 +138,7 @@ Model Context Protocol, the open standard that your agent uses to call NeoHive's
 
 ### MCP endpoint
 
-The address that an agent connects to for one [Hive](#hive): `http://localhost:3577/hives/<hive-id>/mcp`. See [MCP tools](../reference/mcp-tools.md).
+The address that an agent connects to for one [Hive](#hive). It ends in `/hives/<hive-id>/mcp`. See [MCP tools](../reference/mcp-tools.md).
 
 ### mcp-remote
 
@@ -148,7 +146,7 @@ An npm package that forwards a local command to an MCP endpoint. Apps that only 
 
 ### Memory
 
-One stored piece of knowledge in a [Knowledge Index](#knowledge-index), such as a convention, a decision, or a correction. Your agent stores a Memory with `memory_store`.
+One stored piece of knowledge in a [Knowledge Index](#knowledge-index), such as a convention, a decision, or a correction. Your agent stores a Memory with `memory_store`. See [Hives, Indexes, and Memories](hives-indexes-memories.md).
 
 Written in lowercase, "memory" means the general capability, as in "the plugin tells your agent when to use memory".
 
@@ -172,13 +170,9 @@ Optical character recognition, which reads the text in an image, such as a scann
 
 A token that you create with GitHub or GitLab to give NeoHive read access to a repository. You save the token as a [connection](#connection). See [Credentials and secrets](../security/credentials.md).
 
-### Playground
-
-A dashboard screen where you run the same read-only tools that your agent calls, and see exactly what each tool returns. See [Test queries in the Playground](../admin/playground.md).
-
 ### Plugin
 
-The NeoHive package for Claude Code, Cursor, or Codex. The plugin adds a [rules file](#rules-file), [skills](#skill), and the `explore-neohive` [subagent](#subagent). In Claude Code, the plugin also adds [hooks](#hook). See [What the plugin does automatically](../results/plugin-automation.md).
+The NeoHive package for Claude Code, Cursor, or Codex. The plugin adds a [rules file](#rules-file) and [skills](#skill). In Claude Code, the plugin also adds [hooks](#hook) and the `explore-neohive` [subagent](#subagent). See [What the plugin does automatically](../results/plugin-automation.md).
 
 ## R
 
@@ -188,7 +182,7 @@ Asking a [Hive](#hive) for context. Your agent recalls with `memory_recall`, or 
 
 ### Rules file
 
-A file of instructions that the [plugin](#plugin) installs for your agent. The rules file tells your agent when to call `memory_context`, `memory_recall`, and `memory_store`.
+A file of instructions that the [plugin](#plugin) installs for your agent. The rules file tells your agent when to call `memory_context`, `memory_recall`, and `memory_store`. See [What the plugin does automatically](../results/plugin-automation.md).
 
 ## S
 
@@ -198,11 +192,11 @@ One conversation with your agent, from your first prompt until you close it. See
 
 ### Shared Index
 
-A Code, Documentation, or Files [Index](#index) that another Hive owns, added to your Hive without a copy. Your agents recall from a Shared Index but never write Memories to it. See [Manage Hives and Indexes](../admin/manage.md).
+A Code, Documentation, or Files [Index](#index) that another Hive owns, added to your Hive without a copy. Your agents recall from a Shared Index but never write Memories to it. See [Shared Index](hives-indexes-memories.md#shared-index).
 
 ### Skill
 
-A named task that the [plugin](#plugin) adds to your agent, such as `load-context` or `capture-session-learnings`. In Claude Code, you run a skill as a [slash command](#slash-command). In Cursor and Codex, you ask your agent to run the skill by name.
+A named task that the [plugin](#plugin) adds to your agent, such as `load-context` or `capture-session-learnings`. In Claude Code, you run a skill as a [slash command](#slash-command). In Cursor and Codex, you ask your agent to run the skill by name. See [Slash commands](../reference/slash-commands.md).
 
 ### Slash command
 
@@ -214,7 +208,7 @@ Secure Shell, a secure way to connect to another computer, such as a Git server.
 
 ### Subagent
 
-A helper agent that your agent hands a task to. The NeoHive plugin includes one subagent, `explore-neohive`, which searches NeoHive before it reads files. See [What the plugin does automatically](../results/plugin-automation.md).
+A helper agent that your agent hands a task to. The Claude Code plugin includes one subagent, `explore-neohive`, which searches NeoHive before it reads files. See [What the plugin does automatically](../results/plugin-automation.md).
 
 ### Sync
 
@@ -224,7 +218,7 @@ The process in which NeoHive fetches the latest commits of a repository and inde
 
 ### URL
 
-Uniform Resource Locator, the address of a web page or service, such as `http://localhost:3577`.
+Uniform Resource Locator, the address of a web page or service, such as `https://docs.neohive.ai`.
 
 ## V
 
@@ -241,20 +235,3 @@ Virtual private network, which connects your computer to a private network over 
 ### Webhook
 
 An address on your Hive that a CI pipeline calls to send changed files to NeoHive. NeoHive indexes those files immediately, without waiting for the next sync. See [Webhook refresh endpoint](../reference/webhooks.md).
-
-## Older names
-
-What used to be a **project** is now a **Hive**, and what used to be a **Hive** is now an **Index**. Older configs and scripts keep working through aliases. Use the current names in new configs and scripts.
-
-| You may see | Current name | Still accepted |
-|---|---|---|
-| Project | Hive | Not applicable, dashboard label only |
-| Hive, meaning one store of context | Index | Not applicable, dashboard label only |
-| `list_hives` tool | `list_indexes` | Yes, as a deprecated alias |
-| `hive` parameter on `memory_recall`, `memory_context`, and `memory_stats` | `index` | Yes, as a deprecated alias |
-| `/projects/<id>/mcp` | `/hives/<id>/mcp` | Yes |
-| `/projects/<id>/webhook/refresh` | `/hives/<id>/webhook/refresh` | Yes |
-
-{% hint style="warning" %}
-Guides written before the rename say "Hive" where they mean an Index. When an older guide tells you to choose a Hive for a query, choose an Index instead.
-{% endhint %}
