@@ -10,9 +10,11 @@ Your coding agents forget your project between sessions. NeoHive remembers it fo
 
 ## The problem
 
-Your coding agent does not know your code. It does not know your conventions, the library you moved off last quarter, or that a function it called does not exist. Each session starts with no knowledge of your project, and you spend the time correcting the agent.
+Your coding agent doesn't know your code. It doesn't know your conventions, the library you moved off last quarter, or that a function it called doesn't exist. Each session starts with no knowledge of your project, and you spend the time correcting the agent.
 
-You can paste code into the chat, but you have to do it every time. The agent can also read only a limited amount of text at once (its context window). A context file, for example `CLAUDE.md` or `AGENTS.md`, can grow to thousands of lines. The agent loads the whole file whether the task needs it or not.
+You can paste code into the chat, but you have to do it every time. A context file, such as `CLAUDE.md` or `AGENTS.md`, saves you from repeating yourself, but it brings its own problem. The agent can read only a limited amount of text at once (its context window), and a context file can grow to thousands of lines. The agent loads the whole file, even when the task needs only a small part of it.
+
+What the agent needs is context that lasts between sessions, like a context file, and fits the task at hand, like code you paste. NeoHive gives the agent both.
 
 ## What NeoHive does
 
@@ -22,7 +24,7 @@ NeoHive indexes your repositories and documents, and stores what your team teach
 
 ## Built for teams
 
-A Hive is shared, so what one person teaches their agent helps the whole team. When you correct your agent or explain a convention, the agent saves that lesson as a Memory in the Hive. Every teammate's agent reads from the same Hive, so each agent recalls that Memory, whichever tool the teammate uses. The Memory stays in the Hive, so a teammate who joins next month gets the lesson on their first day.
+A Hive is shared, so what one person teaches their agent helps the whole team. When you correct your agent or explain a convention, the agent saves that lesson as a Memory in your Hive. Your teammates' agents read from the same Hive and recall that Memory, whichever tool each teammate uses. The lesson stays in the Hive, too, so someone who joins next month has it on their first day.
 
 ## Start here
 

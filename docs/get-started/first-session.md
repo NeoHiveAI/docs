@@ -4,7 +4,7 @@ description: "Ask your agent about your code, teach the agent one thing, and see
 
 # Your first session
 
-This page uses three prompts to show what NeoHive changes. Your agent answers from your code, keeps a convention you teach it, and recalls that convention in a later session.
+Three prompts are enough to see what NeoHive changes. Your agent answers a question from your own code, saves a convention you teach it, and uses that convention again in a new session without you repeating it.
 
 <figure><img src="../.gitbook/assets/get-started-first-session.svg" alt="A timeline across two sessions. In session 1, you ask about your code (memory_recall) and teach a convention (memory_store). NeoHive saves the convention in the Hive's Knowledge Index. In session 2, you ask for new work, and memory_context brings the convention back."><figcaption></figcaption></figure>
 
@@ -20,13 +20,13 @@ Ask your agent a question that only your repository can answer:
 Where do we handle payment retries?
 ```
 
-Your agent calls `memory_recall` and answers from the indexed code, with real file paths. You do not paste files into the chat.
+Your agent calls `memory_recall` and answers from the indexed code, with real file paths. You don't paste files into the chat.
 {% endstep %}
 
 {% step %}
 ## Teach your agent one thing
 
-Tell your agent a convention that it cannot work out from the code:
+Tell your agent a convention that it can't work out from the code:
 
 ```text
 Remember that we always use snake_case for database column names.

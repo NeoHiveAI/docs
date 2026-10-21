@@ -59,7 +59,7 @@
 
 * [What stays on your machine](security/local-only.md)
 * [Credentials and secrets](security/credentials.md)
-* [Exposing NeoHive beyond your network](security/network.md)
+* [Expose NeoHive beyond your network](security/network.md)
 
 ## Troubleshooting
 
