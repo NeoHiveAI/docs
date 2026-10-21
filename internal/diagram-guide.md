@@ -14,6 +14,12 @@
 - **Make every diagram graphical, never a box of bullet points.** Show the idea with shapes, nesting, arrows, and position. A box full of sentences is a table drawn by hand, harder to read and harder to edit than the table it replaces.
 - **Show one idea per diagram.** When a page needs two ideas, make two diagrams. A diagram that tries to show a whole system becomes too small to read at the page width.
 - **Explain a topic in the diagram on its owner page only.** Check `internal/topic-owners.md` first. A diagram on a summary page repeats the owner page's diagram and drifts from it.
+- **Show the idea, not a list in boxes.** For example, "Common mistakes to avoid" shows one request with two outcomes, the wrong context and the right one, instead of a grid of tips.
+- **Use plain words, not code, in a concept diagram.** Tool names, file paths, and endpoint paths read as noise to a reader who is still learning the idea. Keep code for diagrams of something the reader types or sees, such as troubleshooting commands and hook settings.
+- **Show one example per card.** Three file names in each Index card crowd out the point. When a card has a description and an example, put the description first.
+- **Read left to right: the step or label first, then its example.**
+- **Do not add decorative shapes.** A hexagon beside a heading or a badge with no meaning adds clutter. The footer logo is the only brand mark.
+- **Size cards to their content.** A wide card with a short line of text leaves dead space. Narrow the card or the gap before you add text to fill it.
 
 ## Canvas and footer (Must Follow)
 
@@ -93,6 +99,7 @@ Each color carries one meaning across every diagram. A reader who has learned th
 
 - **Copy every color from the NeoHive app.** The diagrams use the colors the app renders, taken from `frontend/src/app.css` in the `NeoHiveAI/MemVec` repository. Violet `#7C3AED`, lavender `#A78BFA`, ink `#1A1A2E`, muted `#737373`, border `#E5E5E5`, card white `#FFFFFF`, and background `#FAF9FD` are the app's tokens `--primary`, dark-mode `--primary`, `--foreground`, `--muted-foreground`, `--border`, `--card`, and `--sidebar`. Green and amber copy the app's success and warning styling: `text-green-700`, `border-green-500/25`, and `bg-green-500/15`, and `text-amber-700`, `border-amber-500/30`, and `bg-amber-500/10`, with each see-through color blended over white. Orchid `#C084FC` comes from the logo. The app is built with Tailwind CSS 4, so take any other palette color, such as deep violet `violet-700`, from Tailwind 4, not Tailwind 3: the two versions use the same names for slightly different colors, and a Tailwind 3 hex does not match what the app shows. When a color changes in the app, change it in this table, in every diagram, and in `internal/diagram-guide.svg`, or the docs stop matching the product.
 - **Never add a color outside this table.** A new color has no meaning the reader has learned, so it reads as decoration or as a mistake. If an idea needs a new meaning, add the color to this table first, with its meaning.
+- **Exception: third-party logos keep their own colors.** Copy the Claude, Cursor, OpenAI, GitHub, GitLab, and PDF logos verbatim from `frontend/src/lib/icons/` in the MemVec repository, the same files the dashboard uses. Copy Index and other icons from the dashboard's lucide icons. Never redraw a logo.
 - **Never rely on color alone.** Pair each color with a label, such as **AUTOMATIC** or **YOU DO THIS**. Readers who cannot tell the colors apart, and readers of the alt text, get the meaning from the label.
 
 ## Type (Must Follow)
