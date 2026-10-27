@@ -4,17 +4,15 @@ description: "Three ways teams use one team Hive: onboarding, debugging with pas
 
 # Team workflows
 
-A [Hive](../concepts/glossary.md#hive) is a workspace in NeoHive that holds your [Indexes](../concepts/glossary.md#index) and [Memories](../concepts/glossary.md#memory). When every agent on the team connects to the same Hive, everything one person teaches reaches the whole team.
+Without a shared memory, each person teaches their own agent the same things, and the next teammate explains the same convention again. When every agent on the team connects to one [Hive](../concepts/glossary.md#hive), a lesson is stored once, as a [Memory](../concepts/glossary.md#memory). Every agent can then recall it, whichever tool the teammate uses.
 
-Without a shared Hive, each person teaches their own agent the same things. One teammate explains a convention, and the next teammate explains it again. A shared Hive stores the lesson once, as a Memory. Every teammate's agent can then recall that Memory, whichever tool the teammate uses.
+This page shows how to connect the team to one Hive, and the three ways teams use it.
 
-To share one Hive, each teammate first connects to it. After that, teams use the Hive in three ways: onboarding, debugging with past fixes, and keeping conventions consistent.
-
-<figure><img src="../.gitbook/assets/results-team-workflows.svg" alt="Two teammates teach the team Hive with memory_store. One states a convention, and the other stores a bug fix. The Hive has one MCP endpoint and holds a Knowledge Index plus Code and Documentation Indexes. Three agents get that knowledge back through memory_context and memory_recall. The first belongs to a new engineer on day one. The second belongs to the next person with the same symptom. The third is any agent writing code in that area."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/results-team-workflows.svg" alt="Two teammates teach the team Hive. One states a convention: we use snake_case for columns. The other fixes a bug: webhooks time out after 30 seconds. The Hive is one shared memory that holds a Knowledge Index plus Code and Documentation Indexes. Three agents get those lessons back through recall: a new engineer who asks how to name database columns, the next person who asks why the webhooks time out, and every agent writing code, which names new columns in snake_case."><figcaption></figcaption></figure>
 
 ## Connect each person to the team Hive
 
-A Hive has one [MCP](../concepts/glossary.md#mcp) endpoint. Everyone who connects to the endpoint reads the same Indexes and writes to the same **Knowledge** [Index](../concepts/glossary.md#knowledge-index). For this reason, each teammate connects to the team's Hive instead of creating their own Hive. [Access and sharing](../admin/access.md) explains how to run one NeoHive instance for a team.
+A Hive has one [MCP](../concepts/glossary.md#mcp) endpoint. Everyone who connects to it reads the same [Indexes](../concepts/glossary.md#index) and writes to the same [Knowledge Index](../concepts/glossary.md#knowledge-index), so each teammate connects to the team's Hive instead of creating their own. [Access and sharing](../admin/access.md) explains how to run one NeoHive instance for a team.
 
 ## The three workflows
 
@@ -24,8 +22,6 @@ A Hive has one [MCP](../concepts/glossary.md#mcp) endpoint. Everyone who connect
 | **Debug with past fixes** | Stored the symptom, cause, and fix of a bug | `Have we run into flaky failures in the batch processor? What fixed them?` |
 | **Keep conventions consistent** | Said `Remember that we use snake_case for all database column names.` | Nobody needs to ask. At session start, `memory_context` returns the conventions that fit the task. |
 
-Each workflow works only after someone has done what the middle column describes. Recall cannot return a fix that nobody stored. When you solve a difficult problem, tell your agent to remember the symptom, the cause, and the fix.
+Each workflow works only after someone has done what the middle column describes, because recall cannot return a fix that nobody stored. When you solve a difficult problem, tell your agent to remember the symptom, the cause, and the fix.
 
-{% hint style="info" %}
-To import rules your team already keeps in `CLAUDE.md` or `AGENTS.md` files, see [Migrate from CLAUDE.md](../context/migrate.md).
-{% endhint %}
+To start the Hive with rules your team already keeps in `CLAUDE.md` or `AGENTS.md` files, see [Migrate from CLAUDE.md](../context/migrate.md).
