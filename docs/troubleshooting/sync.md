@@ -8,28 +8,80 @@ A [Code](../concepts/glossary.md#code-index) or [Documentation Index](../concept
 
 <figure><img src="../.gitbook/assets/troubleshooting-sync.svg" alt="Decision tree with five checks for a Code or Documentation Index. Is syncing turned on? Is the connection Valid on Data Sources? Did the last run in Sync history succeed? Did every file index? Does the missing file pass the filters? Each no leads to its fix. Five yes answers mean the Index matches the repository."><figcaption></figcaption></figure>
 
-Open the Index in the dashboard. When a sync has a problem, a message box at the top of the Index page names the problem and says what to do. The same message box appears on the [Hive](../concepts/glossary.md#hive) page, with a link to the Index, and the Index shows a red status dot in the Hive's **Indexes** list. On the **Sync Settings** tab, **Sync history** lists every run with its status. To read a run's error in full, select the text in its **Error** column.
+Open the Index in the dashboard. When a sync has a problem, a message box at the top of the Index page names it and says what to do. The same box appears on the [Hive](../concepts/glossary.md#hive) page, and the Index shows a red status dot in the Hive's **Indexes** list.
+
+On the **Sync Settings** tab, **Sync history** lists every run with its status. To read a run's error in full, select the text in its **Error** column.
 
 ## What the Index page shows
 
-Text in `<angle brackets>` stands for a value that changes, such as a branch name or a count.
+Find the heading of the message box you see, and expand it for the cause and the fix. Text in `<angle brackets>` stands for a value that changes, such as a branch name or a count.
 
-| You see | Cause | Fix |
-|---|---|---|
-| **Resume syncing** on **Sync Settings** | Syncing is paused, so no scheduled sync runs. | Select **Resume syncing**. |
-| `The connection for this Index was removed` | Someone deleted the Index's connection on **Data Sources**. | Select **Assign connection** and choose a connection. If the Index's service has no connection left, the button reads **Add a data source** and opens **Data Sources**. |
-| `A synced branch is no longer on the remote` | Someone renamed or deleted the branch, and NeoHive could not pick its replacement. The box says that the Index won't pick up new changes for now, and that everything indexed so far is still searchable. | Under **Pick a branch to sync instead**, select a branch, and then select **Sync this branch**. The sync starts on the new branch. If the Index still does not sync, select **Re-clone repository**, which clears the local copy and clones the repository again. |
-| `A git command failed` | NeoHive could not read the repository. The line under the heading shows git's own reason, such as a failed login or a wrong URL. | Check the connection on **Data Sources**, and then select **Trigger sync**. See [Connections](#connections). |
-| `No files could be indexed, so the sync stopped` | Every file in the run failed to index. The box shows the first file's error. | Read the error. If it names the container or the embedding engine, see [Agent can't connect](connection.md). Then select **Trigger sync**. |
-| `The sync failed` | Something else failed. The box shows the error message. | Look up the message in [Common errors](common-errors.md). |
-| `This Index was built with the wrong embedding dimensions` | NeoHive cannot repair the Index in place. | Follow the three steps in the box: open the **Index Info** tab, select **Delete Index** under **Danger Zone**, and then select **Add Index** on the Hive page to create the Index again with the same source and embedding model. |
-| `Some files could not be indexed, the rest synced`, with `<n> of <m> files failed to index and will be reindexed automatically.` | Some files failed to index. The run also shows an amber **partial** badge in **Sync history**. | No action is needed. NeoHive runs the sync again two minutes later and retries those files. |
-| `Some files could not be indexed, the rest synced`, with `<n> files could not be indexed after 3 attempts. Trigger a sync to retry.` | The same files failed three syncs in a row, so NeoHive stopped retrying them. | In **Sync history**, select the run's error to read the first file's error. Fix the file, or exclude it with the **Blocklist**, and then select **Trigger sync**. |
-| `A sync is already running for this Index` | You selected **Trigger sync** while a sync was running. | No fix is needed. Wait for the running sync to finish. |
+<details>
+<summary>A synced branch is no longer on the remote</summary>
 
-NeoHive usually handles a renamed default branch, such as `master` to `main`, for you. NeoHive switches the Index to the new branch and continues syncing. The branch message box appears only when NeoHive cannot tell which branch replaced the old one.
+Someone renamed or deleted the branch, and NeoHive could not tell which branch replaced it. The Index won't pick up new changes for now, but everything indexed so far is still searchable.
 
-You can also change the branch on the **Sync Settings** tab. Select the new branch under **Branch**, and then select **Save settings**. When the old branch was missing, NeoHive clears the message box and starts a sync on the new branch.
+To sync another branch, do the following:
+
+1. Under **Pick a branch to sync instead**, select a branch.
+2. Select **Sync this branch**.
+
+The sync starts on the new branch. If the Index still does not sync, select **Re-clone repository**, which clears the local copy and clones the repository again.
+
+NeoHive handles most renamed default branches, such as `master` to `main`, without this box. It switches the Index to the new branch and keeps syncing. You can also change the branch yourself under **Branch** on the **Sync Settings** tab, and then select **Save settings**. NeoHive then clears the box and starts a sync on the new branch.
+
+</details>
+
+<details>
+<summary>A git command failed</summary>
+
+NeoHive could not read the repository. The line under the heading shows git's own reason, such as a failed login or a wrong URL. Check the connection, as described in [Connections](#connections), and then select **Trigger sync**.
+
+</details>
+
+<details>
+<summary>The connection for this Index was removed</summary>
+
+Someone deleted the Index's connection on **Data Sources**. Select **Assign connection** and choose a connection. If the service has no connection left, the button reads **Add a data source** and opens **Data Sources**.
+
+</details>
+
+<details>
+<summary>Some files could not be indexed, the rest synced</summary>
+
+The text under the heading says which case you have:
+
+* **`<n> of <m> files failed to index and will be reindexed automatically.`** No action is needed. NeoHive runs the sync again two minutes later and retries those files. The run shows an amber **partial** badge in **Sync history**.
+* **`<n> files could not be indexed after 3 attempts. Trigger a sync to retry.`** The same files failed three syncs in a row, so NeoHive stopped retrying them. In **Sync history**, select the run's error to read the first file's error. Fix the file, or exclude it with the **Blocklist**, and then select **Trigger sync**.
+
+</details>
+
+<details>
+<summary>No files could be indexed, so the sync stopped</summary>
+
+Every file in the run failed to index. The box shows the first file's error. If the error names the container or the embedding engine, see [Agent can't connect](connection.md). Then select **Trigger sync**.
+
+</details>
+
+<details>
+<summary>This Index was built with the wrong embedding dimensions</summary>
+
+NeoHive cannot repair the Index in place, so you create it again. To rebuild the Index, do the following:
+
+1. Open the **Index Info** tab.
+2. Under **Danger Zone**, select **Delete Index**.
+3. On the Hive page, select **Add Index**, and create the Index with the same source and embedding model.
+
+</details>
+
+<details>
+<summary>The sync failed</summary>
+
+Something else failed, and the box shows the error message. Look up the message in [Common errors](common-errors.md).
+
+</details>
+
+Two other states are not errors. If **Sync Settings** shows **Resume syncing**, syncing is paused, and selecting it starts the scheduled syncs again. If you see `A sync is already running for this Index`, you selected **Trigger sync** during a run. Wait for that run to finish.
 
 ## Connections
 

@@ -4,11 +4,9 @@ description: "Error messages from the NeoHive installer, server, tools, uploads,
 
 # Common errors
 
-When something goes wrong, NeoHive shows an error message. Each entry on this page quotes one message, says what caused the error, and gives a fix. The page groups the messages by where they appear. The groups are the installer, the server and dashboard, agent tools, uploads, and syncs.
+Search this page for the message you see. Each entry gives the cause and the fix, grouped by where the message appears. Text in `<angle brackets>` stands for a value that changes, such as a file name.
 
-To find your error, search this page for the message you see, and then apply the fix. Text in `<angle brackets>` stands for a value that changes, such as a file name.
-
-If NeoHive works but your agent recalls the wrong things, see [Common mistakes to avoid](../results/common-mistakes.md).
+If NeoHive works but your agent recalls the wrong things, see [Common mistakes to avoid](../results/common-mistakes.md) instead.
 
 ## Installer
 
@@ -49,6 +47,7 @@ The NeoHive server returns the following messages. You see them in the dashboard
 | `Failed to connect to localhost port 3577` (from `curl`) | The container is not running. | Run `docker start neohive`, and then see [Agent can't connect](connection.md). |
 | `"error":"warmup failed"` from `/health` | NeoHive could not finish starting. | Read `docker logs neohive --tail 50`, and then run `docker restart neohive`. |
 | `"error":"embedder cannot run, so nothing can be stored or recalled"` from `/health` | The embedding engine in the container cannot start. | Read the log, and then see [GPU and CPU](../admin/gpu-cpu.md). |
+| `"error":"document worker is not running, so uploads are not processed"` from `/health` | The part of NeoHive that converts uploaded files has stopped. | Run `docker restart neohive`. If the error continues, send a diagnostics bundle, as described in [Not listed here](#not-listed-here). |
 | `Unknown Hive: <id>` | The [Hive](../concepts/glossary.md#hive) id in the [MCP](../concepts/glossary.md#mcp) endpoint or webhook URL is wrong. | Copy the endpoint again from **Install Instructions**. |
 | `License check failed` (HTTP `402`) | The license expired or failed validation. The reply also carries a `reason`. | See [Licensing](../admin/licensing.md). |
 | `License check unavailable` (HTTP `503`) | NeoHive could not read its license state. | Run `docker restart neohive`. If the error continues, contact `hello@neohive.ai`. |
@@ -72,26 +71,28 @@ Your agent receives the following messages from a NeoHive tool, such as `memory_
 
 ## Uploads
 
-NeoHive shows the following messages for a file that you upload to a [Files Index](../concepts/glossary.md#files-index).
+NeoHive shows the following messages for a file that you upload to a [Files Index](../concepts/glossary.md#files-index). A message that NeoHive shows before the upload starts begins with the file's name.
 
 | Message | Cause | Fix |
 |---|---|---|
-| `Unsupported type: <ext>` or `Unsupported file type: <ext>. Allowed: .md, .markdown, .txt, .pdf` | The file is not one of those types. | Export the file to one of those types. See [Supported file types](../reference/file-types.md). |
-| `File too large (<size> > 10 MB)` or `File too large` | The file is over 10 MB. | Split the file into smaller files. |
+| `Unsupported type: <ext>` or `Unsupported file type: <ext>. Allowed: <extensions>` | NeoHive cannot read that file type. | Export the file to a supported type. See [Supported file types](../reference/file-types.md). |
+| `File too large (<size> > <limit>)` or `File too large` | The file is over the size limit for one file. | Split the file into smaller files. |
 | `Too many files` | The upload has more than 20 files. | Upload in batches of 20 or fewer. |
-| `<name> already exists, skipped` | A file with that name is already in the Index. | Rename the new file, or remove the old file first. |
-| `No text could be extracted from this PDF. Common causes: scanned/image-only pages, or text rendered as vector outlines instead of fonts. Hint: AI-generated PDF files can sometimes cause this.` | The PDF contains only scanned images, or its text is drawn as shapes. | Run optical character recognition (OCR) on the PDF, or upload an exported text version. |
-| `No content could be extracted from this file (it appears to be empty or contain only whitespace).` | The file is empty. | Upload a file with content. |
-| `PDF bridge timed out after 300s` | Converting the PDF took longer than the time allowed. | Run the installer again with a higher `NEOHIVE_PDF_BRIDGE_TIMEOUT_MS`. See [Environment variables](../reference/environment-variables.md). |
+| `This upload is <size>, over the <limit> per-request limit` | The files in one upload add up to more than NeoHive accepts at once. | Upload fewer files at a time. |
+| `a file with this name is already staged`, `selected more than once`, or `More than one file in this upload is named <name>` | Two files in the same upload have the same name. | Rename one of the files, or upload it separately. |
+| `Cannot replace a <ext> upload with a <ext> file. Delete it and upload the new file instead.` | A file with that name is already in the Index. A new file with the same name replaces the old one, but only when the two have the same type. | Delete the old file from the Index, and then upload the new one. |
+| `No text could be extracted from this document. Common causes: scanned or image-only pages, or text rendered as vector outlines instead of fonts. For an image: no readable text, or text too small or too low in contrast for OCR.` | The file has no text that NeoHive can read, or it is empty. | Upload a version with real text, or a sharper image. |
+| `Converting "<name>" timed out` | Converting the file took longer than the time allowed, five minutes by default. | Run the installer again with a higher `NEOHIVE_DOCUMENT_TIMEOUT_MS`. See [Environment variables](../reference/environment-variables.md). |
+| `Converting "<name>" was killed — most likely it needed more memory than available.` | Converting the file needed more memory than the container has. | Split the file, or give Docker more memory. |
+| `Upload processing is unavailable. Try again shortly.` | The part of NeoHive that converts uploads is not running. | Wait a minute and try again. If the error continues, check `/health` as described in [Agent can't connect](connection.md). |
 
 ## Syncs and connections
 
-The following messages come from the GitHub or GitLab connections that repository syncs use.
+Two messages come from the GitHub or GitLab connection that a repository sync uses.
 
-| Message | Cause | Fix |
-|---|---|---|
-| `Invalid token or token has expired` | NeoHive tried to list your repositories with a GitHub or GitLab token that no longer works. | On **Data Sources**, add a new connection with a working token. See [Credentials and secrets](../security/credentials.md). |
-| `Token missing required scopes (needs repo)` | The GitHub token lacks the `repo` scope. For GitLab, the message ends at `scopes`. | Create a token with the right scope, and then add the token as a new connection. |
+`Invalid token or token has expired` means the token no longer works, so NeoHive cannot list your repositories. On **Data Sources**, add a new connection with a working token. See [Credentials and secrets](../security/credentials.md).
+
+`Token missing required scopes (needs repo)` means the GitHub token lacks the `repo` scope. For GitLab, the message ends at `scopes`. Create a token with the right scope, and then add it as a new connection.
 
 [Repository sync issues](sync.md) covers the messages that a sync shows on an Index's page, such as `A synced branch is no longer on the remote`. [Webhook refresh endpoint](../reference/webhooks.md) lists the webhook errors, such as `Invalid or missing webhook secret` and `No Index found syncing repo: <repo>`.
 

@@ -4,15 +4,13 @@ description: "Checks to run, in order, when your coding agent cannot reach NeoHi
 
 # Agent can't connect
 
-Your agent reaches NeoHive through the [MCP](../concepts/glossary.md#mcp) endpoint of a [Hive](../concepts/glossary.md#hive). The endpoint is a web address, such as `http://localhost:3577/hives/<hive-id>/mcp`.
+Your agent reaches NeoHive through the [MCP](../concepts/glossary.md#mcp) endpoint of a [Hive](../concepts/glossary.md#hive). When the connection breaks, the agent shows a connection error, or the NeoHive tools do not appear.
 
-The connection depends on several parts in turn. The NeoHive container must be running, and the server must be healthy. The Hive must answer, and your agent must use the right endpoint. Finally, your agent must load the NeoHive tools. If any one part fails, your agent cannot use NeoHive. The agent shows a connection error, or the NeoHive tools do not appear.
+Four things must work, in this order: the container, the server, the endpoint, and the agent's tools. The checks on this page test each one.
 
-Use the checks on this page to find which part breaks, and then fix that part.
+<figure><img src="../.gitbook/assets/troubleshooting-connection.svg" alt="Decision tree with four checks. Is the neohive container running? Does /health say ok? Does the agent's MCP endpoint match Install Instructions? Does the agent see the NeoHive tools? Each no leads to its fix. Four yes answers mean the agent is connected."><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/troubleshooting-connection.svg" alt="Decision tree with five checks. Is the neohive container running? Does /health say ok? Does list_indexes work in the Playground? Does the agent's MCP endpoint match Install Instructions? Does the agent see the NeoHive tools? Each no leads to its fix. Five yes answers mean the agent is connected."><figcaption></figcaption></figure>
-
-Run the checks in order. Stop at the first check that fails, and apply its fix.
+Run the checks in order. Stop at the first check that fails, and apply its fix. The commands use the default address, `localhost:3577`. If NeoHive runs on another machine or port, use that address instead.
 
 {% stepper %}
 {% step %}
@@ -29,7 +27,9 @@ docker start neohive
 docker logs neohive --tail 50
 ```
 
-The message `No such container` means the container no longer exists. Run the [installer](../get-started/install.md) again. Your data stays in the `neohive-data` volume. If the start fails with `port is already allocated`, another program is using port `3577`. Stop that program, or install on another port with `NEOHIVE_PORT=4577`. If you change the port, also change the port in your agent's MCP endpoint.
+If Docker says `No such container`, the container no longer exists. Run the [installer](../get-started/install.md) again. Your data stays in the `neohive-data` volume.
+
+If the start fails with `port is already allocated`, another program is using port `3577`. Stop that program, or install on another port with `NEOHIVE_PORT=4577`. If you change the port, change it in your agent's MCP endpoint too.
 {% endstep %}
 
 {% step %}
@@ -49,22 +49,9 @@ If `curl` reports `Failed to connect`, the container is not running. Go back to 
 {% endstep %}
 
 {% step %}
-## Does the Hive answer without your agent?
-
-To test the Hive from the dashboard, do the following:
-
-1. Open **Playground** in the dashboard.
-2. Under **Hive**, select your Hive.
-3. Under **Tool**, select `list_indexes`.
-4. Select **Run**.
-
-If you see a list of [Indexes](../concepts/glossary.md#index), the Hive works. The problem is then between the Hive and your agent. If you see an error, the Hive itself is broken. On the dashboard home page, open the Hive's menu, select **Restart**, and then run the check again.
-{% endstep %}
-
-{% step %}
 ## Is the MCP endpoint right?
 
-Each Hive has its own endpoint, `http://localhost:3577/hives/<hive-id>/mcp`. To check the endpoint, do the following:
+Each Hive has its own endpoint, ending in `/hives/<hive-id>/mcp`. To check the endpoint, do the following:
 
 1. Open the Hive in the dashboard.
 2. Copy the endpoint from **Install Instructions**.

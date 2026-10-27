@@ -4,9 +4,9 @@ description: "What to check when your agent's NeoHive recall comes back empty or
 
 # Recall isn't finding what I need
 
-A recall is your agent's search of the knowledge NeoHive stores. When a recall comes back empty or misses what you expected, the cause is usually the query's wording or the content behind it. Each cause on this page comes with a fix.
+A recall is your agent's search of the knowledge NeoHive stores. When it comes back empty or misses what you expected, the cause is usually the query's wording or the content behind it.
 
-Check the causes in the following table in order. The first two are the quickest to fix.
+Find your symptom in the following table. The first two causes are the most common and the quickest to fix.
 
 | Symptom | Likely cause | Fix |
 |---|---|---|
@@ -32,7 +32,7 @@ An exact term, such as a function name or an error code, finds the text that con
 
 ## Check the content exists
 
-Run the same query in the dashboard's [Playground](../admin/playground.md) against the Index you expect to hold the answer. If the Playground shows **No memories matched this query.**, the content is not in the Index. Tell your agent to store the information. For example:
+Ask your agent to run the same query with `index` set to the Index you expect to hold the answer. If nothing relevant comes back, the content is not in the Index. Tell your agent to store the information. For example:
 
 ```text
 Remember that the staging environment uses a self-signed certificate, so local tests need NODE_TLS_REJECT_UNAUTHORIZED=0.
