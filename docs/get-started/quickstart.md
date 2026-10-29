@@ -4,7 +4,7 @@ description: "The shortest path from nothing to a coding agent that answers from
 
 # Quickstart
 
-This page takes one path with no options: NeoHive, one GitHub repository, and Claude Code. To check each step or to connect a different agent, use [Install NeoHive](install.md).
+This page takes one path with no options: NeoHive, one GitHub repository, and Claude Code. Steps 2 and 3 follow the dashboard's setup wizard, which creates your first Hive and connects your agent. To check each step or to connect a different agent, use [Install NeoHive](install.md).
 
 Before you start, you need the following:
 
@@ -32,18 +32,12 @@ When the installer finishes, it prints the dashboard address.
 A [Hive](../concepts/glossary.md#hive) is a workspace for your team, with one address that agents connect to. To create the Hive, do the following:
 
 1. Open `http://localhost:3577`.
-2. To accept the license, select **I Understand**.
-3. Select **Get Started**.
-4. Select **Start setup**.
-5. Under **Hive name**, type a name.
-6. Select **Continue**.
-7. Under **Where does your data live?**, select **GitHub** and keep **Code** selected.
-8. Paste your token.
-9. Select **Fetch repositories**.
-10. Select your repository.
-11. Select **Continue**.
+2. Read and accept the license.
+3. Read through the welcome screens, and then select **Start setup**.
+4. In **Name Hive**, type a name for your Hive.
+5. In **Configure first Index**, select **GitHub**, paste your token, and then select your repository.
 
-NeoHive adds your repository to the Hive as a [Code Index](../concepts/glossary.md#code-index), a store inside the Hive. NeoHive then starts indexing the repository in the background. Indexing builds a searchable copy of your code.
+NeoHive then indexes your repository in the background, so your agent can search it. To check when indexing finishes, see [Connect GitHub or GitLab](../context/repositories/connect.md#create-the-index).
 {% endstep %}
 
 {% step %}

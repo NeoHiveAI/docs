@@ -40,6 +40,8 @@ Your proxy checks the credential, not NeoHive. NeoHive itself never reads the `N
 
 Every MCP connection and the Claude Code hooks must send the header your proxy expects. The following examples use a bearer token stored in `NEOHIVE_TOKEN`.
 
+Set `NEOHIVE_TOKEN` to the token your proxy accepts, because NeoHive doesn't create one. To learn where to set `NEOHIVE_TOKEN`, see [Environment variables](../reference/environment-variables.md#agent-plugin).
+
 {% tabs %}
 {% tab title="Claude Code" %}
 Run the following commands:
