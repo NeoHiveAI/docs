@@ -4,13 +4,13 @@ description: "Connect Claude Desktop, any other MCP app, or an agent with no Neo
 
 # Claude Desktop and other MCP apps
 
-To connect any [MCP](../../concepts/glossary.md#mcp) app, give the app the MCP endpoint of your [Hive](../../concepts/glossary.md#hive), your team's NeoHive workspace. Apps that only run local commands reach the endpoint through `mcp-remote`, a small Node.js program that forwards requests to the endpoint.
+To connect any [MCP](../../concepts/glossary.md#mcp) app, give the app the MCP endpoint of your [Hive](../../concepts/glossary.md#hive), your team's NeoHive workspace. Apps that only run local commands reach the endpoint through `mcp-remote`, a small Node.js program that forwards requests to the endpoint. The following table shows what to add for each kind of app:
 
 | The app connects by | Examples | What you add |
 |---|---|---|
 | URL | Cursor, Codex, and Windsurf | The endpoint, plus an `x-mcp-client` header if the app takes headers |
 | Local command only | Claude Desktop | An `npx mcp-remote` command that forwards to the endpoint. The command needs Node.js. |
-| The provider's own servers | ChatGPT connectors | A public HTTPS address. The provider's servers cannot reach `localhost`. |
+| The provider's own servers | ChatGPT connectors | A public HTTPS address. The provider's servers can't reach `localhost`. |
 
 {% tabs %}
 {% tab title="Claude Desktop" %}
@@ -18,10 +18,10 @@ To add the Hive to Claude Desktop, do the following:
 
 1. Open the Hive in the dashboard.
 2. Go to **Install Instructions**.
-3. Select **Claude Desktop**.
+3. Click **Claude Desktop**.
 4. In Claude Desktop, open **Settings**.
-5. Select **Developer**.
-6. Select **Edit Config**.
+5. Click **Developer**.
+6. Click **Edit Config**.
 7. Paste the JSON into `claude_desktop_config.json`.
 
 The JSON looks like this:
@@ -51,7 +51,7 @@ To load the new server, do the following:
 1. Quit Claude Desktop completely.
 2. Open Claude Desktop again.
 
-`--allow-http` lets `mcp-remote` use a plain `http://` address. If you opened the dashboard over `https://`, the dashboard leaves `--allow-http` out.
+The `--allow-http` flag lets `mcp-remote` use a plain `http://` address. If you opened the dashboard over `https://`, the dashboard leaves `--allow-http` out.
 {% endtab %}
 
 {% tab title="Other MCP apps" %}
@@ -68,7 +68,7 @@ npx -y mcp-remote@latest \
 
 If the address starts with `https://`, remove `--allow-http`.
 
-**If the app runs on the provider's servers**, put NeoHive behind a public HTTPS address first. See [Exposing NeoHive beyond your network](../../security/network.md).
+**If the app runs on the provider's servers**, put NeoHive behind a public HTTPS address first. See [Expose NeoHive beyond your network](../../security/network.md).
 {% endtab %}
 
 {% tab title="Agents with no plugin" %}
@@ -79,17 +79,17 @@ To use NeoHive with an agent that has no plugin, you connect the agent and then 
 3. Open the plugin in your agent.
 4. Paste the following prompt:
 
-```text
-Adapt the NeoHive plugin in this repository for my agent (<name your agent>).
+   ```text
+   Adapt the NeoHive plugin in this repository for my agent (<name your agent>).
 
-NeoHive is a self-hosted memory that agents reach over MCP. The adapted plugin should:
+   NeoHive is a self-hosted memory that agents reach over MCP. The adapted plugin should:
 
-1. Register NeoHive's MCP endpoint (http://localhost:3577/hives/<hive-id>/mcp, from the Hive's Install Instructions panel in the NeoHive dashboard). If the agent cannot use an HTTP endpoint, wrap it with the mcp-remote npm package.
-2. Add rules telling the agent to call memory_context and memory_recall before exploring the codebase, and memory_store to save conventions, decisions, and lessons.
-3. Use whatever session hooks the agent supports to load context at the start of a session and save learnings at the end.
+   1. Register NeoHive's MCP endpoint (http://localhost:3577/hives/<hive-id>/mcp, from the Hive's Install Instructions panel in the NeoHive dashboard). If the agent cannot use an HTTP endpoint, wrap it with the mcp-remote npm package.
+   2. Add rules telling the agent to call memory_context and memory_recall before exploring the codebase, and memory_store to save conventions, decisions, and lessons.
+   3. Use whatever session hooks the agent supports to load context at the start of a session and save learnings at the end.
 
-Keep the behavior as close to the original plugin as the agent allows, and list anything it cannot support.
-```
+   Keep the behavior as close to the original plugin as the agent allows, and list anything it cannot support.
+   ```
 
 To ask for a plugin for your agent, email `hello@neohive.ai`.
 {% endtab %}

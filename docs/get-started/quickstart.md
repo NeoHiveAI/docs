@@ -4,7 +4,7 @@ description: "The shortest path from nothing to a coding agent that answers from
 
 # Quickstart
 
-This page takes one path with no options: NeoHive, one GitHub repository, and Claude Code. To check each step or to connect a different agent, use [Install NeoHive](install.md).
+This page takes one path with no options: NeoHive, one GitHub repository, and Claude Code. Steps 2 and 3 follow the dashboard's setup wizard, which creates your first Hive and connects your agent. To check each step or to connect a different agent, use [Install NeoHive](install.md).
 
 Before you start, you need the following:
 
@@ -17,7 +17,7 @@ Before you start, you need the following:
 {% step %}
 ## Install NeoHive
 
-Run the installer from the folder that holds your license file.
+Run the installer from the folder that holds your license file:
 
 ```bash
 bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
@@ -32,24 +32,18 @@ When the installer finishes, it prints the dashboard address.
 A [Hive](../concepts/glossary.md#hive) is a workspace for your team, with one address that agents connect to. To create the Hive, do the following:
 
 1. Open `http://localhost:3577`.
-2. To accept the license, select **I Understand**.
-3. Select **Get Started**.
-4. Select **Start setup**.
-5. Under **Hive name**, type a name.
-6. Select **Continue**.
-7. Under **Where does your data live?**, select **GitHub** and keep **Code** selected.
-8. Paste your token.
-9. Select **Fetch repositories**.
-10. Select your repository.
-11. Select **Continue**.
+2. Read and accept the license.
+3. Read through the welcome screens, and then click **Start setup**.
+4. In **Name Hive**, enter a name for your Hive.
+5. In **Configure first Index**, select **GitHub**, paste your token, and then select your repository.
 
-NeoHive adds your repository to the Hive as a [Code Index](../concepts/glossary.md#code-index), a store inside the Hive. NeoHive then starts indexing the repository in the background. Indexing builds a searchable copy of your code.
+NeoHive then indexes your repository in the background, so your agent can search it. To check when indexing finishes, see [Connect GitHub or GitLab](../context/repositories/connect.md#create-the-index).
 {% endstep %}
 
 {% step %}
 ## Connect Claude Code
 
-Setup now shows **Install for your AI tools** with **Claude** selected. To connect Claude Code, do the following:
+Setup then shows **Install for your AI tools** with **Claude** selected. To connect Claude Code, do the following:
 
 1. In your terminal, go to your repository's root folder.
 2. Run the command that setup shows. The command looks like this:
@@ -61,16 +55,16 @@ Setup now shows **Install for your AI tools** with **Claude** selected. To conne
      --header 'x-mcp-client: claude-code'
    ```
 3. Start Claude Code in your repository.
-4. When Claude Code asks, approve the NeoHive server. Setup shows **Connected** only after Claude Code connects, and Claude Code does not connect until you approve the server.
-5. When setup shows **Connected**, select **Open** followed by your Hive's name.
+4. When Claude Code asks, approve the NeoHive server. Setup shows **Connected** only after Claude Code connects, and Claude Code doesn't connect until you approve the server.
+5. When setup shows **Connected**, click **Open** followed by your Hive's name.
 6. To install the plugin and run its setup, run the following commands inside Claude Code:
 
-```text
-/plugin marketplace add NeoHiveAI/NeoHiveClaude
-/plugin install neohive@neohive-claude
-/reload-plugins
-/neohive:getting-started
-```
+   ```text
+   /plugin marketplace add NeoHiveAI/NeoHiveClaude
+   /plugin install neohive@neohive-claude
+   /reload-plugins
+   /neohive:getting-started
+   ```
 
 The setup wizard checks that Claude Code can reach the Hive.
 {% endstep %}
@@ -90,4 +84,4 @@ Claude Code calls `memory_recall` and answers with real paths from your reposito
 
 ## Next step
 
-You have installed NeoHive and connected Claude Code, so you can skip **Install NeoHive** and **Connect your agent**. Continue with [Your first session](first-session.md).
+You've installed NeoHive and connected Claude Code, so you can skip **Install NeoHive** and **Connect your agent**. Continue with [Your first session](first-session.md).
