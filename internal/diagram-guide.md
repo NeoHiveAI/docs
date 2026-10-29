@@ -153,7 +153,7 @@ Some older diagrams use `4 4`, or `5 4` on a border. Use the table in new work.
 
 - **Name the file `<top-level-folder>-<page>.svg`,** such as `admin-playground.svg` for `docs/admin/playground.md`. Drop any folder in between, as in `context-sync.svg` for `docs/context/repositories/sync.md`. For a folder's `README.md`, use the folder name, as in `get-started-connect.svg`. Add a short suffix for a second diagram on the same page, as in `get-started-what-is-neohive-parts.svg`. The name tells the next writer which page uses the file, so an unused diagram is easy to spot. Two diagrams predate this rule, `how-it-works.svg` and `hives-indexes-memories.svg`. Leave their names as they are, because a rename only creates churn in GitBook.
 - **Reference the diagram from the page with a `<figure>` block,** for example `<figure><img src="../.gitbook/assets/admin-playground.svg" alt="..."><figcaption></figcaption></figure>`. This is the form every existing page uses.
-- **Write alt text that says everything the diagram shows,** following the style guide's alt text rule. Readers who cannot see the image get the whole idea from the alt text, and no step may exist only in the image.
+- **Write alt text that gives the diagram's main idea in 155 characters or fewer,** following the style guide's alt text rule. A screen reader reads the whole alt text aloud, so a long description delays the reader on every page view. Put the full detail in the page text, and introduce the diagram with a sentence that ends in a colon. No step may exist only in the image or only in the alt text.
 - **Commit a new diagram in the same commit as the page that uses it, or earlier.** If the file is missing when GitBook imports the page, the image can stay broken on the site even after a later commit adds the file.
 - **When a diagram changes, check every page that uses it.** Search the docs for the file name. The diagram must still match the text around it on each page.
 
@@ -179,5 +179,5 @@ google-chrome \
 | **No element overlaps another.** | Look at every label, arrow, and box edge in the render. The only allowed overlaps are an arrow crossing a container's edge and a timeline line behind its stops. |
 | **Every color is in the color table.** | Search the file for `#` and compare each value with the table. |
 | **No text is smaller than 9px.** | Search the file for `font-size`. |
-| **The alt text covers the whole diagram.** | Read the alt text without the image. You should still understand the idea. |
+| **The alt text gives the main idea in 155 characters or fewer.** | Read the alt text and the page text without the image. Together, they should cover everything the diagram shows. Count the alt text's characters. |
 | **The page uses the diagram, and the diagram matches the page.** | Search `docs/` for the file name. |

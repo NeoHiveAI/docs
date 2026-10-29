@@ -33,7 +33,7 @@ claude mcp add <name> '<hive-url>' \
 Keep the URL directly after the name. If the URL comes after a flag, Claude Code reads the URL as a header value and can't reach the server. To confirm the order, read the saved entry: the command that the dashboard shows ends with `&& claude mcp get <name>`, which prints the entry.
 
 {% hint style="warning" %}
-**Keep `--scope project`.** The flag saves the server in a `.mcp.json` file in the folder where you run the command, and the plugin's prompt hook reads that file first, so automatic recall uses the Hive for this project. With `--scope user`, the hook uses the first NeoHive server it finds, so after you add a second Hive, every project recalls from whichever Hive you added first. With no scope, Claude Code saves the server where the hook never looks, and automatic recall does nothing.
+**Keep `--scope project`.** The flag saves the server in a `.mcp.json` file in the folder where you run the command. The plugin's prompt hook reads that file first, so automatic recall uses the Hive for this project. With the `--scope user` flag, the hook uses the first NeoHive server it finds. After you add a second Hive, every project then recalls from whichever Hive you added first. With no scope, Claude Code saves the server where the hook never looks, and automatic recall does nothing.
 {% endhint %}
 
 Commit `.mcp.json` to the repository, and every teammate who opens the project gets the same Hive. The file also turns on the plugin's Glob and Grep reminder.
@@ -62,7 +62,7 @@ If you skip `/reload-plugins`, the next step fails with an unknown command error
 | `explore-neohive` subagent | Searches NeoHive before reading files. |
 | Skills | `/neohive:getting-started`, `/neohive:load-context`, `/neohive:capture-session-learnings`, and others. See [Slash commands](../../reference/slash-commands.md). |
 
-For more information about when each part runs, when the prompt hook skips a prompt, and how to turn each hook off, see [What the plugin does automatically](../../results/plugin-automation.md).
+For more information about when each part runs and how to turn each hook off, see [What the plugin does automatically](../../results/plugin-automation.md). That page also explains when the prompt hook skips a prompt.
 {% endstep %}
 
 {% step %}

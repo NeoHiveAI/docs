@@ -44,7 +44,7 @@ Cursor connects to the URL directly, so Cursor doesn't need `mcp-remote` or anot
 
 To install the plugin, do the following:
 
-1. If you linked the plugin into Cursor's local plugins folder before, delete the link. Cursor skips a link there that points to another place on disk, so the old link never loaded, and it makes the next step fail with `already exists and is not an empty directory`:
+1. If you linked the plugin into Cursor's local plugins folder before, delete the link. Cursor skips a link there that points to another place on disk, so the old link never loaded. The link also makes the next step fail with `already exists and is not an empty directory`. To delete the link, run the following command:
 
    ```bash
    rm ~/.cursor/plugins/local/neohive

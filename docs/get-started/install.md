@@ -4,9 +4,9 @@ description: "Install NeoHive, create your first Hive, and connect your agent. E
 
 # Install NeoHive
 
-NeoHive runs in a Docker container on a machine you control: your own computer or a server your team shares. You install NeoHive once on that machine, and your coding agent then connects to it there. The installation has three steps. Each step ends with a check, so you know the step worked before you move on. When you finish, your agent answers questions from your own code.
+NeoHive runs in a Docker container on a machine you control: your own computer or a server your team shares. You install NeoHive once on that machine, and your coding agent then connects to it there. The installation has three steps. Each step ends with a check, so you know the step worked before you move on. When you finish, your agent answers questions from your own code. The following diagram shows the whole flow:
 
-<figure><img src="../.gitbook/assets/get-started-install.svg" alt="The install flow. You run the installer in your terminal, which starts NeoHive on localhost port 3577. The dashboard setup then has three steps: Name Hive, Configure first Index, and Install for your AI tools. The first Index comes from GitHub, GitLab, or File Upload. Setup finishes when it shows Connected."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/get-started-install.svg" alt="The installer starts NeoHive on port 3577. Setup then runs Name Hive, Configure first Index, and Install for your AI tools, and ends at Connected."><figcaption></figcaption></figure>
 
 Before you start, you need the following:
 

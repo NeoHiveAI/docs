@@ -4,9 +4,9 @@ description: "Ask your agent about your code, teach the agent one thing, and see
 
 # Your first session
 
-Three prompts are enough to see what NeoHive changes. Your agent answers a question from your own code, saves a convention you teach it, and uses that convention again in a new session without you repeating it.
+Three prompts are enough to see what NeoHive changes. Your agent answers a question from your own code and saves a convention you teach it. In a new session, the agent then uses that convention without you repeating it. The following diagram shows the three prompts across two sessions:
 
-<figure><img src="../.gitbook/assets/get-started-first-session.svg" alt="A timeline across two sessions. In session 1, you ask about your code (memory_recall) and teach a convention (memory_store). NeoHive saves the convention in the Hive's Knowledge Index. In session 2, you ask for new work, and memory_context brings the convention back."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/get-started-first-session.svg" alt="A timeline of two sessions. Session 1 calls memory_recall and memory_store. In session 2, memory_context brings the convention back."><figcaption></figcaption></figure>
 
 Before you start, you need an agent connected to a [Hive](../concepts/glossary.md#hive), your team's NeoHive workspace. The Hive also needs a **Code** [Index](../concepts/glossary.md#code-index) (the searchable copy of a repository) whose first sync has finished. For more information about connecting an agent, see [Connect your agent](connect/README.md).
 
