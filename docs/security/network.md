@@ -6,17 +6,13 @@ description: "What protects NeoHive on the network, and what to add before peopl
 
 NeoHive runs as a server, so your agents and your browser reach it over the network on port `3577`, unless you chose another port with `NEOHIVE_PORT` when you installed. The dashboard and the endpoints your agents connect to all use that one port.
 
-**NeoHive has no user accounts and checks no credentials.** Anyone who can reach port `3577` can read and write every [Hive](../concepts/glossary.md#hive) on the instance. A Hive is a workspace with its own [MCP](../concepts/glossary.md#mcp) endpoint. Your network is the access control.
-
-What you set up depends on who else needs NeoHive. A teammate on your office network needs one setup, and an agent on a laptop outside that network needs another. For access from outside your network, you put a proxy in front of NeoHive, and each agent sends that proxy a credential.
-
-<figure><img src="../.gitbook/assets/security-network.svg" alt="Agents outside send HTTPS with a credential to a reverse proxy or VPN. The proxy checks the credential and forwards plain HTTP to NeoHive on port 3577 inside the trusted network. A direct path to port 3577 is crossed out."><figcaption></figcaption></figure>
+What you set up depends on who else needs NeoHive. A teammate on your office network needs one setup, and an agent on a laptop outside that network needs another.
 
 | Who needs to reach NeoHive | What to set up |
 |---|---|
 | Only you, on this machine | Use the default install. If the host is on a shared network, block port `3577` from other machines |
 | Your team, on a trusted network or VPN | Run NeoHive on a host that their machines can reach. See [Access and sharing](../admin/access.md) |
-| Anyone outside a trusted network | Set up a reverse proxy that checks credentials and provides HTTPS. Never open port `3577` directly |
+| Anyone outside a trusted network | Follow [Advanced setup](#advanced-setup). Never open port `3577` directly |
 
 ## The default install is reachable from your network
 
@@ -26,15 +22,21 @@ The installer publishes port `3577` on every network interface of the host, not 
 On Linux, Docker writes its own firewall rules for published ports. As a result, a `ufw` rule on the host doesn't block port `3577`. Block the port at the network edge instead.
 {% endhint %}
 
-## Put a proxy in front
+## Advanced setup
+
+For access from outside your network, put a proxy in front of NeoHive, and have each agent send that proxy a credential.
+
+<figure><img src="../.gitbook/assets/security-network.svg" alt="Agents outside send HTTPS with a credential to a reverse proxy or VPN. The proxy checks the credential and forwards plain HTTP to NeoHive on port 3577 inside the trusted network. A direct path to port 3577 is crossed out."><figcaption></figcaption></figure>
+
+### Put a proxy in front
 
 NeoHive serves plain HTTP. For outside access, put a reverse proxy or VPN gateway in front of NeoHive. A reverse proxy is a server that receives each request and forwards it to NeoHive. Cloudflare Access and a company VPN are two examples of such gateways. The proxy checks a credential before any request reaches NeoHive. The proxy also provides the HTTPS certificate. Point your agents at the `https://` address that the proxy exposes, for example `https://neohive.example.com/hives/<hive-id>/mcp`.
 
-## What NeoHive checks
+### Where the credential is checked
 
-NeoHive doesn't check any token, password, or header on requests to the dashboard or the MCP endpoints. The one exception is the [webhook refresh endpoint](../reference/webhooks.md), which checks the `X-Webhook-Secret` header. NeoHive itself never reads the `NEOHIVE_TOKEN` variable. The Claude Code plugin's hooks read `NEOHIVE_TOKEN`, and so does the optional smart prompt rewriting in the Claude Code, Cursor, and Codex plugins. Both send the token on to your proxy. Only the proxy checks the credential.
+Your proxy checks the credential, not NeoHive. NeoHive itself never reads the `NEOHIVE_TOKEN` variable. The Claude Code plugin's hooks read `NEOHIVE_TOKEN`, and so does the optional smart prompt rewriting in the Claude Code, Cursor, and Codex plugins. Both send the token on to your proxy. The one secret NeoHive checks is the `X-Webhook-Secret` header, on the [webhook refresh endpoint](../reference/webhooks.md).
 
-## Pass the proxy's credential from each agent
+### Pass the proxy's credential from each agent
 
 Every MCP connection and the Claude Code hooks must send the header your proxy expects. The following examples use a bearer token stored in `NEOHIVE_TOKEN`.
 
