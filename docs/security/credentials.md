@@ -4,11 +4,11 @@ description: "Where NeoHive stores the GitHub and GitLab tokens it uses to reach
 
 # Credentials and secrets
 
-NeoHive needs a token or an SSH key to read your repositories. NeoHive keeps that secret so it can sync on its own, without asking you again. Read this page before a security review, before you back up NeoHive, or when you decide which scopes to give a token. It shows where each secret lives, who can read it, and what to do when you remove one.
+NeoHive needs a token or an SSH key to read your repositories. NeoHive keeps that secret so it can sync on its own, without asking you again. Because NeoHive holds that secret, read this page before a security review, before you back up NeoHive, or when you decide which scopes to give a token. It shows where each secret lives, who can read it, and what to do when you remove one.
 
 <figure><img src="../.gitbook/assets/security-credentials.svg" alt="You add a token on the Data Sources page. Your provider checks the token. NeoHive stores the token encrypted in its database. For an HTTPS connection, the clone's git config holds the token unencrypted. The database and the clone are both in the neohive-data volume."><figcaption></figcaption></figure>
 
-Each data source on the **Data Sources** page (`http://localhost:3577/sources`) can have several **connections**, for example one GitHub token for each organization. Each connection holds one secret: a personal access token or an SSH private key.
+Each data source on the **Data Sources** page (`http://localhost:3577/sources`) can have several **connections**, for example one GitHub token for each organization. Each connection holds one secret: a personal access token or an SSH private key. The following table shows where each copy of that secret lives and how NeoHive protects it:
 
 | What | Where it lives | How it's protected |
 |---|---|---|
@@ -18,7 +18,7 @@ Each data source on the **Data Sources** page (`http://localhost:3577/sources`) 
 | An SSH key during a git command | A temporary file inside the container | Only the file's owner can read it. NeoHive deletes the file when the command ends |
 
 {% hint style="warning" %}
-**Anyone who can read the `neohive-data` volume, or a backup of it, can read your tokens.** The volume holds the encrypted tokens, the key that decrypts them, and the plain token in each HTTPS clone. Protect backups as carefully as the tokens themselves. Give each token read-only scopes.
+**Anyone who can read the `neohive-data` volume, or a backup of it, can read your tokens.** The volume holds the encrypted tokens, the key that decrypts them, and the plain token in each HTTPS clone. Protect backups the same way you protect the tokens. Give each token read-only scopes.
 {% endhint %}
 
 ## Check, rotate, or remove a connection

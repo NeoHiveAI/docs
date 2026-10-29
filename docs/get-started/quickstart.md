@@ -33,8 +33,8 @@ A [Hive](../concepts/glossary.md#hive) is a workspace for your team, with one ad
 
 1. Open `http://localhost:3577`.
 2. Read and accept the license.
-3. Read through the welcome screens, and then select **Start setup**.
-4. In **Name Hive**, type a name for your Hive.
+3. Read through the welcome screens, and then click **Start setup**.
+4. In **Name Hive**, enter a name for your Hive.
 5. In **Configure first Index**, select **GitHub**, paste your token, and then select your repository.
 
 NeoHive then indexes your repository in the background, so your agent can search it. To check when indexing finishes, see [Connect GitHub or GitLab](../context/repositories/connect.md#create-the-index).
@@ -43,7 +43,7 @@ NeoHive then indexes your repository in the background, so your agent can search
 {% step %}
 ## Connect Claude Code
 
-Setup now shows **Install for your AI tools** with **Claude** selected. To connect Claude Code, do the following:
+Setup then shows **Install for your AI tools** with **Claude** selected. To connect Claude Code, do the following:
 
 1. In your terminal, go to your repository's root folder.
 2. Run the command that setup shows. The command looks like this:
@@ -56,7 +56,7 @@ Setup now shows **Install for your AI tools** with **Claude** selected. To conne
    ```
 3. Start Claude Code in your repository.
 4. When Claude Code asks, approve the NeoHive server. Setup shows **Connected** only after Claude Code connects, and Claude Code doesn't connect until you approve the server.
-5. When setup shows **Connected**, select **Open** followed by your Hive's name.
+5. When setup shows **Connected**, click **Open** followed by your Hive's name.
 6. To install the plugin and run its setup, run the following commands inside Claude Code:
 
    ```text

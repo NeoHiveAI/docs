@@ -6,7 +6,7 @@ description: "Connect Codex to a Hive and install the NeoHive plugin."
 
 To connect Codex, you add your [Hive](../../concepts/glossary.md#hive) (your team's NeoHive workspace) to the Codex [MCP](../../concepts/glossary.md#mcp) configuration file. Then you install the plugin and check that Codex can call NeoHive's tools.
 
-Before you start, you need a running NeoHive server with a Hive, and a version of the Codex CLI that supports plugins.
+Before you start, you need a running NeoHive server that has a Hive, and a version of the Codex CLI that supports plugins.
 
 {% stepper %}
 {% step %}
@@ -16,7 +16,7 @@ To add the Hive to Codex, do the following:
 
 1. Open the Hive in the dashboard.
 2. Go to **Install Instructions**.
-3. Select **Codex**.
+3. Click **Codex**.
 4. Copy the block into `~/.codex/config.toml`. To use the Hive in one project only, copy the block into `.codex/config.toml` in that project instead.
 
 The block looks like this:
@@ -46,7 +46,7 @@ After you add the marketplace, do the following:
 3. Install **NeoHive** from the list.
 4. To load the plugin's skills, start a new Codex session.
 
-The plugin adds a set of skills and a rules file. The rules file tells Codex when to call `memory_context`, `memory_recall`, and `memory_store`. The plugin doesn't add an MCP server, which is why you add the MCP server first.
+The plugin adds a set of skills and a rules file, which tells Codex when to call `memory_context`, `memory_recall`, and `memory_store`. Those tools come from the MCP server, not from the plugin, which is why you added the server first.
 {% endstep %}
 
 {% step %}

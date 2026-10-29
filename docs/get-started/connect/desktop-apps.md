@@ -4,7 +4,7 @@ description: "Connect Claude Desktop, any other MCP app, or an agent with no Neo
 
 # Claude Desktop and other MCP apps
 
-To connect any [MCP](../../concepts/glossary.md#mcp) app, give the app the MCP endpoint of your [Hive](../../concepts/glossary.md#hive), your team's NeoHive workspace. Apps that only run local commands reach the endpoint through `mcp-remote`, a small Node.js program that forwards requests to the endpoint.
+To connect any [MCP](../../concepts/glossary.md#mcp) app, give the app the MCP endpoint of your [Hive](../../concepts/glossary.md#hive), your team's NeoHive workspace. Apps that only run local commands reach the endpoint through `mcp-remote`, a small Node.js program that forwards requests to the endpoint. The following table shows what to add for each kind of app:
 
 | The app connects by | Examples | What you add |
 |---|---|---|
@@ -18,10 +18,10 @@ To add the Hive to Claude Desktop, do the following:
 
 1. Open the Hive in the dashboard.
 2. Go to **Install Instructions**.
-3. Select **Claude Desktop**.
+3. Click **Claude Desktop**.
 4. In Claude Desktop, open **Settings**.
-5. Select **Developer**.
-6. Select **Edit Config**.
+5. Click **Developer**.
+6. Click **Edit Config**.
 7. Paste the JSON into `claude_desktop_config.json`.
 
 The JSON looks like this:

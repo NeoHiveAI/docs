@@ -6,7 +6,7 @@ description: "Connect Cursor to a Hive and install the NeoHive plugin."
 
 To connect Cursor, you add your [Hive](../../concepts/glossary.md#hive) (your team's NeoHive workspace) to the Cursor [MCP](../../concepts/glossary.md#mcp) configuration file. Then you install the plugin and check that Cursor can call NeoHive's tools.
 
-Before you start, you need a running NeoHive server with a Hive, Cursor, and `git`.
+Before you start, you need a running NeoHive server that has a Hive, Cursor, and `git`.
 
 {% stepper %}
 {% step %}
@@ -16,7 +16,7 @@ To add the Hive to Cursor, do the following:
 
 1. Open the Hive in the dashboard.
 2. Go to **Install Instructions**.
-3. Select **Cursor**.
+3. Click **Cursor**.
 4. Copy the JSON into `.cursor/mcp.json` in your project. To use the Hive in every project, copy the JSON into `~/.cursor/mcp.json` instead.
 
 The JSON looks like this:
@@ -34,7 +34,9 @@ The JSON looks like this:
 }
 ```
 
-If the file already has an `mcpServers` block, add the entry inside that block. Cursor connects to the URL directly, so Cursor doesn't need `mcp-remote` or another program in between.
+If the file already has an `mcpServers` block, add the entry inside that block.
+
+Cursor connects to the URL directly, so Cursor doesn't need `mcp-remote` or another program in between.
 {% endstep %}
 
 {% step %}
@@ -47,20 +49,21 @@ To install the plugin, do the following:
    ```bash
    rm ~/.cursor/plugins/local/neohive
    ```
-2. Run the following command, which clones the plugin into Cursor's local plugins folder:
+2. Clone the plugin into Cursor's local plugins folder:
 
    ```bash
-   git clone https://github.com/NeoHiveAI/NeoHiveCursor.git ~/.cursor/plugins/local/neohive
+   git clone https://github.com/NeoHiveAI/NeoHiveCursor.git \
+     ~/.cursor/plugins/local/neohive
    ```
 
    Clone the plugin into that folder rather than linking to a copy somewhere else, because Cursor ignores a link to a copy outside the folder.
 3. Restart Cursor, or run **Developer: Reload Window** from the Command Palette.
 
 {% hint style="info" %}
-On Cursor Enterprise, Cursor loads local plugins only after an admin turns on **Allow Local Plugin Imports**. The setting is off by default.
+On Cursor Enterprise, Cursor loads local plugins only after an administrator turns on **Allow Local Plugin Imports**. The setting is off by default.
 {% endhint %}
 
-The plugin adds a set of skills and an always-on rule, `rules/neohive.mdc`. The rule tells Cursor when to call `memory_context`, `memory_recall`, and `memory_store`. The plugin doesn't add an MCP server, which is why you add the MCP server first.
+The plugin adds a set of skills and an always-on rule, `rules/neohive.mdc`, which tells Cursor when to call `memory_context`, `memory_recall`, and `memory_store`. Those tools come from the MCP server, not from the plugin, which is why you added the server first.
 {% endstep %}
 
 {% step %}
