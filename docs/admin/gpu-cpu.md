@@ -4,7 +4,16 @@ description: "How the NeoHive installer picks a GPU or CPU backend, how Apple Si
 
 # GPU and CPU
 
-NeoHive runs its models on a backend, which is the type of processor it uses, such as a GPU or the CPU. A GPU makes indexing large repositories faster. Day-to-day recall is fast on any backend, and the CPU backend runs on every machine. The installer chooses the backend for you. If indexing is slow or your GPU sits unused, confirm which backend the installer chose, and change the backend if needed.
+NeoHive indexes and searches your content on a backend. The installer detects your hardware and chooses the backend for you. NeoHive supports the following backends:
+
+- An NVIDIA GPU, through CUDA
+- An AMD GPU, through ROCm
+- Other GPUs, through Vulkan
+- The CPU
+
+On an Apple Silicon Mac, NeoHive uses the Mac's GPU in a different way. The CPU backend works on every machine. A GPU backend is usually faster, especially when you index a large repository.
+
+If indexing is slower than you expect for your hardware, or NeoHive does not use your GPU, this page shows how to check which backend NeoHive runs on and how to change it.
 
 <figure><img src="../.gitbook/assets/admin-gpu-cpu.svg" alt="The installer checks these conditions in order and uses the first one that is true. If the machine is arm64 or aarch64, NeoHive uses CPU, and Apple Silicon also gets the Metal worker. If nvidia-smi works and a test container can reach the GPU, NeoHive uses CUDA. If nvidia-smi works but the test fails, NeoHive uses CPU and shows a toolkit warning. If rocm-smi works, NeoHive uses ROCm. If vulkaninfo works, NeoHive uses Vulkan. Otherwise, NeoHive uses CPU. If an image is missing, CUDA and ROCm fall back to Vulkan, then CPU. A backend forced with NEOHIVE_BACKEND never falls back."><figcaption></figcaption></figure>
 
@@ -18,9 +27,9 @@ docker ps --filter name=neohive
 The tag in the `IMAGE` column names the backend, for example `neohivedev/neohive:cuda`, or `v1.6.3-cpu` for a versioned image.
 {% endhint %}
 
-## Apple Silicon uses the GPU anyway
+## How Apple Silicon uses the GPU
 
-Docker on a Mac cannot reach the GPU, so the container runs on CPU. On Apple Silicon, the installer also sets up the [Metal worker](../concepts/glossary.md#metal-worker), a program that runs directly on macOS. The worker runs embedding on the Mac's Metal GPU. Embedding is the step that turns text into numbers for search. With the worker, indexing is much faster.
+On Apple Silicon, NeoHive uses the Mac's GPU through the [Metal worker](../concepts/glossary.md#metal-worker), a program that the installer sets up directly on macOS. The worker is needed because Docker on a Mac cannot reach the GPU, so the NeoHive container itself always uses the CPU backend. The worker does NeoHive's indexing work on the GPU instead, which makes indexing much faster.
 
 - **The worker runs outside Docker,** from `~/.neohive/metal-worker/`, and starts again after a reboot.
 - **The worker listens on `127.0.0.1` only,** port `50051` by default, so other machines on your network cannot reach it.
@@ -44,9 +53,9 @@ A forced backend has no fallback. If the installer cannot download the image for
 
 ## NVIDIA GPU but NeoHive runs on CPU
 
-A working `nvidia-smi` on the host is not enough. The container reaches the GPU through the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html). Without the toolkit, the installer's test container fails, and the installer shows this warning: `NVIDIA Container Toolkit probe failed - falling back to CPU backend.`
+If NeoHive runs on the CPU even though your machine has an NVIDIA GPU, Docker is most likely missing the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html). Docker needs the toolkit to give the NeoHive container access to the GPU, and the toolkit is a separate install from the NVIDIA driver. That is why your GPU can work and show up in `nvidia-smi` while NeoHive cannot use it. The installer starts a small test container to check GPU access. If the test fails, the installer uses the CPU backend and shows this warning: `NVIDIA Container Toolkit probe failed - falling back to CPU backend.`
 
-This problem happens most often on Docker Desktop and Windows Subsystem for Linux (WSL2). To fix the problem, do the following:
+This problem happens most often on Linux, and when Docker Engine runs inside Windows Subsystem for Linux (WSL 2). To fix the problem, do the following:
 
 1. Install the NVIDIA Container Toolkit.
 2. Restart Docker.

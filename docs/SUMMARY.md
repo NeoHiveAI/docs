@@ -48,11 +48,11 @@
 * [Manage Hives and Indexes](admin/manage.md)
 * [Data sources and credentials](admin/data-sources.md)
 * [Access and sharing](admin/access.md)
-* [Test queries in the Playground](admin/playground.md)
 * [Backups and restore](admin/backups.md)
 * [Update NeoHive](admin/updating.md)
 * [Licensing](admin/licensing.md)
 * [GPU and CPU](admin/gpu-cpu.md)
+* [Embedding models](admin/embedding-models.md)
 * [Uninstall](admin/uninstall.md)
 
 ## Security and privacy

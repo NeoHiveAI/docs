@@ -6,15 +6,17 @@ description: "Update NeoHive to the latest release by re-running the installer. 
 
 An update replaces the NeoHive container with a new one that runs the latest release. Your data does not live inside the container: NeoHive keeps it in the `neohive-data` Docker volume, and the new container starts on that same volume. Your [Hives](../concepts/glossary.md#hive), [Indexes](../concepts/glossary.md#index), and [Memories](../concepts/glossary.md#memory) stay in place.
 
-To update, run the same installer command that you used to install NeoHive. The dashboard tells you when a new release is out, but the dashboard does not install the release for you. Take a backup first, and set again any installer settings you changed, because the installer does not remember them.
+To update, you run the installer again. The command is the same one you used to install NeoHive, and you can copy it from [Run the update](#run-the-update) on this page. The installer does not remember the variables you installed with, such as a different port, so you add them to the command again. Take a [backup](backups.md) first, so that you can restore your data if the update fails.
 
-<figure><img src="../.gitbook/assets/admin-updating.svg" alt="When you re-run the installer, it does six things in order. 1: it reads the license and reuses the cached key. 2: it checks the license with the licensing service. 3: it detects your hardware again. 4: it pulls the latest image for your hardware. 5: it stops the old container, which frees the license seat. This step waits up to 30 seconds. 6: it starts the new container on the same neohive-data volume and prints what is new."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/admin-updating.svg" alt="You run the installer again, and the installer then does four steps on its own. First, it detects your hardware. Second, it downloads the latest NeoHive image for that hardware. Third, it removes the old container, and your data stays in the neohive-data volume. Fourth, it starts the new container on the same volume and prints what is new in the release."><figcaption></figcaption></figure>
 
 ## Know when an update is out
 
-The bell icon in the dashboard opens the **NeoHive updates** panel. When a new release is available, the panel shows your version and the new version. The panel also shows release highlights and **View full changelog**. A dot also appears on the NeoHive logo in the sidebar.
+The dashboard checks for new releases automatically. When a release is out, a dot appears on the **Updates** bell icon in the top bar.
 
-The dashboard checks for updates automatically. To check right away, select the refresh button in the panel. The panel tells you about an update, but the panel never installs one.
+To see the details, select the bell icon. The **NeoHive updates** panel shows the new version, the version you run, and the installer command. To check again now, select the refresh icon in the panel. The panel does not install the update for you.
+
+To read what changed in each release, open **Release Notes** in the sidebar, or select **View full changelog** in the panel to open the [NeoHive changelog](https://github.com/NeoHiveAI/install/blob/main/CHANGELOG.md).
 
 ## Run the update
 
@@ -26,23 +28,25 @@ If a repository sync is still running when the old container stops, the sync sto
 {% step %}
 ## Take a backup
 
-A backup copies everything NeoHive stores into one archive. If the update fails, you can restore your data from that archive. Follow the steps in [Backups and restore](backups.md).
+A backup copies everything NeoHive stores into one archive, so you can restore your data if the update fails. To take one, follow [Take a backup](backups.md#take-a-backup).
 {% endstep %}
 
 {% step %}
-## Re-run the installer
+## Run the installer again
+
+If you installed NeoHive with any variables, such as `NEOHIVE_PORT`, add them to the command first. See [Set the same variables you installed with](#set-the-same-variables-you-installed-with).
 
 ```bash
 bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
 ```
 
-The installer reuses your cached license key. To use a different license, see [Replace your license](licensing.md#replace-your-license). On Apple Silicon, the installer also updates the [Metal worker](../concepts/glossary.md#metal-worker) and keeps downloaded models. The Metal worker is the program that turns text into numbers for search on the Mac's GPU.
+The installer reuses your cached license key. To use a different license, see [Replace your license](licensing.md#replace-your-license). On Apple Silicon, the installer also updates the [Metal worker](../concepts/glossary.md#metal-worker), the part of NeoHive that runs on the Mac's GPU, and keeps the models it already downloaded.
 {% endstep %}
 {% endstepper %}
 
-## Repeat the settings you installed with
+## Set the same variables you installed with
 
-The installer does not remember options from the last install. If you leave out a variable, the installer uses its default value. For example, NeoHive returns to port `3577`, so agents that use your old port cannot connect. When you update, set again any of the following variables that you used:
+The installer does not remember the variables from your last install. Any variable you leave out goes back to its default value. For example, if you installed NeoHive on port `4000` with `NEOHIVE_PORT`, an update without that variable moves NeoHive back to port `3577`, and agents that use port `4000` cannot connect. When you update, set each of the following variables that you set when you installed:
 
 | Variable | Why you set it |
 |---|---|
