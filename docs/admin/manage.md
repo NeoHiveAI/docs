@@ -39,13 +39,20 @@ The new name appears on the Hive's card and in the sidebar. Your agents keep wor
 
 ## Archive or delete a Hive
 
+You cannot archive or delete a Hive while another Hive uses one of its Indexes, because the other Hive would lose that Index too. First, either [move the Index](#move-an-index-to-another-hive) to the Hive that uses it, which keeps its access, or [stop sharing it](#stop-sharing-an-index). A Hive that only uses another Hive's Index has no such limit.
+
 <figure><img src="../.gitbook/assets/admin-manage.svg" alt="Archive moves an active Hive to the Archived section, and Restore brings it back. NeoHive permanently deletes an archived Hive after 30 days, or when you select Delete Permanently. Delete on an active Hive, after you type its name, also permanently deletes the Hive. A deleted Hive cannot be restored."><figcaption></figcaption></figure>
 
 ### Archive and restore a Hive
 
 Archive a Hive you no longer use but might want back. NeoHive keeps an archived Hive for 30 days, and then deletes it.
 
-To archive a Hive, select **Archive** in the Hive's ⋮ menu on the home screen, or in its ⋯ menu in the sidebar. NeoHive moves the Hive to the **Archived** section at the bottom of the home screen, which shows how many days are left.
+To archive a Hive, do the following:
+
+1. In the Hive's ⋮ menu on the home screen, or its ⋯ menu in the sidebar, select **Archive**.
+2. In the dialog, select **Archive**.
+
+NeoHive moves the Hive to the **Archived** section at the bottom of the home screen, which shows how many days are left.
 
 To restore an archived Hive, do the following:
 

@@ -47,7 +47,7 @@ Restoring replaces everything in the `neohive-data` volume. You permanently lose
 
 The NeoHive container must exist, but it can be running or stopped. To restore from a backup, run the following command with the name of your archive:
 
-```text
+```bash
 curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/backup.sh \
   | bash -s -- --restore neohive-backup-<timestamp>.tar.gz
 ```

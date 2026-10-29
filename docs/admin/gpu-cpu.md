@@ -55,7 +55,7 @@ A forced backend has no fallback. If the installer cannot download the image for
 
 If NeoHive runs on the CPU even though your machine has an NVIDIA GPU, Docker is most likely missing the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html). Docker needs the toolkit to give the NeoHive container access to the GPU, and the toolkit is a separate install from the NVIDIA driver. That is why your GPU can work and show up in `nvidia-smi` while NeoHive cannot use it. The installer starts a small test container to check GPU access. If the test fails, the installer uses the CPU backend and shows this warning: `NVIDIA Container Toolkit probe failed - falling back to CPU backend.`
 
-This problem happens most often on Linux, and when Docker Engine runs inside Windows Subsystem for Linux (WSL 2). To fix the problem, do the following:
+This problem happens most often on Windows, with Docker Desktop or Windows Subsystem for Linux (WSL 2). There, `nvidia-smi` works through the Windows driver, so the missing toolkit is easy to miss. To fix the problem, do the following:
 
 1. Install the NVIDIA Container Toolkit.
 2. Restart Docker.

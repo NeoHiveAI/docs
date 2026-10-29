@@ -4,7 +4,7 @@ description: "Which embedding model each Index uses, how to choose a different o
 
 # Embedding models
 
-An [embedding model](../concepts/glossary.md#embedding-model) turns text and code into embeddings, which are lists of numbers that capture what the content means. NeoHive compares those numbers to find the content that matches your agent's search. Each [Index](../concepts/glossary.md#index) has its own embedding model, and NeoHive chooses one for you when you create the Index. This page explains the defaults, when a different model helps, and what happens when you switch.
+Each [Index](../concepts/glossary.md#index) uses an [embedding model](../concepts/glossary.md#embedding-model) to make its content searchable. NeoHive chooses the model when you create the Index, and you can change it afterward. This page lists the default models, the other models you can choose, and how to change the model of an Index.
 
 ## The default model for each Index
 
@@ -14,11 +14,9 @@ An [embedding model](../concepts/glossary.md#embedding-model) turns text and cod
 | [Files Index](../concepts/glossary.md#files-index) | `nomic-embed-text-v1.5` |
 | [Knowledge Index](../concepts/glossary.md#knowledge-index) | `nomic-embed-text-v1.5` |
 
-You cannot choose a model when you create an Index. To use a different model, change it on the Index afterward.
+You can change the model of any Index except the Knowledge Index, which always uses `nomic-embed-text-v1.5`.
 
 ## Models you can choose
-
-The **Embedding model** list on the **Index Info** tab shows each model's size, the memory it needs, and whether it fits your machine.
 
 | Model | Memory needed | Good for |
 |---|---|---|
@@ -31,21 +29,12 @@ The **Embedding model** list on the **Index Info** tab shows each model's size, 
 | `nomic-embed-code-q8_0` | About 9.5 GB | Code, with higher quality than `q6_k` |
 | `nomic-embed-code` | About 16 GB | Code, with the highest quality, on a GPU with 16 GB or more |
 
-The `nomic-embed-code` models match code most closely, but they need a large GPU. On a machine without one, keep the default.
-
-## Fits and Won't fit
-
-Next to each model, the list shows **Fits** or **Won't fit**. NeoHive compares the memory the model needs with the memory it can use on your machine:
-
-- On a GPU backend, NeoHive can use 85% of the GPU's memory, or the GPU memory that is free, whichever is lower.
-- On the CPU backend, NeoHive can use half of the machine's RAM.
-
-To find out which backend you run, see [GPU and CPU](gpu-cpu.md). If you select a model that won't fit, the tab warns you that loading will likely fail. Choose a smaller model instead.
+The `nomic-embed-code` models match code most closely, but they need a large GPU. In the dashboard, the list marks each model **Fits** or **Won't fit** for your machine. If a model won't fit, choose a smaller one.
 
 ## Change the model of an Index
 
 {% hint style="warning" %}
-Changing the model makes NeoHive embed every Memory in the Index again. On a large Index, this can take a long time. Until a Memory is embedded again, it does not appear in search results.
+Changing the model makes NeoHive embed every Memory in the Index again, which can take a long time on a large Index. Until a Memory is embedded again, it does not appear in search results. If the Index is a [Shared Index](../concepts/hives-indexes-memories.md#shared-index), this affects every Hive that uses it.
 {% endhint %}
 
 To change the model, do the following:
@@ -54,10 +43,8 @@ To change the model, do the following:
 2. Under **Embedding model**, select a model.
 3. Select **Save**.
 
-A message box shows `Re-embedding with <model>` and the progress. While the re-embed runs, you cannot start a sync, and **Trigger sync** shows **Re-embedding...**.
-
-If some Memories fail, the box shows `<number> memories have not been embedded with <model>`. To try those Memories again, select **Retry failed chunks**.
+A message box shows `Re-embedding with <model>` and the progress. If NeoHive has not used the model before, it downloads the model first, and the box shows `Waiting for the embedding model <model> to download` until the download finishes. If some Memories fail, select **Retry failed chunks** in the box.
 
 ## Several models in one Hive
 
-When your agent searches a Hive, NeoHive searches every Index with that Index's own model. If the Indexes use different models that do not fit in GPU memory together, the Hive page shows `Selected models exceed your VRAM budget`. Searches still work, but NeoHive searches the Indexes one at a time, so they take longer. To search them in parallel again, choose smaller models or use the same model for more of your Indexes.
+If a Hive's Indexes use different models that do not fit in GPU memory together, the Hive page shows `Selected models exceed your VRAM budget`. Searches still work but take longer. To speed them up, choose smaller models, or use the same model for more of the Indexes.
