@@ -6,9 +6,9 @@ description: "How the Knowledge Index captures your team's conventions, decision
 
 Every [Hive](../concepts/glossary.md#hive) (your team's NeoHive workspace) has a [Knowledge Index](../concepts/glossary.md#knowledge-index). When one person's agent stores a [Memory](../concepts/glossary.md#memory) in the Knowledge Index, every agent connected to the Hive can recall that Memory.
 
-<figure><img src="../.gitbook/assets/context-team-knowledge.svg" alt="On Monday Ana corrects her agent: no, we use Redis for sessions. Her agent calls memory_store, which stores the decision in the Hive's Knowledge Index. On Tuesday, Ben's agent recalls the decision while he edits the login code. A teammate who joins next month recalls the decision on their first day. A different Hive has its own Knowledge Index and never sees this Memory."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/context-team-knowledge.svg" alt="On Monday Ana corrects an agent: no, we use Redis for sessions. Ana's agent calls memory_store, which stores the decision in the Hive's Knowledge Index. On Tuesday, Ben's agent recalls the decision during a change to the login code. A teammate who joins next month recalls the decision on their first day. A different Hive has its own Knowledge Index and never sees this Memory."><figcaption></figcaption></figure>
 
-The Knowledge Index holds what your team has learned: conventions, decisions and their reasons, problems to watch for, and corrections. NeoHive creates the Knowledge Index with the Hive. The Hive page lists the Knowledge Index under **Indexes**. Your agents write to the Knowledge Index, so you have nothing to set up. You cannot change the Knowledge Index's settings, share it with another Hive, or move it to another Hive.
+The Knowledge Index holds what your team has learned: conventions, decisions and their reasons, problems to watch for, and corrections. NeoHive creates the Knowledge Index with the Hive. The Hive page lists the Knowledge Index under **Indexes**. Your agents write to the Knowledge Index, so you have nothing to set up. You cannot change the Knowledge Index's settings, share it with another Hive, move it, or delete it.
 
 ## How knowledge gets in
 
@@ -31,6 +31,6 @@ To see what your team's agents stored recently, check **Recent learnings** on th
 
 ## Correct what goes stale
 
-When a Memory is out of date, tell your agent. Your agent stores the new fact and switches off the old Memory. For what to say, see [Say "out of date" when a fact changes](../results/teach.md#say-out-of-date-when-a-fact-changes).
+When a Memory is out of date, tell your agent. Your agent stores the new fact and deactivates the old Memory, so recall stops returning it. For what to say, see [Say "out of date" when a fact changes](../results/teach.md#say-out-of-date-when-a-fact-changes).
 
 Write each Memory so that a reader with no background can understand it. Name the service, the rule, and the reason. For more on phrasing, see [Teach your agent as you work](../results/teach.md).

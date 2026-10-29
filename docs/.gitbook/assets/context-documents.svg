@@ -20,13 +20,13 @@
   <g transform="translate(0,-83)">  <rect x="40" y="124" width="210" height="130" rx="5" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
   <text x="56" y="148" class="lbl" fill="#7C3AED">YOU UPLOAD</text>
   <text x="56" y="170" class="title mono">runbook.md</text>
-  <text x="56" y="190" class="body">.md, .markdown, .txt</text>
-  <text x="56" y="207" class="body">or .pdf, up to 10 MB</text>
+  <text x="56" y="190" class="body">PDF, Office, image,</text>
+  <text x="56" y="207" class="body">or markdown, up to 50 MB</text>
   <rect x="270" y="124" width="210" height="130" rx="5" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1" stroke-dasharray="5 4"/>
-  <text x="286" y="148" class="lbl" fill="#7C3AED">PDF ONLY</text>
+  <text x="286" y="148" class="lbl" fill="#7C3AED">PDF, OFFICE, OR IMAGE</text>
   <text x="286" y="170" class="title">Converted to text</text>
-  <text x="286" y="190" class="body">takes longer: 5 minutes</text>
-  <text x="286" y="207" class="body">allowed per PDF by default</text>
+  <text x="286" y="190" class="body">takes longer: up to</text>
+  <text x="286" y="207" class="body">5 minutes per file by default</text>
   <rect x="500" y="124" width="210" height="130" rx="5" fill="#FFFFFF" stroke="#A78BFA" stroke-width="1.5"/>
   <text x="516" y="148" class="lbl" fill="#7C3AED">FILES INDEX</text>
   <text x="516" y="170" class="title">Made searchable</text>

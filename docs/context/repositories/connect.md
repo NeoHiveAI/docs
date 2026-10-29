@@ -47,18 +47,18 @@ To create the Index, do the following:
 5. Fill in the remaining fields, as the following table describes.
 6. Select **Create Index**.
 
-NeoHive opens the new Index page, copies the repository, and starts the first sync. The page header shows the progress.
-
 The following table describes the remaining fields:
 
 | Field | What to do |
 |---|---|
-| **Connection** | Select a saved connection. If you have no saved connection, or if you select **Add a new connection**, a form opens. In the form, enter a **Name** such as `Acme GitHub`, paste the token into **Personal Access Token**, and select **Save connection**. |
+| **Connection** | Select a saved connection. If you have no saved connection, or if you select **Add a new connection**, a form opens. In the form, enter a **Name** such as `Work GitHub`, paste the token into **Personal Access Token**, and select **Save connection**. |
 | **Repository** | Select a repository from the list, or type into **Search repositories or paste a URL...**. If you paste the URL of a repository that the list does not show, the repository appears as a **Use** row, such as **Use acme/api**. |
 | **Index name** | This field appears after you select a repository. NeoHive fills it in from the repository, such as `acme/api`. The name must be unique in the Hive. |
 | **Branch** | This field appears after you select a repository. NeoHive fills it in with the repository's default branch. To use another branch, select it from the list. |
 
-When you save a token, NeoHive checks it with the provider. If the provider rejects the token, NeoHive does not save it. If you already saved that token or that account, NeoHive warns you and offers **Add anyway**.
+When you select **Save connection**, NeoHive first warns you if you already saved the same token or account, and offers **Add anyway**. NeoHive then checks the token with the provider, and does not save a token that the provider rejects.
+
+NeoHive opens the new Index page, copies the repository, and starts the first sync. The page header shows the progress.
 
 {% hint style="success" %}
 **Check:** Open the Index's **Sync Settings** tab. **Sync history** shows the first run. When the run finishes, its status reads `success`.
@@ -69,9 +69,9 @@ When you save a token, NeoHive checks it with the provider. If the provider reje
 Open the **Index Info** tab, and then fill in **Description**. Your agent reads the description through `list_indexes`, so name what the repository covers. For example, write `Billing and payments services: Stripe webhooks, retries, nightly reconciliation` rather than `repo index`.
 
 <details>
-<summary>Optional: switch to an embedding model specialized for code</summary>
+<summary>Optional: switch to an embedding model made for code</summary>
 
-A new [Code Index](../../concepts/glossary.md#code-index) uses a general text embedding model, the model that turns content into a searchable form. The **Embedding model** setting on the **Index Info** tab also offers models whose names start with `nomic-embed-code`. These models match code more closely, but they need a lot of GPU memory. The list marks each option **Fits** or **Won't fit** for your machine. When you save a new model, NeoHive processes the whole Index again with that model in the background. For details, see [GPU and CPU](../../admin/gpu-cpu.md).
+A new [Code Index](../../concepts/glossary.md#code-index) uses an [embedding model](../../concepts/glossary.md#embedding-model) that handles both code and text. If your machine has a large GPU, you can switch the Index to a `nomic-embed-code` model on the **Index Info** tab, which matches code more closely. Changing the model makes NeoHive embed the whole Index again. For the models and which ones fit your machine, see [Embedding models](../../admin/embedding-models.md).
 
 </details>
 

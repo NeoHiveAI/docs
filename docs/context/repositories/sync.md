@@ -4,9 +4,11 @@ description: "Set how often a Code or Documentation Index syncs, sync it on dema
 
 # Keep a repository up to date
 
-Choose a sync schedule for a [Code](../../concepts/glossary.md#code-index) or [Documentation Index](../../concepts/glossary.md#documentation-index). An [Index](../../concepts/glossary.md#index) is one store of searchable context inside a [Hive](../../concepts/glossary.md#hive), the workspace your agent connects to. For more terms, see the [NeoHive glossary](../../concepts/glossary.md). To index a change right away, select **Trigger sync**. When something looks wrong, read **Sync history**.
+A [Code](../../concepts/glossary.md#code-index) or [Documentation Index](../../concepts/glossary.md#documentation-index) stays up to date by syncing with its repository on a schedule. You choose the schedule, and you can select **Trigger sync** to index a change right away. When something looks wrong, **Sync history** shows what each sync did.
 
-<figure><img src="../../.gitbook/assets/context-sync.svg" alt="A one-day timeline. Scheduled syncs run every 4 hours at 00:00, 04:00, 08:00, and so on. At 10:12 you select Trigger sync, and a sync runs immediately. At 14:36 a CI pipeline calls the webhook after a merge and sends only the changed files. Only one sync runs per Index at a time."><figcaption></figcaption></figure>
+An [Index](../../concepts/glossary.md#index) is one store of searchable context inside a [Hive](../../concepts/glossary.md#hive), the workspace your agent connects to. For more terms, see the [NeoHive glossary](../../concepts/glossary.md).
+
+<figure><img src="../../.gitbook/assets/context-sync.svg" alt="A one-day timeline in UTC. Scheduled syncs run every 4 hours at 00:00, 04:00, 08:00, and so on. At 10:12 you select Trigger sync, and a sync runs immediately. At 14:36 a CI pipeline calls the webhook after a merge and sends only the changed files. Only one sync runs per Index at a time."><figcaption></figcaption></figure>
 
 Each sync reads only what changed since the last indexed commit. NeoHive indexes new, modified, and renamed files again, and removes deleted files from the Index.
 
@@ -18,7 +20,7 @@ To set the schedule, do the following:
 2. Under **Configuration**, select a **Sync interval**.
 3. Select **Save settings**.
 
-Syncs run at fixed times of day. For example, **Every 4 hours** runs at 00:00, 04:00, 08:00, and so on, and **Daily** runs at 00:00.
+Syncs run at fixed times of day, in UTC. For example, **Every 4 hours** runs at 00:00, 04:00, 08:00 UTC, and so on, and **Daily** runs at 00:00 UTC.
 
 | **Sync interval** | Good for |
 |---|---|
@@ -27,7 +29,7 @@ Syncs run at fixed times of day. For example, **Every 4 hours** runs at 00:00, 0
 | **Every 4 hours** | The default for an Index you add from the dashboard |
 | **Daily** | A repository that rarely changes |
 
-You also set the **Branch** and the **Connection** on the same card. **Pause syncing** stops scheduled syncs without deleting anything, and **Resume syncing** starts them again.
+You also set the **Branch** and the **Connection** on the same card.
 
 If NeoHive was not running when a sync was due, NeoHive syncs that Index as soon as NeoHive starts again.
 
@@ -58,4 +60,9 @@ To index changes right after every merge, your CI pipeline can send the changed 
 | **Commit Range** | The commits between the previous run and this one |
 | **Error** | What went wrong. Select the error to read the full message |
 
-If someone renames the branch, for example from `master` to `main`, the sync follows the new name when the match is clear. Otherwise, the page shows **Branch not found on the remote**. In that case, select the correct branch under **Sync a different branch**. For runs that keep failing, see [Repository sync issues](../../troubleshooting/sync.md).
+If someone renames the branch, for example from `master` to `main`, the sync follows the new name when the match is clear. Otherwise, the Index page shows `A synced branch is no longer on the remote`, and everything indexed so far stays searchable. To fix it, do the following:
+
+1. Under **Pick a branch to sync instead**, select the new branch.
+2. Select **Sync this branch**.
+
+For runs that keep failing, see [Repository sync issues](../../troubleshooting/sync.md).
