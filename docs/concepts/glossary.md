@@ -78,7 +78,7 @@ A list of numbers that captures what a piece of text means. NeoHive compares emb
 
 ### Embedding model
 
-The model that turns text into [embeddings](#embedding). The embedding model runs on your machine, and each [Index](#index) has its own. See [GPU and CPU](../admin/gpu-cpu.md).
+The model that turns text into [embeddings](#embedding). The embedding model runs on your machine, and each [Index](#index) has its own. See [Embedding models](../admin/embedding-models.md).
 
 ## F
 
@@ -171,10 +171,6 @@ Optical character recognition, which reads the text in an image, such as a scann
 ### Personal access token (PAT)
 
 A token that you create with GitHub or GitLab to give NeoHive read access to a repository. You save the token as a [connection](#connection). See [Credentials and secrets](../security/credentials.md).
-
-### Playground
-
-A dashboard screen where you run the same read-only tools that your agent calls, and see exactly what each tool returns. See [Test queries in the Playground](../admin/playground.md).
 
 ### Plugin
 

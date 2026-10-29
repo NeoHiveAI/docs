@@ -4,13 +4,13 @@ description: "Add, check, and remove the GitHub and GitLab connections that NeoH
 
 # Data sources and credentials
 
-A connection is a saved login that lets NeoHive read repositories from one GitHub or GitLab account. [Code](../concepts/glossary.md#code-index) and [Documentation Indexes](../concepts/glossary.md#documentation-index) sync through a connection, so a connection that stops working stops their syncs too. Here you add a connection, check that it still works, and replace its token without a gap in syncing.
+A connection is a saved login that lets NeoHive read repositories from one GitHub or GitLab account. [Code](../concepts/glossary.md#code-index) and [Documentation Indexes](../concepts/glossary.md#documentation-index) sync through a connection, so a connection that stops working stops their syncs too. This page shows how to add a connection, check that it still works, and replace its token without a gap in syncing.
 
 An [Index](../concepts/glossary.md#index) is one store of searchable context inside a [Hive](../concepts/glossary.md#hive), the workspace your agent connects to. For more terms, see the [NeoHive glossary](../concepts/glossary.md).
 
 To see your connections, open **Data Sources** at the bottom of the sidebar, or go to `http://localhost:3577/sources`.
 
-<figure><img src="../.gitbook/assets/admin-data-sources.svg" alt="A GitHub or GitLab account gives a token to a connection that you save on Data Sources. Each connection shows its credential type, personal access token (PAT) or SSH key. Each connection also shows its state: Valid, Invalid, or Unvalidated. Several Code and Documentation Indexes can sync through one connection. You choose the connection under Connection on each Index's Sync Settings tab. If you delete the connection, those Indexes keep their Memories and show a No connection badge, and they stop syncing."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/admin-data-sources.svg" alt="Your GitHub or GitLab account gives you a token (PAT) or SSH key, which you paste into a connection on Data Sources. Code and Documentation Indexes sync through a connection, which you choose on each Index's Sync Settings tab. If you delete a connection, its Indexes keep their Memories, show a No connection badge, and stop syncing until you choose another connection."><figcaption></figcaption></figure>
 
 | Service | Use it for | Credential |
 |---|---|---|
@@ -35,10 +35,12 @@ On the **GitHub** or **GitLab** card under **Available**, select **Install**. If
 | Field | What to enter |
 |---|---|
 | **GitLab Base URL** | This field is for GitLab only. Enter your server address, such as `https://gitlab.example.com`. Leave the field blank for `gitlab.com` |
-| **Name** | Enter a label, such as `Acme GitHub`. You can use each name only once for each service |
+| **Name** | Enter a label, such as `Work GitHub`. You can use each name only once for each service |
 | **PAT** or **SSH** | Paste a **Personal Access Token**, or switch to **SSH** and paste an **SSH Private Key** |
 
 **Create a PAT** opens your provider's token page with the required scopes already selected. Scopes are the permissions the token grants. On GitHub, the scope is `repo`. On GitLab, the scopes are `read_api` and `read_repository`. For your own GitLab server, fill in **GitLab Base URL** before you select **Create a PAT**, or the link opens `gitlab.com`.
+
+To create the token yourself, follow [Creating a personal access token (classic)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic) on GitHub, or [Create a personal access token](https://docs.gitlab.com/user/profile/personal_access_tokens/#create-a-personal-access-token) on GitLab.
 {% endstep %}
 
 {% step %}

@@ -83,6 +83,7 @@ Each color carries one meaning across every diagram. A reader who has learned th
 | Green | `#008236`, border `#BFF2D3`, fill `#D9F7E5` | A good outcome, the way the app shows success and **Connected**: done, the right way in a comparison, a check that passes, a healthy or kept state such as **ACTIVE** or **KEPT**, and the safe setup |
 | Teal | `#009689`, border `#99E6DC`, fill `#F0FDFA` | Content moving: coming in from outside (a repository, a sync) or coming back to the agent (recall), steps that run automatically, and Memory type tags such as **CONVENTION**. The app has no teal, so never use teal for success. |
 | Amber | `#BB4D00`, border `#FFE1B2`, fill `#FFF5E6` | A caution, the way the app shows warnings: something the reader must do by hand, warnings such as "never open this port", failure branches such as a `401` reply, the wrong way in a before-and-after comparison, and the **ERROR_PATTERN** tag |
+| Red | `#C10007` | A permanent state that cannot be undone, such as a deleted Hive, and the arrows that lead to it. It matches the app's destructive styling at the same `-700` shade as green and amber. Use it only where the reader loses something for good, and pair it with a label such as **CANNOT BE UNDONE** |
 | Gray | `#A1A1A1` | Neutral "then" arrows that only show order, with the `arrM` marker |
 | Ink | `#1A1A2E` | Titles and item text |
 | Body | `#4A4458` | Body text |

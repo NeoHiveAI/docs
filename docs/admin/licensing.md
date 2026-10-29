@@ -4,11 +4,11 @@ description: "How NeoHive finds your license, how to check its status, replace i
 
 # Licensing
 
-NeoHive needs a license to run. The installer reads the license when you install, and the dashboard shows the license's status. Come back to these steps when the license is close to expiring, or when you replace the license or move NeoHive to another machine.
+NeoHive needs a license to run. The installer reads your license when you install NeoHive, and the dashboard shows whether the license is still active. This page shows where the installer looks for your license and how to check its status. It also covers what to do when the license is close to expiring, when you replace it, and when you move NeoHive to another machine.
 
 NeoHive needs a license file from the NeoHive team: a plain-text `license.key`, or a `license.json` holding the key. To get a license file, request one from the [NeoHive team](https://www.neohive.ai/download/). Save the file in the folder you run the installer from, and the installer finds it there.
 
-<figure><img src="../.gitbook/assets/admin-licensing.svg" alt="The installer checks five places in order and uses the first license it finds. 1: the --license-file or -l flag. 2: the NEOHIVE_LICENSE_FILE variable. 3: a license.json or license.key in the folder you run the installer from. 4: the key that an earlier install cached at ~/.cache/neohive/license-key. 5: a prompt for a file path, in an interactive terminal only. The installer then checks the key with the licensing service. Accepted keys are cached. A rejected key clears the cache. In a terminal, the installer then asks for another file, up to three tries. NEOHIVE_LICENSE_KEY skips all five. NEOHIVE_ROTATE_LICENSE=1 skips 3 and 4."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/admin-licensing.svg" alt="The installer looks for a license in five sources, in order, and uses the first one it finds. First, the path you pass with --license-file. Second, the path in NEOHIVE_LICENSE_FILE. Third, a license.json or license.key file in the folder you run the installer from. Fourth, the key cached by an earlier install. Fifth, a prompt for a file path, in an interactive terminal only. The installer then checks the key with the licensing service. If the service accepts the key, the installer caches it and carries on. If the service rejects the key, the installer clears the cache and, in a terminal, asks for another file, up to three times."><figcaption></figcaption></figure>
 
 ## Where the installer finds your license
 
@@ -16,15 +16,22 @@ The most direct option is to put the file in the folder you run the installer fr
 
 The installer uses the first license it finds, in the following order:
 
-1. The file you pass with `--license-file` or `-l`.
-2. The file that the `NEOHIVE_LICENSE_FILE` variable names.
+1. The path you pass with `--license-file` or `-l`, for example `--license-file ~/Downloads/license.key`.
+2. The path in the `NEOHIVE_LICENSE_FILE` variable.
 3. A `license.json` or `license.key` in the folder you run the installer from. If you run `install.sh` from disk, the installer also looks next to the script.
 4. The key that an earlier install cached at `~/.cache/neohive/license-key`.
 5. A prompt for a file path, in an interactive terminal only.
 
-If the `NEOHIVE_LICENSE_KEY` variable holds a key, the installer uses that key and skips all five places. `NEOHIVE_ROTATE_LICENSE=1` skips places 3 and 4. A license from any place other than the cache replaces the cached key.
+Two variables change this order:
 
-The first time you open the dashboard, it shows the **NeoHive Design Partner Licence** agreement. To accept the agreement and continue, select **I Understand**. To read the agreement again later, go to **Settings** and select **View licence**.
+- If `NEOHIVE_LICENSE_KEY` holds a key, the installer uses that key and does not look anywhere in the list.
+- If `NEOHIVE_ROTATE_LICENSE=1` is set, the installer skips the license file in the folder you run it from and the cached key. It still reads a path you pass with `--license-file` or `NEOHIVE_LICENSE_FILE`. [Replace your license](#replace-your-license) uses this.
+
+When the installer reads a license from anywhere other than the cache, it replaces the cached key with the new one.
+
+## Accept the license agreement
+
+The first time you open the dashboard, it shows the **NeoHive Design Partner Licence** agreement. The agreement sets the terms for using NeoHive, and your license key is what lets NeoHive run. To accept the agreement and continue, select **I Understand**. To read the agreement again later, go to **Settings** and select **View licence**.
 
 ## Check your license status
 
@@ -78,10 +85,18 @@ A key saved from the dashboard takes priority over the key the installer passes 
 
 ## Move to another machine
 
-A license covers one running machine at a time. That machine holds the license's seat. To move the license, do the following:
+A license covers one running machine at a time, and that machine holds the license's [seat](../concepts/glossary.md#license-seat). To move your Hives and Memories along with the license, follow [Move to a new machine](backups.md#move-to-a-new-machine) instead, which includes these steps.
 
-1. **Stop NeoHive on the old machine** with `docker stop neohive`. Stopping NeoHive cleanly frees the seat immediately.
-2. **Install NeoHive on the new machine** with your license file.
+To move only the license, do the following:
+
+1. On the old machine, stop NeoHive:
+
+   ```bash
+   docker stop neohive
+   ```
+
+   A clean stop frees the seat immediately.
+2. On the new machine, install NeoHive with your license file. Follow [Install NeoHive](../get-started/install.md).
 
 The new machine now holds the seat.
 

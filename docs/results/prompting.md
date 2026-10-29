@@ -40,5 +40,5 @@ Both tools search every [Index](../concepts/glossary.md#index) in your Hive unle
 If your agent has no NeoHive plugin, paste the rules in [Tell your agent to use NeoHive](../get-started/connect/README.md#tell-your-agent-to-use-neohive) into its rules file.
 
 {% hint style="success" %}
-Before you rely on a phrasing, test it in the dashboard **Playground**. See [Test queries in the Playground](../admin/playground.md).
+Before you rely on a phrasing, ask your agent to run `memory_recall` with it, and check that the results include what you expected.
 {% endhint %}

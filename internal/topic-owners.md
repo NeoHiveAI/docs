@@ -59,13 +59,13 @@
 | Installing NeoHive and installer options | `get-started/install.md` | `get-started/quickstart.md` |
 | The shortest path from install to a first answer | `get-started/quickstart.md` | |
 | GPU and CPU backends | `admin/gpu-cpu.md` | `get-started/install.md` |
+| Embedding models: defaults, choosing, and re-embedding | `admin/embedding-models.md` | `admin/dashboard.md`, `context/repositories/connect.md`, `admin/gpu-cpu.md` |
 | Environment variables | `reference/environment-variables.md` | `admin/updating.md`, `admin/gpu-cpu.md`, `context/documents.md` |
 | Getting a license, license lookup, and the offline grace period | `admin/licensing.md` | `admin/updating.md`, `security/local-only.md`, `get-started/install.md` |
 | Backups and restore | `admin/backups.md` | `admin/updating.md` |
 | Updating NeoHive | `admin/updating.md` | |
 | Archiving, deleting, moving, and sharing Hives and Indexes: the steps | `admin/manage.md` | `concepts/hives-indexes-memories.md` |
 | Dashboard screens | `admin/dashboard.md` | |
-| Testing queries in the Playground | `admin/playground.md` | |
 | Uninstalling NeoHive | `admin/uninstall.md` | |
 | Running one instance for a team | `admin/access.md` | `results/team-workflows.md` |
 | Network exposure and authenticating proxies | `security/network.md` | `admin/access.md` |
