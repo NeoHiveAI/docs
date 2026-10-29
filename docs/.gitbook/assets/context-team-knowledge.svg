@@ -19,19 +19,19 @@
        top edge sits at y=40. Draw new content inside the group with the same coordinates as the rest. -->
   <g transform="translate(0,-77)">  <rect x="40" y="150" width="250" height="140" rx="5" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
   <text x="56" y="174" class="lbl" fill="#7C3AED">ANA, MONDAY</text>
-  <text x="56" y="196" class="title">Corrects her agent</text>
+  <text x="56" y="196" class="title">Corrects an agent</text>
   <text x="56" y="216" class="body">"No, we use Redis for sessions."</text>
-  <text x="56" y="233" class="body">Her agent calls memory_store.</text>
-  <rect x="375" y="150" width="250" height="140" rx="5" fill="#F0FDFA" stroke="#009689" stroke-width="1.5"/>
-  <text x="391" y="174" class="lbl" fill="#009689">KNOWLEDGE INDEX</text>
+  <text x="56" y="233" class="body">Ana's agent calls memory_store.</text>
+  <rect x="375" y="150" width="250" height="140" rx="5" fill="#FFFFFF" stroke="#C084FC" stroke-width="1.5"/>
+  <text x="391" y="174" class="lbl" fill="#C084FC">KNOWLEDGE INDEX</text>
   <text x="391" y="196" class="item mono" fill="#009689">decision</text>
   <text x="391" y="216" class="title">Sessions are stored in Redis</text>
   <text x="391" y="238" class="body">stored once, in this Hive only</text>
   <line x1="290" y1="220" x2="369" y2="220" stroke="#009689" stroke-width="2" marker-end="url(#arrT)"/>
   <rect x="710" y="118" width="250" height="92" rx="5" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
   <text x="726" y="142" class="lbl" fill="#7C3AED">BEN, TUESDAY</text>
-  <text x="726" y="164" class="title">His agent recalls it</text>
-  <text x="726" y="184" class="body">while he edits the login code</text>
+  <text x="726" y="164" class="title">Ben's agent recalls it</text>
+  <text x="726" y="184" class="body">during a change to the login code</text>
   <rect x="710" y="230" width="250" height="92" rx="5" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
   <text x="726" y="254" class="lbl" fill="#7C3AED">NEW TEAMMATE, NEXT MONTH</text>
   <text x="726" y="276" class="title">Recalls it on day one</text>

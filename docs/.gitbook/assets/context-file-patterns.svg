@@ -34,7 +34,7 @@
   <line x1="500" y1="358" x2="500" y2="372" stroke="#A1A1A1" stroke-width="2" marker-end="url(#arrM)"/>
   <rect x="280.0" y="372" width="440" height="50" rx="5" fill="#D9F7E5" stroke="#008236" stroke-width="1.5"/>
   <text x="300.0" y="403" class="title">Indexed</text>
-  <text x="700.0" y="402" class="body" text-anchor="end">split, embedded, searchable</text>
+  <text x="700.0" y="402" class="body" text-anchor="end">searchable by your agent</text>
   <text x="40" y="458" class="muted">You set 2 and 3 on the Sync Settings tab. 1 cannot be changed.</text>
   </g>
 

@@ -4,11 +4,11 @@ description: "Upload markdown, text, and PDF files to a Files Index so your agen
 
 # Add documents and PDFs
 
-Create a Files [Index](../concepts/glossary.md#index) and upload your documents to it. A [Files Index](../concepts/glossary.md#files-index) stores files you upload. Your agent then recalls the documents the same way it recalls code.
+A [Files Index](../concepts/glossary.md#files-index) holds documents that you upload, such as specs, runbooks, design docs, meeting notes, or an exported notes vault. NeoHive turns each file into text, and your agent recalls it the same way it recalls code. This page shows how to create a Files Index, upload files, and manage them later.
 
-<figure><img src="../.gitbook/assets/context-documents.svg" alt="You upload a .md, .markdown, .txt, or .pdf file of up to 10 MB. NeoHive first converts a PDF to text, which takes longer. The Files Index stores the text in a searchable form. Your agent's memory_recall gets back the section that answers the question."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/context-documents.svg" alt="You upload a markdown, text, PDF, Office, or image file of up to 50 MB. NeoHive first converts a PDF, Office file, or image to text, which takes longer. The Files Index stores the text in a searchable form. Your agent's memory_recall gets back the section that answers the question."><figcaption></figcaption></figure>
 
-Use a Files Index for specs, runbooks, design docs, meeting notes, or an exported notes vault. For markdown that already lives in a repository, add a [Documentation Index](../concepts/glossary.md#documentation-index) instead. A Documentation Index stays in sync with the repository. For help choosing, see [What to add, and where](what-to-add.md).
+For markdown that already lives in a repository, add a [Documentation Index](../concepts/glossary.md#documentation-index) instead, because a Documentation Index stays in sync with the repository. For help choosing, see [What to add, and where](what-to-add.md).
 
 {% stepper %}
 {% step %}
@@ -24,9 +24,9 @@ To create a Files Index, do the following:
 {% step %}
 ## Add files
 
-Optional: Drag files onto the **Files** drop zone, up to 20 at a time. The files upload after NeoHive creates the Index. You can also skip this step and upload files later.
+Optional: Drag files onto the **Files** drop zone, or select the drop zone to browse. The files upload after NeoHive creates the Index, so you can also skip this step and upload files later.
 
-NeoHive accepts `.md`, `.markdown`, `.txt`, and `.pdf` files of up to 10 MB each. For details, see [Supported file types](../reference/file-types.md).
+NeoHive accepts markdown, text, PDF, Word, Excel, and PowerPoint files, and PNG or JPEG images, up to 50 MB each. For details, see [Supported file types](../reference/file-types.md).
 {% endstep %}
 
 {% step %}
@@ -45,16 +45,26 @@ To help your agent choose this Index, set a **Description** on the **Index Info*
 
 ## Manage files later
 
-To manage files, open the Index and select its **Files** tab. You can drop more files on the tab at any time. The tab shows which file is processing and how much of that file is done. When you delete a file, NeoHive removes its content from the Index.
+To add more files, do the following:
 
-If a file has the same name as a file already in the Index, NeoHive skips the new file and shows a warning. To replace a document, delete the old file first, and then upload the new one.
+1. Open the Index, and then select its **Files** tab.
+2. Drag files onto the drop zone, or select the drop zone to browse.
+3. Select the upload button, which shows the number of files, such as **Upload 3 files**.
+
+The tab shows which file is processing and how much of the upload is done.
+
+To replace a document, upload the new version with the same file name. NeoHive replaces the old file and its content. The new file must be the same type, except that markdown and text files can replace each other.
+
+{% hint style="warning" %}
+When you select the trash icon next to a file, NeoHive deletes the file and its content from the Index right away, without asking you to confirm.
+{% endhint %}
 
 {% hint style="info" %}
 To move an Obsidian vault or a similar notes vault, export it as markdown and upload the files.
 {% endhint %}
 
-## Large PDFs
+## Large or scanned files
 
-A large PDF can fail because it takes too long to convert. To raise the time limit, see [Supported file types](../reference/file-types.md#uploads-to-a-files-index) and [Environment variables](../reference/environment-variables.md#installer).
+A large file can fail because it takes longer than five minutes to convert. To allow more time, see [Supported file types](../reference/file-types.md).
 
-If a PDF is scanned, or draws its text as shapes, the conversion fails with `No text could be extracted from this PDF`. To fix the error, run optical character recognition (OCR) on the PDF, or export its text, and then upload the result.
+If a PDF is scanned, or draws its text as shapes, the file fails with `No text could be extracted from this document`. To fix the error, run optical character recognition (OCR) on the PDF, or export its text, and then upload the result.
