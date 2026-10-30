@@ -4,11 +4,9 @@ description: "Ask your agent directly what your Hive knows, instead of waiting f
 
 # Ask for context directly
 
-A [Hive](../concepts/glossary.md#hive) is your team's workspace in NeoHive. The Hive holds your code and documents, plus the [Memories](../concepts/glossary.md#memory) your team has taught its agents.
+Your agent searches your [Hive](../concepts/glossary.md#hive) on its own when its rules tell it to. You can also ask it directly what the Hive knows: your code, your docs, and the [Memories](../concepts/glossary.md#memory) your team has taught it. Ask before your agent writes any code, and it starts from your team's decisions and known problems instead of guessing.
 
-Your agent searches the Hive on its own when its rules tell it to. You can also ask your agent directly what the Hive knows. Ask before your agent writes any code. Your agent then starts from your team's decisions and known problems, instead of guessing.
-
-The following table pairs common questions with the tool your agent calls for each one. To narrow a question to one kind of Memory or one [Index](../concepts/glossary.md#index), see [Narrow the ask](#narrow-the-ask).
+Ask the way you would ask a teammate:
 
 | You want | Ask something like | Your agent calls |
 |---|---|---|
@@ -20,9 +18,9 @@ The following table pairs common questions with the tool your agent calls for ea
 
 ## Narrow the ask
 
-An Index is one store of context inside a Hive, such as your code or your team's Memories. By default, your agent searches every Index in the Hive. Each detail you add limits where your agent searches.
+By default, your agent searches every [Index](../concepts/glossary.md#index) in the Hive. An Index is one store of context inside a Hive, such as your code or your team's Memories. Each detail you add narrows the search.
 
-<figure><img src="../.gitbook/assets/results-ask-directly.svg" alt="Three narrowing levels. A plain question searches every Index in the Hive. Naming a kind of Memory, such as conventions, sets the types filter on memory_recall. Naming an Index sets the index parameter."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/results-ask-directly.svg" alt="Three steps, each with an example, in rows that get narrower. Ask a plain question to search every Index in the Hive, for example: How does the retry logic in the billing webhook work? Name the kind you mean to search one kind of Memory, for example: What conventions do we follow for error handling? Name the Index to search only that Index, for example: Search only the payments Index for refunds."><figcaption></figcaption></figure>
 
 | Say | Your agent narrows the search to |
 |---|---|
@@ -31,8 +29,4 @@ An Index is one store of context inside a Hive, such as your code or your team's
 | "why did we choose" | Decisions |
 | "search only the payments Index" | One Index. Your agent finds the Index ID with `list_indexes`. |
 
-For the full list of Memory types, see [Memory types](../reference/memory-types.md).
-
-{% hint style="info" %}
-If the first answer does not have what you need, ask again with different words. Two phrasings of the same idea often return different Memories.
-{% endhint %}
+[Memory types](../reference/memory-types.md) lists every type. If the first answer misses, ask again in different words, because two phrasings of the same idea often return different Memories.
