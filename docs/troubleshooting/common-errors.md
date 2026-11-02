@@ -77,12 +77,12 @@ NeoHive shows the following messages for a file that you upload to a [Files Inde
 | Message | Cause | Fix |
 |---|---|---|
 | `Unsupported type: <ext>` or `Unsupported file type: <ext>. Allowed: .md, .markdown, .txt, .pdf` | The file is not one of those types. | Export the file to one of those types. See [Supported file types](../reference/file-types.md). |
-| `File too large (<size> > 10 MB)` or `File too large` | The file is over 10 MB. | Split the file into smaller files. |
+| `File too large (<size> > 50 MB)` or `File too large` | The file is over 50 MB. | Split the file into smaller files. |
 | `Too many files` | The upload has more than 20 files. | Upload in batches of 20 or fewer. |
 | `<name> already exists, skipped` | A file with that name is already in the Index. | Rename the new file, or remove the old file first. |
-| `No text could be extracted from this PDF. ...` | The PDF contains only scanned images, or its text is drawn as shapes. | Run optical character recognition (OCR) on the PDF, or upload an exported text version. |
+| `No text could be extracted from this document. ...` | The file contains only scanned pages, its text is drawn as shapes, or an image has no readable text. | Run optical character recognition (OCR) on the file, or upload an exported text version. |
 | `No content could be extracted from this file (it appears to be empty or contain only whitespace).` | The file is empty. | Upload a file with content. |
-| `PDF bridge timed out after 300s` | Converting the PDF took longer than the timeout. | Run the installer again with a higher `NEOHIVE_PDF_BRIDGE_TIMEOUT_MS`. |
+| `Converting "<file>" timed out` | Converting the file took longer than the timeout. | Run the installer again with a higher `NEOHIVE_DOCUMENT_TIMEOUT_MS`. |
 
 ## Syncs and connections
 
