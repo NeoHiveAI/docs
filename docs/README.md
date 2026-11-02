@@ -8,9 +8,9 @@ description: >-
 
 **Coding agents that share what your whole team knows.**
 
-NeoHive is a self-hosted context layer: a memory that your team's coding agents share. Connect your repositories, documents, and team knowledge once, and every agent on your team reads the same memory. That includes Claude Code, Cursor, Codex, and any other agent that supports [MCP](concepts/glossary.md#mcp). When one person corrects their agent, every agent on your team gets the correction.
+NeoHive is a self-hosted context layer for coding agents: one persistent memory that your team's agents share. NeoHive indexes your repositories and documents and serves context from them to your agents over [MCP](concepts/glossary.md#mcp). As a result, your agents' answers reference your architecture, internal APIs, and conventions rather than generic patterns. Claude Code, Cursor, Codex, and any other agent that supports MCP read the same memory, so your team keeps the tools it already uses. When one person corrects their agent, every agent on your team gets the correction.
 
-The memory keeps itself current as your repositories change, and it improves the more your team uses it. Each agent gets only the context that its task needs, instead of a context file that grows with every lesson. NeoHive runs inside your own network, on machines that you control. For more information, see [What is NeoHive?](get-started/what-is-neohive.md).
+Connect your sources once, and NeoHive keeps up as they change. The more your team uses NeoHive, the better it answers. Each agent gets only the context that its task needs, and that context stays inside your own network, on machines that you control.
 
 ## Start here
 
@@ -25,9 +25,7 @@ Coding agents fall short on a team in the following ways:
 * **Context files don't scale.** A `CLAUDE.md` file can grow to thousands of lines, and the agent loads the whole file, even when the task needs only a small part of it.
 * **Reasoning is the first thing lost.** Teams rarely write down why they made a decision, but that reason is what the next agent needs most.
 
-What your team needs is one memory that every agent reads and every teammate adds to. NeoHive is that memory.
-
-NeoHive indexes your repositories and documents, and it stores what your team teaches the agent alongside them. All of that content lives in one [Hive](concepts/glossary.md#hive), your team's workspace. A Hive holds [Indexes](concepts/glossary.md#index), which store your code, documents, files, and [Memories](concepts/glossary.md#memory). When your agent asks, NeoHive searches those Indexes and returns only the parts that the current task needs.
+NeoHive gives your team one persistent memory that every agent reads from and every teammate adds to. That memory lives in a [Hive](concepts/glossary.md#hive), your team's workspace. A Hive holds [Indexes](concepts/glossary.md#index), which store your code, your documents, and the [Memories](concepts/glossary.md#memory) that your team saves. For more information about the problem and how NeoHive solves it, see [What is NeoHive?](get-started/what-is-neohive.md).
 
 ## What NeoHive does
 
@@ -39,4 +37,4 @@ A Hive is shared, so what one person teaches their agent helps the whole team:
 
 * **One Hive, every agent.** Your teammates' agents read from the same Hive, whichever tool each teammate uses.
 * **Teach once.** When you correct your agent or explain a convention, the agent saves that lesson as a Memory in your Hive. Every teammate's agent then recalls that Memory.
-* **New teammates start informed.** The lesson stays in the Hive, so someone who joins next month has it on their first day.
+* **Lessons outlast team changes.** The lesson stays in the Hive, so someone who joins next month has it on their first day.

@@ -8,14 +8,14 @@ NeoHive is a self-hosted memory that your team's coding agents, such as Claude C
 
 ## The problem it solves
 
-Each developer on a team teaches their own coding agent, and a correction that one person makes doesn't reach a teammate's agent. Each agent also starts every session with no knowledge of your project. The agent doesn't know how your code is organized or which conventions your team follows, and it doesn't remember what you told it yesterday. As a result, you explain the same things again and correct the same mistakes. What the agent needs is context about your project that lasts between sessions and that your whole team shares.
+Each developer on a team teaches their own coding agent, and a correction that one person makes doesn't reach a teammate's agent. Each agent also starts every session with no knowledge of your project. The agent doesn't know how your code is organized or which conventions your team follows, and it doesn't remember what you told it yesterday or why your team made a decision. As a result, you explain the same things again and correct the same mistakes. What the agent needs is context about your project that lasts between sessions and that your whole team shares.
 
 ## What changes with NeoHive
 
 NeoHive keeps that context in a [Hive](../concepts/glossary.md#hive), a workspace for one codebase or team, and gives it to your agent in the following ways:
 
 * **Your code is searchable.** NeoHive copies your repositories and documents into [Indexes](../concepts/glossary.md#index), the searchable stores inside a Hive. The agent then finds code by what it does, not by its file name.
-* **Lessons stick.** What your team teaches the agent, such as a convention or a bug fix, goes into the Hive too, as a [Memory](../concepts/glossary.md#memory).
+* **Lessons stick.** What your team teaches the agent, such as a convention, a bug fix, or the reason behind a decision, goes into the Hive too, as a [Memory](../concepts/glossary.md#memory).
 * **Only what the task needs.** When the agent needs context, it asks NeoHive through [MCP](../concepts/glossary.md#mcp) and gets back only the parts that match. The agent doesn't load a whole context file of thousands of lines. That leaves more of its context window, the text it can read at once, free for your actual work.
 * **Your content stays with you.** You run NeoHive yourself, so your code, documents, and Memories stay on a machine you control. That machine is your own computer or a shared server for your team, where NeoHive runs in a Docker container. The same container serves a dashboard, where you manage your Hives and their content in your browser. For more information about what stays on that machine and how these parts fit together, see [What stays on your machine](../security/local-only.md) and [How NeoHive works](../concepts/how-it-works.md).
 
