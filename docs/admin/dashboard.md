@@ -36,6 +36,8 @@ Three totals across all of your Hives sit at the top of the home screen:
 
 To show a 30-day trend line under each total, turn on **Trends**.
 
+### The Hive menu
+
 To see a Hive's actions, select the three-dot icon (⋮) on its card. In the sidebar, the same menu opens from the three-dot icon (⋯) that appears when you point at a Hive.
 
 | Menu option | What it does |
@@ -62,6 +64,8 @@ To see an Index's actions, point at its row and select the three-dot icon (⋮).
 
 ### Activity
 
+The following parts show what your agents did in the Hive.
+
 | Part | What it shows |
 |---|---|
 | **AT A GLANCE** | **Memories** in the Hive, **Learnings 7d** (Memories your agents stored in the last 7 days), **Queries 7d** (searches in the last 7 days), and **Last activity** |
@@ -73,7 +77,7 @@ To see an Index's actions, point at its row and select the three-dot icon (⋮).
 | Message | When it appears |
 |---|---|
 | A sync error, such as `A git command failed`, with `The <name> Index stopped syncing.` | An Index's last sync failed. Select the link in the box to open the Index. For each error and its fix, see [Repository sync issues](../troubleshooting/sync.md) |
-| `This Hive has no Indexes yet` | The Hive has only its Knowledge Index. To add one, select **Add an Index** |
+| `This Hive has no Indexes yet` | The Hive has only its [Knowledge Index](../concepts/glossary.md#knowledge-index). To add one, select **Add an Index** |
 | `Selected models exceed your VRAM budget` | The Hive's Indexes use embedding models that do not fit in GPU memory together. Searches still work but run one Index at a time. See [Embedding models](embedding-models.md) |
 
 ## The Index page
@@ -96,6 +100,8 @@ When a sync fails, a message box at the top of the page names the error. For eac
 **Data Sources**, in the sidebar, lists the GitHub and GitLab connections that your Code and Documentation Indexes sync through. Services you have connected appear under **Connected**, and the rest appear under **Available**. To add, check, or replace a connection, see [Data sources and credentials](data-sources.md).
 
 ## The Settings screen
+
+The Settings screen has the following cards.
 
 | Card | What you do there |
 |---|---|

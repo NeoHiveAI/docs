@@ -72,6 +72,8 @@ By default, NeoHive rechecks a connection at most once every 23 hours. To check 
 When you delete a connection, every Index that syncs through the connection stops syncing. The Indexes keep their [Memories](../concepts/glossary.md#memory) and show a **No connection** badge.
 {% endhint %}
 
+## Replace a token
+
 To replace a token without a gap in syncing, do the following:
 
 1. Create a new token with the provider, and keep the old token active.

@@ -22,12 +22,14 @@ The installer uses the first license it finds, in the following order:
 4. The key that an earlier install cached at `~/.cache/neohive/license-key`.
 5. A prompt for a file path, in an interactive terminal only.
 
+When the installer reads a license from anywhere other than the cache, it replaces the cached key with the new one.
+
+### Override the search with a variable
+
 Two variables change this order:
 
 - If `NEOHIVE_LICENSE_KEY` holds a key, the installer uses that key and does not look anywhere in the list.
 - If `NEOHIVE_ROTATE_LICENSE=1` is set, the installer skips the license file in the folder you run it from and the cached key. It still reads a path you pass with `--license-file` or `NEOHIVE_LICENSE_FILE`. [Replace your license](#replace-your-license) uses this.
-
-When the installer reads a license from anywhere other than the cache, it replaces the cached key with the new one.
 
 ## Accept the license agreement
 
@@ -39,6 +41,8 @@ To check your license status, do the following:
 
 1. Go to **Settings**.
 2. On the **Licence Key** card, select **Manage licence**.
+
+### What each status means
 
 The **Licence** page shows one of the following statuses.
 

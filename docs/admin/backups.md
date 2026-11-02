@@ -45,14 +45,17 @@ curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/backup.sh \
 Restoring replaces everything in the `neohive-data` volume. You permanently lose anything added since the backup.
 {% endhint %}
 
-The NeoHive container must exist, but it can be running or stopped. To restore from a backup, run the following command with the name of your archive:
+The NeoHive container must exist, but it can be running or stopped. To restore from a backup, do the following:
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/backup.sh \
-  | bash -s -- --restore neohive-backup-<timestamp>.tar.gz
-```
+1. Run the following command with the name of your archive:
 
-When the script asks you to confirm, type `neohive-data`. The `--yes` flag skips that question. Use `--yes` only in scripts.
+   ```bash
+   curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/backup.sh \
+     | bash -s -- --restore neohive-backup-<timestamp>.tar.gz
+   ```
+2. When the script asks you to confirm, type `neohive-data`.
+
+The `--yes` flag skips the confirmation. Use `--yes` only in scripts.
 
 {% hint style="success" %}
 **Check:** the script ends with **Restore complete.** When you open `http://localhost:3577`, your Hives are back.
