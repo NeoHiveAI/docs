@@ -4,7 +4,7 @@ This is the official style reference for the NeoHive documentation site. Follow 
 
 **Scope:** the public NeoHive docs site, which is the GitBook site built from the `docs/` directory of the `NeoHiveAI/docs` repository. That covers page text, headings, tables, callouts, image alt text, and the `description:` frontmatter of every page. It does not cover text inside the NeoHive app (dashboard labels, tooltips, empty states, error messages, and the in-app guides in `frontend/src/lib/content/guides/`), release notes, code comments, or the internal docs in `internal/`.
 
-**Provenance:** based on the Google developer documentation style guide (https://developers.google.com/style), checked against its highlights page on 2026-10-04 and again on 2026-10-29, its procedures page (https://developers.google.com/style/procedures), tables page (https://developers.google.com/style/tables), images page (https://developers.google.com/style/images), excessive claims page (https://developers.google.com/style/excessive-claims), accessibility page (https://developers.google.com/style/accessibility), and full word list (https://developers.google.com/style/word-list) on 2026-10-29, its abbreviations page (https://developers.google.com/style/abbreviations) on 2026-10-07, its cross-references page (https://developers.google.com/style/cross-references) on 2026-10-08, and its future-features page (https://developers.google.com/style/future) on 2026-10-09. Where this guide is stricter than Google's, the stricter rule wins. Plain English comes first, ahead of every other rule here.
+**Provenance:** based on the Google developer documentation style guide (https://developers.google.com/style), checked against its highlights page on 2026-10-04 and again on 2026-10-29, its procedures page (https://developers.google.com/style/procedures), tables page (https://developers.google.com/style/tables), images page (https://developers.google.com/style/images), excessive claims page (https://developers.google.com/style/excessive-claims), accessibility page (https://developers.google.com/style/accessibility), and full word list (https://developers.google.com/style/word-list) on 2026-10-29, its abbreviations page (https://developers.google.com/style/abbreviations) on 2026-10-07, its cross-references page (https://developers.google.com/style/cross-references) on 2026-10-08, and its future-features page (https://developers.google.com/style/future) on 2026-10-09. Updated on 2026-11-02 with page types and the overview page style, after the team approved the Welcome and What is NeoHive redesign in PR #22. Where this guide is stricter than Google's, the stricter rule wins. Plain English comes first, ahead of every other rule here.
 
 ## Plain English (Critical)
 
@@ -12,7 +12,7 @@ Every other rule in this guide serves this section. If a sentence follows every 
 
 | Rule | Explanation |
 | --- | --- |
-| **Write complete sentences.** | Every sentence has a subject and a verb and makes sense on its own. Fragments like "Not supported." or "Saved to dashboard." leave the reader to guess what is not supported or what was saved, and a guess is often wrong. |
+| **Write complete sentences.** | Every sentence has a subject and a verb and makes sense on its own. Fragments like "Not supported." or "Saved to dashboard." leave the reader to guess what is not supported or what was saved, and a guess is often wrong. The one exception is the bold lead-in of a list item, described in [Lists with a bold lead-in](#lists-with-a-bold-lead-in), where the full sentences that follow carry the meaning. |
 | **Keep sentences short: aim for 20 words or fewer.** | Put one idea in each sentence. A long sentence with several clauses makes the reader hold the start in mind while they parse the end, and readers working in a second language often lose track of the meaning. In a table, apply the limit to each cell. |
 | **Use the simplest word that is accurate.** | Write "use", not "utilize"; "start", not "initiate"; "help", not "facilitate"; "about", not "approximately". Formal words slow the reader down and add nothing. |
 | **Explain a technical term the first time you use it, or replace it.** | Say what the thing does in everyday words, for example "an embedding (a list of numbers that captures what a piece of text means)". An unexplained term blocks a new user, and they leave the page to look it up. |
@@ -31,16 +31,83 @@ Every other rule in this guide serves this section. If a sentence follows every 
 | It is recommended that you back up your data. | Back up your data first. |
 | NeoHive runs in a Docker container. You manage Hives from a dashboard. (Two facts side by side, with no point that links them.) | You run NeoHive yourself, so your content stays on a machine you control. NeoHive runs in a Docker container, and the same container serves the dashboard where you manage your Hives. |
 
+## Page types (Must Follow)
+
+Every page has a type, and the type sets how dense the page is. Readers arrive at an overview page to decide where to go, so it is short and easy to scan. Readers arrive at a deeper page to understand something or get it done, so it explains as much as the topic needs.
+
+| Page type | Pages | How the page reads |
+| --- | --- | --- |
+| **Overview** | Welcome (`README.md`), What is NeoHive, and a landing page that only leads into its child pages, such as Add a code repository | Short sections with one idea each. Cards link to the next pages, and lists with a bold lead-in carry the problems and benefits. The tone follows the public website and leads with what the team gets. See [Overview pages](#overview-pages-must-follow). |
+| **Getting started** | Quickstart, Install NeoHive, Connect your agent and its four agent pages, and Your first session | Numbered steps. After each step, show what the reader sees, such as the command's output, so they know the step worked. |
+| **Concept** | Core Concepts, Dashboard tour, and the Security and privacy pages | Prose leads, supported by a diagram and at most one list or table in each section. A concept page explains why as well as what, so it can be longer and more technical than an overview page. |
+| **Guide** | The Get better results pages, and What to add, and where | Advice on how to work with NeoHive, built on examples: what to say, what you notice, what to do instead. Mix prose with example prompts, a lookup table, or a diagram, as the advice needs. |
+| **Task** | The other Add your context pages, and the Administration pages except Dashboard tour | A short introduction, then numbered steps. Background goes before or after the steps, not inside them. |
+| **Reference** | The Reference pages, including the Glossary | Tables for lookup, with an introduction of two or three sentences. |
+| **Troubleshooting** | The Troubleshooting pages | Lead with what the reader sees, such as the exact error message, then give the cause and the fix. See [Documenting errors](#documenting-errors-must-follow). |
+
+- **A page that fits two types follows the type of its main job.** For example, What the plugin does automatically is a guide with a reference table of hooks, and Licensing is a task page that also explains the license. Use the other type's format only for the section that needs it.
+- **When you add a page, decide its type first.** If no row fits, add a row to this table in the same change.
+- **Use the overview style on overview pages only.** Concept, task, reference, and troubleshooting pages carry detail the reader came for. Do not cut that detail, or turn its reasoning into bullets, to make a deeper page look like an overview page.
+- **Lighter is not shorter in content.** An overview page says less because it links to the page that says more, not because it leaves facts out. Every claim on an overview page has a deeper page behind it.
+
 ## Page structure (Must Follow)
 
 | Rule | Explanation |
 | --- | --- |
-| **Open every page with an introduction that answers three questions.** | What is this thing, in plain words? Why or when does the reader need it? What does this page help them do? A page that opens with a one-line summary assumes the reader already knows the topic, and a reader from search does not. |
+| **Open every page with an introduction that answers three questions.** | What is this thing, in plain words? Why or when does the reader need it? What does this page help them do? A page that opens with a one-line summary assumes the reader already knows the topic, and a reader from search does not. On an overview page, a one-line tagline and one short paragraph answer all three. |
 | **Keep each paragraph to one idea and about three to five sentences.** | Short paragraphs are easy to scan. A paragraph that covers two ideas becomes a slab of text, so split it. |
 | **Vary how introductions are worded.** | Do not open every page with the same stock sentences, such as "You need this page when..." followed by "This page helps you...". A template repeated on every page reads as a form, and readers learn to skip it. Write each introduction for its own topic. |
 | **Explain each topic in full on one page only. Elsewhere, summarize it and link to that page.** | Before you explain a topic, look it up in `internal/topic-owners.md` in the `NeoHiveAI/docs` repository, which names the page that owns each topic. When you add, move, rename, or delete a page, update that file in the same change. An out-of-date map lets the next writer explain a topic a second time. On other pages, give a one or two sentence summary, then link to the full page, for example "For more information, see [Hives, Indexes, and Memories](../concepts/hives-indexes-memories.md)." Two full explanations of one topic drift apart as each is edited, and the reader cannot tell which is right. If no page covers the topic and it needs more than a short summary, give it its own page. |
 | **Do not set a word limit for a page. Limit its scope instead.** | Explain as much as the topic needs. Each page covers one task or one idea, so length stays reasonable. When a page grows long because it covers two topics, split it into two pages. Do not cut needed explanation to make a page shorter. |
 | **Reference pages can have a shorter introduction.** | A reference page, such as a list of commands or settings, is for looking things up. Its introduction still says what the list covers and when the reader needs it, in two or three sentences. |
+| **Keep the introduction to about two short paragraphs before the first diagram.** | Do not open straight into a diagram, and do not let the introduction run longer than the reader needs to know what the page is about. |
+| **Do not describe the page itself.** | Cut sentences such as "This page lists..." or "The steps that follow name...". Say what the product does instead. |
+| **Say each thing once on a page.** | When a sentence, a diagram, and a list all name the same stages, keep the diagram and the list and cut the sentence. Do not redefine a term the page already links to the glossary. |
+| **Cut sentences that state the obvious.** | For example, "You create Hives in the dashboard" on a concepts page. A sentence the reader already knows slows them down on the way to the one they need. |
+
+## Page layout (Must Follow)
+
+A page mixes a few kinds of block, and each block earns its place. A page that is all bullets, all tables, or all callouts is hard to scan, and a page that forces in a block it does not need looks busy.
+
+| Rule | Explanation |
+| --- | --- |
+| **Mix block types on a page, and use each only where it fits.** | Combine prose with a list, a table, a diagram, or tabs as the content needs. Do not add a block type to fill a quota. |
+| **Use at most one list or one table in each section.** | Two lists or a list and a table back to back read like slides, and the reader loses the thread between them. |
+| **Keep some plain sentences on every page.** | Lists and tables hold facts. Sentences carry the reasoning that connects them. |
+| **Do not nest bullets, and avoid long runs of bullets.** | When several items share the same fields, such as a mistake, what you notice, and the fix, use a table instead. |
+| **Use a table for lookups and real comparisons.** | Good uses are "what you notice and the fix" and "what you say and what it narrows to". A two-row table or a table of single facts is a list. |
+| **Use tabs for content that differs by tool.** | For example, one tab each for Claude Code, Codex, and Cursor. Each reader opens their own tab instead of reading every tool's steps. |
+| **Do not hide content the reader needs in a collapsible block.** | Readers skip a closed block, and browser search may not find text inside it. Keep `<details>` for optional detail. |
+| **Use a numbered list, not numbered cards, for a short sequence.** | Cards suit links to other pages. Three big cards for three short points look heavy. |
+
+## Overview pages (Must Follow)
+
+These rules shape the Welcome page, What is NeoHive, and section landing pages. The team approved this style in PR #22. Deeper pages follow the rest of this guide, as [Page types](#page-types-must-follow) describes.
+
+| Rule | Explanation |
+| --- | --- |
+| **Frame the problem the way the website does.** | Lead with the team problem: each developer teaches their own agent, and a lesson one person teaches never reaches a teammate. Every agent starting from zero and context files that grow without limit come after it, as supporting points. Check the messaging on `neohive.ai` before you write an overview page, so the docs and the website tell the same story. |
+| **Open with a tagline and one short paragraph.** | A bold one-line tagline can follow the H1, such as "**Coding agents that share what your whole team knows.**" Then one short paragraph starts from the team's situation, says what NeoHive is, and says what changes for the team, as the overview rule in [Voice and tone](#voice-and-tone-must-follow) describes. Use a tagline on overview pages only. |
+| **Get the reader to the next step in the first screen.** | On the Welcome page, put a **Start here** set of cards right after the opening paragraph, with the Quickstart first. A new reader reaches the install without scrolling past explanation. |
+| **Use cards for links to other pages, and only for links.** | Write cards as `<table data-view="cards">`, as on the Welcome page. Each card has an icon, a bold title that matches the target page's title, one sentence on what the reader gets there, and a hidden content-ref to the page. Use four or six cards, so the two-column grid fills evenly. Content that is not a link goes in a list or a paragraph. |
+| **Give the problem one short section.** | The Welcome page names the problem in a few bullets. The full explanation belongs on What is NeoHive, which owns the topic in `internal/topic-owners.md`. Do not explain it a third time on another page. |
+| **Break up a paragraph that lists several facts.** | When a paragraph names four benefits in a row, write them as a list with a bold lead-in. Keep plain sentences for reasoning that links one point to the next. A list does not excuse disconnected sentences: introduce it with a complete sentence, make the sentences inside each item follow from each other, and start the paragraph after the list from what the list ended on. Where this rule and **Write coherent paragraphs** pull different ways, **Write coherent paragraphs** wins, because a list of facts with nothing linking them reads as generated text whether it sits in a paragraph or in bullets. |
+
+### Lists with a bold lead-in
+
+A list with a bold lead-in opens each item with a short bold phrase that states the point, followed by one or two full sentences that back it up. For example:
+
+```markdown
+* **Lessons stick.** What your team teaches the agent, such as a convention or a bug fix, is stored as a Memory in your Hive.
+* **Only what the task needs.** The agent gets back the matching parts, not a whole context file.
+```
+
+- **Make the lead-in a claim the reader can scan.** Write "**Lessons stick.**", not "**Memories.**". A reader who reads only the bold text still gets the point.
+- **Use three to five items with the same shape.** Two items read better as a sentence, and more than five turn into a wall of bold text.
+- **Keep the list one level deep, and end each lead-in with a period.**
+- **Introduce the list with a complete sentence, as every list needs.** A heading alone does not count. Without the sentence, the list starts with no context and reads as a slide.
+- **Make the sentences after each lead-in follow from each other.** **Write coherent paragraphs** applies inside each item. Two unrelated sentences after a bold phrase are the same list of facts this format is meant to break up.
+- **Use this format on any page with parallel points, not only overview pages.** For example, the habits on Habits that compound use it as a numbered list. Do not use it for steps the reader follows in order.
 
 ## Voice and tone (Must Follow)
 
@@ -50,15 +117,17 @@ Every other rule in this guide serves this section. If a sentence follows every 
 | **Use active voice.** | Write "NeoHive saves your changes", not "Your changes are saved". Passive voice hides who does the action, so the reader cannot tell whether they need to do something. |
 | **Use present tense.** | Write "The page shows your results", not "The page will show your results". The future tense makes a normal, immediate result sound delayed or uncertain. |
 | **Be friendly and direct, not chatty.** | Contractions such as "don't" and "you're" are fine. Jokes, exclamation marks, and slang are not, because they do not translate and they become tiresome on repeat reads. |
-| **On overview and concept pages, start from the reader's situation and bring NeoHive in as the answer.** | Describe what the reader runs into first, such as "Your coding agent doesn't know your code", then why the usual workarounds fall short, then what NeoHive does about it. A page that names NeoHive in every sentence reads like a product sheet, and the reader has no reason yet to care what the product does. Task pages, such as install and connect pages, stay plain steps: a story in front of a procedure only delays the first step. This rule is about the product pitch, not about facts: a sentence that says how NeoHive runs, such as "NeoHive runs as a server" on the network page, is the premise the page rests on, so it stays first. |
+| **On overview and concept pages, start from the reader's situation and bring NeoHive in as the answer.** | Describe what the reader runs into first, such as "A correction you make in your agent doesn't reach a teammate's agent", then why the usual workarounds fall short, such as a shared context file that grows with every lesson, then what NeoHive does about it. Lead with the team problem, as [Frame the problem the way the website does](#overview-pages-must-follow) describes. A page that names NeoHive in every sentence reads like a product sheet, and the reader has no reason yet to care what the product does. Task pages, such as install and connect pages, stay plain steps: a story in front of a procedure only delays the first step. This rule is about the product pitch, not about facts: a sentence that says how NeoHive runs, such as "NeoHive runs as a server" on the network page, is the premise the page rests on, so it stays first. |
 | **Use concrete details from the reader's work, not categories.** | Write "the library you moved off last quarter", not "outdated dependencies". A detail the reader recognizes from their own week lands, and a category reads as filler they skim past. |
-| **End a problem section with what the reader needs, in the problem's own words.** | Write "What the agent needs is context that lasts between sessions, like a context file, and fits the task at hand, like code you paste. NeoHive gives the agent both." Do not close with a rhetorical question such as "So how do we fix this?". The next sentence or heading answers it at once, so the question only delays the answer, and "we" puts the writer in the reader's place. |
+| **End a problem section with what the reader needs, in the problem's own words.** | Write "What your team needs is one memory that every agent reads and every teammate adds to. NeoHive is that memory." Do not close with a rhetorical question such as "So how do we fix this?". The next sentence or heading answers it at once, so the question only delays the answer, and "we" puts the writer in the reader's place. |
 | **When readers arrive with a yes-or-no question, answer it first.** | On security and privacy pages, put the key fact, such as which outbound connections NeoHive makes, before the details that support it. A reader who has to get through three paragraphs to learn whether their data is safe assumes the answer is being hidden. |
 | **When you reword a paragraph, keep every premise, topic sentence, and consequence.** | Before you finish, compare the old and new versions sentence by sentence, and check that each fact in the old version is still in the new one. Rewording for tone or rhythm tempts you to cut the plain sentences, but those often carry the point: "A Hive is shared" is the reason the "Built for teams" section exists, "NeoHive copies your repositories" tells a security reviewer the content is a copy, and "so automatic recall uses the Hive for this project" is why the `--scope project` flag matters. A rewrite that drops one reads better and says less, and no reviewer notices the missing fact. |
 | **Vary sentence length, and do not repeat the same connector.** | Mix short sentences with longer ones, and avoid a run of "so" or "and" clauses, such as "A Hive is shared, so... so... so...". A repeated pattern reads as generated text, and the reader stops taking in each point. |
 | **Do not call a task easy or simple.** | Avoid "simply", "just", "easy", and "obviously". A reader who is stuck now also feels slow, and the word adds no information. |
 | **Do not write "please" in instructions.** | Write "Enter your token", not "Please enter your token". "Please" lengthens every step and makes a required action sound optional. |
 | **Do not pre-announce features.** | Describe what NeoHive does today. A promise of a future feature goes stale, and readers plan around it. An on-screen label such as **Coming soon** may be quoted, because it describes what the reader sees. |
+| **Write "might" or "can", not "may".** | "May" can mean permission or possibility, and the reader cannot tell which. Write "might" for something that might happen and "can" for something the reader is able to do, as [Common words to replace](#common-words-to-replace-quick-reference) lists. |
+| **Match the tone to the page type.** | Overview pages can use the public website's tone, start from the team's problem, and then say what the team gets. Concept, task, reference, and troubleshooting pages stay plain and direct. See [Page types](#page-types-must-follow). |
 
 ## Writing for a global audience (Must Follow)
 
@@ -134,6 +203,8 @@ NeoHive opens the new Index page and starts the first sync.
 | **Do not describe an element by its position or color.** | Write "Click **Export**", not "Click the blue button on the right". Layouts change between screen sizes, and readers using screen readers or who cannot see color get nothing from the description. If an element has no label, name what it is, such as "the bell icon". |
 | **Do not describe a disabled or "Coming soon" element on a task page.** | When the screen already labels an option **Coming soon** and the reader cannot select it, the screen has told them everything. A sentence repeating it interrupts the task. Mention an option that is not available yet only on the page a reader checks to find out whether it exists, such as the list of data sources. |
 | **Document only what the reader can see, set, or act on.** | Nothing internal-only goes in the docs. That covers dashboard text, command output, slash commands, MCP tools, endpoints the reader calls, environment variables they set, files they can open, and hosts they can block. Leave out database tables and columns, source file paths, function names, migration numbers, internal job names, and ranking or chunking internals. A reader cannot find or change any of these, so the text costs reading time and goes stale with the next refactor. A security or backup fact stays when the reader needs it for a decision, written as what they can observe, such as where a file lives. Google's guide has no matching rule, so this one is a house rule stricter than Google. |
+| **Do not document a bug or an inconsistency in NeoHive itself.** | For example, when a plugin's own description claims a hook runs and none does, report it to the team that owns the plugin. Documenting the bug makes the docs explain a mistake instead of the product. |
+| **Do not use older product names in user docs.** | Readers of the current release never saw them. When an upgrade note is needed, put it on a Reference page. |
 | **Do not document how a feature works until readers can use it.** | A feature that is gated or shows **Coming soon**, such as Jira today, gets one line on the page that lists what exists (the data sources list) and nothing anywhere else. Leave its fields, tokens, checks, network calls, and stored data out of every other page, security and reference pages included. A reader cannot act on them, and they read as a promise the product does not keep yet. When the feature ships, document it then, from the released code. Google's guide says the same: avoid documenting future features, even in innocuous ways. |
 | **Use sentence case for titles and headings.** | Write "Connect a repository", not "Connect A Repository". Sentence case is easier to read and matches how labels appear in the app. This includes the section titles in `SUMMARY.md`. |
 | **Start a task title or heading with a verb in its base form.** | Write "Expose NeoHive beyond your network", not "Exposing NeoHive beyond your network". Google's headings rule reserves the base form for task pages, and an "-ing" title reads as a concept page, so a reader scanning the menu for something to do skips past it. Concept titles stay noun phrases, such as "What stays on your machine". |
@@ -166,6 +237,8 @@ NeoHive opens the new Index page and starts the first sync.
 ## Notes and warnings (Must Follow)
 
 Use a callout only when the reader must not miss the information. Too many callouts teach readers to skip all of them.
+
+Do not use a callout for emphasis or a side note. Rewrite that text as a plain sentence in the paragraph it belongs to.
 
 | Label | GitBook style | Use it when |
 | --- | --- | --- |
@@ -230,3 +303,6 @@ Put a caution or warning before the step it applies to, not after. A reader who 
 | **Every fact is something the reader can see, set, or act on.** | For each table name, code path, or internal mechanism on the page, ask where the reader would ever meet it. If nowhere, cut it. |
 | **No page explains a feature readers cannot use yet.** | Search the page for the name of each gated or **Coming soon** feature, such as Jira. Only the data sources list may mention one. |
 | **No page has an em-dash.** | Search the page for the em-dash character. Replace each one with a colon, a comma, parentheses, or a new sentence. |
+| **No page has a semicolon in its prose.** | Search the page for `;` outside code. Replace each one with a comma, a colon, or a new sentence. |
+| **No section has more than one list or table.** | Check the page in a preview, and look for runs of bullets or callouts. |
+| **The page reads like its type.** | Find the page in [Page types](#page-types-must-follow). An overview page reaches its cards in the first screen. A concept or task page has not been cut down to bullets to look like an overview page. |
