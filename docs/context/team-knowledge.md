@@ -25,7 +25,7 @@ Every Memory goes into the Knowledge Index of the Hive your agent is connected t
 
 ## Who can recall your team's Memories
 
-Each Hive's Knowledge Index is shared by everyone on that Hive, and only them:
+Each Hive's Knowledge Index belongs to that Hive only:
 
 - Everyone who connects an agent to the Hive shares one Knowledge Index.
 - A teammate who joins later starts with everything the team has stored.

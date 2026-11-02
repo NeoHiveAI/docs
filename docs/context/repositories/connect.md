@@ -10,7 +10,7 @@ Create a token, save it as a connection, select the repository, and then select 
 
 ## Create a token
 
-Create a personal access token (PAT) on GitHub or GitLab with the settings below, or use an SSH key. The **Create a PAT** link in the connection form opens the same page with these settings filled in.
+Create a personal access token (PAT) on GitHub or GitLab with the settings in the following tabs, or use an SSH key. The **Create a PAT** link in the connection form opens the same page with these settings filled in.
 
 {% tabs %}
 {% tab title="GitHub" %}
@@ -44,13 +44,13 @@ To create the Index, do the following:
 2. Next to **Indexes**, select **+**.
 3. Select **GitHub** or **GitLab**.
 4. Under **Content type**, select **Code**. If the Index holds only docs, select **Documentation** instead.
-5. Under **Connection**, select **Add a new connection**, and then do the following:
-   1. Enter a **Name**, such as `Work GitHub`.
-   2. Paste the token you created in [Create a token](#create-a-token) into **Personal Access Token**.
-   3. Select **Save connection**. NeoHive checks the token with the provider and does not save a token that the provider rejects. If you already saved the same token or account, NeoHive warns you and offers **Add anyway**.
-6. Under **Repository**, select the repository from the list, or paste its URL into **Search repositories or paste a URL...**. If the list does not show a pasted repository, select its **Use** row, such as **Use acme/api**.
-7. Check **Index name** and **Branch**. NeoHive fills both in from the repository. The Index name must be unique in the Hive. To use another branch, select it from the list.
-8. Select **Create Index**.
+5. Under **Connection**, select **Add a new connection**.
+6. Enter a **Name**, such as `Work GitHub`.
+7. Paste the token you created in [Create a token](#create-a-token) into **Personal Access Token**.
+8. Select **Save connection**. NeoHive checks the token with the provider and does not save a token that the provider rejects. If you already saved the same token or account, NeoHive warns you and offers **Add anyway**.
+9. Under **Repository**, select the repository from the list, or paste its URL into **Search repositories or paste a URL...**. If the list does not show a pasted repository, select its **Use** row, such as **Use acme/api**.
+10. Check **Index name** and **Branch**. NeoHive fills both in from the repository. The Index name must be unique in the Hive. To use another branch, select it from the list.
+11. Select **Create Index**.
 
 NeoHive opens the new Index page and starts the first sync. The page header shows the progress.
 

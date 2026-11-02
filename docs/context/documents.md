@@ -4,42 +4,26 @@ description: "Upload markdown, text, PDF, Office, and image files to a Files Ind
 
 # Add documents and PDFs
 
-A [Files Index](../concepts/glossary.md#files-index) holds documents that you upload, such as specs, runbooks, design docs, meeting notes, or an exported notes vault. NeoHive turns each file into text, and your agent recalls it the same way it recalls code. This page shows how to create a Files Index, upload files, and manage them later.
+A [Files Index](../concepts/glossary.md#files-index) holds documents that you upload, such as specs, runbooks, design docs, meeting notes, or an exported notes vault. NeoHive turns each file into text, and your agent recalls it the same way it recalls code. You create the Files Index once, and then add, replace, or delete its files whenever your documents change.
 
 <figure><img src="../.gitbook/assets/context-documents.svg" alt="You upload a markdown, text, PDF, Office, or image file of up to 50 MB. NeoHive first converts a PDF, Office file, or image to text, which takes longer. The Files Index stores the text in a searchable form. Your agent's memory_recall gets back the section that answers the question."><figcaption></figcaption></figure>
 
 If your documents already live in a GitHub or GitLab repository, add the repository instead of uploading the files. A repository stays in sync as the documents change, and an upload does not. See [Add a code repository](repositories/README.md).
 
-{% stepper %}
-{% step %}
 ## Create the Index
+
+NeoHive accepts markdown, text, PDF, Word, Excel, and PowerPoint files, and PNG or JPEG images, up to 50 MB each. For details, see [Supported file types](../reference/file-types.md). To move an Obsidian vault or a similar notes vault, export it as markdown and upload the files.
 
 To create a Files Index, do the following:
 
 1. Open your [Hive](../concepts/glossary.md#hive) at `http://localhost:3577`.
 2. Select **+** next to **Indexes**.
 3. Select **File Upload**.
-{% endstep %}
-
-{% step %}
-## Add files
-
-Optional: Drag files onto the **Files** drop zone, or select the drop zone to browse. The files upload after NeoHive creates the Index, so you can also skip this step and upload files later.
-
-NeoHive accepts markdown, text, PDF, Word, Excel, and PowerPoint files, and PNG or JPEG images, up to 50 MB each. For details, see [Supported file types](../reference/file-types.md).
-{% endstep %}
-
-{% step %}
-## Name and create the Index
-
-NeoHive fills in **Index name** from the first file. To name and create the Index, do the following:
-
-1. Change **Index name** to describe the documents, for example `Engineering Docs`.
-2. Select **Create Index**.
+4. Optional: Drag files onto the **Files** drop zone, or select the drop zone to browse. The files upload after NeoHive creates the Index, so you can also skip this step and upload files later.
+5. Change **Index name** to describe the documents, for example `Engineering Docs`. NeoHive fills in **Index name** from the first file.
+6. Select **Create Index**.
 
 Each file becomes searchable as soon as it finishes processing.
-{% endstep %}
-{% endstepper %}
 
 To help your agent choose this Index, set a **Description** on the **Index Info** tab. Name the kind of documents the Index holds. Your agent reads this description through `list_indexes`.
 
@@ -57,10 +41,6 @@ To replace a document, upload the new version with the same file name. NeoHive r
 
 {% hint style="warning" %}
 When you select the trash icon next to a file, NeoHive deletes the file and its content from the Index right away, without asking you to confirm.
-{% endhint %}
-
-{% hint style="info" %}
-To move an Obsidian vault or a similar notes vault, export it as markdown and upload the files.
 {% endhint %}
 
 ## Large or scanned files

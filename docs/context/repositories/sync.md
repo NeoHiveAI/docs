@@ -20,7 +20,15 @@ To set the schedule, do the following:
 2. Under **Configuration**, select a **Sync interval**.
 3. Select **Save settings**.
 
+You also set the **Branch** and the **Connection** on the same card.
+
 Syncs run at fixed times of day, in UTC. For example, **Every 4 hours** runs at 00:00, 04:00, 08:00 UTC, and so on, and **Daily** runs at 00:00 UTC.
+
+If NeoHive was not running when a sync was due, NeoHive syncs that Index as soon as NeoHive starts again.
+
+## Choose a sync interval
+
+Pick the interval that matches how often the repository changes.
 
 | **Sync interval** | Good for |
 |---|---|
@@ -28,10 +36,6 @@ Syncs run at fixed times of day, in UTC. For example, **Every 4 hours** runs at 
 | **Every hour** | Most repositories |
 | **Every 4 hours** | The default for an Index you add from the dashboard |
 | **Daily** | A repository that rarely changes |
-
-You also set the **Branch** and the **Connection** on the same card.
-
-If NeoHive was not running when a sync was due, NeoHive syncs that Index as soon as NeoHive starts again.
 
 ## Sync now
 
@@ -60,9 +64,11 @@ To index changes right after every merge, your CI pipeline can send the changed 
 | **Commit Range** | The commits between the previous run and this one |
 | **Error** | What went wrong. Select the error to read the full message |
 
+For runs that keep failing, see [Repository sync issues](../../troubleshooting/sync.md).
+
+## If the branch is renamed
+
 If someone renames the branch, for example from `master` to `main`, the sync follows the new name when the match is clear. Otherwise, the Index page shows `A synced branch is no longer on the remote`, and everything indexed so far stays searchable. To fix it, do the following:
 
 1. Under **Pick a branch to sync instead**, select the new branch.
 2. Select **Sync this branch**.
-
-For runs that keep failing, see [Repository sync issues](../../troubleshooting/sync.md).

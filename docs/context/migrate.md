@@ -45,29 +45,31 @@ The skill never imports `~/.codex/AGENTS.md`, `~/.claude/CLAUDE.md`, or `~/.curs
 {% endtab %}
 {% endtabs %}
 
+## Review and approve the Memories
+
 {% stepper %}
 {% step %}
 ## The skill lists the files
 
-You see each project file it will read. Files in your home folder show as skipped.
+You see each project file that the skill reads. Files in your home folder show as skipped.
 {% endstep %}
 
 {% step %}
 ## The skill sorts the rules
 
-Each rule or decision becomes its own Memory with a type, such as `directive`, `convention`, or `decision`. Setup steps, tables of contents, TODO lists, and personal preferences are left out. An entry that could be personal or team is marked as ambiguous.
+Each rule or decision becomes its own Memory with a type, such as `directive`, `convention`, or `decision`. The skill leaves out setup steps, tables of contents, TODO lists, and personal preferences. The skill marks an entry that could be personal or team as ambiguous.
 {% endstep %}
 
 {% step %}
 ## You approve
 
-If the skill asks which [Index](../concepts/glossary.md#index) to use, select **Knowledge**. A preview then shows what the skill plans to store and what it skipped. Nothing is stored until you approve. You can remove items, re-classify the ambiguous ones, or stop.
+If the skill asks which [Index](../concepts/glossary.md#index) to use, select **Knowledge**. A preview then shows what the skill plans to store and what it skipped. The skill stores nothing until you approve. You can remove items, re-classify the ambiguous ones, or stop.
 {% endstep %}
 
 {% step %}
 ## The skill stores the Memories
 
-It skips anything the Hive already holds, stores the rest in the [Knowledge Index](../concepts/glossary.md#knowledge-index), and shows a summary.
+If the Hive already holds a rule as a Memory, the skill skips that rule. The skill stores the rest in the [Knowledge Index](../concepts/glossary.md#knowledge-index) and shows a summary.
 {% endstep %}
 {% endstepper %}
 
@@ -83,6 +85,4 @@ The skill does not change `CLAUDE.md`, so your agent still loads every rule in i
 
 If a rule migrated incorrectly or becomes out of date, tell your agent. Your agent then deactivates the old Memory. For details, see [Capture team knowledge](team-knowledge.md#correct-what-goes-stale).
 
-{% hint style="info" %}
 Long-form notes, such as an Obsidian vault, design docs, or runbooks, belong in a [Files Index](../concepts/glossary.md#files-index). See [Add documents and PDFs](documents.md).
-{% endhint %}

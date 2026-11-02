@@ -14,9 +14,9 @@ Before you start, you need a Hive, read access to the repository, and a personal
 
 To add a repository, do the following:
 
-1. **Connect the repository.** Save a connection, select the repository and branch, and create the Index. See [Connect GitHub or GitLab](connect.md).
-2. **Optional: choose which files are included.** Keep generated code, fixtures, and other unwanted files out. See [Choose which files are included](file-patterns.md).
-3. **Optional: adjust syncing.** Set the sync schedule, sync on demand, and read the sync history. See [Keep a repository up to date](sync.md).
+1. Save a connection, select the repository and branch, and create the Index. See [Connect GitHub or GitLab](connect.md).
+2. Optional: Keep generated code, fixtures, and other unwanted files out of the Index. See [Choose which files are included](file-patterns.md).
+3. Optional: Set the sync schedule, sync on demand, or read the sync history. See [Keep a repository up to date](sync.md).
 
 NeoHive copies and indexes the code on the machine it runs on, and sends none of it to an outside service. For details, see [What stays on your machine](../../security/local-only.md).
 

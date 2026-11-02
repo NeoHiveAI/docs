@@ -31,45 +31,15 @@ Write one pattern per line. A pattern is a file path from the repository root, a
 
 To set the patterns, do the following:
 
-{% stepper %}
-{% step %}
-## Open the filters
-
-Open the Index's **Sync Settings** tab. **File filters** is under **Configuration**.
-{% endstep %}
-
-{% step %}
-## Optional: draft the patterns with your agent
-
-To get a first draft of the patterns, do the following:
-
-1. Select **Copy AI prompt**.
-2. Paste the prompt into your agent.
-3. Describe your repository to your agent.
-{% endstep %}
-
-{% step %}
-## Enter the patterns
-
-Type one pattern per line into **Allowlist**, **Blocklist**, or both.
-{% endstep %}
-
-{% step %}
-## Save the settings
-
-Select **Save settings**.
-{% endstep %}
-
-{% step %}
-## Sync the Index
-
-Saving does not start a sync, so start one now to apply the new patterns:
-
-1. At the top of the page, select **Trigger sync**.
-2. If the **Sync Warning** dialog opens, select **I Understand**.
+1. Open the Index's **Sync Settings** tab. **File filters** is under **Configuration**.
+2. Optional: To get a first draft of the patterns from your agent, select **Copy AI prompt**.
+3. Optional: Paste the prompt into your agent.
+4. Optional: Describe your repository to your agent.
+5. Type one pattern per line into **Allowlist**, **Blocklist**, or both.
+6. Select **Save settings**.
+7. To apply the new patterns, select **Trigger sync** at the top of the page. Saving does not start a sync.
+8. If the **Sync Warning** dialog opens, select **I Understand**.
 
 This sync reads the whole repository again. It removes the files that the new patterns leave out, and adds the files that they now include.
-{% endstep %}
-{% endstepper %}
 
 If your agent cannot find a file, check both lists first, because a pattern might filter the file out.
