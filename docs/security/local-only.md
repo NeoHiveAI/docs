@@ -6,7 +6,7 @@ description: "What NeoHive keeps on your machine, every outbound connection it m
 
 NeoHive runs on your own machine or on a shared server for your team. NeoHive stores and searches your content there, but the NeoHive container still connects to a few outside services, for example to check your license.
 
-An outbound connection is a request that NeoHive starts to another server. This page lists each one, what it sends, and whether you can block it. Use this page for a security review, or when you set up a firewall for the NeoHive server. The following diagram shows what stays on the machine and what leaves it:
+An outbound connection is a request that NeoHive starts to another server. Before a security review, or before you set up a firewall for the NeoHive server, check what each connection sends and whether you can block it. The following diagram shows what stays on the machine and what leaves it:
 
 <figure><img src="../.gitbook/assets/security-local-only.svg" alt="Your content stays in the NeoHive container. Arrows leave the machine for the license, metrics, update, model, data source, font, and provider connections."><figcaption></figcaption></figure>
 

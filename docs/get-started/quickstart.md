@@ -4,7 +4,7 @@ description: "The shortest path from nothing to a coding agent that answers from
 
 # Quickstart
 
-This page takes one path with no options: NeoHive, one GitHub repository, and Claude Code. Steps 2 and 3 follow the dashboard's setup wizard, which creates your first Hive and connects your agent. To check each step or to connect a different agent, use [Install NeoHive](install.md).
+You install NeoHive, index one GitHub repository, and connect Claude Code, with no options along the way. Steps 2 and 3 follow the dashboard's setup wizard, which creates your first Hive and connects your agent. To check each step or to connect a different agent, see [Install NeoHive](install.md).
 
 Before you start, you need the following:
 
