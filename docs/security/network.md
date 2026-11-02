@@ -30,7 +30,7 @@ For access from outside your network, put a proxy in front of NeoHive, and have 
 
 ### Put a proxy in front
 
-NeoHive serves plain HTTP, so outside access needs a reverse proxy or VPN gateway in front of NeoHive. Cloudflare Access and a company VPN are two examples of such gateways. A reverse proxy is a server that receives each request and forwards it to NeoHive, but only after it checks the request's credential. The proxy also provides the HTTPS certificate, so point your agents at the `https://` address that the proxy exposes, for example `https://neohive.example.com/hives/<hive-id>/mcp`.
+NeoHive serves plain HTTP, so outside access needs a reverse proxy or VPN gateway in front of NeoHive. Cloudflare Access and a company VPN are two examples of such gateways. A reverse proxy is a server that receives each request and forwards it to NeoHive, but only after it checks the request's credential. The proxy also provides the HTTPS certificate, so give your agents the `https://` address that the proxy exposes, for example `https://neohive.example.com/hives/<hive-id>/mcp`.
 
 ### Where your proxy checks the credential
 
@@ -53,7 +53,9 @@ claude mcp add neohive 'https://neohive.example.com/hives/<hive-id>/mcp' \
   --header 'x-mcp-client: claude-code'
 ```
 
-The single quotes around the header write `${NEOHIVE_TOKEN}` into `.mcp.json` instead of the token itself. Claude Code fills in the token from your environment when it starts, so you can commit `.mcp.json` without the secret. Keep the `NEOHIVE_TOKEN` variable exported where Claude Code runs. The hooks send it as `Authorization: Bearer $NEOHIVE_TOKEN`. The command uses `--scope project` so that the hooks can find the server. For more information about how the hooks find the server, see [What the plugin does automatically](../results/plugin-automation.md#when-the-prompt-recall-adds-nothing).
+The single quotes around the header write `${NEOHIVE_TOKEN}` into `.mcp.json` instead of the token itself. Claude Code fills in the token from your environment when it starts, so you can commit `.mcp.json` without the secret.
+
+Keep the `NEOHIVE_TOKEN` variable exported where Claude Code runs. The hooks send it as `Authorization: Bearer $NEOHIVE_TOKEN`. The command uses `--scope project` so that the hooks can find the server. For more information about how the hooks find the server, see [What the plugin does automatically](../results/plugin-automation.md#when-the-prompt-recall-adds-nothing).
 {% endtab %}
 
 {% tab title="Cursor" %}

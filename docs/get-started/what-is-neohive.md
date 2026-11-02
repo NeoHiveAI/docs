@@ -8,7 +8,7 @@ NeoHive is a self-hosted memory that your team's coding agents, such as Claude C
 
 ## The problem it solves
 
-Each developer on a team teaches their own coding agent, and a correction that one person makes doesn't reach a teammate's agent. Each agent also starts every session with no knowledge of your project. The agent doesn't know how your code is organized or which conventions your team follows, and it doesn't remember what you told it yesterday or why your team made a decision. As a result, you explain the same things again and correct the same mistakes. What the agent needs is context about your project that lasts between sessions and that your whole team shares.
+Each developer on a team teaches their own coding agent, and a correction that one person makes doesn't reach a teammate's agent. Each agent also starts every session with no knowledge of your project, such as how your code is organized or which conventions your team follows. The agent doesn't remember what you told it yesterday or why your team made a decision. As a result, you explain the same things again and correct the same mistakes. What the agent needs is context about your project that lasts between sessions and that your whole team shares.
 
 ## What changes with NeoHive
 

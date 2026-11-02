@@ -46,10 +46,7 @@ The JSON looks like this:
 
 The file is `~/Library/Application Support/Claude/claude_desktop_config.json` on macOS and `%APPDATA%\Claude\claude_desktop_config.json` on Windows. If the file already has an `mcpServers` block, add the entry inside that block.
 
-To load the new server, do the following:
-
-1. Quit Claude Desktop completely.
-2. Open Claude Desktop again.
+To load the new server, quit Claude Desktop completely, and then open it again.
 
 The `--allow-http` flag lets `mcp-remote` use a plain `http://` address. If you opened the dashboard over `https://`, the dashboard leaves `--allow-http` out.
 {% endtab %}
@@ -57,7 +54,7 @@ The `--allow-http` flag lets `mcp-remote` use a plain `http://` address. If you 
 {% tab title="Other MCP apps" %}
 **If the app takes a URL**, add the endpoint as a remote or HTTP MCP server in the app's settings. If the app lets you set headers, add the header `x-mcp-client: <app-name>`.
 
-**If the app only runs local commands**, register a server whose command is `npx` with the following arguments. The JSON format in the Claude Desktop tab works in most apps:
+**If the app only runs local commands**, register a server that runs `mcp-remote`. Most apps accept the JSON format that the Claude Desktop tab shows. The command and its arguments look like this:
 
 ```bash
 npx -y mcp-remote@latest \

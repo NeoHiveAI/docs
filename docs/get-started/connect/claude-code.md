@@ -18,7 +18,7 @@ To add the Hive as an MCP server, do the following:
 2. Go to **Install Instructions**.
 3. Click **Claude Code**.
 4. Copy the first command.
-5. In your normal terminal, outside Claude Code, go to your project's root folder.
+5. In a terminal outside Claude Code, go to your project's root folder.
 6. Run the command there.
 
 The command looks like this:

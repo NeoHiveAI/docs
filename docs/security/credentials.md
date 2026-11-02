@@ -23,9 +23,9 @@ Each data source on the **Data Sources** page (`http://localhost:3577/sources`) 
 
 ## Check, rotate, or remove a connection
 
-NeoHive checks each new token with the provider. If the provider rejects the token, NeoHive doesn't save the connection. If NeoHive can't reach the provider, NeoHive saves the connection as **Unvalidated**. In the service's **Manage** dialog, each connection then shows **Valid**, **Invalid**, or **Unvalidated**. A connection becomes **Invalid** later if the provider stops accepting its token. To check, rotate, or remove a connection, follow the steps in [Check or remove a connection](../admin/data-sources.md#check-or-remove-a-connection).
+NeoHive checks each new token with the provider. If the provider rejects the token, NeoHive doesn't save the connection. If NeoHive can't reach the provider, NeoHive saves the connection as **Unvalidated**. In the service's **Manage** dialog, each connection then shows **Valid**, **Invalid**, or **Unvalidated**. A connection becomes **Invalid** later if the provider stops accepting its token.
 
-Deleting a connection removes only NeoHive's encrypted copy of that connection's token. The service's other connections keep working. An existing clone still holds the token in its `.git/config` file, so also revoke the token with the provider.
+To check, rotate, or remove a connection, follow the steps in [Check or remove a connection](../admin/data-sources.md#check-or-remove-a-connection). Deleting a connection removes only NeoHive's encrypted copy of that connection's token. The service's other connections keep working. An existing clone still holds the token in its `.git/config` file, so also revoke the token with the provider.
 
 {% hint style="danger" %}
 **Keep the encryption key with the data.** If `/app/data/.encryption_key` is lost, NeoHive starts anyway and creates a new key. If `MEMVEC_ENCRYPTION_KEY` changes, NeoHive uses the new key. Either way, NeoHive can't decrypt the stored connections. The connections stay on the **Data Sources** page, but every check and sync through them fails. You then need to add every connection again.

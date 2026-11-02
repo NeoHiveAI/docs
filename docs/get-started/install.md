@@ -4,7 +4,7 @@ description: "Install NeoHive, create your first Hive, and connect your agent. E
 
 # Install NeoHive
 
-NeoHive runs in a Docker container on a machine you control: your own computer or a server your team shares. You install NeoHive once on that machine, and your coding agent then connects to it there. The installation has three steps. Each step ends with a check, so you know the step worked before you move on. When you finish, your agent answers questions from your own code. The following diagram shows the whole flow:
+NeoHive runs in a Docker container on a machine you control: your own computer or a server your team shares. You install NeoHive once on that machine, and your coding agent then connects to it there. The installation has three steps, and each step ends with a check, so you know the step worked before you move on. When you finish, your agent answers questions from your own code. The following diagram shows the whole flow:
 
 <figure><img src="../.gitbook/assets/get-started-install.svg" alt="The installer starts NeoHive on port 3577. Setup then runs Name Hive, Configure first Index, and Install for your AI tools, and ends at Connected."><figcaption></figcaption></figure>
 
@@ -52,6 +52,8 @@ NEOHIVE_BACKEND=cpu \
 
 {% hint style="success" %}
 **Check:** NeoHive is running.
+
+To check that NeoHive responds, run the following command:
 
 ```bash
 curl http://localhost:3577/health
