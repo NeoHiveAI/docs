@@ -60,7 +60,7 @@ If you skip `/reload-plugins`, the next step fails with an unknown command error
 | Prompt hook | Adds relevant [Memories](../../concepts/glossary.md#memory) to the context when you send a prompt. |
 | Glob and Grep reminder | Suggests `memory_recall` before a broad file search. |
 | `explore-neohive` subagent | Searches NeoHive before reading files. |
-| Skills | `/neohive:getting-started`, `/neohive:load-context`, `/neohive:capture-session-learnings`, and others. See [Slash commands](../../reference/slash-commands.md). |
+| Skills | `/neohive:getting-started`, `/neohive:load-context`, `/neohive:capture-session-learnings`, and others. For more information about each command, see [Slash commands](../../reference/slash-commands.md). |
 
 For more information about when each part runs and how to turn each hook off, see [What the plugin does automatically](../../results/plugin-automation.md). That page also explains when the prompt hook skips a prompt.
 {% endstep %}

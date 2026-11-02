@@ -24,10 +24,9 @@ The NeoHive container makes the following outbound connections:
 | Model download | `huggingface.co` | When an embedding model isn't cached in the container yet. An update replaces the container, so the first use after an update downloads the model again. The PDF converter's models come with the container | Only the request for the file | No. The downloads stop after the model is cached |
 | Data sources | `github.com`, `api.github.com`, `gitlab.com`, or your own GitLab host. A connection with an SSH key uses SSH on port `22` | When you add a connection or an Index, on each sync, and when NeoHive checks a connection. Syncs also run on a schedule | Your stored token or SSH key, to authenticate | Yes. Remove the Index and its connection |
 
-Usage metrics don't include file contents, Memory text, recall query text, or tokens. They record a Memory's length, not its words. They send two kinds of data, and both carry the NeoHive version, a hashed license ID, and the random machine ID:
+Usage metrics don't include file contents, Memory text, recall query text, or tokens. They record a Memory's length, not its words. They send two kinds of data, metrics and traces, and both carry the NeoHive version, a hashed license ID, and the random machine ID.
 
-- **Metrics:** request counts and timings, [MCP](../concepts/glossary.md#mcp) tool names, [Hive](../concepts/glossary.md#hive) and Index IDs, counts of Memories, chunks, and files, embedding batch sizes and timings, and Node.js runtime statistics.
-- **Traces:** the name, duration, and outcome of each request and tool call. A request's trace also holds the request path and query string. The trace records the IP address and user agent of the agent or browser that sent the request, too. A failed request adds the error message and stack trace.
+Metrics are request counts and timings, [MCP](../concepts/glossary.md#mcp) tool names, [Hive](../concepts/glossary.md#hive) and Index IDs, counts of Memories, chunks, and files, embedding batch sizes and timings, and Node.js runtime statistics. Traces record the name, duration, and outcome of each request and tool call. A request's trace also holds the request path and query string, and the IP address and user agent of the agent or browser that sent the request. A failed request adds the error message and stack trace to its trace.
 
 A query string can still hold text you typed into the dashboard. For example, a search for a repository sends the search text.
 

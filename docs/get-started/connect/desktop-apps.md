@@ -68,7 +68,7 @@ npx -y mcp-remote@latest \
 
 If the address starts with `https://`, remove `--allow-http`.
 
-**If the app runs on the provider's servers**, put NeoHive behind a public HTTPS address first. See [Expose NeoHive beyond your network](../../security/network.md).
+**If the app runs on the provider's servers**, put NeoHive behind a public HTTPS address first. To set up that address, see [Expose NeoHive beyond your network](../../security/network.md).
 {% endtab %}
 
 {% tab title="Agents with no plugin" %}

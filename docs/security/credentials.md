@@ -38,4 +38,4 @@ NeoHive keeps two more secrets outside the connections:
 | Secret | Where it lives | How it's protected |
 |---|---|---|
 | Your license key | The container's environment, set by the installer. If you change the key in the dashboard, NeoHive saves the new key in its database | NeoHive doesn't encrypt it. Anyone who can run `docker inspect` on the host, or read the volume, can read it |
-| The webhook secret | The `MEMVEC_WEBHOOK_SECRET` variable on the container, if you set it | NeoHive doesn't store it in the database. See [Webhook refresh endpoint](../reference/webhooks.md) |
+| The webhook secret | The `MEMVEC_WEBHOOK_SECRET` variable on the container, if you set it | NeoHive doesn't store it in the database. For more information, see [Webhook refresh endpoint](../reference/webhooks.md). |
