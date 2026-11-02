@@ -4,7 +4,7 @@ This is the official style reference for the NeoHive documentation site. Follow 
 
 **Scope:** the public NeoHive docs site, which is the GitBook site built from the `docs/` directory of the `NeoHiveAI/docs` repository. That covers page text, headings, tables, callouts, image alt text, and the `description:` frontmatter of every page. It does not cover text inside the NeoHive app (dashboard labels, tooltips, empty states, error messages, and the in-app guides in `frontend/src/lib/content/guides/`), release notes, code comments, or the internal docs in `internal/`.
 
-**Provenance:** based on the Google developer documentation style guide (https://developers.google.com/style), checked against its highlights page on 2026-10-04 and again on 2026-10-29, its procedures page (https://developers.google.com/style/procedures), tables page (https://developers.google.com/style/tables), images page (https://developers.google.com/style/images), excessive claims page (https://developers.google.com/style/excessive-claims), accessibility page (https://developers.google.com/style/accessibility), and full word list (https://developers.google.com/style/word-list) on 2026-10-29, its abbreviations page (https://developers.google.com/style/abbreviations) on 2026-10-07, its cross-references page (https://developers.google.com/style/cross-references) on 2026-10-08, and its future-features page (https://developers.google.com/style/future) on 2026-10-09. Updated on 2026-11-02 with page types and the overview page style, after the team approved the Welcome and What is NeoHive redesign in PR #22. Where this guide is stricter than Google's, the stricter rule wins. Plain English comes first, ahead of every other rule here.
+**Provenance:** based on the Google developer documentation style guide (https://developers.google.com/style), checked against its highlights page on 2026-10-04 and again on 2026-10-29, its procedures page (https://developers.google.com/style/procedures), tables page (https://developers.google.com/style/tables), images page (https://developers.google.com/style/images), excessive claims page (https://developers.google.com/style/excessive-claims), accessibility page (https://developers.google.com/style/accessibility), and full word list (https://developers.google.com/style/word-list) on 2026-10-29, its abbreviations page (https://developers.google.com/style/abbreviations) on 2026-10-07, its cross-references page (https://developers.google.com/style/cross-references) on 2026-10-08, and its future-features page (https://developers.google.com/style/future) on 2026-10-09. Updated on 2026-11-02 with page types and the overview page style. Where this guide is stricter than Google's, the stricter rule wins. Plain English comes first, ahead of every other rule here.
 
 ## Plain English (Critical)
 
@@ -82,7 +82,7 @@ A page mixes a few kinds of block, and each block earns its place. A page that i
 
 ## Overview pages (Must Follow)
 
-These rules shape the Welcome page, What is NeoHive, and section landing pages. The team approved this style in PR #22. Deeper pages follow the rest of this guide, as [Page types](#page-types-must-follow) describes.
+These rules shape the Welcome page, What is NeoHive, and section landing pages. Deeper pages follow the rest of this guide, as [Page types](#page-types-must-follow) describes.
 
 | Rule | Explanation |
 | --- | --- |
