@@ -1,33 +1,36 @@
 ---
 description: >-
-  The context engineering layer that makes your coding agents aware of your
-  codebase and your team's knowledge.
+  NeoHive gives your coding agents your codebase and your team's knowledge,
+  from a server you run yourself.
 ---
 
 # Welcome
 
-NeoHive makes Claude, Cursor, Copilot, and every MCP agent aware of your actual codebase and your team's knowledge, indexed locally, on your machine.
+**Coding agents that share what your whole team knows.**
 
-## The problem
+NeoHive is a self-hosted context layer. Connect your repositories, documents, and team knowledge once, and every agent on your team reads the same memory: Claude Code, Cursor, Codex, or any other agent that supports [MCP](concepts/glossary.md#mcp). Fix something once, and it is fixed for everyone.
 
-Your coding agent doesn't know your code. It doesn't know your team's conventions, that you migrated off that library last quarter, or that the function it just confidently called doesn't exist. Every session starts from zero, and you spend your time correcting instead of shipping.
-
-Pasting code into chat windows doesn't scale: you're capped by the context window, it's manual every time, and static files like `CLAUDE.md` grow into unsearchable walls of text.
-
-## What NeoHive does
-
-NeoHive runs as a local Docker container and connects to your agents over MCP. It indexes your repositories, learns your conventions, and feeds the right context to your agent at the right moment.
-
-<table data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td><i class="fa-magnifying-glass">:magnifying-glass:</i></td><td><strong>Aware of your codebase</strong></td><td>Indexes your repositories and makes them searchable by meaning: your agent finds the right code by understanding what it does, not by guessing at filenames.</td></tr><tr><td><i class="fa-book-open">:book-open:</i></td><td><strong>Learns your team's knowledge</strong></td><td>Conventions, decisions, debugging insights, and gotchas are stored as searchable, persistent memory. What one person teaches their agent benefits everyone.</td></tr><tr><td><i class="fa-puzzle-piece">:puzzle-piece:</i></td><td><strong>Works across every tool</strong></td><td>Claude Code, Claude App, Cursor, Codex, Copilot, Windsurf: NeoHive feeds context to whichever agent you use. Your team isn't locked into one.</td></tr><tr><td><i class="fa-laptop">:laptop:</i></td><td><strong>Private and local</strong></td><td>Everything runs in a container on your machine. Zero outbound calls: no code leaves your environment.</td></tr></tbody></table>
-
-Setup takes under 30 minutes, from install to your first context-aware answer.
-
-## Better with your whole team
-
-NeoHive gets more powerful as more people use it. When one person corrects their agent, teaches it a convention, or debugs a tricky issue, that knowledge is available to every agent connected to the same project. A teammate who joins next month starts with all the context the team has already built, no onboarding doc required.
-
-That's the difference between per-user memory (which only helps you) and shared context (which helps everyone). NeoHive treats the team, not the individual, as the unit of knowledge.
+The memory keeps itself current as your repositories change, and it gets better the more your team uses it. Each agent gets only the context its task needs, instead of a context file that grows with every lesson. And all of it runs inside your own network, so your code never leaves it.
 
 ## Start here
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Get Started</strong></td><td>Install NeoHive and connect your first agent in under 30 minutes.</td><td><a href="getting-started.md">getting-started.md</a></td></tr><tr><td><strong>Core Concepts</strong></td><td>Projects, hives, and how NeoHive organizes knowledge.</td><td><a href="concepts.md">concepts.md</a></td></tr><tr><td><strong>Indexing Your Codebase</strong></td><td>Connect your GitHub or GitLab repositories.</td><td><a href="codebase.md">codebase.md</a></td></tr><tr><td><strong>Migrating away from Markdown</strong></td><td>Bring your existing context files into NeoHive.</td><td><a href="migration.md">migration.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><i class="fa-rocket">:rocket:</i></td><td><strong>Quickstart</strong></td><td>Install NeoHive and get your first answer from your own code.</td><td><a href="get-started/quickstart.md">get-started/quickstart.md</a></td></tr><tr><td><i class="fa-comments">:comments:</i></td><td><strong>Your first session</strong></td><td>Ask about your code, teach one convention, and see it come back next session.</td><td><a href="get-started/first-session.md">get-started/first-session.md</a></td></tr><tr><td><i class="fa-diagram-project">:diagram-project:</i></td><td><strong>How NeoHive works</strong></td><td>Hives, Indexes, and how your agent reaches them.</td><td><a href="concepts/how-it-works.md">concepts/how-it-works.md</a></td></tr><tr><td><i class="fa-code-branch">:code-branch:</i></td><td><strong>Add a code repository</strong></td><td>Connect your GitHub or GitLab repositories.</td><td><a href="context/repositories/README.md">context/repositories/README.md</a></td></tr><tr><td><i class="fa-file-import">:file-import:</i></td><td><strong>Migrate from CLAUDE.md</strong></td><td>Bring your existing context files into NeoHive.</td><td><a href="context/migrate.md">context/migrate.md</a></td></tr><tr><td><i class="fa-graduation-cap">:graduation-cap:</i></td><td><strong>Teach your agent as you work</strong></td><td>Correct your agent once, and every teammate's agent remembers it.</td><td><a href="results/teach.md">results/teach.md</a></td></tr></tbody></table>
+
+## Why it exists
+
+* **Every agent starts from zero.** It does not know your codebase, your conventions, or the library you moved off last quarter.
+* **Every developer teaches their own.** A correction made in one person's Claude Code never reaches a teammate's Cursor.
+* **Context files do not scale.** A `CLAUDE.md` grows to thousands of lines, and the agent loads all of it whether the task needs it or not.
+* **The reasoning gets lost first.** Why a decision was made is the thing nobody writes down, and the thing the next agent most needs.
+
+NeoHive indexes your repositories and documents, keeps what your team teaches the agent beside the code it applies to, and returns only the parts the current task needs. Your content lives in a [Hive](concepts/glossary.md#hive), your team's workspace. A Hive holds [Indexes](concepts/glossary.md#index), the stores for your code, documents, files, and [Memories](concepts/glossary.md#memory).
+
+## What NeoHive does
+
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><i class="fa-magnifying-glass">:magnifying-glass:</i></td><td><strong>Knows your codebase</strong></td><td>NeoHive indexes your repositories, so your agent finds code by what it does, not by guessing file names.</td><td><a href="concepts/retrieval.md">concepts/retrieval.md</a></td></tr><tr><td><i class="fa-file-lines">:file-lines:</i></td><td><strong>Reads your documents</strong></td><td>Upload specs, runbooks, and PDFs to a Files Index. Your agent recalls them the same way it recalls code.</td><td><a href="context/documents.md">context/documents.md</a></td></tr><tr><td><i class="fa-arrows-rotate">:arrows-rotate:</i></td><td><strong>Stays up to date</strong></td><td>NeoHive syncs your repositories on a schedule. Each sync indexes only the files that changed.</td><td><a href="context/repositories/sync.md">context/repositories/sync.md</a></td></tr><tr><td><i class="fa-book-open">:book-open:</i></td><td><strong>Keeps your team's knowledge</strong></td><td>NeoHive stores conventions, decisions, and debugging lessons as Memories. Everyone's agent can recall what one person teaches.</td><td><a href="context/team-knowledge.md">context/team-knowledge.md</a></td></tr><tr><td><i class="fa-puzzle-piece">:puzzle-piece:</i></td><td><strong>Works with every agent</strong></td><td>Claude Code, Cursor, and Codex have plugins. Claude Desktop and any other MCP app connect to the same Hive.</td><td><a href="get-started/connect/README.md">get-started/connect/README.md</a></td></tr><tr><td><i class="fa-laptop">:laptop:</i></td><td><strong>Runs on your machine</strong></td><td>Your code, documents, Memories, and queries stay on the machine NeoHive runs on. None of it goes to an outside service.</td><td><a href="security/local-only.md">security/local-only.md</a></td></tr></tbody></table>
+
+## Built for teams
+
+* **One Hive, every agent.** Each teammate's agent reads from the same Hive, whichever tool they use.
+* **Teach once.** When you correct your agent or explain a convention, it saves the lesson as a [Memory](concepts/glossary.md#memory). Every teammate's agent recalls it.
+* **Nothing is lost when people change.** A teammate who joins next month gets the same lessons on their first day.
