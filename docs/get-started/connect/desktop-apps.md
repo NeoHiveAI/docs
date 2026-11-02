@@ -24,29 +24,29 @@ To add the Hive to Claude Desktop, do the following:
 6. Click **Edit Config**.
 7. Paste the JSON into `claude_desktop_config.json`.
 
-The JSON looks like this:
+   The JSON looks like this:
 
-```json
-{
-  "mcpServers": {
-    "<name>": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "mcp-remote@latest",
-        "http://localhost:3577/hives/<hive-id>/mcp",
-        "--header",
-        "x-mcp-client: claude-desktop",
-        "--allow-http"
-      ]
-    }
-  }
-}
-```
+   ```json
+   {
+     "mcpServers": {
+       "<name>": {
+         "command": "npx",
+         "args": [
+           "-y",
+           "mcp-remote@latest",
+           "http://localhost:3577/hives/<hive-id>/mcp",
+           "--header",
+           "x-mcp-client: claude-desktop",
+           "--allow-http"
+         ]
+       }
+     }
+   }
+   ```
 
-The file is `~/Library/Application Support/Claude/claude_desktop_config.json` on macOS and `%APPDATA%\Claude\claude_desktop_config.json` on Windows. If the file already has an `mcpServers` block, add the entry inside that block.
-
-To load the new server, quit Claude Desktop completely, and then open it again.
+   The file is `~/Library/Application Support/Claude/claude_desktop_config.json` on macOS and `%APPDATA%\Claude\claude_desktop_config.json` on Windows. If the file already has an `mcpServers` block, add the entry inside that block.
+8. Quit Claude Desktop completely.
+9. Open Claude Desktop again.
 
 The `--allow-http` flag lets `mcp-remote` use a plain `http://` address. If you opened the dashboard over `https://`, the dashboard leaves `--allow-http` out.
 {% endtab %}

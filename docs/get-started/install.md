@@ -84,7 +84,7 @@ The following table shows what you can add from each source and what you need fo
 
 A GitHub or GitLab token needs the right scopes, and an uploaded file needs a supported type and size. For more information about scopes, see [Add a connection](../admin/data-sources.md#add-a-connection), and for file types and size limits, see [Supported file types](../reference/file-types.md).
 
-Besides the Index you create here, NeoHive gives every Hive a **Knowledge** [Index](../concepts/glossary.md#knowledge-index), which stores the Memories your agent saves. You can add more Indexes later from the Hive page. For more information about which Indexes to add, see [What to add, and where](../context/what-to-add.md).
+Besides the Index you create here, NeoHive gives every Hive a [Knowledge Index](../concepts/glossary.md#knowledge-index), which stores the Memories your agent saves. You can add more Indexes later from the Hive page. For more information about which Indexes to add, see [What to add, and where](../context/what-to-add.md).
 
 {% hint style="success" %}
 **Check:** the Index is ready.
@@ -108,10 +108,10 @@ The last setup step, **Install for your AI tools**, shows the commands that conn
      --header 'x-mcp-client: claude-code'
    ```
 
-   The `--scope project` flag saves the Hive in that folder's `.mcp.json`, where the plugin's automatic recall looks for it. For more information about why the scope matters, see [Claude Code](connect/claude-code.md).
+   For more information about why the `--scope project` flag matters, see [Claude Code](connect/claude-code.md).
 3. Start Claude Code in the project.
 4. When Claude Code asks, approve the NeoHive server. Claude Code doesn't connect to the Hive until you approve the server. After Claude Code connects, setup shows **Connected**.
-5. Run the remaining commands inside Claude Code:
+5. To install the plugin and run its setup, run the following commands inside Claude Code:
 
    ```text
    /plugin marketplace add NeoHiveAI/NeoHiveClaude

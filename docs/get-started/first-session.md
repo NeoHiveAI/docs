@@ -8,7 +8,7 @@ Three prompts are enough to see what NeoHive changes. Your agent answers a quest
 
 <figure><img src="../.gitbook/assets/get-started-first-session.svg" alt="A timeline of two sessions. Session 1 calls memory_recall and memory_store. In session 2, memory_context brings the convention back."><figcaption></figcaption></figure>
 
-Before you start, you need an agent connected to a [Hive](../concepts/glossary.md#hive), your team's NeoHive workspace. The Hive also needs a **Code** [Index](../concepts/glossary.md#code-index) (the searchable copy of a repository) whose first sync has finished. For more information about connecting an agent, see [Connect your agent](connect/README.md).
+Before you start, you need an agent connected to a [Hive](../concepts/glossary.md#hive), your team's NeoHive workspace. The Hive also needs a [Code Index](../concepts/glossary.md#code-index) (the searchable copy of a repository) whose first sync has finished. For more information about connecting an agent, see [Connect your agent](connect/README.md).
 
 {% stepper %}
 {% step %}
@@ -32,7 +32,7 @@ Tell your agent a convention that it can't work out from the code:
 Remember that we always use snake_case for database column names.
 ```
 
-The agent calls `memory_store`, which saves the convention as a [Memory](../concepts/glossary.md#memory) in the Hive's **Knowledge** [Index](../concepts/glossary.md#knowledge-index).
+The agent calls `memory_store`, which saves the convention as a [Memory](../concepts/glossary.md#memory) in the Hive's [Knowledge Index](../concepts/glossary.md#knowledge-index).
 {% endstep %}
 
 {% step %}

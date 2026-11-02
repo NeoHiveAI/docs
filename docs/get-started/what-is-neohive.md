@@ -15,9 +15,9 @@ Each developer on a team teaches their own coding agent, and a correction that o
 NeoHive keeps that context in a [Hive](../concepts/glossary.md#hive), a workspace for one codebase or team, and gives it to your agent in the following ways:
 
 * **Your code is searchable.** NeoHive copies your repositories and documents into [Indexes](../concepts/glossary.md#index), the searchable stores inside a Hive. The agent then finds code by what it does, not by its file name.
-* **Lessons stick.** What your team teaches the agent, such as a convention, a bug fix, or the reason behind a decision, goes into the Hive too, as a [Memory](../concepts/glossary.md#memory).
+* **Lessons stick.** What your team teaches the agent goes into the Hive too, as a [Memory](../concepts/glossary.md#memory). That lesson can be a convention, a bug fix, or the reason behind a decision.
 * **Only what the task needs.** When the agent needs context, it asks NeoHive through [MCP](../concepts/glossary.md#mcp) and gets back only the parts that match. The agent doesn't load a whole context file of thousands of lines. That leaves more of its context window, the text it can read at once, free for your actual work.
-* **Your content stays with you.** You run NeoHive yourself, so your code, documents, and Memories stay on a machine you control. That machine is your own computer or a shared server for your team, where NeoHive runs in a Docker container. The same container serves a dashboard, where you manage your Hives and their content in your browser. For more information about what stays on that machine and how these parts fit together, see [What stays on your machine](../security/local-only.md) and [How NeoHive works](../concepts/how-it-works.md).
+* **Your content stays with you.** You run NeoHive yourself, so your code, documents, and Memories stay on the machine it runs on. For more information about what stays on that machine and how the parts fit together, see [What stays on your machine](../security/local-only.md) and [How NeoHive works](../concepts/how-it-works.md).
 
 The following diagram compares an agent without NeoHive and an agent with it:
 
@@ -37,7 +37,7 @@ NeoHive is made of the following parts:
 
 The following diagram shows how the parts nest:
 
-<figure><img src="../.gitbook/assets/get-started-what-is-neohive-parts.svg" alt="Your agent runs the plugin and calls a Hive over MCP. The server container serves the dashboard and holds Hives, which hold Indexes and Memories."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/get-started-what-is-neohive-parts.svg" alt="Your agent calls a Hive over MCP. The server runs the dashboard and Hives. Each Hive holds Indexes, and the Knowledge Index holds Memories."><figcaption></figcaption></figure>
 
 For more information about Hives, Indexes, Memories, and the kinds of Index, see [Hives, Indexes, and Memories](../concepts/hives-indexes-memories.md).
 
@@ -48,6 +48,6 @@ NeoHive is for anyone who works with an AI agent. The following table shows what
 | You are | What NeoHive gives you |
 |---|---|
 | **A team** | NeoHive helps teams most, because everyone connected to the same Hive shares its Memories. A convention that one person teaches comes back for every teammate's agent, whichever tool they use. A teammate who joins later gets that knowledge on their first day. For more information about how teams share Memories, see [Team workflows](../results/team-workflows.md). |
-| **A developer in an unfamiliar codebase** | Developers get the most from NeoHive when a coding agent works in a codebase it doesn't know, or when they keep correcting the same mistakes. |
+| **A developer in an unfamiliar codebase** | Your agent learns the codebase from NeoHive instead of guessing, so you stop correcting the same mistakes. |
 | **A developer working alone** | Run NeoHive on your own machine, and your agent remembers your project from one session to the next. |
 | **Not a developer** | You don't need to be a developer to use NeoHive. Claude Code, Cursor, and Codex each have a NeoHive plugin, and Claude Desktop and any other app that supports MCP can connect too. Whichever tool people use, one person sets up the NeoHive server, and everyone else connects their agent to it. For more information about connecting each tool, see [Connect your agent](connect/README.md). |

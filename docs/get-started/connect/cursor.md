@@ -6,7 +6,7 @@ description: "Connect Cursor to a Hive and install the NeoHive plugin."
 
 To connect Cursor, you add your [Hive](../../concepts/glossary.md#hive) (your team's NeoHive workspace) to the Cursor [MCP](../../concepts/glossary.md#mcp) configuration file. Then you install the plugin and check that Cursor can call NeoHive's tools.
 
-Before you start, you need a running NeoHive server that has a Hive, Cursor, and `git`.
+Before you start, you need Cursor, `git`, and a running NeoHive server that has a Hive.
 
 {% stepper %}
 {% step %}
@@ -42,6 +42,10 @@ Cursor connects to the URL directly, so Cursor doesn't need `mcp-remote` or anot
 {% step %}
 ## Install the plugin
 
+{% hint style="warning" %}
+On Cursor Enterprise, Cursor loads local plugins only after an administrator turns on **Allow Local Plugin Imports**. The setting is off by default.
+{% endhint %}
+
 To install the plugin, do the following:
 
 1. If you linked the plugin into Cursor's local plugins folder before, delete the link. While the link exists, the next step fails with `already exists and is not an empty directory`. To delete the link, run the following command:
@@ -58,10 +62,6 @@ To install the plugin, do the following:
 
    Clone the plugin into that folder rather than linking to a copy somewhere else, because Cursor ignores a link to a copy outside the folder.
 3. Restart Cursor, or run **Developer: Reload Window** from the Command Palette.
-
-{% hint style="info" %}
-On Cursor Enterprise, Cursor loads local plugins only after an administrator turns on **Allow Local Plugin Imports**. The setting is off by default.
-{% endhint %}
 
 The plugin adds a set of skills and an always-on rule, `rules/neohive.mdc`, which tells Cursor when to call `memory_context`, `memory_recall`, and `memory_store`. Those tools come from the MCP server, not from the plugin, which is why you added the server first.
 {% endstep %}

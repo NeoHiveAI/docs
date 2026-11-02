@@ -42,21 +42,21 @@
   <text x="922" y="206" font-size="11" text-anchor="end" fill="#737373">one MCP endpoint</text>
 
   <!-- Indexes -->
-  <rect x="368" y="222" width="128" height="120" rx="4" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <rect x="368" y="222" width="128" height="120" rx="4" fill="#FFFFFF" stroke="#A78BFA"/>
   <text x="380" y="242" class="lbl" fill="#7C3AED">INDEX</text>
   <text x="380" y="262" font-size="13" font-weight="700" fill="#1A1A2E">Code</text>
   <text x="380" y="279" font-size="11" fill="#4A4458">from a repository</text>
   <rect x="380" y="292" width="104" height="30" rx="3" fill="#FAF9FD" stroke="#E5E5E5"/>
   <text x="388" y="311" class="item">Login handler</text>
 
-  <rect x="510" y="222" width="128" height="120" rx="4" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <rect x="510" y="222" width="128" height="120" rx="4" fill="#FFFFFF" stroke="#A78BFA"/>
   <text x="522" y="242" class="lbl" fill="#7C3AED">INDEX</text>
   <text x="522" y="262" font-size="13" font-weight="700" fill="#1A1A2E">Documentation</text>
   <text x="522" y="279" font-size="11" fill="#4A4458">repository docs</text>
   <rect x="522" y="292" width="104" height="30" rx="3" fill="#FAF9FD" stroke="#E5E5E5"/>
   <text x="530" y="311" class="item">Deploy guide</text>
 
-  <rect x="652" y="222" width="128" height="120" rx="4" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <rect x="652" y="222" width="128" height="120" rx="4" fill="#FFFFFF" stroke="#A78BFA"/>
   <text x="664" y="242" class="lbl" fill="#7C3AED">INDEX</text>
   <text x="664" y="262" font-size="13" font-weight="700" fill="#1A1A2E">Files</text>
   <text x="664" y="279" font-size="11" fill="#4A4458">files you upload</text>
@@ -68,14 +68,14 @@
   <text x="806" y="262" font-size="13" font-weight="700" fill="#1A1A2E">Knowledge</text>
   <text x="806" y="279" font-size="11" fill="#4A4458">one per Hive</text>
   <rect x="806" y="292" width="104" height="30" rx="3" fill="#FAF9FD" stroke="#C084FC"/>
-  <text x="814" y="304" class="tag" fill="#009689">MEMORY</text>
+  <text x="814" y="304" class="tag" fill="#C084FC">MEMORY</text>
   <text x="814" y="317" class="item">Retry failed jobs</text>
 
   <!-- Agent to the server over MCP. The arrow stops at the server box edge so it crosses no other element. -->
   <line x1="266" y1="226" x2="328" y2="226" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
   <text x="298" y="216" font-size="11.5" font-weight="700" text-anchor="middle" fill="#1A1A2E">MCP</text>
 
-  <text x="40" y="420" font-size="11.5" fill="#737373">Your agent calls a Hive through its MCP endpoint. Every Index in the Hive is searched together, and new Memories go to the Knowledge Index.</text>
+  <text x="40" y="420" font-size="11.5" fill="#737373">Your agent calls a Hive through its MCP endpoint. Recall searches every Index in the Hive together, and new Memories go to the Knowledge Index.</text>
   </g>
 
   <!-- Footer. Logo paths copied verbatim from frontend/src/lib/icons/NeoHiveIcon.svelte. -->

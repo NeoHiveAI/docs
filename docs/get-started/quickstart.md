@@ -8,7 +8,8 @@ You install NeoHive, index one GitHub repository, and connect Claude Code, with 
 
 Before you start, you need the following:
 
-* Docker 20 or later, running on Linux, macOS, or Windows with WSL2.
+* Docker 20 or later, installed and running on Linux, macOS, or Windows with WSL2.
+* Port `3577` free on the machine.
 * A NeoHive license file (`license.key` or `license.json`) from the [NeoHive team](https://www.neohive.ai/download/).
 * Claude Code.
 * A GitHub personal access token with `repo` scope.
@@ -23,7 +24,7 @@ Run the installer from the folder that holds your license file:
 bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
 ```
 
-When the installer finishes, it prints the dashboard address.
+When the installer finishes, it prints the dashboard addresses.
 {% endstep %}
 
 {% step %}
@@ -35,7 +36,7 @@ A [Hive](../concepts/glossary.md#hive) is a workspace for your team, with one ad
 2. Read and accept the license.
 3. Read through the welcome screens, and then click **Start setup**.
 4. In **Name Hive**, enter a name for your Hive.
-5. In **Configure first Index**, select **GitHub**, paste your token, and then select your repository.
+5. In **Configure first Index**, select **GitHub**, paste your token, click **Fetch repositories**, and then select your repository.
 
 NeoHive then indexes your repository in the background, so your agent can search it. To check when indexing finishes, see [Connect GitHub or GitLab](../context/repositories/connect.md#create-the-index).
 {% endstep %}
@@ -56,8 +57,7 @@ Setup then shows **Install for your AI tools** with **Claude** selected. To conn
    ```
 3. Start Claude Code in your repository.
 4. When Claude Code asks, approve the NeoHive server. Setup shows **Connected** only after Claude Code connects, and Claude Code doesn't connect until you approve the server.
-5. When setup shows **Connected**, click **Open** followed by your Hive's name.
-6. To install the plugin and run its setup, run the following commands inside Claude Code:
+5. To install the plugin and run its setup, run the following commands inside Claude Code:
 
    ```text
    /plugin marketplace add NeoHiveAI/NeoHiveClaude
@@ -66,7 +66,7 @@ Setup then shows **Install for your AI tools** with **Claude** selected. To conn
    /neohive:getting-started
    ```
 
-The setup wizard checks that Claude Code can reach the Hive.
+The `/neohive:getting-started` command checks that Claude Code can reach the Hive.
 {% endstep %}
 
 {% step %}
