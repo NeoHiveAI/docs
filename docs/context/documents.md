@@ -1,5 +1,5 @@
 ---
-description: "Upload markdown, text, and PDF files to a Files Index so your agent can recall them alongside your code."
+description: "Upload markdown, text, PDF, Office, and image files to a Files Index so your agent can recall them alongside your code."
 ---
 
 # Add documents and PDFs
@@ -8,7 +8,7 @@ A [Files Index](../concepts/glossary.md#files-index) holds documents that you up
 
 <figure><img src="../.gitbook/assets/context-documents.svg" alt="You upload a markdown, text, PDF, Office, or image file of up to 50 MB. NeoHive first converts a PDF, Office file, or image to text, which takes longer. The Files Index stores the text in a searchable form. Your agent's memory_recall gets back the section that answers the question."><figcaption></figcaption></figure>
 
-For markdown that already lives in a repository, add a [Documentation Index](../concepts/glossary.md#documentation-index) instead, because a Documentation Index stays in sync with the repository. For help choosing, see [What to add, and where](what-to-add.md).
+If your documents already live in a GitHub or GitLab repository, add the repository instead of uploading the files. A repository stays in sync as the documents change, and an upload does not. See [Add a code repository](repositories/README.md).
 
 {% stepper %}
 {% step %}
@@ -65,6 +65,6 @@ To move an Obsidian vault or a similar notes vault, export it as markdown and up
 
 ## Large or scanned files
 
-A large file can fail because it takes longer than five minutes to convert. To allow more time, see [Supported file types](../reference/file-types.md).
+A large PDF, Office, or image file can fail because it takes longer than five minutes to convert. To allow more time, see [Supported file types](../reference/file-types.md).
 
 If a PDF is scanned, or draws its text as shapes, the file fails with `No text could be extracted from this document`. To fix the error, run optical character recognition (OCR) on the PDF, or export its text, and then upload the result.

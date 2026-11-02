@@ -4,28 +4,35 @@ description: "How the Knowledge Index captures your team's conventions, decision
 
 # Capture team knowledge
 
-Every [Hive](../concepts/glossary.md#hive) (your team's NeoHive workspace) has a [Knowledge Index](../concepts/glossary.md#knowledge-index). When one person's agent stores a [Memory](../concepts/glossary.md#memory) in the Knowledge Index, every agent connected to the Hive can recall that Memory.
+Every [Hive](../concepts/glossary.md#hive) (your team's NeoHive workspace) has a [Knowledge Index](../concepts/glossary.md#knowledge-index). When one person's agent stores a [Memory](../concepts/glossary.md#memory) there, every agent connected to the same Hive can recall it.
 
 <figure><img src="../.gitbook/assets/context-team-knowledge.svg" alt="On Monday Ana corrects an agent: no, we use Redis for sessions. Ana's agent calls memory_store, which stores the decision in the Hive's Knowledge Index. On Tuesday, Ben's agent recalls the decision during a change to the login code. A teammate who joins next month recalls the decision on their first day. A different Hive has its own Knowledge Index and never sees this Memory."><figcaption></figcaption></figure>
 
-The Knowledge Index holds what your team has learned: conventions, decisions and their reasons, problems to watch for, and corrections. NeoHive creates the Knowledge Index with the Hive. The Hive page lists the Knowledge Index under **Indexes**. Your agents write to the Knowledge Index, so you have nothing to set up. You cannot change the Knowledge Index's settings, share it with another Hive, move it, or delete it.
+The Knowledge Index holds what your team has learned: conventions, decisions and their reasons, problems to watch for, and corrections.
 
-## How knowledge gets in
+NeoHive creates the Knowledge Index with the Hive, and your agents write to it, so you have nothing to set up. You cannot change its settings, share it with another Hive, move it, or delete it.
+
+## How Memories get stored
 
 | Way in | What happens |
 |---|---|
 | You ask | Say `Remember that the payments API requires idempotency keys on all POST requests.` Your agent calls `memory_store`. |
 | Your agent notices | When you correct your agent or agree on a convention, the agent stores the point on its own. |
 | End of session | Run `/neohive:capture-session-learnings` in Claude Code, or the `capture-session-learnings` skill in Cursor or Codex. The skill stores up to five learnings from the conversation. |
-| Existing rules files | Import `CLAUDE.md`, `AGENTS.md`, and rules folders once. See [Migrate from CLAUDE.md](migrate.md). |
+| Existing rules files | Import `CLAUDE.md`, `AGENTS.md`, and rules folders once. See [Import rules from CLAUDE.md and AGENTS.md](migrate.md). |
 
-`memory_store` always writes to the Knowledge Index of the Hive your agent is connected to. Your agent gives each Memory a type, such as `directive`, `convention`, or `decision`. [Memory types](../reference/memory-types.md) lists them all.
+Every Memory goes into the Knowledge Index of the Hive your agent is connected to. Your agent also gives each Memory a type, such as `directive`, `convention`, or `decision`. [Memory types](../reference/memory-types.md) lists them all.
 
 ## Who can recall your team's Memories
 
-Everyone who connects an agent to the same Hive shares one Knowledge Index. A teammate who joins later starts with everything the team has stored. Agents connected to a different Hive never see this Knowledge Index. Two Hives that use the same [Shared Index](../concepts/glossary.md#shared-index) (an [Index](../concepts/glossary.md#index) that several Hives use) still keep separate Knowledge Indexes.
+Each Hive's Knowledge Index is shared by everyone on that Hive, and only them:
 
-For this reason, [What to add, and where](what-to-add.md) suggests one Hive per product. To control who can reach a Hive, see [Access and sharing](../admin/access.md).
+- Everyone who connects an agent to the Hive shares one Knowledge Index.
+- A teammate who joins later starts with everything the team has stored.
+- Agents connected to a different Hive never see it.
+- Two Hives that use the same [Shared Index](../concepts/glossary.md#shared-index) (an [Index](../concepts/glossary.md#index) that several Hives use) still keep separate Knowledge Indexes.
+
+For this reason, [What to add, and where](what-to-add.md) suggests one Hive per product. To control who can reach NeoHive, see [Access and sharing](../admin/access.md).
 
 To see what your team's agents stored recently, check **Recent learnings** on the Hive page. To open the Knowledge Index, select **Knowledge** under **Indexes**.
 

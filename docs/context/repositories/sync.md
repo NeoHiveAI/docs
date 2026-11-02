@@ -6,7 +6,7 @@ description: "Set how often a Code or Documentation Index syncs, sync it on dema
 
 A [Code](../../concepts/glossary.md#code-index) or [Documentation Index](../../concepts/glossary.md#documentation-index) stays up to date by syncing with its repository on a schedule. You choose the schedule, and you can select **Trigger sync** to index a change right away. When something looks wrong, **Sync history** shows what each sync did.
 
-An [Index](../../concepts/glossary.md#index) is one store of searchable context inside a [Hive](../../concepts/glossary.md#hive), the workspace your agent connects to. For more terms, see the [NeoHive glossary](../../concepts/glossary.md).
+An [Index](../../concepts/glossary.md#index) is one store of searchable context inside a [Hive](../../concepts/glossary.md#hive), the workspace your agent connects to.
 
 <figure><img src="../../.gitbook/assets/context-sync.svg" alt="A one-day timeline in UTC. Scheduled syncs run every 4 hours at 00:00, 04:00, 08:00, and so on. At 10:12 you select Trigger sync, and a sync runs immediately. At 14:36 a CI pipeline calls the webhook after a merge and sends only the changed files. Only one sync runs per Index at a time."><figcaption></figcaption></figure>
 
@@ -43,7 +43,7 @@ To sync now, do the following:
 
 The page header shows the sync progress and a button to cancel the sync.
 
-When some files fail, NeoHive tries them again automatically a little later. If a file keeps failing, NeoHive stops retrying it until you select **Trigger sync**. **Trigger sync** gives the file one more try.
+If some files fail, NeoHive tries them again automatically later. If a file keeps failing, NeoHive stops retrying it until you select **Trigger sync**, which gives the file one more try.
 
 To index changes right after every merge, your CI pipeline can send the changed files to the webhook refresh endpoint. The webhook works differently from a sync, as [How the webhook differs from a sync](../../reference/webhooks.md#how-the-webhook-differs-from-a-sync) explains.
 
@@ -55,7 +55,7 @@ To index changes right after every merge, your CI pipeline can send the changed 
 |---|---|
 | **Time**, **Duration** | When the run started and how long it took |
 | **Status** | `running`, `success`, `failed`, or `cancelled`. `partial`, shown in amber, means that some files failed |
-| **Files** | Files added, modified, deleted, and renamed, such as `+12A / ~3M` |
+| **Files** | How many files changed, such as `+12A / ~3M / -1D / ↻2R`: **A** added, **M** modified, **D** deleted, **R** renamed. A type with no changes is left out |
 | **Progress**, **Chunks** | Files done out of the total, and pieces added or removed |
 | **Commit Range** | The commits between the previous run and this one |
 | **Error** | What went wrong. Select the error to read the full message |

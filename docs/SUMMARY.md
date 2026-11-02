@@ -29,7 +29,7 @@
   * [Keep a repository up to date](context/repositories/sync.md)
 * [Add documents and PDFs](context/documents.md)
 * [Capture team knowledge](context/team-knowledge.md)
-* [Migrate from CLAUDE.md](context/migrate.md)
+* [Import rules from CLAUDE.md and AGENTS.md](context/migrate.md)
 
 ## Get better results
 

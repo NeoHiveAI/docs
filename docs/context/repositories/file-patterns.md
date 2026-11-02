@@ -4,7 +4,7 @@ description: "Choose which files in a repository NeoHive indexes, by using the A
 
 # Choose which files are included
 
-Set an **Allowlist** and a **Blocklist** so that the [Index](../../concepts/glossary.md#index) holds the files that answer questions, and leaves out generated code and test fixtures (sample data for tests). An Index is one store of searchable context inside a [Hive](../../concepts/glossary.md#hive), the workspace your agent connects to. For more terms, see the [NeoHive glossary](../../concepts/glossary.md).
+Set an **Allowlist** and a **Blocklist** so that the [Index](../../concepts/glossary.md#index) holds the files that answer questions, and leaves out generated code and test fixtures (sample data for tests). An Index is one store of searchable context inside a [Hive](../../concepts/glossary.md#hive), the workspace your agent connects to.
 
 <figure><img src="../../.gitbook/assets/context-file-patterns.svg" alt="Every file on the branch passes three filters in order. The first filter is the built-in skip list, which always removes binaries, images, lock files, and folders such as node_modules and dist. The second filter is the Allowlist: when the Allowlist has patterns, only matching files pass. The third filter is the Blocklist, which removes matching files even when the Allowlist matched them. NeoHive indexes the files that are left."><figcaption></figcaption></figure>
 
@@ -25,7 +25,7 @@ A typical Blocklist looks like this:
 docs/generated/**
 ```
 
-Write one glob pattern (a file path with wildcards) per line. Each pattern matches the file's path from the repository root. A single `*` does not match across a `/`, so write `**/*.snap` rather than `*.snap`. For wildcards, braces, and more examples, see [File pattern syntax](../../reference/file-patterns.md).
+Write one pattern per line. A pattern is a file path from the repository root, and it can use wildcards such as `*`. A single `*` does not match across a `/`, so write `**/*.snap` rather than `*.snap`. For wildcards, braces, and more examples, see [File pattern syntax](../../reference/file-patterns.md).
 
 ## Set the patterns
 

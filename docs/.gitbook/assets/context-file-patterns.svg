@@ -1,45 +1,64 @@
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1000" height="457" viewBox="0 0 1000 457" font-family="'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1000" height="516" viewBox="0 0 1000 516" font-family="'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" xmlns:c2pa="http://c2pa.org/manifest"><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTpjNjAyNmYzNi01ODcyLTRjMWQtODQ0My1mZGI1YjY3ODFjM2MAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaNM0NkpSnnuhCaSDW+l0mm4AAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDpmM2YxZjcwMy1lNDk3LTRhMWUtYjg4NS01MzBhY2Y4Mzk3YzBscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNogVQwWtEw+PrVV3+jXBOS6gAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggMpPOPcPRjABnUi8CZOieb3J/ixWGWXDZGzxlW/KYH8ykZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaMmELjGcpzmv35j4UElBYA4AAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYIOgylY7mo2LffhArQ6tjXH/GwAxRTrEJdkfWOk52yayZZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GQEaZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOmM2MDI2ZjM2LTU4NzItNGMxZC04NDQzLWZkYjViNjc4MWMzYy9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmM0ZjhlYzNkLWZhYzQtNGQ4Yy1hZWJjLTdjZWQzYTU2NzVhOHJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCAyk849w9GMAGdSLwJk6J5vcn+LFYZZcNkbPGVb8pgfzKJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggQCOmjAgq3Jyk4tHzauTbp1Ukn1AWp5a12kwucWd2ubqiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggOlarxV+nVab4gleZtjsVEc18NRXIqJNV533qlwSBuJF0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQDFQVRLs2ZPYkglxsbgsgsp16DiaWHMd3glNnU+Gbl/KztdR+rxN54naWEE9Vj2x/1bxUFy869B7V0j4jSGTd5c=</c2pa:manifest></metadata>
   <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap');
     .mono { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
     .lbl { font-size: 10.5px; font-weight: 700; letter-spacing: 1.1px; }
-    .body { font-size: 12.5px; fill: #4A4458; }
     .title { font-size: 15px; font-weight: 700; fill: #1A1A2E; }
+    .body { font-size: 12.5px; fill: #4A4458; }
     .item { font-size: 12px; fill: #1A1A2E; }
     .muted { font-size: 11.5px; fill: #737373; }
   </style>
   <defs>
     <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#7C3AED"/></marker>
+    <marker id="arrT" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#009689"/></marker>
     <marker id="arrG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#008236"/></marker>
     <marker id="arrM" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#A1A1A1"/></marker>
   </defs>
+  <rect width="1000" height="516" fill="#FAF9FD"/>
 
-  <rect width="1000" height="457" fill="#FAF9FD"/>
-
-  <!-- Content keeps the coordinates it had under the old top header. This group moves it up by 75 so its
-       top edge sits at y=40. Draw new content inside the group with the same coordinates as the rest. -->
-  <g transform="translate(0,-75)">  <rect x="40.0" y="116" width="920" height="50" rx="5" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
-  <text x="60.0" y="147" class="title">Every file on the branch</text>
-  <line x1="500" y1="166" x2="500" y2="180" stroke="#A1A1A1" stroke-width="2" marker-end="url(#arrM)"/>
-  <rect x="100.0" y="180" width="800" height="50" rx="5" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
-  <text x="120.0" y="211" class="title">1  Built-in skip list</text>
-  <text x="880.0" y="210" class="body" text-anchor="end">binaries, images, lock files, node_modules, dist ... always on</text>
-  <line x1="500" y1="230" x2="500" y2="244" stroke="#A1A1A1" stroke-width="2" marker-end="url(#arrM)"/>
-  <rect x="160.0" y="244" width="680" height="50" rx="5" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1.5"/>
-  <text x="180.0" y="275" class="title">2  Allowlist</text>
-  <text x="820.0" y="274" class="body" text-anchor="end">when it has patterns, only matching files go on</text>
-  <line x1="500" y1="294" x2="500" y2="308" stroke="#A1A1A1" stroke-width="2" marker-end="url(#arrM)"/>
-  <rect x="220.0" y="308" width="560" height="50" rx="5" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1.5"/>
-  <text x="240.0" y="339" class="title">3  Blocklist</text>
-  <text x="760.0" y="338" class="body" text-anchor="end">matching files are removed, even allowlisted ones</text>
-  <line x1="500" y1="358" x2="500" y2="372" stroke="#A1A1A1" stroke-width="2" marker-end="url(#arrM)"/>
-  <rect x="280.0" y="372" width="440" height="50" rx="5" fill="#D9F7E5" stroke="#008236" stroke-width="1.5"/>
-  <text x="300.0" y="403" class="title">Indexed</text>
-  <text x="700.0" y="402" class="body" text-anchor="end">searchable by your agent</text>
-  <text x="40" y="458" class="muted">You set 2 and 3 on the Sync Settings tab. 1 cannot be changed.</text>
-  </g>
+  <rect x="40" y="40" width="500" height="46" rx="5" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="60" y="68" class="title">Every file on the branch</text>
+  <text x="600" y="68" class="muted">What each filter drops</text>
+  <line x1="290" y1="88" x2="290" y2="110" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="40" y="112" width="500" height="54" rx="5" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <circle cx="71" cy="139" r="14" fill="#A1A1A1"/>
+  <text x="71" y="143.5" class="item" text-anchor="middle" style="fill:#FFFFFF" font-weight="700">1</text>
+  <text x="94" y="144" class="title">Built-in skip list</text>
+  <rect x="439.6" y="129" width="84.4" height="20" rx="3" fill="#F0EDF7" stroke="#F0EDF7" stroke-width="1"/>
+  <text x="481.8" y="143" class="lbl" text-anchor="middle" style="fill:#737373">ALWAYS ON</text>
+  <line x1="544" y1="139" x2="594" y2="139" stroke="#A1A1A1" stroke-width="2" marker-end="url(#arrM)"/>
+  <rect x="600" y="112" width="360" height="54" rx="5" fill="#FAF9FD" stroke="#E4DFF1" stroke-width="1"/>
+  <text x="618" y="135" class="item" font-weight="700" style="fill:#4A4458">Skipped</text>
+  <text x="618" y="153" class="body" style="fill:#737373">binaries, images, lock files, <tspan class="mono" fill="#7008E7">node_modules</tspan>, <tspan class="mono" fill="#7008E7">dist</tspan> ...</text>
+  <line x1="290" y1="168" x2="290" y2="190" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="40" y="192" width="500" height="54" rx="5" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1.5"/>
+  <circle cx="71" cy="219" r="14" fill="#7C3AED"/>
+  <text x="71" y="223.5" class="item" text-anchor="middle" style="fill:#FFFFFF" font-weight="700">2</text>
+  <text x="94" y="224" class="title">Allowlist</text>
+  <rect x="416.8" y="209" width="107.2" height="20" rx="3" fill="#F5F3FF" stroke="#DDD6FF" stroke-width="1"/>
+  <text x="470.4" y="223" class="lbl" text-anchor="middle" style="fill:#7C3AED">YOU SET THIS</text>
+  <line x1="544" y1="219" x2="594" y2="219" stroke="#A1A1A1" stroke-width="2" marker-end="url(#arrM)"/>
+  <rect x="600" y="192" width="360" height="54" rx="5" fill="#FAF9FD" stroke="#E4DFF1" stroke-width="1"/>
+  <text x="618" y="215" class="item" font-weight="700" style="fill:#4A4458">Not on the Allowlist</text>
+  <text x="618" y="233" class="body" style="fill:#737373">Files that don’t match, if it has patterns</text>
+  <line x1="290" y1="248" x2="290" y2="270" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="40" y="272" width="500" height="54" rx="5" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1.5"/>
+  <circle cx="71" cy="299" r="14" fill="#7C3AED"/>
+  <text x="71" y="303.5" class="item" text-anchor="middle" style="fill:#FFFFFF" font-weight="700">3</text>
+  <text x="94" y="304" class="title">Blocklist</text>
+  <rect x="416.8" y="289" width="107.2" height="20" rx="3" fill="#F5F3FF" stroke="#DDD6FF" stroke-width="1"/>
+  <text x="470.4" y="303" class="lbl" text-anchor="middle" style="fill:#7C3AED">YOU SET THIS</text>
+  <line x1="544" y1="299" x2="594" y2="299" stroke="#A1A1A1" stroke-width="2" marker-end="url(#arrM)"/>
+  <rect x="600" y="272" width="360" height="54" rx="5" fill="#FAF9FD" stroke="#E4DFF1" stroke-width="1"/>
+  <text x="618" y="295" class="item" font-weight="700" style="fill:#4A4458">On the Blocklist</text>
+  <text x="618" y="313" class="body" style="fill:#737373">Files that match, even allowlisted ones</text>
+  <line x1="290" y1="328" x2="290" y2="350" stroke="#008236" stroke-width="2" marker-end="url(#arrG)"/>
+  <rect x="40" y="352" width="500" height="50" rx="5" fill="#D9F7E5" stroke="#BFF2D3" stroke-width="1.5"/>
+  <text x="60" y="383" class="title">Indexed</text>
+  <text x="520" y="382" class="body" text-anchor="end">searchable by your agent</text>
+  <text x="40" y="444" class="muted">You set the Allowlist and Blocklist on the Sync Settings tab. The skip list can’t be changed.</text>
 
   <!-- Footer. Logo paths copied verbatim from frontend/src/lib/icons/NeoHiveIcon.svelte. -->
-  <line x1="40" y1="409" x2="960" y2="409" stroke="#E4DFF1"/>
-  <g transform="translate(40,423) scale(0.04)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
-  <text x="64" y="438" font-size="13" font-weight="700" fill="#1A1A2E">Which files get indexed<tspan dx="12" font-size="10" font-weight="600" letter-spacing="1" fill="#737373">EVERY FILE PASSES THREE FILTERS, IN THIS ORDER</tspan></text>
+  <line x1="40" y1="468" x2="960" y2="468" stroke="#E4DFF1"/>
+  <g transform="translate(40,482) scale(0.04)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
+  <text x="64" y="497" font-size="13" font-weight="700" fill="#1A1A2E">Which files get indexed<tspan dx="12" font-size="10" font-weight="600" letter-spacing="1" fill="#737373">EVERY FILE PASSES THREE FILTERS, IN THIS ORDER</tspan></text>
 </svg>

@@ -4,7 +4,7 @@ description: "Pick the right Index for each kind of content, and decide how many
 
 # What to add, and where
 
-NeoHive can hold your source code, your docs, your other files, and what your team learns. Each kind of content goes in its own kind of [Index](../concepts/glossary.md#index), a searchable store inside NeoHive. Your Indexes live in a [Hive](../concepts/glossary.md#hive), the workspace your agent connects to.
+NeoHive can hold your source code, your docs, files such as PDFs and specs, and what your team learns. Each kind of content goes in its own kind of [Index](../concepts/glossary.md#index), a searchable store inside NeoHive. Your Indexes live in a [Hive](../concepts/glossary.md#hive), the workspace your agent connects to.
 
 This page shows which Index fits each kind of content, and when content needs a Hive of its own. Read it before you first add content, and again when you plan NeoHive for a new product or team.
 
@@ -24,13 +24,13 @@ The **Add an Index** dialog asks where your data comes from.
 | Source code in a repository | **GitHub** or **GitLab**, then **Code** | A [Code Index](../concepts/glossary.md#code-index), kept in sync with the branch |
 | Markdown docs in a repository | **GitHub** or **GitLab**, then **Documentation** | A [Documentation Index](../concepts/glossary.md#documentation-index), kept in sync with the branch |
 | Documents outside git, such as specs, runbooks, PDFs, or Word files | **File Upload** | A [Files Index](../concepts/glossary.md#files-index), filled by uploading |
-| Conventions and decisions your team makes | Nothing to add | The [Knowledge Index](../concepts/glossary.md#knowledge-index), created with every Hive |
 | An Index another Hive already set up | **Shared Index**, under **or reuse an existing Index** | The same Index, searchable from your Hive with no copy and no wait for indexing |
+| Conventions and decisions your team makes | Nothing to add | The [Knowledge Index](../concepts/glossary.md#knowledge-index), created with every Hive |
 
-A Documentation Index indexes every file that its filters allow, not only markdown. To keep it to markdown, add `**/*.md` to its **Allowlist**, as [Choose which files are included](repositories/file-patterns.md) shows. For both kinds of repository Index, see [Add a code repository](repositories/README.md).
+A Documentation Index works the same way as a Code Index. Both index every file that their filters allow, not only markdown. To keep a Documentation Index to markdown, add `**/*.md` to its **Allowlist**. [Choose which files are included](repositories/file-patterns.md) shows how. To add either kind, see [Add a code repository](repositories/README.md).
 
 {% hint style="info" %}
-Your agent searches every Index in the Hive with one query. To choose a single Index, your agent uses the descriptions it reads through `list_indexes`. Set each description on the Index's **Index Info** tab. Name the services, domains, and languages that the Index covers.
+Your agent searches every Index in the Hive at once, or picks a single Index by its name and description. On each Index's **Index Info** tab, write a description that names the services, domains, and languages the Index covers.
 {% endhint %}
 
 ## Decide how many Hives
@@ -41,7 +41,7 @@ Each Hive has its own [MCP](../concepts/glossary.md#mcp) endpoint, the address y
 |---|---|
 | One product, one repository | One Hive |
 | One product across several repositories | One Hive, one Code Index per repository |
-| Unrelated products or teams | One Hive each, so results from one codebase do not outrank results from the other |
+| Unrelated products or teams | A separate Hive for each, so results from one codebase do not outrank results from the other |
 | A library several products use | Index the library in one Hive. Then add that Index to the other Hives as a **Shared Index**. |
 
 A [Shared Index](../concepts/glossary.md#shared-index) is one Index that several Hives search, not a copy. For what a Shared Index is and what each Hive can change, see [Shared Index](../concepts/hives-indexes-memories.md#shared-index).

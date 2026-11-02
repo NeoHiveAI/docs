@@ -2,9 +2,9 @@
 description: "Import the rules in your CLAUDE.md, AGENTS.md, and rules folders into NeoHive, where every agent on the Hive can recall them."
 ---
 
-# Migrate from CLAUDE.md
+# Import rules from CLAUDE.md and AGENTS.md
 
-Run one skill to turn the project rules in your context files, such as `CLAUDE.md`, into [Memories](../concepts/glossary.md#memory) (stored pieces of team knowledge). Every agent connected to your [Hive](../concepts/glossary.md#hive) can then recall those Memories.
+Run one skill to turn the project rules in your context files, such as `CLAUDE.md`, into [Memories](../concepts/glossary.md#memory) (stored pieces of team knowledge). Every agent connected to your [Hive](../concepts/glossary.md#hive) can then recall those Memories, with no file to commit, pull, or merge.
 
 <figure><img src="../.gitbook/assets/context-migrate.svg" alt="A CLAUDE.md with sections on payments, testing, a database choice, and setup. The skill turns each rule into its own Memory with a type. 'Always send an idempotency key' becomes a directive. 'Tests use Vitest' becomes a convention. 'Postgres chosen for row-level locks' becomes a decision. The skill leaves out setup steps and personal preferences. The skill stores nothing until you approve the preview, and it does not change your files."><figcaption></figcaption></figure>
 
@@ -49,39 +49,37 @@ The skill never imports `~/.codex/AGENTS.md`, `~/.claude/CLAUDE.md`, or `~/.curs
 {% step %}
 ## The skill lists the files
 
-The list shows each project file that the skill reads. Files in your home folder appear as skipped, because the skill reads them for context only.
+You see each project file it will read. Files in your home folder show as skipped.
 {% endstep %}
 
 {% step %}
-## The skill splits and classifies
+## The skill sorts the rules
 
-The skill turns each rule or decision into its own Memory and gives each Memory a type, such as `directive`, `convention`, or `decision`. The skill leaves out setup steps, tables of contents, TODO lists, and personal preferences. If an entry could be either a personal rule or a team rule, the skill marks it as ambiguous. The skill skips ambiguous entries unless you re-classify them.
+Each rule or decision becomes its own Memory with a type, such as `directive`, `convention`, or `decision`. Setup steps, tables of contents, TODO lists, and personal preferences are left out. An entry that could be personal or team is marked as ambiguous.
 {% endstep %}
 
 {% step %}
-## You confirm
+## You approve
 
-If the Hive has more than one [Index](../concepts/glossary.md#index), the skill asks which Index to use. Select **Knowledge**. The `memory_store` tool always writes to the Hive's [Knowledge Index](../concepts/glossary.md#knowledge-index), whichever Index you name.
-
-The skill then shows a preview table of what it plans to store and what it skipped. The skill writes nothing until you approve. You can remove items, re-classify the ambiguous ones, or stop the migration.
+If the skill asks which [Index](../concepts/glossary.md#index) to use, select **Knowledge**. A preview then shows what the skill plans to store and what it skipped. Nothing is stored until you approve. You can remove items, re-classify the ambiguous ones, or stop.
 {% endstep %}
 
 {% step %}
 ## The skill stores the Memories
 
-The skill skips any Memory that the Hive already holds. The skill stores the rest in the Hive's Knowledge Index, and then shows a summary of what it migrated.
+It skips anything the Hive already holds, stores the rest in the [Knowledge Index](../concepts/glossary.md#knowledge-index), and shows a summary.
 {% endstep %}
 {% endstepper %}
 
 To approve each Memory one at a time, add `review=each` to the command: `/neohive:migrate-memory review=each`.
 
-The skill does not change your original files. The skill also skips the block between the `<!-- BEGIN neohive-managed v=N -->` and `<!-- END neohive-managed v=N -->` markers. The NeoHive plugin writes that block, for example when you run `/neohive:generate-claude-md`. The block must stay in the file.
+The skill does not change your original files, and it skips the NeoHive block between the `<!-- BEGIN neohive-managed v=N -->` and `<!-- END neohive-managed v=N -->` markers. The plugin writes that block to tell your agent how to use your Hive, and updates it through the markers, so keep both in the file.
 
 ## After migrating
 
 Your agent recalls migrated rules like any other Memory. A teammate on the same Hive gets the same rules without copying your `CLAUDE.md`.
 
-The skill does not change `CLAUDE.md`, so your agent still loads every rule in it on each task. To load only the rules that matter, remove the migrated rules from `CLAUDE.md`, and keep the NeoHive block between the markers.
+The skill does not change `CLAUDE.md`, so your agent still loads every rule in it on each task. To load only the rules that matter, remove the migrated rules from `CLAUDE.md`. Keep the rules the skill skipped, such as personal preferences, and the NeoHive block.
 
 If a rule migrated incorrectly or becomes out of date, tell your agent. Your agent then deactivates the old Memory. For details, see [Capture team knowledge](team-knowledge.md#correct-what-goes-stale).
 
