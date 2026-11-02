@@ -46,7 +46,7 @@ After you add the marketplace, do the following:
 3. Install **NeoHive** from the list.
 4. To load the plugin's skills, start a new Codex session.
 
-The plugin adds a set of skills and a rules file, which tells Codex when to call `memory_context`, `memory_recall`, and `memory_store`. Those tools come from the MCP server, not from the plugin, which is why you added the server first.
+The plugin adds a set of skills. The `getting-started` skill in the next step offers to write rules into your project's `AGENTS.md` that tell Codex when to call `memory_context`, `memory_recall`, and `memory_store`. Those tools come from the MCP server, not from the plugin, which is why you added the server first.
 {% endstep %}
 
 {% step %}

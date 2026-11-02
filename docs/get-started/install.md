@@ -96,10 +96,10 @@ Open the Index from the Hive page. For a repository Index, **Sync history** show
 {% step %}
 ## Connect your agent
 
-The last setup step, **Install for your AI tools**, shows the commands that connect your agent. The first command registers the Hive as an [MCP](../concepts/glossary.md#mcp) server, so your agent can call NeoHive's tools. If you need the commands again later, the **Install Instructions** panel on the Hive page shows the same ones. To connect Claude Code, do the following:
+The last setup step, **Install for your AI tools**, selects **Claude** by default and shows the command that registers the Hive as an [MCP](../concepts/glossary.md#mcp) server, so your agent can call NeoHive's tools. The **Install Instructions** panel on the Hive page shows that command again, along with the plugin commands. To connect a different agent, see [Cursor](connect/cursor.md), [Codex](connect/codex.md), or [Claude Desktop and other MCP apps](connect/desktop-apps.md). To connect Claude Code, do the following:
 
 1. In your terminal, go to your project's root folder.
-2. Run the first command. The command looks like this:
+2. Run the command from **Install for your AI tools**. The command looks like this:
 
    ```bash
    claude mcp add <name> '<hive-url>' \
@@ -119,8 +119,6 @@ The last setup step, **Install for your AI tools**, shows the commands that conn
    /reload-plugins
    /neohive:getting-started
    ```
-
-To connect a different agent, see [Cursor](connect/cursor.md), [Codex](connect/codex.md), or [Claude Desktop and other MCP apps](connect/desktop-apps.md).
 
 {% hint style="success" %}
 **Check:** your agent answers from your content.
