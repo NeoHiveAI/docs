@@ -8,9 +8,9 @@ description: >-
 
 **Coding agents that share what your whole team knows.**
 
-NeoHive is a self-hosted context layer for coding agents: one persistent memory that your team's agents share. NeoHive indexes your repositories and documents and serves context from them to your agents over [MCP](concepts/glossary.md#mcp). As a result, your agents' answers reference your architecture, internal APIs, and conventions rather than generic patterns. Claude Code, Cursor, Codex, and any other agent that supports MCP read the same memory, so your team keeps the tools it already uses. When one person corrects their agent, every agent on your team gets the correction.
+NeoHive is a self-hosted context layer for coding agents: one persistent memory that your team's agents share. NeoHive indexes your repositories and documents and serves them to your agents over [MCP](concepts/glossary.md#mcp), so answers reference your architecture, internal APIs, team decisions, and conventions instead of generic patterns. Your team keeps the agents it already uses, because any agent that supports MCP can read the same memory.
 
-Connect your sources once, and NeoHive keeps up as they change. The more your team uses NeoHive, the better it answers. Each agent gets only the context that its task needs. NeoHive runs inside your own network, on machines that you control.
+Connect your sources once, and NeoHive keeps up as they change. From there, the more your team uses NeoHive, the better it answers, and each agent still gets only the context that its task needs. NeoHive does all of this inside your own network, on machines that you control.
 
 ## Start here
 
