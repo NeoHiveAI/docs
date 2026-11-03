@@ -4,15 +4,15 @@ description: "What protects NeoHive on the network, and what to add before peopl
 
 # Expose NeoHive beyond your network
 
-NeoHive runs as a server, so your agents and your browser reach it over the network on port `3577`. If you chose another port with `NEOHIVE_PORT` when you installed, they use that port instead. The dashboard and the endpoints your agents connect to all use that one port.
+NeoHive runs as a server, and your browser and your agents reach NeoHive on one port, `3577`. If you set another port with `NEOHIVE_PORT` when you installed, use that port instead.
 
-What you set up depends on who else needs NeoHive. A teammate on your office network needs one setup, and an agent on a laptop outside that network needs another. The following table shows the setup for each case:
+What you set up depends on who needs to reach NeoHive. The following table shows the setup for each case:
 
 | Who needs to reach NeoHive | What to set up |
 |---|---|
 | Only you, on this machine | Use the default install. If the host is on a shared network, block port `3577` from other machines |
 | Your team, on a trusted network or VPN | Run NeoHive on a host that their machines can reach. For more information, see [Access and sharing](../admin/access.md). |
-| Anyone outside a trusted network | Follow [Advanced setup](#advanced-setup). Never open port `3577` directly |
+| Anyone outside a trusted network | Follow [Advanced setup](#advanced-setup). Don't open port `3577` directly |
 
 ## The default install is reachable from your network
 
@@ -30,11 +30,11 @@ For access from outside your network, put a proxy in front of NeoHive, and have 
 
 ### Put a proxy in front
 
-NeoHive serves plain HTTP, so outside access needs a reverse proxy or VPN gateway in front of NeoHive. Cloudflare Access and a company VPN are two examples of such gateways. A reverse proxy is a server that receives each request and forwards it to NeoHive, but only after the proxy checks the request's credential. The proxy also provides the HTTPS certificate, so give your agents the `https://` address that the proxy exposes, for example `https://neohive.example.com/hives/<hive-id>/mcp`.
+NeoHive serves plain HTTP, so outside access needs a reverse proxy or VPN gateway in front of NeoHive. Examples include Cloudflare Access and a company VPN. The proxy receives each request, checks the request's credential, and only then forwards the request to NeoHive. The proxy also provides the HTTPS certificate, so give your agents the `https://` address that the proxy exposes, for example `https://neohive.example.com/hives/<hive-id>/mcp`.
 
 ### Where your proxy checks the credential
 
-Your proxy checks the credential, and NeoHive doesn't read it. The Claude Code plugin's hooks read the token from the `NEOHIVE_TOKEN` variable. The optional smart prompt rewriting in the Claude Code, Cursor, and Codex plugins reads it too. Both send the token unchanged to your proxy. NeoHive checks one secret of its own: the `X-Webhook-Secret` header on the [webhook refresh endpoint](../reference/webhooks.md).
+Only your proxy checks the credential, not NeoHive. The Claude Code plugin's hooks read the token from the `NEOHIVE_TOKEN` variable. The optional smart prompt rewriting in the Claude Code, Cursor, and Codex plugins reads the same variable. Both send the token unchanged to your proxy. The only secret that NeoHive checks itself is the `X-Webhook-Secret` header on the [webhook refresh endpoint](../reference/webhooks.md).
 
 ### Pass the proxy's credential from each agent
 

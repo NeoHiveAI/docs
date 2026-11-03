@@ -26,8 +26,6 @@ The block looks like this:
 url = "http://localhost:3577/hives/<hive-id>/mcp"
 http_headers = { "x-mcp-client" = "codex" }
 ```
-
-Codex connects to the URL directly, so Codex doesn't need `mcp-remote` or another program in between.
 {% endstep %}
 
 {% step %}
@@ -46,13 +44,13 @@ After you add the marketplace, do the following:
 3. Install **NeoHive** from the list.
 4. To load the plugin's skills, start a new Codex session.
 
-The plugin adds a set of skills. The `getting-started` skill in the next step offers to write rules into your project's `AGENTS.md` that tell Codex when to call `memory_context`, `memory_recall`, and `memory_store`. Those tools come from the MCP server, not from the plugin, which is why you added the server first.
+The plugin adds a set of skills. The tools that the skills call, such as `memory_recall`, come from the MCP server, which is why you added the server first.
 {% endstep %}
 
 {% step %}
 ## Run the setup skill
 
-Ask Codex to run the NeoHive `getting-started` skill. The skill checks that the Hive is reachable and offers to write a Hive summary into your project's `AGENTS.md`. The skill can also move existing rules files (`CLAUDE.md`, `AGENTS.md`, `.cursor/rules`, and `.codex/rules`) into NeoHive.
+Ask Codex to run the NeoHive `getting-started` skill. The skill checks that the Hive is reachable. Next, the skill offers to write a Hive summary and NeoHive rules into your project's `AGENTS.md`. The rules tell Codex when to call `memory_context`, `memory_recall`, and `memory_store`. You can also use the skill to move existing rules files (`CLAUDE.md`, `AGENTS.md`, `.cursor/rules`, and `.codex/rules`) into NeoHive.
 {% endstep %}
 {% endstepper %}
 

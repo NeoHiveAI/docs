@@ -4,13 +4,13 @@ description: "What NeoHive keeps on your machine, every outbound connection it m
 
 # What stays on your machine
 
-NeoHive runs on your own machine or on a shared server for your team. NeoHive stores and searches your content there, and the NeoHive container connects to a few outside services, for example to check your license.
+NeoHive keeps your content on the machine it runs on, whether that's your own computer or a shared server for your team. The NeoHive container connects to a few outside services, for example to check your license.
 
 An outbound connection is a request that NeoHive starts to another server. Before a security review or a firewall change, check what each connection sends and whether you can block it. The following diagram shows what stays on the machine and what leaves it:
 
 <figure><img src="../.gitbook/assets/security-local-only.svg" alt="Your content stays in the NeoHive container. Arrows leave for the license, metrics, update, model, data source, dashboard asset, and provider connections."><figcaption></figcaption></figure>
 
-**NeoHive keeps your content on the machine it runs on.** Your content means your code, documents, [Memories](../concepts/glossary.md#memory), and recall queries. NeoHive also stores your repository tokens there and sends each token only to its own provider. NeoHive clones, indexes, and embeds your repositories on that machine, and stores the clones and their [Indexes](../concepts/glossary.md#index) in the `neohive-data` Docker volume.
+All of your content stays on the machine NeoHive runs on: your code, documents, [Memories](../concepts/glossary.md#memory), and recall queries. NeoHive clones, indexes, and embeds your repositories there, and stores the clones and their [Indexes](../concepts/glossary.md#index) in the `neohive-data` Docker volume. NeoHive also stores your repository tokens there and sends each token only to its own provider.
 
 ## Outbound connections
 
@@ -24,7 +24,7 @@ Your content stays on the machine, but the NeoHive container makes the following
 | Model download | `huggingface.co` | When an embedding model isn't cached yet, including the first use after each update | Only the request for the file | Not needed. The download happens once for each model, and again after an update |
 | Data sources | `github.com`, `api.github.com`, `gitlab.com`, or your own GitLab host. A connection with an SSH key uses SSH on port `22` | When you add a connection, and on each sync, including scheduled syncs | Your stored token or SSH key, to authenticate | Yes. Remove the Index and its connection |
 
-Usage metrics never include file contents, Memory text, recall queries, or tokens. Instead, they record how NeoHive runs: the NeoHive version, a hashed license ID, the random machine ID, and counts and timings, such as how many Memories a [Hive](../concepts/glossary.md#hive) holds. For each request, they also record the IP address and user agent of the agent or browser that sent the request, and the request's path and query string. The query string can hold text that you typed into the dashboard, such as a repository search. When a request fails, usage metrics add its error message and stack trace.
+Usage metrics don't include file contents, Memory text, recall queries, or tokens. Instead, they record how NeoHive runs: the NeoHive version, a hashed license ID, the random machine ID, and counts and timings, such as how many Memories a [Hive](../concepts/glossary.md#hive) holds. For each request, they also record the IP address and user agent of the agent or browser that sent the request, and the request's path and query string. The query string can hold text that you typed into the dashboard, such as a repository search. When a request fails, usage metrics add its error message and stack trace.
 
 When usage metrics are turned off, each start of the container still sends one batch of runtime statistics, such as memory use, before NeoHive reads your setting. After that, usage metrics send nothing.
 
@@ -34,7 +34,7 @@ When usage metrics are turned off, each start of the container still sends one b
 
 ## Connections from other parts of your setup
 
-These connections don't come from the container, but they involve NeoHive. They come from the installer, your browser, and the agent plugins. If you set up a firewall, check the following connections too:
+The installer, your browser, and the agent plugins make their own connections, outside the container. If you set up a firewall, check the following connections too:
 
 | Connection | Goes to | When |
 |---|---|---|

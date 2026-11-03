@@ -4,7 +4,7 @@ description: "Install NeoHive, create your first Hive, and connect your agent. E
 
 # Install NeoHive
 
-NeoHive runs in a Docker container on a machine you control: your own computer or a server your team shares. You install NeoHive once on that machine, and your coding agent then connects to it there. The installation has three steps, and each step ends with a check, so you know the step worked before you move on. When you finish, your agent answers questions from your own code. The following diagram shows the whole flow:
+NeoHive runs in a Docker container on a machine you control, such as your own computer or a server your team shares. You install NeoHive once on that machine, and then connect your coding agent to NeoHive. When you finish, your agent answers questions from your own code. The following diagram shows the whole flow:
 
 <figure><img src="../.gitbook/assets/get-started-install.svg" alt="The installer starts NeoHive on port 3577. Setup then runs Name Hive, Configure first Index, and Install for your AI tools, and ends at Connected."><figcaption></figcaption></figure>
 
@@ -18,13 +18,13 @@ Before you start, you need the following:
 {% step %}
 ## Install
 
-The installer reads your license file, and then starts NeoHive in a Docker container named `neohive`. If the installer can't find the license file, it asks for the path. To install NeoHive, run the following command from the folder that holds your license file:
+To install NeoHive, run the following command from the folder that holds your license file:
 
 ```bash
 bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
 ```
 
-When the installer finishes, it prints two dashboard addresses: `On this machine` and `From another host`. On a shared server, use the `From another host` address.
+The installer reads your license file and starts NeoHive in a Docker container named `neohive`. If the installer can't find the license file, the installer asks for the path. When the installer finishes, it prints two dashboard addresses: `On this machine` and `From another host`. On a shared server, use the `From another host` address.
 
 <details>
 
@@ -96,7 +96,7 @@ Open the Index from the Hive page. For a repository Index, **Sync history** show
 {% step %}
 ## Connect your agent
 
-The last setup step, **Install for your AI tools**, selects **Claude** by default and shows the command that registers the Hive as an [MCP](../concepts/glossary.md#mcp) server, so your agent can call NeoHive's tools. The **Install Instructions** panel on the Hive page shows that command again, along with the plugin commands. To connect a different agent, see [Cursor](connect/cursor.md), [Codex](connect/codex.md), [ChatGPT](connect/chatgpt.md), or [Claude Desktop and other MCP apps](connect/desktop-apps.md). To connect Claude Code, do the following:
+The last setup screen, **Install for your AI tools**, shows the command that adds the Hive to your agent as an [MCP](../concepts/glossary.md#mcp) server. Your agent then calls NeoHive's tools through that server. Setup selects **Claude** by default. To connect a different agent, see [Cursor](connect/cursor.md), [Codex](connect/codex.md), [ChatGPT](connect/chatgpt.md), or [Claude Desktop and other MCP apps](connect/desktop-apps.md). To connect Claude Code, do the following:
 
 1. In your terminal, go to your project's root folder.
 2. Run the command from **Install for your AI tools**. The command looks like this:
@@ -110,7 +110,7 @@ The last setup step, **Install for your AI tools**, selects **Claude** by defaul
 
    For more information about why the `--scope project` flag matters, see [Claude Code](connect/claude-code.md).
 3. Start Claude Code in the project.
-4. When Claude Code asks, approve the NeoHive server. Claude Code doesn't connect to the Hive until you approve the server. After Claude Code connects, setup shows **Connected**.
+4. When Claude Code asks, approve the NeoHive server. Setup shows **Connected** after Claude Code connects.
 5. To install the plugin and run its setup, run the following commands inside Claude Code:
 
    ```text

@@ -34,11 +34,11 @@ claude mcp add <name> '<hive-url>' \
   --header 'x-mcp-client: claude-code'
 ```
 
-Keep the URL directly after the name. If the URL comes after a flag, Claude Code reads the URL as a header value and can't reach the server. To confirm the order, read the saved entry: the command that the dashboard shows ends with `&& claude mcp get <name>`, which prints the entry.
+If you type the command yourself, put the URL directly after the name. Claude Code reads a URL that comes after a flag as a header value, and then can't reach the server. The dashboard's command ends with `&& claude mcp get <name>`, which prints the saved entry so you can check the order.
 
 Commit `.mcp.json` to the repository, and every teammate who opens the project gets the same Hive.
 
-The next time Claude Code starts in the project, it asks you to approve the server from `.mcp.json`. Approve the server, or Claude Code doesn't connect to the Hive.
+The next time Claude Code starts in the project and asks about the server from `.mcp.json`, approve the server.
 {% endstep %}
 
 {% step %}
@@ -64,7 +64,7 @@ The plugin doesn't add an MCP server, which is why you added the server first. I
 | `explore-neohive` subagent | Searches NeoHive before reading files. |
 | Skills | `/neohive:getting-started`, `/neohive:load-context`, `/neohive:capture-session-learnings`, and others. For more information about each command, see [Slash commands](../../reference/slash-commands.md). |
 
-For more information about when each part runs and how to turn each hook off, see [What the plugin does automatically](../../results/plugin-automation.md). That page also explains when the prompt hook skips a prompt.
+For more information about when each part runs, when the prompt hook skips a prompt, and how to turn each hook off, see [What the plugin does automatically](../../results/plugin-automation.md).
 {% endstep %}
 
 {% step %}
@@ -76,7 +76,7 @@ To start the setup wizard, run the following command inside Claude Code:
 /neohive:getting-started
 ```
 
-The wizard checks that the Hive is reachable and offers to write a Hive summary into your project's `CLAUDE.md`. The wizard can also move existing `CLAUDE.md`, `AGENTS.md`, and `.claude/rules` content into NeoHive. The wizard asks before each write.
+The wizard checks that the Hive is reachable and offers to write a Hive summary into your project's `CLAUDE.md`. You can also use the wizard to move existing `CLAUDE.md`, `AGENTS.md`, and `.claude/rules` content into NeoHive. Before each write, the wizard asks for your approval.
 {% endstep %}
 {% endstepper %}
 

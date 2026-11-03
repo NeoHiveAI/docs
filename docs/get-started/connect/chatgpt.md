@@ -15,8 +15,10 @@ ChatGPT has no configuration file to paste into. Instead, you fill in a form, an
 1. Open the Hive in the dashboard.
 2. Go to **Install Instructions**. If the panel is collapsed, click **Install** or **Reinstall** to open it.
 3. Click **ChatGPT**.
-4. In the ChatGPT desktop app, open **Settings**, click **Plugins**, and then click **Add MCP server**.
-5. In **Connect to a custom MCP**, fill in the fields with the values from the dashboard:
+4. In the ChatGPT desktop app, open **Settings**.
+5. Click **Plugins**.
+6. Click **Add MCP server**.
+7. In **Connect to a custom MCP**, fill in the fields with the values from the dashboard:
 
    | Field | Value |
    |---|---|
@@ -24,7 +26,7 @@ ChatGPT has no configuration file to paste into. Instead, you fill in a form, an
    | **Type** | **Streamable HTTP** |
    | **URL** | The Hive's MCP endpoint with `?client=chatgpt` at the end, such as `http://localhost:3577/hives/<hive-id>/mcp?client=chatgpt` |
 
-6. Click **Save**.
+8. Click **Save**.
 
 The server appears under **Servers** with your Hive's name. The `?client=chatgpt` at the end of the URL tells NeoHive which app connected, so the dashboard can mark **ChatGPT** as connected.
 

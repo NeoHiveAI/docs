@@ -4,7 +4,7 @@ description: "Where NeoHive stores the GitHub and GitLab tokens it uses to reach
 
 # Credentials and secrets
 
-NeoHive needs a token or an SSH key to read your repositories. NeoHive keeps that secret so it can sync on its own, without asking you again. Because NeoHive holds that secret, you need to know where each secret lives, who can read it, and what happens when you remove it. That matters before a security review or a backup, and when you decide which scopes to give a token. The following diagram shows where a token goes after you add it:
+NeoHive stores the token or SSH key that reads your repositories, so that NeoHive can sync without asking you again. Before a security review or a backup, check where each secret lives, who can read it, and what happens when you remove it. The same facts matter when you choose a token's scopes. The following diagram shows where a token goes after you add it:
 
 <figure><img src="../.gitbook/assets/security-credentials.svg" alt="The provider checks the token you add. NeoHive stores it encrypted in its database, and an HTTPS clone keeps it unencrypted. Both are in neohive-data."><figcaption></figcaption></figure>
 

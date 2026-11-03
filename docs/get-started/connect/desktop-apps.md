@@ -69,7 +69,7 @@ If the address starts with `https://`, remove `--allow-http`.
 {% endtab %}
 
 {% tab title="Agents with no plugin" %}
-To use NeoHive with an agent that has no plugin, you connect the agent and then adapt one of the NeoHive plugins. Do the following:
+To adapt a NeoHive plugin for an agent that has no plugin, do the following:
 
 1. Connect the agent with the steps in the **Other MCP apps** tab.
 2. Clone the plugin closest to your agent: [NeoHiveClaude](https://github.com/NeoHiveAI/NeoHiveClaude), [NeoHiveCursor](https://github.com/NeoHiveAI/NeoHiveCursor), or [NeoHiveCodex](https://github.com/NeoHiveAI/NeoHiveCodex).

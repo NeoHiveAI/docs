@@ -35,8 +35,6 @@ The JSON looks like this:
 ```
 
 If the file already has an `mcpServers` block, add the entry inside that block.
-
-Cursor connects to the URL directly, so Cursor doesn't need `mcp-remote` or another program in between.
 {% endstep %}
 
 {% step %}
@@ -60,7 +58,7 @@ To install the plugin, do the following:
      ~/.cursor/plugins/local/neohive
    ```
 
-   Clone the plugin into that folder rather than linking to a copy somewhere else, because Cursor ignores a link to a copy outside the folder.
+   Cursor doesn't load a plugin that you link from outside Cursor's local plugins folder.
 3. Restart Cursor, or run **Developer: Reload Window** from the Command Palette.
 
 The plugin adds a set of skills and an always-on rule, `rules/neohive.mdc`, which tells Cursor when to call `memory_context`, `memory_recall`, and `memory_store`. Those tools come from the MCP server, not from the plugin, which is why you added the server first.
@@ -69,7 +67,7 @@ The plugin adds a set of skills and an always-on rule, `rules/neohive.mdc`, whic
 {% step %}
 ## Run the setup skill
 
-Ask Cursor to run the `getting-started` skill. The skill checks that the Hive is reachable and offers to write a Hive summary rule to `.cursor/rules/neohive-topology.mdc`. The skill can also move existing rules files (`CLAUDE.md`, `AGENTS.md`, `.cursor/rules`, and similar files) into NeoHive.
+Ask Cursor to run the `getting-started` skill. The skill checks that the Hive is reachable and offers to write a Hive summary rule to `.cursor/rules/neohive-topology.mdc`. You can also use the skill to move existing rules files (`CLAUDE.md`, `AGENTS.md`, `.cursor/rules`, and similar files) into NeoHive.
 {% endstep %}
 {% endstepper %}
 
