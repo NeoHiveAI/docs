@@ -22,16 +22,11 @@ ChatGPT has no configuration file to paste into. Instead, you fill in a form, an
    |---|---|
    | **Name** | The Hive's name |
    | **Type** | **Streamable HTTP** |
-   | **URL** | The Hive's MCP endpoint, such as `http://localhost:3577/hives/<hive-id>/mcp` |
-   | **Headers** | Click **Add header**, and then enter `x-mcp-client` in **Key** and `chatgpt` in **Value** |
+   | **URL** | The Hive's MCP endpoint with `?client=chatgpt` at the end, such as `http://localhost:3577/hives/<hive-id>/mcp?client=chatgpt` |
 
 6. Click **Save**.
 
-NeoHive appears under **Servers**. The header tells NeoHive which app connected, so the dashboard can mark **ChatGPT** as connected.
-
-{% hint style="info" %}
-If NeoHive sits behind a proxy that checks a token, also add the header your proxy expects under **Headers**, such as `Authorization` with the value `Bearer <your-token>`. For more information, see [Expose NeoHive beyond your network](../../security/network.md).
-{% endhint %}
+NeoHive appears under **Servers**. The `?client=chatgpt` at the end of the URL tells NeoHive which app connected, so the dashboard can mark **ChatGPT** as connected.
 
 ## Tell ChatGPT to use NeoHive
 
@@ -44,7 +39,7 @@ In a new chat, ask ChatGPT: `List my NeoHive Indexes.` ChatGPT calls `list_index
 
 If ChatGPT doesn't call the tool, compare the **URL** in ChatGPT with the endpoint in the dashboard. Then see [Agent can't connect](../../troubleshooting/connection.md).
 
-If ChatGPT lists the Indexes but the dashboard doesn't mark **ChatGPT** as connected, open the server in ChatGPT and check that the header has the key `x-mcp-client` and the value `chatgpt`.
+If ChatGPT lists the Indexes but the dashboard doesn't mark **ChatGPT** as connected, open the server in ChatGPT and check that the URL ends with `?client=chatgpt`.
 {% endhint %}
 
 ## Next step
