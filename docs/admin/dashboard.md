@@ -91,7 +91,7 @@ The page has the following tabs:
 | **Showcase** | Every Index | The files or Memories that agents retrieve most often |
 | **Files** | [Files Indexes](../concepts/glossary.md#files-index) | Uploaded files and a drop zone for more. See [Add documents and PDFs](../context/documents.md) |
 | **Sync Settings** | [Code](../concepts/glossary.md#code-index) and [Documentation Indexes](../concepts/glossary.md#documentation-index) | **Sync history**, the connection, branch, **Sync interval**, file filters, and **Pause syncing**. See [Keep it up to date](../context/repositories/sync.md) |
-| **Index Info** | Every Index | Name, description, [embedding model](../concepts/glossary.md#embedding-model), **Share Index…**, **Move Index…**, and **Danger zone**. See [Embedding models](embedding-models.md) and [Manage Hives and Indexes](manage.md) |
+| **Index Info** | Every Index | Name, description, [embedding model](../concepts/glossary.md#embedding-model), **Embedding history**, **Share Index…**, **Move Index…**, and **Danger zone**. See [Embedding models](embedding-models.md) and [Manage Hives and Indexes](manage.md) |
 
 When a sync fails, a message box at the top of the page names the error. For each error and its fix, see [Repository sync issues](../troubleshooting/sync.md). When you change the embedding model, a message box shows the progress of the re-embed. See [Embedding models](embedding-models.md).
 

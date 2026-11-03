@@ -24,7 +24,7 @@ If indexing is slower than you expect for your hardware, or NeoHive does not use
 docker ps --filter name=neohive
 ```
 
-The tag in the `IMAGE` column names the backend, for example `neohivedev/neohive:cuda`, or `v1.6.3-cpu` for a versioned image.
+The tag in the `IMAGE` column names the backend, for example `neohivedev/neohive:cuda`, or `v1.8.0-cpu` for a versioned image.
 {% endhint %}
 
 ## How Apple Silicon uses the GPU

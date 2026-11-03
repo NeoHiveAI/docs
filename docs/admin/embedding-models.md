@@ -45,6 +45,8 @@ To change the model, do the following:
 
 A message box shows `Re-embedding with <model>` and the progress. If NeoHive has not used the model before, it downloads the model first, and the box shows `Waiting for the embedding model <model> to download` until the download finishes. If some Memories fail, select **Retry failed chunks**.
 
+The **Embedding history** table on the **Index Info** tab records the result of each model change.
+
 ## Several models in one Hive
 
 If a Hive's Indexes use different models that do not fit in GPU memory together, the Hive page shows `Selected models exceed your VRAM budget`. Searches still work but take longer. To speed them up, choose smaller models, or use the same model for more of the Indexes.

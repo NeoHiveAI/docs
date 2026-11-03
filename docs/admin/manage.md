@@ -39,7 +39,7 @@ The new name appears on the Hive's card and in the sidebar. Your agents keep wor
 
 ## Archive or delete a Hive
 
-You cannot archive or delete a Hive while another Hive uses one of its Indexes, because the other Hive would lose that Index too. First, either [move the Index](#move-an-index-to-another-hive) to the Hive that uses it, which keeps its access, or [stop sharing it](#stop-sharing-an-index). A Hive that only uses another Hive's Index has no such limit.
+You cannot archive or delete a Hive while another active Hive uses one of its Indexes, because the other Hive would lose that Index too. First, either [move the Index](#move-an-index-to-another-hive) to the Hive that uses it, which keeps its access, or [stop sharing it](#stop-sharing-an-index). A Hive that only uses another Hive's Index has no such limit.
 
 <figure><img src="../.gitbook/assets/admin-manage.svg" alt="Archive moves an active Hive to the Archived section, and Restore brings it back. NeoHive permanently deletes an archived Hive after 30 days, or when you select Delete Permanently. Delete on an active Hive, after you type its name, also permanently deletes the Hive. A deleted Hive cannot be restored."><figcaption></figcaption></figure>
 
@@ -138,7 +138,7 @@ Either Hive can stop sharing the Index. NeoHive deletes nothing when sharing sto
 | The owning Hive | Open **Share Index…**, and then select **Revoke** next to the Hive |
 | The Hive using the Index | In the Index row's ⋮ menu, select **Remove from Hive…** |
 
-The owning Hive cannot delete a Shared Index while another Hive uses it. To delete the Index, stop sharing it with every Hive first.
+The owning Hive cannot delete a Shared Index while another active Hive uses it. To delete the Index, stop sharing it with every Hive first.
 
 ## Delete an Index
 
