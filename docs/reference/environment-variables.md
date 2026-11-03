@@ -4,7 +4,7 @@ description: "Environment variables the NeoHive installer, agent plugin, and ser
 
 # Environment variables
 
-Find the variable that changes a NeoHive setting, where to set it, and its default.
+NeoHive reads settings such as ports, timeouts, and log sizes from environment variables. The installer, the agent plugin, and the server each read their own set.
 
 Set each variable in the place shown in the following table. A variable set anywhere else does nothing.
 
@@ -30,12 +30,13 @@ NEOHIVE_PORT=4577 \
 | `NEOHIVE_ROTATE_LICENSE` | unset | Set to `1` to read a new license file even when a key is already cached. |
 | `NEOHIVE_PORT` | `3577` | The port NeoHive is published on. Change your agent's [MCP](../concepts/glossary.md#mcp) endpoint to match. |
 | `NEOHIVE_BACKEND` | detected | Makes NeoHive use one compute backend instead of detecting it: `cpu`, `cuda`, `vulkan`, or `rocm`. See [GPU and CPU](../admin/gpu-cpu.md). |
-| `NEOHIVE_PDF_BRIDGE_TIMEOUT_MS` | `300000` (5 minutes) | The time allowed to convert one PDF. A 900-page file can need `1800000`. |
-| `NEOHIVE_PDF_WARMUP_TIMEOUT_MS` | `300000` (5 minutes) | The time allowed for the one-time PDF converter warm-up. Raise this value on a slow connection or machine. |
+| `NEOHIVE_DOCUMENT_TIMEOUT_MS` | `300000` (5 minutes) | The time allowed to convert one uploaded file, such as a PDF or a Word document. Raise this value for very large files. |
 | `NEOHIVE_CHUNKER_TIMEOUT_MS` | `30000` (30 seconds) | The time allowed to split one Markdown or code file. |
 | `NEOHIVE_UPDATE_REPO` | `neohivedev/neohive` | The Docker Hub repository the dashboard checks for new versions. |
 
-The three timeout variables accept only whole numbers of milliseconds. Any other value stops the installer with error `E603`.
+The timeout variables accept only positive whole numbers of milliseconds. Any other value, including `0`, stops the installer with error `E603`.
+
+`NEOHIVE_PDF_BRIDGE_TIMEOUT_MS` is the older name for `NEOHIVE_DOCUMENT_TIMEOUT_MS`. The installer still applies it, but `NEOHIVE_DOCUMENT_TIMEOUT_MS` wins when you set both. NeoHive no longer uses `NEOHIVE_PDF_WARMUP_TIMEOUT_MS`, so you can remove it.
 
 ### Apple Silicon
 
@@ -69,14 +70,14 @@ Set these variables where your coding agent starts, for example with a line such
 The NeoHive server reads these variables from the `neohive` container's environment. Setting them in your shell does nothing.
 
 {% hint style="warning" %}
-The installer passes only these variables into the container: the license key, the three timeouts, `NEOHIVE_UPDATE_REPO`, and the Metal worker address on Apple Silicon. The installer drops any other variable you add with `docker run -e` the next time it recreates the container. Add those variables again after every upgrade.
+The installer passes only these variables into the container: the license key, the timeout variables, `NEOHIVE_UPDATE_REPO`, and the Metal worker address on Apple Silicon. The installer drops any other variable you add with `docker run -e` the next time it recreates the container. Add those variables again after every upgrade.
 {% endhint %}
 
 | Variable | Default | Purpose |
 |---|---|---|
 | `MEMVEC_WEBHOOK_SECRET` | unset | The secret for the [webhook refresh endpoint](webhooks.md). While this variable is unset, every webhook request gets a `401` response. |
 | `MEMVEC_ENCRYPTION_KEY` | unset | A 64-character hexadecimal key that encrypts stored connection secrets. While this variable is unset, NeoHive creates a key in `/app/data/.encryption_key`. See [Credentials and secrets](../security/credentials.md). |
-| `NEOHIVE_MCP_HINTS` | on | Set to `0` to remove the short hint that the server adds to `memory_recall` and `memory_context` replies. |
+| `NEOHIVE_MCP_HINTS` | on | Set to `0` on the container to remove the short hint that the server adds to `memory_recall` and `memory_context` replies. |
 | `NEOHIVE_LOG_SIZE_MB` | `10` | The size, in megabytes, that a log file reaches before NeoHive starts a new one. |
 | `NEOHIVE_LOG_KEEP_FILES` | `20` | How many old log files NeoHive keeps. |
 | `MEMVEC_SYNC_MAX_CONCURRENT` | `1` | How many repository syncs run at the same time. |
@@ -85,8 +86,7 @@ The installer passes only these variables into the container: the license key, t
 | `MEMVEC_SYNC_RETRY_DELAY_MS` | `120000` (2 minutes) | How long NeoHive waits before it retries automatically after a sync in which some files failed. |
 | `MEMVEC_TOKEN_REVALIDATION_MS` | `82800000` (23 hours) | How long the result of a connection's last token check stays valid. After that time, NeoHive checks the token again. |
 | `MEMVEC_MIGRATION_SNAPSHOT` | on | Set to `off` to skip the database copy NeoHive takes before an upgrade changes its databases. |
+| `MEMVEC_DOCUMENT_MAX_PAGES` | `500` | The most pages an uploaded PDF can have. If you raise it, raise `NEOHIVE_DOCUMENT_TIMEOUT_MS` too. |
+| `MEMVEC_IMAGE_MAX_PIXELS` | `50000000` | The most pixels an uploaded image, or a picture inside a Word or PowerPoint file, can have. |
+| `MEMVEC_UPLOAD_BATCH_MAX_BYTES` | `209715200` (200 MB) | The most data one upload request can carry. The dashboard splits a larger selection to fit. |
 | `MEMVEC_MIGRATION_SNAPSHOT_KEEP` | `5` | How many of those copies to keep per database. Each copy is a full copy of the database. If disk space is low, lower this number. |
-
-{% hint style="info" %}
-Some plugin rules say to set `NEOHIVE_MCP_HINTS=0` in your agent's environment. Setting the variable there has no effect. The server adds the hint, so you must set the variable on the container.
-{% endhint %}

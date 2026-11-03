@@ -4,7 +4,7 @@ description: "The MCP tools each NeoHive Hive exposes, with every parameter, typ
 
 # MCP tools
 
-A [Hive](../concepts/glossary.md#hive) is a NeoHive workspace that holds your [Indexes](../concepts/glossary.md#index). Your agent works with a Hive through the following tools. Each entry gives the tool's parameters and what the tool returns.
+A [Hive](../concepts/glossary.md#hive) is a NeoHive workspace that holds your [Indexes](../concepts/glossary.md#index). Your agent works with a Hive through the following tools.
 
 Each Hive serves these tools at its [MCP](../concepts/glossary.md#mcp) endpoint, `http://localhost:3577/hives/<hive-id>/mcp`, over Streamable HTTP.
 
@@ -34,7 +34,7 @@ Each Hive serves these tools at its [MCP](../concepts/glossary.md#mcp) endpoint,
 | `index` | string | all Indexes | The id of one Index to search. |
 | `noAccessUpdate` | boolean | `false` | When `true`, the search does not count as a recall. The access count of the Memories it returns stays the same. Use this option for automated callers. |
 
-The reply lists each result under a heading such as `### Memory #1 (id: 482, score: 0.031)`. Each result shows the Memory's type, its importance from 1 to 10 (set when it was [stored](#memory_store)), how many times recall has returned it, and its tags, followed by the stored content itself. NeoHive cuts off content longer than 8,000 characters and adds a `(truncated, ...)` note.
+The reply lists each result under a heading such as `### Memory #1 (id: 482, score: 0.031)`. Each result shows the Memory's type, its importance from 1 to 10 (set when it was [stored](#memory_store)), how many times `memory_recall` or `memory_context` has returned it, and its tags, followed by the stored content itself. NeoHive cuts off content longer than 8,000 characters and adds a `(truncated, ...)` note.
 
 ## memory_context
 
@@ -63,13 +63,13 @@ Without `index`, the reply lists only the total number of Memories and the count
 | `tags` | string list | none | Labels that help later searches find the Memory. |
 | `format` | string | `auto` | How to split content of 6,000 characters or more: `auto`, `markdown`, `code`, or `text`. `auto` detects the format. NeoHive stores shorter content whole. |
 
-The reply is `Memory stored successfully (id: <id>, type: <type>, importance: <n>, Index: <index-id>)`. You can search for the Memory immediately.
+The reply is `Memory stored successfully (id: <id>, type: <type>, importance: <n>, Index: <index-id>)`. For content of 6,000 characters or more, the reply also says how NeoHive split it. You can search for the Memory immediately.
 
 ## memory_forget
 
 | Parameter | Type | Default | Notes |
 |---|---|---|---|
-| `memory_id` | integer | required | The id of the Memory to deactivate, shown in the heading of each `memory_recall` result. |
+| `memory_id` | integer | required | The id of the Memory to deactivate, shown in the heading of each `memory_recall` result. `memory_forget` looks the id up in the Hive's own Knowledge Index only, so use the id of a Memory stored with `memory_store`. Each Index numbers its content separately, so an id from a Code or Documentation Index result does not point to that result. |
 | `reason` | string | none | Why you are retiring the Memory. |
 | `superseded_by` | integer | none | The id of the Memory that replaces this one. |
 
@@ -79,9 +79,9 @@ The reply is `Memory #<id> has been deactivated (Index: <index-id>).`, followed 
 
 <summary>Deprecated names that still work</summary>
 
-| Deprecated | Use instead |
-|---|---|
-| `list_hives` tool | `list_indexes` |
-| `hive` parameter on `memory_recall`, `memory_context`, `memory_stats` | `index` |
+Use the new name in place of each older one:
+
+* Instead of the `list_hives` tool, use `list_indexes`.
+* Instead of the `hive` parameter on `memory_recall`, `memory_context`, and `memory_stats`, use `index`.
 
 </details>

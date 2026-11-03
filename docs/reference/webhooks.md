@@ -6,11 +6,14 @@ description: "Send changed files to a Code or Documentation Index from a CI pipe
 
 Send changed files to NeoHive from your CI pipeline, so a [Code](../concepts/glossary.md#code-index) or [Documentation Index](../concepts/glossary.md#documentation-index) updates seconds after a merge.
 
-<figure><img src="../.gitbook/assets/reference-webhooks.svg" alt="The diagram shows the sequence of a webhook refresh across two boxes, your CI pipeline and NeoHive. In your CI pipeline, a job collects the changed files as base64 and the deleted files as a path only. The job posts them, at most 100 KB, to the Hive's webhook/refresh route, which crosses into NeoHive. NeoHive checks that X-Webhook-Secret equals MEMVEC_WEBHOOK_SECRET, and replies 401 if it does not. NeoHive then finds every Index in the Hive that syncs the exact repo URL, and replies 404 if none match. For each file, NeoHive removes the path's old content and indexes the new content. NeoHive replies to your CI pipeline with processed, skipped, deleted, and errors counts."><figcaption></figcaption></figure>
-
 Scheduled syncs already keep each Code or Documentation Index current. Use the webhook when you want an Index to update as soon as you merge, instead of at the next scheduled sync. To set the schedule, see [Keep a repository up to date](../context/repositories/sync.md).
 
-To set up the webhook, set a secret on the container (see [Authentication](#authentication)), and then send the following HTTP request from your CI pipeline after each merge. For GitHub, start from the [GitHub Actions template](#github-actions-template).
+<figure><img src="../.gitbook/assets/reference-webhooks.svg" alt="The diagram shows the sequence of a webhook refresh across two boxes, your CI pipeline and NeoHive. In your CI pipeline, a job collects the changed files as base64 and the deleted files as a path only. The job posts them, at most 100 KB, to the Hive's webhook/refresh route, which crosses into NeoHive. NeoHive checks that X-Webhook-Secret equals MEMVEC_WEBHOOK_SECRET, and replies 401 if it does not. NeoHive then finds every Index in the Hive that syncs the exact repo URL, and replies 404 if none match. For each file, NeoHive removes the path's old content and indexes the new content. NeoHive replies to your CI pipeline with processed, skipped, deleted, and errors counts."><figcaption></figcaption></figure>
+
+To set up the webhook, do the following:
+
+1. Set a secret on the container, as described in [Authentication](#authentication).
+2. After each merge, send the following HTTP request from your CI pipeline. For GitHub, start from the [GitHub Actions template](#github-actions-template).
 
 Every request uses the following method, URL, and headers. Replace `<host>`, `<hive-id>`, and `<secret>` with your own values:
 
@@ -20,7 +23,7 @@ Content-Type: application/json
 X-Webhook-Secret: <secret>
 ```
 
-`<hive-id>` is the id of your [Hive](../concepts/glossary.md#hive), the NeoHive workspace your agent connects to. The same id appears in the Hive's [MCP](../concepts/glossary.md#mcp) endpoint, `http://<host>:3577/hives/<hive-id>/mcp`. One request updates every Code or Documentation Index in that Hive that syncs the repository you name.
+`<hive-id>` is the id of your [Hive](../concepts/glossary.md#hive), the NeoHive workspace your agent connects to. The same id appears in the Hive's [MCP](../concepts/glossary.md#mcp) endpoint, `http://<host>:3577/hives/<hive-id>/mcp`. One request updates every Code or Documentation Index in that Hive that syncs the repository you name, except an Index with an error status. A [Shared Index](../concepts/glossary.md#shared-index) updates only through the Hive that owns it.
 
 ## Authentication
 
@@ -61,6 +64,7 @@ The webhook indexes the files it receives immediately, but it works differently 
 
 - **The webhook applies your file filters.** NeoHive applies the built-in skip list and the Index's **Allowlist** and **Blocklist**. A file your filters exclude is not indexed, and NeoHive removes any content it already holds for that file.
 - **The webhook does not start a sync.** **Sync history** shows no row for a webhook request. To see what a request did, read its response.
+- **The webhook does not check the branch.** The request has no branch field, so NeoHive indexes the files whichever branch they came from. Send requests only from the branch the Index syncs, as the template does for `main`.
 
 For how the filters work, see [File pattern syntax](file-patterns.md).
 
@@ -79,6 +83,8 @@ A successful request returns counts like the following. If more than one Index s
 | `deleted` | Stored pieces removed, not files |
 | `errors` | One `{ "path", "error" }` entry per file that failed |
 
+### Error responses
+
 A failed request returns one of the following statuses:
 
 | Status | Body | Cause |
@@ -87,8 +93,8 @@ A failed request returns one of the following statuses:
 | `400` | `Each file must have a path string` | An entry in `files` has no `path`. |
 | `401` | `Invalid or missing webhook secret` | The header is wrong, or `MEMVEC_WEBHOOK_SECRET` is not set on the container. |
 | `402` | `License check failed` | The license expired or failed validation. See [Licensing](../admin/licensing.md). |
-| `404` | `No Index found syncing repo: <repo>` | No Code or Documentation Index in that Hive syncs that exact URL. |
-| `404` | `Unknown Hive: <hive-id>` | The Hive id in the URL is wrong. |
+| `404` | `No Index found syncing repo: <repo>` | No Code or Documentation Index in that Hive syncs that exact URL, or each one that does has an error status. |
+| `404` | `Unknown Hive: <hive-id>` | The Hive id in the URL is wrong, or the Hive is archived. |
 | `413` | `Payload Too Large` (an HTML page, not JSON) | The body is over 100 KB. |
 
 ## GitHub Actions template

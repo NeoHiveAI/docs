@@ -4,35 +4,43 @@ description: "Which files NeoHive indexes from an upload or a repository, and th
 
 # Supported file types
 
-NeoHive reads files from two places: files that you upload, and repositories that you connect. Each place accepts different file types and has its own limits. Check this page before you upload a file or add a repository. The page tells you which files NeoHive can index.
+NeoHive reads files from two places: files that you upload, and repositories that you connect. Each place accepts different file types and has its own limits. Before you upload a file or add a repository, check that NeoHive can index it.
 
 ## File uploads
 
 When you add files with **File Upload**, NeoHive stores them in a [Files Index](../concepts/glossary.md#files-index). File Upload accepts the following formats:
 
-| Format | Extensions |
-|---|---|
-| Markdown | `.md`, `.markdown` |
-| Plain text | `.txt` |
-| PDF | `.pdf` |
+| Format | Extensions | What NeoHive reads |
+|---|---|---|
+| Markdown | `.md`, `.markdown` | The text. |
+| Plain text | `.txt` | The text. |
+| PDF | `.pdf` | The text. On a page with no text, such as a scanned page, NeoHive reads the text with optical character recognition (OCR). |
+| Word | `.docx` | The text and tables, plus the text in pictures, read with OCR. |
+| PowerPoint | `.pptx` | The text and tables, plus the text in pictures, read with OCR. |
+| Excel | `.xlsx` | Each sheet, with its name and its rows. |
+| Image | `.png`, `.jpg`, `.jpeg` | The text in the image, read with OCR. |
+
+NeoHive refuses a file with any other extension. To index another format, export it to PDF or Markdown first.
+
+{% hint style="warning" %}
+If NeoHive finds no text in a file, it marks the file with `No text could be extracted from this document.`, followed by the common causes. This happens when the text is too small or too faint for OCR, or when a PDF draws its text as shapes instead of fonts. Export the text from the app that made the file, and upload that instead.
+{% endhint %}
+
+NeoHive allows five minutes to convert one file. If the full conversion of a PDF fails or runs out of time, NeoHive converts the PDF again without layout analysis. The PDF is then indexed with its tables flattened to text, and it shows the warning `Converted without layout analysis, so table structure was flattened to text.` To allow more time, raise `NEOHIVE_DOCUMENT_TIMEOUT_MS` as described in [Environment variables](environment-variables.md#installer).
+
+### Upload limits
 
 The following limits apply to each upload:
 
 | Limit | Value |
 |---|---|
-| One file | 10 MB |
-| Files in one upload | 20 |
-| A file whose name is already in the [Index](../concepts/glossary.md#index) | NeoHive skips the file and shows `<name> already exists, skipped`. |
+| One file | 50 MB |
+| One PDF | 500 pages |
+| One image | 50,000,000 pixels. In a Word or PowerPoint file, NeoHive leaves out a larger picture and reads the rest of the file. |
+| Files in one upload | 20 files, or 200 MB in total. The dashboard splits a larger selection into several uploads. |
+| A file whose name is already in the [Index](../concepts/glossary.md#index) | NeoHive replaces the stored file with the new one. A file of a different type cannot replace it, so delete the stored file first. Markdown and plain text count as one type. |
 
-NeoHive refuses a file with any other extension. To index a Word document or a slide deck, export it to PDF or Markdown first.
-
-{% hint style="warning" %}
-NeoHive reads only the text in a PDF, not text inside images. In a PDF that has both, NeoHive indexes the text and leaves out the images, such as diagrams, screenshots, or scanned pages.
-
-If NeoHive finds no text in the whole file, it marks the file with `No text could be extracted from this PDF`. This happens with a PDF of scanned pages, or one whose text is drawn as shapes instead of fonts. Run the PDF through optical character recognition (OCR), or export its text, and upload the result.
-{% endhint %}
-
-A PDF that takes longer than five minutes to convert fails. To allow more time, raise `NEOHIVE_PDF_BRIDGE_TIMEOUT_MS` as described in [Environment variables](environment-variables.md#installer).
+To change the page or pixel limit, see [Environment variables](environment-variables.md#server).
 
 ## Files in a repository
 
@@ -49,5 +57,5 @@ NeoHive always skips the following files, even if your file filters include them
 | Anything that looks binary | NeoHive checks each file's content, so it skips a binary file even if its extension looks like text. |
 
 {% hint style="info" %}
-Repository sync does not convert PDFs, so NeoHive skips a PDF in a repository as a binary file. To make the PDF searchable, upload it to a Files Index.
+Repository sync does not convert PDF, Word, PowerPoint, or Excel files, so NeoHive skips them in a repository as binary files. To make one searchable, upload it to a Files Index.
 {% endhint %}

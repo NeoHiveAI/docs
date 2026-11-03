@@ -4,16 +4,16 @@ description: "Every command the NeoHive plugin adds to your agent, and when to r
 
 # Slash commands
 
-The NeoHive plugin adds the following commands to Claude Code, Codex, and Cursor. Look up a command here to see what it does and when to run it. In Claude Code, type the command as shown. In Codex and Cursor, each command is a skill, so ask your agent to run it by name, for example `load-context`.
+The NeoHive plugin adds the following commands to Claude Code, Codex, and Cursor. In Claude Code, type the command as shown. In Codex and Cursor, each command is a skill, so ask your agent to run it by name, for example `load-context`.
 
 | Claude Code command | What it does |
 |---|---|
-| `/neohive:getting-started` | Runs first-time setup. Run it once per machine. The command checks the [MCP](../concepts/glossary.md#mcp) connection and sets up a token if your server needs one. It then writes a topology block into `CLAUDE.md`. Finally, it offers to migrate your context files and to turn on smart prompts. |
+| `/neohive:getting-started` | Runs first-time setup. Run it once per machine. The command checks the [MCP](../concepts/glossary.md#mcp) connection, and shows you how to register your NeoHive server if your agent has none. It sets up a token if your server needs one. It then writes a topology block into `CLAUDE.md`. Finally, it offers to migrate your context files and to turn on smart prompts. |
 | `/neohive:load-context` | Calls `memory_context` with your current task, so rules and related knowledge load before work starts. Run it at the start of a session or when you switch tasks. |
 | `/neohive:capture-session-learnings` | Reads the conversation and stores up to five new corrections, conventions, decisions, or pitfalls. It skips any that NeoHive already has. Nothing runs this command automatically, so run it before you close a session. |
 | `/neohive:migrate-memory` | Reads `CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, your rules folders, and any `CONVENTIONS*.md` or `CONTRIBUTING.md` under `docs/`. The command then imports the project-specific entries. It skips personal preferences and writes nothing until you confirm. |
 | `/neohive:generate-claude-md` | Checks which [Indexes](../concepts/glossary.md#index) are in your [Hive](../concepts/glossary.md#hive) and writes a topology block into `./CLAUDE.md`: what each Index holds and where new [Memories](../concepts/glossary.md#memory) go. Re-run it after you add, remove, or rename an Index. |
-| `/neohive:design-codebase-docs` | Works with you to agree on a documentation standard for your codebase. The command saves the standard to NeoHive and writes two or three sample pages. It does not write the full set of docs. |
+| `/neohive:design-codebase-docs` | Works with you to agree on a documentation standard for your codebase. The command saves the standard to NeoHive and to a file in your repository, `docs/DOC_STANDARD.md` by default. It then writes two or three sample pages. It does not write the full set of docs. |
 | `/neohive:enable-smart-prompts` | Adds a second prompt hook that asks a small model to rewrite your prompt before recall. For its requirements and how it runs beside the default hook, see [What you run yourself](../results/plugin-automation.md#what-you-run-yourself). |
 
 ## Where the agents differ
@@ -30,7 +30,7 @@ Each agent has its own topology skill and file, and `migrate-memory` reads a dif
 
 <summary>Old command names that still work</summary>
 
-These names redirect to the new commands. A future release will remove them.
+These names redirect to the new commands.
 
 | Old name | Use instead |
 |---|---|
