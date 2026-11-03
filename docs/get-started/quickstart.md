@@ -4,7 +4,7 @@ description: "The shortest path from nothing to a coding agent that answers from
 
 # Quickstart
 
-You install NeoHive, index one GitHub repository, and connect Claude Code, with no options along the way. Steps 2 and 3 follow the dashboard's setup wizard, which creates your first Hive and connects your agent. To check each step or to connect a different agent, see [Install NeoHive](install.md).
+In this quickstart, you install NeoHive, index one GitHub repository, and connect Claude Code so that Claude Code can answer questions about your code. For more information about each step, or to connect a different agent, see [Install NeoHive](install.md).
 
 Before you start, you need the following:
 
@@ -56,7 +56,7 @@ Setup then shows **Install for your AI tools** with **Claude** selected. To conn
      --header 'x-mcp-client: claude-code'
    ```
 3. Start Claude Code in your repository.
-4. When Claude Code asks, approve the NeoHive server. Setup shows **Connected** only after Claude Code connects, and Claude Code doesn't connect until you approve the server.
+4. When Claude Code asks, approve the NeoHive server. Setup shows **Connected** after Claude Code connects.
 5. To install the plugin and run its setup, run the following commands inside Claude Code:
 
    ```text
