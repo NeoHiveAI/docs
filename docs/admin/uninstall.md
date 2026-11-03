@@ -72,7 +72,7 @@ For Cursor, delete the `~/.cursor/plugins/local/neohive` link. For Codex, delete
 {% step %}
 ## Remove the MCP entries
 
-Removing the plugin can leave the [MCP](../concepts/glossary.md#mcp) entries behind. There is one NeoHive entry for each Hive. To remove the entries in Claude Code, run `claude mcp list` to list them. Then run `claude mcp remove` for each NeoHive entry:
+Removing the plugin can leave the [MCP](../concepts/glossary.md#mcp) entries behind. To remove the entries in Claude Code, go to each project folder where you connected a Hive, and run `claude mcp list` to list them. Then run `claude mcp remove` for each NeoHive entry:
 
 ```bash
 claude mcp list
@@ -96,5 +96,5 @@ For other agents, delete the NeoHive entries from the agent's MCP config file. T
 docker ps -a --filter name=neohive
 ```
 
-The list is empty, and `claude mcp list` shows no NeoHive entries.
+The list is empty, and `claude mcp list` shows no NeoHive entries in any of those project folders.
 {% endhint %}

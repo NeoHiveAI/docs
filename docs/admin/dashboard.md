@@ -97,7 +97,7 @@ When a sync fails, a message box at the top of the page names the error. For eac
 
 ## The Data Sources screen
 
-**Data Sources**, in the sidebar, lists the GitHub and GitLab connections that your Code and Documentation Indexes sync through. Services you have connected appear under **Connected**, and the rest appear under **Available**. To add, check, or replace a connection, see [Data sources and credentials](data-sources.md).
+**Data Sources**, in the sidebar, lists the GitHub and GitLab connections that your Code and Documentation Indexes sync through. Services you have connected appear under **Connected**. **Available** lists every service, including the ones you have connected, so you can add another connection, such as a second GitHub token. To add, check, or replace a connection, see [Data sources and credentials](data-sources.md).
 
 ## The Settings screen
 

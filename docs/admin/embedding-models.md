@@ -43,7 +43,7 @@ To change the model, do the following:
 2. Under **Embedding model**, select a model.
 3. Select **Save**.
 
-A message box shows `Re-embedding with <model>` and the progress. If NeoHive has not used the model before, it downloads the model first, and the box shows `Waiting for the embedding model <model> to download` until the download finishes. If some Memories fail, select **Retry failed chunks** in the box.
+A message box shows `Re-embedding with <model>` and the progress. If NeoHive has not used the model before, it downloads the model first, and the box shows `Waiting for the embedding model <model> to download` until the download finishes. If some Memories fail, select **Retry failed chunks**.
 
 ## Several models in one Hive
 

@@ -8,7 +8,7 @@ An update replaces the NeoHive container with a new one that runs the latest rel
 
 To update, you run the installer again. The command is the same one you used to install NeoHive, and you can copy it from [Run the update](#run-the-update) on this page. The installer does not remember the variables you installed with, such as a different port, so you add them to the command again. Take a [backup](backups.md) first, so that you can restore your data if the update fails.
 
-<figure><img src="../.gitbook/assets/admin-updating.svg" alt="You run the installer again, and the installer then does four steps on its own. First, it detects your hardware. Second, it downloads the latest NeoHive image for that hardware. Third, it removes the old container, and your data stays in the neohive-data volume. Fourth, it starts the new container on the same volume and prints what is new in the release."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/admin-updating.svg" alt="You run the installer again, and the installer then does four steps on its own. First, it detects your hardware. Second, it downloads the latest NeoHive image for that hardware. Third, it stops the old container cleanly, which frees the license seat, and then removes it. Your data stays in the neohive-data volume. Fourth, it starts the new container on the same volume and prints what is new in the release."><figcaption></figcaption></figure>
 
 ## Know when an update is out
 
@@ -53,7 +53,7 @@ The installer does not remember the variables from your last install. Any variab
 | `NEOHIVE_PORT` | NeoHive runs on a port other than `3577` |
 | `NEOHIVE_BACKEND` | You forced a backend. See [GPU and CPU](gpu-cpu.md) |
 | `NEOHIVE_METAL_WORKER`, `NEOHIVE_METAL_WORKER_PORT` | You turned off or moved the Metal worker |
-| `NEOHIVE_PDF_BRIDGE_TIMEOUT_MS`, `NEOHIVE_PDF_WARMUP_TIMEOUT_MS`, `NEOHIVE_CHUNKER_TIMEOUT_MS` | You gave large files more time |
+| `NEOHIVE_DOCUMENT_TIMEOUT_MS`, `NEOHIVE_CHUNKER_TIMEOUT_MS` | You gave large files more time |
 
 For example, the following command sets a different port and forces the CPU backend:
 
