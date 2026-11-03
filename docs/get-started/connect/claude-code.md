@@ -19,7 +19,7 @@ Before you start, you need a running NeoHive server that has a Hive, and a versi
 To add the Hive as an MCP server, do the following:
 
 1. Open the Hive in the dashboard.
-2. Go to **Install Instructions**.
+2. Go to **Install Instructions**. If the panel is collapsed, click **Install** or **Reinstall** to open it.
 3. Click **Claude Code**.
 4. Copy the first command.
 5. In a terminal outside Claude Code, go to your project's root folder.

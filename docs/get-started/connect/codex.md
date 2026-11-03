@@ -15,7 +15,7 @@ Before you start, you need a running NeoHive server that has a Hive, and a versi
 To add the Hive to Codex, do the following:
 
 1. Open the Hive in the dashboard.
-2. Go to **Install Instructions**.
+2. Go to **Install Instructions**. If the panel is collapsed, click **Install** or **Reinstall** to open it.
 3. Click **Codex**.
 4. Copy the block into `~/.codex/config.toml`. To use the Hive in one project only, copy the block into `.codex/config.toml` in that project instead.
 

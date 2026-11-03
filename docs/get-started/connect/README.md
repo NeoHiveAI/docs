@@ -18,24 +18,6 @@ The following table lists the page for each agent and what you set up on it:
 | **ChatGPT** | [ChatGPT](chatgpt.md) | A custom MCP server in the ChatGPT desktop app |
 | **Claude Desktop** or any other MCP app | [Claude Desktop and other MCP apps](desktop-apps.md) | The endpoint, or `mcp-remote` for apps that only run local commands |
 
-## Where to copy the endpoint
-
-The **Install Instructions** panel stays open on the Hive page until an agent connects. To copy the endpoint, do the following:
-
-1. Open the Hive in the dashboard.
-2. If an agent has already connected, click **Install** or **Reinstall** to open the **Install Instructions** panel.
-3. Click the button for your agent.
-
-The panel fills in the commands with the Hive's endpoint:
-
-```text
-http://localhost:3577/hives/<hive-id>/mcp
-```
-
-The host is the address you used to open the dashboard, so a shared server shows its own address. The commands and configuration files also send an `x-mcp-client` header that names your agent. The panel uses that header to show which agents are connected and when each one last made a request.
-
-Keep `neohive` in the server name the dashboard gives you. The plugins find the Hive by looking for an MCP server whose name contains `neohive`.
-
 ## Tell your agent to use NeoHive
 
 The plugins add the following instructions for you. If your agent has no plugin, paste the instructions into your agent's rules file (`CLAUDE.md` or `AGENTS.md`) or system prompt. Then adjust the instructions to match what your team wants to keep:

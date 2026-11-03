@@ -13,7 +13,7 @@ Before you start, you need the ChatGPT desktop app and a running NeoHive server 
 ChatGPT has no configuration file to paste into. Instead, you fill in a form, and the dashboard shows the value for each field. To add the Hive to ChatGPT, do the following:
 
 1. Open the Hive in the dashboard.
-2. Go to **Install Instructions**.
+2. Go to **Install Instructions**. If the panel is collapsed, click **Install** or **Reinstall** to open it.
 3. Click **ChatGPT**.
 4. In the ChatGPT desktop app, open **Settings**, click **Plugins**, and then click **Add MCP server**.
 5. In **Connect to a custom MCP**, fill in the fields with the values from the dashboard:

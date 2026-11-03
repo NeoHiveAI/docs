@@ -17,7 +17,7 @@ To connect any [MCP](../../concepts/glossary.md#mcp) app, give the app the MCP e
 To add the Hive to Claude Desktop, do the following:
 
 1. Open the Hive in the dashboard.
-2. Go to **Install Instructions**.
+2. Go to **Install Instructions**. If the panel is collapsed, click **Install** or **Reinstall** to open it.
 3. Click **Claude Desktop**.
 4. In Claude Desktop, open **Settings**.
 5. Click **Developer**.

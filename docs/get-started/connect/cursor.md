@@ -15,7 +15,7 @@ Before you start, you need Cursor, `git`, and a running NeoHive server that has 
 To add the Hive to Cursor, do the following:
 
 1. Open the Hive in the dashboard.
-2. Go to **Install Instructions**.
+2. Go to **Install Instructions**. If the panel is collapsed, click **Install** or **Reinstall** to open it.
 3. Click **Cursor**.
 4. Copy the JSON into `.cursor/mcp.json` in your project. To use the Hive in every project, copy the JSON into `~/.cursor/mcp.json` instead.
 
