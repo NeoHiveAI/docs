@@ -10,7 +10,7 @@ To connect any [MCP](../../concepts/glossary.md#mcp) app, give the app the MCP e
 |---|---|---|
 | URL | Cursor, Codex, and Windsurf | The endpoint, plus an `x-mcp-client` header if the app takes headers |
 | Local command only | Claude Desktop | An `npx mcp-remote` command that forwards to the endpoint. The command needs Node.js. |
-| The provider's own servers | ChatGPT connectors | A public HTTPS address. The provider's servers can't reach `localhost`. |
+| The provider's own servers | ChatGPT on the web | A public HTTPS address. The provider's servers can't reach `localhost`. |
 
 {% tabs %}
 {% tab title="Claude Desktop" %}

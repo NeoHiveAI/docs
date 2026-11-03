@@ -15,6 +15,7 @@ The following table lists the page for each agent and what you set up on it:
 | **Claude Code** | [Claude Code](claude-code.md) | `claude mcp add`, then the NeoHive plugin |
 | **Cursor** | [Cursor](cursor.md) | `.cursor/mcp.json`, then the NeoHive plugin |
 | **Codex** | [Codex](codex.md) | `~/.codex/config.toml`, then the NeoHive plugin |
+| **ChatGPT** | [ChatGPT](chatgpt.md) | A custom MCP server in the ChatGPT desktop app |
 | **Claude Desktop** or any other MCP app | [Claude Desktop and other MCP apps](desktop-apps.md) | The endpoint, or `mcp-remote` for apps that only run local commands |
 
 ## Where to copy the endpoint

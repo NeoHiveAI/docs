@@ -11,6 +11,7 @@
   * [Claude Code](get-started/connect/claude-code.md)
   * [Cursor](get-started/connect/cursor.md)
   * [Codex](get-started/connect/codex.md)
+  * [ChatGPT](get-started/connect/chatgpt.md)
   * [Claude Desktop and other MCP apps](get-started/connect/desktop-apps.md)
 * [Your first session](get-started/first-session.md)
 
