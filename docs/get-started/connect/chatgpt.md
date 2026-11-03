@@ -26,7 +26,7 @@ ChatGPT has no configuration file to paste into. Instead, you fill in a form, an
 
 6. Click **Save**.
 
-NeoHive appears under **Servers**. The `?client=chatgpt` at the end of the URL tells NeoHive which app connected, so the dashboard can mark **ChatGPT** as connected.
+The server appears under **Servers** with your Hive's name. The `?client=chatgpt` at the end of the URL tells NeoHive which app connected, so the dashboard can mark **ChatGPT** as connected.
 
 ## Tell ChatGPT to use NeoHive
 

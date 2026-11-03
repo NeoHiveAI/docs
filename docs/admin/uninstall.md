@@ -87,7 +87,7 @@ For other agents, delete the NeoHive entries from the agent's MCP config file. T
 | Codex | `~/.codex/config.toml` |
 | Claude Desktop | `claude_desktop_config.json` |
 
-In the ChatGPT desktop app, open **Settings**, click **Plugins**, and remove the NeoHive server.
+In the ChatGPT desktop app, open **Settings**, click **Plugins**, and remove the server named after your Hive.
 {% endstep %}
 {% endstepper %}
 
