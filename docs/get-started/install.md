@@ -86,11 +86,6 @@ A GitHub or GitLab token needs the right scopes, and an uploaded file needs a su
 
 Besides the Index you create here, NeoHive gives every Hive a [Knowledge Index](../concepts/glossary.md#knowledge-index), which stores the Memories your agent saves. You can add more Indexes later from the Hive page. For more information about which Indexes to add, see [What to add, and where](../context/what-to-add.md).
 
-{% hint style="success" %}
-**Check:** the Index is ready.
-
-Open the Index from the Hive page. For a repository Index, **Sync history** shows that the first sync finished. If the sync failed, see [Repository sync issues](../troubleshooting/sync.md).
-{% endhint %}
 {% endstep %}
 
 {% step %}
@@ -119,6 +114,13 @@ The last setup screen, **Install for your AI tools**, shows the command that add
    /reload-plugins
    /neohive:getting-started
    ```
+6. Back in setup, click **Open** followed by your Hive's name. NeoHive then creates the Index and starts the first sync. If you leave setup without clicking the **Open** button, NeoHive deletes the Hive.
+
+{% hint style="success" %}
+**Check:** the Index is ready.
+
+Open the Index from the Hive page. For a repository Index, **Sync history** shows that the first sync finished. If the sync failed, see [Repository sync issues](../troubleshooting/sync.md).
+{% endhint %}
 
 {% hint style="success" %}
 **Check:** your agent answers from your content.

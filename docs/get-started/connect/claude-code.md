@@ -20,7 +20,7 @@ To add the Hive as an MCP server, do the following:
 
 1. Open the Hive in the dashboard.
 2. Go to **Install Instructions**. If the panel is collapsed, click **Install** or **Reinstall** to open it.
-3. Click **Claude Code**.
+3. Select **Claude Code**.
 4. Copy the first command.
 5. In a terminal outside Claude Code, go to your project's root folder.
 6. Run the command there.
@@ -37,6 +37,8 @@ claude mcp add <name> '<hive-url>' \
 If you type the command yourself, put the URL directly after the name. Claude Code reads a URL that comes after a flag as a header value, and then can't reach the server. The dashboard's command ends with `&& claude mcp get <name>`, which prints the saved entry so you can check the order.
 
 Commit `.mcp.json` to the repository, and every teammate who opens the project gets the same Hive.
+
+Keep `neohive` in the server name that the dashboard gives you, because the plugin finds the Hive by that name.
 
 The next time Claude Code starts in the project and asks about the server from `.mcp.json`, approve the server.
 {% endstep %}

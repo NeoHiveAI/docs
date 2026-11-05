@@ -16,7 +16,7 @@ To add the Hive to Codex, do the following:
 
 1. Open the Hive in the dashboard.
 2. Go to **Install Instructions**. If the panel is collapsed, click **Install** or **Reinstall** to open it.
-3. Click **Codex**.
+3. Select **Codex**.
 4. Copy the block into `~/.codex/config.toml`. To use the Hive in one project only, copy the block into `.codex/config.toml` in that project instead.
 
 The block looks like this:

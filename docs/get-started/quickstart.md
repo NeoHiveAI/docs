@@ -38,7 +38,6 @@ A [Hive](../concepts/glossary.md#hive) is a workspace for your team, with one ad
 4. In **Name Hive**, enter a name for your Hive.
 5. In **Configure first Index**, select **GitHub**, paste your token, click **Fetch repositories**, and then select your repository.
 
-NeoHive then indexes your repository in the background, so your agent can search it. To check when indexing finishes, see [Connect GitHub or GitLab](../context/repositories/connect.md#create-the-index).
 {% endstep %}
 
 {% step %}
@@ -57,7 +56,7 @@ Setup then shows **Install for your AI tools** with **Claude** selected. To conn
    ```
 3. Start Claude Code in your repository.
 4. When Claude Code asks, approve the NeoHive server. Setup shows **Connected** after Claude Code connects.
-5. To install the plugin and run its setup, run the following commands inside Claude Code:
+5. To install the plugin and run its setup, which checks that Claude Code can reach the Hive, run the following commands inside Claude Code:
 
    ```text
    /plugin marketplace add NeoHiveAI/NeoHiveClaude
@@ -65,8 +64,10 @@ Setup then shows **Install for your AI tools** with **Claude** selected. To conn
    /reload-plugins
    /neohive:getting-started
    ```
+6. Back in setup, click **Open** followed by your Hive's name. NeoHive then creates the Index and indexes your repository in the background, so your agent can search your code. If you leave setup without clicking the **Open** button, NeoHive deletes the Hive.
 
-The `/neohive:getting-started` command checks that Claude Code can reach the Hive.
+To check when indexing finishes, see [Connect GitHub or GitLab](../context/repositories/connect.md#create-the-index).
+
 {% endstep %}
 
 {% step %}

@@ -14,7 +14,7 @@ ChatGPT has no configuration file to paste into. Instead, you fill in a form, an
 
 1. Open the Hive in the dashboard.
 2. Go to **Install Instructions**. If the panel is collapsed, click **Install** or **Reinstall** to open it.
-3. Click **ChatGPT**.
+3. Select **ChatGPT**.
 4. In the ChatGPT desktop app, open **Settings**.
 5. Click **Plugins**.
 6. Click **Add MCP server**.

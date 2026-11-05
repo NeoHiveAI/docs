@@ -66,7 +66,18 @@ The script cannot reach your editors, so the script ends by printing the Claude 
 /plugin uninstall neohive@neohive-claude
 ```
 
-For Cursor, delete the `~/.cursor/plugins/local/neohive` link. For Codex, delete the `NeoHiveCodex` folder you cloned.
+To remove the Cursor plugin, run the following command:
+
+```bash
+rm -rf ~/.cursor/plugins/local/neohive
+```
+
+To remove the Codex plugin and the NeoHive marketplace, run the following commands:
+
+```bash
+codex plugin remove neohive@neohive-codex
+codex plugin marketplace remove neohive-codex
+```
 {% endstep %}
 
 {% step %}
@@ -84,7 +95,7 @@ For other agents, delete the NeoHive entries from the agent's MCP config file. T
 | Agent | MCP config file |
 |---|---|
 | Cursor | `.cursor/mcp.json` in your project, or `~/.cursor/mcp.json` |
-| Codex | `~/.codex/config.toml` |
+| Codex | `~/.codex/config.toml`, or `.codex/config.toml` in your project |
 | Claude Desktop | `claude_desktop_config.json` |
 
 In the ChatGPT desktop app, open **Settings**, click **Plugins**, and remove the server named after your Hive.
