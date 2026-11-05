@@ -72,7 +72,7 @@ For Cursor, delete the `~/.cursor/plugins/local/neohive` link. For Codex, delete
 {% step %}
 ## Remove the MCP entries
 
-Removing the plugin can leave the [MCP](../concepts/glossary.md#mcp) entries behind. To remove the entries in Claude Code, go to each project folder where you connected a Hive, and run `claude mcp list` to list them. Then run `claude mcp remove` for each NeoHive entry:
+Removing the plugin can leave the [MCP](../concepts/glossary.md#mcp) entries behind, one NeoHive entry for each Hive. To remove the entries in Claude Code, go to each project folder where you connected a Hive, and run `claude mcp list` to list them. Then run `claude mcp remove` for each NeoHive entry:
 
 ```bash
 claude mcp list

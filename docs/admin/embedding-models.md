@@ -34,7 +34,7 @@ The `nomic-embed-code` models match code most closely, but they need a large GPU
 ## Change the model of an Index
 
 {% hint style="warning" %}
-Changing the model makes NeoHive embed every [Memory](../concepts/glossary.md#memory) in the Index again, which can take a long time on a large Index. Until a Memory is embedded again, it does not appear in search results. If the Index is a [Shared Index](../concepts/glossary.md#shared-index), the change affects every [Hive](../concepts/glossary.md#hive) that uses it.
+Changing the model makes NeoHive embed every [Memory](../concepts/glossary.md#memory) in the Index again, which can take a long time on a large Index. Until NeoHive embeds a Memory again, search might miss the Memory or rank the Memory lower. If the Index is a [Shared Index](../concepts/glossary.md#shared-index), the change affects every [Hive](../concepts/glossary.md#hive) that uses it.
 {% endhint %}
 
 To change the model, do the following:

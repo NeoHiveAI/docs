@@ -76,7 +76,7 @@ The following parts show what your agents did in the Hive.
 
 | Message | When it appears |
 |---|---|
-| A sync error, such as `A git command failed`, with `The <name> Index stopped syncing.` | An Index's last sync failed. Select the link in the box to open the Index. For each error and its fix, see [Repository sync issues](../troubleshooting/sync.md) |
+| A sync error, such as `A git command failed`, with `The <name> Index stopped syncing.` | An Index's last sync failed. To open the Index, select **Resolve on** followed by the Index name. For each error and its fix, see [Repository sync issues](../troubleshooting/sync.md) |
 | `This Hive has no Indexes yet` | The Hive has only its [Knowledge Index](../concepts/glossary.md#knowledge-index). To add one, select **Add an Index** |
 | `Selected models exceed your VRAM budget` | The Hive's Indexes use embedding models that do not fit in GPU memory together. Searches still work but run one Index at a time. See [Embedding models](embedding-models.md) |
 
