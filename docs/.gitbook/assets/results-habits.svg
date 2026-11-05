@@ -23,7 +23,7 @@
   <rect x="549" y="200" width="8" height="16" rx="2" fill="#C084FC" opacity=".5"/>
   <rect x="560" y="190" width="8" height="26" rx="2" fill="#C084FC" opacity=".75"/>
   <rect x="571" y="178" width="8" height="38" rx="2" fill="#C084FC"/>
-  <g fill="none" stroke-width="1.5" stroke-dasharray="4 3"><path d="M500 148 V110" stroke="#009689" marker-end="url(#arrT)"/><path d="M587 190 H704" stroke="#009689" marker-end="url(#arrT)"/><path d="M500 274 V236" stroke="#7C3AED" marker-end="url(#arr)"/><path d="M292 190 H409" stroke="#7C3AED" marker-end="url(#arr)"/></g>
+  <g fill="none" stroke-width="1.5" stroke-dasharray="5 4"><path d="M500 148 V110" stroke="#009689" marker-end="url(#arrT)"/><path d="M587 190 H704" stroke="#009689" marker-end="url(#arrT)"/><path d="M500 274 V236" stroke="#7C3AED" marker-end="url(#arr)"/><path d="M292 190 H409" stroke="#7C3AED" marker-end="url(#arr)"/></g>
   <text x="508" y="133" class="muted" fill="#009689" style="fill:#009689">recalls</text>
   <text x="622" y="182" class="muted" style="fill:#009689">recalls</text>
   <text x="508" y="259" class="muted" style="fill:#7C3AED">stores</text>

@@ -4,37 +4,25 @@ description: "How to correct your agent and tell it what to remember, so the kno
 
 # Teach your agent as you work
 
-Without NeoHive, your agent forgets what you told it once the session ends, so you explain the same things and correct the same mistakes again. With NeoHive, you say it once, in plain words. Your agent stores it as a [Memory](../concepts/glossary.md#memory) in your [Hive](../concepts/glossary.md#hive), and every teammate's agent gets it back in later sessions, whichever tool they use.
+Without NeoHive, your agent forgets what you told it when the session ends. You then explain the same things and correct the same mistakes again. With NeoHive, you tell your agent something once, in plain words. Your agent stores the lesson as a [Memory](../concepts/glossary.md#memory) in your [Hive](../concepts/glossary.md#hive). Every teammate's agent then gets the Memory back in later sessions, whichever tool they use.
 
-Fix it once, and the whole team keeps the fix. This page shows what to say, and how to word a lesson so recall finds it later.
+How you word a lesson decides whether recall finds the lesson later. The following diagram shows one correction reaching a teammate:
 
-<figure><img src="../.gitbook/assets/results-teach.svg" alt="Today you give a correction, such as no, we validate tokens in the gateway. memory_store saves the correction as one Memory in the Knowledge Index. Later, a teammate asks to add auth checks to the orders service. Recall returns that Memory, and their agent validates tokens in the gateway."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/results-teach.svg" alt="You correct your agent to validate tokens in the gateway. Later, recall returns that Memory to a teammate who adds auth checks to the orders service."><figcaption></figcaption></figure>
 
 ## What to say
 
-Type these to your agent in the chat, in plain words, the way you would tell a teammate. There is no special command.
+Tell your agent in the chat, in plain words, the way you would tell a teammate. You need no special command. The following table shows what to say in each case:
 
-* **When your agent gets something wrong:**
-
-    Give the right answer and the reason. Your agent saves the correction as a Memory, so it stops repeating the mistake.
-
-    `No, we validate tokens in the gateway, not in each service.`
-
-* **When you make a decision:**
-
-    Say what you chose and why. Your agent saves the decision, so later sessions follow it.
-
-    `Remember that we use Redis for sessions because they are short-lived and need no durability.`
-
-* **When you find a problem your team should avoid:**
-
-    Describe the problem and when it happens. Your agent saves it, so your teammates' agents know to avoid it.
-
-    `Store this: the staging database rejects connections without TLS.`
+| When this happens | What to say | For example |
+|---|---|---|
+| Your agent gets something wrong | Give the right answer and the reason. Your agent saves the correction as a Memory, so the mistake stops coming back. | `No, we validate tokens in the gateway, not in each service.` |
+| You make a decision | Say what you chose and why. Your agent saves the decision, so later sessions follow the decision. | `Remember that we use Redis for sessions because they are short-lived and need no durability.` |
+| You find a problem your team should avoid | Describe the problem and when it happens. Your agent saves the problem, so your teammates' agents avoid the same problem. | `Store this: the staging database rejects connections without TLS.` |
 
 ## Say it when it happens
 
-Correct your agent while the reason is still in the conversation, because the reason is what makes the Memory useful later. The reasoning behind a choice is the first thing a team loses. Before you close a session, run `/neohive:capture-session-learnings` to catch what you missed. It stores at most five Memories per run.
+Correct your agent while the reason is still in the conversation, because the reason is what makes the Memory useful later. The reasoning behind a choice is the first thing a team loses. Before you close a session, run `/neohive:capture-session-learnings` to catch what you missed. The command stores at most five Memories per run.
 
 ## Name the system, the rule, and the reason
 
@@ -53,7 +41,7 @@ If you state only the new fact, both versions stay active, and your agent can us
 That's out of date. We moved sessions off Redis last month. Update it.
 ```
 
-Recall stops returning the old Memory. NeoHive switches it off rather than deleting it.
+Recall stops returning the old Memory. NeoHive switches the old Memory off rather than deleting it.
 
 ## Where Memories go
 
@@ -62,7 +50,7 @@ Everything your agent stores goes into your own Hive's [Knowledge Index](../conc
 To see what your agents stored, do the following:
 
 1. In the dashboard, open your Hive.
-2. Select the **Recent learnings** tab.
+2. Click the **Recent learnings** tab.
 
 The tab lists the latest Memories your agents stored in the last 7 days.
 

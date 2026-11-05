@@ -4,17 +4,19 @@ description: "Three ways teams use one team Hive: onboarding, debugging with pas
 
 # Team workflows
 
-Without a shared memory, each person teaches their own agent the same things, and the next teammate explains the same convention again. When every agent on the team connects to one [Hive](../concepts/glossary.md#hive), a lesson is stored once, as a [Memory](../concepts/glossary.md#memory). Every agent can then recall it, whichever tool the teammate uses.
+Without a shared memory, each person teaches their own agent the same things. The next teammate then explains the same convention again. When every agent on the team connects to one [Hive](../concepts/glossary.md#hive), the Hive keeps each lesson once, as a [Memory](../concepts/glossary.md#memory). Every agent can then recall the Memory, whichever tool the teammate uses.
 
-This page shows how to connect the team to one Hive, and the three ways teams use it.
+To share one Hive, each teammate first connects to the team's Hive. Teams then use the Hive in three ways: onboarding, debugging with past fixes, and keeping conventions consistent. The following diagram shows lessons going into the Hive and coming back to other agents:
 
-<figure><img src="../.gitbook/assets/results-team-workflows.svg" alt="Two teammates teach the team Hive. One states a convention: we use snake_case for columns. The other fixes a bug: webhooks time out after 30 seconds. The Hive is one shared memory that holds a Knowledge Index plus Code and Documentation Indexes. Three agents get those lessons back through recall: a new engineer who asks how to name database columns, the next person who asks why the webhooks time out, and every agent writing code, which names new columns in snake_case."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/results-team-workflows.svg" alt="Two teammates teach the team Hive a convention and a bug fix. Three agents get those lessons back through recall."><figcaption></figcaption></figure>
 
 ## Connect each person to the team Hive
 
-A Hive has one [MCP](../concepts/glossary.md#mcp) endpoint. Everyone who connects to it reads the same [Indexes](../concepts/glossary.md#index) and writes to the same [Knowledge Index](../concepts/glossary.md#knowledge-index), so each teammate connects to the team's Hive instead of creating their own. [Access and sharing](../admin/access.md) explains how to run one NeoHive instance for a team.
+A Hive has one [MCP](../concepts/glossary.md#mcp) endpoint. Everyone who connects to the endpoint reads the same [Indexes](../concepts/glossary.md#index) and writes to the same [Knowledge Index](../concepts/glossary.md#knowledge-index). For this reason, each teammate connects to the team's Hive instead of creating their own. To run one NeoHive instance for a team, see [Access and sharing](../admin/access.md).
 
 ## The three workflows
+
+The following table shows each workflow, what someone stored earlier, and what anyone can then ask:
 
 | Workflow | Someone did this earlier | Now anyone can ask |
 |---|---|---|

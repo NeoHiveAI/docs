@@ -4,7 +4,7 @@ description: "Ask your agent directly what your Hive knows, instead of waiting f
 
 # Ask for context directly
 
-Your agent searches your [Hive](../concepts/glossary.md#hive) on its own when its rules tell it to. You can also ask it directly what the Hive knows: your code, your docs, and the [Memories](../concepts/glossary.md#memory) your team has taught it. Ask before your agent writes any code, and it starts from your team's decisions and known problems instead of guessing.
+Your agent searches your [Hive](../concepts/glossary.md#hive) on its own when its rules tell it to. You can also ask your agent directly what the Hive knows. The Hive holds your code, your docs, and the [Memories](../concepts/glossary.md#memory) your team has taught its agents. Ask before your agent writes any code. Your agent then starts from your team's decisions and known problems instead of guessing.
 
 Ask the way you would ask a teammate:
 
@@ -18,9 +18,11 @@ Ask the way you would ask a teammate:
 
 ## Narrow the ask
 
-By default, your agent searches every [Index](../concepts/glossary.md#index) in the Hive. An Index is one store of context inside a Hive, such as your code or your team's Memories. Each detail you add narrows the search.
+By default, your agent searches every [Index](../concepts/glossary.md#index) in the Hive. An Index is one store of context inside a Hive, such as your code or your team's Memories. Each detail you add narrows the search. The following diagram shows three levels, each with an example:
 
-<figure><img src="../.gitbook/assets/results-ask-directly.svg" alt="Three steps, each with an example, in rows that get narrower. Ask a plain question to search every Index in the Hive, for example: How does the retry logic in the billing webhook work? Name the kind you mean to search one kind of Memory, for example: What conventions do we follow for error handling? Name the Index to search only that Index, for example: Search only the payments Index for refunds."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/results-ask-directly.svg" alt="Three asks, each narrower. A plain question searches every Index. Naming a kind searches one kind of Memory. Naming an Index searches only that Index."><figcaption></figcaption></figure>
+
+The following table shows what to say and what each phrase narrows the search to:
 
 | Say | Your agent narrows the search to |
 |---|---|
@@ -29,4 +31,4 @@ By default, your agent searches every [Index](../concepts/glossary.md#index) in 
 | "why did we choose" | Decisions |
 | "search only the payments Index" | One Index. Your agent finds the Index ID with `list_indexes`. |
 
-[Memory types](../reference/memory-types.md) lists every type. If the first answer misses, ask again in different words, because two phrasings of the same idea often return different Memories.
+For more information about directives, conventions, and the other Memory types, see [Memory types](../reference/memory-types.md). If the first answer does not have what you need, ask again in different words. Two phrasings of the same idea often return different Memories.
