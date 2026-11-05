@@ -83,10 +83,8 @@ To delete an archived Hive before its 30 days are up, do the following:
 
 To move an Index, do the following:
 
-1. Select **Move Index…** in one of these places:
-   - On the Hive page, in the Index row's ⋮ menu.
-   - On the Index page, on the **Index Info** tab.
-2. Under **Move to**, select a Hive.
+1. In the Index row's ⋮ menu on the Hive page, or on the **Index Info** tab, select **Move Index…**.
+2. Under **Move to**, select a Hive. The list shows only running Hives.
 3. Select **Move Index**.
 
 Both Hives pause briefly while the data moves, and then they resume on their own. The Index now appears on the other Hive's page.
@@ -108,9 +106,7 @@ You can set up a Shared Index from either Hive:
 
 To share an Index from the Hive that owns it, do the following:
 
-1. Select **Share Index…** in one of these places:
-   - On the Hive page, in the Index row's ⋮ menu.
-   - On the Index page, on the **Index Info** tab.
+1. In the Index row's ⋮ menu on the Hive page, or on the **Index Info** tab, select **Share Index…**.
 2. Under **Add a Hive**, select the Hive that should use the Index.
 3. Select **Share**.
 
@@ -138,15 +134,13 @@ Either Hive can stop sharing the Index. NeoHive deletes nothing when sharing sto
 | The owning Hive | Open **Share Index…**, and then select **Revoke** next to the Hive |
 | The Hive using the Index | In the Index row's ⋮ menu, select **Remove from Hive…** |
 
-The owning Hive cannot delete a Shared Index while another active Hive uses it. To delete the Index, stop sharing it with every Hive first.
-
 ## Delete an Index
 
 {% hint style="danger" %}
 Deleting an Index removes the Index, its sync settings, and all its Memories. You cannot undo the deletion.
 {% endhint %}
 
-Only the Hive that owns an Index can delete it. If the Index is shared, stop sharing it with every Hive first. To delete an Index, do the following:
+Only the Hive that owns an Index can delete it. If other active Hives use the Index, stop sharing the Index with those Hives first. To delete an Index, do the following:
 
 1. Open the Index.
 2. Select the **Index Info** tab.
