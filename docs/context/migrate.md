@@ -85,6 +85,6 @@ Your agent recalls migrated rules like any other Memory. A teammate on the same 
 
 The skill does not change `CLAUDE.md`, so your agent still loads every rule in it on each task. To load only the rules that matter, remove the migrated rules from `CLAUDE.md`. Keep the rules the skill skipped, such as personal preferences, and the NeoHive block.
 
-If a rule migrated incorrectly or becomes out of date, tell your agent. Your agent then deactivates the old Memory. For details, see [Capture team knowledge](team-knowledge.md#correct-what-goes-stale).
+If a rule migrated incorrectly or becomes out of date, tell your agent. Your agent then deactivates the old Memory. For more information about correcting a Memory, see [Capture team knowledge](team-knowledge.md#correct-what-goes-stale).
 
 Long-form notes, such as an Obsidian vault, design docs, or runbooks, belong in a [Files Index](../concepts/glossary.md#files-index). To upload long-form notes, see [Add documents and images](documents.md).

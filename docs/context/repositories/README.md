@@ -14,12 +14,12 @@ Before you start, you need a Hive, read access to the repository, and a personal
 
 To add a repository, do the following:
 
-1. Save a connection, select the repository and branch, and create the Index. See [Connect GitHub or GitLab](connect.md).
-2. Optional: Keep generated code, fixtures, and other unwanted files out of the Index. See [Choose which files are included](file-patterns.md).
-3. Optional: Set the sync schedule, sync on demand, or read the sync history. See [Keep a repository up to date](sync.md).
+1. To save a connection, select the repository and branch, and create the Index, see [Connect GitHub or GitLab](connect.md).
+2. Optional: To keep generated code, fixtures, and other unwanted files out of the Index, see [Choose which files are included](file-patterns.md).
+3. Optional: To set the sync schedule, sync on demand, or read the sync history, see [Keep a repository up to date](sync.md).
 
-NeoHive copies and indexes the code on the machine it runs on. NeoHive does not send the code to an outside service. For details, see [What stays on your machine](../../security/local-only.md).
+NeoHive copies and indexes the code on the machine it runs on. NeoHive does not send the code to an outside service. For more information, see [What stays on your machine](../../security/local-only.md).
 
 {% hint style="info" %}
-The first sync reads every file. A later sync reads only the files that changed and usually finishes faster. On a large repository, the first sync can take much longer. A GPU makes indexing faster. For details, see [GPU and CPU](../../admin/gpu-cpu.md).
+The first sync reads every file. A later sync reads only the files that changed and usually finishes faster. On a large repository, the first sync can take much longer. A GPU makes indexing faster. For more information about GPU support, see [GPU and CPU](../../admin/gpu-cpu.md).
 {% endhint %}

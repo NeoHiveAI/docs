@@ -12,7 +12,7 @@ If your documents already live in a GitHub or GitLab repository, add the reposit
 
 ## Create the Index
 
-NeoHive accepts markdown, text, PDF, Word, Excel, and PowerPoint files, and PNG or JPEG images, up to 50 MB each. For details, see [Supported file types](../reference/file-types.md). To move an Obsidian vault or a similar notes vault, export it as markdown and upload the files.
+NeoHive accepts markdown, text, PDF, Word, Excel, and PowerPoint files, and PNG or JPEG images, up to 50 MB each. For more information about each format and its limits, see [Supported file types](../reference/file-types.md). To move an Obsidian vault or a similar notes vault, export it as markdown and upload the files.
 
 To create a Files Index, do the following:
 

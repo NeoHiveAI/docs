@@ -27,7 +27,7 @@ The **Add an Index** dialog asks where your data comes from.
 | An Index another Hive already set up | **Shared Index**, under **or reuse an existing Index** | The same Index, searchable from your Hive with no copy and no wait for indexing |
 | Conventions and decisions your team makes | Nothing to add | The [Knowledge Index](../concepts/glossary.md#knowledge-index), created with every Hive |
 
-A Documentation Index works the same way as a Code Index. Both index every file that their filters allow, not only markdown. To keep a Documentation Index to markdown, add `**/*.md` to its **Allowlist**. [Choose which files are included](repositories/file-patterns.md) shows how. To add either kind, see [Add a code repository](repositories/README.md).
+A Code Index and a Documentation Index both index every file that their filters allow, not only markdown. To keep a Documentation Index to markdown, add `**/*.md` to its **Allowlist**. For more information about the Allowlist, see [Choose which files are included](repositories/file-patterns.md). To add either kind of Index, see [Add a code repository](repositories/README.md).
 
 {% hint style="info" %}
 Your agent searches every Index in the Hive at once, or picks a single Index by its name and description. On each Index's **Index Info** tab, write a description that names the services, domains, and languages the Index covers.
