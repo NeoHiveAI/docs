@@ -10,7 +10,7 @@ Create a token, save it as a connection, select the repository, and then select 
 
 ## Create a token
 
-Create a personal access token (PAT) on GitHub or GitLab with the settings in the following tabs, or use an SSH key. The **Create a PAT** link in the connection form opens the same page with these settings filled in.
+Create a personal access token (PAT) on GitHub or GitLab with the scopes in the following tabs. You can also use an SSH key. Scopes are the permissions the token grants. The connection form's **Create a PAT** link opens the provider's token page with the token name and scopes filled in.
 
 {% tabs %}
 {% tab title="GitHub" %}
@@ -44,7 +44,7 @@ To create the Index, do the following:
 2. Next to **Indexes**, select **+**.
 3. Select **GitHub** or **GitLab**.
 4. Under **Content type**, select **Code**. If the Index holds only docs, select **Documentation** instead.
-5. Under **Connection**, select **Add a new connection**.
+5. To use a saved connection, select the connection under **Connection**, and then skip to step 9. To add a connection, select **Add a new connection**. If you have no saved connection, NeoHive shows the connection form instead.
 6. Enter a **Name**, such as `Work GitHub`.
 7. Paste the token you created in [Create a token](#create-a-token) into **Personal Access Token**.
 8. Select **Save connection**. NeoHive checks the token with the provider and does not save a token that the provider rejects. If you already saved the same token or account, NeoHive warns you and offers **Add anyway**.
@@ -67,7 +67,7 @@ Open the **Index Info** tab, and then fill in **Description**. Your agent reads 
 <details>
 <summary>Optional: switch to an embedding model made for code</summary>
 
-A new [Code Index](../../concepts/glossary.md#code-index) uses an [embedding model](../../concepts/glossary.md#embedding-model) that handles both code and text. If your machine has a large GPU, you can switch the Index to a `nomic-embed-code` model on the **Index Info** tab, which matches code more closely. Changing the model makes NeoHive embed the whole Index again. For the models and which ones fit your machine, see [Embedding models](../../admin/embedding-models.md).
+A new [Code Index](../../concepts/glossary.md#code-index) uses an [embedding model](../../concepts/glossary.md#embedding-model) that handles both code and text. A `nomic-embed-code` model matches code more closely and needs a large GPU. To switch models, use the **Embedding model** setting on the **Index Info** tab. Changing the model makes NeoHive embed the whole Index again. For the models and which ones fit your machine, see [Embedding models](../../admin/embedding-models.md).
 
 </details>
 

@@ -4,7 +4,7 @@ description: "Choose which files in a repository NeoHive indexes, by using the A
 
 # Choose which files are included
 
-Set an **Allowlist** and a **Blocklist** so that the [Index](../../concepts/glossary.md#index) holds the files that answer questions, and leaves out generated code and test fixtures (sample data for tests). An Index is one store of searchable context inside a [Hive](../../concepts/glossary.md#hive), the workspace your agent connects to.
+Set an **Allowlist** and a **Blocklist** so that the [Index](../../concepts/glossary.md#index) holds the files that answer questions. The two lists also keep out generated code and test fixtures (sample data for tests). An Index is one store of searchable context inside a [Hive](../../concepts/glossary.md#hive), the workspace your agent connects to.
 
 <figure><img src="../../.gitbook/assets/context-file-patterns.svg" alt="Every file on the branch passes three filters in order. The first filter is the built-in skip list, which always removes binaries, images, lock files, and folders such as node_modules and dist. The second filter is the Allowlist: when the Allowlist has patterns, only matching files pass. The third filter is the Blocklist, which removes matching files even when the Allowlist matched them. NeoHive indexes the files that are left."><figcaption></figcaption></figure>
 
@@ -35,11 +35,11 @@ To set the patterns, do the following:
 2. Optional: To get a first draft of the patterns from your agent, select **Copy AI prompt**.
 3. Optional: Paste the prompt into your agent.
 4. Optional: Describe your repository to your agent.
-5. Type one pattern per line into **Allowlist**, **Blocklist**, or both.
+5. Enter one pattern per line in **Allowlist**, **Blocklist**, or both.
 6. Select **Save settings**.
 7. To apply the new patterns, select **Trigger sync** at the top of the page. Saving does not start a sync.
 8. If the **Sync Warning** dialog opens, select **I Understand**.
 
-This sync reads the whole repository again. It removes the files that the new patterns leave out, and adds the files that they now include.
+After a pattern change, the sync reads the whole repository again. NeoHive removes the files that the new patterns leave out and adds the files those patterns now include.
 
 If your agent cannot find a file, check both lists first, because a pattern might filter the file out.

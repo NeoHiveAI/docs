@@ -22,13 +22,13 @@ To set the schedule, do the following:
 
 You also set the **Branch** and the **Connection** on the same card.
 
-Syncs run at fixed times of day, in UTC. For example, **Every 4 hours** runs at 00:00, 04:00, 08:00 UTC, and so on, and **Daily** runs at 00:00 UTC.
+Syncs run at fixed times of day, in UTC. For example, **Every 4 hours** runs at 00:00, 04:00, 08:00, and so on, and **Daily** runs at 00:00.
 
 If NeoHive was not running when a sync was due, NeoHive syncs that Index as soon as NeoHive starts again.
 
 ## Choose a sync interval
 
-Pick the interval that matches how often the repository changes.
+Pick the interval that matches how often the repository changes. The following table suggests an interval for each case:
 
 | **Sync interval** | Good for |
 |---|---|
@@ -68,7 +68,7 @@ For runs that keep failing, see [Repository sync issues](../../troubleshooting/s
 
 ## If the branch is renamed
 
-If someone renames the branch, for example from `master` to `main`, the sync follows the new name when the match is clear. Otherwise, the Index page shows `A synced branch is no longer on the remote`, and everything indexed so far stays searchable. To fix it, do the following:
+If someone renames the branch, for example from `master` to `main`, the sync follows the new name when the match is clear. Otherwise, the Index page shows `A synced branch is no longer on the remote`, and everything indexed so far stays searchable. To sync the renamed branch, do the following:
 
 1. Under **Pick a branch to sync instead**, select the new branch.
 2. Select **Sync this branch**.
