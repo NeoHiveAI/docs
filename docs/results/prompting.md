@@ -4,13 +4,15 @@ description: "Phrase requests and memory queries so NeoHive returns the Memories
 
 # Write prompts that retrieve well
 
-Recall is how your agent searches your [Hive](../concepts/glossary.md#hive), your team's NeoHive workspace, for context. Your agent recalls when it calls `memory_recall` or `memory_context`. In Claude Code, the plugin also recalls with the start of each prompt you send.
+Recall is how your agent searches your [Hive](../concepts/glossary.md#hive) for context, through `memory_recall` or `memory_context`. In Claude Code, the plugin also runs a recall with the start of each prompt you send.
 
-Recall finds a stored [Memory](../concepts/glossary.md#memory), code, or a document by the words and meaning it shares with your query. A query that uses the same words as the answer finds the answer. A vague question shares few words with anything, so recall returns weak matches. [How retrieval works](../concepts/retrieval.md) explains how recall finds and ranks results.
+Recall finds a [Memory](../concepts/glossary.md#memory), code, or a document by the words and meaning it shares with your query. A vague question shares few words with anything, so it gets weak matches. Write each prompt and query the way the answer would be written. For more information about how recall finds and ranks results, see [How retrieval works](../concepts/retrieval.md).
 
-To get strong matches, write each prompt and query the way the answer would be written. The examples that follow show how to phrase each kind of request so recall returns what you need.
+The following diagram shows a question and a statement matched against one stored Memory:
 
-<figure><img src="../.gitbook/assets/results-prompting.svg" alt="Two queries against one stored Memory about batch processor retries. The question how do we handle errors shares few words and matches weakly. The statement error handling and retries in the async batch processor shares its words and matches strongly."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/results-prompting.svg" alt="Two queries against one Memory about batch processor retries. A question shares few words with the Memory and matches weakly. A statement matches strongly."><figcaption></figcaption></figure>
+
+The following table shows vague queries and how to rewrite them:
 
 | Instead of | Write | Why it works better |
 |---|---|---|
@@ -21,24 +23,26 @@ To get strong matches, write each prompt and query the way the answer would be w
 
 ## Put the subject first
 
-In Claude Code, the plugin recalls with only the start of each prompt, as [What the plugin does automatically](plugin-automation.md) explains. Put the system and the problem first. Then add background and instructions.
+In Claude Code, the plugin recalls with only the start of each prompt. Put the system and the problem first, then the background and instructions. For more information about the prompt recall, see [What the plugin does automatically](plugin-automation.md).
 
 ## Ask for several phrasings on important searches
 
-`memory_recall` accepts `queries`, a list of phrasings whose results it merges into one list. [MCP tools](../reference/mcp-tools.md#memory_recall) lists its parameters and limits. Use `queries` when you do not know the words your team uses.
+`memory_recall` accepts `queries`, a list of phrasings whose results it merges into one list. When you do not know the words your team uses, ask your agent to search several ways:
 
 ```text
 Search memory a few different ways for how we rate-limit the billing API.
 ```
 
+For more information about the parameters of `memory_recall` and their limits, see [MCP tools](../reference/mcp-tools.md#memory_recall).
+
 ## Pick the right tool
 
-Call `memory_context` once at the start of a task, and `memory_recall` any time you need something specific. [MCP tools](../reference/mcp-tools.md) lists the parameters of each tool.
+Your agent calls `memory_context` once, at the start of a task. Your agent calls `memory_recall` any time the task needs something specific. Describe the task to `memory_context` as a statement. For example, `implementing rate limiting for the Express gateway` loads more context than `what do we know about the gateway?`.
 
-Both tools search every [Index](../concepts/glossary.md#index) in your Hive unless you pass `index`. Each Index is one store of context inside the Hive. Describe the task as a statement. For example, `implementing rate limiting for the Express gateway` loads more context than `what do we know about the gateway?`.
+Both tools search every [Index](../concepts/glossary.md#index) in your Hive unless you pass `index`.
 
 If your agent has no NeoHive plugin, paste the rules in [Tell your agent to use NeoHive](../get-started/connect/README.md#tell-your-agent-to-use-neohive) into its rules file.
 
 {% hint style="success" %}
-Before you rely on a phrasing, test it in the dashboard **Playground**. See [Test queries in the Playground](../admin/playground.md).
+To see exactly what your agents searched for, open your Hive in the dashboard and click the **Recent queries** tab. In Claude Code, the list includes the recall the plugin runs with each prompt.
 {% endhint %}

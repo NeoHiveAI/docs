@@ -14,24 +14,29 @@
 
   <!-- Content keeps the coordinates it had under the old top header. This group moves it up by 77 so its
        top edge sits at y=40. Draw new content inside the group with the same coordinates as the rest. -->
-  <g transform="translate(0,-77)">  <rect x="40" y="118" width="920" height="58" rx="5" fill="#FFFFFF" stroke="#E5E5E5"/>
+  <g transform="translate(0,-77)">
+  <!-- Each row: the step on the left, an example on the right. Rows narrow into an inverted pyramid as the search narrows. -->
+  <rect x="40" y="118" width="920" height="58" rx="5" fill="#FFFFFF" stroke="#E5E5E5"/>
   <rect x="40" y="118" width="3.5" height="58" rx="1.75" fill="#7C3AED"/>
-  <text x="60" y="141" class="lbl" fill="#7C3AED">EVERY INDEX IN THE HIVE</text>
-  <text x="60" y="162" font-size="12.5" fill="#1A1A2E">"How does the retry logic in the billing webhook work?"</text>
-  <text x="942" y="141" font-size="12" font-weight="700" text-anchor="end" fill="#1A1A2E">Ask a plain question</text>
-  <text x="942" y="162" font-size="11" class="mono" text-anchor="end" fill="#7008E7">memory_recall · no filter</text>
+  <text x="60" y="143" font-size="13.5" font-weight="700" fill="#1A1A2E">Ask a plain question</text>
+  <text x="60" y="162" font-size="12" fill="#7008E7">searches every Index in the Hive</text>
+  <line x1="272" y1="130" x2="272" y2="164" stroke="#EEEAF6"/>
+  <text x="292" y="140" font-size="10" font-weight="700" letter-spacing="1" fill="#737373">EXAMPLE</text>
+  <text x="292" y="160" font-size="12.5" fill="#1A1A2E">"How does the retry logic in the billing webhook work?"</text>
   <rect x="130" y="188" width="740" height="58" rx="5" fill="#FFFFFF" stroke="#E5E5E5"/>
   <rect x="130" y="188" width="3.5" height="58" rx="1.75" fill="#7C3AED"/>
-  <text x="150" y="211" class="lbl" fill="#7C3AED">ONE KIND OF MEMORY</text>
-  <text x="150" y="232" font-size="12.5" fill="#1A1A2E">"What conventions do we follow for error handling?"</text>
-  <text x="852" y="211" font-size="12" font-weight="700" text-anchor="end" fill="#1A1A2E">Name the kind you mean</text>
-  <text x="852" y="232" font-size="11" class="mono" text-anchor="end" fill="#7008E7">memory_recall · sets types</text>
+  <text x="150" y="213" font-size="13.5" font-weight="700" fill="#1A1A2E">Name the kind you mean</text>
+  <text x="150" y="232" font-size="12" fill="#7008E7">searches one kind of Memory</text>
+  <line x1="362" y1="200" x2="362" y2="234" stroke="#EEEAF6"/>
+  <text x="382" y="210" font-size="10" font-weight="700" letter-spacing="1" fill="#737373">EXAMPLE</text>
+  <text x="382" y="230" font-size="12.5" fill="#1A1A2E">"What conventions do we follow for error handling?"</text>
   <rect x="220" y="258" width="560" height="58" rx="5" fill="#FFFFFF" stroke="#E5E5E5"/>
   <rect x="220" y="258" width="3.5" height="58" rx="1.75" fill="#7C3AED"/>
-  <text x="240" y="281" class="lbl" fill="#7C3AED">ONE INDEX</text>
-  <text x="240" y="302" font-size="12.5" fill="#1A1A2E">"Search only the payments Index for refunds."</text>
-  <text x="762" y="281" font-size="12" font-weight="700" text-anchor="end" fill="#1A1A2E">Name the Index</text>
-  <text x="762" y="302" font-size="11" class="mono" text-anchor="end" fill="#7008E7">memory_recall · sets index</text>
+  <text x="240" y="283" font-size="13.5" font-weight="700" fill="#1A1A2E">Name the Index</text>
+  <text x="240" y="302" font-size="12" fill="#7008E7">searches one Index</text>
+  <line x1="452" y1="270" x2="452" y2="304" stroke="#EEEAF6"/>
+  <text x="472" y="280" font-size="10" font-weight="700" letter-spacing="1" fill="#737373">EXAMPLE</text>
+  <text x="472" y="300" font-size="12.5" fill="#1A1A2E">"Search only the payments Index for refunds."</text>
   </g>
 
   <!-- Footer. Logo paths copied verbatim from frontend/src/lib/icons/NeoHiveIcon.svelte. -->

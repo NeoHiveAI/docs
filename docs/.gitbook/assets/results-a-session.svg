@@ -31,8 +31,8 @@
   <text x="293" y="202" class="lbl" fill="#7C3AED">WORK</text>
   <text x="472" y="202" font-size="10" font-weight="700" letter-spacing="0.8" text-anchor="end" fill="#009689">AUTOMATIC</text>
   <text x="293" y="228" class="title">Each prompt you send</text>
-  <text x="293" y="252" class="body">Plugin adds the best matches;</text>
-  <text x="293" y="270" class="body">agent recalls more as needed</text>
+  <text x="293" y="252" class="body">Plugin adds the best matches,</text>
+  <text x="293" y="270" class="body">and the agent recalls more</text>
   <rect x="293" y="290" width="179" height="28" rx="3" fill="#F5F3FF" stroke="#DDD6FF"/>
   <text x="382.5" y="308" font-size="11" class="mono" text-anchor="middle" fill="#7008E7">memory_recall</text>
   <circle cx="617.5" cy="140" r="18" fill="#7C3AED"/>
@@ -41,8 +41,8 @@
   <text x="528" y="202" class="lbl" fill="#7C3AED">TEACH</text>
   <text x="707" y="202" font-size="10" font-weight="700" letter-spacing="0.8" text-anchor="end" fill="#BB4D00">YOU DO THIS</text>
   <text x="528" y="228" class="title">You correct it</text>
-  <text x="528" y="252" class="body">Say what is right and why;</text>
-  <text x="528" y="270" class="body">agent stores it for everyone</text>
+  <text x="528" y="252" class="body">Say what is right and why,</text>
+  <text x="528" y="270" class="body">and the agent stores it</text>
   <rect x="528" y="290" width="179" height="28" rx="3" fill="#F5F3FF" stroke="#DDD6FF"/>
   <text x="617.5" y="308" font-size="11" class="mono" text-anchor="middle" fill="#7008E7">memory_store</text>
   <circle cx="852.5" cy="140" r="18" fill="#7C3AED"/>
@@ -51,8 +51,8 @@
   <text x="763" y="202" class="lbl" fill="#7C3AED">CAPTURE</text>
   <text x="942" y="202" font-size="10" font-weight="700" letter-spacing="0.8" text-anchor="end" fill="#BB4D00">YOU DO THIS</text>
   <text x="763" y="228" class="title">Before you close</text>
-  <text x="763" y="252" class="body">You run the skill; it saves</text>
-  <text x="763" y="270" class="body">up to five new Memories</text>
+  <text x="763" y="252" class="body">Run the skill to save up</text>
+  <text x="763" y="270" class="body">to five new Memories</text>
   <rect x="763" y="290" width="179" height="28" rx="3" fill="#F5F3FF" stroke="#DDD6FF"/>
   <text x="852.5" y="308" font-size="10.5" class="mono" text-anchor="middle" fill="#7008E7">capture-session-learnings</text>
   </g>
