@@ -4,7 +4,7 @@ description: "The MCP tools each NeoHive Hive exposes, with every parameter, typ
 
 # MCP tools
 
-A [Hive](../concepts/glossary.md#hive) is a NeoHive workspace that holds your [Indexes](../concepts/glossary.md#index). Your agent works with a Hive through the following tools. Each entry gives the tool's parameters and what the tool returns.
+A [Hive](../concepts/glossary.md#hive) is a NeoHive workspace that holds your [Indexes](../concepts/glossary.md#index). Your agent works with a Hive through the following tools.
 
 Each Hive serves these tools at its [MCP](../concepts/glossary.md#mcp) endpoint, `http://localhost:3577/hives/<hive-id>/mcp`, over Streamable HTTP.
 
@@ -17,7 +17,11 @@ Each Hive serves these tools at its [MCP](../concepts/glossary.md#mcp) endpoint,
 | `memory_store` | Saves a new Memory to the Hive's [Knowledge Index](../concepts/glossary.md#knowledge-index). | Yes |
 | `memory_forget` | Deactivates a Memory so recall stops returning it. | Yes |
 
-The read tools take an optional `index`. Leave it out to cover every Index in the Hive. The write tools take no `index`: they always write to the Hive's own Knowledge Index, even when you read from a [Shared Index](../concepts/glossary.md#shared-index). You can run the read tools manually in the [Playground](../admin/playground.md).
+`memory_recall`, `memory_context`, and `memory_stats` take an optional `index`, the id of one Index to use. Leave it out to cover every Index in the Hive. `memory_store` and `memory_forget` take no `index`. Both tools write to the Hive's own Knowledge Index, even when you read from a [Shared Index](../concepts/glossary.md#shared-index).
+
+## list_indexes
+
+`list_indexes` takes no parameters. Each line of the reply shows the Index id, name, type, status, and embedding model, followed by the Index's description if it has one. An Index shared into your Hive shows `shared_from: <owner hive>` and `access: read-only`. You can recall from a Shared Index but not write to it.
 
 ## memory_recall
 
@@ -30,7 +34,7 @@ The read tools take an optional `index`. Leave it out to cover every Index in th
 | `index` | string | all Indexes | The id of one Index to search. |
 | `noAccessUpdate` | boolean | `false` | When `true`, the search does not count as a recall. The access count of the Memories it returns stays the same. Use this option for automated callers. |
 
-Each result starts with a heading that contains the Memory's id, such as `### Memory #1 (id: 482, ...)`, then its type, importance, access count, and tags. Pass the `id` to `memory_forget`. NeoHive cuts off a result longer than 8,000 characters and adds a `(truncated, ...)` note.
+The reply lists each result under a heading such as `### Memory #1 (id: 482, score: 0.031)`. Under the heading, each result shows the Memory's type, importance, access count, and tags, followed by the stored content. The importance, from 1 to 10, comes from [`memory_store`](#memory_store) for a Memory, or from NeoHive for indexed file content. The access count is how many times `memory_recall` or `memory_context` has returned the Memory. NeoHive cuts off content longer than 8,000 characters and adds a `(truncated, ...)` note.
 
 ## memory_context
 
@@ -59,29 +63,25 @@ Without `index`, the reply lists only the total number of Memories and the count
 | `tags` | string list | none | Labels that help later searches find the Memory. |
 | `format` | string | `auto` | How to split content of 6,000 characters or more: `auto`, `markdown`, `code`, or `text`. `auto` detects the format. NeoHive stores shorter content whole. |
 
-The reply is `Memory stored successfully (id: <id>, type: <type>, importance: <n>, Index: <index-id>)`. You can search for the Memory immediately.
+The reply is `Memory stored successfully (id: <id>, type: <type>, importance: <n>, Index: <index-id>)`. For content of 6,000 characters or more, the reply also says how NeoHive split it. You can search for the Memory immediately.
 
 ## memory_forget
 
 | Parameter | Type | Default | Notes |
 |---|---|---|---|
-| `memory_id` | integer | required | The id of the Memory to deactivate. |
+| `memory_id` | integer | required | The id of the Memory to deactivate, shown in the heading of each `memory_recall` result. `memory_forget` searches only the Hive's own Knowledge Index, so pass the id of a Memory stored with `memory_store`. Each Index numbers its content separately, so an id from another Index can deactivate an unrelated Memory. |
 | `reason` | string | none | Why you are retiring the Memory. |
 | `superseded_by` | integer | none | The id of the Memory that replaces this one. |
 
 The reply is `Memory #<id> has been deactivated (Index: <index-id>).`, followed by the reason and replacement if you gave them. `memory_forget` deactivates a Memory but does not erase it. Recall stops returning the Memory, but the Memory stays in the database.
 
-## list_indexes
-
-`list_indexes` takes no parameters. Each line of the reply shows the Index id, name, type, status, and embedding model. An Index shared into your Hive shows `shared_from: <owner hive>` and `access: read-only`. You can recall from a Shared Index but not write to it.
-
 <details>
 
 <summary>Deprecated names that still work</summary>
 
-| Deprecated | Use instead |
-|---|---|
-| `list_hives` tool | `list_indexes` |
-| `hive` parameter on `memory_recall`, `memory_context`, `memory_stats` | `index` |
+Use the new name in place of each older one:
+
+* Instead of the `list_hives` tool, use `list_indexes`.
+* Instead of the `hive` parameter on `memory_recall`, `memory_context`, and `memory_stats`, use `index`.
 
 </details>
