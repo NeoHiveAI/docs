@@ -10,7 +10,7 @@ The connection depends on several parts in turn. The NeoHive container must be r
 
 Use the checks on this page to find which part breaks, and then fix that part.
 
-<figure><img src="../.gitbook/assets/troubleshooting-connection.svg" alt="Decision tree with five checks. Is the neohive container running? Does /health say ok? Does list_indexes work in the Playground? Does the agent's MCP endpoint match Install Instructions? Does the agent see the NeoHive tools? Each no leads to its fix. Five yes answers mean the agent is connected."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/troubleshooting-connection.svg" alt="Decision tree with four checks. Is the neohive container running? Does /health say ok? Does the agent's MCP endpoint match Install Instructions? Does the agent see the NeoHive tools? Each no leads to its fix. Four yes answers mean the agent is connected."><figcaption></figcaption></figure>
 
 Run the checks in order. Stop at the first check that fails, and apply its fix.
 
@@ -44,19 +44,6 @@ curl http://localhost:3577/health
 | `"status":"ok"` | NeoHive is ready. | Go to the next check. |
 | `"status":"error"` | NeoHive could not finish starting, or its embedding engine cannot run. | Look up the `error` text in [Common errors](common-errors.md). |
 | `"status":"degraded"` | At least one Hive failed its check. | On the dashboard home page, open that Hive's menu and select **Restart**. |
-{% endstep %}
-
-{% step %}
-## Does the Hive answer without your agent?
-
-To test the Hive from the dashboard, do the following:
-
-1. Open **Playground** in the dashboard.
-2. Under **Hive**, select your Hive.
-3. Set **Tool** to `list_indexes`.
-4. Select **Run**.
-
-If you see a list of [Indexes](../concepts/glossary.md#index), the Hive works. The problem is then between the Hive and your agent. If you see an error, the Hive itself is broken. Select **Restart** on the Hive, and then run the check again.
 {% endstep %}
 
 {% step %}

@@ -53,7 +53,7 @@ The following table describes the remaining fields:
 
 | Field | What to do |
 |---|---|
-| **Connection** | Select a saved connection. If you have no saved connection, or if you select **Add a new connection**, a form opens. In the form, enter a **Name** such as `Acme GitHub`, paste the token into **Personal Access Token**, and select **Save connection**. |
+| **Connection** | Select a saved connection. If you have no saved connection, or if you select **Add a new connection**, a form opens. In the form, enter a **Name** such as `Work GitHub`, paste the token into **Personal Access Token**, and select **Save connection**. |
 | **Repository** | Select a repository from the list, or type into **Search repositories or paste a URL...**. If you paste the URL of a repository that the list does not show, the repository appears as a **Use** row, such as **Use acme/api**. |
 | **Index name** | This field appears after you select a repository. NeoHive fills it in from the repository, such as `acme/api`. The name must be unique in the Hive. |
 | **Branch** | This field appears after you select a repository. NeoHive fills it in with the repository's default branch. To use another branch, select it from the list. |
@@ -71,7 +71,7 @@ Open the **Index Info** tab, and then fill in **Description**. Your agent reads 
 <details>
 <summary>Optional: switch to an embedding model specialized for code</summary>
 
-A new [Code Index](../../concepts/glossary.md#code-index) uses a general text embedding model, the model that turns content into a searchable form. The **Embedding model** setting on the **Index Info** tab also offers models whose names start with `nomic-embed-code`. These models match code more closely, but they need a lot of GPU memory. The list marks each option **Fits** or **Won't fit** for your machine. When you save a new model, NeoHive processes the whole Index again with that model in the background. For details, see [GPU and CPU](../../admin/gpu-cpu.md).
+A new [Code Index](../../concepts/glossary.md#code-index) uses a general text embedding model, the model that turns content into a searchable form. The **Embedding model** setting on the **Index Info** tab also offers models whose names start with `nomic-embed-code`. These models match code more closely, but they need a lot of GPU memory. The list marks each option **Fits** or **Won't fit** for your machine. When you save a new model, NeoHive processes the whole Index again with that model in the background. For details, see [Embedding models](../../admin/embedding-models.md).
 
 </details>
 

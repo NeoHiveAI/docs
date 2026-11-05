@@ -8,7 +8,7 @@ When you no longer want NeoHive on this machine, the uninstall script removes wh
 
 The uninstall script lists what it found and asks you to confirm once.
 
-<figure><img src="../.gitbook/assets/admin-uninstall.svg" alt="Removed by uninstall.sh: the neohive container, stopped cleanly to free the license seat; ~/.cache/neohive/license-key; and the Metal worker on Apple Silicon. Kept, and removed only with --purge-data: the neohive-data volume with every Hive, Index, and Memory; ~/.cache/neohive/machine-id; and ~/.neohive models and logs. Removed manually, using steps the script prints: the agent plugin and each NeoHive MCP entry, one per Hive."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/admin-uninstall.svg" alt="Removed by uninstall.sh: the neohive container, which the script stops cleanly to free the license seat. The script also removes ~/.cache/neohive/license-key and, on Apple Silicon, the Metal worker. Kept, and removed only with --purge-data: the neohive-data volume with every Hive, Index, and Memory, ~/.cache/neohive/machine-id, and the models and logs in ~/.neohive. Removed manually, using steps the script prints: the agent plugin and each NeoHive MCP entry, one per Hive."><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
 Do not use `docker rm -f neohive` as a shortcut. That command stops the container without a clean shutdown. The license seat then stays in use until the licensing service notices that the machine has stopped checking in.
@@ -72,7 +72,7 @@ For Cursor, delete the `~/.cursor/plugins/local/neohive` link. For Codex, delete
 {% step %}
 ## Remove the MCP entries
 
-Removing the plugin can leave the [MCP](../concepts/glossary.md#mcp) entries behind. There is one NeoHive entry for each Hive. To remove the entries in Claude Code, run `claude mcp list` to list them. Then run `claude mcp remove` for each NeoHive entry:
+Removing the plugin can leave the [MCP](../concepts/glossary.md#mcp) entries behind, one NeoHive entry for each Hive. To remove the entries in Claude Code, go to each project folder where you connected a Hive, and run `claude mcp list` to list them. Then run `claude mcp remove` for each NeoHive entry:
 
 ```bash
 claude mcp list
@@ -96,5 +96,5 @@ For other agents, delete the NeoHive entries from the agent's MCP config file. T
 docker ps -a --filter name=neohive
 ```
 
-The list is empty, and `claude mcp list` shows no NeoHive entries.
+The list is empty, and `claude mcp list` shows no NeoHive entries in any of those project folders.
 {% endhint %}
