@@ -16,7 +16,7 @@ Set each variable in the place shown in the following table. A variable set anyw
 
 ## Installer
 
-Set the variable on the installer's command line, as in the following example, or export it first with `export NEOHIVE_PORT=4577`. To change a variable later, run the installer again.
+Set the variable on the installer's command line, or export the variable first with `export NEOHIVE_PORT=4577`. To change a variable later, run the installer again. The following command installs NeoHive on port `4577`:
 
 ```bash
 NEOHIVE_PORT=4577 \
@@ -40,7 +40,7 @@ The timeout variables accept only positive whole numbers of milliseconds. Any ot
 
 ### Apple Silicon
 
-These variables apply only on a Mac with Apple Silicon, where the installer also sets up the Metal worker.
+The following variables apply only on a Mac with Apple Silicon, where the installer also sets up the Metal worker:
 
 | Variable | Default | Purpose |
 |---|---|---|
@@ -52,7 +52,7 @@ These variables apply only on a Mac with Apple Silicon, where the installer also
 
 ## Agent plugin
 
-Set these variables where your coding agent starts, for example with a line such as `export NEOHIVE_PRETOOL_DISABLED=1` in your shell profile (`~/.zshrc` or `~/.bashrc`).
+Set each variable where your coding agent starts, for example with `export NEOHIVE_PRETOOL_DISABLED=1` in your shell profile (`~/.zshrc` or `~/.bashrc`). The plugin hooks read the following variables:
 
 | Variable | Default | Purpose |
 |---|---|---|
@@ -86,7 +86,7 @@ The installer passes only these variables into the container: the license key, t
 | `MEMVEC_SYNC_RETRY_DELAY_MS` | `120000` (2 minutes) | How long NeoHive waits before it retries automatically after a sync in which some files failed. |
 | `MEMVEC_TOKEN_REVALIDATION_MS` | `82800000` (23 hours) | How long the result of a connection's last token check stays valid. After that time, NeoHive checks the token again. |
 | `MEMVEC_MIGRATION_SNAPSHOT` | on | Set to `off` to skip the database copy NeoHive takes before an upgrade changes its databases. |
+| `MEMVEC_MIGRATION_SNAPSHOT_KEEP` | `5` | How many of those copies to keep per database. Each copy is a full copy of the database. If disk space is low, lower this number. |
 | `MEMVEC_DOCUMENT_MAX_PAGES` | `500` | The most pages an uploaded PDF can have. If you raise it, raise `NEOHIVE_DOCUMENT_TIMEOUT_MS` too. |
 | `MEMVEC_IMAGE_MAX_PIXELS` | `50000000` | The most pixels an uploaded image, or a picture inside a Word or PowerPoint file, can have. |
 | `MEMVEC_UPLOAD_BATCH_MAX_BYTES` | `209715200` (200 MB) | The most data one upload request can carry. The dashboard splits a larger selection to fit. |
-| `MEMVEC_MIGRATION_SNAPSHOT_KEEP` | `5` | How many of those copies to keep per database. Each copy is a full copy of the database. If disk space is low, lower this number. |
