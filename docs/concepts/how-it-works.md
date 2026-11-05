@@ -20,7 +20,7 @@ NeoHive is one Docker container named `neohive`, on your machine or a shared ser
 
 Your agent never reads NeoHive's files. Your agent asks for context through an MCP tool, and the container replies with matching code, docs, and [Memories](glossary.md#memory).
 
-Claude Desktop and other MCP apps have no plugin. They connect to the same MCP endpoint and call the same tools.
+ChatGPT, Claude Desktop, and other MCP apps have no plugin. They connect to the same MCP endpoint and call the same tools.
 
 ## Hooks in Claude Code
 

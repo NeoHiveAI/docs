@@ -24,7 +24,7 @@ On the home screen, you can do the following:
 
 ## The Hive page
 
-**Install Instructions** at the top gives ready-made commands for Claude Code, Claude Desktop, Codex, and Cursor. The section collapses after an agent connects. To open it again, select **Reinstall**.
+**Install Instructions** at the top gives ready-made steps for Claude Code, Claude Desktop, ChatGPT, Codex, and Cursor. The section collapses after an agent connects. To open it again, click **Reinstall**.
 
 | Section | What it shows |
 |---|---|

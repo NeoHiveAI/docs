@@ -11,6 +11,7 @@
   * [Claude Code](get-started/connect/claude-code.md)
   * [Cursor](get-started/connect/cursor.md)
   * [Codex](get-started/connect/codex.md)
+  * [ChatGPT](get-started/connect/chatgpt.md)
   * [Claude Desktop and other MCP apps](get-started/connect/desktop-apps.md)
 * [Your first session](get-started/first-session.md)
 
@@ -27,7 +28,7 @@
   * [Connect GitHub or GitLab](context/repositories/connect.md)
   * [Choose which files are included](context/repositories/file-patterns.md)
   * [Keep a repository up to date](context/repositories/sync.md)
-* [Add documents and PDFs](context/documents.md)
+* [Add documents and images](context/documents.md)
 * [Capture team knowledge](context/team-knowledge.md)
 * [Migrate from CLAUDE.md](context/migrate.md)
 
@@ -59,7 +60,7 @@
 
 * [What stays on your machine](security/local-only.md)
 * [Credentials and secrets](security/credentials.md)
-* [Exposing NeoHive beyond your network](security/network.md)
+* [Expose NeoHive beyond your network](security/network.md)
 
 ## Troubleshooting
 
