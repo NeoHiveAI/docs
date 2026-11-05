@@ -8,12 +8,14 @@ Send changed files to NeoHive from your CI pipeline, so a [Code](../concepts/glo
 
 Scheduled syncs already keep each Code or Documentation Index current. Use the webhook when you want an Index to update as soon as you merge, instead of at the next scheduled sync. To set the schedule, see [Keep a repository up to date](../context/repositories/sync.md).
 
-<figure><img src="../.gitbook/assets/reference-webhooks.svg" alt="The diagram shows the sequence of a webhook refresh across two boxes, your CI pipeline and NeoHive. In your CI pipeline, a job collects the changed files as base64 and the deleted files as a path only. The job posts them, at most 100 KB, to the Hive's webhook/refresh route, which crosses into NeoHive. NeoHive checks that X-Webhook-Secret equals MEMVEC_WEBHOOK_SECRET, and replies 401 if it does not. NeoHive then finds every Index in the Hive that syncs the exact repo URL, and replies 404 if none match. For each file, NeoHive removes the path's old content and indexes the new content. NeoHive replies to your CI pipeline with processed, skipped, deleted, and errors counts."><figcaption></figcaption></figure>
+The following diagram shows the path of one webhook request:
+
+<figure><img src="../.gitbook/assets/reference-webhooks.svg" alt="A CI job posts changed files to the Hive's webhook route. NeoHive checks the secret, finds matching Indexes, updates each file, and replies with counts."><figcaption></figcaption></figure>
 
 To set up the webhook, do the following:
 
-1. Set a secret on the container, as described in [Authentication](#authentication).
-2. After each merge, send the following HTTP request from your CI pipeline. For GitHub, start from the [GitHub Actions template](#github-actions-template).
+1. Set `MEMVEC_WEBHOOK_SECRET` on the container. For more information about the secret, see [Authentication](#authentication).
+2. After each merge, send an HTTP request from your CI pipeline. For GitHub, start from the [GitHub Actions template](#github-actions-template).
 
 Every request uses the following method, URL, and headers. Replace `<host>`, `<hive-id>`, and `<secret>` with your own values:
 
