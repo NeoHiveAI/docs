@@ -34,7 +34,7 @@
   <line x1="560" y1="253.0" x2="608" y2="253.0" stroke="#BB4D00" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrA)"/>
   <text x="582" y="246.0" font-size="11" font-weight="700" text-anchor="middle" fill="#BB4D00">no</text>
   <text x="618" y="248.0" class="fix">Look up the error in Common errors,</text>
-  <text x="618" y="266.0" class="fix">or click Restart on a degraded Hive</text>
+  <text x="618" y="266.0" class="fix">or run <tspan class="mono" fill="#7008E7">docker restart neohive</tspan></text>
   <line x1="180" y1="286" x2="180" y2="314" stroke="#008236" stroke-width="1.8" marker-end="url(#arrG)"/>
   <text x="190" y="306" font-size="11" font-weight="700" fill="#008236">yes</text>
   <rect x="40" y="316" width="520" height="66" rx="5" fill="#FFFFFF" stroke="#E5E5E5"/>

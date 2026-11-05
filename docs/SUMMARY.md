@@ -63,6 +63,7 @@
 
 ## Troubleshooting
 
+* [Find your problem](troubleshooting/find-your-problem.md)
 * [Common errors](troubleshooting/common-errors.md)
 * [Agent can't connect](troubleshooting/connection.md)
 * [Recall isn't finding what I need](troubleshooting/recall.md)
