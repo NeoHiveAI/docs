@@ -6,7 +6,7 @@ description: "Environment variables the NeoHive installer, agent plugin, and ser
 
 NeoHive reads settings such as ports, timeouts, and log sizes from environment variables. The installer, the agent plugin, and the server each read their own set.
 
-Set each variable in the place shown in the following table. A variable set anywhere else does nothing.
+Each variable takes effect only in the place shown in the following table:
 
 | Where you set it | Who reads it | Takes effect |
 |---|---|---|
