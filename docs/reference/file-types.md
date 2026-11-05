@@ -23,13 +23,14 @@ The following limits apply to each upload:
 | Limit | Value |
 |---|---|
 | One file | 50 MB |
-| Files in one upload | 20 |
-| A file whose name is already in the [Index](../concepts/glossary.md#index) | NeoHive skips the file and shows `<name> already exists, skipped`. |
+| Pages in one PDF | 500. A longer PDF fails with `<file> has <n> pages, over the 500 page limit`. |
+| Pixels in one image | 50 million. A larger image fails with `<file> has <n> pixels, over the 50000000 pixel limit`. |
+| A file whose name is already in the [Index](../concepts/glossary.md#index) | NeoHive replaces the old file. The new file must be the same type, except that markdown and text files can replace each other. |
 
-NeoHive refuses a file with any other extension, including the older `.doc`, `.ppt`, and `.xls` formats. To index one, save it in the newer format or export it to PDF first.
+NeoHive refuses a file with any other extension, including the older `.doc`, `.ppt`, and `.xls` formats. To index an older Office file, save the file in the newer format or export the file to PDF first.
 
 {% hint style="warning" %}
-A PDF of scanned pages, or one whose text is drawn as shapes instead of fonts, has no text to extract. NeoHive marks the file with `No text could be extracted from this document`. Run the PDF through optical character recognition (OCR), or export its text, and upload the result.
+NeoHive reads scanned PDF pages and images with optical character recognition (OCR). If OCR finds no readable text, NeoHive marks the file with `No text could be extracted from this document`. A faint scan, text drawn as shapes, or small or low-contrast text can cause the error. Upload a clearer copy, or export the document's text and upload the result.
 {% endhint %}
 
 A PDF, Office, or image file that takes longer than five minutes to convert to text fails. To allow more time, raise `NEOHIVE_DOCUMENT_TIMEOUT_MS` as described in [Environment variables](environment-variables.md).
