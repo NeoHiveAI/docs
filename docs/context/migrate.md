@@ -87,4 +87,4 @@ The skill does not change `CLAUDE.md`, so your agent still loads every rule in i
 
 If a rule migrated incorrectly or becomes out of date, tell your agent. Your agent then deactivates the old Memory. For details, see [Capture team knowledge](team-knowledge.md#correct-what-goes-stale).
 
-Long-form notes, such as an Obsidian vault, design docs, or runbooks, belong in a [Files Index](../concepts/glossary.md#files-index). To upload long-form notes, see [Add documents and PDFs](documents.md).
+Long-form notes, such as an Obsidian vault, design docs, or runbooks, belong in a [Files Index](../concepts/glossary.md#files-index). To upload long-form notes, see [Add documents and images](documents.md).

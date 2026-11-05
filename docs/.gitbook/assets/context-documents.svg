@@ -46,5 +46,5 @@
   <!-- Footer. Logo paths copied verbatim from frontend/src/lib/icons/NeoHiveIcon.svelte. -->
   <line x1="40" y1="221" x2="960" y2="221" stroke="#E4DFF1"/>
   <g transform="translate(40,235) scale(0.04)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
-  <text x="64" y="250" font-size="13" font-weight="700" fill="#1A1A2E">Add documents and PDFs<tspan dx="12" font-size="10" font-weight="600" letter-spacing="1" fill="#737373">WHAT HAPPENS TO A FILE YOU DROP ON A FILES INDEX</tspan></text>
+  <text x="64" y="250" font-size="13" font-weight="700" fill="#1A1A2E">Add documents and images<tspan dx="12" font-size="10" font-weight="600" letter-spacing="1" fill="#737373">WHAT HAPPENS TO A FILE YOU DROP ON A FILES INDEX</tspan></text>
 </svg>

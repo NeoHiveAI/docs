@@ -2,7 +2,7 @@
 description: "Upload markdown, text, PDF, Office, and image files to a Files Index so your agent can recall them alongside your code."
 ---
 
-# Add documents and PDFs
+# Add documents and images
 
 A [Files Index](../concepts/glossary.md#files-index) holds documents that you upload, such as specs, runbooks, design docs, meeting notes, or an exported notes vault. NeoHive turns each file into text, and your agent recalls that text the same way as code. You create the Files Index once, and then add, replace, or delete its files whenever your documents change.
 
