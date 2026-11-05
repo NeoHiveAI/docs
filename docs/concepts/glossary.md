@@ -84,7 +84,7 @@ The model that turns text into [embeddings](#embedding). The embedding model run
 
 ### Files Index
 
-An [Index](#index) that holds Markdown, text, and PDF files that you add with **File Upload**. See [Add documents and PDFs](../context/documents.md).
+An [Index](#index) that holds markdown, text, PDF, Word, Excel, and PowerPoint files, and PNG or JPEG images, that you add with **File Upload**. See [Add documents and images](../context/documents.md).
 
 ## G
 

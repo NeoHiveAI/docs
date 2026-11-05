@@ -4,13 +4,13 @@ description: "Save a GitHub or GitLab connection, select a repository and branch
 
 # Connect GitHub or GitLab
 
-Create a token, save it as a connection, select the repository, and then select **Create Index**. The first sync starts automatically. An [Index](../../concepts/glossary.md#index) is one store of searchable context inside a [Hive](../../concepts/glossary.md#hive), and a Hive is the workspace your agent connects to. For more terms, see the [NeoHive glossary](../../concepts/glossary.md).
+Create a token, save it as a connection, select the repository, and then select **Create Index**. The first sync starts automatically. An [Index](../../concepts/glossary.md#index) is one store of searchable context inside a [Hive](../../concepts/glossary.md#hive), and a Hive is the workspace your agent connects to.
 
 <figure><img src="../../.gitbook/assets/context-connect.svg" alt="The Add an Index dialog in six steps. First, on the Hive page, select + next to Indexes. Second, select the GitHub or GitLab card. Third, select Code or Documentation as the content type. Fourth, select or save a connection. Fifth, search for the repository or paste its URL. Sixth, select Create Index to start the first sync."><figcaption></figcaption></figure>
 
 ## Create a token
 
-The connection form has a **Create a PAT** link. The link opens your provider's page for creating a personal access token (PAT). The page already has the token name and scopes filled in. Scopes are the permissions the token grants.
+Create a personal access token (PAT) on GitHub or GitLab with the scopes in the following tabs. You can also use an SSH key. Scopes are the permissions the token grants. The connection form's **Create a PAT** link opens the provider's token page with the token name and scopes filled in.
 
 {% tabs %}
 {% tab title="GitHub" %}
@@ -44,21 +44,17 @@ To create the Index, do the following:
 2. Next to **Indexes**, select **+**.
 3. Select **GitHub** or **GitLab**.
 4. Under **Content type**, select **Code**. If the Index holds only docs, select **Documentation** instead.
-5. Fill in the remaining fields, as the following table describes.
-6. Select **Create Index**.
+5. To use a saved connection, select the connection under **Connection**, and then skip to step 9. To add a connection, select **Add a new connection**. If you have no saved connection, NeoHive shows the connection form instead.
+6. Enter a **Name**, such as `Work GitHub`.
+7. Paste the token you created in [Create a token](#create-a-token) into **Personal Access Token**.
+8. Select **Save connection**. NeoHive checks the token with the provider and does not save a token that the provider rejects. If you already saved the same token or account, NeoHive warns you and offers **Add anyway**.
+9. Under **Repository**, select the repository from the list, or paste its URL into **Search repositories or paste a URL...**. If the list does not show a pasted repository, select its **Use** row, such as **Use acme/api**.
+10. Check **Index name** and **Branch**. NeoHive fills both in from the repository. The Index name must be unique in the Hive. To use another branch, select it from the list.
+11. Select **Create Index**.
 
-NeoHive opens the new Index page, copies the repository, and starts the first sync. The page header shows the progress.
+NeoHive opens the new Index page and starts the first sync. The page header shows the progress.
 
-The following table describes the remaining fields:
-
-| Field | What to do |
-|---|---|
-| **Connection** | Select a saved connection. If you have no saved connection, or if you select **Add a new connection**, a form opens. In the form, enter a **Name** such as `Acme GitHub`, paste the token into **Personal Access Token**, and select **Save connection**. |
-| **Repository** | Select a repository from the list, or type into **Search repositories or paste a URL...**. If you paste the URL of a repository that the list does not show, the repository appears as a **Use** row, such as **Use acme/api**. |
-| **Index name** | This field appears after you select a repository. NeoHive fills it in from the repository, such as `acme/api`. The name must be unique in the Hive. |
-| **Branch** | This field appears after you select a repository. NeoHive fills it in with the repository's default branch. To use another branch, select it from the list. |
-
-When you save a token, NeoHive checks it with the provider. If the provider rejects the token, NeoHive does not save it. If you already saved that token or that account, NeoHive warns you and offers **Add anyway**.
+NeoHive saves the connection, so for your next repository you can select it under **Connection** instead of adding a new one.
 
 {% hint style="success" %}
 **Check:** Open the Index's **Sync Settings** tab. **Sync history** shows the first run. When the run finishes, its status reads `success`.
@@ -69,10 +65,10 @@ When you save a token, NeoHive checks it with the provider. If the provider reje
 Open the **Index Info** tab, and then fill in **Description**. Your agent reads the description through `list_indexes`, so name what the repository covers. For example, write `Billing and payments services: Stripe webhooks, retries, nightly reconciliation` rather than `repo index`.
 
 <details>
-<summary>Optional: switch to an embedding model specialized for code</summary>
+<summary>Optional: switch to an embedding model made for code</summary>
 
-A new [Code Index](../../concepts/glossary.md#code-index) uses a general text embedding model, the model that turns content into a searchable form. The **Embedding model** setting on the **Index Info** tab also offers models whose names start with `nomic-embed-code`. These models match code more closely, but they need a lot of GPU memory. The list marks each option **Fits** or **Won't fit** for your machine. When you save a new model, NeoHive processes the whole Index again with that model in the background. For details, see [GPU and CPU](../../admin/gpu-cpu.md).
+A new [Code Index](../../concepts/glossary.md#code-index) uses an [embedding model](../../concepts/glossary.md#embedding-model) that handles both code and text. A `nomic-embed-code` model matches code more closely and needs a large GPU. To switch models, use the **Embedding model** setting on the **Index Info** tab. Changing the model makes NeoHive embed the whole Index again. For the models and which ones fit your machine, see [Embedding models](../../admin/embedding-models.md).
 
 </details>
 
-The **Data Sources** page lists your saved connections. For details, see [Data sources and credentials](../../admin/data-sources.md).
+To add, check, or replace a connection without creating an Index, use the **Data Sources** page. See [Data sources and credentials](../../admin/data-sources.md).

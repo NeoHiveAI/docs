@@ -49,7 +49,7 @@ The installer does not remember options from the last install. If you leave out 
 | `NEOHIVE_PORT` | NeoHive runs on a port other than `3577` |
 | `NEOHIVE_BACKEND` | You forced a backend. See [GPU and CPU](gpu-cpu.md) |
 | `NEOHIVE_METAL_WORKER`, `NEOHIVE_METAL_WORKER_PORT` | You turned off or moved the Metal worker |
-| `NEOHIVE_PDF_BRIDGE_TIMEOUT_MS`, `NEOHIVE_PDF_WARMUP_TIMEOUT_MS`, `NEOHIVE_CHUNKER_TIMEOUT_MS` | You gave large files more time |
+| `NEOHIVE_DOCUMENT_TIMEOUT_MS`, `NEOHIVE_CHUNKER_TIMEOUT_MS` | You gave large files more time |
 
 For example, the following command sets a different port and forces the CPU backend:
 
