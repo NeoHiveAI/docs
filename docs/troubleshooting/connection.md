@@ -8,7 +8,7 @@ Your agent reaches NeoHive through the [MCP](../concepts/glossary.md#mcp) endpoi
 
 Four things must work, in this order: the container, the server, the endpoint, and the agent's tools. The following diagram shows one check for each:
 
-<figure><img src="../.gitbook/assets/troubleshooting-connection.svg" alt="Decision tree of four checks in order: the neohive container, /health, the MCP endpoint, and the NeoHive tools. Each no leads to a fix."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/troubleshooting-connection.svg" alt="Decision tree: the neohive container, /health, the MCP endpoint, then the NeoHive tools. Each no leads to a fix. Four yes answers mean the agent connects."><figcaption></figcaption></figure>
 
 Run the checks in order. Stop at the first check that fails, and apply its fix. The commands use the default address, `localhost:3577`. If NeoHive runs on another machine or port, use that address instead.
 
