@@ -50,13 +50,13 @@
   <text x="718" y="182" class="title">Whole sections</text>
   <rect x="718" y="198" width="222" height="38" rx="3" fill="#FAF9FD" stroke="#E5E5E5"/>
   <text x="730" y="213" fill="#7C3AED" font-size="9.5" font-weight="700">CODE</text>
-  <text x="730" y="228" class="mono" fill="#1A1A2E" font-size="11.5">billing/retry.ts</text>
+  <text x="730" y="228" fill="#1A1A2E" font-size="12">The retry handler</text>
   <rect x="718" y="244" width="222" height="38" rx="3" fill="#FAF9FD" stroke="#E5E5E5"/>
   <text x="730" y="259" fill="#009689" font-size="9.5" font-weight="700">KNOWLEDGE</text>
   <text x="730" y="274" fill="#1A1A2E" font-size="11.5">Retries use the queue</text>
   <rect x="718" y="290" width="222" height="38" rx="3" fill="#FAF9FD" stroke="#E5E5E5"/>
   <text x="730" y="305" fill="#7C3AED" font-size="9.5" font-weight="700">DOCUMENTATION</text>
-  <text x="730" y="320" class="mono" fill="#1A1A2E" font-size="11.5">runbooks/payments.md</text>
+  <text x="730" y="320" fill="#1A1A2E" font-size="12">The payments runbook</text>
   <text x="718" y="352" class="body">Enough text around each match</text>
   <text x="718" y="370" class="body">for your agent to act on.</text>
   <text x="40" y="452" class="small">Name an Index with the index parameter to look in that one only.</text>
