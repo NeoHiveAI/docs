@@ -28,7 +28,7 @@
   * [Connect GitHub or GitLab](context/repositories/connect.md)
   * [Choose which files are included](context/repositories/file-patterns.md)
   * [Keep a repository up to date](context/repositories/sync.md)
-* [Add documents and PDFs](context/documents.md)
+* [Add documents and images](context/documents.md)
 * [Capture team knowledge](context/team-knowledge.md)
 * [Migrate from CLAUDE.md](context/migrate.md)
 
