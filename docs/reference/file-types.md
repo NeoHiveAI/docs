@@ -38,7 +38,7 @@ The following limits apply to each upload:
 | One PDF | 500 pages |
 | One image | 50,000,000 pixels. In a Word or PowerPoint file, NeoHive leaves out a larger picture and reads the rest of the file. |
 | Files in one upload | 20 files, or 200 MB in total. The dashboard splits a larger selection into several uploads. |
-| A file whose name is already in the [Index](../concepts/glossary.md#index) | NeoHive replaces the stored file with the new one. A file of a different type cannot replace it, so delete the stored file first. Markdown and plain text count as one type. |
+| A file whose name is already in the [Index](../concepts/glossary.md#index) | NeoHive replaces the stored file with the new one. |
 
 To change the page or pixel limit, see [Environment variables](environment-variables.md#server).
 
