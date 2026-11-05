@@ -4,11 +4,11 @@ description: "Which files NeoHive indexes from an upload or a repository, and th
 
 # Supported file types
 
-NeoHive reads files from two places: files that you upload, and repositories that you connect. Each place accepts different file types and has its own limits. Before you upload a file or add a repository, check that NeoHive can index it.
+NeoHive reads files from two places: files that you upload, and repositories that you connect. Each place accepts different file types and has its own limits. Before you upload a file or add a repository, check that NeoHive can index the files.
 
 ## File uploads
 
-When you add files with **File Upload**, NeoHive stores them in a [Files Index](../concepts/glossary.md#files-index). File Upload accepts the following formats:
+When you add files with **File Upload**, NeoHive stores them in a [Files Index](../concepts/glossary.md#files-index). A Files Index accepts the following formats:
 
 | Format | Extensions | What NeoHive reads |
 |---|---|---|
@@ -23,10 +23,10 @@ When you add files with **File Upload**, NeoHive stores them in a [Files Index](
 NeoHive refuses a file with any other extension. To index another format, export it to PDF or Markdown first.
 
 {% hint style="warning" %}
-If NeoHive finds no text in a file, it marks the file with `No text could be extracted from this document.`, followed by the common causes. This happens when the text is too small or too faint for OCR, or when a PDF draws its text as shapes instead of fonts. Export the text from the app that made the file, and upload that instead.
+If NeoHive finds no text in a file, it marks the file with `No text could be extracted from this document.`, followed by the common causes. The message appears when the text is too small or too faint for OCR. A PDF that draws its text as shapes instead of fonts causes the same message. To fix the problem, export the text from the app that made the file, and upload the exported text.
 {% endhint %}
 
-NeoHive allows five minutes to convert one file. If the full conversion of a PDF fails or runs out of time, NeoHive converts the PDF again without layout analysis. The PDF is then indexed with its tables flattened to text, and it shows the warning `Converted without layout analysis, so table structure was flattened to text.` To allow more time, raise `NEOHIVE_DOCUMENT_TIMEOUT_MS` as described in [Environment variables](environment-variables.md#installer).
+NeoHive allows five minutes to convert one file. If the full conversion of a PDF fails or runs out of time, NeoHive converts the PDF again without layout analysis. NeoHive then indexes the PDF with its tables flattened to text. The file shows the warning `Converted without layout analysis, so table structure was flattened to text.` To allow more time, raise `NEOHIVE_DOCUMENT_TIMEOUT_MS`. For more information about the variable, see [Environment variables](environment-variables.md#installer).
 
 ### Upload limits
 
@@ -44,7 +44,7 @@ To change the page or pixel limit, see [Environment variables](environment-varia
 
 ## Files in a repository
 
-A repository sync reads text files, including code, Markdown, and configuration files such as `.json` or `.yaml`. It reads only the files that pass your [file filters](../context/repositories/file-patterns.md).
+A repository sync reads text files, including code, Markdown, and configuration files such as `.json` or `.yaml`. The sync reads only the files that pass your [file filters](../context/repositories/file-patterns.md).
 
 NeoHive always skips the following files, even if your file filters include them:
 
