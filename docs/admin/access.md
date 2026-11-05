@@ -21,7 +21,7 @@ On this machine:    http://localhost:3577
 From another host:  http://192.168.1.20:3577
 ```
 
-On shared or public Wi-Fi, anyone on that network can open the second address. If only you use NeoHive, block inbound traffic to port `3577` at your network firewall. For details, see [Exposing NeoHive beyond your network](../security/network.md#the-default-install-is-reachable-from-your-network).
+On shared or public Wi-Fi, anyone on that network can open the second address. If only you use NeoHive, block inbound traffic to port `3577` at your network firewall. For more information about blocking the port, see [Exposing NeoHive beyond your network](../security/network.md#the-default-install-is-reachable-from-your-network).
 
 ## Share one instance with your team
 

@@ -77,7 +77,7 @@ A license covers one running machine at a time, so the order of these steps matt
 4. Copy the backup archive to the new machine.
 5. On the new machine, run the command in [Restore from a backup](#restore-from-a-backup).
 
-The restore reuses the Docker image that the new install runs, so the restore downloads nothing. When the restore finishes, your Hives are on the new machine. For more about license seats, see [Move to another machine](licensing.md#move-to-another-machine).
+The restore reuses the Docker image that the new install runs, so the restore downloads nothing. When the restore finishes, your Hives are on the new machine. For more information about license seats, see [Move to another machine](licensing.md#move-to-another-machine).
 
 <details>
 

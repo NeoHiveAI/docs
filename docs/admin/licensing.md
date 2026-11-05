@@ -29,7 +29,7 @@ When the installer reads a license from anywhere other than the cache, it replac
 Two variables change this order:
 
 - If `NEOHIVE_LICENSE_KEY` holds a key, the installer uses that key and does not look anywhere in the list.
-- If `NEOHIVE_ROTATE_LICENSE=1` is set, the installer skips the license file in the folder you run it from and the cached key. It still reads a path you pass with `--license-file` or `NEOHIVE_LICENSE_FILE`. [Replace your license](#replace-your-license) uses this.
+- If `NEOHIVE_ROTATE_LICENSE=1` is set, the installer skips the license file in the folder you run it from and the cached key. It still reads a path you pass with `--license-file` or `NEOHIVE_LICENSE_FILE`. For more information about replacing a license with this variable, see [Replace your license](#replace-your-license).
 
 ## Accept the license agreement
 
@@ -89,7 +89,7 @@ A key saved from the dashboard takes priority over the key the installer passes 
 
 ## Move to another machine
 
-A license covers one running machine at a time, and that machine holds the license's [seat](../concepts/glossary.md#license-seat). To move your Hives and Memories along with the license, follow [Move to a new machine](backups.md#move-to-a-new-machine) instead, which includes these steps.
+A license covers one running machine at a time, and that machine holds the license's [seat](../concepts/glossary.md#license-seat). To move your Hives and Memories along with the license, follow [Move to a new machine](backups.md#move-to-a-new-machine) instead. Those steps also move the license.
 
 To move only the license, do the following:
 

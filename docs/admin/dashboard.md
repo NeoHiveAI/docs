@@ -14,7 +14,7 @@ A Hive is the workspace your agent connects to, and an Index is one store of sea
 
 ## Before your first Hive
 
-The first time you open the dashboard, it asks you to accept the **NeoHive Design Partner Licence** agreement. For details, see [Accept the license agreement](licensing.md#accept-the-license-agreement).
+The first time you open the dashboard, it asks you to accept the **NeoHive Design Partner Licence** agreement. For more information about the agreement, see [Accept the license agreement](licensing.md#accept-the-license-agreement).
 
 While NeoHive has no Hives, the dashboard opens the **Welcome** screen instead of the home screen. **Welcome** explains Hives and Indexes, and then **Start setup** opens the setup wizard. The wizard creates your first Hive in three steps: **Name Hive**, **Configure first Index**, and **Install for your AI tools**. For the full steps, see [Install NeoHive](../get-started/install.md).
 
@@ -43,7 +43,7 @@ To see a Hive's actions, select the three-dot icon (⋮) on its card. In the sid
 | Menu option | What it does |
 |---|---|
 | **Edit** | Changes the Hive's name and icon |
-| **Pin** or **Unpin** | Keeps up to two Hives in a **Pinned** row at the top of the home screen. Available on cards only |
+| **Pin** or **Unpin** | Keeps up to two Hives in a **Pinned** row at the top of the home screen. Only the card menu has this option |
 | **Copy MCP command** | Copies the command that connects Claude Code to this Hive |
 | **Archive** | Moves the Hive to **Archived**, where you can restore it for 30 days. See [Manage Hives and Indexes](manage.md) |
 | **Delete** | Deletes the Hive and everything in it. See [Manage Hives and Indexes](manage.md) |
@@ -64,7 +64,7 @@ To see an Index's actions, point at its row and select the three-dot icon (⋮).
 
 ### Activity
 
-The following parts show what your agents did in the Hive.
+The following parts show what your agents did in the Hive:
 
 | Part | What it shows |
 |---|---|
@@ -82,7 +82,7 @@ The following parts show what your agents did in the Hive.
 
 ## The Index page
 
-An Index page shows one Index: its size, its last sync, and its settings. The stats at the top show the Index's **Memories**, the **Files** that have Memories in the Index, the **Last sync**, and the disk space the Index uses (**On disk**). For a GitHub or GitLab Index, **Trigger sync** starts a sync right away.
+An Index page shows one Index: its size, its last sync, and its settings. The stats at the top show the Index's **Memories** and the **Files** that have Memories in the Index. The stats also show the **Last sync** and the disk space the Index uses (**On disk**). For a GitHub or GitLab Index, **Trigger sync** starts a sync right away.
 
 The page has the following tabs:
 
@@ -93,22 +93,22 @@ The page has the following tabs:
 | **Sync Settings** | [Code](../concepts/glossary.md#code-index) and [Documentation Indexes](../concepts/glossary.md#documentation-index) | **Sync history**, the connection, branch, **Sync interval**, file filters, and **Pause syncing**. See [Keep it up to date](../context/repositories/sync.md) |
 | **Index Info** | Every Index | Name, description, [embedding model](../concepts/glossary.md#embedding-model), **Embedding history**, **Share Index…**, **Move Index…**, and **Danger zone**. See [Embedding models](embedding-models.md) and [Manage Hives and Indexes](manage.md) |
 
-When a sync fails, a message box at the top of the page names the error. For each error and its fix, see [Repository sync issues](../troubleshooting/sync.md). When you change the embedding model, a message box shows the progress of the re-embed. See [Embedding models](embedding-models.md).
+When a sync fails, a message box at the top of the page names the error. For each error and its fix, see [Repository sync issues](../troubleshooting/sync.md). When you change the embedding model, a message box shows the progress as NeoHive embeds the Index's Memories again. For more information about changing the model, see [Embedding models](embedding-models.md).
 
 ## The Data Sources screen
 
-**Data Sources**, in the sidebar, lists the GitHub and GitLab connections that your Code and Documentation Indexes sync through. Services you have connected appear under **Connected**. **Available** lists every service, including the ones you have connected, so you can add another connection, such as a second GitHub token. To add, check, or replace a connection, see [Data sources and credentials](data-sources.md).
+**Data Sources**, in the sidebar, lists the GitHub and GitLab connections that your Code and Documentation Indexes sync through. Services you have connected appear under **Connected**. **Available** lists every service, including the ones you have connected. From **Available**, you can add another connection to a service, such as a second GitHub token. To add, check, or replace a connection, see [Data sources and credentials](data-sources.md).
 
 ## The Settings screen
 
-The Settings screen has the following cards.
+The Settings screen has the following cards:
 
 | Card | What you do there |
 |---|---|
 | **Default Index Type** | Select **Knowledge Base** or **Code Repository** as the default for new Indexes. You can still choose a different type for each Index |
 | **Server Status** | See whether your browser can reach NeoHive. To check again, select **Retry** |
 | **Setup Wizard** | **Run setup wizard** takes you through setup again. The wizard does not reset or delete anything |
-| **Licence Key** | **Manage licence** opens your license status. For details, see [Licensing](licensing.md) |
+| **Licence Key** | **Manage licence** opens your license status. For more information, see [Licensing](licensing.md) |
 | **Design Partner Licence Agreement** | **View licence** shows the agreement you accepted on first run |
 | **Anonymous Telemetry** | Turn off sharing of anonymized performance data. NeoHive never sends your prompts, code, or Memories |
 

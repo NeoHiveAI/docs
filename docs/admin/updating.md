@@ -34,7 +34,7 @@ A backup copies everything NeoHive stores into one archive, so you can restore y
 {% step %}
 ## Run the installer again
 
-If you installed NeoHive with any variables, such as `NEOHIVE_PORT`, add them to the command first. See [Set the same variables you installed with](#set-the-same-variables-you-installed-with).
+If you installed NeoHive with any variables, such as `NEOHIVE_PORT`, add them to the command first. For more information about which variables to add, see [Set the same variables you installed with](#set-the-same-variables-you-installed-with).
 
 ```bash
 bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)

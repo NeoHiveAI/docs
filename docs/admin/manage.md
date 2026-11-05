@@ -16,7 +16,7 @@ The following actions apply to a whole Hive. You find them in the ⋮ menu on th
 | **Archive** | Moves the Hive to the **Archived** section | Yes. Select **Restore** within 30 days |
 | **Delete** | Permanently deletes the Hive and everything in it | No |
 
-The following actions apply to one Index.
+The following actions apply to one Index:
 
 | Action | Where you find it | Can you undo it? |
 |---|---|---|
@@ -32,14 +32,14 @@ To rename a Hive or change its icon, do the following:
 
 1. In the Hive's ⋮ menu on the home screen, or its ⋯ menu in the sidebar, select **Edit**.
 2. In **Name**, enter the new name. If another Hive already uses the name, including an archived Hive, the dialog says so and you cannot save.
-3. Optional: Under **Icon**, choose a different icon.
+3. Optional: Under **Icon**, select a different icon.
 4. Select **Save**.
 
 The new name appears on the Hive's card and in the sidebar. Your agents keep working, because each Hive's [MCP](../concepts/glossary.md#mcp) endpoint uses the Hive's ID, not its name. The server name in your agent's configuration still shows the old name, which does not affect how the agent works.
 
 ## Archive or delete a Hive
 
-You cannot archive or delete a Hive while another active Hive uses one of its Indexes, because the other Hive would lose that Index too. First, either [move the Index](#move-an-index-to-another-hive) to the Hive that uses it, which keeps its access, or [stop sharing it](#stop-sharing-an-index). A Hive that only uses another Hive's Index has no such limit.
+You cannot archive or delete a Hive while another active Hive uses one of its Indexes, because the other Hive would lose that Index too. First, [stop sharing the Index](#stop-sharing-an-index). To keep the other Hive's access, [move the Index](#move-an-index-to-another-hive) to that Hive instead. A Hive that only uses another Hive's Index has no such limit.
 
 <figure><img src="../.gitbook/assets/admin-manage.svg" alt="Archive moves an active Hive to the Archived section, and Restore brings it back. NeoHive permanently deletes an archived Hive after 30 days, or when you select Delete Permanently. Delete on an active Hive, after you type its name, also permanently deletes the Hive. A deleted Hive cannot be restored."><figcaption></figcaption></figure>
 
@@ -148,12 +148,13 @@ Deleting an Index removes the Index, its sync settings, and all its Memories. Yo
 
 Only the Hive that owns an Index can delete it. If the Index is shared, stop sharing it with every Hive first. To delete an Index, do the following:
 
-1. Open the Index, and then select the **Index Info** tab.
-2. Under **Danger zone**, select **Delete Index**.
-3. Select **Delete**.
+1. Open the Index.
+2. Select the **Index Info** tab.
+3. Under **Danger zone**, select **Delete Index**.
+4. Select **Delete**.
 
 {% hint style="info" %}
-The **Sync Settings** tab of a [Code](../concepts/glossary.md#code-index) or [Documentation Index](../concepts/glossary.md#documentation-index) also has a **Delete repository** button. It stops syncing and permanently deletes the Index's Memories, but keeps the empty Index.
+The **Sync Settings** tab of a [Code](../concepts/glossary.md#code-index) or [Documentation Index](../concepts/glossary.md#documentation-index) also has a **Delete repository** button. **Delete repository** stops syncing and permanently deletes the Index's Memories, but keeps the empty Index.
 {% endhint %}
 
 ## The Knowledge Index stays with its Hive
