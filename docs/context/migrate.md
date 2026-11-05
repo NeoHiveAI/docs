@@ -8,7 +8,7 @@ Run one skill to turn the project rules in your context files, such as `CLAUDE.m
 
 <figure><img src="../.gitbook/assets/context-migrate.svg" alt="A CLAUDE.md with sections on payments, testing, a database choice, and setup. The skill turns each rule into its own Memory with a type. 'Always send an idempotency key' becomes a directive. 'Tests use Vitest' becomes a convention. 'Postgres chosen for row-level locks' becomes a decision. The skill leaves out setup steps and personal preferences. The skill stores nothing until you approve the preview, and it does not change your files."><figcaption></figcaption></figure>
 
-Your agent loads all of `CLAUDE.md` on every task, even the parts that do not apply. Once the rules live in NeoHive instead, your agent recalls only the rules that matter for the current task.
+Your agent loads all of `CLAUDE.md` on every task, even the parts that do not apply. After you import the rules and delete them from `CLAUDE.md`, your agent recalls only the rules each task needs.
 
 ## Run the migration
 
@@ -47,17 +47,19 @@ The skill never imports `~/.codex/AGENTS.md`, `~/.claude/CLAUDE.md`, or `~/.curs
 
 ## Review and approve the Memories
 
+After you run the skill, the migration goes through the following steps:
+
 {% stepper %}
 {% step %}
 ## The skill lists the files
 
-You see each project file that the skill reads. Files in your home folder show as skipped.
+You see each project file that the skill reads. Files in your home folder show as skipped, because the skill reads them for context only.
 {% endstep %}
 
 {% step %}
 ## The skill sorts the rules
 
-Each rule or decision becomes its own Memory with a type, such as `directive`, `convention`, or `decision`. The skill leaves out setup steps, tables of contents, TODO lists, and personal preferences. The skill marks an entry that could be personal or team as ambiguous.
+Each rule or decision becomes its own Memory with a type, such as `directive`, `convention`, or `decision`. The skill leaves out setup steps, tables of contents, TODO lists, and personal preferences. The skill marks an entry that could be a personal rule or a team rule as ambiguous. The skill skips an ambiguous entry unless you re-classify the entry.
 {% endstep %}
 
 {% step %}
@@ -75,7 +77,7 @@ If the Hive already holds a rule as a Memory, the skill skips that rule. The ski
 
 To approve each Memory one at a time, add `review=each` to the command: `/neohive:migrate-memory review=each`.
 
-The skill does not change your original files, and it skips the NeoHive block between the `<!-- BEGIN neohive-managed v=N -->` and `<!-- END neohive-managed v=N -->` markers. The plugin writes that block to tell your agent how to use your Hive, and updates it through the markers, so keep both in the file.
+The skill does not change your original files. The skill also skips the NeoHive block between the `<!-- BEGIN neohive-managed v=N -->` and `<!-- END neohive-managed v=N -->` markers. The plugin writes that block to tell your agent how to use your Hive. The plugin updates the block through the markers, so keep the block and both markers in the file.
 
 ## After migrating
 
@@ -85,4 +87,4 @@ The skill does not change `CLAUDE.md`, so your agent still loads every rule in i
 
 If a rule migrated incorrectly or becomes out of date, tell your agent. Your agent then deactivates the old Memory. For details, see [Capture team knowledge](team-knowledge.md#correct-what-goes-stale).
 
-Long-form notes, such as an Obsidian vault, design docs, or runbooks, belong in a [Files Index](../concepts/glossary.md#files-index). See [Add documents and PDFs](documents.md).
+Long-form notes, such as an Obsidian vault, design docs, or runbooks, belong in a [Files Index](../concepts/glossary.md#files-index). To upload long-form notes, see [Add documents and PDFs](documents.md).
