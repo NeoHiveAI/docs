@@ -63,4 +63,4 @@ README.md
 
 **Only the TypeScript in a monorepo, minus tests.** Add `**/*.{ts,tsx}` to the Allowlist and `**/*.{spec,test}.{ts,tsx}` to the Blocklist.
 
-You do not need `node_modules`, `dist`, `build`, `vendor`, `coverage`, `.min.js` bundles, or the npm, Yarn, and pnpm lock files in the Blocklist. The built-in skip list already removes them. Other lock files, such as `Cargo.lock` or `poetry.lock`, are indexed unless you add them to the Blocklist.
+The built-in skip list already removes `node_modules`, `dist`, `build`, `vendor`, `coverage`, and `.min.js` bundles. The skip list also removes the npm, Yarn, pnpm, and Terraform lock files. None of these files need a Blocklist entry. NeoHive indexes other lock files, such as `Cargo.lock` or `poetry.lock`, unless you add them to the Blocklist.

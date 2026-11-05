@@ -17,7 +17,7 @@ Each Hive serves these tools at its [MCP](../concepts/glossary.md#mcp) endpoint,
 | `memory_store` | Saves a new Memory to the Hive's [Knowledge Index](../concepts/glossary.md#knowledge-index). | Yes |
 | `memory_forget` | Deactivates a Memory so recall stops returning it. | Yes |
 
-`memory_recall`, `memory_context`, and `memory_stats` take an optional `index`, the id of one Index to use. Leave it out to cover every Index in the Hive. `memory_store` and `memory_forget` take no `index`. They always write to the Hive's own Knowledge Index, even when you read from a [Shared Index](../concepts/glossary.md#shared-index).
+`memory_recall`, `memory_context`, and `memory_stats` take an optional `index`, the id of one Index to use. Leave it out to cover every Index in the Hive. `memory_store` and `memory_forget` take no `index`. Both tools write to the Hive's own Knowledge Index, even when you read from a [Shared Index](../concepts/glossary.md#shared-index).
 
 ## list_indexes
 
@@ -34,7 +34,7 @@ Each Hive serves these tools at its [MCP](../concepts/glossary.md#mcp) endpoint,
 | `index` | string | all Indexes | The id of one Index to search. |
 | `noAccessUpdate` | boolean | `false` | When `true`, the search does not count as a recall. The access count of the Memories it returns stays the same. Use this option for automated callers. |
 
-The reply lists each result under a heading such as `### Memory #1 (id: 482, score: 0.031)`. Each result shows the Memory's type, its importance from 1 to 10 (set when it was [stored](#memory_store)), how many times `memory_recall` or `memory_context` has returned it, and its tags, followed by the stored content itself. NeoHive cuts off content longer than 8,000 characters and adds a `(truncated, ...)` note.
+The reply lists each result under a heading such as `### Memory #1 (id: 482, score: 0.031)`. Under the heading, each result shows the Memory's type, importance, access count, and tags, followed by the stored content. The importance, from 1 to 10, comes from [`memory_store`](#memory_store) for a Memory, or from NeoHive for indexed file content. The access count is how many times `memory_recall` or `memory_context` has returned the Memory. NeoHive cuts off content longer than 8,000 characters and adds a `(truncated, ...)` note.
 
 ## memory_context
 
@@ -69,7 +69,7 @@ The reply is `Memory stored successfully (id: <id>, type: <type>, importance: <n
 
 | Parameter | Type | Default | Notes |
 |---|---|---|---|
-| `memory_id` | integer | required | The id of the Memory to deactivate, shown in the heading of each `memory_recall` result. `memory_forget` looks the id up in the Hive's own Knowledge Index only, so use the id of a Memory stored with `memory_store`. Each Index numbers its content separately, so an id from a Code or Documentation Index result does not point to that result. |
+| `memory_id` | integer | required | The id of the Memory to deactivate, shown in the heading of each `memory_recall` result. `memory_forget` searches only the Hive's own Knowledge Index, so pass the id of a Memory stored with `memory_store`. Each Index numbers its content separately, so an id from another Index can deactivate an unrelated Memory. |
 | `reason` | string | none | Why you are retiring the Memory. |
 | `superseded_by` | integer | none | The id of the Memory that replaces this one. |
 
