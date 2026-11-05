@@ -33,14 +33,14 @@ Two variables change this order:
 
 ## Accept the license agreement
 
-The first time you open the dashboard, it shows the **NeoHive Design Partner Licence** agreement. The agreement sets the terms for using NeoHive, and your license key is what lets NeoHive run. To continue to the dashboard, read and accept the agreement. To read the agreement again later, go to **Settings** and select **View licence**.
+The first time you open the dashboard, it shows the **NeoHive Design Partner Licence** agreement. The agreement sets the terms for using NeoHive, and your license key is what lets NeoHive run. To continue to the dashboard, read and accept the agreement. To read the agreement again later, go to **Settings** and click **View licence**.
 
 ## Check your license status
 
 To check your license status, do the following:
 
 1. Go to **Settings**.
-2. On the **Licence Key** card, select **Manage licence**.
+2. On the **Licence Key** card, click **Manage licence**.
 
 ### What each status means
 
@@ -52,7 +52,7 @@ The **Licence** page shows one of the following statuses.
 | **Offline grace** | NeoHive could not reach the licensing service. NeoHive keeps running for up to 72 hours and shows a countdown |
 | **Expired** or **Suspended** | The license is no longer active. Request a new license from the [NeoHive team](https://www.neohive.ai/download/). After the license expires, NeoHive stops answering requests |
 
-To check with the licensing service right away, select **Check expiry**.
+To check with the licensing service right away, click **Check expiry**.
 
 {% hint style="warning" %}
 NeoHive must reach the licensing service over the internet. NeoHive checks the license when it starts and once a day after that. When NeoHive cannot reach the service, it keeps running for 72 hours from its last successful check. The first daily check after those 72 hours stops NeoHive. NeoHive stops serving requests until it can check again.
@@ -65,7 +65,7 @@ NeoHive must reach the licensing service over the internet. NeoHive checks the l
 To replace the key in the dashboard, do the following:
 
 1. On the **Licence** page, paste the new key under **Update licence key**.
-2. Select **Update**.
+2. Click **Update**.
 
 NeoHive checks the key before saving it. NeoHive keeps the key across restarts and updates.
 {% endtab %}

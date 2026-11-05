@@ -40,11 +40,11 @@ Changing the model makes NeoHive embed every [Memory](../concepts/glossary.md#me
 To change the model, do the following:
 
 1. Open the Index.
-2. Select the **Index Info** tab.
+2. Click the **Index Info** tab.
 3. Under **Embedding model**, select a model.
-4. Select **Save**.
+4. Click **Save**.
 
-A message box shows `Re-embedding with <model>` and the progress. If NeoHive has not used the model before, NeoHive downloads the model first. Until the download finishes, the box shows `Waiting for the embedding model <model> to download`. If some Memories fail, select **Retry failed chunks**.
+A message box shows `Re-embedding with <model>` and the progress. If NeoHive has not used the model before, NeoHive downloads the model first. Until the download finishes, the box shows `Waiting for the embedding model <model> to download`. If some Memories fail, click **Retry failed chunks**.
 
 The **Embedding history** table on the **Index Info** tab records the result of each model change.
 

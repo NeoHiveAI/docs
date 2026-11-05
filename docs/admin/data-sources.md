@@ -26,7 +26,7 @@ To add a connection, do the following:
 {% step %}
 ## Open the form
 
-On the **GitHub** or **GitLab** card under **Available**, select **Install**. If you are adding an Index, you can instead select **Add a new connection** from the **Connection** list.
+On the **GitHub** or **GitLab** card under **Available**, click **Install**. If you are adding an Index, you can instead select **Add a new connection** from the **Connection** list.
 {% endstep %}
 
 {% step %}
@@ -38,7 +38,7 @@ On the **GitHub** or **GitLab** card under **Available**, select **Install**. If
 | **Name** | Enter a label, such as `Work GitHub`. You can use each name only once for each service |
 | **PAT** or **SSH** | Paste a **Personal Access Token**, or switch to **SSH** and paste an **SSH Private Key** |
 
-**Create a PAT** opens your provider's token page with the required scopes already selected. Scopes are the permissions the token grants. On GitHub, the scope is `repo`. On GitLab, the scopes are `read_api` and `read_repository`. For your own GitLab server, fill in **GitLab Base URL** before you select **Create a PAT**, or the link opens `gitlab.com`.
+**Create a PAT** opens your provider's token page with the required scopes already selected. Scopes are the permissions the token grants. On GitHub, the scope is `repo`. On GitLab, the scopes are `read_api` and `read_repository`. For your own GitLab server, fill in **GitLab Base URL** before you click **Create a PAT**, or the link opens `gitlab.com`.
 
 To create the token yourself, follow [Creating a personal access token (classic)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic) on GitHub, or [Create a personal access token](https://docs.gitlab.com/user/profile/personal_access_tokens/#create-a-personal-access-token) on GitLab.
 {% endstep %}
@@ -46,7 +46,7 @@ To create the token yourself, follow [Creating a personal access token (classic)
 {% step %}
 ## Save the connection
 
-Select **Save connection**. If you already added the same token, or another connection uses the same account, the form shows a warning. To keep both, select **Add anyway**. NeoHive then checks the token with the service. If the service rejects the token, NeoHive does not save the connection.
+Click **Save connection**. If you already added the same token, or another connection uses the same account, the form shows a warning. To keep both, click **Add anyway**. NeoHive then checks the token with the service. If the service rejects the token, NeoHive does not save the connection.
 {% endstep %}
 {% endstepper %}
 
@@ -56,7 +56,7 @@ Select **Save connection**. If you already added the same token, or another conn
 
 ## Check or remove a connection
 
-To check a connection, select **Manage** on its card under **Connected**. The connection shows one of the following states:
+To check a connection, click **Manage** on its card under **Connected**. The connection shows one of the following states:
 
 | State | Meaning |
 |---|---|
@@ -64,7 +64,7 @@ To check a connection, select **Manage** on its card under **Connected**. The co
 | **Invalid** | The service rejected the credential. Replace the credential |
 | **Unvalidated** | NeoHive saved the connection but could not check it, for example because the service was unreachable |
 
-By default, NeoHive rechecks a connection at most once every 23 hours. To check a connection now, select **Validate** on the connection.
+By default, NeoHive rechecks a connection at most once every 23 hours. To check a connection now, click **Validate** on the connection.
 
 **Bound Indexes** lists the Indexes in your current Hive that sync through the connection. **Delete** removes the connection.
 
@@ -80,7 +80,7 @@ To replace a token without a gap in syncing, do the following:
 2. Add a new connection with the new token.
 3. On each affected Index, open the **Sync Settings** tab.
 4. Under **Connection**, select the new connection.
-5. Select **Save settings**.
+5. Click **Save settings**.
 6. Delete the old connection.
 7. Revoke the old token with the provider.
 

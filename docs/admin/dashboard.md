@@ -8,7 +8,7 @@ The dashboard is where you manage your [Hives](../concepts/glossary.md#hive) and
 
 A Hive is the workspace your agent connects to, and an Index is one store of searchable context inside a Hive. For more terms, see the [NeoHive glossary](../concepts/glossary.md).
 
-<figure><img src="../.gitbook/assets/admin-dashboard.svg" alt="The diagram maps the dashboard. The main path runs from the Hives home screen at /, to a Hive page at /hives/hive-id when you select a Hive, and to an Index page when you select an Index row. Three more screens open from the sidebar on any screen: Create Hive at /hives/new, Data Sources at /sources, and Settings at /settings."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/admin-dashboard.svg" alt="The diagram maps the dashboard. The main path runs from the Hives home screen at /, to a Hive page at /hives/hive-id when you click a Hive, and to an Index page when you click an Index row. Three more screens open from the sidebar on any screen: Create Hive at /hives/new, Data Sources at /sources, and Settings at /settings."><figcaption></figcaption></figure>
 
 ## Before your first Hive
 
@@ -16,11 +16,11 @@ The first time you open the dashboard, it asks you to accept the **NeoHive Desig
 
 While NeoHive has no Hives, the dashboard opens the **Welcome** screen instead of the home screen. **Welcome** explains Hives and Indexes, and then **Start setup** opens the setup wizard. The wizard creates your first Hive in three steps: **Name Hive**, **Configure first Index**, and **Install for your AI tools**. For the full steps, see [Install NeoHive](../get-started/install.md).
 
-To go through the wizard again later, open **Settings** and select **Run setup wizard**. The wizard does not reset or delete anything.
+To go through the wizard again later, open **Settings** and click **Run setup wizard**. The wizard does not reset or delete anything.
 
 ## The home screen and sidebar
 
-The home screen gives you an overview of all your Hives, with one card for each Hive. A card shows the Hive's number of Indexes and [Memories](../concepts/glossary.md#memory), and when it last synced. To open a Hive, select its card.
+The home screen gives you an overview of all your Hives, with one card for each Hive. A card shows the Hive's number of Indexes and [Memories](../concepts/glossary.md#memory), and when it last synced. To open a Hive, click its card.
 
 The sidebar lists the same Hives under **Hives**, so you can switch Hives from any screen. **New Hive**, **Data Sources**, and **Settings** are also in the sidebar.
 
@@ -36,7 +36,7 @@ To show a 30-day trend line under each total, turn on **Trends**.
 
 ### The Hive menu
 
-To see a Hive's actions, select the three-dot icon (⋮) on its card. In the sidebar, the same menu opens from the three-dot icon (⋯) that appears when you point at a Hive.
+To see a Hive's actions, click the three-dot icon (⋮) on its card. In the sidebar, the same menu opens from the three-dot icon (⋯) that appears when you point at a Hive.
 
 | Menu option | What it does |
 |---|---|
@@ -52,13 +52,13 @@ A Hive page shows how to connect agents to one Hive, the Indexes it searches, an
 
 ### Install Instructions
 
-**Install Instructions** gives ready-made commands that connect Claude Code, Claude Desktop, Codex, or Cursor to the Hive. After an agent connects, the section collapses. To see the commands again, select **Reinstall**. For the full steps, see [Connect your agent](../get-started/connect/README.md).
+**Install Instructions** gives ready-made commands that connect Claude Code, Claude Desktop, Codex, or Cursor to the Hive. After an agent connects, the section collapses. To see the commands again, click **Reinstall**. For the full steps, see [Connect your agent](../get-started/connect/README.md).
 
 ### Indexes
 
-**Indexes** lists every Index in the Hive, including any [Shared Index](../concepts/glossary.md#shared-index) from another Hive, which has a **Shared** badge. To open an Index, select its row. To add an Index, select **+** next to **Indexes**.
+**Indexes** lists every Index in the Hive, including any [Shared Index](../concepts/glossary.md#shared-index) from another Hive, which has a **Shared** badge. To open an Index, click its row. To add an Index, click **+** next to **Indexes**.
 
-To see an Index's actions, point at its row and select the three-dot icon (⋮). For what each action does, see [Manage Hives and Indexes](manage.md). **Sync Queue** lists the repository syncs that are running or waiting.
+To see an Index's actions, point at its row and click the three-dot icon (⋮). For what each action does, see [Manage Hives and Indexes](manage.md). **Sync Queue** lists the repository syncs that are running or waiting.
 
 ### Activity
 
@@ -74,8 +74,8 @@ The following parts show what your agents did in the Hive:
 
 | Message | When it appears |
 |---|---|
-| A sync error, such as `A git command failed`, with `The <name> Index stopped syncing.` | An Index's last sync failed. To open the Index, select **Resolve on** followed by the Index name. For each error and its fix, see [Repository sync issues](../troubleshooting/sync.md) |
-| `This Hive has no Indexes yet` | The Hive has only its [Knowledge Index](../concepts/glossary.md#knowledge-index). To add one, select **Add an Index** |
+| A sync error, such as `A git command failed`, with `The <name> Index stopped syncing.` | An Index's last sync failed. To open the Index, click **Resolve on** followed by the Index name. For each error and its fix, see [Repository sync issues](../troubleshooting/sync.md) |
+| `This Hive has no Indexes yet` | The Hive has only its [Knowledge Index](../concepts/glossary.md#knowledge-index). To add one, click **Add an Index** |
 | `Selected models exceed your VRAM budget` | The Hive's Indexes use embedding models that do not fit in GPU memory together. Searches still work but run one Index at a time. See [Embedding models](embedding-models.md) |
 
 ## The Index page
@@ -104,7 +104,7 @@ The Settings screen has the following cards:
 | Card | What you do there |
 |---|---|
 | **Default Index Type** | Select **Knowledge Base** or **Code Repository** as the default for new Indexes. You can still choose a different type for each Index |
-| **Server Status** | See whether your browser can reach NeoHive. To check again, select **Retry** |
+| **Server Status** | See whether your browser can reach NeoHive. To check again, click **Retry** |
 | **Setup Wizard** | **Run setup wizard** takes you through setup again. The wizard does not reset or delete anything |
 | **Licence Key** | **Manage licence** opens your license status. For more information, see [Licensing](licensing.md) |
 | **Design Partner Licence Agreement** | **View licence** shows the agreement you accepted on first run |

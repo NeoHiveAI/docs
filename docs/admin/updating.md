@@ -14,14 +14,14 @@ To update, you run the installer again. The command is the same one you used to 
 
 The dashboard checks for new releases automatically. When a release is out, a dot appears on the **Updates** bell icon in the top bar.
 
-To see the details, select the bell icon. The **NeoHive updates** panel shows the new version, the version you run, and the installer command. To check again now, select the refresh icon in the panel. The panel does not install the update for you.
+To see the details, click the bell icon. The **NeoHive updates** panel shows the new version, the version you run, and the installer command. To check again now, click the refresh icon in the panel. The panel does not install the update for you.
 
-To read what changed in each release, open **Release Notes** in the sidebar, or select **View full changelog** in the panel to open the [NeoHive changelog](https://github.com/NeoHiveAI/install/blob/main/CHANGELOG.md).
+To read what changed in each release, open **Release Notes** in the sidebar, or click **View full changelog** in the panel to open the [NeoHive changelog](https://github.com/NeoHiveAI/install/blob/main/CHANGELOG.md).
 
 ## Run the update
 
 {% hint style="warning" %}
-If a repository sync is still running when the old container stops, the sync stops before it finishes. The sync runs again at its next scheduled time. To run the sync sooner, open the Index and select **Trigger sync**.
+If a repository sync is still running when the old container stops, the sync stops before it finishes. The sync runs again at its next scheduled time. To run the sync sooner, open the Index and click **Trigger sync**.
 {% endhint %}
 
 {% stepper %}

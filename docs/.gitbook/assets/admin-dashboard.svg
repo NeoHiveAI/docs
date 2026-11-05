@@ -36,11 +36,11 @@
   <text x="736" y="138" class="body">and Index Info tabs</text>
 
   <path d="M280 108 L376 108" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
-  <text x="330" y="82" class="al" text-anchor="middle">select a Hive</text>
+  <text x="330" y="82" class="al" text-anchor="middle">click a Hive</text>
   <text x="330" y="96" class="al" text-anchor="middle">card or entry</text>
 
   <path d="M620 108 L716 108" fill="none" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
-  <text x="670" y="82" class="al" text-anchor="middle">select an</text>
+  <text x="670" y="82" class="al" text-anchor="middle">click an</text>
   <text x="670" y="96" class="al" text-anchor="middle">Index row</text>
 
   <!-- Screens you reach from the sidebar, grouped -->
