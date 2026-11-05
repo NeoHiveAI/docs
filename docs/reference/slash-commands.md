@@ -18,7 +18,7 @@ The NeoHive plugin adds the following commands to Claude Code, Codex, and Cursor
 
 ## Where the agents differ
 
-Each agent has its own topology skill and file, and `migrate-memory` reads a different set of rules folders:
+The agents differ in the topology skill, the file that skill writes, and the rules folders `migrate-memory` reads:
 
 | Agent | Topology skill | Writes to | Rules folders `migrate-memory` reads |
 |---|---|---|---|

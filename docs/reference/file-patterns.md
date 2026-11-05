@@ -18,7 +18,7 @@ NeoHive indexes a file only when the file passes all three checks in the followi
 | **Allowlist** | It matches at least one pattern. | Every file passes. |
 | **Blocklist** | It matches no pattern. | Every file passes. |
 
-The Blocklist wins over the Allowlist. Neither list can include a file that the built-in skip list removes. The webhook refresh endpoint applies the same Allowlist and Blocklist. For other differences, see [How the webhook differs from a sync](webhooks.md#how-the-webhook-differs-from-a-sync).
+The Blocklist wins over the Allowlist. Neither list can include a file that the built-in skip list removes. The webhook refresh endpoint applies the same Allowlist and Blocklist as a sync. For more information about how the webhook differs from a sync, see [How the webhook differs from a sync](webhooks.md#how-the-webhook-differs-from-a-sync).
 
 Saving a change to either list makes the next sync re-read the whole repository. That sync removes the files the new patterns exclude and adds the files they now include.
 
@@ -39,7 +39,7 @@ Saving a change to either list makes the next sync re-read the whole repository.
 **Never put a `!` pattern in the Allowlist.** The Allowlist allows a file that matches any line. The pattern `!**/*.test.ts` matches every file that is not a test, including every config file. Put exclusions in the Blocklist instead.
 {% endhint %}
 
-Wildcards do not match files or folders whose names start with a dot. For example, `**/*.md` does not match `.github/PULL_REQUEST_TEMPLATE.md`. In the Allowlist, that leaves the file out. In the Blocklist, it lets the file through. To match a path that starts with a dot, name it directly, such as `.github/**`.
+Wildcards do not match files or folders whose names start with a dot. For example, `**/*.md` does not match `.github/PULL_REQUEST_TEMPLATE.md`. In the Allowlist, the pattern leaves the file out. In the Blocklist, the pattern lets the file through. To match a path that starts with a dot, name it directly, such as `.github/**`.
 
 ## Example patterns
 

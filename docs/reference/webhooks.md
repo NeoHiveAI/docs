@@ -70,7 +70,7 @@ For how the filters work, see [File pattern syntax](file-patterns.md).
 
 ## Response
 
-A successful request returns counts like the following. If more than one Index syncs the repository, the counts add up across those Indexes:
+If more than one Index syncs the repository, the counts add up across those Indexes. A successful request returns counts like the following:
 
 ```json
 { "processed": 2, "skipped": 0, "deleted": 7, "errors": [], "duration_ms": 412 }
