@@ -4,7 +4,7 @@ description: "How the NeoHive installer picks a GPU or CPU backend, how Apple Si
 
 # GPU and CPU
 
-NeoHive indexes and searches your content on a backend. The installer detects your hardware and chooses the backend for you. NeoHive supports the following backends:
+A backend is the processor that NeoHive indexes and searches your content on, such as a GPU or the CPU. The installer detects your hardware and chooses the backend for you. NeoHive supports the following backends:
 
 - An NVIDIA GPU, through CUDA
 - An AMD GPU, through ROCm
@@ -13,7 +13,7 @@ NeoHive indexes and searches your content on a backend. The installer detects yo
 
 On an Apple Silicon Mac, NeoHive uses the Mac's GPU in a different way. The CPU backend works on every machine. A GPU backend is usually faster, especially when you index a large repository.
 
-If indexing is slower than you expect for your hardware, or NeoHive does not use your GPU, this page shows how to check which backend NeoHive runs on and how to change it.
+If indexing is slow for your hardware, or NeoHive does not use your GPU, check which backend NeoHive runs on. You can then force a different backend.
 
 <figure><img src="../.gitbook/assets/admin-gpu-cpu.svg" alt="The installer checks these conditions in order and uses the first one that is true. If the machine is arm64 or aarch64, NeoHive uses CPU, and Apple Silicon also gets the Metal worker. If nvidia-smi works and a test container can reach the GPU, NeoHive uses CUDA. If nvidia-smi works but the test fails, NeoHive uses CPU and shows a toolkit warning. If rocm-smi works, NeoHive uses ROCm. If vulkaninfo works, NeoHive uses Vulkan. Otherwise, NeoHive uses CPU. If an image is missing, CUDA and ROCm fall back to Vulkan, then CPU. A backend forced with NEOHIVE_BACKEND never falls back."><figcaption></figcaption></figure>
 

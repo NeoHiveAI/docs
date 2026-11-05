@@ -4,7 +4,7 @@ description: "Which embedding model each Index uses, how to choose a different o
 
 # Embedding models
 
-Each [Index](../concepts/glossary.md#index) uses an [embedding model](../concepts/glossary.md#embedding-model) to make its content searchable. NeoHive chooses the model when you create the Index, and you can change it afterward. This page lists the default models, the other models you can choose, and how to change the model of an Index.
+Each [Index](../concepts/glossary.md#index) uses an [embedding model](../concepts/glossary.md#embedding-model) to make its content searchable. NeoHive chooses the model when you create the Index, and you can change it afterward. You can keep the default model, or select a model that matches code more closely or uses less memory.
 
 ## The default model for each Index
 

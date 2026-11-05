@@ -6,7 +6,7 @@ description: "Who can reach a NeoHive instance, and how to run one instance for 
 
 NeoHive runs on one machine, and anyone who can reach that machine on NeoHive's port, `3577` by default, can use it. NeoHive has no user accounts, roles, or logins, so everyone who connects can read and write everything and sees the same [Hives](../concepts/glossary.md#hive). Check who can reach the machine before you install NeoHive on a network that other people use.
 
-This page explains who can reach a default install, and shows how to share one instance with your team.
+To give your whole team one shared instance, install NeoHive on a machine that everyone reaches over a trusted network.
 
 A Hive is the workspace your agent connects to, and an [Index](../concepts/glossary.md#index) is one store of searchable context inside a Hive. For more terms, see the [NeoHive glossary](../concepts/glossary.md).
 

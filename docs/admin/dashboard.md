@@ -6,8 +6,6 @@ description: "A map of the NeoHive dashboard: its main screens, how you move bet
 
 The dashboard is where you manage your [Hives](../concepts/glossary.md#hive) and [Indexes](../concepts/glossary.md#index), and it opens in your browser. Use it to create a Hive, connect a repository, or see what your agents stored and searched. By default, the dashboard runs at `http://localhost:3577`. If you installed NeoHive with a different `NEOHIVE_PORT`, or on another machine, use that port or address instead.
 
-This page explains each screen of the dashboard and what you can do on it.
-
 A Hive is the workspace your agent connects to, and an Index is one store of searchable context inside a Hive. For more terms, see the [NeoHive glossary](../concepts/glossary.md).
 
 <figure><img src="../.gitbook/assets/admin-dashboard.svg" alt="The diagram maps the dashboard. The main path runs from the Hives home screen at /, to a Hive page at /hives/hive-id when you select a Hive, and to an Index page when you select an Index row. Three more screens open from the sidebar on any screen: Create Hive at /hives/new, Data Sources at /sources, and Settings at /settings."><figcaption></figcaption></figure>

@@ -4,7 +4,7 @@ description: "How NeoHive finds your license, how to check its status, replace i
 
 # Licensing
 
-NeoHive needs a license to run. The installer reads your license when you install NeoHive, and the dashboard shows whether the license is still active. This page shows where the installer looks for your license and how to check its status. It also covers what to do when the license is close to expiring, when you replace it, and when you move NeoHive to another machine.
+NeoHive needs a license to run. The installer reads your license when you install NeoHive, and the dashboard shows whether the license is still active. Check the license status before the license expires. When you replace the license or move NeoHive to another machine, set up the license again.
 
 NeoHive needs a license file from the NeoHive team: a plain-text `license.key`, or a `license.json` holding the key. To get a license file, request one from the [NeoHive team](https://www.neohive.ai/download/). Save the file in the folder you run the installer from, and the installer finds it there.
 
@@ -33,7 +33,7 @@ Two variables change this order:
 
 ## Accept the license agreement
 
-The first time you open the dashboard, it shows the **NeoHive Design Partner Licence** agreement. The agreement sets the terms for using NeoHive, and your license key is what lets NeoHive run. To accept the agreement and continue, select **I Understand**. To read the agreement again later, go to **Settings** and select **View licence**.
+The first time you open the dashboard, it shows the **NeoHive Design Partner Licence** agreement. The agreement sets the terms for using NeoHive, and your license key is what lets NeoHive run. To continue to the dashboard, read and accept the agreement. To read the agreement again later, go to **Settings** and select **View licence**.
 
 ## Check your license status
 
