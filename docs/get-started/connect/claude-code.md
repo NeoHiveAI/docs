@@ -12,10 +12,6 @@ Before you start, you need a running NeoHive server that has a Hive, and a versi
 {% step %}
 ## Add the MCP server
 
-{% hint style="warning" %}
-**Keep `--scope project`.** The plugin's prompt hook looks for the NeoHive server in your project's `.mcp.json` file first. With `--scope user`, every project recalls from the first Hive that you added. With no scope, the hook doesn't find the server, and automatic recall does nothing. For more information about scopes, see [MCP installation scopes](https://code.claude.com/docs/en/mcp#mcp-installation-scopes).
-{% endhint %}
-
 To add the Hive as an MCP server, do the following:
 
 1. Open the Hive in the dashboard.
@@ -34,7 +30,9 @@ claude mcp add <name> '<hive-url>' \
   --header 'x-mcp-client: claude-code'
 ```
 
-If you type the command yourself, put the URL directly after the name. Claude Code reads a URL that comes after a flag as a header value, and then can't reach the server. The dashboard's command ends with `&& claude mcp get <name>`, which prints the saved entry so you can check the order.
+If you type the command yourself, keep `--scope project`. The plugin's prompt hook looks for the NeoHive server in your project's `.mcp.json` file first. With `--scope user`, every project recalls from the first Hive that you added. With no scope, the hook doesn't find the server, and automatic recall does nothing. For more information about scopes, see [MCP installation scopes](https://code.claude.com/docs/en/mcp#mcp-installation-scopes).
+
+Also put the URL directly after the name. Claude Code reads a URL that comes after a flag as a header value, and then can't reach the server. The dashboard's command ends with `&& claude mcp get <name>`, which prints the saved entry so you can check the order.
 
 Commit `.mcp.json` to the repository, and every teammate who opens the project gets the same Hive.
 

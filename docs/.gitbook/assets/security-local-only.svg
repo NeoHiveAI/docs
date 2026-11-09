@@ -67,7 +67,7 @@
   <text x="676" y="557" fill="#1A1A2E" font-size="13" font-weight="700">Your agent's model</text>
   <text x="944" y="557" fill="#737373" text-anchor="end" font-size="11">set by your agent</text>
   <path d="M164 506 L164 568 L600 568 L600 552 L656 552" fill="none" stroke="#7C3AED" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arr)"/>
-  <text x="588" y="184" font-size="9" font-weight="700" letter-spacing="0.8" fill="#BB4D00" text-anchor="middle">NEEDED EVERY 72 HOURS</text>
+  <text x="588" y="184" font-size="9" font-weight="700" letter-spacing="0.8" fill="#BB4D00" text-anchor="middle">DAILY, 72-HOUR GRACE</text>
   <text x="40" y="616" class="small">Dashed: your agent or browser, not NeoHive, sends this.</text>
   </g>
 

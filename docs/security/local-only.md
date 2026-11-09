@@ -18,7 +18,7 @@ Your content stays on the machine, but the NeoHive container makes the following
 
 | Connection | Goes to | When | What it sends | Can you turn it off? |
 |---|---|---|---|---|
-| License check | `api.keygen.sh` | At start, then regularly while NeoHive runs | Your license key, a random machine ID, and the container's platform and host name. The host name is the container's ID, not your computer's name | No. NeoHive needs a successful license check at least once every 72 hours. For more information, see [Check your license status](../admin/licensing.md#check-your-license-status). |
+| License check | `api.keygen.sh` | At start, then once a day | Your license key, a random machine ID, and the container's platform and host name. The host name is the container's ID, not your computer's name | No. If NeoHive can't reach the licensing service, it keeps running for up to 72 hours from its last successful check. For more information, see [Check your license status](../admin/licensing.md#check-your-license-status). |
 | Usage metrics | Grafana Cloud | Regularly while usage metrics are turned on. They're on by default | Counts, timings, and request details, described after this table | Yes. On the **Settings** page, under **Anonymous Telemetry**, turn off **Share anonymous performance data with the NeoHive team**. NeoHive keeps working |
 | Update check | `hub.docker.com` and `raw.githubusercontent.com` | Shortly after start, then once a day | Nothing. The check reads the published version list and changelog | No setting, but you can block both hosts. The dashboard then stops showing new versions, and NeoHive keeps working |
 | Model download | `huggingface.co` | When an embedding model isn't cached yet, including the first use after each update | Only the request for the file | No. The download happens once for each model, and again after an update. The document converter's models, including OCR, come with the container |
@@ -31,7 +31,7 @@ Usage metrics don't include file contents, Memory text, recall queries, or token
 When usage metrics are turned off, each start of the container still sends one batch of runtime statistics, such as memory use, before NeoHive reads your setting. After that, usage metrics send nothing.
 
 {% hint style="warning" %}
-**The license check needs the internet at least once every 72 hours.** On a network with a strict firewall, allow outbound HTTPS to `api.keygen.sh`. For more information about what happens when the check can't reach the internet, see [Check your license status](../admin/licensing.md#check-your-license-status).
+**The license check needs the internet.** NeoHive checks once a day, and stops if it can't reach the licensing service for 72 hours. On a network with a strict firewall, allow outbound HTTPS to `api.keygen.sh`. For more information about what happens when the check can't reach the internet, see [Check your license status](../admin/licensing.md#check-your-license-status).
 {% endhint %}
 
 ## Connections from other parts of your setup
