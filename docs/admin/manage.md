@@ -28,12 +28,13 @@ The following actions apply to one Index:
 
 ## Rename a Hive
 
-To rename a Hive or change its icon, do the following:
+To rename a Hive, do the following:
 
 1. In the Hive's three-dot menu (⋮) on the home screen, or its three-dot menu (⋯) in the sidebar, click **Edit**.
 2. In **Name**, enter the new name. If another Hive already uses the name, including an archived Hive, the dialog says so and you cannot save.
-3. Optional: Under **Icon**, select a different icon.
-4. Click **Save**.
+3. Click **Save**.
+
+To change the Hive's icon, select a different one under **Icon** in the same dialog before you click **Save**.
 
 The new name appears on the Hive's card and in the sidebar. Your agents keep working, because each Hive's [MCP](../concepts/glossary.md#mcp) endpoint uses the Hive's ID, not its name. The server name in your agent's configuration still shows the old name, which does not affect how the agent works.
 
