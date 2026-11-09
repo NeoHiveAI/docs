@@ -89,8 +89,8 @@ http_headers = { "x-mcp-client" = "codex" }
 ```
 {% endtab %}
 
-{% tab title="Claude Desktop" %}
-Claude Desktop reaches NeoHive through `mcp-remote`. Add each header with `--header`:
+{% tab title="Other MCP apps" %}
+If the app takes headers, add both headers in the app's settings. Apps that run local commands only, such as Claude Desktop, reach NeoHive through `mcp-remote`. Add each header with `--header`, as in this example for Claude Desktop:
 
 ```json
 {
@@ -102,24 +102,25 @@ Claude Desktop reaches NeoHive through `mcp-remote`. Add each header with `--hea
         "mcp-remote@latest",
         "https://neohive.example.com/hives/<hive-id>/mcp",
         "--header",
-        "Authorization: Bearer <your-token>",
+        "Authorization:${AUTH_HEADER}",
         "--header",
-        "x-mcp-client: claude-desktop"
-      ]
+        "x-mcp-client:claude-desktop"
+      ],
+      "env": {
+        "AUTH_HEADER": "Bearer <your-token>"
+      }
     }
   }
 }
 ```
-{% endtab %}
 
-{% tab title="ChatGPT" %}
-ChatGPT can't send a custom header, so it can't pass your proxy's credential. To reach NeoHive from ChatGPT, use a VPN or a trusted network instead.
-{% endtab %}
-
-{% tab title="Other MCP apps" %}
-Add the header wherever the app takes headers. If the app runs local commands only, pass the header to `mcp-remote` with `--header`, as the **Claude Desktop** tab shows.
+Leave no space after the colon in each `--header` value, and keep the token in `env`. Claude Desktop on Windows splits arguments at spaces, which breaks a header such as `Authorization: Bearer <your-token>`.
 {% endtab %}
 {% endtabs %}
+
+{% hint style="warning" %}
+ChatGPT can't send a custom header, so it can't pass your proxy's credential. To reach NeoHive from ChatGPT, use a VPN or a trusted network instead.
+{% endhint %}
 
 {% hint style="info" %}
 The hooks send `NEOHIVE_TOKEN` in the `Authorization` header as their only credential, and skip the other headers in your MCP configuration. Your proxy might need other headers, such as Cloudflare Access service-token headers. In that case, your agent's own tool calls still work, but the automatic recall on each prompt doesn't reach NeoHive.
