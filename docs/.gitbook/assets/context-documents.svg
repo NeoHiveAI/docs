@@ -17,29 +17,23 @@
 
   <!-- Content keeps the coordinates it had under the old top header. This group moves it up by 83 so its
        top edge sits at y=40. Draw new content inside the group with the same coordinates as the rest. -->
-  <g transform="translate(0,-83)">  <rect x="40" y="124" width="200" height="100" rx="5" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <g transform="translate(0,-83)">  <rect x="40" y="124" width="280" height="100" rx="5" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
   <text x="56" y="148" class="lbl" fill="#7C3AED">YOU UPLOAD</text>
   <text x="56" y="170" class="title mono">runbook.md</text>
   <text x="56" y="190" class="body">PDF, Office, image,</text>
   <text x="56" y="207" class="body">or markdown, up to 50 MB</text>
-  <rect x="280" y="124" width="200" height="100" rx="5" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1" stroke-dasharray="5 4"/>
-  <text x="296" y="148" class="lbl" fill="#7C3AED">PDF, OFFICE, OR IMAGE</text>
-  <text x="296" y="170" class="title">Converted to text</text>
-  <text x="296" y="190" class="body">takes longer: up to</text>
-  <text x="296" y="207" class="body">5 minutes per file by default</text>
-  <rect x="520" y="124" width="200" height="100" rx="5" fill="#FFFFFF" stroke="#A78BFA" stroke-width="1.5"/>
-  <text x="536" y="148" class="lbl" fill="#7C3AED">FILES INDEX</text>
-  <text x="536" y="170" class="title">Made searchable</text>
-  <text x="536" y="190" class="body">stored so your agent can</text>
-  <text x="536" y="207" class="body">find it by meaning</text>
-  <rect x="760" y="124" width="200" height="100" rx="5" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
-  <text x="776" y="148" class="lbl" fill="#7C3AED">YOUR AGENT</text>
-  <text x="776" y="170" class="title mono">memory_recall</text>
-  <text x="776" y="190" class="body">gets back the section</text>
-  <text x="776" y="207" class="body">that answers the question</text>
-  <line x1="248" y1="189" x2="272" y2="189" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
-  <line x1="488" y1="189" x2="512" y2="189" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
-  <line x1="728" y1="189" x2="752" y2="189" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="360" y="124" width="280" height="100" rx="5" fill="#FFFFFF" stroke="#A78BFA" stroke-width="1.5"/>
+  <text x="376" y="148" class="lbl" fill="#7C3AED">FILES INDEX</text>
+  <text x="376" y="170" class="title">Made searchable</text>
+  <text x="376" y="190" class="body">stored so your agent can</text>
+  <text x="376" y="207" class="body">find it by meaning</text>
+  <rect x="680" y="124" width="280" height="100" rx="5" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="696" y="148" class="lbl" fill="#7C3AED">YOUR AGENT</text>
+  <text x="696" y="170" class="title mono">memory_recall</text>
+  <text x="696" y="190" class="body">gets back the section</text>
+  <text x="696" y="207" class="body">that answers the question</text>
+  <line x1="328" y1="189" x2="352" y2="189" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="648" y1="189" x2="672" y2="189" stroke="#7C3AED" stroke-width="2" marker-end="url(#arr)"/>
   <text x="40" y="266" class="muted">A file is searchable as soon as the Files tab shows it finished processing.</text>
   </g>
 

@@ -30,7 +30,8 @@ NEOHIVE_PORT=4577 \
 | `NEOHIVE_ROTATE_LICENSE` | unset | Set to `1` to read a new license file even when a key is already cached. |
 | `NEOHIVE_PORT` | `3577` | The port NeoHive is published on. Change your agent's [MCP](../concepts/glossary.md#mcp) endpoint to match. |
 | `NEOHIVE_BACKEND` | detected | Makes NeoHive use one compute backend instead of detecting it: `cpu`, `cuda`, `vulkan`, or `rocm`. See [GPU and CPU](../admin/gpu-cpu.md). |
-| `NEOHIVE_DOCUMENT_TIMEOUT_MS` | `300000` (5 minutes) | The time allowed to convert one PDF, Office, or image file. Raise this value when a large file times out. |
+| `NEOHIVE_PDF_BRIDGE_TIMEOUT_MS` | `300000` (5 minutes) | The time allowed to convert one PDF. A 900-page file can need `1800000`. |
+| `NEOHIVE_PDF_WARMUP_TIMEOUT_MS` | `300000` (5 minutes) | The time allowed for the one-time PDF converter warm-up. Raise this value on a slow connection or machine. |
 | `NEOHIVE_CHUNKER_TIMEOUT_MS` | `30000` (30 seconds) | The time allowed to split one Markdown or code file. |
 | `NEOHIVE_UPDATE_REPO` | `neohivedev/neohive` | The Docker Hub repository the dashboard checks for new versions. |
 | `NEOHIVE_METAL_WORKER` | `1` | Apple Silicon only: set to `0` to embed on the CPU inside the container instead of on the Metal worker. |

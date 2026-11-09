@@ -78,7 +78,9 @@ NeoHive shows the following messages for a file that you upload to a [Files Inde
 |---|---|---|
 | `Unsupported type: <ext>` or `Unsupported file type: <ext>. Allowed: .docx, .jpeg, .jpg, .markdown, .md, .pdf, .png, .pptx, .txt, .xlsx` | The file is not one of those types. | Export the file to one of those types. See [Supported file types](../reference/file-types.md). |
 | `File too large (<size> > 50 MB)` or `File too large` | The file is over 50 MB. | Split the file into smaller files. |
-| `Cannot replace a <old ext> upload with a <new ext> file. Delete it and upload the new file instead.` | A file with that name is already in the Index, and the new file is a different type. | Delete the old file first, or rename the new file. |
+| `<file> has <n> pages, over the 500 page limit` | The PDF has more than 500 pages. | Split the PDF into smaller files. |
+| `<file> has <n> pixels, over the 50000000 pixel limit` | The image is larger than 50 million pixels. | Scale the image down, and then upload it again. |
+| `More than one file in this upload is named <name>` | Two files in one upload have the same name, so NeoHive uploads neither. | Rename one of the files, and then upload both again. |
 | `No text could be extracted from this document. ...` | Optical character recognition (OCR) found no readable text in the file. Common causes are a faint scan, text drawn as shapes, or small or low-contrast text. | Upload a clearer copy, or upload an exported text version. |
 | `No content could be extracted from this file (it appears to be empty or contain only whitespace).` | The file is empty. | Upload a file with content. |
 | `Converting "<file>" timed out` | Converting the file took longer than the timeout. | Run the installer again with a higher `NEOHIVE_DOCUMENT_TIMEOUT_MS`. |

@@ -15,25 +15,22 @@ A Files Index holds the files you upload. A Files Index accepts the following fo
 | Markdown | `.md`, `.markdown` |
 | Plain text | `.txt` |
 | PDF | `.pdf` |
-| Word, PowerPoint, Excel | `.docx`, `.pptx`, `.xlsx` |
-| Images, read with OCR | `.png`, `.jpg`, `.jpeg` |
 
 The following limits apply to each upload:
 
 | Limit | Value |
 |---|---|
-| One file | 50 MB |
-| Pages in one PDF | 500. A longer PDF fails with `<file> has <n> pages, over the 500 page limit`. |
-| Pixels in one image | 50 million. A larger image fails with `<file> has <n> pixels, over the 50000000 pixel limit`. |
-| A file whose name is already in the [Index](../concepts/glossary.md#index) | NeoHive replaces the old file. The new file must be the same type, except that markdown and text files can replace each other. |
+| One file | 10 MB |
+| Files in one upload | 20 |
+| A file whose name is already in the [Index](../concepts/glossary.md#index) | NeoHive skips the file and shows `<name> already exists, skipped`. |
 
-NeoHive refuses a file with any other extension, including the older `.doc`, `.ppt`, and `.xls` formats. To index an older Office file, save the file in the newer format or export the file to PDF first.
+NeoHive refuses a file with any other extension. To index a Word document or a slide deck, export it to PDF or Markdown first.
 
 {% hint style="warning" %}
-NeoHive reads scanned PDF pages and images with optical character recognition (OCR). If OCR finds no readable text, NeoHive marks the file with `No text could be extracted from this document`. A faint scan, text drawn as shapes, or small or low-contrast text can cause the error. Upload a clearer copy, or export the document's text and upload the result.
+A PDF of scanned pages, or one whose text is drawn as shapes instead of fonts, has no text to extract. NeoHive marks the file with `No text could be extracted from this PDF`. Run the PDF through optical character recognition (OCR), or export its text, and upload the result.
 {% endhint %}
 
-A PDF, Office, or image file that takes longer than five minutes to convert to text fails. To allow more time, raise `NEOHIVE_DOCUMENT_TIMEOUT_MS` as described in [Environment variables](environment-variables.md).
+A PDF that takes longer than five minutes to convert fails. To allow more time, raise `NEOHIVE_PDF_BRIDGE_TIMEOUT_MS` as described in [Environment variables](environment-variables.md).
 
 ## Files in a repository
 
