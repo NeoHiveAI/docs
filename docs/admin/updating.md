@@ -12,11 +12,11 @@ To update, you run the installer again. The command is the same one you used to 
 
 ## Know when an update is out
 
-The dashboard checks for new releases automatically. When a release is out, a dot appears on the **Updates** bell icon in the top bar.
+The dashboard checks for new releases automatically. When a release is out, a dot appears on the **Updates** bell icon in the top bar. A dot also appears on the NeoHive logo in the sidebar.
 
-To see the details, click the bell icon. The **NeoHive updates** panel shows the new version, the version you run, and the installer command. To check again now, click the refresh icon in the panel. The panel does not install the update for you.
+To see the details, click the bell icon. The **NeoHive updates** panel shows the new version, the version you run, the release highlights, and the installer command. To check again now, click the refresh icon in the panel. The panel does not install the update for you.
 
-To read what changed in each release, open **Release Notes** in the sidebar, or click **View full changelog** in the panel to open the [NeoHive changelog](https://github.com/NeoHiveAI/install/blob/main/CHANGELOG.md).
+NeoHive posts each release, and other announcements, in **Release Notes** at the bottom of the sidebar. A badge on **Release Notes** shows when there is a post you have not read, so check it when you see one. For the full list of changes in every release, click **View full changelog** in the panel to open the [NeoHive changelog](https://github.com/NeoHiveAI/install/blob/main/CHANGELOG.md).
 
 ## Run the update
 
@@ -40,7 +40,7 @@ If you installed NeoHive with any variables, such as `NEOHIVE_PORT`, add them to
 bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
 ```
 
-The installer reuses your cached license key. To use a different license, see [Replace your license](licensing.md#replace-your-license). On Apple Silicon, the installer also updates the [Metal worker](../concepts/glossary.md#metal-worker), the part of NeoHive that runs on the Mac's GPU, and keeps the models it already downloaded.
+The installer reuses your cached license key. To use a different license, see [Replace your license](licensing.md#replace-your-license). On Apple Silicon, the installer also updates the [Metal worker](../concepts/glossary.md#metal-worker) and keeps the models it already downloaded.
 {% endstep %}
 {% endstepper %}
 
@@ -72,5 +72,5 @@ For the full list of variables, see [Environment variables](../reference/environ
 curl http://localhost:3577/health
 ```
 
-The reply contains `"status":"ok"`. The version at the bottom of the sidebar shows the new release.
+If you set `NEOHIVE_PORT`, or NeoHive runs on another machine, replace `localhost:3577` with that port or address. The reply contains `"status":"ok"`. The version at the bottom of the sidebar shows the new release.
 {% endhint %}

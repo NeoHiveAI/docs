@@ -44,7 +44,7 @@ To check your license status, do the following:
 
 ### What each status means
 
-The **Licence** page shows one of the following statuses.
+The **Licence** page shows one of the following statuses:
 
 | You see | Meaning |
 |---|---|
@@ -84,24 +84,22 @@ NEOHIVE_ROTATE_LICENSE=1 \
 {% endtabs %}
 
 {% hint style="info" %}
-A key saved from the dashboard takes priority over the key the installer passes in. If you ever used **Update licence key**, replace the license in the dashboard again.
+A license key saved from the dashboard takes priority over the license key the installer passes in. If you ever used **Update licence key**, replace the license in the dashboard again.
 {% endhint %}
 
 ## Move to another machine
 
-A license covers one running machine at a time, and that machine holds the license's [seat](../concepts/glossary.md#license-seat). To move your Hives and Memories along with the license, follow [Move to a new machine](backups.md#move-to-a-new-machine) instead. Those steps also move the license.
+A license covers one running machine at a time, and that machine holds the license's [seat](../concepts/glossary.md#license-seat). To move your Hives, with their Indexes and Memories, along with the license, follow [Move to a new machine](backups.md#move-to-a-new-machine) instead. Those steps also move the license.
 
 To move only the license, do the following:
 
-1. On the old machine, stop NeoHive:
+1. On the old machine, stop NeoHive. A clean stop frees the seat right away:
 
    ```bash
    docker stop neohive
    ```
-
-   A clean stop frees the seat immediately.
 2. On the new machine, install NeoHive with your license file. Follow [Install NeoHive](../get-started/install.md).
 
 The new machine now holds the seat.
 
-If the old machine is gone, its seat becomes free once the machine stops checking in with the licensing service. Reinstalling on the same machine reuses its seat, because the installer keeps the machine's identity in `~/.cache/neohive/machine-id`.
+If the old machine is gone, its seat becomes free once the machine stops checking in with the licensing service.

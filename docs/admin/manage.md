@@ -6,9 +6,9 @@ description: "Archive, restore, delete, move, and share Hives and Indexes from t
 
 As your work changes, you tidy up your [Hives](../concepts/glossary.md#hive) and [Indexes](../concepts/glossary.md#index): you rename or retire a Hive, move an Index to another Hive, or let two Hives search one Index. You can undo some of these actions but not others, so check the following tables before you act.
 
-A Hive is the workspace your agent connects to, and an Index is one store of searchable context inside a Hive. For more terms, see the [NeoHive glossary](../concepts/glossary.md).
+For more terms, see the [NeoHive glossary](../concepts/glossary.md).
 
-The following actions apply to a whole Hive. You find them in the ⋮ menu on the Hive's card on the home screen, or in the ⋯ menu next to the Hive's name in the sidebar.
+You find the following actions in the three-dot menu (⋮) on the Hive's card on the home screen, or in the three-dot menu (⋯) next to the Hive's name in the sidebar. These actions apply to a whole Hive:
 
 | Action | What it does | Can you undo it? |
 |---|---|---|
@@ -20,9 +20,9 @@ The following actions apply to one Index:
 
 | Action | Where you find it | Can you undo it? |
 |---|---|---|
-| **Share Index…** | The Index row's ⋮ menu on the Hive page, or the **Index Info** tab | Yes. Click **Revoke** |
-| **Move Index…** | The Index row's ⋮ menu on the Hive page, or the **Index Info** tab | Yes. Move the Index back |
-| Add a Shared Index | **+** next to **Indexes** on the Hive page | Yes. Click **Remove from Hive…** |
+| **Share Index** | The Index row's three-dot menu (⋮) on the Hive page, or the **Index Info** tab | Yes. Click **Revoke** |
+| **Move Index** | The Index row's three-dot menu (⋮) on the Hive page, or the **Index Info** tab | Yes. Move the Index back |
+| Add a Shared Index | **+** next to **Indexes** on the Hive page | Yes. Click **Remove from Hive** |
 | **Delete repository** | The **Sync Settings** tab | No |
 | **Delete Index** | The **Index Info** tab, under **Danger zone** | No |
 
@@ -30,7 +30,7 @@ The following actions apply to one Index:
 
 To rename a Hive or change its icon, do the following:
 
-1. In the Hive's ⋮ menu on the home screen, or its ⋯ menu in the sidebar, click **Edit**.
+1. In the Hive's three-dot menu (⋮) on the home screen, or its three-dot menu (⋯) in the sidebar, click **Edit**.
 2. In **Name**, enter the new name. If another Hive already uses the name, including an archived Hive, the dialog says so and you cannot save.
 3. Optional: Under **Icon**, select a different icon.
 4. Click **Save**.
@@ -49,7 +49,7 @@ Archive a Hive you no longer use but might want back. NeoHive keeps an archived 
 
 To archive a Hive, do the following:
 
-1. In the Hive's ⋮ menu on the home screen, or its ⋯ menu in the sidebar, click **Archive**.
+1. In the Hive's three-dot menu (⋮) on the home screen, or its three-dot menu (⋯) in the sidebar, click **Archive**.
 2. In the dialog, click **Archive**.
 
 NeoHive moves the Hive to the **Archived** section at the bottom of the home screen, which shows how many days are left.
@@ -69,7 +69,7 @@ Deleting a Hive removes every Memory, Index, sync history, and setting in the Hi
 
 To delete an active Hive, do the following:
 
-1. In the Hive's ⋮ menu on the home screen, or its ⋯ menu in the sidebar, click **Delete**.
+1. In the Hive's three-dot menu (⋮) on the home screen, or its three-dot menu (⋯) in the sidebar, click **Delete**.
 2. Type the Hive's name.
 3. Click **Delete permanently**.
 
@@ -83,7 +83,7 @@ To delete an archived Hive before its 30 days are up, do the following:
 
 To move an Index, do the following:
 
-1. In the Index row's ⋮ menu on the Hive page, or on the **Index Info** tab, click **Move Index…**.
+1. In the Index row's three-dot menu (⋮) on the Hive page, or on the **Index Info** tab, click **Move Index**.
 2. Under **Move to**, select a Hive. The list shows only running Hives.
 3. Click **Move Index**.
 
@@ -106,7 +106,7 @@ You can set up a Shared Index from either Hive:
 
 To share an Index from the Hive that owns it, do the following:
 
-1. In the Index row's ⋮ menu on the Hive page, or on the **Index Info** tab, click **Share Index…**.
+1. In the Index row's three-dot menu (⋮) on the Hive page, or on the **Index Info** tab, click **Share Index**.
 2. Under **Add a Hive**, select the Hive that should use the Index.
 3. Click **Share**.
 
@@ -123,7 +123,7 @@ To add an Index that another Hive owns, do the following:
 
 The Index appears in your Hive's **Indexes** list with a **Shared** badge. The owning Hive does not have to approve.
 
-To open the Hive that owns the Index, click **Owner Hive** in the Index row's ⋮ menu, or click **Open in** on the **Index Info** tab.
+To open the Hive that owns the Index, click **Owner Hive** in the Index row's three-dot menu (⋮), or click **Open in** on the **Index Info** tab.
 
 ### Stop sharing an Index
 
@@ -131,8 +131,8 @@ Either Hive can stop sharing the Index. NeoHive deletes nothing when sharing sto
 
 | You are on | To stop sharing |
 |---|---|
-| The owning Hive | Open **Share Index…**, and then click **Revoke** next to the Hive |
-| The Hive using the Index | In the Index row's ⋮ menu, click **Remove from Hive…** |
+| The owning Hive | Open **Share Index**, and then click **Revoke** next to the Hive |
+| The Hive using the Index | In the Index row's three-dot menu (⋮), click **Remove from Hive** |
 
 ## Delete an Index
 

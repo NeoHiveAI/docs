@@ -4,11 +4,11 @@ description: "Who can reach a NeoHive instance, and how to run one instance for 
 
 # Access and sharing
 
-NeoHive runs on one machine, and anyone who can reach that machine on NeoHive's port, `3577` by default, can use it. NeoHive has no user accounts, roles, or logins, so everyone who connects can read and write everything and sees the same [Hives](../concepts/glossary.md#hive). Check who can reach the machine before you install NeoHive on a network that other people use.
+NeoHive runs on one machine, and anyone who can reach that machine on NeoHive's port, `3577` by default, can read and write every [Hive](../concepts/glossary.md#hive) on it. Check who can reach the machine before you install NeoHive on a network that other people use.
 
 To give your whole team one shared instance, install NeoHive on a machine that everyone reaches over a trusted network.
 
-A Hive is the workspace your agent connects to, and an [Index](../concepts/glossary.md#index) is one store of searchable context inside a Hive. For more terms, see the [NeoHive glossary](../concepts/glossary.md).
+For more terms, see the [NeoHive glossary](../concepts/glossary.md).
 
 <figure><img src="../.gitbook/assets/admin-access.svg" alt="NeoHive serves the dashboard and every MCP endpoint over plain HTTP on port 3577. This machine always reaches NeoHive at localhost:3577. By default, other machines on the same network reach NeoHive at the machine's IP address. If you work alone, block port 3577 in your firewall. Agents outside your network should reach NeoHive only through an authenticating proxy you run, over HTTPS."><figcaption></figcaption></figure>
 
@@ -21,7 +21,7 @@ On this machine:    http://localhost:3577
 From another host:  http://192.168.1.20:3577
 ```
 
-On shared or public Wi-Fi, anyone on that network can open the second address. If only you use NeoHive, block inbound traffic to port `3577` at your network firewall. For more information about blocking the port, see [Exposing NeoHive beyond your network](../security/network.md#the-default-install-is-reachable-from-your-network).
+On shared or public Wi-Fi, anyone on that network can open the second address. If only you use NeoHive, block inbound traffic to NeoHive's port at your network firewall: `3577` by default, or the port you set with `NEOHIVE_PORT`. For more information about blocking the port, see [Exposing NeoHive beyond your network](../security/network.md#the-default-install-is-reachable-from-your-network).
 
 ## Share one instance with your team
 
@@ -54,7 +54,7 @@ http://192.168.1.20:3577/hives/<hive-id>/mcp
 {% endstepper %}
 
 {% hint style="success" %}
-**Check:** each teammate's agent calls `list_indexes` and sees the same Indexes. **Tool usage** on the Hive page counts requests per kind of agent, so two teammates on Claude Code share one bar.
+**Check:** each teammate's agent calls `list_indexes` and sees the same [Indexes](../concepts/glossary.md#index). **Tool usage** on the Hive page counts requests per kind of agent, so two teammates on Claude Code share one bar.
 {% endhint %}
 
-To reach NeoHive from outside a trusted network, put an authenticating proxy in front of NeoHive. An authenticating proxy is a server that checks who is connecting before it passes requests on. Do not open the port instead. For details, see [Exposing NeoHive beyond your network](../security/network.md).
+To reach NeoHive from outside a trusted network, put an authenticating proxy in front of NeoHive. An authenticating proxy is a server that checks who is connecting before it passes requests on. Do not open the port instead. For more information about setting up the proxy, see [Exposing NeoHive beyond your network](../security/network.md).

@@ -52,13 +52,17 @@ A Hive page shows how to connect agents to one Hive, the Indexes it searches, an
 
 ### Install Instructions
 
-**Install Instructions** gives ready-made commands that connect Claude Code, Claude Desktop, Codex, or Cursor to the Hive. After an agent connects, the section collapses. To see the commands again, click **Reinstall**. For the full steps, see [Connect your agent](../get-started/connect/README.md).
+**Install Instructions** gives ready-made commands or steps that connect Claude Code, Claude Desktop, ChatGPT, Codex, or Cursor to the Hive. After an agent connects, the section collapses. To see the commands again, click **Reinstall**. For the full steps, see [Connect your agent](../get-started/connect/README.md).
 
 ### Indexes
 
-**Indexes** lists every Index in the Hive, including any [Shared Index](../concepts/glossary.md#shared-index) from another Hive, which has a **Shared** badge. To open an Index, click its row. To add an Index, click **+** next to **Indexes**.
+**Indexes** lists every Index in the Hive, including any [Shared Index](../concepts/glossary.md#shared-index) from another Hive, which has a **Shared** badge. From the list, you can do the following:
 
-To see an Index's actions, point at its row and click the three-dot icon (⋮). For what each action does, see [Manage Hives and Indexes](manage.md). **Sync Queue** lists the repository syncs that are running or waiting.
+- To open an Index, click its row.
+- To add an Index, click **+** next to **Indexes**.
+- To see an Index's actions, point at its row and click the three-dot icon (⋮). For what each action does, see [Manage Hives and Indexes](manage.md).
+
+While a repository sync is running or waiting, the **Sync Queue** panel on the Hive page lists it.
 
 ### Activity
 
@@ -72,15 +76,19 @@ The following parts show what your agents did in the Hive:
 
 ### Messages on the Hive page
 
+The Hive page can show the following messages:
+
 | Message | When it appears |
 |---|---|
 | A sync error, such as `A git command failed`, with `The <name> Index stopped syncing.` | An Index's last sync failed. To open the Index, click **Resolve on** followed by the Index name. For each error and its fix, see [Repository sync issues](../troubleshooting/sync.md) |
 | `This Hive has no Indexes yet` | The Hive has only its [Knowledge Index](../concepts/glossary.md#knowledge-index). To add one, click **Add an Index** |
 | `Selected models exceed your VRAM budget` | The Hive's Indexes use embedding models that do not fit in GPU memory together. Searches still work but run one Index at a time. See [Embedding models](embedding-models.md) |
+| `A synced branch is no longer on the remote` | Someone renamed or deleted the branch an Index syncs. Open the Index and select another branch. See [Repository sync issues](../troubleshooting/sync.md) |
+| `Failed to start Hive` | The Hive did not start within 30 seconds of opening it. Click **Retry**. If it fails again, check `docker logs neohive` for the cause |
 
 ## The Index page
 
-An Index page shows one Index: its size, its last sync, and its settings. The stats at the top show the Index's **Memories** and the **Files** that have Memories in the Index. The stats also show the **Last sync** and the disk space the Index uses (**On disk**). For a GitHub or GitLab Index, **Trigger sync** starts a sync right away.
+An Index page shows one Index: its size, its last sync, and its settings. The stats at the top show the Index's **Memories** and the **Files** that have Memories in the Index. The stats also show the **Last sync** and the disk space the Index uses (**On disk**). On a [Code](../concepts/glossary.md#code-index) or [Documentation Index](../concepts/glossary.md#documentation-index), **Trigger sync** at the top of the page starts a sync right away.
 
 The page has the following tabs:
 
@@ -88,14 +96,14 @@ The page has the following tabs:
 |---|---|---|
 | **Showcase** | Every Index | The files or Memories that agents retrieve most often |
 | **Files** | [Files Indexes](../concepts/glossary.md#files-index) | Uploaded files and a drop zone for more. See [Add documents and PDFs](../context/documents.md) |
-| **Sync Settings** | [Code](../concepts/glossary.md#code-index) and [Documentation Indexes](../concepts/glossary.md#documentation-index) | **Sync history**, the connection, branch, **Sync interval**, file filters, and **Pause syncing**. See [Keep it up to date](../context/repositories/sync.md) |
-| **Index Info** | Every Index | Name, description, [embedding model](../concepts/glossary.md#embedding-model), **Embedding history**, **Share Index…**, **Move Index…**, and **Danger zone**. See [Embedding models](embedding-models.md) and [Manage Hives and Indexes](manage.md) |
+| **Sync Settings** | Code and Documentation Indexes | **Sync history**, the connection, branch, **Sync interval**, file filters, and **Pause syncing**. See [Keep it up to date](../context/repositories/sync.md) |
+| **Index Info** | Every Index | Name, description, [embedding model](../concepts/glossary.md#embedding-model), **Embedding history**, **Share Index**, **Move Index**, and **Danger zone**. See [Embedding models](embedding-models.md) and [Manage Hives and Indexes](manage.md) |
 
 When a sync fails, a message box at the top of the page names the error. For each error and its fix, see [Repository sync issues](../troubleshooting/sync.md). When you change the embedding model, a message box shows the progress as NeoHive embeds the Index's Memories again. For more information about changing the model, see [Embedding models](embedding-models.md).
 
 ## The Data Sources screen
 
-**Data Sources**, in the sidebar, lists the GitHub and GitLab connections that your Code and Documentation Indexes sync through. Services you have connected appear under **Connected**. **Available** lists every service, including the ones you have connected. From **Available**, you can add another connection to a service, such as a second GitHub token. To add, check, or replace a connection, see [Data sources and credentials](data-sources.md).
+**Data Sources**, in the sidebar, lists the connections that NeoHive uses to sync your Indexes, such as a GitHub or GitLab token. Services you have connected appear under **Connected**. **Available** lists every service, including the ones you have connected. From **Available**, you can add another connection to a service, such as a second GitHub token. To add, check, or replace a connection, see [Data sources and credentials](data-sources.md).
 
 ## The Settings screen
 

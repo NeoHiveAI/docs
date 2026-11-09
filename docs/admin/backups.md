@@ -14,7 +14,9 @@ Everything NeoHive stores lives in the `neohive-data` Docker volume. That includ
 |---|---|
 | Every database: Hives, Indexes, Memories, connections, and sync history | The cached license key in `~/.cache/neohive` |
 | The search data of every Index, plus the local copies of your synced repositories | |
-| The keys that encrypt your saved GitHub and GitLab credentials | Apple Silicon models in `~/.neohive/models` |
+| The key file that encrypts the credentials of your saved connections | On an Apple Silicon Mac, the embedding models in `~/.neohive/models`, which download again when NeoHive next needs them |
+
+If you set `MEMVEC_ENCRYPTION_KEY`, the backup does not hold the key. Store a copy of the key with the backup.
 
 {% hint style="danger" %}
 A backup holds your Memories, your indexed code, and the keys to your saved credentials. Store it like other private data, and never commit it to a repository.
@@ -58,7 +60,7 @@ The NeoHive container must exist, but it can be running or stopped. To restore f
 The `--yes` flag skips the confirmation. Use `--yes` only in scripts.
 
 {% hint style="success" %}
-**Check:** the script ends with **Restore complete.** When you open `http://localhost:3577`, your Hives are back.
+**Check:** the script ends with **Restore complete.** When you open the dashboard, your Hives are back.
 {% endhint %}
 
 ## Move to a new machine
