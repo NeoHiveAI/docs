@@ -25,11 +25,11 @@ Content-Type: application/json
 X-Webhook-Secret: <secret>
 ```
 
-`<hive-id>` is the id of your [Hive](../concepts/glossary.md#hive), the NeoHive workspace your agent connects to. The same id appears in the Hive's [MCP](../concepts/glossary.md#mcp) endpoint, `http://<host>:3577/hives/<hive-id>/mcp`. One request updates every Code or Documentation Index in that Hive that syncs the repository you name, except an Index with an error status. A [Shared Index](../concepts/glossary.md#shared-index) updates only through the Hive that owns it.
+`<hive-id>` is the ID of your [Hive](../concepts/glossary.md#hive), the NeoHive workspace your agent connects to. The same ID appears in the Hive's [MCP](../concepts/glossary.md#mcp) endpoint, `http://<host>:3577/hives/<hive-id>/mcp`. One request updates every Code or Documentation Index in that Hive that syncs the repository you name, except an Index with an error status. A [Shared Index](../concepts/glossary.md#shared-index) updates only through the Hive that owns it.
 
 ## Authentication
 
-NeoHive compares `X-Webhook-Secret` with `MEMVEC_WEBHOOK_SECRET` on the `neohive` container. While that variable is unset, every request gets a `401` response. The installer does not set `MEMVEC_WEBHOOK_SECRET`, so add the variable to the container yourself. Add the variable again after each upgrade. For more information, see [Server](environment-variables.md#server).
+NeoHive compares `X-Webhook-Secret` with `MEMVEC_WEBHOOK_SECRET` on the `neohive` container. While that variable is unset, every request gets a `401` response. The installer does not set `MEMVEC_WEBHOOK_SECRET`, so add the variable to the container yourself. Add the variable again after each upgrade. For more information, see [Environment variables](environment-variables.md).
 
 {% hint style="danger" %}
 Treat the secret like a database password. Keep the secret in your CI secret store. Never put it in the repository or in CI logs.
@@ -56,15 +56,18 @@ Treat the secret like a database password. Keep the secret in your CI secret sto
 | `files[].content_base64` | For added and changed files | The whole file, base64-encoded. |
 | `files[].action` | For deleted files | `deleted` is the only value that has an effect. |
 
-For each path, NeoHive first removes the content it holds for that path. NeoHive then indexes `content_base64` if you sent it. **If you send a file with neither `content_base64` nor `"action": "deleted"`, NeoHive removes the file from the Index.** NeoHive does not read the file from its own copy of the repository.
+Each file you send replaces what the Index holds for that path. NeoHive indexes `content_base64` if you sent it. NeoHive does not read the file from its own copy of the repository.
+
+{% hint style="warning" %}
+If you send a file with neither `content_base64` nor `"action": "deleted"`, NeoHive removes the file from the Index.
+{% endhint %}
 
 The request body can be at most 100 KB. Base64 encoding makes each file about a third larger. Split a large change across several requests.
 
 ## How the webhook differs from a sync
 
-The webhook indexes the files it receives immediately, but it works differently from a scheduled sync or **Trigger sync**:
+The webhook indexes the files it receives immediately. Like a sync, it applies the built-in skip list and the Index's **Allowlist** and **Blocklist**. A file your filters exclude is not indexed, and NeoHive removes any content it already holds for that file. The webhook works differently from a scheduled sync or **Trigger sync** in two ways:
 
-- **The webhook applies your file filters.** NeoHive applies the built-in skip list and the Index's **Allowlist** and **Blocklist**. A file your filters exclude is not indexed, and NeoHive removes any content it already holds for that file.
 - **The webhook does not start a sync.** **Sync history** shows no row for a webhook request. To see what a request did, read its response.
 - **The webhook does not check the branch.** The request has no branch field, so NeoHive indexes the files whichever branch they came from. Send requests only from the branch the Index syncs, as the template does for `main`.
 
@@ -100,7 +103,7 @@ A failed request returns one of the following statuses:
 | `401` | `Invalid or missing webhook secret` | The header is wrong, or `MEMVEC_WEBHOOK_SECRET` is not set on the container. |
 | `402` | `License check failed` | The license expired or failed validation. For more information, see [Licensing](../admin/licensing.md). |
 | `404` | `No Index found syncing repo: <repo>` | No Code or Documentation Index in that Hive syncs that exact URL, or each one that does has an error status. |
-| `404` | `Unknown Hive: <hive-id>` | The Hive id in the URL is wrong, or the Hive is archived. |
+| `404` | `Unknown Hive: <hive-id>` | The Hive ID in the URL is wrong, or the Hive is archived. |
 | `413` | `Payload Too Large` (an HTML page, not JSON) | The body is over 100 KB. |
 | `503` | `License check unavailable` | NeoHive could not complete the license check. Send the request again. |
 
@@ -136,7 +139,8 @@ jobs:
           NEOHIVE_WEBHOOK_SECRET: ${{ secrets.NEOHIVE_WEBHOOK_SECRET }}
           REPO_URL: ${{ github.server_url }}/${{ github.repository }}
         run: |
-          git diff --no-renames --name-status "${{ github.event.before }}" HEAD > changed.txt
+          git cat-file -e "${{ github.event.before }}^{commit}" 2>/dev/null || { echo "::warning::Previous commit not found, skipping NeoHive refresh"; exit 0; }
+          git -c core.quotePath=false diff --no-renames --name-status "${{ github.event.before }}" HEAD > changed.txt
           python3 - > payload.json <<'EOF'
           import base64, json, os
           files = []
