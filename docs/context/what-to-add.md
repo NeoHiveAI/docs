@@ -14,20 +14,20 @@ Choose the Index for each kind of content before you first add it, and decide wh
 
 To open the **Add an Index** dialog, do the following:
 
-1. Open your Hive in the dashboard at `http://localhost:3577`.
+1. In the dashboard, open your Hive.
 2. Select **+** next to **Indexes**.
 
 The **Add an Index** dialog asks where your data comes from.
 
-| Your content | In the dialog | Index you get |
+| Your content | What to select | Index you get |
 |---|---|---|
 | Source code in a repository | **GitHub** or **GitLab**, then **Code** | A [Code Index](../concepts/glossary.md#code-index), kept in sync with the branch |
 | Markdown docs in a repository | **GitHub** or **GitLab**, then **Documentation** | A [Documentation Index](../concepts/glossary.md#documentation-index), kept in sync with the branch |
 | Documents outside git, such as specs, runbooks, PDFs, or Word files | **File Upload** | A [Files Index](../concepts/glossary.md#files-index), filled by uploading |
 | An Index another Hive already set up | **Shared Index**, under **or reuse an existing Index** | The same Index, searchable from your Hive with no copy and no wait for indexing |
-| Conventions and decisions your team makes | Nothing to add | The [Knowledge Index](../concepts/glossary.md#knowledge-index), created with every Hive |
+| Conventions and decisions your team makes | Nothing to select | The [Knowledge Index](../concepts/glossary.md#knowledge-index), created with every Hive |
 
-A Code Index and a Documentation Index both index every file that their filters allow, not only markdown. To keep a Documentation Index to markdown, add `**/*.md` to its **Allowlist**. For more information about the Allowlist, see [Choose which files are included](repositories/file-patterns.md). To add either kind of Index, see [Add a code repository](repositories/README.md).
+A Code Index and a Documentation Index both index every file that their filters allow, not only markdown. To keep a Documentation Index to markdown, add `**/*.md` to its **Allowlist**. For more information about the Allowlist, see [Choose which files are included](repositories/file-patterns.md). To add either kind of Index, see [Add a repository](repositories/README.md).
 
 {% hint style="info" %}
 Your agent searches every Index in the Hive at once, or picks a single Index by its name and description. On each Index's **Index Info** tab, write a description that names the services, domains, and languages the Index covers.
@@ -41,7 +41,7 @@ Each Hive has its own [MCP](../concepts/glossary.md#mcp) endpoint, the address y
 |---|---|
 | One product, one repository | One Hive |
 | One product across several repositories | One Hive, one Code Index per repository |
-| Unrelated products or teams | A separate Hive for each, so results from one codebase do not outrank results from the other |
+| Unrelated products or teams | A separate Hive for each, so your agent's results for one product do not include code from the other |
 | A library several products use | Index the library in one Hive. Then add that Index to the other Hives as a **Shared Index**. |
 
 A [Shared Index](../concepts/glossary.md#shared-index) is one Index that several Hives search, not a copy. For what a Shared Index is and what each Hive can change, see [Shared Index](../concepts/hives-indexes-memories.md#shared-index).
