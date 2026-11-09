@@ -141,25 +141,41 @@ jobs:
         run: |
           git cat-file -e "${{ github.event.before }}^{commit}" 2>/dev/null || { echo "::warning::Previous commit not found, skipping NeoHive refresh"; exit 0; }
           git -c core.quotePath=false diff --no-renames --name-status "${{ github.event.before }}" HEAD > changed.txt
-          python3 - > payload.json <<'EOF'
+          python3 - <<'EOF'
           import base64, json, os
-          files = []
+          LIMIT = 100_000  # bytes per request, under NeoHive's 100 KB limit
+          repo, sha = os.environ["REPO_URL"], os.environ["GITHUB_SHA"]
+          def body(files):
+              return json.dumps({"repo": repo, "sha": sha, "files": files})
+          batches, batch = [], []
           for line in open("changed.txt"):
               status, path = line.rstrip("\n").split("\t", 1)
               if status == "D":
-                  files.append({"path": path, "action": "deleted"})
+                  entry = {"path": path, "action": "deleted"}
               else:
                   with open(path, "rb") as f:
-                      content = base64.b64encode(f.read()).decode()
-                  files.append({"path": path, "content_base64": content})
-          payload = {"repo": os.environ["REPO_URL"], "sha": os.environ["GITHUB_SHA"], "files": files}
-          print(json.dumps(payload))
+                      entry = {"path": path, "content_base64": base64.b64encode(f.read()).decode()}
+              if len(body([entry])) > LIMIT:
+                  print(f"::warning::Skipping {path}: too large for one webhook request")
+                  continue
+              if batch and len(body(batch + [entry])) > LIMIT:
+                  batches.append(batch)
+                  batch = []
+              batch.append(entry)
+          if batch:
+              batches.append(batch)
+          for i, files in enumerate(batches):
+              with open(f"payload-{i}.json", "w") as f:
+                  f.write(body(files))
           EOF
-          curl -fsS \
-            -H 'Content-Type: application/json' \
-            -H "X-Webhook-Secret: $NEOHIVE_WEBHOOK_SECRET" \
-            --data @payload.json \
-            "$NEOHIVE_URL/hives/$NEOHIVE_HIVE_ID/webhook/refresh"
+          for payload in payload-*.json; do
+            [ -e "$payload" ] || continue
+            curl -fsS \
+              -H 'Content-Type: application/json' \
+              -H "X-Webhook-Secret: $NEOHIVE_WEBHOOK_SECRET" \
+              --data @"$payload" \
+              "$NEOHIVE_URL/hives/$NEOHIVE_HIVE_ID/webhook/refresh"
+          done
 ```
 
-`--no-renames` reports a renamed file as a deletion plus an addition, so NeoHive removes the old path from the Index. The template sends all changed files in one request, including images and other files that NeoHive skips, and every file counts toward the 100 KB limit. If the files add up to more than 100 KB, the request gets a `413` response.
+`--no-renames` reports a renamed file as a deletion plus an addition, so NeoHive removes the old path from the Index. The template splits the changed files into requests under 100 KB. It skips any single file too large for one request, and shows a warning in the job log. Images and other files that NeoHive skips still count toward each request's size.
