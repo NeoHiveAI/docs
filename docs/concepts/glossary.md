@@ -78,7 +78,7 @@ A list of numbers that captures what a piece of text means. NeoHive compares emb
 
 ### Embedding model
 
-The model that turns text into [embeddings](#embedding). The embedding model runs where NeoHive runs, and each [Index](#index) has its own. For more information, see [GPU and CPU](../admin/gpu-cpu.md).
+The model that turns text into [embeddings](#embedding). The embedding model runs where NeoHive runs, and each [Index](#index) has its own. For more information, see [Embedding models](../admin/embedding-models.md).
 
 ## F
 

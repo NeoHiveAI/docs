@@ -60,7 +60,7 @@ Your agent receives the following messages from a NeoHive tool, such as `memory_
 
 | Message | Cause | Fix |
 |---|---|---|
-| `No Indexes configured. Create an Index first.` | The Hive has no [Index](../concepts/glossary.md#index), or NeoHive cannot open any of its Indexes. | Add an Index to the Hive. If the Hive already has an Index, open the Hive's menu on the dashboard home page and select **Restart**. |
+| `No Indexes configured. Create an Index first.` | The Hive has no [Index](../concepts/glossary.md#index), or NeoHive cannot open any of its Indexes. | Add an Index to the Hive. If the Hive already has an Index, restart NeoHive with `docker restart neohive`. |
 | `Index "<id>" not found. Use list_indexes to see available Indexes.` | The `index` argument names an id this Hive does not have. | Call `list_indexes` and use an id from its reply. |
 | `Index "<id>" is <status>. Only active Indexes can be used.` | The Index is not `active`, for example `paused` or `error`. | Open the Index page in the dashboard, and fix the error that the page shows. See [Repository sync issues](sync.md). |
 | `Provide either query (string) or queries (string array).` | `memory_recall` received neither argument. | Pass one of the two arguments. See [MCP tools](../reference/mcp-tools.md). |
@@ -76,13 +76,14 @@ NeoHive shows the following messages for a file that you upload to a [Files Inde
 
 | Message | Cause | Fix |
 |---|---|---|
-| `Unsupported type: <ext>` or `Unsupported file type: <ext>. Allowed: .md, .markdown, .txt, .pdf` | The file is not one of those types. | Export the file to one of those types. See [Supported file types](../reference/file-types.md). |
-| `File too large (<size> > 10 MB)` or `File too large` | The file is over 10 MB. | Split the file into smaller files. |
-| `Too many files` | The upload has more than 20 files. | Upload in batches of 20 or fewer. |
-| `<name> already exists, skipped` | A file with that name is already in the Index. | Rename the new file, or remove the old file first. |
-| `No text could be extracted from this PDF. ...` | The PDF contains only scanned images, or its text is drawn as shapes. | Run optical character recognition (OCR) on the PDF, or upload an exported text version. |
+| `Unsupported type: <ext>` or `Unsupported file type: <ext>. Allowed: .docx, .jpeg, .jpg, .markdown, .md, .pdf, .png, .pptx, .txt, .xlsx` | The file is not one of those types. | Export the file to one of those types. See [Supported file types](../reference/file-types.md). |
+| `File too large (<size> > 50 MB)` or `File too large` | The file is over 50 MB. | Split the file into smaller files. |
+| `<file> has <n> pages, over the 500 page limit` | The PDF has more than 500 pages. | Split the PDF into smaller files. |
+| `<file> has <n> pixels, over the 50000000 pixel limit` | The image is larger than 50 million pixels. | Scale the image down, and then upload it again. |
+| `More than one file in this upload is named <name>` | Two files in one upload have the same name, so NeoHive uploads neither. | Rename one of the files, and then upload both again. |
+| `No text could be extracted from this document. ...` | Optical character recognition (OCR) found no readable text in the file. Common causes are a faint scan, text drawn as shapes, or small or low-contrast text. | Upload a clearer copy, or upload an exported text version. |
 | `No content could be extracted from this file (it appears to be empty or contain only whitespace).` | The file is empty. | Upload a file with content. |
-| `PDF bridge timed out after 300s` | Converting the PDF took longer than the timeout. | Run the installer again with a higher `NEOHIVE_PDF_BRIDGE_TIMEOUT_MS`. |
+| `Converting "<file>" timed out` | Converting the file took longer than the timeout. | Run the installer again with a higher `NEOHIVE_DOCUMENT_TIMEOUT_MS`. |
 
 ## Syncs and connections
 
