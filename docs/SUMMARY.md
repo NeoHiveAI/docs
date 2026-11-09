@@ -23,7 +23,7 @@
 ## Add your context
 
 * [What to add, and where](context/what-to-add.md)
-* [Add a code repository](context/repositories/README.md)
+* [Add a repository](context/repositories/README.md)
   * [Connect GitHub or GitLab](context/repositories/connect.md)
   * [Choose which files are included](context/repositories/file-patterns.md)
   * [Keep a repository up to date](context/repositories/sync.md)

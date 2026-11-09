@@ -17,7 +17,7 @@
 
   <rect x="40" y="40" width="920" height="44" rx="5" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
   <circle cx="64" cy="62" r="6" fill="#7C3AED"/>
-  <text x="80" y="66" class="item"><tspan font-weight="700">Scheduled sync</tspan><tspan dx="10" style="fill:#737373" font-size="11.5">every 4 hours, automatic</tspan></text>
+  <text x="80" y="66" class="item"><tspan font-weight="700">Scheduled sync</tspan><tspan dx="10" style="fill:#737373" font-size="11.5">every 4 hours by default</tspan></text>
   <rect x="358.5" y="56.5" width="11" height="11" fill="#BB4D00" transform="rotate(45 364 62)"/>
   <text x="380" y="66" class="item"><tspan font-weight="700">Trigger sync</tspan><tspan dx="10" style="fill:#737373" font-size="11.5">you start it from the Index page</tspan></text>
   <rect x="658.5" y="56.5" width="11" height="11" fill="#009689"/>
@@ -54,5 +54,5 @@
   <!-- Footer. Logo paths copied verbatim from frontend/src/lib/icons/NeoHiveIcon.svelte. -->
   <line x1="40" y1="376" x2="960" y2="376" stroke="#E4DFF1"/>
   <g transform="translate(40,390) scale(0.04)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
-  <text x="64" y="405" font-size="13" font-weight="700" fill="#1A1A2E">Three ways changes reach an Index<tspan dx="12" font-size="10" font-weight="600" letter-spacing="1" fill="#737373">ONE DAY (UTC) WITH THE DEFAULT SCHEDULE OF EVERY 4 HOURS</tspan></text>
+  <text x="64" y="405" font-size="13" font-weight="700" fill="#1A1A2E">Three ways changes reach an Index<tspan dx="12" font-size="10" font-weight="600" letter-spacing="1" fill="#737373">AN EXAMPLE DAY (UTC) WITH THE DEFAULT SCHEDULE</tspan></text>
 </svg>

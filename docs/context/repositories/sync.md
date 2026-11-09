@@ -6,11 +6,9 @@ description: "Set how often a Code or Documentation Index syncs, sync it on dema
 
 A [Code](../../concepts/glossary.md#code-index) or [Documentation Index](../../concepts/glossary.md#documentation-index) stays up to date by syncing with its repository on a schedule. You choose the schedule, and you can select **Trigger sync** to index a change right away. When something looks wrong, **Sync history** shows what each sync did.
 
-An [Index](../../concepts/glossary.md#index) is one store of searchable context inside a [Hive](../../concepts/glossary.md#hive), the workspace your agent connects to.
+<figure><img src="../../.gitbook/assets/context-sync.svg" alt="An example day in UTC with the default schedule. Scheduled syncs run every 4 hours at 00:00, 04:00, 08:00, and so on. At 10:12 you select Trigger sync, and a sync runs immediately. At 14:36 a CI pipeline calls the webhook after a merge and sends only the changed files. Only one sync runs per Index at a time."><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/context-sync.svg" alt="A one-day timeline in UTC. Scheduled syncs run every 4 hours at 00:00, 04:00, 08:00, and so on. At 10:12 you select Trigger sync, and a sync runs immediately. At 14:36 a CI pipeline calls the webhook after a merge and sends only the changed files. Only one sync runs per Index at a time."><figcaption></figcaption></figure>
-
-Each sync reads only what changed since the last indexed commit. NeoHive indexes new, modified, and renamed files again, and removes deleted files from the Index.
+Each sync reads only what changed since the last indexed commit. NeoHive indexes new, modified, and renamed files again, and removes deleted files from the [Index](../../concepts/glossary.md#index).
 
 ## Set the schedule
 
@@ -20,11 +18,9 @@ To set the schedule, do the following:
 2. Under **Configuration**, select a **Sync interval**.
 3. Select **Save settings**.
 
-You also set the **Branch** and the **Connection** on the same card.
-
 Syncs run at fixed times of day, in UTC. For example, **Every 4 hours** runs at 00:00, 04:00, 08:00, and so on, and **Daily** runs at 00:00.
 
-If NeoHive was not running when a sync was due, NeoHive syncs that Index as soon as NeoHive starts again.
+If your machine is off or asleep when a sync is due, NeoHive runs the sync as soon as NeoHive starts again.
 
 ## Choose a sync interval
 
@@ -41,13 +37,14 @@ Pick the interval that matches how often the repository changes. The following t
 
 To sync now, do the following:
 
-1. At the top of the Index page, select **Trigger sync**. A **Sync Warning** says that the sync can slow down the machine.
-2. Optional: To skip the warning next time, select **Don't show this again**.
-3. Select **I Understand**.
+1. At the top of the Index page, select **Trigger sync**.
+2. If the **Sync Warning** dialog opens, select **I Understand**. The dialog says that the sync can slow down the machine.
+
+To stop the dialog from opening each time, select **Don't show this again** before you select **I Understand**.
 
 The page header shows the sync progress and a button to cancel the sync.
 
-If some files fail, NeoHive tries them again automatically later. If a file keeps failing, NeoHive stops retrying it until you select **Trigger sync**, which gives the file one more try.
+If some files fail to index, the rest of the repository still syncs, and NeoHive tries the failed files again on its own. If a file keeps failing, NeoHive leaves that file out until you select **Trigger sync**, and the Index page shows `Some files could not be indexed, the rest synced`. To find out why and fix it, see [Repository sync issues](../../troubleshooting/sync.md).
 
 To index changes right after every merge, your CI pipeline can send the changed files to the webhook refresh endpoint. The webhook works differently from a sync, as [How the webhook differs from a sync](../../reference/webhooks.md#how-the-webhook-differs-from-a-sync) explains.
 
@@ -60,7 +57,7 @@ To index changes right after every merge, your CI pipeline can send the changed 
 | **Time**, **Duration** | When the run started and how long it took |
 | **Status** | `running`, `success`, `failed`, or `cancelled`. `partial`, shown in amber, means that some files failed |
 | **Files** | How many files changed, such as `+12A / ~3M / -1D / ↻2R`: **A** added, **M** modified, **D** deleted, **R** renamed. A type with no changes is left out |
-| **Progress**, **Chunks** | Files done out of the total, and pieces added or removed |
+| **Progress**, **Chunks** | Files done out of the total, and chunks added or removed |
 | **Commit Range** | The commits between the previous run and this one |
 | **Error** | What went wrong. Select the error to read the full message |
 
@@ -68,7 +65,9 @@ For runs that keep failing, see [Repository sync issues](../../troubleshooting/s
 
 ## If the branch is renamed
 
-If someone renames the branch, for example from `master` to `main`, the sync follows the new name when the match is clear. Otherwise, the Index page shows `A synced branch is no longer on the remote`, and everything indexed so far stays searchable. To sync the renamed branch, do the following:
+If someone renames the branch, for example from `master` to `main`, the sync usually follows the new name on its own. If it cannot, a banner on the Index page shows `A synced branch is no longer on the remote`, and everything indexed so far stays searchable. To sync the renamed branch, do one of the following:
 
-1. Under **Pick a branch to sync instead**, select the new branch.
-2. Select **Sync this branch**.
+* In the banner, under **Pick a branch to sync instead**, select the new branch, and then select **Sync this branch**.
+* On the **Sync Settings** tab, select the new branch in **Branch**, and then select **Save settings**.
+
+Either way, NeoHive starts a sync of the new branch.

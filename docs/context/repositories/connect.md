@@ -4,7 +4,7 @@ description: "Save a GitHub or GitLab connection, select a repository and branch
 
 # Connect GitHub or GitLab
 
-Create a token, save it as a connection, select the repository, and then select **Create Index**. The first sync starts automatically. An [Index](../../concepts/glossary.md#index) is one store of searchable context inside a [Hive](../../concepts/glossary.md#hive), and a Hive is the workspace your agent connects to.
+Create a token, save it as a connection, select the repository, and then create the [Index](../../concepts/glossary.md#index) in your [Hive](../../concepts/glossary.md#hive). The first sync starts automatically.
 
 <figure><img src="../../.gitbook/assets/context-connect.svg" alt="The Add an Index dialog in six steps. First, on the Hive page, select + next to Indexes. Second, select the GitHub or GitLab card. Third, select Code or Documentation as the content type. Fourth, select or save a connection. Fifth, search for the repository or paste its URL. Sixth, select Create Index to start the first sync."><figcaption></figcaption></figure>
 
@@ -32,7 +32,7 @@ If you host your own GitLab, first enter your instance's address in **GitLab Bas
 {% endtab %}
 
 {% tab title="SSH key" %}
-In the connection form, select the **SSH** tab and paste an SSH private key into **SSH Private Key**. The key needs read access to the repository. For example, you can use a deploy key, which is a key added to a single repository.
+In the connection form, select the **SSH** tab and paste an SSH private key into **SSH Private Key**. The key needs read access to the repository and no passphrase, because NeoHive cannot enter one. For example, you can use a deploy key, which is a key added to a single repository. To create a deploy key, see GitHub's [Managing deploy keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys) or GitLab's [Deploy keys](https://docs.gitlab.com/user/project/deploy_keys/).
 {% endtab %}
 {% endtabs %}
 
@@ -40,35 +40,32 @@ In the connection form, select the **SSH** tab and paste an SSH private key into
 
 To create the Index, do the following:
 
-1. Open your Hive at `http://localhost:3577`.
+1. In the dashboard, open your Hive.
 2. Next to **Indexes**, select **+**.
 3. Select **GitHub** or **GitLab**.
-4. Under **Content type**, select **Code**. If the Index holds only docs, select **Documentation** instead.
-5. To use a saved connection, select the connection under **Connection**, and then skip to step 9. To add a connection, select **Add a new connection**. If you have no saved connection, NeoHive shows the connection form instead.
-6. Enter a **Name**, such as `Work GitHub`.
-7. Paste the token you created in [Create a token](#create-a-token) into **Personal Access Token**.
-8. Select **Save connection**. NeoHive checks the token with the provider and does not save a token that the provider rejects. If you already saved the same token or account, NeoHive warns you and offers **Add anyway**.
-9. Under **Repository**, select the repository from the list, or paste its URL into **Search repositories or paste a URL...**. If the list does not show a pasted repository, select its **Use** row, such as **Use acme/api**.
-10. Check **Index name** and **Branch**. NeoHive fills both in from the repository. The Index name must be unique in the Hive. To use another branch, select it from the list.
-11. Select **Create Index**.
+4. Under **Content type**, select **Code**, or **Documentation** for a repository of docs.
+5. Under **Connection**, select a saved connection. To add one, select **Add a new connection**, and then do the following. If you have no saved connection, the form is already open.
+    1. Enter a **Name**, such as `Work GitHub`.
+    2. Paste the token or SSH key you created in [Create a token](#create-a-token). For a token, use **Personal Access Token** on the **PAT** tab. For an SSH key, select the **SSH** tab and use **SSH Private Key**.
+    3. Select **Save connection**. NeoHive checks the token or key with the provider and does not save one that the provider rejects. If you already saved the same token or account, NeoHive warns you and offers **Add anyway**.
+6. Under **Repository**, select the repository from the list, or paste its URL into **Search repositories or paste a URL...**. If the list does not show a pasted repository, select its **Use** row, such as **Use acme/api**.
+7. Check **Index name** and **Branch**. NeoHive fills both in from the repository. The Index name must be unique in the Hive. To use another branch, select it from the list.
+8. Select **Create Index**.
 
 NeoHive opens the new Index page and starts the first sync. The page header shows the progress.
 
-NeoHive saves the connection, so for your next repository you can select it under **Connection** instead of adding a new one.
-
 {% hint style="success" %}
-**Check:** Open the Index's **Sync Settings** tab. **Sync history** shows the first run. When the run finishes, its status reads `success`.
+**Check:** Open the Index's **Sync Settings** tab. **Sync history** shows the first run. When the run finishes, its status reads `success`. If it reads `partial` or `failed`, see [Repository sync issues](../../troubleshooting/sync.md).
 {% endhint %}
 
 ## After you create the Index
 
-Open the **Index Info** tab, and then fill in **Description**. Your agent reads the description through `list_indexes`, so name what the repository covers. For example, write `Billing and payments services: Stripe webhooks, retries, nightly reconciliation` rather than `repo index`.
+Optional: Open the **Index Info** tab, and then fill in **Description**. Your agent reads the description through `list_indexes` to pick the right Index, so name what the repository covers. For example, write `Billing and payments services: Stripe webhooks, retries, nightly reconciliation` rather than `repo index`.
 
-<details>
-<summary>Optional: switch to an embedding model made for code</summary>
+A Documentation Index indexes every file that its filters allow, not only docs. To keep it to markdown, add `**/*.md` to its **Allowlist**. See [Choose which files are included](file-patterns.md).
 
-A new [Code Index](../../concepts/glossary.md#code-index) uses an [embedding model](../../concepts/glossary.md#embedding-model) that handles both code and text. A `nomic-embed-code` model matches code more closely and needs a large GPU. To switch models, use the **Embedding model** setting on the **Index Info** tab. Changing the model makes NeoHive embed the whole Index again. For the models and which ones fit your machine, see [Embedding models](../../admin/embedding-models.md).
+To change the **Branch** or **Connection** later, use the **Sync Settings** tab.
 
-</details>
+Optional: to match code more closely, or to use less memory, change the Index's embedding model. To choose a model that fits your machine, see [Embedding models](../../admin/embedding-models.md).
 
 To add, check, or replace a connection without creating an Index, use the **Data Sources** page. See [Data sources and credentials](../../admin/data-sources.md).

@@ -46,7 +46,7 @@ Command-line interface, a program that you run by typing commands in a terminal,
 
 ### Code Index
 
-An [Index](#index) that holds source code from a GitHub or GitLab repository. [Sync](#sync) keeps a Code Index up to date. See [Add a code repository](../context/repositories/README.md).
+An [Index](#index) that holds source code from a GitHub or GitLab repository. [Sync](#sync) keeps a Code Index up to date. See [Add a repository](../context/repositories/README.md).
 
 ### Connection
 

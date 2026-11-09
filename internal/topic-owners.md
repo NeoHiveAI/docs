@@ -36,7 +36,7 @@
 | Slash commands | `reference/slash-commands.md` | `results/plugin-automation.md` |
 | Which Index to use for each kind of content, and how many Hives | `context/what-to-add.md` | |
 | Connecting a repository and creating its Index | `context/repositories/connect.md` | `context/repositories/README.md` |
-| Adding a code repository: overview of the steps | `context/repositories/README.md` | |
+| Adding a repository: overview of the steps | `context/repositories/README.md` | |
 | Managing GitHub and GitLab connections: states, checking, replacing, and removing | `admin/data-sources.md` | `context/repositories/connect.md`, `security/credentials.md` |
 | How tokens are stored and protected | `security/credentials.md` | `admin/data-sources.md` |
 | Allowlist and Blocklist: when and where to set them | `context/repositories/file-patterns.md` | |
