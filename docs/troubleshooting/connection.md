@@ -31,7 +31,7 @@ docker logs neohive --tail 50
 
 If Docker says `No such container`, the container no longer exists. Run the [installer](../get-started/install.md) again. Your data stays in the `neohive-data` volume.
 
-If the start fails with `port is already allocated`, another program is using port `3577`. Stop that program, or install on another port with `NEOHIVE_PORT=4577`. If you change the port, also change the port in your agent's MCP endpoint.
+If the start fails with `port is already allocated`, another program is using port `3577`. Stop that program, or install on another port with `NEOHIVE_PORT=4577`. If you change the port, agents you already connected still use the old one. Open the dashboard on the new port, and use **Install Instructions** to connect each agent again.
 {% endstep %}
 
 {% step %}
@@ -48,7 +48,7 @@ The following table shows what each reply means:
 | Reply contains | Meaning | Fix |
 |---|---|---|
 | `"status":"ok"` | NeoHive is ready. | Go to the next check. |
-| `"status":"error"` | NeoHive could not finish starting, its embedding engine cannot run, or the part that converts uploaded files has stopped. | Look up the `error` text in [Common errors](common-errors.md). |
+| `"status":"error"` | NeoHive has a problem that stops it from working. The `error` text in the reply names it. | Look up the `error` text in [Common errors](common-errors.md#server-and-dashboard). |
 | `"status":"degraded"` | At least one Hive failed its check. | Restart NeoHive with `docker restart neohive`, and then run this check again. |
 
 If `curl` reports `Failed to connect`, the container is not running. Go back to the first check.
@@ -63,7 +63,7 @@ Each Hive has its own endpoint, ending in `/hives/<hive-id>/mcp`. To check the e
 2. Copy the endpoint from **Install Instructions**.
 3. Compare the endpoint with your agent's MCP configuration, character by character. In Claude Code, `claude mcp get <name>` prints the URL. `<name>` is the server name that follows `claude mcp add` in the **Install Instructions** command.
 
-A wrong Hive id returns `Unknown Hive: <id>`. A wrong port or host returns a connection error. After your agent reaches the Hive, **Install Instructions** shows a `CONNECTED` count.
+A wrong Hive ID returns `Unknown Hive: <id>`. A wrong port or host returns a connection error. After your agent reaches the Hive, **Install Instructions** shows a `CONNECTED` count.
 {% endstep %}
 
 {% step %}
@@ -71,7 +71,7 @@ A wrong Hive id returns `Unknown Hive: <id>`. A wrong port or host returns a con
 
 Ask your agent: `List my NeoHive indexes.` Your agent calls `list_indexes` and answers. If the agent does not have the `list_indexes` tool, the agent has not loaded the NeoHive MCP server. Restart the agent after any configuration change.
 
-In Claude Code, the **Install Instructions** command saves the server in `.mcp.json` in the folder where you run the command. To load the server, start Claude Code in that folder. If the `/neohive:` commands are missing, run `/reload-plugins`. For more information about setting up Claude Code, see [Claude Code](../get-started/connect/claude-code.md).
+In Claude Code, start Claude Code in the folder where you ran the **Install Instructions** command, because the server is saved in that folder's `.mcp.json`. For other agents, see [Connect your agent](../get-started/connect/README.md).
 {% endstep %}
 {% endstepper %}
 

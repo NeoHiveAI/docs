@@ -6,7 +6,7 @@ description: "What to check when your agent's NeoHive recall comes back empty or
 
 A recall is your agent's search of the knowledge NeoHive stores. A recall can come back empty or miss what you expected. The cause is usually the query's wording or the stored content.
 
-Find your symptom in the following table, which starts with the two causes that are quickest to fix:
+Find your symptom in the following table:
 
 | Symptom | Likely cause | Fix |
 |---|---|---|
@@ -32,7 +32,7 @@ Recall also looks for the exact words of the query. That word-for-word match fin
 
 ## Check the content exists
 
-Ask your agent to run the same query with `index` set to the Index you expect to hold the answer. If nothing relevant comes back, the content is not in the Index. Tell your agent to store the information, for example with the following prompt:
+Ask your agent to run the same query on only the Index you expect to hold the answer. Your agent looks up the Index's ID with `list_indexes` and passes it as `index`. If nothing relevant comes back, the content is not in the Index. Tell your agent to store the information, for example with the following prompt:
 
 ```text
 Remember that the staging environment uses a self-signed certificate, so local tests need NODE_TLS_REJECT_UNAUTHORIZED=0.
