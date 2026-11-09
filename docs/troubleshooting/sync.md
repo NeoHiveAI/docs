@@ -62,7 +62,7 @@ These two states are not errors. If **Sync Settings** shows **Resume syncing**, 
 
 ## Connections
 
-To check a connection, open **Data Sources** and click **Manage** on the service. A connection marked **Invalid** has a token that no longer works, so its syncs fail with `A git command failed`. Add a new connection with a working token, and assign it to the Index. For more information, see [Data sources and credentials](../admin/data-sources.md#check-or-remove-a-connection).
+To check a connection, open **Data Sources**, click **Manage** on the service, and then click **Validate** on the connection. A connection marked **Invalid** has a token that no longer works, so its syncs fail with `A git command failed`. You cannot edit the token of a connection. Instead, add a new connection with a working token, and assign the new connection to the Index. For more information, see [Data sources and credentials](../admin/data-sources.md#check-or-remove-a-connection).
 
 ## Slow or stalled syncs
 
@@ -78,7 +78,7 @@ If an Index syncs too often or too rarely, change its **Sync interval** on the *
 
 ## Files that never appear
 
-A file must pass the built-in skip list, your **Allowlist**, and your **Blocklist**. The skip list leaves out binary files, including PDFs, lock files, and dependency folders. For more information, see [Files in a repository](../reference/file-types.md#files-in-a-repository) and [File pattern syntax](../reference/file-patterns.md).
+A file must pass the built-in skip list, your **Allowlist**, and your **Blocklist**. The skip list leaves out binary files (a PDF counts as binary), lock files, and dependency folders. For more information, see [Files in a repository](../reference/file-types.md#files-in-a-repository) and [File pattern syntax](../reference/file-patterns.md).
 
 ## Still stuck?
 
