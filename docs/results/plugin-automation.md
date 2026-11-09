@@ -4,7 +4,7 @@ description: "Every action the NeoHive plugin takes automatically in Claude Code
 
 # What the plugin does automatically
 
-The NeoHive plugin is a package for Claude Code, Cursor, or Codex that tells your agent when to use NeoHive. With the plugin, you do not have to ask each time. In Claude Code, the plugin also runs hooks. A hook is a small script that Claude Code starts at a set point in a session. For example, one hook runs when you send a prompt.
+The NeoHive plugin is a package for Claude Code, Cursor, or Codex that tells your agent when to use NeoHive. With the plugin, you do not have to ask each time. In Claude Code, the plugin also runs hooks. A hook is a small script that Claude Code starts at a set point in a session. For example, one hook runs when you send a prompt. The Codex and Cursor plugins have no hooks. For what they do, see [In Codex and Cursor](#in-codex-and-cursor).
 
 The hooks run without you doing anything, and most hooks have a switch to turn them off. A few steps, such as saving what your agent learned, are still yours to run.
 
@@ -12,15 +12,16 @@ The following diagram shows each hook in one Claude Code session:
 
 <figure><img src="../.gitbook/assets/results-plugin-automation.svg" alt="Timeline of one Claude Code session: each hook, its off switch, and the capture command you run before you close."><figcaption></figcaption></figure>
 
-## The hooks
+## Claude Code hooks
 
 The following table shows when each hook runs and what it does:
 
 <table><thead><tr><th width="160">Hook</th><th width="170">Runs when</th><th>What it does</th></tr></thead><tbody>
-<tr><td><code>SessionStart</code></td><td>A session opens</td><td>Copies the rules file to <code>~/.claude/rules/neohive.md</code> if the file is missing or its version differs from the plugin's copy. Then shows a reminder to call <code>memory_context</code>. This hook has no off switch.</td></tr>
+<tr><td><code>SessionStart</code></td><td>A session opens</td><td>Copies the rules file to <code>~/.claude/rules/neohive.md</code> if the file is missing or its version differs from the plugin's copy. The rules file tells your agent to call <code>memory_context</code>. The hook also shows you a reminder in the session. This hook has no off switch.</td></tr>
 <tr><td><code>UserPromptSubmit</code></td><td>You send a prompt</td><td>Sends the first 400 characters of the prompt to <code>memory_recall</code>. Then adds the top 5 matches to your agent's context. Turn it off with <code>NEOHIVE_HOOK_DISABLED</code>.</td></tr>
 <tr><td><code>PreToolUse</code></td><td>Your agent runs <code>Glob</code> or <code>Grep</code></td><td>Adds a reminder to try <code>memory_recall</code> first. Then lets the search run. Turn it off with <code>NEOHIVE_PRETOOL_DISABLED</code>.</td></tr>
-<tr><td><code>PostToolUse</code></td><td>Your agent calls a NeoHive tool</td><td>Logs the call to <code>~/.claude/neohive/sessions/&lt;session-id&gt;.jsonl</code>. The prompt hook writes its own recalls to the same log. Your agent never reads this log. Turn it off with <code>NEOHIVE_HOOK_DISABLED</code>.</td></tr>
+<tr><td><code>PreToolUse</code></td><td>The <code>explore-neohive</code> subagent calls an MCP tool</td><td>Lets the subagent call only <code>memory_recall</code>, <code>memory_context</code>, and <code>list_indexes</code>. This hook has no off switch.</td></tr>
+<tr><td><code>PostToolUse</code></td><td>Your agent calls a NeoHive tool</td><td>Records the call in a local log at <code>~/.claude/neohive/sessions/&lt;session-id&gt;.jsonl</code>. Turn it off with <code>NEOHIVE_HOOK_DISABLED</code>.</td></tr>
 </tbody></table>
 
 Every hook except `SessionStart` needs `python3` on your `PATH`, and the prompt hook also needs `curl`. Without those tools, the hooks do nothing.
@@ -48,7 +49,7 @@ The prompt hook adds nothing in these cases:
 The prompt hook finds your [Hive](../concepts/glossary.md#hive) through the `.mcp.json` that the **Install Instructions** command writes with `--scope project`. If you add the server with the default local scope, tool calls still work. The hook then adds no context to your prompts. For more information about which scope to use, see [Connect Claude Code](../get-started/connect/claude-code.md).
 {% endhint %}
 
-The hook adds context under `NeoHive auto-context` and cuts it off at 4,000 characters. If `NEOHIVE_TOKEN` is set, the hook sends that token as a bearer token (an access token in the request header).
+The hook adds context under `NeoHive auto-context` and cuts it off at 4,000 characters. If NeoHive returns an error, the hook adds `NeoHive auto-context unavailable:` and the error text instead. If `NEOHIVE_TOKEN` is set, the hook sends that token as a bearer token (an access token in the request header).
 
 ## The Glob and Grep reminder
 
@@ -80,4 +81,4 @@ For more information about the other plugin commands, see [Slash commands](../re
 
 The Codex and Cursor plugins include no hooks, so nothing runs when a session starts, when you send a prompt, or before a search. Each plugin's rules file tells your agent to call `memory_context` first and to check memory before searching files. In Codex, the rules file is `rules/neohive.md` in the plugin. In Cursor, the rules file is `rules/neohive.mdc`, set to always apply, so it loads in every chat.
 
-In Codex and Cursor, `enable-smart-prompts` writes the helper script but does not register it. Neither agent has a documented prompt hook that the skill can register the script with. You need to connect the script yourself.
+In Codex and Cursor, `enable-smart-prompts` writes the helper script but does not register it. At the end of setup, the skill shows how to connect the script to your agent.

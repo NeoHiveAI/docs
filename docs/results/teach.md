@@ -12,7 +12,7 @@ How you word a lesson decides whether recall finds the lesson later. The followi
 
 ## What to say
 
-Tell your agent in the chat, in plain words, the way you would tell a teammate. You need no special command. The following table shows what to do in each case:
+Tell your agent in the chat, in plain words, the way you would tell a teammate. You do not need a command, because your agent saves what you say by calling `memory_store` itself. The following table shows what to do in each case:
 
 | When this happens | What to do | For example |
 |---|---|---|
@@ -22,7 +22,7 @@ Tell your agent in the chat, in plain words, the way you would tell a teammate. 
 
 ## Say it when it happens
 
-Correct your agent while the reason is still in the conversation, because the reason is what makes the Memory useful later. The reasoning behind a choice is the first thing a team loses. Before you close a session, run `/neohive:capture-session-learnings` to catch what you missed. The command stores at most five Memories per run.
+Correct your agent while the reason is still in the conversation, because the reason is what makes the Memory useful later. The reasoning behind a choice is the first thing a team loses. Before you close a session, run the `capture-session-learnings` [skill](../concepts/glossary.md#skill) to catch what you missed. The skill stores at most five Memories per run.
 
 ## Name the system, the rule, and the reason
 
@@ -35,17 +35,17 @@ Recall finds a Memory by the words and meaning in it, so a specific correction c
 
 ## Say "out of date" when a fact changes
 
-If you state only the new fact, both versions stay active, and your agent can use either one. Say that the old fact is out of date, and your agent calls `memory_forget` on the old Memory and stores the new one:
+If you state only the new fact, NeoHive keeps both the old fact and the new one, and your agent can use either. Say that the old fact is out of date, and your agent calls `memory_forget` on the old Memory and stores the new one:
 
 ```text
 That's out of date. We moved sessions off Redis last month. Update it.
 ```
 
-Recall stops returning the old Memory. NeoHive switches the old Memory off rather than deleting it.
+Recall stops returning the old Memory.
 
 ## Where Memories go
 
-Everything your agent stores goes into your own Hive's [Knowledge Index](../concepts/glossary.md#knowledge-index), and your agents can recall it right away. Your agent never writes to a [Shared Index](../concepts/glossary.md#shared-index), which belongs to another Hive and is read-only from yours.
+Everything your agent stores goes into your own Hive's [Knowledge Index](../concepts/glossary.md#knowledge-index), and your agents can recall it right away.
 
 To see what your agents stored, do the following:
 

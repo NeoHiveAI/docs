@@ -21,7 +21,7 @@
   <text x="58" y="202" class="lbl" fill="#7C3AED">START</text>
   <text x="237" y="202" font-size="10" font-weight="700" letter-spacing="0.8" text-anchor="end" fill="#009689">AUTOMATIC</text>
   <text x="58" y="228" class="title">Session opens</text>
-  <text x="58" y="252" class="body">Plugin reminds your agent</text>
+  <text x="58" y="252" class="body">NeoHive rules tell your agent</text>
   <text x="58" y="270" class="body">to load context for the task</text>
   <rect x="58" y="290" width="179" height="28" rx="3" fill="#F5F3FF" stroke="#DDD6FF"/>
   <text x="147.5" y="308" font-size="11" class="mono" text-anchor="middle" fill="#7008E7">memory_context</text>

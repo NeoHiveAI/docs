@@ -12,11 +12,11 @@ Three habits recall from your Hive: asking before you start, asking like a teamm
 
 Each habit is something you say or do while you work with your agent:
 
-1. **Ask before you start.** For example: "What do we already know about the auth flow here?"
+1. **Ask before you start.** For example: `What do we already know about the auth flow here?`
 2. **Ask like a teammate.** Name the system, so recall matches [Memories](../concepts/glossary.md#memory) that use the same names. For more information, see [Write prompts that retrieve well](prompting.md).
-3. **Teach and fix as you go.** For example: "Remember that we always use idempotency keys on payment POST requests." When a fact changes, say "That's out of date." For more information, see [Teach your agent as you work](teach.md).
-4. **Reload when the task changes.** Start a new session, or run `/neohive:load-context` with the new task.
-5. **Capture before you close.** Run `/neohive:capture-session-learnings`.
+3. **Teach and fix as you go.** For example: `Remember that we always use idempotency keys on payment POST requests.` When a fact changes, say `That's out of date.` For more information, see [Teach your agent as you work](teach.md).
+4. **Reload when the task changes.** Start a new session, or run the `load-context` [skill](../concepts/glossary.md#skill) with the new task.
+5. **Capture before you close.** Run the `capture-session-learnings` [skill](../concepts/glossary.md#skill).
 
 For the whole team, **keep repositories in sync**. Set a **Sync interval** on each [Code](../concepts/glossary.md#code-index) or [Documentation Index](../concepts/glossary.md#documentation-index) so answers match the current code. For more information, see [Keep a repository up to date](../context/repositories/sync.md).
 

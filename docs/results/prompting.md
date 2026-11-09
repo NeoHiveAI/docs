@@ -4,7 +4,7 @@ description: "Phrase requests and memory queries so NeoHive returns the Memories
 
 # Write prompts that retrieve well
 
-Recall is how your agent searches your [Hive](../concepts/glossary.md#hive) for context, through `memory_recall` or `memory_context`. In Claude Code, the plugin also runs a recall with the start of each prompt you send.
+Recall is how your agent searches your [Hive](../concepts/glossary.md#hive) for context, through `memory_recall` or `memory_context`.
 
 Recall finds a [Memory](../concepts/glossary.md#memory), code, or a document by the words and meaning it shares with your query. A vague question shares few words with anything, so it gets weak matches. Write each prompt and query the way the answer would be written. For more information about how recall finds and ranks results, see [How retrieval works](../concepts/retrieval.md).
 
@@ -16,18 +16,18 @@ The following table shows vague queries and how to rewrite them:
 
 | Instead of | Write | Why it works better |
 |---|---|---|
-| `How do we handle errors?` | `error handling and retries in the async batch processor` | A statement with system names reads like the Memory it should match. |
+| `How does the batch job handle errors?` | `error handling and retries in the async batch processor` | The rewrite names the system and what "errors" means there, which a matching Memory also mentions. |
 | `auth stuff` | `JWT validation and token refresh in the API gateway middleware` | The query names the parts a matching Memory would mention. |
-| `duplicate prevention` | `idempotency keys on payment POST requests` | The query uses your team's own words, which stored Memories also use. |
-| `ok now do the search work` | `Switching to the search indexing worker. It drops documents over 1MB.` | The prompt starts with the subject, so the automatic recall has something to match. |
+| `duplicate payment prevention` | `idempotency keys on payment POST requests` | Your team calls this idempotency keys, and stored Memories use your team's own words. |
+| `ok now fix the thing that drops big docs in search` | `Search indexing worker: it drops documents over 1MB. Fix that next.` | The subject comes first, so a search built from the prompt starts with the system's name. |
 
 ## Put the subject first
 
-In Claude Code, the plugin recalls with only the start of each prompt. Put the system and the problem first, then the background and instructions. For more information about the prompt recall, see [What the plugin does automatically](plugin-automation.md).
+Your agent builds its searches from what you write, so put the system and the problem first, then the background and instructions. In Claude Code, the plugin also recalls with only the start of each prompt. For more information, see [What the plugin does automatically](plugin-automation.md).
 
 ## Ask for several phrasings on important searches
 
-`memory_recall` accepts `queries`, a list of phrasings whose results it merges into one list. When you do not know the words your team uses, ask your agent to search several ways:
+`memory_recall` accepts `queries`, a list of phrasings whose results it merges into one list. When you do not know the words your team uses, ask your agent to search several ways, and name your own topic. For example:
 
 ```text
 Search memory a few different ways for how we rate-limit the billing API.
@@ -37,7 +37,12 @@ For more information about the parameters of `memory_recall` and their limits, s
 
 ## Pick the right tool
 
-Your agent calls `memory_context` once, at the start of a task. Your agent calls `memory_recall` any time the task needs something specific. Describe the task to `memory_context` as a statement. For example, `implementing rate limiting for the Express gateway` loads more context than `what do we know about the gateway?`.
+Your agent uses two tools to search your Hive:
+
+* `memory_context`, once, at the start of a task, to load the rules and Memories that fit the task.
+* `memory_recall`, any time the task needs something specific.
+
+Describe your task as a statement, because your agent passes your words to `memory_context`. For example, `implementing rate limiting for the Express gateway` finds more than `what do we know about the gateway?`.
 
 Both tools search every [Index](../concepts/glossary.md#index) in your Hive unless you pass `index`.
 

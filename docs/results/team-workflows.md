@@ -12,7 +12,7 @@ To share one Hive, each teammate first connects to the team's Hive. Teams then u
 
 ## Connect each person to the team Hive
 
-A Hive has one [MCP](../concepts/glossary.md#mcp) endpoint. Everyone who connects to the endpoint reads the same [Indexes](../concepts/glossary.md#index) and writes to the same [Knowledge Index](../concepts/glossary.md#knowledge-index). For this reason, each teammate connects to the team's Hive instead of creating their own. To run one NeoHive instance for a team, see [Access and sharing](../admin/access.md).
+A Hive has one [MCP](../concepts/glossary.md#mcp) endpoint. Everyone who connects to the endpoint reads the same [Indexes](../concepts/glossary.md#index) and writes to the same [Knowledge Index](../concepts/glossary.md#knowledge-index). For this reason, each teammate connects to the team's Hive instead of creating their own. To connect each teammate's agent, see [Connect your agent](../get-started/connect/README.md). To run one NeoHive instance for a team, see [Access and sharing](../admin/access.md).
 
 ## The three workflows
 
@@ -22,7 +22,7 @@ The following table shows each workflow, what someone stored earlier, and what a
 |---|---|---|
 | **Onboard a teammate** | Taught the Hive the team's conventions and decisions | `How do we handle authentication in the API gateway, and why?` |
 | **Debug with past fixes** | Stored the symptom, cause, and fix of a bug | `Have we run into flaky failures in the batch processor? What fixed them?` |
-| **Keep conventions consistent** | Said `Remember that we use snake_case for all database column names.` | Nobody needs to ask. At session start, `memory_context` returns the conventions that fit the task. |
+| **Keep conventions consistent** | Said `Remember that we use snake_case for all database column names.` | Nobody needs to ask. When your agent loads context for a task, `memory_context` returns the conventions that fit it. |
 
 Each workflow works only after someone has done what the middle column describes, because recall cannot return a fix that nobody stored. When you solve a difficult problem, tell your agent to remember the symptom, the cause, and the fix.
 

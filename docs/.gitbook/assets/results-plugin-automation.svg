@@ -20,7 +20,7 @@
   <text x="134" y="154" font-size="14.5" font-weight="700" fill="#1A1A2E">A session starts</text>
   <text x="134" y="176" font-size="11" class="mono" fill="#7C3AED">SessionStart</text>
   <text x="400" y="154" class="body">Installs or updates the rules file, then</text>
-  <text x="400" y="174" class="body">reminds your agent to call <tspan class="mono" fill="#7008E7">memory_context</tspan></text>
+  <text x="400" y="174" class="body">shows you a reminder to call <tspan class="mono" fill="#7008E7">memory_context</tspan></text>
   <text x="940" y="148" font-size="9.5" font-weight="700" letter-spacing="0.9" text-anchor="end" fill="#737373">TURN OFF</text>
   <text x="940" y="170" font-size="12" text-anchor="end" fill="#737373">no switch</text>
   <circle cx="76" cy="258.0" r="9" fill="#7C3AED"/>

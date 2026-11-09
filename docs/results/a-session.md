@@ -14,7 +14,7 @@ A session has four stages. In Claude Code, the first two run automatically, and 
 {% step %}
 ## Start: load context for the task
 
-When the session opens, the plugin reminds your agent to call `memory_context` with your task. `memory_context` returns your team's rules and conventions, plus the [Memories](../concepts/glossary.md#memory) that fit the task.
+When the session opens, the NeoHive rules tell your agent to call `memory_context` with your task. `memory_context` returns your team's rules and conventions, plus the [Memories](../concepts/glossary.md#memory) that fit the task.
 
 To load context yourself, or to reload it after you switch to a different task, run the following command:
 
@@ -28,16 +28,16 @@ If you run the command without a task description, your agent describes the task
 {% step %}
 ## Work: your agent pulls what it needs
 
-The plugin runs a [recall](../concepts/glossary.md#recall) with each prompt you send and adds the best matches to your agent's context. Your agent also calls `memory_recall` itself when it needs something specific. For more information about what triggers a recall, see [What the plugin does automatically](plugin-automation.md).
+Your agent calls `memory_recall` whenever it needs something specific. In Claude Code, the plugin also runs a [recall](../concepts/glossary.md#recall) with each prompt you send and adds the best matches to your agent's context. For more information about what triggers a recall, see [What the plugin does automatically](plugin-automation.md).
 {% endstep %}
 
 {% step %}
 ## Teach: correct your agent and tell it to remember
 
-When your agent gets something wrong, give the correct answer and the reason:
+When your agent gets something wrong, give the correct answer and the reason. For example:
 
 ```text
-Remember that the payments API requires idempotency keys on every POST request.
+Remember that the payments API requires idempotency keys on every POST request, because retries otherwise charge the customer twice.
 ```
 
 Your agent stores the correction with `memory_store`, and everyone who uses your Hive gets it in later sessions. For more information about what to say, see [Teach your agent as you work](teach.md).
@@ -52,13 +52,13 @@ To save the session's learnings, run the following command before you close the 
 /neohive:capture-session-learnings
 ```
 
-Your agent reviews the conversation for corrections, conventions, decisions, and known problems. It skips what the Hive already knows and stores up to five new Memories.
+Your agent reviews the conversation for corrections, conventions, decisions, and known problems. Your agent skips what the Hive already knows and stores up to five new Memories.
 
 {% hint style="warning" %}
 No hook runs the capture for you. If you close the session without running the capture, NeoHive keeps only the Memories your agent stored during the session.
 {% endhint %}
 
-The capture can also add one instruction to your agent's instructions file when your agent used memory poorly. For example, the capture adds an instruction when your agent never loaded context. The capture changes only the memory section of that file.
+The capture can also add one instruction to your agent's instructions file when your agent used memory poorly. For example, the capture adds an instruction when your agent never loaded context.
 {% endstep %}
 {% endstepper %}
 
@@ -68,7 +68,7 @@ What you run depends on your agent:
 
 {% tabs %}
 {% tab title="Claude Code" %}
-The plugin reminds your agent to load context when the session opens. To reload context for a new task, run `/neohive:load-context`. Before you close the session, run `/neohive:capture-session-learnings`. The capture can edit `~/CLAUDE.md`.
+The NeoHive rules tell your agent to load context when the session opens. To reload context for a new task, run `/neohive:load-context`. Before you close the session, run `/neohive:capture-session-learnings`. The capture can edit `~/CLAUDE.md`.
 {% endtab %}
 
 {% tab title="Codex" %}
