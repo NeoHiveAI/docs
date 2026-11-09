@@ -46,7 +46,7 @@ Command-line interface, a program that you run by typing commands in a terminal,
 
 ### Code Index
 
-An [Index](#index) that holds source code from a GitHub or GitLab repository. [Sync](#sync) keeps a Code Index up to date. See [Add a code repository](../context/repositories/README.md).
+An [Index](#index) that holds source code from a GitHub or GitLab repository. [Sync](#sync) keeps a Code Index up to date. See [Add a repository](../context/repositories/README.md).
 
 ### Connection
 
@@ -84,7 +84,7 @@ The model that turns text into [embeddings](#embedding). The embedding model run
 
 ### Files Index
 
-An [Index](#index) that holds Markdown, text, and PDF files that you add with **File Upload**. See [Add documents and PDFs](../context/documents.md).
+An [Index](#index) that holds markdown, text, PDF, Word, Excel, and PowerPoint files, and PNG or JPEG images, that you add with **File Upload**. See [Add documents and images](../context/documents.md).
 
 ## G
 

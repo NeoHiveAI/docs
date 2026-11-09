@@ -27,5 +27,5 @@ A Hive has one [MCP](../concepts/glossary.md#mcp) endpoint. Everyone who connect
 Each workflow works only after someone has done what the middle column describes. Recall cannot return a fix that nobody stored. When you solve a difficult problem, tell your agent to remember the symptom, the cause, and the fix.
 
 {% hint style="info" %}
-To import rules your team already keeps in `CLAUDE.md` or `AGENTS.md` files, see [Migrate from CLAUDE.md](../context/migrate.md).
+To import rules your team already keeps in `CLAUDE.md` or `AGENTS.md` files, see [Import rules from CLAUDE.md and AGENTS.md](../context/migrate.md).
 {% endhint %}

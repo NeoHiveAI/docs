@@ -23,13 +23,13 @@
 ## Add your context
 
 * [What to add, and where](context/what-to-add.md)
-* [Add a code repository](context/repositories/README.md)
+* [Add a repository](context/repositories/README.md)
   * [Connect GitHub or GitLab](context/repositories/connect.md)
   * [Choose which files are included](context/repositories/file-patterns.md)
   * [Keep a repository up to date](context/repositories/sync.md)
-* [Add documents and PDFs](context/documents.md)
+* [Add documents and images](context/documents.md)
 * [Capture team knowledge](context/team-knowledge.md)
-* [Migrate from CLAUDE.md](context/migrate.md)
+* [Import rules from CLAUDE.md and AGENTS.md](context/migrate.md)
 
 ## Get better results
 

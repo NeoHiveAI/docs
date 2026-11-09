@@ -37,7 +37,7 @@ Every page has a type, and the type sets how dense the page is. Readers arrive a
 
 | Page type | Pages | How the page reads |
 | --- | --- | --- |
-| **Overview** | Welcome (`README.md`), What is NeoHive, and a landing page that only leads into its child pages, such as Add a code repository | Short sections with one idea each. Cards link to the next pages, and lists with a bold lead-in carry the problems and benefits. The tone follows the public website and leads with what the team gets. See [Overview pages](#overview-pages-must-follow). |
+| **Overview** | Welcome (`README.md`), What is NeoHive, and a landing page that only leads into its child pages, such as Add a repository | Short sections with one idea each. Cards link to the next pages, and lists with a bold lead-in carry the problems and benefits. The tone follows the public website and leads with what the team gets. See [Overview pages](#overview-pages-must-follow). |
 | **Getting started** | Quickstart, Install NeoHive, Connect your agent and its four agent pages, and Your first session | Numbered steps. After each step, show what the reader sees, such as the command's output, so they know the step worked. |
 | **Concept** | Core Concepts, Dashboard tour, and the Security and privacy pages | Prose leads, supported by a diagram and at most one list or table in each section. A concept page explains why as well as what, so it can be longer and more technical than an overview page. |
 | **Guide** | The Get better results pages, and What to add, and where | Advice on how to work with NeoHive, built on examples: what to say, what you notice, what to do instead. Mix prose with example prompts, a lookup table, or a diagram, as the advice needs. |
