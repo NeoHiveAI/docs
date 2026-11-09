@@ -8,7 +8,7 @@ Three prompts are enough to see what NeoHive changes. Your agent answers a quest
 
 <figure><img src="../.gitbook/assets/get-started-first-session.svg" alt="A timeline of two sessions. Session 1 calls memory_recall and memory_store. In session 2, memory_context brings the convention back."><figcaption></figcaption></figure>
 
-Before you start, you need an agent connected to a [Hive](../concepts/glossary.md#hive), your team's NeoHive workspace. The Hive also needs a [Code Index](../concepts/glossary.md#code-index) (the searchable copy of a repository) whose first sync has finished. For more information about connecting an agent, see [Connect your agent](connect/README.md).
+Before you start, you need an agent connected to a [Hive](../concepts/glossary.md#hive). The Hive also needs a [Code Index](../concepts/glossary.md#code-index) whose first sync has finished. For more information about connecting an agent, see [Connect your agent](connect/README.md).
 
 {% stepper %}
 {% step %}
@@ -44,7 +44,7 @@ Close the session and start a new one. Ask for work that the convention applies 
 Add a table for customer invoices.
 ```
 
-Your agent calls `memory_context` or `memory_recall`, gets the convention back, and uses snake_case without you asking. If your agent has a NeoHive plugin, the agent loads relevant Memories at the start of the task on its own.
+Your agent calls `memory_context` or `memory_recall`, gets the convention back, and uses snake_case without you asking. If your agent has a NeoHive plugin and you ran its setup, the agent loads relevant Memories at the start of the task on its own.
 {% endstep %}
 {% endstepper %}
 

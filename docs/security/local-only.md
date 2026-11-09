@@ -8,7 +8,7 @@ NeoHive keeps your content on the machine it runs on, whether that's your own co
 
 An outbound connection is a request that NeoHive starts to another server. Before a security review or a firewall change, check what each connection sends and whether you can block it. The following diagram shows what stays on the machine and what leaves it:
 
-<figure><img src="../.gitbook/assets/security-local-only.svg" alt="Your content stays in the NeoHive container. Arrows leave for the license, metrics, update, model, data source, dashboard asset, and provider connections."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/security-local-only.svg" alt="Your content stays in the NeoHive container. Arrows leave the container for the license, metrics, update, model download, and data source connections. Dashed arrows show the dashboard assets that your browser loads and the model provider that your agent calls."><figcaption></figcaption></figure>
 
 All of your content stays on the machine NeoHive runs on: your code, documents, [Memories](../concepts/glossary.md#memory), and recall queries. NeoHive clones, indexes, and embeds your repositories there, and stores the clones and their [Indexes](../concepts/glossary.md#index) in the `neohive-data` Docker volume. NeoHive also stores your repository tokens there and sends each token only to its own provider.
 
@@ -18,7 +18,7 @@ Your content stays on the machine, but the NeoHive container makes the following
 
 | Connection | Goes to | When | What it sends | Can you turn it off? |
 |---|---|---|---|---|
-| License check | `api.keygen.sh` | At start, then once a day | Your license key, a random machine ID, and the container's platform and host name. The host name is the container's ID, not your computer's name | No. If NeoHive can't reach the licensing service, it keeps running for up to 72 hours from its last successful check. For more information, see [Check your license status](../admin/licensing.md#check-your-license-status). |
+| License check | `api.keygen.sh` | At start, about once an hour while NeoHive runs, once a day to recheck the license, and once when the container stops | Your license key, a random machine ID, and the container's platform and host name. The host name is the container's ID, not your computer's name | No. If NeoHive can't reach the licensing service, it keeps running for up to 72 hours from its last successful check. For more information, see [Check your license status](../admin/licensing.md#check-your-license-status). |
 | Usage metrics | Grafana Cloud | Regularly while usage metrics are turned on. They're on by default | Counts, timings, and request details, described after this table | Yes. On the **Settings** page, under **Anonymous Telemetry**, turn off **Share anonymous performance data with the NeoHive team**. NeoHive keeps working |
 | Update check | `hub.docker.com` and `raw.githubusercontent.com` | Shortly after start, then once a day | Nothing. The check reads the published version list and changelog | No setting, but you can block both hosts. The dashboard then stops showing new versions, and NeoHive keeps working |
 | Model download | `huggingface.co` | When an embedding model isn't cached yet, including the first use after each update | Only the request for the file | No. The download happens once for each model, and again after an update. The document converter's models, including OCR, come with the container |
@@ -41,9 +41,9 @@ The installer, your browser, and the agent plugins make their own connections, o
 | Connection | Goes to | When |
 |---|---|---|
 | The installer | `raw.githubusercontent.com`, Docker Hub, `api.keygen.sh` | When you run `install.sh` to install or update |
-| The dashboard's fonts | `fonts.googleapis.com`, `fonts.gstatic.com` | When your browser opens `http://localhost:3577` |
+| The dashboard's fonts | `fonts.googleapis.com`, `fonts.gstatic.com` | When your browser opens the dashboard |
 | The dashboard's release notes | `cdn.headwayapp.co` and Headway's servers | When your browser opens the dashboard |
-| Smart prompt rewriting | The model provider that your `claude` CLI uses | Only after you run `/neohive:enable-smart-prompts`. The rewriting sends your prompt and the recalled results |
+| Smart prompt rewriting | The model provider that your `claude` CLI uses | Only after you turn it on with the plugin's `enable-smart-prompts` skill. The rewriting sends your prompt and the recalled results |
 
 On a Mac with Apple Silicon, the installer can run embedding in a separate NeoHive worker on the Mac itself, outside Docker. The worker still runs on your machine. The worker downloads its embedding model from `huggingface.co` the first time it needs the model.
 

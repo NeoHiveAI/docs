@@ -68,8 +68,8 @@ The reply contains `"status":"ok"`. If the reply doesn't contain `"status":"ok"`
 
 A [Hive](../concepts/glossary.md#hive) is a workspace for one codebase or team. A Hive holds [Indexes](../concepts/glossary.md#index), the stores for your code, documents, files, and [Memories](../concepts/glossary.md#memory). To create your Hive, do the following:
 
-1. Open the dashboard.
-2. Read and accept the license.
+1. Open the dashboard address that the installer printed, such as `http://localhost:3577`.
+2. If the license opens, read it, and then click **I Understand**.
 3. Read through the welcome screens, and then click **Start setup**.
 4. In **Name Hive**, enter a name for your Hive.
 5. In **Configure first Index**, under **Where does your data live?**, select the first source for the Hive, and then fill in its details.
@@ -91,10 +91,12 @@ Besides the Index you create here, NeoHive gives every Hive a [Knowledge Index](
 {% step %}
 ## Connect your agent
 
-The last setup screen, **Install for your AI tools**, shows the command that adds the Hive to your agent as an [MCP](../concepts/glossary.md#mcp) server. Your agent then calls NeoHive's tools through that server. Setup selects **Claude** by default. To connect a different agent, see [Cursor](connect/cursor.md), [Codex](connect/codex.md), [ChatGPT](connect/chatgpt.md), or [Claude Desktop and other MCP apps](connect/desktop-apps.md). To connect Claude Code, do the following:
+The last setup screen, **Install for your AI tools**, shows how to add the Hive to your agent as an [MCP](../concepts/glossary.md#mcp) server. Your agent then calls NeoHive's tools through that server. Under **Which tool are you using?**, select your agent, and then do the steps in its tab:
 
+{% tabs %}
+{% tab title="Claude Code" %}
 1. In your terminal, go to your project's root folder.
-2. Run the command from **Install for your AI tools**. The command looks like this:
+2. Run the command that setup shows. The command looks like this:
 
    ```bash
    claude mcp add <name> '<hive-url>' \
@@ -105,7 +107,7 @@ The last setup screen, **Install for your AI tools**, shows the command that add
 
    The `--scope project` flag saves the Hive in that folder's `.mcp.json`, where the plugin's automatic recall looks for it. For more information, see [Claude Code](connect/claude-code.md).
 3. Start Claude Code in the project.
-4. When Claude Code asks, approve the NeoHive server. Setup shows **Connected** after Claude Code connects.
+4. When Claude Code asks, approve the NeoHive server.
 5. To install the plugin and run its setup, run the following commands inside Claude Code:
 
    ```text
@@ -114,12 +116,42 @@ The last setup screen, **Install for your AI tools**, shows the command that add
    /reload-plugins
    /neohive:getting-started
    ```
-6. Back in setup, click **Open** followed by your Hive's name. NeoHive then creates the Index and starts the first sync. If you leave setup without clicking the **Open** button, NeoHive deletes the Hive.
+{% endtab %}
+
+{% tab title="Cursor" %}
+1. Copy the JSON that setup shows into `.cursor/mcp.json` in your project.
+2. Restart Cursor.
+3. Install the plugin, as shown in [Install the plugin](connect/cursor.md#install-the-plugin).
+{% endtab %}
+
+{% tab title="Codex" %}
+1. Copy the block that setup shows into `~/.codex/config.toml`.
+2. Start Codex.
+3. Install the plugin, as shown in [Install the plugin](connect/codex.md#install-the-plugin).
+{% endtab %}
+
+{% tab title="ChatGPT" %}
+1. Select **Other**.
+2. Add the endpoint that setup shows to the ChatGPT desktop app, as shown in [Add the MCP server](connect/chatgpt.md#add-the-mcp-server). Add `?client=chatgpt` to the end of the URL.
+{% endtab %}
+
+{% tab title="Claude Desktop" %}
+1. Select **Desktop**.
+2. Paste the JSON that setup shows into `claude_desktop_config.json`, as shown in [Claude Desktop and other MCP apps](connect/desktop-apps.md).
+3. Quit Claude Desktop completely, and then open it again.
+{% endtab %}
+{% endtabs %}
+
+For any other MCP app, select **Other**, and add the endpoint that setup shows, as described in [Claude Desktop and other MCP apps](connect/desktop-apps.md).
+
+When setup shows **Connected**, click **Open** followed by your Hive's name. NeoHive then creates the Index and starts the first sync. If you leave setup without clicking the **Open** button, NeoHive deletes the Hive.
+
+If setup doesn't show **Connected**, click **Skip**, and then click **Continue without MCP**. Then see [Agent can't connect](../troubleshooting/connection.md).
 
 {% hint style="success" %}
 **Check:** the Index is ready.
 
-Open the Index from the Hive page. For a repository Index, **Sync history** shows that the first sync finished. If the sync failed, see [Repository sync issues](../troubleshooting/sync.md).
+Open the Index from the Hive page. For a repository Index, **Sync history** shows that the first sync finished. If the sync failed, see [Repository sync issues](../troubleshooting/sync.md). For an Index of uploaded files, the **Files** tab lists each file that you uploaded.
 {% endhint %}
 
 {% hint style="success" %}

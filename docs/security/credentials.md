@@ -1,5 +1,5 @@
 ---
-description: "Where NeoHive stores the GitHub and GitLab tokens it uses to reach your data sources, how it protects them, and which other secrets it keeps."
+description: "Where NeoHive stores the tokens it uses to reach your data sources, such as GitHub and GitLab tokens, how it protects them, and which other secrets it keeps."
 ---
 
 # Credentials and secrets
@@ -23,7 +23,7 @@ Each data source on the **Data Sources** page can have several **connections**, 
 
 ## Check, rotate, or remove a connection
 
-NeoHive checks each new token with the provider and doesn't save a connection that the provider rejects. Deleting a connection removes only NeoHive's encrypted copy of its token. An existing clone still holds the token in its `.git/config` file, so also revoke the token with the provider. For more information about connection states and how to rotate a token, see [Check or remove a connection](../admin/data-sources.md#check-or-remove-a-connection).
+NeoHive checks each new token with the provider and doesn't save a connection that the provider rejects. Deleting a connection removes only NeoHive's encrypted copy of its token. An existing clone still holds the token in its `.git/config` file, so also revoke the token with the provider. For more information about connection states, see [Check or remove a connection](../admin/data-sources.md#check-or-remove-a-connection). To replace a token, see [Replace a token](../admin/data-sources.md#replace-a-token).
 
 {% hint style="danger" %}
 **Keep the encryption key with the data.** If `/app/data/.encryption_key` is lost, NeoHive starts anyway and creates a new key. If `MEMVEC_ENCRYPTION_KEY` changes, NeoHive uses the new key. Either way, NeoHive can't decrypt the stored connections.

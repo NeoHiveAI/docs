@@ -19,7 +19,7 @@
   <rect x="40" y="116" width="226" height="260" rx="5" fill="#FFFFFF" stroke="#E5E5E5"/>
   <text x="60" y="142" class="lbl" fill="#7C3AED">YOUR AGENT</text>
   <text x="60" y="166" class="title">Coding agent</text>
-  <text x="60" y="186" class="body">Claude Code, Cursor, or Codex</text>
+  <text x="60" y="186" class="body">Claude Code, Cursor, Codex, ...</text>
 
   <rect x="58" y="204" width="190" height="146" rx="5" fill="#F5F3FF" stroke="#DDD6FF"/>
   <text x="74" y="228" class="lbl" fill="#7C3AED">PLUGIN</text>

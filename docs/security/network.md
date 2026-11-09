@@ -111,6 +111,14 @@ Claude Desktop reaches NeoHive through `mcp-remote`. Add each header with `--hea
 }
 ```
 {% endtab %}
+
+{% tab title="ChatGPT" %}
+ChatGPT can't send a custom header, so it can't pass your proxy's credential. To reach NeoHive from ChatGPT, use a VPN or a trusted network instead.
+{% endtab %}
+
+{% tab title="Other MCP apps" %}
+Add the header wherever the app takes headers. If the app runs local commands only, pass the header to `mcp-remote` with `--header`, as the **Claude Desktop** tab shows.
+{% endtab %}
 {% endtabs %}
 
 {% hint style="info" %}

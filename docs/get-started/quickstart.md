@@ -32,8 +32,8 @@ When the installer finishes, it prints the dashboard addresses.
 
 A [Hive](../concepts/glossary.md#hive) is a workspace for your team, with one address that agents connect to. To create the Hive, do the following:
 
-1. Open `http://localhost:3577`.
-2. Read and accept the license.
+1. Open the dashboard address that the installer printed, such as `http://localhost:3577`.
+2. If the license opens, read it, and then click **I Understand**.
 3. Read through the welcome screens, and then click **Start setup**.
 4. In **Name Hive**, enter a name for your Hive.
 5. In **Configure first Index**, select **GitHub**, paste your token, click **Fetch repositories**, and then select your repository.
@@ -64,7 +64,9 @@ Setup then shows **Install for your AI tools** with **Claude** selected. To conn
    /reload-plugins
    /neohive:getting-started
    ```
-6. Back in setup, click **Open** followed by your Hive's name. NeoHive then creates the Index and indexes your repository in the background, so your agent can search your code. If you leave setup without clicking the **Open** button, NeoHive deletes the Hive.
+6. When setup shows **Connected**, click **Open** followed by your Hive's name. NeoHive then creates the Index and indexes your repository in the background, so your agent can search your code. If you leave setup without clicking the **Open** button, NeoHive deletes the Hive.
+
+   If setup doesn't show **Connected**, click **Skip**, and then click **Continue without MCP**. Then see [Agent can't connect](../troubleshooting/connection.md).
 
 To check when indexing finishes, see [Connect GitHub or GitLab](../context/repositories/connect.md#create-the-index).
 

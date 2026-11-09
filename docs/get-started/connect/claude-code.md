@@ -4,7 +4,7 @@ description: "Connect Claude Code to a Hive and install the NeoHive plugin."
 
 # Claude Code
 
-To connect Claude Code, you register your [Hive](../../concepts/glossary.md#hive) (your team's NeoHive workspace) as an [MCP](../../concepts/glossary.md#mcp) server. Then you install the plugin and check that Claude Code can call NeoHive's tools.
+To connect Claude Code, you register your [Hive](../../concepts/glossary.md#hive) as an [MCP](../../concepts/glossary.md#mcp) server. Then you install the plugin and check that Claude Code can call NeoHive's tools.
 
 Before you start, you need a running NeoHive server that has a Hive, and a version of Claude Code that supports plugins.
 
@@ -30,15 +30,17 @@ claude mcp add <name> '<hive-url>' \
   --header 'x-mcp-client: claude-code'
 ```
 
-If you type the command yourself, keep `--scope project`. The plugin's prompt hook looks for the NeoHive server in your project's `.mcp.json` file first. With `--scope user`, every project recalls from the first Hive that you added. With no scope, the hook doesn't find the server, and automatic recall does nothing. For more information about scopes, see [MCP installation scopes](https://code.claude.com/docs/en/mcp#mcp-installation-scopes).
+7. Start Claude Code in the project. When Claude Code asks about the server from `.mcp.json`, approve it.
 
-Also put the URL directly after the name. Claude Code reads a URL that comes after a flag as a header value, and then can't reach the server. The dashboard's command ends with `&& claude mcp get <name>`, which prints the saved entry so you can check the order.
+The dashboard's command ends with `&& claude mcp get <name>`, which prints the saved entry. Commit `.mcp.json` to the repository, and every teammate who opens the project gets the same Hive.
 
-Commit `.mcp.json` to the repository, and every teammate who opens the project gets the same Hive.
+{% hint style="warning" %}
+If you type or edit the command yourself, keep the following parts as the dashboard writes them:
 
-Keep `neohive` in the server name that the dashboard gives you, because the plugin finds the Hive by that name.
-
-The next time Claude Code starts in the project and asks about the server from `.mcp.json`, approve the server.
+* **Keep the project scope.** The plugin's prompt hook looks for the NeoHive server in your project's `.mcp.json` file first, which is where `--scope project` saves it. With `--scope user`, every project recalls from the first Hive that you added. With no scope, the hook doesn't find the server, and automatic recall does nothing. For more information about scopes, see [MCP installation scopes](https://code.claude.com/docs/en/mcp#mcp-installation-scopes).
+* **Put the URL directly after the name.** Claude Code reads a URL that comes after a flag as a header value, and then can't reach the server.
+* **Keep NeoHive in the server name.** The plugin finds the Hive by a server name that contains `neohive`.
+{% endhint %}
 {% endstep %}
 
 {% step %}
@@ -83,7 +85,7 @@ The wizard checks that the Hive is reachable and offers to write a Hive summary 
 {% hint style="success" %}
 **Check:** Claude Code can reach the Hive.
 
-Ask Claude Code: `List my NeoHive Indexes.` Claude Code calls `list_indexes` and lists the [Indexes](../../concepts/glossary.md#index), or content stores, in the Hive. The dashboard's **Install Instructions** panel also marks **Claude Code** as connected.
+Ask Claude Code: `List my NeoHive Indexes.` Claude Code calls `list_indexes` and lists the [Indexes](../../concepts/glossary.md#index) in the Hive. The dashboard's **Install Instructions** panel also marks **Claude Code** as connected.
 
 If the `list_indexes` tool is missing, run `claude mcp get <name>` and compare the URL with the dashboard. Then see [Agent can't connect](../../troubleshooting/connection.md).
 {% endhint %}

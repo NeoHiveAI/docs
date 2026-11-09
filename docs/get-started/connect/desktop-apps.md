@@ -4,7 +4,7 @@ description: "Connect Claude Desktop, any other MCP app, or an agent with no Neo
 
 # Claude Desktop and other MCP apps
 
-To connect any [MCP](../../concepts/glossary.md#mcp) app, give the app the MCP endpoint of your [Hive](../../concepts/glossary.md#hive), your team's NeoHive workspace. Apps that only run local commands reach the endpoint through `mcp-remote`, a small Node.js program that forwards requests to the endpoint. The following table shows what to add for each kind of app:
+To connect any [MCP](../../concepts/glossary.md#mcp) app, give the app the MCP endpoint of your [Hive](../../concepts/glossary.md#hive). Apps that only run local commands reach the endpoint through `mcp-remote`, a small Node.js program that forwards requests to the endpoint. The following table shows what to add for each kind of app:
 
 | The app connects by | Examples | What you add |
 |---|---|---|
@@ -95,7 +95,7 @@ To ask for a plugin for your agent, email `hello@neohive.ai`.
 {% hint style="success" %}
 **Check:** the app can reach the Hive.
 
-Ask the app: `List my NeoHive Indexes.` The app calls `list_indexes` and lists the [Indexes](../../concepts/glossary.md#index), or content stores, in the Hive.
+Ask the app: `List my NeoHive Indexes.` The app calls `list_indexes` and lists the [Indexes](../../concepts/glossary.md#index) in the Hive.
 
 If the `list_indexes` tool is missing, read the app's MCP log. Claude Desktop writes `mcp*.log` files to `~/Library/Logs/Claude/` on macOS and `%APPDATA%\Claude\logs\` on Windows. Then see [Agent can't connect](../../troubleshooting/connection.md).
 {% endhint %}
