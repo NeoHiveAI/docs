@@ -69,7 +69,7 @@ By default, NeoHive rechecks a connection at most once every 23 hours. To check 
 **Bound Indexes** lists the Indexes in your current Hive that sync through the connection. **Delete** removes the connection.
 
 {% hint style="warning" %}
-When you delete a connection, every Index that syncs through the connection stops syncing. The Indexes keep their [Memories](../concepts/glossary.md#memory) and show a **No connection** badge.
+When you delete a connection, every Index that syncs through the connection can no longer sync. Scheduled syncs keep running and fail until you click **Assign connection** on the Index page, or pause syncing. The Indexes keep their [Memories](../concepts/glossary.md#memory) and show a **No connection** badge.
 {% endhint %}
 
 ## Replace a token

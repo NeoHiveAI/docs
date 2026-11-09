@@ -6,7 +6,7 @@ description: "Checks to run, in order, when your coding agent cannot reach NeoHi
 
 Your agent reaches NeoHive through the [MCP](../concepts/glossary.md#mcp) endpoint of a [Hive](../concepts/glossary.md#hive). The endpoint is a web address, such as `http://localhost:3577/hives/<hive-id>/mcp`.
 
-The connection depends on several parts in turn. The NeoHive container must be running, and the server must be healthy. The Hive must answer, and your agent must use the right endpoint. Finally, your agent must load the NeoHive tools. If any one part fails, your agent cannot use NeoHive. The agent shows a connection error, or the NeoHive tools do not appear.
+The connection depends on several parts in turn. The NeoHive container must be running, and the server must be healthy. Your agent must use the right endpoint, and then load the NeoHive tools. If any one part fails, your agent cannot use NeoHive. The agent shows a connection error, or the NeoHive tools do not appear.
 
 Use the checks on this page to find which part breaks, and then fix that part.
 
