@@ -31,12 +31,19 @@ The tag in the `IMAGE` column names the backend, for example `neohivedev/neohive
 
 On Apple Silicon, NeoHive uses the Mac's GPU through the [Metal worker](../concepts/glossary.md#metal-worker), a program that the installer sets up directly on macOS. The worker is needed because Docker on a Mac cannot reach the GPU, so the NeoHive container itself always uses the CPU backend. The worker does NeoHive's indexing work on the GPU instead, which makes indexing much faster.
 
+- **NeoHive falls back to the CPU.** If any part of the worker setup fails, the installer warns you and NeoHive embeds on CPU inside the container.
+
+<details>
+
+<summary>Where the Metal worker runs</summary>
+
 - **The worker runs outside Docker.** It lives in `~/.neohive/metal-worker/` and starts again after a reboot.
 - **Other machines on your network cannot reach the worker.** The worker listens on `127.0.0.1` only, on port `50051` by default.
 - **Models and logs stay in your home folder.** Models download to `~/.neohive/models/` on first use, and logs go to `~/.neohive/logs/`.
-- **NeoHive falls back to the CPU.** If any part of the worker setup fails, the installer warns you and NeoHive embeds on CPU inside the container.
 
 The end of the install output tells you which embedding setup you have: `Embedding: native Metal worker on 127.0.0.1:50051`, or `Embedding: in-container CPU (no Metal worker)`.
+
+</details>
 
 To skip the worker, set `NEOHIVE_METAL_WORKER` when you run the installer. To move the worker to another port, set `NEOHIVE_METAL_WORKER_PORT`. For the values and defaults, see the [Installer](../reference/environment-variables.md#installer) variables.
 
