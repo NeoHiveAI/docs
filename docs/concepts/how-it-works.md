@@ -12,17 +12,7 @@ Every teammate's agent reads the same memory, whichever tool the teammate uses. 
 
 Your agent does not read NeoHive's files. The agent asks through an MCP tool, such as `memory_recall` or `memory_store`, and gets matching code, docs, and [Memories](glossary.md#memory) back. For more information about each tool, see [MCP tools](../reference/mcp-tools.md).
 
-## The container
-
-NeoHive is one Docker container named `neohive`. The container keeps your code, documents, and Memories on the machine it runs on.
-
-The container holds your Hives and their [Indexes](glossary.md#index). For more information about Hives and Indexes, see [Hives, Indexes, and Memories](hives-indexes-memories.md). The container also provides the following:
-
-* **You manage your Hives in the dashboard.** The dashboard opens in your browser at the address the installer prints, `http://localhost:3577` by default.
-* **Each Hive has its own MCP endpoint.** The endpoint path is `/hives/<hive-id>/mcp`.
-* **One Docker volume holds all your data.** Your data lives in the `neohive-data` volume.
-
-## What the plugin runs
+## Your agents and the plugin
 
 The plugin installs a [rules file](glossary.md#rules-file) that tells your agent when to use memory. To install the plugin, see [Connect your agent](../get-started/connect/README.md). What else the plugin runs depends on your tool:
 
@@ -47,7 +37,19 @@ Claude Desktop and other MCP apps have no plugin. To tell the agent when to call
 
 For more information about each hook and how to turn the hook off, see [What the plugin does automatically](../results/plugin-automation.md).
 
-## Repositories
+## The NeoHive container
+
+NeoHive is one Docker container named `neohive`. The container keeps your code, documents, and Memories on the machine it runs on.
+
+The container holds your Hives and their [Indexes](glossary.md#index). For more information about Hives and Indexes, see [Hives, Indexes, and Memories](hives-indexes-memories.md). The container also provides the following:
+
+* **You manage your Hives in the dashboard.** The dashboard opens in your browser at the address the installer prints, `http://localhost:3577` by default.
+* **Each Hive has its own MCP endpoint.** The endpoint path is `/hives/<hive-id>/mcp`.
+* **One Docker volume holds all your data.** Your data lives in the `neohive-data` volume.
+
+## Your sources
+
+NeoHive indexes two kinds of source: repositories that it syncs, and files that you upload.
 
 When you add a repository, the container does the following:
 
@@ -57,5 +59,7 @@ When you add a repository, the container does the following:
 4. Stores the chunks and their embeddings in a [Code](glossary.md#code-index) or [Documentation Index](glossary.md#documentation-index).
 
 Later syncs index only the files that changed. Syncs also run on a schedule, so a Code or Documentation Index stays up to date with its repository.
+
+When you upload a file, such as a document, PDF, or image, NeoHive indexes the file the same way, in a [Files Index](glossary.md#files-index). An uploaded file does not sync, so upload the new version when the file changes. For more information, see [Add documents and images](../context/documents.md).
 
 NeoHive embeds and searches your content on the machine it runs on. On a Mac with Apple Silicon, embedding runs in the [Metal worker](glossary.md#metal-worker), outside the container. For more information about each connection the container makes to outside services, see [What stays on your machine](../security/local-only.md).
