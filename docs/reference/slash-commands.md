@@ -4,7 +4,9 @@ description: "Every command the NeoHive plugin adds to your agent, and when to r
 
 # Slash commands
 
-The NeoHive plugin adds the following commands to Claude Code, Codex, and Cursor. In Claude Code, type the command as shown. In Codex and Cursor, each command is a skill, so ask your agent to run it by name, for example `load-context`.
+The NeoHive plugin adds commands to Claude Code, Codex, and Cursor. An agent with no NeoHive plugin can still call NeoHive's tools, but it does not get these commands. To adapt a plugin for your agent, see [Claude Desktop and other MCP apps](../get-started/connect/desktop-apps.md).
+
+In Codex and Cursor, each command is a skill, so ask your agent to run it by name, for example `load-context`. In Claude Code, type the command as shown in the following table:
 
 | Claude Code command | What it does |
 |---|---|
@@ -42,5 +44,11 @@ These names redirect to the new commands.
 </details>
 
 {% hint style="info" %}
-If the commands are missing after you install the plugin, run `/reload-plugins` in Claude Code. If they still do not appear, see [Agent can't connect](../troubleshooting/connection.md).
+If the commands are missing after you install the plugin, do the following for your agent:
+
+* **Claude Code:** Run `/reload-plugins`.
+* **Codex:** Start a new Codex session.
+* **Cursor:** Restart Cursor.
+
+If the commands are still missing, see [Agent can't connect](../troubleshooting/connection.md).
 {% endhint %}

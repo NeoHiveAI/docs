@@ -38,7 +38,14 @@ To change a variable later, run the installer again with every variable you set 
 
 The timeout variables accept only positive whole numbers of milliseconds. Any other value, including `0`, stops the installer with error `E603`.
 
-`NEOHIVE_PDF_BRIDGE_TIMEOUT_MS` is the older name for `NEOHIVE_DOCUMENT_TIMEOUT_MS`. The installer still applies it, but `NEOHIVE_DOCUMENT_TIMEOUT_MS` wins when you set both. NeoHive no longer uses `NEOHIVE_PDF_WARMUP_TIMEOUT_MS`, so you can remove it.
+<details>
+
+<summary>Older variable names</summary>
+
+* `NEOHIVE_PDF_BRIDGE_TIMEOUT_MS` is the older name for `NEOHIVE_DOCUMENT_TIMEOUT_MS`. The installer still applies it, but `NEOHIVE_DOCUMENT_TIMEOUT_MS` wins when you set both.
+* NeoHive no longer uses `NEOHIVE_PDF_WARMUP_TIMEOUT_MS`, so you can remove it.
+
+</details>
 
 ### Apple Silicon
 

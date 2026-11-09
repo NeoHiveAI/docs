@@ -26,7 +26,7 @@ NeoHive refuses a file with any other extension. To index another format, export
 If NeoHive finds no text in a file, it marks the file with `No text could be extracted from this document.`, followed by the common causes. The message appears when the text is too small or too faint for OCR. A PDF that draws its text as shapes instead of fonts causes the same message. To fix the problem, export the text from the app that made the file, and upload the exported text.
 {% endhint %}
 
-NeoHive allows five minutes to convert one file. If the full conversion of a PDF fails or runs out of time, NeoHive converts the PDF again without layout analysis. NeoHive then indexes the PDF with its tables flattened to text. The file shows the warning `Converted without layout analysis, so table structure was flattened to text.` To allow more time, raise `NEOHIVE_DOCUMENT_TIMEOUT_MS`. For more information about the variable, see [Environment variables](environment-variables.md#installer).
+NeoHive allows five minutes for each conversion attempt. If a PDF fails to convert in that time, NeoHive still indexes its text, but its tables lose their structure, and the file shows a warning that starts with `Converted without layout analysis`. To give large PDFs more time, raise `NEOHIVE_DOCUMENT_TIMEOUT_MS`. For more information, see [Environment variables](environment-variables.md#installer).
 
 ### Upload limits
 
