@@ -14,11 +14,13 @@ When you add files with **File Upload**, NeoHive stores them in a [Files Index](
 |---|---|---|
 | Markdown | `.md`, `.markdown` | The text. |
 | Plain text | `.txt` | The text. |
-| PDF | `.pdf` | The text. On a page with no text, such as a scanned page, NeoHive reads the text with optical character recognition (OCR). |
-| Word | `.docx` | The text and tables, plus the text in pictures, read with OCR. |
-| PowerPoint | `.pptx` | The text and tables, plus the text in pictures, read with OCR. |
+| PDF | `.pdf` | The text, including the text in scanned pages and pictures. |
+| Word | `.docx` | The text and tables, plus the text in pictures. |
+| PowerPoint | `.pptx` | The text and tables, plus the text in pictures. |
 | Excel | `.xlsx` | Each sheet, with its name and its rows. |
-| Image | `.png`, `.jpg`, `.jpeg` | The text in the image, read with OCR. |
+| Image | `.png`, `.jpg`, `.jpeg` | The text in the image. |
+
+NeoHive reads the text in scans, pictures, and images with optical character recognition (OCR), so how much text it finds depends on how clear the text is in the image.
 
 NeoHive refuses a file with any other extension. To index another format, export it to PDF or Markdown first.
 

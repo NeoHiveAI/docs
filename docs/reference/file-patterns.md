@@ -18,7 +18,7 @@ NeoHive indexes a file only when the file passes all three checks in the followi
 | **Allowlist** | It matches at least one pattern. | Every file passes. |
 | **Blocklist** | It matches no pattern. | Every file passes. |
 
-The Blocklist wins over the Allowlist. Neither list can include a file that the built-in skip list removes. The webhook refresh endpoint applies the same Allowlist and Blocklist as a sync. For more information about how the webhook differs from a sync, see [How the webhook differs from a sync](webhooks.md#how-the-webhook-differs-from-a-sync).
+The Blocklist wins over the Allowlist, so a file that matches both is not indexed. Neither list can include a file that the built-in skip list removes. The webhook refresh endpoint applies the same Allowlist and Blocklist as a sync. For more information about how the webhook differs from a sync, see [How the webhook differs from a sync](webhooks.md#how-the-webhook-differs-from-a-sync).
 
 Saving a change to either list makes the next sync re-read the whole repository. That sync removes the files the new patterns exclude and adds the files they now include. If another connection in the same Index syncs the same repository, the excluded files stay until you remove that connection.
 

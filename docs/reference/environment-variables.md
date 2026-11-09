@@ -76,7 +76,7 @@ Set each variable where your coding agent starts, for example with `export NEOHI
 
 ## Server
 
-The NeoHive server reads these variables from the `neohive` container's environment, not from your shell. The installer sets the license key, the timeout variables, `NEOHIVE_UPDATE_REPO`, and the Metal worker address for you. To set any other variable in this table, add it with `docker run -e` when you start the container.
+The NeoHive server reads these variables from the `neohive` container's environment, not from your shell. To set one, add it with `docker run -e` when you start the container.
 
 {% hint style="warning" %}
 The installer drops variables you added with `docker run -e` the next time it recreates the container, for example during an update. Add them again after every update. If you set `MEMVEC_ENCRYPTION_KEY`, add it back before NeoHive starts, or NeoHive cannot read the connection tokens it stored.
