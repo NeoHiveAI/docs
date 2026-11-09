@@ -17,7 +17,7 @@ Each Hive serves these tools at its [MCP](../concepts/glossary.md#mcp) endpoint,
 | `memory_store` | Saves a new Memory to the Hive's [Knowledge Index](../concepts/glossary.md#knowledge-index). | Yes |
 | `memory_forget` | Deactivates a Memory so recall stops returning it. | Yes |
 
-The read tools take an optional `index`. Leave it out to cover every Index in the Hive. The write tools take no `index`: they always write to the Hive's own Knowledge Index, even when you read from a [Shared Index](../concepts/glossary.md#shared-index). You can run the read tools manually in the [Playground](../admin/playground.md).
+The read tools take an optional `index`. Leave it out to cover every Index in the Hive. The write tools take no `index`: they always write to the Hive's own Knowledge Index, even when you read from a [Shared Index](../concepts/glossary.md#shared-index).
 
 ## memory_recall
 
