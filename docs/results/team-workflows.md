@@ -26,4 +26,6 @@ The following table shows each workflow, what someone stored earlier, and what a
 
 Each workflow works only after someone has done what the middle column describes, because recall cannot return a fix that nobody stored. When you solve a difficult problem, tell your agent to remember the symptom, the cause, and the fix.
 
-To start the Hive with rules your team already keeps in `CLAUDE.md` or `AGENTS.md` files, see [Migrate from CLAUDE.md](../context/migrate.md).
+{% hint style="info" %}
+To import rules your team already keeps in `CLAUDE.md` or `AGENTS.md` files, see [Import rules from CLAUDE.md and AGENTS.md](../context/migrate.md).
+{% endhint %}

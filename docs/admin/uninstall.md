@@ -8,7 +8,7 @@ When you no longer want NeoHive on this machine, the uninstall script removes wh
 
 The uninstall script lists what it found and asks you to confirm once.
 
-<figure><img src="../.gitbook/assets/admin-uninstall.svg" alt="Removed by uninstall.sh: the neohive container, stopped cleanly to free the license seat; ~/.cache/neohive/license-key; and the Metal worker on Apple Silicon. Kept, and removed only with --purge-data: the neohive-data volume with every Hive, Index, and Memory; ~/.cache/neohive/machine-id; and ~/.neohive models and logs. Removed manually, using steps the script prints: the agent plugin and each NeoHive MCP entry, one per Hive."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/admin-uninstall.svg" alt="Removed by uninstall.sh: the neohive container, which the script stops cleanly to free the license seat, the saved license key, and, on Apple Silicon, the Metal worker. Kept, and removed only with --purge-data: the neohive-data volume with every Hive, Index, and Memory, and the Apple Silicon models and logs. Removed manually, using steps the script prints: the agent plugin and each NeoHive MCP entry, one per Hive."><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
 Do not use `docker rm -f neohive` as a shortcut. That command stops the container without a clean shutdown. The license seat then stays in use until the licensing service notices that the machine has stopped checking in.
@@ -50,7 +50,7 @@ curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/uninstall.sh
   | bash -s -- --purge-data
 ```
 
-The `--purge-data` option also deletes the data volume, `~/.neohive`, and all of `~/.cache/neohive`. If NeoHive is running, the script offers a backup first. Then the script asks you to type the volume name before it deletes anything. If the name you type does not match, the script still removes NeoHive but keeps the data volume, `~/.neohive`, and `~/.cache/neohive/machine-id`.
+The `--purge-data` option also deletes the data volume and the Apple Silicon models and logs. If NeoHive is running, the script offers a backup first. Then the script asks you to type the volume name before it deletes anything. If the name you type does not match, the script still removes NeoHive but keeps the data volume and the Apple Silicon models and logs.
 {% endtab %}
 {% endtabs %}
 
@@ -60,32 +60,60 @@ The `--yes` flag skips the questions. Use `--yes` only in scripts. With `--purge
 {% step %}
 ## Remove the agent plugin
 
-The script cannot reach your editors, so the script ends by printing the Claude Code steps. To remove the plugin, run the following command in a Claude Code session:
+The script cannot reach your agent, so remove the plugin yourself, as shown for your agent in the following tabs. Apps with no NeoHive plugin, such as ChatGPT and Claude Desktop, have no plugin to remove.
+
+{% tabs %}
+{% tab title="Claude Code" %}
+In a Claude Code session, run:
 
 ```text
 /plugin uninstall neohive@neohive-claude
 ```
+{% endtab %}
 
-For Cursor, delete the `~/.cursor/plugins/local/neohive` link. For Codex, delete the `NeoHiveCodex` folder you cloned.
+{% tab title="Cursor" %}
+Delete `~/.cursor/plugins/local/neohive`.
+{% endtab %}
+
+{% tab title="Codex" %}
+Run `codex`, enter `/plugins`, open **NeoHive** on its marketplace tab, and uninstall it.
+{% endtab %}
+{% endtabs %}
 {% endstep %}
 
 {% step %}
 ## Remove the MCP entries
 
-Removing the plugin can leave the [MCP](../concepts/glossary.md#mcp) entries behind. There is one NeoHive entry for each Hive. To remove the entries in Claude Code, run `claude mcp list` to list them. Then run `claude mcp remove` for each NeoHive entry:
+Removing the plugin can leave the [MCP](../concepts/glossary.md#mcp) entries behind, one NeoHive entry for each Hive. Remove them as shown for your agent in the following tabs.
+
+{% tabs %}
+{% tab title="Claude Code" %}
+In each project folder where you connected a Hive, list the entries, and then remove each NeoHive entry:
 
 ```bash
 claude mcp list
 claude mcp remove <neohive-entry>
 ```
+{% endtab %}
 
-For other agents, delete the NeoHive entries from the agent's MCP config file. The following table lists the file for each agent.
+{% tab title="Claude Desktop" %}
+Delete the NeoHive entries from `claude_desktop_config.json`, and then restart Claude Desktop.
+{% endtab %}
 
-| Agent | MCP config file |
-|---|---|
-| Cursor | `.cursor/mcp.json` in your project, or `~/.cursor/mcp.json` |
-| Codex | `~/.codex/config.toml` |
-| Claude Desktop | `claude_desktop_config.json` |
+{% tab title="ChatGPT" %}
+In the ChatGPT desktop app, open **Settings**, then **Plugins**, and remove each NeoHive server.
+{% endtab %}
+
+{% tab title="Codex" %}
+Delete the NeoHive entries from `.codex/config.toml` in your project, or from `~/.codex/config.toml`.
+{% endtab %}
+
+{% tab title="Cursor" %}
+Delete the NeoHive entries from `.cursor/mcp.json` in your project, or from `~/.cursor/mcp.json`.
+{% endtab %}
+{% endtabs %}
+
+For any other agent, remove the NeoHive server from wherever you added it: its MCP config file or its settings screen.
 {% endstep %}
 {% endstepper %}
 
@@ -96,5 +124,5 @@ For other agents, delete the NeoHive entries from the agent's MCP config file. T
 docker ps -a --filter name=neohive
 ```
 
-The list is empty, and `claude mcp list` shows no NeoHive entries.
+The list is empty, and `claude mcp list` shows no NeoHive entries in any of those project folders.
 {% endhint %}

@@ -44,5 +44,5 @@ Both tools search every [Index](../concepts/glossary.md#index) in your Hive unle
 If your agent has no NeoHive plugin, paste the rules in [Tell your agent to use NeoHive](../get-started/connect/README.md#tell-your-agent-to-use-neohive) into its rules file.
 
 {% hint style="success" %}
-To see exactly what your agents searched for, open your Hive in the dashboard and click the **Recent queries** tab. In Claude Code, the list includes the recall the plugin runs with each prompt.
+To see exactly what your agents searched for, open your Hive in the dashboard and click the **Recent queries** tab.
 {% endhint %}

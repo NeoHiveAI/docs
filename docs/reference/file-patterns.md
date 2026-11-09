@@ -4,9 +4,9 @@ description: "The glob syntax the Allowlist and Blocklist accept, how the two co
 
 # File pattern syntax
 
-Write Allowlist and Blocklist patterns that include exactly the files you mean.
+Use Allowlist and Blocklist patterns to choose which files NeoHive indexes and which it skips. To set the patterns on a [Code](../concepts/glossary.md#code-index) or [Documentation Index](../concepts/glossary.md#documentation-index), see [Choose which files are included](../context/repositories/file-patterns.md).
 
-The **Allowlist** and **Blocklist** boxes are under **File filters** on the **Sync Settings** tab of a [Code](../concepts/glossary.md#code-index) or [Documentation Index](../concepts/glossary.md#documentation-index). Enter one pattern per line, and then select **Save settings**. Patterns use [micromatch](https://github.com/micromatch/micromatch) glob syntax, which matches file paths with wildcards such as `*`. Each pattern matches paths from the repository root, such as `src/api/users.ts`.
+Enter one pattern per line in either list. Patterns use [micromatch](https://github.com/micromatch/micromatch) glob syntax, where wildcards such as `*` let one pattern match many files. Each pattern matches paths from the repository root, so `src/**` matches `src/api/users.ts` but not `packages/web/src/app.ts`.
 
 ## How the filters combine
 
@@ -18,11 +18,13 @@ NeoHive indexes a file only when the file passes all three checks in the followi
 | **Allowlist** | It matches at least one pattern. | Every file passes. |
 | **Blocklist** | It matches no pattern. | Every file passes. |
 
-The Blocklist wins over the Allowlist. Neither list can include a file that the built-in skip list removes.
+The Blocklist wins over the Allowlist, so a file that matches both is not indexed. Neither list can include a file that the built-in skip list removes. The webhook refresh endpoint applies the same Allowlist and Blocklist as a sync. For more information about how the webhook differs from a sync, see [How the webhook differs from a sync](webhooks.md#how-the-webhook-differs-from-a-sync).
 
-Saving a change to either list makes the next sync re-read the whole repository. That sync removes the files the new patterns exclude and adds the files they now include.
+Saving a change to either list makes the next sync re-read the whole repository. That sync removes the files the new patterns exclude and adds the files they now include. If another connection in the same Index syncs the same repository, the excluded files stay until you remove that connection.
 
 ## Syntax
+
+The following table shows the most common patterns:
 
 | Pattern | Matches | Does not match |
 |---|---|---|
@@ -39,9 +41,9 @@ Saving a change to either list makes the next sync re-read the whole repository.
 **Never put a `!` pattern in the Allowlist.** The Allowlist allows a file that matches any line. The pattern `!**/*.test.ts` matches every file that is not a test, including every config file. Put exclusions in the Blocklist instead.
 {% endhint %}
 
-Patterns skip files and folders whose names start with a dot. `**/*.md` does not match `.github/PULL_REQUEST_TEMPLATE.md`. To match a path that starts with a dot, name it directly, such as `.github/**`.
+Wildcards do not match files or folders whose names start with a dot. For example, `**/*.md` does not match `.github/PULL_REQUEST_TEMPLATE.md`. In the Allowlist, the pattern leaves the file out. In the Blocklist, the pattern lets the file through. To match a path that starts with a dot, name it directly, such as `.github/**`.
 
-## Starting points
+## Example patterns
 
 **Only the source and docs of a service.** Add the following patterns to the Allowlist:
 
@@ -63,8 +65,4 @@ README.md
 
 **Only the TypeScript in a monorepo, minus tests.** Add `**/*.{ts,tsx}` to the Allowlist and `**/*.{spec,test}.{ts,tsx}` to the Blocklist.
 
-You do not need `node_modules`, `dist`, `build`, `vendor`, `coverage`, lock files, or `.min.js` bundles in the Blocklist. The built-in skip list already removes them.
-
-{% hint style="info" %}
-The webhook refresh endpoint applies the same Allowlist and Blocklist. For other differences, see [How the webhook differs from a sync](webhooks.md#how-the-webhook-differs-from-a-sync).
-{% endhint %}
+The built-in skip list already removes `node_modules`, `dist`, `build`, `vendor`, `coverage`, and `.min.js` bundles. The skip list also removes the npm, Yarn, pnpm, and Terraform lock files. None of these files need a Blocklist entry. NeoHive indexes other lock files, such as `Cargo.lock` or `poetry.lock`, unless you add them to the Blocklist.

@@ -29,7 +29,7 @@ JWT validation in the API gateway auth middleware
 
 ## Check the content exists
 
-Run the same query in the dashboard's [Playground](../admin/playground.md) against the Index you expect to hold the answer. If the answer is missing there too, the content is not in the Index. Tell your agent to store the information. For example:
+Ask your agent to run `memory_recall` with the same query, and to set `index` to the Index you expect to hold the answer. If the answer is missing there too, the content is not in the Index. Tell your agent to store the information. For example:
 
 ```text
 Remember that the staging environment uses a self-signed certificate, so local tests need NODE_TLS_REJECT_UNAUTHORIZED=0.

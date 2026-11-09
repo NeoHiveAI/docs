@@ -1,55 +1,58 @@
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1000" height="376" viewBox="0 0 1000 376" font-family="'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1000" height="290" viewBox="0 0 1000 290" font-family="'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
   <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap');
     .mono { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
     .lbl { font-size: 10.5px; font-weight: 700; letter-spacing: 1.1px; }
-    .body { font-size: 12px; fill: #4A4458; }
     .title { font-size: 15px; font-weight: 700; fill: #1A1A2E; }
+    .body { font-size: 12.5px; fill: #4A4458; }
     .al { font-size: 11px; font-weight: 600; }
   </style>
   <defs>
-    <marker id="arv" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#7C3AED"/></marker>
+    <marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#BB4D00"/></marker>
     <marker id="arrG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#008236"/></marker>
-    <marker id="ara" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#BB4D00"/></marker>
-    <marker id="arm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#737373"/></marker>
-    <marker id="aro" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#C084FC"/></marker>
-    <marker id="arl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#A78BFA"/></marker>
-    <marker id="ari" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#1A1A2E"/></marker>
+    <marker id="arrR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#C10007"/></marker>
   </defs>
-  <rect width="1000" height="376" fill="#FAF9FD"/>
+  <rect width="1000" height="290" fill="#FAF9FD"/>
 
-  <!-- Content keeps the coordinates it had under the old top header. This group moves it up by 76 so its
-       top edge sits at y=40. Draw new content inside the group with the same coordinates as the rest. -->
-  <g transform="translate(0,-76)">  <rect x="40" y="170" width="240" height="110" rx="5" fill="#FFFFFF" stroke="#BFF2D3" stroke-width="1"/>
-  <text x="56" y="192" class="lbl" fill="#008236">ACTIVE</text>
-  <text x="56" y="214" class="title">Hive in use</text>
-  <text x="56" y="233" class="body">In the sidebar and card grid.</text>
-  <text x="56" y="249" class="body">Agents can connect.</text>
-  <rect x="380" y="170" width="240" height="110" rx="5" fill="#FFFFFF" stroke="#FFE1B2" stroke-width="1"/>
-  <text x="396" y="192" class="lbl" fill="#BB4D00">ARCHIVED</text>
-  <text x="396" y="214" class="title">In the Archived section</text>
-  <text x="396" y="233" class="body">Hidden from the sidebar.</text>
-  <text x="396" y="249" class="body">Shows days left.</text>
-  <rect x="720" y="170" width="240" height="110" rx="5" fill="#FFFFFF" stroke="#1A1A2E" stroke-width="1"/>
-  <text x="736" y="192" class="lbl" fill="#1A1A2E">DELETED</text>
-  <text x="736" y="214" class="title">Gone for good</text>
-  <text x="736" y="233" class="body">Memories, Indexes, sync</text>
-  <text x="736" y="249" class="body">history and settings removed.</text>
-  <path d="M280 200 L376 200" fill="none" stroke="#BB4D00" stroke-width="2" marker-end="url(#ara)"/>
-  <text x="328" y="191" class="al" text-anchor="middle" style="fill:#BB4D00">Archive</text>
-  <path d="M380 250 L284 250" fill="none" stroke="#008236" stroke-width="2" marker-end="url(#arrG)"/>
-  <text x="332" y="270" class="al" text-anchor="middle" style="fill:#008236">Restore</text>
-  <path d="M620 225 L716 225" fill="none" stroke="#1A1A2E" stroke-width="2" marker-end="url(#ari)"/>
-  <text x="668" y="206" class="al" text-anchor="middle" style="fill:#1A1A2E">after 30 days</text>
-  <text x="668" y="246" class="al" text-anchor="middle" style="fill:#1A1A2E">or Delete</text>
-  <text x="668" y="260" class="al" text-anchor="middle" style="fill:#1A1A2E">Permanently</text>
-  <path d="M160 170 C160 118, 840 118, 840 166" fill="none" stroke="#1A1A2E" stroke-width="2" marker-end="url(#ari)"/>
-  <text x="500" y="124" class="al" text-anchor="middle" style="fill:#1A1A2E">Delete, then type the Hive name</text>
-  <rect x="40" y="312" width="920" height="52" rx="5" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
-  <text x="58" y="343" class="body" font-size="12.5">Indexes have no archive. Move Index… and Share Index… keep the data; Delete Index removes it at once.</text>
-  </g>
+  <!-- Shortcut: Delete from Active, curved over the top, ending straight down -->
+  <path d="M160 100 C160 72, 186 60, 230 60 L770 60 C814 60, 840 72, 840 82 L840 95" fill="none" stroke="#C10007" stroke-width="2" marker-end="url(#arrR)"/>
+  <text x="500" y="50" class="al" text-anchor="middle" fill="#1A1A2E">Delete, then type the Hive name</text>
+
+  <!-- Active -->
+  <rect x="40" y="100" width="240" height="110" rx="5" fill="#FFFFFF" stroke="#008236" stroke-width="1.5"/>
+  <text x="56" y="122" class="lbl" fill="#008236">ACTIVE</text>
+  <text x="56" y="144" class="title">Hive in use</text>
+  <text x="56" y="164" class="body">In the sidebar and on the</text>
+  <text x="56" y="180" class="body">home screen. Agents connect.</text>
+
+  <!-- Archived -->
+  <rect x="380" y="100" width="240" height="110" rx="5" fill="#FFFFFF" stroke="#BB4D00" stroke-width="1.5"/>
+  <text x="396" y="122" class="lbl" fill="#BB4D00">ARCHIVED</text>
+  <text x="396" y="144" class="title">In the Archived section</text>
+  <text x="396" y="164" class="body">Hidden from the sidebar.</text>
+  <text x="396" y="180" class="body">Shows the days left.</text>
+
+  <!-- Deleted -->
+  <rect x="720" y="100" width="240" height="110" rx="5" fill="#FFFFFF" stroke="#C10007" stroke-width="1.5"/>
+  <text x="736" y="122" class="lbl" fill="#C10007">DELETED</text>
+  <text x="736" y="144" class="title">Gone for good</text>
+  <text x="736" y="164" class="body">Memories, Indexes, sync history,</text>
+  <text x="736" y="180" class="body">and settings removed.</text>
+  <text x="736" y="198" class="lbl" fill="#C10007">CANNOT BE UNDONE</text>
+
+  <!-- Active <-> Archived -->
+  <path d="M280 140 L376 140" fill="none" stroke="#BB4D00" stroke-width="2" marker-end="url(#arrA)"/>
+  <text x="330" y="131" class="al" text-anchor="middle" fill="#BB4D00">Archive</text>
+  <path d="M380 176 L284 176" fill="none" stroke="#008236" stroke-width="2" marker-end="url(#arrG)"/>
+  <text x="330" y="194" class="al" text-anchor="middle" fill="#008236">Restore</text>
+
+  <!-- Archived -> Deleted -->
+  <path d="M620 155 L716 155" fill="none" stroke="#C10007" stroke-width="2" marker-end="url(#arrR)"/>
+  <text x="670" y="144" class="al" text-anchor="middle" fill="#1A1A2E">after 30 days</text>
+  <text x="670" y="172" class="al" text-anchor="middle" fill="#1A1A2E">or Delete</text>
+  <text x="670" y="185" class="al" text-anchor="middle" fill="#1A1A2E">Permanently</text>
 
   <!-- Footer. Logo paths copied verbatim from frontend/src/lib/icons/NeoHiveIcon.svelte. -->
-  <line x1="40" y1="328" x2="960" y2="328" stroke="#E4DFF1"/>
-  <g transform="translate(40,342) scale(0.04)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
-  <text x="64" y="357" font-size="13" font-weight="700" fill="#1A1A2E">Archive, restore, delete<tspan dx="12" font-size="10" font-weight="600" letter-spacing="1" fill="#737373">ARCHIVE CAN BE UNDONE FOR 30 DAYS. DELETE CANNOT.</tspan></text>
+  <line x1="40" y1="242" x2="960" y2="242" stroke="#E4DFF1"/>
+  <g transform="translate(40,256) scale(0.04)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
+  <text x="64" y="271" font-size="13" font-weight="700" fill="#1A1A2E">Archive, restore, delete<tspan dx="12" font-size="10" font-weight="600" letter-spacing="1" fill="#737373">ARCHIVE CAN BE UNDONE FOR 30 DAYS. DELETE CANNOT.</tspan></text>
 </svg>
