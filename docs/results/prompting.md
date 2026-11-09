@@ -4,41 +4,50 @@ description: "Phrase requests and memory queries so NeoHive returns the Memories
 
 # Write prompts that retrieve well
 
-Recall is how your agent searches your [Hive](../concepts/glossary.md#hive), your team's NeoHive workspace, for context. Your agent recalls when it calls `memory_recall` or `memory_context`. In Claude Code, the plugin also recalls with the start of each prompt you send.
+Recall is how your agent searches your [Hive](../concepts/glossary.md#hive) for context, through `memory_recall` or `memory_context`.
 
-Recall finds a stored [Memory](../concepts/glossary.md#memory), code, or a document by the words and meaning it shares with your query. A query that uses the same words as the answer finds the answer. A vague question shares few words with anything, so recall returns weak matches. [How retrieval works](../concepts/retrieval.md) explains how recall finds and ranks results.
+Recall finds a [Memory](../concepts/glossary.md#memory), code, or a document by the words and meaning it shares with your query. A vague question shares few words with anything, so it gets weak matches. Write each prompt and query the way the answer would be written. For more information about how recall finds and ranks results, see [How retrieval works](../concepts/retrieval.md).
 
-To get strong matches, write each prompt and query the way the answer would be written. The examples that follow show how to phrase each kind of request so recall returns what you need.
+The following diagram shows a question and a statement matched against one stored Memory:
 
-<figure><img src="../.gitbook/assets/results-prompting.svg" alt="Two queries against one stored Memory about batch processor retries. The question how do we handle errors shares few words and matches weakly. The statement error handling and retries in the async batch processor shares its words and matches strongly."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/results-prompting.svg" alt="Two queries against one Memory about batch processor retries. A question shares few words with the Memory and matches weakly. A statement matches strongly."><figcaption></figcaption></figure>
+
+The following table shows vague queries and how to rewrite them:
 
 | Instead of | Write | Why it works better |
 |---|---|---|
-| `How do we handle errors?` | `error handling and retries in the async batch processor` | A statement with system names reads like the Memory it should match. |
+| `How does the batch job handle errors?` | `error handling and retries in the async batch processor` | The rewrite names the system and what "errors" means there, which a matching Memory also mentions. |
 | `auth stuff` | `JWT validation and token refresh in the API gateway middleware` | The query names the parts a matching Memory would mention. |
-| `duplicate prevention` | `idempotency keys on payment POST requests` | The query uses your team's own words, which stored Memories also use. |
-| `ok now do the search work` | `Switching to the search indexing worker. It drops documents over 1MB.` | The prompt starts with the subject, so the automatic recall has something to match. |
+| `duplicate payment prevention` | `idempotency keys on payment POST requests` | Your team calls this idempotency keys, and stored Memories use your team's own words. |
+| `ok now fix the thing that drops big docs in search` | `Search indexing worker: it drops documents over 1MB. Fix that next.` | The subject comes first, so a search built from the prompt starts with the system's name. |
 
 ## Put the subject first
 
-In Claude Code, the plugin recalls with only the start of each prompt, as [What the plugin does automatically](plugin-automation.md) explains. Put the system and the problem first. Then add background and instructions.
+Your agent builds its searches from what you write, so put the system and the problem first, then the background and instructions. In Claude Code, the plugin also recalls with only the start of each prompt. For more information, see [What the plugin does automatically](plugin-automation.md).
 
 ## Ask for several phrasings on important searches
 
-`memory_recall` accepts `queries`, a list of phrasings whose results it merges into one list. [MCP tools](../reference/mcp-tools.md#memory_recall) lists its parameters and limits. Use `queries` when you do not know the words your team uses.
+`memory_recall` accepts `queries`, a list of phrasings whose results it merges into one list. When you do not know the words your team uses, ask your agent to search several ways, and name your own topic. For example:
 
 ```text
 Search memory a few different ways for how we rate-limit the billing API.
 ```
 
+For more information about the parameters of `memory_recall` and their limits, see [MCP tools](../reference/mcp-tools.md#memory_recall).
+
 ## Pick the right tool
 
-Call `memory_context` once at the start of a task, and `memory_recall` any time you need something specific. [MCP tools](../reference/mcp-tools.md) lists the parameters of each tool.
+Your agent uses two tools to search your Hive:
 
-Both tools search every [Index](../concepts/glossary.md#index) in your Hive unless you pass `index`. Each Index is one store of context inside the Hive. Describe the task as a statement. For example, `implementing rate limiting for the Express gateway` loads more context than `what do we know about the gateway?`.
+* `memory_context`, once, at the start of a task, to load the rules and Memories that fit the task.
+* `memory_recall`, any time the task needs something specific.
+
+Describe your task as a statement, because your agent passes your words to `memory_context`. For example, `implementing rate limiting for the Express gateway` finds more than `what do we know about the gateway?`.
+
+Both tools search every [Index](../concepts/glossary.md#index) in your Hive unless you pass `index`.
 
 If your agent has no NeoHive plugin, paste the rules in [Tell your agent to use NeoHive](../get-started/connect/README.md#tell-your-agent-to-use-neohive) into its rules file.
 
 {% hint style="success" %}
-Before you rely on a phrasing, ask your agent to run `memory_recall` with it, and check that the results include what you expected.
+To see exactly what your agents searched for, open your Hive in the dashboard and click the **Recent queries** tab.
 {% endhint %}
