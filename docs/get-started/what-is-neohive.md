@@ -31,7 +31,7 @@ NeoHive is made of the following parts:
 
 | Part | What it is |
 |---|---|
-| **Server** | A Docker container on your machine or a shared server. The dashboard runs at `http://localhost:3577`. |
+| **Server** | A Docker container on your machine or a shared server. The dashboard runs at `http://localhost:3577` by default. |
 | **Hive** | A workspace for one codebase or team. Each Hive has one MCP endpoint that agents connect to. |
 | **Index** | A searchable store inside a Hive. Each Index holds one kind of content, such as your code, your docs, or your team's Memories. |
 | **Memory** | One lesson your team teaches the agent, such as a convention, a decision, or the fix for a bug. NeoHive keeps each Memory, so any agent connected to the Hive can use the lesson in a later session. |

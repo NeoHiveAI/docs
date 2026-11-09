@@ -8,7 +8,7 @@ NeoHive stores the token or SSH key that reads your repositories, so that NeoHiv
 
 <figure><img src="../.gitbook/assets/security-credentials.svg" alt="The provider checks the token you add. NeoHive stores it encrypted in its database, and an HTTPS clone keeps it unencrypted. Both are in neohive-data."><figcaption></figcaption></figure>
 
-Each data source on the **Data Sources** page (`http://localhost:3577/sources`) can have several **connections**, for example one GitHub token for each organization. Each connection holds one secret: a personal access token or an SSH private key. The following table shows where NeoHive stores each secret and how it protects it:
+Each data source on the **Data Sources** page can have several **connections**, for example one GitHub token for each organization. Each connection holds one secret: a personal access token or an SSH private key. The following table shows where NeoHive stores each secret and how it protects it:
 
 | What | Where it lives | How it's protected |
 |---|---|---|
