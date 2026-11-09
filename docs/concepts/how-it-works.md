@@ -8,7 +8,7 @@ NeoHive gives every coding agent on your team one shared memory. Your agent conn
 
 Every teammate's agent reads the same memory, whichever tool the teammate uses. When one person teaches their agent a lesson, every other agent can recall that lesson. The following diagram shows three teammates' agents sharing one [Hive](glossary.md#hive):
 
-<figure><img src="../.gitbook/assets/how-it-works.svg" alt="Claude Code, Cursor, and Codex agents share one Hive in the NeoHive container. One agent stores a lesson, and the other agents recall that lesson."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/how-it-works.svg" alt="Claude Code, Cursor, and Codex agents share one Hive in the NeoHive container. Each agent stores lessons in the Hive and recalls what the other agents stored."><figcaption></figcaption></figure>
 
 Your agent does not read NeoHive's files. The agent asks through an MCP tool, such as `memory_recall` or `memory_store`, and gets matching code, docs, and [Memories](glossary.md#memory) back. For more information about each tool, see [MCP tools](../reference/mcp-tools.md).
 

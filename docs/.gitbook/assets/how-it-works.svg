@@ -96,15 +96,24 @@
 </g>
 <text x="554" y="269" class="chip">Knowledge</text>
 <text x="554" y="285" class="item" fill="#4A4458">what agents learn</text>
-<line x1="272" y1="114" x2="368" y2="114" stroke="#7C3AED" stroke-width="1.8" marker-end="url(#arr)"/>
-<rect x="274.0" y="104" width="92" height="20" rx="10" fill="#FFFFFF" stroke="#DDD6FF"/>
-<text x="320" y="118" class="pill" fill="#7C3AED" text-anchor="middle">store a lesson</text>
-<line x1="368" y1="208" x2="272" y2="208" stroke="#009689" stroke-width="1.8" marker-end="url(#arrT)"/>
-<rect x="295.0" y="198" width="50" height="20" rx="10" fill="#FFFFFF" stroke="#99E6DC"/>
-<text x="320" y="212" class="pill" fill="#009689" text-anchor="middle">recall</text>
-<line x1="368" y1="302" x2="272" y2="302" stroke="#009689" stroke-width="1.8" marker-end="url(#arrT)"/>
-<rect x="295.0" y="292" width="50" height="20" rx="10" fill="#FFFFFF" stroke="#99E6DC"/>
-<text x="320" y="306" class="pill" fill="#009689" text-anchor="middle">recall</text>
+<line x1="272" y1="102" x2="368" y2="102" stroke="#7C3AED" stroke-width="1.8" marker-end="url(#arr)"/>
+<rect x="298.0" y="92" width="44" height="20" rx="10" fill="#FFFFFF" stroke="#DDD6FF"/>
+<text x="320" y="106" class="pill" fill="#7C3AED" text-anchor="middle">store</text>
+<line x1="368" y1="126" x2="272" y2="126" stroke="#009689" stroke-width="1.8" marker-end="url(#arrT)"/>
+<rect x="295.0" y="116" width="50" height="20" rx="10" fill="#FFFFFF" stroke="#99E6DC"/>
+<text x="320" y="130" class="pill" fill="#009689" text-anchor="middle">recall</text>
+<line x1="272" y1="196" x2="368" y2="196" stroke="#7C3AED" stroke-width="1.8" marker-end="url(#arr)"/>
+<rect x="298.0" y="186" width="44" height="20" rx="10" fill="#FFFFFF" stroke="#DDD6FF"/>
+<text x="320" y="200" class="pill" fill="#7C3AED" text-anchor="middle">store</text>
+<line x1="368" y1="220" x2="272" y2="220" stroke="#009689" stroke-width="1.8" marker-end="url(#arrT)"/>
+<rect x="295.0" y="210" width="50" height="20" rx="10" fill="#FFFFFF" stroke="#99E6DC"/>
+<text x="320" y="224" class="pill" fill="#009689" text-anchor="middle">recall</text>
+<line x1="272" y1="290" x2="368" y2="290" stroke="#7C3AED" stroke-width="1.8" marker-end="url(#arr)"/>
+<rect x="298.0" y="280" width="44" height="20" rx="10" fill="#FFFFFF" stroke="#DDD6FF"/>
+<text x="320" y="294" class="pill" fill="#7C3AED" text-anchor="middle">store</text>
+<line x1="368" y1="314" x2="272" y2="314" stroke="#009689" stroke-width="1.8" marker-end="url(#arrT)"/>
+<rect x="295.0" y="304" width="50" height="20" rx="10" fill="#FFFFFF" stroke="#99E6DC"/>
+<text x="320" y="318" class="pill" fill="#009689" text-anchor="middle">recall</text>
 <text x="780" y="52" class="lbl" fill="#7C3AED">YOUR SOURCES</text>
 <rect x="780" y="104" width="180" height="82" rx="5" fill="#FFFFFF" stroke="#DDD6FF" stroke-dasharray="6 4"/>
 <g transform="translate(798.00,118.00) scale(0.8333)">
