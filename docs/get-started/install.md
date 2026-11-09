@@ -80,7 +80,7 @@ The following table shows what you can add from each source and what you need fo
 |---|---|---|
 | **GitHub** | **Code** or **Documentation** from a repository | A GitHub personal access token |
 | **GitLab** | **Code** or **Documentation** from a repository | A GitLab personal access token |
-| **File Upload** | Markdown, text, and PDF files | The files |
+| **File Upload** | Markdown, text, PDF, Word, Excel, and PowerPoint files, and PNG or JPEG images | The files |
 
 A GitHub or GitLab token needs the right scopes, and an uploaded file needs a supported type and size. For more information about scopes, see [Add a connection](../admin/data-sources.md#add-a-connection), and for file types and size limits, see [Supported file types](../reference/file-types.md).
 
@@ -103,7 +103,7 @@ The last setup screen, **Install for your AI tools**, shows the command that add
      --header 'x-mcp-client: claude-code'
    ```
 
-   For more information about why the `--scope project` flag matters, see [Claude Code](connect/claude-code.md).
+   The `--scope project` flag saves the Hive in that folder's `.mcp.json`, where the plugin's automatic recall looks for it. For more information, see [Claude Code](connect/claude-code.md).
 3. Start Claude Code in the project.
 4. When Claude Code asks, approve the NeoHive server. Setup shows **Connected** after Claude Code connects.
 5. To install the plugin and run its setup, run the following commands inside Claude Code:

@@ -114,5 +114,5 @@ Claude Desktop reaches NeoHive through `mcp-remote`. Add each header with `--hea
 {% endtabs %}
 
 {% hint style="info" %}
-The hooks send `NEOHIVE_TOKEN` in the `Authorization` header and nothing else, so they skip the other headers in your MCP configuration. Your proxy might need other headers, such as Cloudflare Access service-token headers. In that case, your agent's own tool calls still work, but the automatic recall on each prompt doesn't reach NeoHive.
+The hooks send `NEOHIVE_TOKEN` in the `Authorization` header as their only credential, and skip the other headers in your MCP configuration. Your proxy might need other headers, such as Cloudflare Access service-token headers. In that case, your agent's own tool calls still work, but the automatic recall on each prompt doesn't reach NeoHive.
 {% endhint %}
