@@ -60,7 +60,7 @@ Your agent receives the following messages from a NeoHive tool, such as `memory_
 
 | Message | Cause | Fix |
 |---|---|---|
-| `No Indexes configured. Create an Index first.` | The Hive has no [Index](../concepts/glossary.md#index), or NeoHive cannot open any of its Indexes. | Add an Index to the Hive. If the Hive already has an Index, open the Hive's menu on the dashboard home page and select **Restart**. |
+| `No Indexes configured. Create an Index first.` | The Hive has no [Index](../concepts/glossary.md#index), or NeoHive cannot open any of its Indexes. | Add an Index to the Hive. If the Hive already has an Index, restart NeoHive with `docker restart neohive`. |
 | `Index "<id>" not found. Use list_indexes to see available Indexes.` | The `index` argument names an id this Hive does not have. | Call `list_indexes` and use an id from its reply. |
 | `Index "<id>" is <status>. Only active Indexes can be used.` | The Index is not `active`, for example `paused` or `error`. | Open the Index page in the dashboard, and fix the error that the page shows. See [Repository sync issues](sync.md). |
 | `Provide either query (string) or queries (string array).` | `memory_recall` received neither argument. | Pass one of the two arguments. See [MCP tools](../reference/mcp-tools.md). |
