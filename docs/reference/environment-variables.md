@@ -16,20 +16,22 @@ Each variable takes effect only in the place shown in the following table:
 
 ## Installer
 
-Set the variable on the installer's command line, or export the variable first with `export NEOHIVE_PORT=4577`. To change a variable later, run the installer again. The following command installs NeoHive on port `4577`:
+Set installer variables before the installer command, or `export` them first. For example, the following command installs NeoHive on port `4000`:
 
 ```bash
-NEOHIVE_PORT=4577 \
+NEOHIVE_PORT=4000 \
   bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
 ```
 
+To change a variable later, run the installer again with every variable you set before. The installer does not remember them, so any you leave out return to their defaults. For more information, see [Update NeoHive](../admin/updating.md).
+
 | Variable | Default | Purpose |
 |---|---|---|
-| `NEOHIVE_LICENSE_FILE` | none | The path to your license file (`.key` or `.json`). This variable does the same as the `--license-file` option. See [Licensing](../admin/licensing.md). |
+| `NEOHIVE_LICENSE_FILE` | none | The path to your license file (`.key` or `.json`). This variable does the same as the `--license-file` option. For more information, see [Licensing](../admin/licensing.md). |
 | `NEOHIVE_LICENSE_KEY` | none | The license key itself, for setups without a license file. This key takes priority over every other license source. |
 | `NEOHIVE_ROTATE_LICENSE` | unset | Set to `1` to read a new license file even when a key is already cached. |
 | `NEOHIVE_PORT` | `3577` | The port NeoHive is published on. Change your agent's [MCP](../concepts/glossary.md#mcp) endpoint to match. |
-| `NEOHIVE_BACKEND` | detected | Makes NeoHive use one compute backend instead of detecting it: `cpu`, `cuda`, `vulkan`, or `rocm`. See [GPU and CPU](../admin/gpu-cpu.md). |
+| `NEOHIVE_BACKEND` | detected | Makes NeoHive use one compute backend instead of detecting it: `cpu`, `cuda`, `vulkan`, or `rocm`. For more information, see [GPU and CPU](../admin/gpu-cpu.md). |
 | `NEOHIVE_DOCUMENT_TIMEOUT_MS` | `300000` (5 minutes) | The time allowed to convert one uploaded file, such as a PDF or a Word document. Raise this value for very large files. |
 | `NEOHIVE_CHUNKER_TIMEOUT_MS` | `30000` (30 seconds) | The time allowed to split one Markdown or code file. |
 | `NEOHIVE_UPDATE_REPO` | `neohivedev/neohive` | The Docker Hub repository the dashboard checks for new versions. |
@@ -67,22 +69,22 @@ Set each variable where your coding agent starts, for example with `export NEOHI
 
 ## Server
 
-The NeoHive server reads these variables from the `neohive` container's environment. Setting them in your shell does nothing.
+The NeoHive server reads these variables from the `neohive` container's environment, not from your shell. The installer sets the license key, the timeout variables, `NEOHIVE_UPDATE_REPO`, and the Metal worker address for you. To set any other variable in this table, add it with `docker run -e` when you start the container.
 
 {% hint style="warning" %}
-The installer passes only these variables into the container: the license key, the timeout variables, `NEOHIVE_UPDATE_REPO`, and the Metal worker address on Apple Silicon. The installer drops any other variable you add with `docker run -e` the next time it recreates the container. Add those variables again after every upgrade.
+The installer drops variables you added with `docker run -e` the next time it recreates the container, for example during an update. Add them again after every update. If you set `MEMVEC_ENCRYPTION_KEY`, add it back before NeoHive starts, or NeoHive cannot read the connection tokens it stored.
 {% endhint %}
 
 | Variable | Default | Purpose |
 |---|---|---|
 | `MEMVEC_WEBHOOK_SECRET` | unset | The secret for the [webhook refresh endpoint](webhooks.md). While this variable is unset, every webhook request gets a `401` response. |
-| `MEMVEC_ENCRYPTION_KEY` | unset | A 64-character hexadecimal key that encrypts stored connection secrets. While this variable is unset, NeoHive creates a key in `/app/data/.encryption_key`. See [Credentials and secrets](../security/credentials.md). |
+| `MEMVEC_ENCRYPTION_KEY` | unset | A 64-character hexadecimal key that encrypts stored connection secrets. While this variable is unset, NeoHive uses the key in `/app/data/.encryption_key`, and creates that file if it is missing. For more information, see [Credentials and secrets](../security/credentials.md). |
 | `NEOHIVE_MCP_HINTS` | on | Set to `0` on the container to remove the short hint that the server adds to `memory_recall` and `memory_context` replies. |
 | `NEOHIVE_LOG_SIZE_MB` | `10` | The size, in megabytes, that a log file reaches before NeoHive starts a new one. |
 | `NEOHIVE_LOG_KEEP_FILES` | `20` | How many old log files NeoHive keeps. |
 | `MEMVEC_SYNC_MAX_CONCURRENT` | `1` | How many repository syncs run at the same time. |
 | `MEMVEC_SYNC_CONCURRENCY` | `3` | How many files one sync indexes in parallel. |
-| `MEMVEC_SYNC_MAX_RETRY_ATTEMPTS` | `3` | How many later syncs retry a file that failed to index. After that, NeoHive stops retrying the file. |
+| `MEMVEC_SYNC_MAX_RETRY_ATTEMPTS` | `3` | How many times a file can fail to index, counting the first failure. After that, NeoHive stops retrying the file. |
 | `MEMVEC_SYNC_RETRY_DELAY_MS` | `120000` (2 minutes) | How long NeoHive waits before it retries automatically after a sync in which some files failed. |
 | `MEMVEC_TOKEN_REVALIDATION_MS` | `82800000` (23 hours) | How long the result of a connection's last token check stays valid. After that time, NeoHive checks the token again. |
 | `MEMVEC_MIGRATION_SNAPSHOT` | on | Set to `off` to skip the database copy NeoHive takes before an upgrade changes its databases. |
