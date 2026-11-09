@@ -8,7 +8,7 @@ NeoHive gives every coding agent on your team one shared memory. Your agent conn
 
 Every teammate's agent reads the same memory, whichever tool the teammate uses. When one person teaches their agent a lesson, every other agent can recall that lesson. The following diagram shows three teammates' agents sharing one [Hive](glossary.md#hive):
 
-<figure><img src="../.gitbook/assets/how-it-works.svg" alt="Claude Code, Cursor, and Codex agents share one Hive in the NeoHive container. Each agent stores lessons in the Hive and recalls what the other agents stored."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/how-it-works.svg" alt="Claude Code, Cursor, and Codex agents share one Hive in the NeoHive container, and any other MCP app can connect the same way. Each agent stores lessons in the Hive and recalls what the other agents stored."><figcaption></figcaption></figure>
 
 Your agent does not read NeoHive's files. The agent asks through an MCP tool, such as `memory_recall` or `memory_store`, and gets matching code, docs, and [Memories](glossary.md#memory) back. For more information about each tool, see [MCP tools](../reference/mcp-tools.md).
 
@@ -18,13 +18,13 @@ NeoHive is one Docker container named `neohive`. The container keeps your code, 
 
 The container holds your Hives and their [Indexes](glossary.md#index). For more information about Hives and Indexes, see [Hives, Indexes, and Memories](hives-indexes-memories.md). The container also provides the following:
 
-* **You manage your Hives in the dashboard.** The dashboard opens in your browser at the address the installer prints.
+* **You manage your Hives in the dashboard.** The dashboard opens in your browser at the address the installer prints, `http://localhost:3577` by default.
 * **Each Hive has its own MCP endpoint.** The endpoint path is `/hives/<hive-id>/mcp`.
-* **One Docker volume holds all your data.** Your data lives in the `neohive-data` volume, mounted at `/app/data` inside the container.
+* **One Docker volume holds all your data.** Your data lives in the `neohive-data` volume.
 
 ## What the plugin runs
 
-The plugin installs a [rules file](glossary.md#rules-file) that tells your agent when to use memory. What else the plugin runs depends on your tool:
+The plugin installs a [rules file](glossary.md#rules-file) that tells your agent when to use memory. To install the plugin, see [Connect your agent](../get-started/connect/README.md). What else the plugin runs depends on your tool:
 
 {% tabs %}
 {% tab title="Claude Code" %}
@@ -37,7 +37,7 @@ To save what your agent learned, run `/neohive:capture-session-learnings` before
 {% endtab %}
 
 {% tab title="Cursor and Codex" %}
-These plugins have no hooks. Their rules file tells the agent to load context at the start of a session and to recall before it searches files.
+These plugins have no hooks. Their rules file tells the agent to load context at the start of a session and to recall before it searches files. To save what your agent learned, run the `capture-session-learnings` skill before you close the session.
 {% endtab %}
 
 {% tab title="Other MCP apps" %}
@@ -51,7 +51,7 @@ For more information about each hook and how to turn the hook off, see [What the
 
 When you add a repository, the container does the following:
 
-1. Copies (clones) the repository from GitHub or GitLab into the `neohive-data` volume.
+1. Copies (clones) the repository, such as one on GitHub or GitLab, into the `neohive-data` volume.
 2. Splits each file into [chunks](glossary.md#chunk).
 3. Turns each chunk into an [embedding](glossary.md#embedding).
 4. Stores the chunks and their embeddings in a [Code](glossary.md#code-index) or [Documentation Index](glossary.md#documentation-index).

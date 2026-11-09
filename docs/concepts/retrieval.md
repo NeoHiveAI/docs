@@ -14,23 +14,30 @@ In one recall, NeoHive does the following:
 
 1. **Searches every Index at once.** The search includes any [Shared Index](glossary.md#shared-index). A paused Index, or one with an error, is left out.
 2. **Matches meaning and exact words.** A description finds text about the same thing, even when that text uses different words. A function name or an error code finds the text that contains that name or code.
-3. **Ranks the matches into one list.** How well a match fits the query counts most. A result with a higher importance ranks higher. So does a result that your agents added or recalled recently.
+3. **Ranks the matches into one list.** How well a match fits the query counts most. A result with a higher [importance](glossary.md#importance) ranks higher. So does a result that your agents added or recalled recently.
 4. **Returns whole sections.** A match in a document returns the whole section under its heading. A match in code returns the whole file, or the start of a long file, up to 200 lines.
 5. **Lists each section once.** A section appears once even when several parts of the section match.
 
-Each result also shows its type, importance, and tags.
+When your agent searches the whole Hive, each result shows the ID of the Index it came from. For everything else a result shows, see [`memory_recall`](../reference/mcp-tools.md#memory_recall).
 
 ## Two ways to ask
 
-Your agent can ask in two ways. At the start of a task, `memory_context` returns the directives and conventions that match the task you describe. `memory_context` then returns decisions, known problems, and other lessons that match the task. Most code does not come back from `memory_context`. To find code, or to ask a specific question in the middle of a task, your agent calls `memory_recall`.
+Your agent can ask in two ways:
 
-Both tools search every Index unless you name one. In Claude Code, the plugin also calls `memory_recall` with each prompt you send. For more information about the automatic recall on each prompt, see [What the plugin does automatically](../results/plugin-automation.md).
+* **At the start of a task.** `memory_context` returns the directives and conventions that match the task you describe, then decisions, known problems, and other lessons. Most code does not come back from `memory_context`.
+* **For code, or a specific question mid-task.** `memory_recall` searches for the query your agent writes and returns the best matches.
+
+Both tools search every Index unless you name one.
+
+{% hint style="info" %}
+In Claude Code, the plugin also calls `memory_recall` with each prompt you send. For more information, see [What the plugin does automatically](../results/plugin-automation.md).
+{% endhint %}
 
 ## What you control
 
-NeoHive sets the order. You set what to ask and where to look:
+NeoHive sets the order. You choose what to ask and where to look, and your agent turns your words into these `memory_recall` parameters:
 
-| To | Set | How it helps |
+| To | Parameter | How it helps |
 |---|---|---|
 | Find more of what you need | `queries` | Takes up to five phrasings of the same need. Different phrasings match different text. |
 | Search one Index only | `index` | Makes the search faster and more focused when you know which Index holds the answer. |
@@ -39,9 +46,9 @@ NeoHive sets the order. You set what to ask and where to look:
 
 For more information about each parameter, its default, and its limits, see [MCP tools](../reference/mcp-tools.md).
 
-When you do not know which Index holds the answer, search the whole Hive first to see which Index answers best. Then repeat the query with `index` set to that Index.
+When you do not know which Index holds the answer, search the whole Hive first, and note the Index ID on the best results. Then repeat the query with `index` set to that ID.
 
-The phrasing of a query also matters. Name the tool and the problem, not only the topic. For example, "GitHub Actions concurrency limit workaround" finds more than "how do I fix GitHub Actions".
+The phrasing of a query also matters. Name the tool and the problem, not only the topic. For example, `GitHub Actions concurrency limit workaround` finds more than `how do I fix GitHub Actions`.
 
 ## Put it into practice
 
