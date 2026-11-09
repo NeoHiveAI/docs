@@ -18,15 +18,11 @@ The installer is the script that downloads and starts NeoHive. When the installe
 | `E202` | `Docker is not installed. Install from https://docs.docker.com/get-docker/ and retry.` | Install Docker, and then run the installer again. |
 | `E203` | `Docker daemon is not running (or current user cannot access it). Start Docker and retry.` | Start Docker. Check that `docker info` works without `sudo`. |
 | `E204` | `Invalid BACKEND '<value>' (expected cpu\|vulkan\|cuda\|rocm)` | Set `NEOHIVE_BACKEND` to one of the listed values, or unset it. |
-| `E205` | `<flag> requires a path argument.` | Pass `--license-file /path/to/license.key`. |
-| `E206` | `Unknown argument: <flag>` | The installer takes only `--license-file <path>`, `--license-file=<path>`, or `-l <path>`. Use [environment variables](../reference/environment-variables.md) for settings. |
+| `E205`, `E206` | `<flag> requires a path argument.` or `Unknown argument: <flag>` | The installer takes only `--license-file <path>`, `--license-file=<path>`, or `-l <path>`. Use [environment variables](../reference/environment-variables.md) for settings. |
 | `E301` | `No license. Set NEOHIVE_LICENSE_FILE (or pass --license-file), or drop a license.key / license.json next to install.sh, or run interactively. Contact hello@neohive.ai for your license.` | Pass `--license-file`, set `NEOHIVE_LICENSE_FILE`, or put `license.key` or `license.json` next to `install.sh`. To get a license, request one from the [NeoHive team](https://www.neohive.ai/download/). |
-| `E301` | `<path> is not a readable file. Verify the path and re-run.` | Run the installer again, and enter the full path to the file. |
-| `E302` | `Empty path.` | Run the installer again, and enter the path at the prompt. |
+| `E301`, `E302`, `E308`, `E309` | `<path> is not a readable file. Verify the path and re-run.`, `Empty path.`, `--license-file '<path>' does not exist.`, or `NEOHIVE_LICENSE_FILE '<path>' does not exist.` | Correct the path to the license file, and then run the installer again. At the prompt, enter the full path. |
 | `E303` | `License rejected and stdin is not a TTY - cannot re-prompt. Point NEOHIVE_LICENSE_FILE at a valid license file and retry.` | Set `NEOHIVE_LICENSE_FILE` to the path of your current license file. If the installer still rejects it, request a new license from the [NeoHive team](https://www.neohive.ai/download/). |
 | `E304` to `E307` | `License file '<path>' is not readable.`, `License file '<path>' is empty.`, `License file '<path>' is JSON but no .key field found.`, or `Could not extract license key from '<path>'.` | Use the license file that the NeoHive team sent you, without editing it. |
-| `E308` | `--license-file '<path>' does not exist.` | Correct the path to the license file. |
-| `E309` | `NEOHIVE_LICENSE_FILE '<path>' does not exist.` | Correct the path to the license file. |
 | `E310` | `License rejected after 3 attempts. Contact hello@neohive.ai.` | Check that you have the current license file. If you do, request a new license from the [NeoHive team](https://www.neohive.ai/download/). |
 | `E501` | `image '<image>:<backend>' not found and NEOHIVE_BACKEND is set - unset it to allow automatic fallback.` | Unset `NEOHIVE_BACKEND` so that the installer chooses an image. |
 | `E502` | `no compatible image found on <image>. Check connectivity to Docker Hub and retry.` | Check your connection or proxy to Docker Hub, and then run the installer again. |
@@ -55,18 +51,14 @@ The NeoHive server reports a problem in the dashboard, in a command's output, or
 
 ## Agent tools
 
-Your agent receives the following messages from a NeoHive tool, such as `memory_recall`.
+Your agent receives an error message when a NeoHive tool, such as `memory_recall`, fails. Most of these messages mean that the agent called the tool the wrong way, so the agent fixes its call and tries again. For the rules each tool follows, see [MCP tools](../reference/mcp-tools.md).
+
+The following messages need you to act:
 
 | Message | Cause | Fix |
 |---|---|---|
 | `No Indexes configured. Create an Index first.` | The Hive has no [Index](../concepts/glossary.md#index), or NeoHive cannot open any of its Indexes. | Add an Index to the Hive. If the Hive already has an Index, restart NeoHive with `docker restart neohive`. |
-| `Index "<id>" not found. Use list_indexes to see available Indexes.` | The `index` argument names an id this Hive does not have. | Call `list_indexes` and use an id from its reply. |
 | `Index "<id>" is <status>. Only active Indexes can be used.` | The Index is not `active`, for example `paused` or `error`. | Open the Index page in the dashboard, and fix the problem that the page shows. For more information about sync problems, see [Repository sync issues](sync.md). |
-| `Provide either query (string) or queries (string array).` | `memory_recall` received neither argument. | Pass one of the two arguments. For more information about the arguments, see [MCP tools](../reference/mcp-tools.md). |
-| `Provide query OR queries, not both.` | `memory_recall` received both arguments. | Pass only one of the two arguments. |
-| `Maximum 5 queries allowed.` | `queries` has more than five entries. | Send five queries or fewer. |
-| `Memory #<id> not found.` | `memory_forget` received an id that does not exist. | Take the id from a `memory_recall` result heading, which reads `Memory #<n> (id: <id>, ...)`. |
-| `Refusing to index binary content: mem://store` | `memory_store` received binary data instead of text. | Store text only. |
 | `No relevant memories found for this query.` | No stored content matched the query. | To find why nothing matched, see [Recall isn't finding what I need](recall.md). |
 
 ## Uploads
@@ -77,13 +69,13 @@ NeoHive shows the following messages for a file that you upload to a [Files Inde
 |---|---|---|
 | `Unsupported type: <ext>` or `Unsupported file type: <ext>. Allowed: <extensions>` | NeoHive cannot read that file type. | Export the file to a supported type. For more information about supported types, see [Supported file types](../reference/file-types.md). |
 | `File too large (<size> > <limit>)` or `File too large` | The file is over the size limit for one file. | Split the file into smaller files. |
-| `Too many files` | The upload has more than 20 files. | Upload in batches of 20 or fewer. |
-| `This upload is <size>, over the <limit> per-request limit` | The files in one upload add up to more than NeoHive accepts at once. | Upload fewer files at a time. |
 | `a file with this name is already staged`, `selected more than once`, or `More than one file in this upload is named <name>` | Two files in the same upload have the same name. | Rename one of the files so each name is unique, and then upload both. |
 | `No text could be extracted from this document. Common causes: scanned or image-only pages, or text rendered as vector outlines instead of fonts. For an image: no readable text, or text too small or too low in contrast for OCR.` | The file has no text that NeoHive can read, or the file is empty. | Upload a version with real text, or a sharper image. |
 | `Converting "<name>" timed out` | Converting the file took longer than the time allowed, five minutes by default. | Run the installer again with a higher `NEOHIVE_DOCUMENT_TIMEOUT_MS`. For more information, see [Environment variables](../reference/environment-variables.md). |
 | `Converting "<name>" was killed — most likely it needed more memory than available.` | Converting the file needed more memory than the container has. | Split the file, or give Docker more memory. |
 | `Upload processing is unavailable. Try again shortly.` | The part of NeoHive that converts uploads is not running. | Wait a minute and try again. If the error continues, check `/health`. To read the `/health` reply, see [Agent can't connect](connection.md). |
+| `<name> has <n> pages, over the <limit> page limit` | The PDF has more than 500 pages, the default limit. | Split the PDF into smaller files. |
+| `<name> has <n> pixels, over the <limit> pixel limit` | The image has more than 50,000,000 pixels, the default limit. | Resize the image, or crop the image to the part with the text. |
 
 ## Syncs and connections
 
