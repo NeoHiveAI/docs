@@ -43,7 +43,7 @@ curl http://localhost:3577/health
 |---|---|---|
 | `"status":"ok"` | NeoHive is ready. | Go to the next check. |
 | `"status":"error"` | NeoHive could not finish starting, or its embedding engine cannot run. | Look up the `error` text in [Common errors](common-errors.md). |
-| `"status":"degraded"` | At least one Hive failed its check. | On the dashboard home page, open that Hive's menu and select **Restart**. |
+| `"status":"degraded"` | At least one Hive failed its check. | Restart NeoHive with `docker restart neohive`, and then run this check again. |
 {% endstep %}
 
 {% step %}
