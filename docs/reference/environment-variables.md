@@ -94,6 +94,7 @@ The installer drops variables you added with `docker run -e` the next time it re
 | `MEMVEC_SYNC_MAX_RETRY_ATTEMPTS` | `3` | How many times a file can fail to index, counting the first failure. After that, NeoHive stops retrying the file. |
 | `MEMVEC_SYNC_RETRY_DELAY_MS` | `120000` (2 minutes) | How long NeoHive waits before it retries automatically after a sync in which some files failed. |
 | `MEMVEC_TOKEN_REVALIDATION_MS` | `82800000` (23 hours) | How long the result of a connection's last token check stays valid. After that time, NeoHive checks the token again. |
+| `MEMVEC_EMBEDDER_TIMEOUT_MS` | `120000` (2 minutes) | How long NeoHive waits for one embedding call, the step that turns text into numbers for search. On a slow machine, raise this value. |
 | `MEMVEC_MIGRATION_SNAPSHOT` | on | Set to `off` to skip the database copy NeoHive takes before an upgrade changes its databases. |
 | `MEMVEC_MIGRATION_SNAPSHOT_KEEP` | `5` | How many of those copies to keep per database. Each copy is a full copy of the database. If disk space is low, lower this number. |
 | `MEMVEC_DOCUMENT_MAX_PAGES` | `500` | The most pages an uploaded PDF can have. If you raise it, raise `NEOHIVE_DOCUMENT_TIMEOUT_MS` too. |
