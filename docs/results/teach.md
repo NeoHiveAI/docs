@@ -12,9 +12,9 @@ How you word a lesson decides whether recall finds the lesson later. The followi
 
 ## What to say
 
-Tell your agent in the chat, in plain words, the way you would tell a teammate. You need no special command. The following table shows what to say in each case:
+Tell your agent in the chat, in plain words, the way you would tell a teammate. You need no special command. The following table shows what to do in each case:
 
-| When this happens | What to say | For example |
+| When this happens | What to do | For example |
 |---|---|---|
 | Your agent gets something wrong | Give the right answer and the reason. Your agent saves the correction as a Memory, so the mistake stops coming back. | `No, we validate tokens in the gateway, not in each service.` |
 | You make a decision | Say what you chose and why. Your agent saves the decision, so later sessions follow the decision. | `Remember that we use Redis for sessions because they are short-lived and need no durability.` |
