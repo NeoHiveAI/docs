@@ -20,7 +20,7 @@ The container holds your Hives and their [Indexes](glossary.md#index). For more 
 
 * **You manage your Hives in the dashboard.** The dashboard opens in your browser at the address the installer prints.
 * **Each Hive has its own MCP endpoint.** The endpoint path is `/hives/<hive-id>/mcp`.
-* **One Docker volume holds all your data.** Everything the container stores lives in the `neohive-data` volume, mounted at `/app/data` inside the container.
+* **One Docker volume holds all your data.** Your data lives in the `neohive-data` volume, mounted at `/app/data` inside the container.
 
 ## What the plugin runs
 
@@ -58,4 +58,4 @@ When you add a repository, the container does the following:
 
 Later syncs index only the files that changed. Syncs also run on a schedule, so a Code or Documentation Index stays up to date with its repository.
 
-Embedding and search both run inside the container. For more information about each connection the container makes to outside services, see [What stays on your machine](../security/local-only.md).
+NeoHive embeds and searches your content on the machine it runs on. On a Mac with Apple Silicon, embedding runs in the [Metal worker](glossary.md#metal-worker), outside the container. For more information about each connection the container makes to outside services, see [What stays on your machine](../security/local-only.md).

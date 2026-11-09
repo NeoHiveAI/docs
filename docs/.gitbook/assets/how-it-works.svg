@@ -57,8 +57,7 @@
 <text x="152" y="320" class="pill" fill="#7C3AED" text-anchor="middle">NeoHive plugin</text>
 <text x="40" y="364" class="muted">or any other MCP app</text>
 <rect x="352" y="40" width="360" height="320" rx="5" fill="#FFFFFF" stroke="#DDD6FF"/>
-<g transform="translate(370,49) scale(0.04)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
-<text x="394" y="64" class="lbl" fill="#7C3AED">NEOHIVE CONTAINER</text>
+<text x="370" y="64" class="lbl" fill="#7C3AED">NEOHIVE CONTAINER</text>
 <text x="370" y="346" class="muted">Docker, on your machine or a shared server</text>
 <rect x="370" y="78" width="324" height="240" rx="5" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1.4"/>
 <text x="386" y="100" class="lbl" fill="#7C3AED">HIVE</text>
@@ -128,7 +127,7 @@
 <path d="M14 2v5a1 1 0 0 0 1 1h5"/>
 </g>
 <text x="798" y="270" class="title">Your files</text>
-<text x="798" y="287" class="body">docs and PDFs</text>
+<text x="798" y="287" class="body">docs, PDFs, and images</text>
 <line x1="778" y1="145" x2="696" y2="145" stroke="#009689" stroke-width="1.8" marker-end="url(#arrT)"/>
 <rect x="715.0" y="135" width="44" height="20" rx="10" fill="#FFFFFF" stroke="#99E6DC"/>
 <text x="737" y="149" class="pill" fill="#009689" text-anchor="middle">sync</text>

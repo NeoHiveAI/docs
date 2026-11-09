@@ -14,7 +14,7 @@ In one recall, NeoHive does the following:
 
 1. **Searches every Index at once.** The search includes any [Shared Index](glossary.md#shared-index). A paused Index, or one with an error, is left out.
 2. **Matches meaning and exact words.** A description finds text about the same thing, even when that text uses different words. A function name or an error code finds the text that contains that name or code.
-3. **Ranks the matches into one list.** How well a match fits the query counts most. A Memory with higher importance, or one your agents recall often or recently, ranks higher.
+3. **Ranks the matches into one list.** How well a match fits the query counts most. A result with a higher importance ranks higher. So does a result that your agents added or recalled recently.
 4. **Returns whole sections.** A match in a document returns the whole section under its heading. A match in code returns the whole file, or the start of a long file, up to 200 lines.
 5. **Lists each section once.** A section appears once even when several parts of the section match.
 
@@ -22,7 +22,7 @@ Each result also shows its type, importance, and tags.
 
 ## Two ways to ask
 
-Your agent can ask in two ways. At the start of a task, `memory_context` returns the directives and conventions that match the task you describe. `memory_context` then returns other Memories and indexed content that match the task. For a specific question in the middle of a task, your agent calls `memory_recall`.
+Your agent can ask in two ways. At the start of a task, `memory_context` returns the directives and conventions that match the task you describe. `memory_context` then returns decisions, known problems, and other lessons that match the task. Most code does not come back from `memory_context`. To find code, or to ask a specific question in the middle of a task, your agent calls `memory_recall`.
 
 Both tools search every Index unless you name one. In Claude Code, the plugin also calls `memory_recall` with each prompt you send. For more information about the automatic recall on each prompt, see [What the plugin does automatically](../results/plugin-automation.md).
 
