@@ -14,8 +14,8 @@ The following diagram shows the path of one webhook request:
 
 To set up the webhook, do the following:
 
-1. Set `MEMVEC_WEBHOOK_SECRET` on the container. For more information about the secret, see [Authentication](#authentication).
-2. After each merge, send an HTTP request from your CI pipeline. For GitHub, start from the [GitHub Actions template](#github-actions-template).
+1. Set `MEMVEC_WEBHOOK_SECRET` on the container. For how to set a server variable, see [Server](environment-variables.md#server). For more information about the secret, see [Authentication](#authentication).
+2. After each merge, send an HTTP request from your CI pipeline. Any CI system that can run `curl` works. For GitHub Actions, start from the [GitHub Actions template](#github-actions-template), and adapt it for other CI systems.
 
 Every request uses the following method, URL, and headers. Replace `<host>`, `<hive-id>`, and `<secret>` with your own values:
 
@@ -29,7 +29,7 @@ X-Webhook-Secret: <secret>
 
 ## Authentication
 
-NeoHive compares `X-Webhook-Secret` with `MEMVEC_WEBHOOK_SECRET` on the `neohive` container. While that variable is unset, every request gets a `401` response. The installer does not set `MEMVEC_WEBHOOK_SECRET`, so add the variable to the container yourself. Add the variable again after each upgrade. [Environment variables](environment-variables.md) explains why.
+NeoHive compares `X-Webhook-Secret` with `MEMVEC_WEBHOOK_SECRET` on the `neohive` container. While that variable is unset, every request gets a `401` response. The installer does not set `MEMVEC_WEBHOOK_SECRET`, so add the variable to the container yourself. Add the variable again after each upgrade. For more information, see [Server](environment-variables.md#server).
 
 {% hint style="danger" %}
 Treat the secret like a database password. Keep the secret in your CI secret store. Never put it in the repository or in CI logs.
@@ -72,7 +72,7 @@ For how the filters work, see [File pattern syntax](file-patterns.md).
 
 ## Response
 
-If more than one Index syncs the repository, the counts add up across those Indexes. A successful request returns counts like the following:
+A successful request returns counts like the following:
 
 ```json
 { "processed": 2, "skipped": 0, "deleted": 7, "errors": [], "duration_ms": 412 }
@@ -82,8 +82,11 @@ If more than one Index syncs the repository, the counts add up across those Inde
 |---|---|
 | `processed` | Files indexed, plus files removed with `"action": "deleted"` |
 | `skipped` | Files the built-in skip list or your file filters exclude, files that look binary, and files sent with no content |
-| `deleted` | Stored pieces removed, not files |
+| `deleted` | [Chunks](../concepts/glossary.md#chunk) removed, not files |
 | `errors` | One `{ "path", "error" }` entry per file that failed |
+| `duration_ms` | How long the request took, in milliseconds |
+
+If more than one Index syncs the repository, the counts add up across those Indexes.
 
 ### Error responses
 
@@ -91,13 +94,15 @@ A failed request returns one of the following statuses:
 
 | Status | Body | Cause |
 |---|---|---|
-| `400` | `Missing required field: repo` (or `sha`, `files (array)`) | The body is missing a field. |
+| `400` | `Missing required field: repo` (or `sha`, `files (array)`) | The body is missing a field, or the request does not send `Content-Type: application/json`. |
 | `400` | `Each file must have a path string` | An entry in `files` has no `path`. |
+| `400` | `Bad Request` (an HTML page, not JSON) | The body is not valid JSON. |
 | `401` | `Invalid or missing webhook secret` | The header is wrong, or `MEMVEC_WEBHOOK_SECRET` is not set on the container. |
-| `402` | `License check failed` | The license expired or failed validation. See [Licensing](../admin/licensing.md). |
+| `402` | `License check failed` | The license expired or failed validation. For more information, see [Licensing](../admin/licensing.md). |
 | `404` | `No Index found syncing repo: <repo>` | No Code or Documentation Index in that Hive syncs that exact URL, or each one that does has an error status. |
 | `404` | `Unknown Hive: <hive-id>` | The Hive id in the URL is wrong, or the Hive is archived. |
 | `413` | `Payload Too Large` (an HTML page, not JSON) | The body is over 100 KB. |
+| `503` | `License check unavailable` | NeoHive could not complete the license check. Send the request again. |
 
 ## GitHub Actions template
 
@@ -153,4 +158,4 @@ jobs:
             "$NEOHIVE_URL/hives/$NEOHIVE_HIVE_ID/webhook/refresh"
 ```
 
-`--no-renames` reports a renamed file as a deletion plus an addition, so NeoHive removes the old path from the Index. The template sends all changed files in one request. If the files add up to more than 100 KB, the request gets a `413` response.
+`--no-renames` reports a renamed file as a deletion plus an addition, so NeoHive removes the old path from the Index. The template sends all changed files in one request, including images and other files that NeoHive skips, and every file counts toward the 100 KB limit. If the files add up to more than 100 KB, the request gets a `413` response.
