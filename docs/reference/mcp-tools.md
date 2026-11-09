@@ -34,7 +34,7 @@ Each Hive serves these tools at its [MCP](../concepts/glossary.md#mcp) endpoint,
 | `index` | string | all Indexes | The id of one Index to search. |
 | `noAccessUpdate` | boolean | `false` | When `true`, the search does not count as a recall. The access count of the Memories it returns stays the same. Use this option for automated callers. |
 
-The reply lists each result under a heading such as `### Memory #1 (id: 482, score: 0.031)`. Under the heading, each result shows the Memory's type, importance, access count, and tags, followed by the stored content. The importance, from 1 to 10, comes from [`memory_store`](#memory_store) for a Memory, or from NeoHive for indexed file content. The access count is how many times `memory_recall` or `memory_context` has returned the Memory. NeoHive cuts off content longer than 8,000 characters and adds a `(truncated, ...)` note.
+The reply lists each result under a heading such as `### Memory #1 (id: 482, score: 0.712)`. Under the heading, each result shows the Memory's type, importance, access count, and tags, followed by the stored content. The importance, from 1 to 10, comes from [`memory_store`](#memory_store) for a Memory, or from NeoHive for indexed file content. NeoHive cuts off long content and adds a `(truncated, ...)` note with the full length.
 
 ## memory_context
 
@@ -61,9 +61,9 @@ Without `index`, the reply lists only the total number of Memories and the count
 | `type` | string | required | One of the [Memory types](memory-types.md). |
 | `importance` | integer | `5` | `1` (trivial) to `10` (critical). Higher importance helps a Memory rank higher. |
 | `tags` | string list | none | Labels that help later searches find the Memory. |
-| `format` | string | `auto` | How to split content of 6,000 characters or more: `auto`, `markdown`, `code`, or `text`. `auto` detects the format. NeoHive stores shorter content whole. |
+| `format` | string | `auto` | How to split long content: `auto`, `markdown`, `code`, `DSL`, or `text`. `auto` detects the format. NeoHive stores shorter content whole. |
 
-The reply is `Memory stored successfully (id: <id>, type: <type>, importance: <n>, Index: <index-id>)`. For content of 6,000 characters or more, the reply also says how NeoHive split it. You can search for the Memory immediately.
+The reply is `Memory stored successfully (id: <id>, type: <type>, importance: <n>, Index: <index-id>)`. For long content, the reply also says how NeoHive split it. You can search for the Memory immediately.
 
 ## memory_forget
 

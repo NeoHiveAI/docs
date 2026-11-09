@@ -28,7 +28,7 @@ Your agent picks the type when it stores a Memory, usually without asking you. T
 
 ## Importance
 
-Every Memory also has an importance from `1` (trivial) to `10` (critical). Higher importance helps a Memory rank higher. Your agent picks the importance when it stores a Memory, and `memory_store` uses `5` if the agent leaves it out. To set the importance yourself, name the number in your request. Use `8` and above only for rules your agent must not miss.
+Every Memory also has an importance from `1` (trivial) to `10` (critical), where `5` is normal. Higher importance helps a Memory rank higher. Your agent picks the importance when it stores a Memory, and `memory_store` uses `5` if the agent leaves it out. To set the importance yourself, name the number in your request. For a rule your agent must not miss, store it as a `directive`, which `memory_context` lists first, and give it a high importance.
 
 {% hint style="info" %}
 Types are not only for Memories. [Code](../concepts/glossary.md#code-index), [Documentation](../concepts/glossary.md#documentation-index), and [Files Indexes](../concepts/glossary.md#files-index) hold [chunks](../concepts/glossary.md#chunk) of your files, and NeoHive gives each chunk a type and an importance based on its wording. A chunk that reads like a rule, such as a README sentence with "never" in it, can come back from `memory_recall` and `memory_context` as a `directive`. For how Memories and chunks differ, see [Hives, Indexes, and Memories](../concepts/hives-indexes-memories.md#memories).
