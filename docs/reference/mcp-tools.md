@@ -10,18 +10,18 @@ Each Hive serves these tools at its [MCP](../concepts/glossary.md#mcp) endpoint,
 
 | Tool | What it does | Writes? |
 |---|---|---|
-| `list_indexes` | Lists the Hive's Indexes with each one's id, name, type, status, embedding model, and description. | No |
+| `list_indexes` | Lists the Hive's Indexes with each one's ID, name, type, status, embedding model, and description. | No |
 | `memory_recall` | Searches the Hive's Indexes by meaning and keywords and returns the most relevant code, docs, and [Memories](../concepts/glossary.md#memory). | No |
 | `memory_context` | Returns the rules closest to your task plus other Memories related to it. | No |
 | `memory_stats` | Reports Memory counts by type, the most and least accessed Memories, and the oldest and newest. | No |
 | `memory_store` | Saves a new Memory to the Hive's [Knowledge Index](../concepts/glossary.md#knowledge-index). | Yes |
 | `memory_forget` | Deactivates a Memory so recall stops returning it. | Yes |
 
-`memory_recall`, `memory_context`, and `memory_stats` take an optional `index`, the id of one Index to use. Leave it out to cover every Index in the Hive. `memory_store` and `memory_forget` take no `index`. Both tools write to the Hive's own Knowledge Index, even when you read from a [Shared Index](../concepts/glossary.md#shared-index).
+`memory_recall`, `memory_context`, and `memory_stats` take an optional `index`, the ID of one Index to use. Leave it out to cover every Index in the Hive. `memory_store` and `memory_forget` take no `index`. Both tools write to the Hive's own Knowledge Index, even when you read from a [Shared Index](../concepts/glossary.md#shared-index).
 
 ## list_indexes
 
-`list_indexes` takes no parameters. Each line of the reply shows the Index id, name, type, status, and embedding model, followed by the Index's description if it has one. An Index shared into your Hive shows `shared_from: <owner hive>` and `access: read-only`. You can recall from a Shared Index but not write to it.
+`list_indexes` takes no parameters. Each line of the reply shows the Index ID, name, type, status, and embedding model, followed by the Index's description if it has one. An Index shared into your Hive shows `shared_from: <owner hive>` and `access: read-only`. You can recall from a Shared Index but not write to it.
 
 ## memory_recall
 
@@ -31,7 +31,7 @@ Each Hive serves these tools at its [MCP](../concepts/glossary.md#mcp) endpoint,
 | `queries` | string list | none | One to five phrasings of the same search. NeoHive merges their results into one list. |
 | `limit` | integer | `10` | The maximum number of results, from `1` to `50`. |
 | `types` | string list | all types | Return only these [Memory types](memory-types.md). |
-| `index` | string | all Indexes | The id of one Index to search. |
+| `index` | string | all Indexes | The ID of one Index to search. |
 | `noAccessUpdate` | boolean | `false` | When `true`, the search does not count as a recall. The access count of the Memories it returns stays the same. Use this option for automated callers. |
 
 The reply lists each result under a heading such as `### Memory #1 (id: 482, score: 0.712)`. Under the heading, each result shows the Memory's type, importance, access count, and tags, followed by the stored content. The importance, from 1 to 10, comes from [`memory_store`](#memory_store) for a Memory, or from NeoHive for indexed file content. NeoHive cuts off long content and adds a `(truncated, ...)` note with the full length.
@@ -41,7 +41,7 @@ The reply lists each result under a heading such as `### Memory #1 (id: 482, sco
 | Parameter | Type | Default | Notes |
 |---|---|---|---|
 | `task` | string | required | A description of what you are about to work on, using specific terms. |
-| `index` | string | all Indexes | The id of one Index to load from. |
+| `index` | string | all Indexes | The ID of one Index to load from. |
 
 The reply has two sections: `## Directives & Conventions` and `## Task-Relevant Context`. [Memory types](memory-types.md) shows which types appear in each section. If nothing matches, the reply is `No relevant context found. This may be a new topic area.`
 
@@ -49,7 +49,7 @@ The reply has two sections: `## Directives & Conventions` and `## Task-Relevant 
 
 | Parameter | Type | Default | Notes |
 |---|---|---|---|
-| `index` | string | all Indexes | The id of one Index to report on. |
+| `index` | string | all Indexes | The ID of one Index to report on. |
 
 Without `index`, the reply lists only the total number of Memories and the counts by type for each Index. The most and least accessed Memories and the oldest and newest Memory appear only when you pass `index`.
 
@@ -69,11 +69,11 @@ The reply is `Memory stored successfully (id: <id>, type: <type>, importance: <n
 
 | Parameter | Type | Default | Notes |
 |---|---|---|---|
-| `memory_id` | integer | required | The id of the Memory to deactivate, shown in the heading of each `memory_recall` result. `memory_forget` searches only the Hive's own Knowledge Index, so pass the id of a Memory stored with `memory_store`. Each Index numbers its content separately, so an id from another Index can deactivate an unrelated Memory. |
+| `memory_id` | integer | required | The ID of the Memory to deactivate, shown in the heading of each `memory_recall` result. `memory_forget` searches only the Hive's own Knowledge Index, so pass the ID of a Memory stored with `memory_store`. Each Index numbers its content separately, so an ID from another Index can deactivate an unrelated Memory. |
 | `reason` | string | none | Why you are retiring the Memory. |
-| `superseded_by` | integer | none | The id of the Memory that replaces this one. |
+| `superseded_by` | integer | none | The ID of the Memory that replaces this one. |
 
-The reply is `Memory #<id> has been deactivated (Index: <index-id>).`, followed by the reason and replacement if you gave them. `memory_forget` deactivates a Memory but does not erase it. Recall stops returning the Memory, but the Memory stays in the database.
+The reply is `Memory #<id> has been deactivated (Index: <index-id>).`, followed by the reason and replacement if you gave them. Recall then stops returning the Memory.
 
 <details>
 
