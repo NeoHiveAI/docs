@@ -127,7 +127,7 @@ Each color carries one meaning across every diagram. A reader who has learned th
 | Card | `rx="5"` | One thing, such as an Index, a step, or a service |
 | Inner card | `rx="4"` | A thing inside a card |
 | Chip | `rx="3"` | A file name, a Memory, or a code sample inside a card |
-| Field in a drawing of a screen | `rx="3"` | An input or a dropdown, as in `admin-playground.svg` |
+| Field in a drawing of a screen | `rx="3"` | An input or a dropdown |
 | Placeholder bar | `rx="2"` | A gray bar standing for a line of text in a drawing of a screen |
 | Accent bar | half the width (`rx="1.75"` on a 3.5px bar) | A colored strip down the left edge of a card, in the color of the card's meaning from the color table, such as green for the right way and amber for the wrong way |
 | Pill label | half the height | A label that sits on a line, such as the sync label in `context-repositories.svg` |
@@ -159,8 +159,8 @@ Some older diagrams use `4 4`, or `5 4` on a border. Use the table in new work.
 
 ## Files, alt text, and commits (Must Follow)
 
-- **Name the file `<top-level-folder>-<page>.svg`,** such as `admin-playground.svg` for `docs/admin/playground.md`. Drop any folder in between, as in `context-sync.svg` for `docs/context/repositories/sync.md`. For a folder's `README.md`, use the folder name, as in `get-started-connect.svg`. Add a short suffix for a second diagram on the same page, as in `get-started-what-is-neohive-parts.svg`. The name tells the next writer which page uses the file, so an unused diagram is easy to spot. Two diagrams predate this rule, `how-it-works.svg` and `hives-indexes-memories.svg`. Leave their names as they are, because a rename only creates churn in GitBook.
-- **Reference the diagram from the page with a `<figure>` block,** for example `<figure><img src="../.gitbook/assets/admin-playground.svg" alt="..."><figcaption></figcaption></figure>`. This is the form every existing page uses.
+- **Name the file `<top-level-folder>-<page>.svg`,** such as `admin-backups.svg` for `docs/admin/backups.md`. Drop any folder in between, as in `context-sync.svg` for `docs/context/repositories/sync.md`. For a folder's `README.md`, use the folder name, as in `get-started-connect.svg`. Add a short suffix for a second diagram on the same page, as in `get-started-what-is-neohive-parts.svg`. The name tells the next writer which page uses the file, so an unused diagram is easy to spot. Two diagrams predate this rule, `how-it-works.svg` and `hives-indexes-memories.svg`. Leave their names as they are, because a rename only creates churn in GitBook.
+- **Reference the diagram from the page with a `<figure>` block,** for example `<figure><img src="../.gitbook/assets/admin-backups.svg" alt="..."><figcaption></figcaption></figure>`. This is the form every existing page uses.
 - **Write alt text that says everything the diagram shows,** following the style guide's alt text rule. Readers who cannot see the image get the whole idea from the alt text, and no step may exist only in the image.
 - **Commit a new diagram in the same commit as the page that uses it, or earlier.** If the file is missing when GitBook imports the page, the image can stay broken on the site even after a later commit adds the file.
 - **When a diagram changes, check every page that uses it.** Search the docs for the file name. The diagram must still match the text around it on each page.
