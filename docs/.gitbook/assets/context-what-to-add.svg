@@ -46,8 +46,8 @@
   <text x="527" y="368" class="muted" text-anchor="middle">yes</text>
   <rect x="580" y="334" width="380" height="84" rx="5" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.5"/>
   <text x="600" y="364" class="title">Files</text>
-  <text x="600" y="384" class="body">Pick File Upload and drop</text>
-  <text x="600" y="401" class="body">.md, .txt or .pdf files.</text>
+  <text x="600" y="384" class="body">Select File Upload and drop</text>
+  <text x="600" y="401" class="body">PDFs, Word files, or markdown.</text>
   <line x1="120" y1="418" x2="120" y2="440" stroke="#A1A1A1" stroke-width="2" marker-end="url(#arrM)"/>
   <text x="132" y="435" class="muted">no</text>
   <rect x="40" y="442" width="440" height="84" rx="5" fill="#FFFFFF" stroke="#A78BFA" stroke-width="1.5"/>
