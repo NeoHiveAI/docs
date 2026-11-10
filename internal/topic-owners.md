@@ -70,6 +70,7 @@
 | Running one instance for a team | `admin/access.md` | `results/team-workflows.md` |
 | Network exposure and authenticating proxies | `security/network.md` | `admin/access.md` |
 | Outbound connections and what stays local | `security/local-only.md` | `README.md`, `get-started/what-is-neohive.md`, `concepts/how-it-works.md` |
+| Troubleshooting: which page or section covers each symptom | `troubleshooting/find-your-problem.md` | |
 | `/health` statuses | `troubleshooting/connection.md` | `troubleshooting/common-errors.md` |
 | Sync errors shown on an Index's page | `troubleshooting/sync.md` | `troubleshooting/common-errors.md` |
 | Recall that comes back empty or misses content | `troubleshooting/recall.md` | |

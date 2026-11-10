@@ -1,81 +1,50 @@
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1000" height="684" viewBox="0 0 1000 684" font-family="'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1000" height="452" viewBox="0 0 1000 452" font-family="'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
   <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap');
-    .mono { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; }
-    .lbl { font-size: 11px; font-weight: 700; letter-spacing: 1.1px; }
-    .body { font-size: 12.5px; fill: #4A4458; }
+    .mono { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .lbl { font-size: 10.5px; font-weight: 700; letter-spacing: 1.1px; }
     .title { font-size: 15px; font-weight: 700; fill: #1A1A2E; }
-    .fix { font-size: 12.5px; fill: #1A1A2E; }
+    .body { font-size: 12.5px; fill: #4A4458; }
+    .item { font-size: 12px; fill: #1A1A2E; }
+    .muted { font-size: 11.5px; fill: #737373; }
   </style>
   <defs>
-    <marker id="arrG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#008236"/></marker>
-    <marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#BB4D00"/></marker>
+    <marker id="arrM" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#A1A1A1"/></marker>
   </defs>
-  <rect width="1000" height="684" fill="#FAF9FD"/>
-
-  <!-- Content keeps the coordinates it had under the old top header. This group moves it up by 68 so its
-       top edge sits at y=40. Draw new content inside the group with the same coordinates as the rest. -->
-  <g transform="translate(0,-68)">  <text x="740" y="116" class="lbl" fill="#BB4D00" text-anchor="middle">IF NO, DO THIS</text>
-  <rect x="40" y="124" width="520" height="66" rx="5" fill="#FFFFFF" stroke="#E5E5E5"/>
-  <circle cx="70" cy="157.0" r="14" fill="#7C3AED"/>
-  <text x="70" y="162.0" font-size="14" font-weight="700" text-anchor="middle" fill="#FFFFFF">1</text>
-  <text x="98" y="152" class="title">Is syncing turned on?</text>
-  <text x="98" y="173" class="body">Sync Settings shows Pause syncing</text>
-  <line x1="560" y1="157.0" x2="608" y2="157.0" stroke="#BB4D00" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrA)"/>
-  <text x="582" y="150.0" font-size="11" font-weight="700" text-anchor="middle" fill="#BB4D00">no</text>
-  <text x="618" y="161.0" class="fix">Click Resume syncing</text>
-  <line x1="180" y1="190" x2="180" y2="218" stroke="#008236" stroke-width="1.8" marker-end="url(#arrG)"/>
-  <text x="190" y="210" font-size="11" font-weight="700" fill="#008236">yes</text>
-  <rect x="40" y="220" width="520" height="66" rx="5" fill="#FFFFFF" stroke="#E5E5E5"/>
-  <circle cx="70" cy="253.0" r="14" fill="#7C3AED"/>
-  <text x="70" y="258.0" font-size="14" font-weight="700" text-anchor="middle" fill="#FFFFFF">2</text>
-  <text x="98" y="248" class="title">Is the connection valid?</text>
-  <text x="98" y="269" class="body">Data Sources shows Valid for its connection</text>
-  <line x1="560" y1="253.0" x2="608" y2="253.0" stroke="#BB4D00" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrA)"/>
-  <text x="582" y="246.0" font-size="11" font-weight="700" text-anchor="middle" fill="#BB4D00">no</text>
-  <text x="618" y="248.0" class="fix">Replace the token on Data Sources</text>
-  <text x="618" y="266.0" class="fix">GitHub tokens need the <tspan class="mono" fill="#7008E7">repo</tspan> scope</text>
-  <line x1="180" y1="286" x2="180" y2="314" stroke="#008236" stroke-width="1.8" marker-end="url(#arrG)"/>
-  <text x="190" y="306" font-size="11" font-weight="700" fill="#008236">yes</text>
-  <rect x="40" y="316" width="520" height="66" rx="5" fill="#FFFFFF" stroke="#E5E5E5"/>
-  <circle cx="70" cy="349.0" r="14" fill="#7C3AED"/>
-  <text x="70" y="354.0" font-size="14" font-weight="700" text-anchor="middle" fill="#FFFFFF">3</text>
-  <text x="98" y="344" class="title">Did the last run succeed?</text>
-  <text x="98" y="365" class="body">Sync history shows success, no red box</text>
-  <line x1="560" y1="349.0" x2="608" y2="349.0" stroke="#BB4D00" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrA)"/>
-  <text x="582" y="342.0" font-size="11" font-weight="700" text-anchor="middle" fill="#BB4D00">no</text>
-  <text x="618" y="344.0" class="fix">Follow the fix in the red box,</text>
-  <text x="618" y="362.0" class="fix">then click Trigger sync</text>
-  <line x1="180" y1="382" x2="180" y2="410" stroke="#008236" stroke-width="1.8" marker-end="url(#arrG)"/>
-  <text x="190" y="402" font-size="11" font-weight="700" fill="#008236">yes</text>
-  <rect x="40" y="412" width="520" height="66" rx="5" fill="#FFFFFF" stroke="#E5E5E5"/>
-  <circle cx="70" cy="445.0" r="14" fill="#7C3AED"/>
-  <text x="70" y="450.0" font-size="14" font-weight="700" text-anchor="middle" fill="#FFFFFF">4</text>
-  <text x="98" y="440" class="title">Did every file index?</text>
-  <text x="98" y="461" class="body">No amber partial badge or amber box</text>
-  <line x1="560" y1="445.0" x2="608" y2="445.0" stroke="#BB4D00" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrA)"/>
-  <text x="582" y="438.0" font-size="11" font-weight="700" text-anchor="middle" fill="#BB4D00">no</text>
-  <text x="618" y="440.0" class="fix">Wait: failed files retry on their own</text>
-  <text x="618" y="458.0" class="fix">After 3 tries, fix the file and Trigger sync</text>
-  <line x1="180" y1="478" x2="180" y2="506" stroke="#008236" stroke-width="1.8" marker-end="url(#arrG)"/>
-  <text x="190" y="498" font-size="11" font-weight="700" fill="#008236">yes</text>
-  <rect x="40" y="508" width="520" height="66" rx="5" fill="#FFFFFF" stroke="#E5E5E5"/>
-  <circle cx="70" cy="541.0" r="14" fill="#7C3AED"/>
-  <text x="70" y="546.0" font-size="14" font-weight="700" text-anchor="middle" fill="#FFFFFF">5</text>
-  <text x="98" y="536" class="title">Does the missing file pass your filters?</text>
-  <text x="98" y="557" class="body">Built-in skip list, Allowlist, Blocklist</text>
-  <line x1="560" y1="541.0" x2="608" y2="541.0" stroke="#BB4D00" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrA)"/>
-  <text x="582" y="534.0" font-size="11" font-weight="700" text-anchor="middle" fill="#BB4D00">no</text>
-  <text x="618" y="545.0" class="fix">Edit File filters on Sync Settings</text>
-  <line x1="180" y1="574" x2="180" y2="602" stroke="#008236" stroke-width="1.8" marker-end="url(#arrG)"/>
-  <text x="190" y="594" font-size="11" font-weight="700" fill="#008236">yes</text>
-  <rect x="40" y="604" width="520" height="56" rx="5" fill="#FFFFFF" stroke="#BFF2D3"/>
-  <rect x="40" y="604" width="3.5" height="56" rx="1.75" fill="#008236"/>
-  <text x="64" y="628" class="lbl" fill="#008236">DONE</text>
-  <text x="64" y="648" class="title">The Index matches the repository</text>
-  </g>
-
-  <!-- Footer. Logo paths copied verbatim from frontend/src/lib/icons/NeoHiveIcon.svelte. -->
-  <line x1="40" y1="636" x2="960" y2="636" stroke="#E4DFF1"/>
-  <g transform="translate(40,650) scale(0.04)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
-  <text x="64" y="665" font-size="13" font-weight="700" fill="#1A1A2E">Repository sync issues<tspan dx="12" font-size="10" font-weight="600" letter-spacing="1" fill="#737373">OPEN THE INDEX IN THE DASHBOARD · STOP AT THE FIRST NO</tspan></text>
+  <rect width="1000" height="452" fill="#FAF9FD"/>
+    <rect x="40" y="40" width="270" height="152" rx="5" fill="#FFFFFF" stroke="#DDD6FF"/>
+  <text x="60" y="66" class="lbl" fill="#7C3AED">HIVE PAGE</text>
+  <text x="60" y="90" class="title">Indexes</text>
+  <circle cx="74" cy="120" r="5" fill="#008236"/>
+  <text x="88" y="124" class="item">team-docs</text>
+  <rect x="56" y="144" width="238" height="32" rx="4" fill="#FFF5E6" stroke="#FFE1B2"/>
+  <circle cx="74" cy="160" r="5" fill="#BB4D00"/>
+  <text x="88" y="164" class="item">api-service</text>
+  <path d="M294 160 H350" fill="none" stroke="#A1A1A1" stroke-width="1.5" marker-end="url(#arrM)"/>
+  <text x="322" y="152" class="muted" text-anchor="middle">open</text>
+  <rect x="360" y="40" width="420" height="330" rx="5" fill="#FFFFFF" stroke="#DDD6FF"/>
+  <text x="380" y="66" class="lbl" fill="#7C3AED">INDEX PAGE</text>
+  <rect x="380" y="80" width="380" height="72" rx="4" fill="#FFF5E6" stroke="#FFE1B2"/>
+  <rect x="380" y="80" width="3.5" height="72" rx="1.75" fill="#BB4D00"/>
+  <text x="396" y="104" font-size="14" font-weight="700" fill="#BB4D00">A git command failed</text>
+  <rect x="396" y="114" width="210" height="8" rx="2" fill="#F0EDF7"/>
+  <rect x="396" y="130" width="150" height="8" rx="2" fill="#F0EDF7"/>
+  <line x1="380" y1="186" x2="760" y2="186" stroke="#EEEAF6"/>
+  <text x="380" y="178" class="item" fill="#737373" style="fill:#737373">Showcase</text>
+  <text x="452" y="178" class="item" font-weight="700">Sync Settings</text>
+  <rect x="452" y="184" width="84" height="3" rx="1.5" fill="#7C3AED"/>
+  <text x="556" y="178" class="item" style="fill:#737373">Index Info</text>
+  <text x="380" y="214" class="title">Sync history</text>
+  <rect x="396" y="230" width="72" height="20" rx="10" fill="#D9F7E5" stroke="#BFF2D3"/><text x="432" y="244" font-size="11" font-weight="700" fill="#008236" text-anchor="middle">success</text><text x="482" y="244" class="item">412 files</text>
+  <rect x="396" y="262" width="72" height="20" rx="10" fill="#FFF5E6" stroke="#FFE1B2"/><text x="432" y="276" font-size="11" font-weight="700" fill="#BB4D00" text-anchor="middle">partial</text><text x="482" y="276" class="item">3 of 415 files failed</text>
+  <rect x="396" y="294" width="72" height="20" rx="10" fill="#FFF5E6" stroke="#FFE1B2"/><text x="432" y="308" font-size="11" font-weight="700" fill="#BB4D00" text-anchor="middle">failed</text><text x="482" y="308" class="item">stopped</text><rect x="590" y="294" width="148" height="20" rx="3" fill="#FFFFFF" stroke="#FFE1B2"/><text x="598" y="308" font-size="11" class="mono" fill="#BB4D00">A git command failed</text>
+  <text x="380" y="350" class="muted">Click a run's error to read it in full</text>
+  <path d="M762 116 H806" fill="none" stroke="#7C3AED" stroke-width="1.5"/>
+  <circle cx="817" cy="116" r="11" fill="#7C3AED"/><text x="817" y="120.5" font-size="12.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">2</text><text x="836" y="121" class="title">Message box</text><text x="836" y="141" class="body">Find its heading</text><text x="836" y="158" class="body">on this page</text>
+  <path d="M762 278 H806" fill="none" stroke="#7C3AED" stroke-width="1.5"/>
+  <circle cx="817" cy="278" r="11" fill="#7C3AED"/><text x="817" y="282.5" font-size="12.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">3</text><text x="836" y="283" class="title">Sync history</text><text x="836" y="303" class="body">Each run, its status,</text><text x="836" y="320" class="body">and its error</text>
+  <path d="M74 176 V222" fill="none" stroke="#7C3AED" stroke-width="1.5"/>
+  <circle cx="74" cy="236" r="11" fill="#7C3AED"/><text x="74" y="240.5" font-size="12.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">1</text><text x="93" y="241" class="title">Status dot and box</text><text x="93" y="261" class="body">Same heading as the</text><text x="93" y="278" class="body">Index page, with a</text><text x="93" y="295" class="body">link to the Index</text>
+  <line x1="40" y1="404" x2="960" y2="404" stroke="#E4DFF1"/>
+  <g transform="translate(40,418) scale(0.04)" fill="none" stroke-width="20"><path d="M274.811 240.3L142.406 316.428L10.0002 240.3V87.665L142.406 11.5352L274.811 87.665V240.3Z" stroke="#7C3AED"/><path d="M406.428 315.818L274.023 391.946L141.617 315.818V163.183L274.023 87.0532L406.428 163.183V315.818Z" stroke="#A78BFA"/><path d="M274.811 391.336L142.406 467.464L10.0002 391.336V238.701L142.406 162.571L274.811 238.701V391.336Z" stroke="#C084FC"/></g>
+  <text x="64" y="433" font-size="13" font-weight="700" fill="#1A1A2E">Repository sync issues<tspan dx="12" font-size="10" font-weight="600" letter-spacing="1" fill="#737373">WHERE A SYNC PROBLEM SHOWS UP</tspan></text>
 </svg>
