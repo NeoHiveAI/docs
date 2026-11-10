@@ -22,10 +22,10 @@
   <rect x="58" y="206" width="344" height="160" rx="5" fill="#F5F3FF" stroke="#DDD6FF"/>
   <text x="76" y="232" class="lbl" fill="#7C3AED">2  PLUGIN</text>
   <text x="76" y="254" class="title">Tells the agent when to use NeoHive</text>
-  <text x="76" y="276" class="body">A rules file plus setup skills.</text>
+  <text x="76" y="276" class="body">Instructions plus setup skills.</text>
   <text x="76" y="296" class="body">Recall before exploring, store what you teach.</text>
   <text x="76" y="330" font-size="12" fill="#737373">Recommended. Available for Claude Code,</text>
-  <text x="76" y="348" font-size="12" fill="#737373">Cursor and Codex.</text>
+  <text x="76" y="348" font-size="12" fill="#737373">Cursor, and Codex.</text>
 
   <!-- Endpoint arrow -->
   <line x1="424" y1="236" x2="576" y2="236" stroke="#7C3AED" stroke-width="2" marker-end="url(#arrV)" marker-start="url(#arrV)"/>

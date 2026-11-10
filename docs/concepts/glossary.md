@@ -104,7 +104,7 @@ A script that the Claude Code [plugin](#plugin) runs at a fixed point, such as w
 
 ### HTTP and HTTPS
 
-Hypertext Transfer Protocol, the rules that browsers and servers use to exchange data. HTTPS is the encrypted version of HTTP. NeoHive serves plain HTTP, on port `3577` by default. For more information, see [Exposing NeoHive beyond your network](../security/network.md).
+Hypertext Transfer Protocol, the rules that browsers and servers use to exchange data. HTTPS is the encrypted version of HTTP. NeoHive serves plain HTTP on port `3577` by default. For more information, see [Expose NeoHive beyond your network](../security/network.md).
 
 ## I
 

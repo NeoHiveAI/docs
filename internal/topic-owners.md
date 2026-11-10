@@ -32,6 +32,7 @@
 | Connecting Claude Code, including the server scope the hooks need | `get-started/connect/claude-code.md` | `get-started/install.md`, `results/plugin-automation.md` |
 | Connecting Cursor | `get-started/connect/cursor.md` | |
 | Connecting Codex | `get-started/connect/codex.md` | |
+| Connecting the ChatGPT desktop app | `get-started/connect/chatgpt.md` | |
 | Connecting Claude Desktop and other MCP apps | `get-started/connect/desktop-apps.md` | |
 | Slash commands | `reference/slash-commands.md` | `results/plugin-automation.md` |
 | Which Index to use for each kind of content, and how many Hives | `context/what-to-add.md` | |

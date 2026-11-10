@@ -31,7 +31,7 @@ These plugins have no hooks. Their rules file tells the agent to load context at
 {% endtab %}
 
 {% tab title="Other MCP apps" %}
-Claude Desktop and other MCP apps have no plugin. To tell the agent when to call NeoHive, add the rules from [Tell your agent to use NeoHive](../get-started/connect/README.md#tell-your-agent-to-use-neohive).
+ChatGPT, Claude Desktop, and other MCP apps have no plugin. To tell the agent when to call NeoHive, add the rules from [Tell your agent to use NeoHive](../get-started/connect/README.md#tell-your-agent-to-use-neohive).
 {% endtab %}
 {% endtabs %}
 
