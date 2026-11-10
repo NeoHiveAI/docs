@@ -1,38 +1,103 @@
 ---
-description: "Diagnose and fix repository sync failures."
+description: "Diagnose a Code or Documentation Index that fails to sync, stalls, or leaves files out."
 ---
 
-# Repository Sync Issues
+# Repository sync issues
 
-If a repository sync fails or seems stuck, here are the most common causes.
+A [Code](../concepts/glossary.md#code-index) or [Documentation Index](../concepts/glossary.md#documentation-index) stays current by syncing with its repository on a schedule. When a sync fails, stalls, or leaves files out, the [Index](../concepts/glossary.md#index) falls out of date and your agent recalls older content.
 
-## Credential problems
+The following diagram shows the three places in the dashboard where a sync problem shows up:
 
-The most frequent issue is an expired or invalid access token. Open the dashboard, go to the repo hive, and check the credential status. If the token has expired, replace it with a fresh one. For GitHub personal access tokens, make sure the token has `repo` scope.
+<figure><img src="../.gitbook/assets/troubleshooting-sync.svg" alt="The Hive page marks a failing Index with a status dot and a message box that links to the Index. The Index page shows a message box at the top, and Sync history lists each run with its error."><figcaption></figcaption></figure>
 
-## Large repositories
+## What the Index page shows
 
-Very large repositories take longer on the first sync. The dashboard shows live progress; if a sync looks stuck, check the logs:
+When a sync has a problem, a message box at the top of the Index page names it in its first line. Each of the following sections is named after one of those first lines. To read a run's error in full, click its text in the **Error** column of **Sync history**.
 
-```sh
+### A synced branch is no longer on the remote
+
+Someone renamed or deleted the branch. Everything indexed so far is still searchable.
+
+To sync another branch, do the following:
+
+1. In the message box, under **Pick a branch to sync instead**, select a branch.
+2. Click **Sync this branch**.
+
+If the Index still does not sync, click **Re-clone repository**. NeoHive switches most renamed default branches, such as `master` to `main`, on its own.
+
+### A git command failed
+
+NeoHive could not read the repository. The line under the heading shows git's own reason, such as a failed login or a wrong URL. To check the connection, see [Connections](#connections). After you fix the connection, click **Trigger sync**.
+
+### The connection for this Index was removed
+
+Someone deleted the Index's connection on **Data Sources**. In the message box, click **Assign connection**, select a connection, and then click **Save settings**. If the service has no connection left, the button reads **Add a data source** and opens **Data Sources**.
+
+### Some files could not be indexed, the rest synced
+
+The text under the heading says which case you have:
+
+* **`<n> files failed to index and will be reindexed automatically.`** No action is needed. NeoHive retries those files two minutes later.
+* **`<n> files could not be indexed after repeated attempts. Trigger a sync to retry.`** Read the file's error in **Sync history**. Fix the file, or exclude it with the **Blocklist**, and then click **Trigger sync**.
+
+### No files could be indexed, so the sync stopped
+
+Every file in the run failed to index. Under the title, the message box shows the first file's error. If the error names the container or the embedding engine, see [Agent can't connect](connection.md). Then click **Trigger sync**.
+
+### This Index was built with the wrong embedding dimensions
+
+NeoHive cannot repair the Index in place, so you create it again. To rebuild the Index, do the following:
+
+1. Open the **Index Info** tab.
+2. Under **Danger Zone**, click **Delete Index**.
+3. On the [Hive](../concepts/glossary.md#hive) page, click **Add Index**, and create the Index with the same source and embedding model.
+
+### This Index's vector store cannot be read
+
+Recall returns nothing from the Index until NeoHive rebuilds it. Click **Rebuild and re-embed**.
+
+### `<n>` memories have not been embedded with `<model>`
+
+Recall does not return those entries yet. Click **Retry failed chunks**.
+
+### The sync failed
+
+Something else failed, and the box shows the error message. If the message says chunks `were still waiting for a vector`, click **Trigger sync** to finish publishing them. For any other message, look it up in [Common errors](common-errors.md).
+
+### Syncing is paused, or a sync is already running
+
+These two states are not errors. If **Sync Settings** shows **Resume syncing**, syncing is paused. To resume, click **Resume syncing**. If you see `A sync is already running for this Index`, you clicked **Trigger sync** during a run. Wait for that run to finish. If you see `The previous sync is still clearing, try again in a moment`, a cancelled sync is still finishing. Wait a moment, and then click **Trigger sync** again.
+
+## Connections
+
+To check a connection, open **Data Sources**, click **Manage** on the service, and then click **Validate** on the connection. A connection marked **Invalid** has a token that no longer works, so its syncs fail with `A git command failed`. You cannot edit the token of a connection. Instead, add a new connection with a working token. Then select the new connection under **Connection** on the Index's **Sync Settings** tab, and click **Save settings**. For more information, see [Data sources and credentials](../admin/data-sources.md#check-or-remove-a-connection).
+
+## Slow or stalled syncs
+
+The first sync indexes every file, so a large repository takes longer. Later syncs index only the files that changed, unless you change the **File filters**. If progress stops, read the log:
+
+```bash
 docker logs neohive --tail 50
 ```
 
-Long-running syncs won't be interrupted by idle suspension. NeoHive keeps the worker active until the sync completes.
+## Schedule
 
-## PDF files timing out
+If an Index syncs too often or too rarely, change its **Sync interval** on the **Sync Settings** tab. For more information about the intervals you can choose, see [Choose a sync interval](../context/repositories/sync.md#choose-a-sync-interval). To index changes now, click **Trigger sync**, or have your CI system send the changed files to the [webhook refresh endpoint](../reference/webhooks.md), which updates the Index without running a sync.
 
-If your repository contains large PDFs and sync fails with a timeout, raise the processing timeout. The default is 5 minutes, but a 900-page document typically needs 25–30:
+## Files that never appear
 
-```sh
-NEOHIVE_PDF_BRIDGE_TIMEOUT_MS=1800000 \
-  bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
-```
-
-## Sync schedule
-
-Syncs run automatically on a configurable schedule. To trigger one immediately, use the manual sync button on the repo hive in the dashboard.
+A file must pass the built-in skip list, your **Allowlist**, and your **Blocklist**. The skip list leaves out binary files, lock files, and dependency folders. For the full list of skipped files, see [Files in a repository](../reference/file-types.md#files-in-a-repository). For the pattern rules, see [File pattern syntax](../reference/file-patterns.md).
 
 ## Still stuck?
 
-Contact the NeoHive team at `support@neohive.ai` with the output of `docker logs neohive --tail 100` and the name of the repository that's failing.
+To get help, do the following:
+
+1. To collect a diagnostics bundle, run the following command:
+
+   ```bash
+   curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/logs.sh | bash
+   ```
+
+2. Send the bundle to `hello@neohive.ai` with the name of the repository that fails.
+
+The bundle holds logs and settings with secrets removed. The bundle does not include your [Memories](../concepts/glossary.md#memory), code, or databases.

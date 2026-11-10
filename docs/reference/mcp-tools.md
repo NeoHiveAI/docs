@@ -1,0 +1,87 @@
+---
+description: "The MCP tools each NeoHive Hive exposes, with every parameter, type, and default."
+---
+
+# MCP tools
+
+Your agent works with a [Hive](../concepts/glossary.md#hive) and its [Indexes](../concepts/glossary.md#index) through the following tools.
+
+Each Hive serves these tools at its [MCP](../concepts/glossary.md#mcp) endpoint, `http://localhost:3577/hives/<hive-id>/mcp`, over Streamable HTTP.
+
+| Tool | What it does | Writes? |
+|---|---|---|
+| `list_indexes` | Lists the Hive's Indexes with each one's ID, name, type, status, embedding model, and description. | No |
+| `memory_recall` | Searches the Hive's Indexes by meaning and keywords and returns the most relevant code, docs, and [Memories](../concepts/glossary.md#memory). | No |
+| `memory_context` | Returns the rules closest to your task plus other Memories related to it. | No |
+| `memory_stats` | Reports Memory counts by type, the most and least accessed Memories, and the oldest and newest. | No |
+| `memory_store` | Saves a new Memory to the Hive's [Knowledge Index](../concepts/glossary.md#knowledge-index). | Yes |
+| `memory_forget` | Deactivates a Memory so recall stops returning it. | Yes |
+
+`memory_recall`, `memory_context`, and `memory_stats` take an optional `index`, the ID of one Index to use. Leave it out to cover every Index in the Hive. `memory_store` and `memory_forget` take no `index`. Both tools write to the Hive's own Knowledge Index, even when you read from a [Shared Index](../concepts/glossary.md#shared-index).
+
+## list_indexes
+
+`list_indexes` takes no parameters. Each line of the reply shows the Index ID, name, type, status, and embedding model, followed by the Index's description if it has one. An Index shared into your Hive shows `shared_from: <owner hive>` and `access: read-only`. You can recall from a Shared Index but not write to it. For more information about what each Hive can change, see [Shared Index](../concepts/hives-indexes-memories.md#shared-index).
+
+## memory_recall
+
+| Parameter | Type | Default | Notes |
+|---|---|---|---|
+| `query` | string | none | One search query. Pass this or `queries`, not both. |
+| `queries` | string list | none | One to five phrasings of the same search. NeoHive merges their results into one list. |
+| `limit` | integer | `10` | The maximum number of results, from `1` to `50`. |
+| `types` | string list | all types | Return only these [Memory types](memory-types.md). |
+| `index` | string | all Indexes | The ID of one Index to search. |
+| `noAccessUpdate` | boolean | `false` | When `true`, the search does not count as a recall. The access count of the Memories it returns stays the same. Use this option for automated callers. |
+
+The reply lists each result under a heading such as `### Memory #1 (id: 482, score: 0.712)`. Under the heading, each result shows the Memory's type, importance, access count, and tags, followed by the stored content. The importance, from 1 to 10, comes from [`memory_store`](#memory_store) for a Memory, or from NeoHive for indexed file content. NeoHive cuts off long content and adds a `(truncated, ...)` note with the full length.
+
+## memory_context
+
+| Parameter | Type | Default | Notes |
+|---|---|---|---|
+| `task` | string | required | A description of what you are about to work on, using specific terms. |
+| `index` | string | all Indexes | The ID of one Index to load from. |
+
+The reply has two sections: `## Directives & Conventions` and `## Task-Relevant Context`. [Memory types](memory-types.md) shows which types appear in each section. If nothing matches, the reply is `No relevant context found. This may be a new topic area.`
+
+## memory_stats
+
+| Parameter | Type | Default | Notes |
+|---|---|---|---|
+| `index` | string | all Indexes | The ID of one Index to report on. |
+
+Without `index`, the reply lists only the total number of Memories and the counts by type for each Index. The most and least accessed Memories and the oldest and newest Memory appear only when you pass `index`.
+
+## memory_store
+
+| Parameter | Type | Default | Notes |
+|---|---|---|---|
+| `content` | string | required | The knowledge to store, written so it makes sense on its own later. |
+| `type` | string | required | One of the [Memory types](memory-types.md). |
+| `importance` | integer | `5` | `1` (trivial) to `10` (critical). Higher importance helps a Memory rank higher. |
+| `tags` | string list | none | Labels that help later searches find the Memory. |
+| `format` | string | `auto` | How to split long content: `auto`, `markdown`, `code`, `DSL`, or `text`. `auto` detects the format. NeoHive stores shorter content whole. |
+
+The reply is `Memory stored successfully (id: <id>, type: <type>, importance: <n>, Index: <index-id>)`. For long content, the reply also says how NeoHive split it. You can search for the Memory immediately.
+
+## memory_forget
+
+| Parameter | Type | Default | Notes |
+|---|---|---|---|
+| `memory_id` | integer | required | The ID of the Memory to deactivate, shown in the heading of each `memory_recall` result. `memory_forget` searches only the Hive's own Knowledge Index, so pass the ID of a Memory stored with `memory_store`. Each Index numbers its content separately, so an ID from another Index can deactivate an unrelated Memory. |
+| `reason` | string | none | Why you are retiring the Memory. |
+| `superseded_by` | integer | none | The ID of the Memory that replaces this one. |
+
+The reply is `Memory #<id> has been deactivated (Index: <index-id>).`, followed by the reason and replacement if you gave them. Recall then stops returning the Memory.
+
+<details>
+
+<summary>Deprecated names that still work</summary>
+
+Use the new name in place of each older one:
+
+* Instead of the `list_hives` tool, use `list_indexes`.
+* Instead of the `hive` parameter on `memory_recall`, `memory_context`, and `memory_stats`, use `index`.
+
+</details>

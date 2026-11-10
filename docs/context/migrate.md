@@ -1,0 +1,84 @@
+---
+description: "Import the rules in your CLAUDE.md, AGENTS.md, and rules folders into NeoHive, where every agent on the Hive can recall them."
+---
+
+# Import rules from CLAUDE.md and AGENTS.md
+
+Run one skill to turn the project rules in your context files, such as `CLAUDE.md`, into [Memories](../concepts/glossary.md#memory). Every agent connected to your [Hive](../concepts/glossary.md#hive) can then recall those Memories, with no file to commit, pull, or merge.
+
+<figure><img src="../.gitbook/assets/context-migrate.svg" alt="A CLAUDE.md with sections on payments, testing, a database choice, and setup. The skill turns each rule into its own Memory with a type. 'Always send an idempotency key' becomes a directive. 'Tests use Vitest' becomes a convention. 'Postgres chosen for row-level locks' becomes a decision. The skill leaves out setup steps and personal preferences. The skill stores nothing until you approve the preview, and it does not change your files."><figcaption></figcaption></figure>
+
+Your agent loads its whole context file, such as `CLAUDE.md` or `AGENTS.md`, on every task, even the parts that do not apply. After you import the rules and delete them from that file, your agent recalls only the rules each task needs.
+
+## Run the migration
+
+To start the migration, do the following:
+
+1. Open your agent in the root folder of the project.
+2. Run the skill, as shown for your agent in the following tabs.
+
+{% tabs %}
+{% tab title="Claude Code" %}
+```text
+/neohive:migrate-memory
+```
+{% endtab %}
+
+{% tab title="Cursor and Codex" %}
+Ask your agent to run the `migrate-memory` skill.
+{% endtab %}
+{% endtabs %}
+
+ChatGPT, Claude Desktop, and other MCP apps have no NeoHive plugin, so they cannot run the skill. Run the import once from Claude Code, Cursor, or Codex. Every agent connected to the Hive can then recall the Memories.
+
+The skill looks for rules in the following places in the project, and uses the ones it finds:
+
+* `CLAUDE.md`, `AGENTS.md`, and `GEMINI.md`
+* The `.md` files in `.claude/rules/`. In Cursor and Codex, also the `.md` and `.mdc` files in `.cursor/rules/` and `.codex/rules/`.
+* `CONVENTIONS*.md` and `CONTRIBUTING.md` files under `docs/`
+
+The skill never imports the personal files in your home folder, such as `~/.claude/CLAUDE.md`, `~/.codex/AGENTS.md`, or `~/.cursor/rules/`.
+
+## Review and approve the Memories
+
+After you run the skill, the migration goes through the following steps:
+
+{% stepper %}
+{% step %}
+## The skill lists the files
+
+You see each project file that the skill reads. Files in your home folder show as skipped, because the skill reads them for context only.
+{% endstep %}
+
+{% step %}
+## The skill sorts the rules
+
+Each rule or decision becomes its own Memory with a [Memory type](../reference/memory-types.md), such as `directive`, `convention`, or `decision`. The skill leaves out setup steps, tables of contents, TODO lists, and personal preferences. The skill marks an entry that could be a personal rule or a team rule as ambiguous. The skill skips an ambiguous entry unless you re-classify the entry.
+{% endstep %}
+
+{% step %}
+## You approve
+
+If the skill asks which [Index](../concepts/glossary.md#index) to use, select **Knowledge**. A preview then shows what the skill plans to store and what it skipped. The skill stores nothing until you approve. You can remove items, re-classify the ambiguous ones, or stop.
+{% endstep %}
+
+{% step %}
+## The skill stores the Memories
+
+If the Hive already holds a rule as a Memory, the skill skips that rule. The skill stores the rest in the [Knowledge Index](../concepts/glossary.md#knowledge-index) and shows a summary.
+{% endstep %}
+{% endstepper %}
+
+To approve each Memory one at a time, add `review=each` to the command: `/neohive:migrate-memory review=each`.
+
+The skill does not change your original files. The skill also skips the NeoHive block between the `<!-- BEGIN neohive-managed v=N -->` and `<!-- END neohive-managed v=N -->` markers. The plugin writes that block to tell your agent how to use your Hive. The plugin updates the block through the markers, so keep the block and both markers in the file.
+
+## After migrating
+
+Your agent recalls migrated rules like any other Memory. A teammate on the same Hive gets the same rules without a copy of your context files.
+
+The skill does not change your context files, so your agent still loads every rule in them on each task. To load only the rules that matter, remove the migrated rules from those files. Keep the rules the skill skipped, such as personal preferences, and the NeoHive block.
+
+If a rule migrated incorrectly or becomes out of date, tell your agent. Your agent then deactivates the old Memory. For more information about what to say, see [Say "out of date" when a fact changes](../results/teach.md#say-out-of-date-when-a-fact-changes).
+
+Long-form notes, such as an Obsidian vault, design docs, or runbooks, belong in a [Files Index](../concepts/glossary.md#files-index). To upload long-form notes, see [Add documents and images](documents.md).

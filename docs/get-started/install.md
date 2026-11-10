@@ -1,0 +1,173 @@
+---
+description: "Install NeoHive, create your first Hive, and connect your agent. Each step ends with a check you can run."
+---
+
+# Install NeoHive
+
+NeoHive runs in a Docker container on a machine you control, such as your own computer or a server your team shares. You install NeoHive once on that machine, and then connect your coding agent to NeoHive. When you finish, your agent answers questions from your own code. The following diagram shows the whole flow:
+
+<figure><img src="../.gitbook/assets/get-started-install.svg" alt="The installer starts NeoHive on port 3577. Setup then runs Name Hive, Configure first Index, and Install for your AI tools, and ends at Connected."><figcaption></figcaption></figure>
+
+Before you start, you need the following:
+
+* Docker 20 or later, installed and running on Linux, macOS, or Windows with WSL2.
+* Port `3577` free on the machine.
+* A NeoHive license file (`license.key` or `license.json`) from the [NeoHive team](https://www.neohive.ai/download/). For more information about license files, see [Licensing](../admin/licensing.md).
+
+{% stepper %}
+{% step %}
+## Install
+
+To install NeoHive, run the following command from the folder that holds your license file:
+
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
+```
+
+The installer reads your license file and starts NeoHive in a Docker container named `neohive`. If the installer can't find the license file, the installer asks for the path. When the installer finishes, it prints two dashboard addresses: `On this machine` and `From another host`. On a shared server, use the `From another host` address.
+
+<details>
+
+<summary>Optional: set the license file path, use another port, or force the CPU backend</summary>
+
+To give the installer the license file path at the start, run the following command:
+
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh) \
+  --license-file /path/to/license.key
+```
+
+You can also set `NEOHIVE_LICENSE_FILE=/path/to/license.key` before the command. The result is the same.
+
+If port `3577` is already in use, set `NEOHIVE_PORT=3600` (or any free port) before the command. Then use that port wherever these docs say `3577`.
+
+The installer detects your GPU and picks a backend, and an Apple Silicon Mac also gets the [Metal worker](../concepts/glossary.md#metal-worker), which embeds on the Mac's GPU. For more information about how the installer picks a backend, see [GPU and CPU](../admin/gpu-cpu.md). If the backend that the installer picks fails, run the installer again with the CPU backend:
+
+```bash
+NEOHIVE_BACKEND=cpu \
+  bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
+```
+
+</details>
+
+{% hint style="success" %}
+**Check:** NeoHive is running.
+
+To check that NeoHive responds, run the following command:
+
+```bash
+curl http://localhost:3577/health
+```
+
+The reply contains `"status":"ok"`. If the reply doesn't contain `"status":"ok"`, run `docker logs neohive --tail 50` and then see [Common errors](../troubleshooting/common-errors.md).
+{% endhint %}
+{% endstep %}
+
+{% step %}
+## Create your Hive
+
+A [Hive](../concepts/glossary.md#hive) is a workspace for one codebase or team. A Hive holds [Indexes](../concepts/glossary.md#index), the stores for your code, documents, files, and [Memories](../concepts/glossary.md#memory). To create your Hive, do the following:
+
+1. Open the dashboard address that the installer printed, such as `http://localhost:3577`.
+2. If the license opens, read it, and then click **I Understand**.
+3. Read through the welcome screens, and then click **Start setup**.
+4. In **Name Hive**, enter a name for your Hive.
+5. In **Configure first Index**, under **Where does your data live?**, select the first source for the Hive, and then fill in its details.
+
+The following table shows what you can add from each source and what you need for it:
+
+| Source | Content you can select | What you need |
+|---|---|---|
+| **GitHub** | **Code** or **Documentation** from a repository | A GitHub personal access token |
+| **GitLab** | **Code** or **Documentation** from a repository | A GitLab personal access token |
+| **File Upload** | Markdown, text, PDF, Word, Excel, and PowerPoint files, and PNG or JPEG images | The files |
+
+A GitHub or GitLab token needs the right scopes, and an uploaded file needs a supported type and size. For more information about scopes, see [Add a connection](../admin/data-sources.md#add-a-connection), and for file types and size limits, see [Supported file types](../reference/file-types.md).
+
+Besides the Index you create here, NeoHive gives every Hive a [Knowledge Index](../concepts/glossary.md#knowledge-index), which stores the Memories your agent saves. You can add more Indexes later from the Hive page. For more information about which Indexes to add, see [What to add, and where](../context/what-to-add.md).
+
+{% endstep %}
+
+{% step %}
+## Connect your agent
+
+The last setup screen, **Install for your AI tools**, shows how to add the Hive to your agent as an [MCP](../concepts/glossary.md#mcp) server. Your agent then calls NeoHive's tools through that server. Under **Which tool are you using?**, select your agent, and then do the steps in its tab:
+
+{% tabs %}
+{% tab title="Claude Code" %}
+1. In your terminal, go to your project's root folder.
+2. Run the command that setup shows. The command looks like this:
+
+   ```bash
+   claude mcp add <name> '<hive-url>' \
+     --scope project \
+     --transport http \
+     --header 'x-mcp-client: claude-code'
+   ```
+
+   The `--scope project` flag saves the Hive in that folder's `.mcp.json`, where the plugin's automatic recall looks for it. For more information, see [Claude Code](connect/claude-code.md).
+3. Start Claude Code in the project.
+4. When Claude Code asks, approve the NeoHive server.
+5. To install the plugin and run its setup, run the following commands inside Claude Code:
+
+   ```text
+   /plugin marketplace add NeoHiveAI/NeoHiveClaude
+   /plugin install neohive@neohive-claude
+   /reload-plugins
+   /neohive:getting-started
+   ```
+{% endtab %}
+
+{% tab title="Cursor" %}
+1. Copy the JSON that setup shows into `.cursor/mcp.json` in your project.
+2. Restart Cursor.
+3. Install the plugin, as shown in [Install the plugin](connect/cursor.md#install-the-plugin).
+{% endtab %}
+
+{% tab title="Codex" %}
+1. Copy the block that setup shows into `~/.codex/config.toml`.
+2. Start Codex.
+3. Install the plugin, as shown in [Install the plugin](connect/codex.md#install-the-plugin).
+{% endtab %}
+
+{% tab title="ChatGPT" %}
+1. Select **Other**.
+2. Add the endpoint that setup shows to the ChatGPT desktop app, as shown in [Add the MCP server](connect/chatgpt.md#add-the-mcp-server). Add `?client=chatgpt` to the end of the URL.
+{% endtab %}
+
+{% tab title="Claude Desktop" %}
+1. Select **Desktop**.
+2. Paste the JSON that setup shows into `claude_desktop_config.json`, as shown in [Claude Desktop and other MCP apps](connect/desktop-apps.md).
+3. Quit Claude Desktop completely, and then open it again.
+{% endtab %}
+{% endtabs %}
+
+For any other MCP app, select **Other**, and add the endpoint that setup shows, as described in [Claude Desktop and other MCP apps](connect/desktop-apps.md).
+
+When setup shows **Connected**, click **Open** followed by your Hive's name. NeoHive then creates the Index and starts the first sync. If you leave setup without clicking the **Open** button, NeoHive deletes the Hive.
+
+If setup doesn't show **Connected**, click **Skip**, and then click **Continue without MCP**. Then see [Agent can't connect](../troubleshooting/connection.md).
+
+{% hint style="success" %}
+**Check:** the Index is ready.
+
+Open the Index from the Hive page. For a repository Index, **Sync history** shows that the first sync finished. If the sync failed, see [Repository sync issues](../troubleshooting/sync.md). For an Index of uploaded files, the **Files** tab lists each file that you uploaded.
+{% endhint %}
+
+{% hint style="success" %}
+**Check:** your agent answers from your content.
+
+Ask your agent a question that only your content can answer, for example:
+
+```text
+How does the authentication middleware work?
+```
+
+The agent calls `memory_recall` and cites real paths from your repository or files. If the `memory_recall` tool is missing, see [Agent can't connect](../troubleshooting/connection.md). If the answer is vague, see [Recall isn't finding what I need](../troubleshooting/recall.md).
+{% endhint %}
+{% endstep %}
+{% endstepper %}
+
+## Next step
+
+Your agent is connected, so you can skip the pages for each agent. Continue with [Your first session](first-session.md).
