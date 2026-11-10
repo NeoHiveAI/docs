@@ -20,3 +20,4 @@ redirects:
   config/updating: admin/updating.md
   config/gpu: admin/gpu-cpu.md
   troubleshooting/uninstalling: admin/uninstall.md
+  admin/playground: admin/dashboard.md

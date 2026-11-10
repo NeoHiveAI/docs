@@ -4,77 +4,74 @@ description: "Checks to run, in order, when your coding agent cannot reach NeoHi
 
 # Agent can't connect
 
-Your agent reaches NeoHive through the [MCP](../concepts/glossary.md#mcp) endpoint of a [Hive](../concepts/glossary.md#hive). The endpoint is a web address, such as `http://localhost:3577/hives/<hive-id>/mcp`.
+Your agent reaches NeoHive through the [MCP](../concepts/glossary.md#mcp) endpoint of a [Hive](../concepts/glossary.md#hive). When the connection breaks, the agent shows a connection error, or the NeoHive tools do not appear.
 
-The connection depends on several parts in turn. The NeoHive container must be running, and the server must be healthy. The Hive must answer, and your agent must use the right endpoint. Finally, your agent must load the NeoHive tools. If any one part fails, your agent cannot use NeoHive. The agent shows a connection error, or the NeoHive tools do not appear.
+Four things must work, in this order: the container, the server, the endpoint, and the agent's tools. The following diagram shows one check for each:
 
-Use the checks on this page to find which part breaks, and then fix that part.
+<figure><img src="../.gitbook/assets/troubleshooting-connection.svg" alt="Decision tree: the neohive container, /health, the MCP endpoint, then the NeoHive tools. Each no leads to a fix. Four yes answers mean the agent connects."><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/troubleshooting-connection.svg" alt="Decision tree with five checks. Is the neohive container running? Does /health say ok? Does list_indexes work in the Playground? Does the agent's MCP endpoint match Install Instructions? Does the agent see the NeoHive tools? Each no leads to its fix. Five yes answers mean the agent is connected."><figcaption></figcaption></figure>
-
-Run the checks in order. Stop at the first check that fails, and apply its fix.
+Run the checks in order. Stop at the first check that fails, and apply its fix. The commands use the default address, `localhost:3577`. If NeoHive runs on another machine or port, use that address instead.
 
 {% stepper %}
 {% step %}
 ## Is the container running?
 
+To check the status of the `neohive` container, run the following command:
+
 ```bash
 docker ps --filter name=neohive
 ```
 
-The `neohive` container shows a status of `Up`. If the container is missing, start it and read the log to see why it stopped:
+The `neohive` container shows a status of `Up`. A status of `Up` followed by `(unhealthy)` means the container runs but NeoHive reports a problem. In that case, go to the next check. If the container is missing, start it and read the log to see why it stopped:
 
 ```bash
 docker start neohive
 docker logs neohive --tail 50
 ```
 
-The message `No such container` means the container no longer exists. Run the [installer](../get-started/install.md) again. Your data stays in the `neohive-data` volume. If the start fails with `port is already allocated`, another program is using port `3577`. Stop that program, or install on another port with `NEOHIVE_PORT=4577`. If you change the port, also change the port in your agent's MCP endpoint.
+If Docker says `No such container`, the container no longer exists. Run the [installer](../get-started/install.md) again. Your data stays in the `neohive-data` volume.
+
+If the start fails with `port is already allocated`, another program is using port `3577`. Stop that program, or install on another port with `NEOHIVE_PORT=4577`. If you change the port, agents you already connected still use the old one. Open the dashboard on the new port, and use **Install Instructions** to connect each agent again.
 {% endstep %}
 
 {% step %}
 ## Does NeoHive say it is healthy?
 
+To ask NeoHive for its status, run the following command:
+
 ```bash
 curl http://localhost:3577/health
 ```
 
+The following table shows what each reply means:
+
 | Reply contains | Meaning | Fix |
 |---|---|---|
 | `"status":"ok"` | NeoHive is ready. | Go to the next check. |
-| `"status":"error"` | NeoHive could not finish starting, or its embedding engine cannot run. | Look up the `error` text in [Common errors](common-errors.md). |
-| `"status":"degraded"` | At least one Hive failed its check. | On the dashboard home page, open that Hive's menu and select **Restart**. |
-{% endstep %}
+| `"status":"error"` | NeoHive has a problem that stops it from working. The `error` text in the reply names it. | Look up the `error` text in [Common errors](common-errors.md#server-and-dashboard). |
+| `"status":"degraded"` | At least one Hive failed its check. | Restart NeoHive with `docker restart neohive`, and then run this check again. |
 
-{% step %}
-## Does the Hive answer without your agent?
-
-To test the Hive from the dashboard, do the following:
-
-1. Open **Playground** in the dashboard.
-2. Under **Hive**, select your Hive.
-3. Set **Tool** to `list_indexes`.
-4. Select **Run**.
-
-If you see a list of [Indexes](../concepts/glossary.md#index), the Hive works. The problem is then between the Hive and your agent. If you see an error, the Hive itself is broken. Select **Restart** on the Hive, and then run the check again.
+If `curl` reports `Failed to connect`, the container is not running. Go back to the first check.
 {% endstep %}
 
 {% step %}
 ## Is the MCP endpoint right?
 
-Each Hive has its own endpoint, `http://localhost:3577/hives/<hive-id>/mcp`. To check the endpoint, do the following:
+Each Hive has its own endpoint, ending in `/hives/<hive-id>/mcp`. To check the endpoint, do the following:
 
 1. Open the Hive in the dashboard.
 2. Copy the endpoint from **Install Instructions**.
-3. Compare the endpoint with your agent's MCP configuration, character by character.
+3. Compare the endpoint with your agent's MCP configuration, character by character. In Claude Code, `claude mcp get <name>` prints the URL. `<name>` is the server name that follows `claude mcp add` in the **Install Instructions** command.
 
-A wrong Hive id returns `Unknown Hive: <id>`. A wrong port or host returns a connection error. After your agent reaches the Hive, **Install Instructions** shows a `CONNECTED` count.
+A wrong Hive ID returns `Unknown Hive: <id>`. A wrong port or host returns a connection error. After your agent reaches the Hive, **Install Instructions** shows a `CONNECTED` count.
 {% endstep %}
 
 {% step %}
 ## Does your agent see the tools?
 
-Ask your agent: `List my NeoHive indexes.` Your agent calls `list_indexes` and answers. If the agent does not have the `list_indexes` tool, the agent has not loaded the NeoHive MCP server. Restart the agent after any configuration change. In Claude Code, if the `/neohive:` commands are missing, run `/reload-plugins`.
+Ask your agent: `List my NeoHive indexes.` Your agent calls `list_indexes` and answers. If the agent does not have the `list_indexes` tool, the agent has not loaded the NeoHive MCP server. Restart the agent after any configuration change.
+
+In Claude Code, start Claude Code in the folder where you ran the **Install Instructions** command, because the server is saved in that folder's `.mcp.json`. For other agents, see [Connect your agent](../get-started/connect/README.md).
 {% endstep %}
 {% endstepper %}
 
@@ -82,7 +79,7 @@ Ask your agent: `List my NeoHive indexes.` Your agent calls `list_indexes` and a
 
 To get help, do the following:
 
-1. Run the following command to collect a diagnostics bundle:
+1. To collect a diagnostics bundle, run the following command:
 
    ```bash
    curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/logs.sh | bash
@@ -90,4 +87,4 @@ To get help, do the following:
 
 2. Send the bundle to `hello@neohive.ai` with a description of what fails.
 
-The bundle holds logs and settings with secrets removed. The bundle never includes your [Memories](../concepts/glossary.md#memory), code, or databases.
+The bundle holds logs and settings with secrets removed. The bundle does not include your [Memories](../concepts/glossary.md#memory), code, or databases.

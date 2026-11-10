@@ -24,13 +24,13 @@
 ## Add your context
 
 * [What to add, and where](context/what-to-add.md)
-* [Add a code repository](context/repositories/README.md)
+* [Add a repository](context/repositories/README.md)
   * [Connect GitHub or GitLab](context/repositories/connect.md)
   * [Choose which files are included](context/repositories/file-patterns.md)
   * [Keep a repository up to date](context/repositories/sync.md)
-* [Add documents and PDFs](context/documents.md)
+* [Add documents and images](context/documents.md)
 * [Capture team knowledge](context/team-knowledge.md)
-* [Migrate from CLAUDE.md](context/migrate.md)
+* [Import rules from CLAUDE.md and AGENTS.md](context/migrate.md)
 
 ## Get better results
 
@@ -49,11 +49,11 @@
 * [Manage Hives and Indexes](admin/manage.md)
 * [Data sources and credentials](admin/data-sources.md)
 * [Access and sharing](admin/access.md)
-* [Test queries in the Playground](admin/playground.md)
 * [Backups and restore](admin/backups.md)
 * [Update NeoHive](admin/updating.md)
 * [Licensing](admin/licensing.md)
 * [GPU and CPU](admin/gpu-cpu.md)
+* [Embedding models](admin/embedding-models.md)
 * [Uninstall](admin/uninstall.md)
 
 ## Security and privacy
@@ -64,6 +64,7 @@
 
 ## Troubleshooting
 
+* [Find your problem](troubleshooting/find-your-problem.md)
 * [Common errors](troubleshooting/common-errors.md)
 * [Agent can't connect](troubleshooting/connection.md)
 * [Recall isn't finding what I need](troubleshooting/recall.md)

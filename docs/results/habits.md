@@ -4,21 +4,21 @@ description: "Small everyday habits that make NeoHive's answers more accurate ea
 
 # Habits that compound
 
-A habit on this page is a small thing you say or do while you work with your agent. Each habit takes a few seconds.
+Each habit takes a few seconds and adds to what your [Hive](../concepts/glossary.md#hive) knows, or keeps that knowledge correct. The benefit grows over time, which is why the habits compound. A correction you store today can come back in any later session, for you and for every teammate.
 
-NeoHive knows only what you index and what your team teaches it. Each habit adds to what your [Hive](../concepts/glossary.md#hive) knows, or keeps that knowledge correct. A Hive is your team's workspace in NeoHive. Later sessions then start with more of the right context, for you and for your teammates.
+Three habits recall from your Hive: asking before you start, asking like a teammate, and reloading when the task changes. Teaching and fixing as you go, and capturing before you close, store into the Hive. The following diagram shows that loop through a session:
 
-The benefit grows over time, which is why the habits compound. A correction you store today can come back in every later session. Use this page to learn each habit, what to say, and what changes as a result. The [Glossary](../concepts/glossary.md) defines Hive, [Index](../concepts/glossary.md#index), and [Memory](../concepts/glossary.md#memory).
+<figure><img src="../.gitbook/assets/results-habits.svg" alt="Five habits on four cards in a loop around your Hive. Three habits recall from the Hive, and two store into it."><figcaption></figcaption></figure>
 
-| Habit | What you say or do | Result |
-|---|---|---|
-| **Teach as you go** | `Remember that we always use idempotency keys on payment POST requests.` | Nobody on the team has to learn the rule again. See [Teach your agent as you work](teach.md). |
-| **Ask like a teammate** | `Have we hit flaky failures in the batch processor before? What fixed them?` | Recall matches Memories that use the same system names. See [Write prompts that retrieve well](prompting.md). |
-| **Ask before you start** | `Before we start, what do we already know about the auth flow here?` | Your agent's first draft follows your team's decisions. |
-| **Reload when the task changes** | Start a new session, or run `/neohive:load-context refactoring the settings page form validation` | Your agent loads context for the task you are working on now. |
-| **Fix out-of-date knowledge** | `That's out of date. We moved off Redis for sessions last month. Update it.` | Recall stops returning the old Memory. |
-| **Capture before you close** | Run `/neohive:capture-session-learnings` | Your agent can recall the session's corrections and decisions next time. |
-| **Keep repositories in sync** | Set a **Sync interval** on each [Code](../concepts/glossary.md#code-index) or [Documentation Index](../concepts/glossary.md#documentation-index) you work in. See [Keep a repository up to date](../context/repositories/sync.md) | Answers about code match the current code. |
+Each habit is something you say or do while you work with your agent:
+
+1. **Ask before you start.** For example: `What do we already know about the auth flow here?`
+2. **Ask like a teammate.** Name the system, so recall matches [Memories](../concepts/glossary.md#memory) that use the same names. For more information, see [Write prompts that retrieve well](prompting.md).
+3. **Teach and fix as you go.** For example: `Remember that we always use idempotency keys on payment POST requests.` When a fact changes, say `That's out of date.` For more information, see [Teach your agent as you work](teach.md).
+4. **Reload when the task changes.** Start a new session, or run the `load-context` [skill](../concepts/glossary.md#skill) with the new task.
+5. **Capture before you close.** Run the `capture-session-learnings` [skill](../concepts/glossary.md#skill).
+
+For the whole team, **keep repositories in sync**. Set a **Sync interval** on each [Code](../concepts/glossary.md#code-index) or [Documentation Index](../concepts/glossary.md#documentation-index) so answers match the current code. For more information, see [Keep a repository up to date](../context/repositories/sync.md).
 
 ## How you know the habits are working
 
@@ -27,5 +27,5 @@ After a few weeks, your agent follows your conventions without reminders. Your a
 To check your progress, do the following:
 
 1. In the dashboard, open your Hive.
-2. Select the **Recent learnings** tab to see what agents stored.
-3. Select the **Recent queries** tab to see what agents asked.
+2. To see what agents stored, click the **Recent learnings** tab.
+3. To see what agents asked, click the **Recent queries** tab.

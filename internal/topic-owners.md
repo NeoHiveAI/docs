@@ -37,7 +37,7 @@
 | Slash commands | `reference/slash-commands.md` | `results/plugin-automation.md` |
 | Which Index to use for each kind of content, and how many Hives | `context/what-to-add.md` | |
 | Connecting a repository and creating its Index | `context/repositories/connect.md` | `context/repositories/README.md` |
-| Adding a code repository: overview of the steps | `context/repositories/README.md` | |
+| Adding a repository: overview of the steps | `context/repositories/README.md` | |
 | Managing GitHub and GitLab connections: states, checking, replacing, and removing | `admin/data-sources.md` | `context/repositories/connect.md`, `security/credentials.md` |
 | How tokens are stored and protected | `security/credentials.md` | `admin/data-sources.md` |
 | Allowlist and Blocklist: when and where to set them | `context/repositories/file-patterns.md` | |
@@ -60,17 +60,18 @@
 | Installing NeoHive and installer options | `get-started/install.md` | `get-started/quickstart.md` |
 | The shortest path from install to a first answer | `get-started/quickstart.md` | |
 | GPU and CPU backends | `admin/gpu-cpu.md` | `get-started/install.md` |
+| Embedding models: defaults, choosing, and re-embedding | `admin/embedding-models.md` | `admin/dashboard.md`, `context/repositories/connect.md`, `admin/gpu-cpu.md` |
 | Environment variables | `reference/environment-variables.md` | `admin/updating.md`, `admin/gpu-cpu.md`, `context/documents.md` |
 | Getting a license, license lookup, and the offline grace period | `admin/licensing.md` | `admin/updating.md`, `security/local-only.md`, `get-started/install.md` |
 | Backups and restore | `admin/backups.md` | `admin/updating.md` |
 | Updating NeoHive | `admin/updating.md` | |
 | Archiving, deleting, moving, and sharing Hives and Indexes: the steps | `admin/manage.md` | `concepts/hives-indexes-memories.md` |
 | Dashboard screens | `admin/dashboard.md` | |
-| Testing queries in the Playground | `admin/playground.md` | |
 | Uninstalling NeoHive | `admin/uninstall.md` | |
 | Running one instance for a team | `admin/access.md` | `results/team-workflows.md` |
 | Network exposure and authenticating proxies | `security/network.md` | `admin/access.md` |
 | Outbound connections and what stays local | `security/local-only.md` | `README.md`, `get-started/what-is-neohive.md`, `concepts/how-it-works.md` |
+| Troubleshooting: which page or section covers each symptom | `troubleshooting/find-your-problem.md` | |
 | `/health` statuses | `troubleshooting/connection.md` | `troubleshooting/common-errors.md` |
 | Sync errors shown on an Index's page | `troubleshooting/sync.md` | `troubleshooting/common-errors.md` |
 | Recall that comes back empty or misses content | `troubleshooting/recall.md` | |

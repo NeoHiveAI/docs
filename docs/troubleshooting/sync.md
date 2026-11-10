@@ -4,36 +4,77 @@ description: "Diagnose a Code or Documentation Index that fails to sync, stalls,
 
 # Repository sync issues
 
-A [Code](../concepts/glossary.md#code-index) or [Documentation Index](../concepts/glossary.md#documentation-index) stays current by syncing with its repository on a schedule. When a sync fails, stalls, or leaves files out, the [Index](../concepts/glossary.md#index) falls out of date and your agent recalls older content. The checks on this page find the cause and get the Index syncing again.
+A [Code](../concepts/glossary.md#code-index) or [Documentation Index](../concepts/glossary.md#documentation-index) stays current by syncing with its repository on a schedule. When a sync fails, stalls, or leaves files out, the [Index](../concepts/glossary.md#index) falls out of date and your agent recalls older content.
 
-<figure><img src="../.gitbook/assets/troubleshooting-sync.svg" alt="Decision tree with five checks for a Code or Documentation Index. Is syncing turned on? Is the connection Valid on Data Sources? Did the last run in Sync history succeed? Did every file index? Does the missing file pass the filters? Each no leads to its fix. Five yes answers mean the Index matches the repository."><figcaption></figcaption></figure>
+The following diagram shows the three places in the dashboard where a sync problem shows up:
 
-Open the Index in the dashboard. **Sync history** lists every run with its status and error. When a sync has a problem, the Index page shows a message box that names the problem.
+<figure><img src="../.gitbook/assets/troubleshooting-sync.svg" alt="The Hive page marks a failing Index with a status dot and a message box that links to the Index. The Index page shows a message box at the top, and Sync history lists each run with its error."><figcaption></figcaption></figure>
 
 ## What the Index page shows
 
-| You see | Cause | Fix |
-|---|---|---|
-| **Resume syncing** on **Sync Settings** | Syncing is paused, so no scheduled sync runs. | Select **Resume syncing**. |
-| `This Index's connection was removed.` | Someone deleted the Index's connection from **Data Sources**. | Select **Assign connection**. If you have no connections, select **Add a data source**. |
-| `Branch not found on the remote` | Someone renamed or deleted the branch, and NeoHive could not choose its replacement. | Under **Sync a different branch**, select a branch, and then select **Sync this branch**. If that fails, select **Force reset to origin**. |
-| `The branch is no longer on the remote` | Someone renamed or deleted the branch. | On the **Sync Settings** tab, select an existing branch in **Branch**. Select **Save settings**, and then select **Trigger sync**. |
-| `A git command failed` | The repository URL is wrong, or the connection cannot read the repository. | Check the connection on **Data Sources**, and then select **Trigger sync**. |
-| `The sync failed` | Something else failed. The box shows the error message. | Look up the message in [Common errors](common-errors.md). |
-| `Embedding dimension mismatch. Sorry about this!` | NeoHive built the Index with the wrong embedding dimensions, and you cannot repair the Index. | Follow the steps in the box. Delete the Index under **Danger Zone** on **Index Info**, and then add the Index again with **Add Index**. |
-| `partial` badge, or `... files failed to index and will be reindexed automatically.` | Some files failed to index. | Wait for the automatic retry. NeoHive retries those files after two minutes. |
-| `... could not be indexed after 3 attempts. Trigger a sync to retry.` | The same files failed three syncs in a row. | Read the file error in **Sync history**. Fix the file or filter it out, and then select **Trigger sync**. |
-| `A sync is already running for this Index` | You selected **Trigger sync** while a sync was running. | No fix is needed. Wait for the running sync to finish. |
+When a sync has a problem, a message box at the top of the Index page names it in its first line. Each of the following sections is named after one of those first lines. To read a run's error in full, click its text in the **Error** column of **Sync history**.
 
-NeoHive usually handles a renamed default branch, such as `master` to `main`, for you. NeoHive switches the Index to the new branch and continues syncing.
+### A synced branch is no longer on the remote
+
+Someone renamed or deleted the branch. Everything indexed so far is still searchable.
+
+To sync another branch, do the following:
+
+1. In the message box, under **Pick a branch to sync instead**, select a branch.
+2. Click **Sync this branch**.
+
+If the Index still does not sync, click **Re-clone repository**. NeoHive switches most renamed default branches, such as `master` to `main`, on its own.
+
+### A git command failed
+
+NeoHive could not read the repository. The line under the heading shows git's own reason, such as a failed login or a wrong URL. To check the connection, see [Connections](#connections). After you fix the connection, click **Trigger sync**.
+
+### The connection for this Index was removed
+
+Someone deleted the Index's connection on **Data Sources**. In the message box, click **Assign connection**, select a connection, and then click **Save settings**. If the service has no connection left, the button reads **Add a data source** and opens **Data Sources**.
+
+### Some files could not be indexed, the rest synced
+
+The text under the heading says which case you have:
+
+* **`<n> files failed to index and will be reindexed automatically.`** No action is needed. NeoHive retries those files two minutes later.
+* **`<n> files could not be indexed after repeated attempts. Trigger a sync to retry.`** Read the file's error in **Sync history**. Fix the file, or exclude it with the **Blocklist**, and then click **Trigger sync**.
+
+### No files could be indexed, so the sync stopped
+
+Every file in the run failed to index. Under the title, the message box shows the first file's error. If the error names the container or the embedding engine, see [Agent can't connect](connection.md). Then click **Trigger sync**.
+
+### This Index was built with the wrong embedding dimensions
+
+NeoHive cannot repair the Index in place, so you create it again. To rebuild the Index, do the following:
+
+1. Open the **Index Info** tab.
+2. Under **Danger Zone**, click **Delete Index**.
+3. On the [Hive](../concepts/glossary.md#hive) page, click **Add Index**, and create the Index with the same source and embedding model.
+
+### This Index's vector store cannot be read
+
+Recall returns nothing from the Index until NeoHive rebuilds it. Click **Rebuild and re-embed**.
+
+### `<n>` memories have not been embedded with `<model>`
+
+Recall does not return those entries yet. Click **Retry failed chunks**.
+
+### The sync failed
+
+Something else failed, and the box shows the error message. If the message says chunks `were still waiting for a vector`, click **Trigger sync** to finish publishing them. For any other message, look it up in [Common errors](common-errors.md).
+
+### Syncing is paused, or a sync is already running
+
+These two states are not errors. If **Sync Settings** shows **Resume syncing**, syncing is paused. To resume, click **Resume syncing**. If you see `A sync is already running for this Index`, you clicked **Trigger sync** during a run. Wait for that run to finish. If you see `The previous sync is still clearing, try again in a moment`, a cancelled sync is still finishing. Wait a moment, and then click **Trigger sync** again.
 
 ## Connections
 
-To check a connection, open **Data Sources** and select **Manage** on the service. Each connection shows **Valid**, **Invalid**, or **Unvalidated**. If a token no longer works, each sync that uses the token fails with `A git command failed`. You cannot edit a token. Instead, add a new connection with a working token, and assign the new connection to the Index. For the steps, see [Check or remove a connection](../admin/data-sources.md#check-or-remove-a-connection).
+To check a connection, open **Data Sources**, click **Manage** on the service, and then click **Validate** on the connection. A connection marked **Invalid** has a token that no longer works, so its syncs fail with `A git command failed`. You cannot edit the token of a connection. Instead, add a new connection with a working token. Then select the new connection under **Connection** on the Index's **Sync Settings** tab, and click **Save settings**. For more information, see [Data sources and credentials](../admin/data-sources.md#check-or-remove-a-connection).
 
 ## Slow or stalled syncs
 
-The first sync clones the repository and indexes every file, so a large repository takes longer. The Index page shows the sync's progress. Later syncs index only the files that changed. If you change the **File filters**, the next sync re-reads every file. If progress stops, read the log:
+The first sync indexes every file, so a large repository takes longer. Later syncs index only the files that changed, unless you change the **File filters**. If progress stops, read the log:
 
 ```bash
 docker logs neohive --tail 50
@@ -41,20 +82,22 @@ docker logs neohive --tail 50
 
 ## Schedule
 
-If an Index syncs too often or too rarely, change its **Sync interval** on the **Sync Settings** tab. For the intervals you can choose, see [Set the schedule](../context/repositories/sync.md#set-the-schedule). To sync now, select **Trigger sync**, or call the [webhook refresh endpoint](../reference/webhooks.md) from your CI system.
+If an Index syncs too often or too rarely, change its **Sync interval** on the **Sync Settings** tab. For more information about the intervals you can choose, see [Set the schedule](../context/repositories/sync.md#set-the-schedule). To sync now, click **Trigger sync**, or call the [webhook refresh endpoint](../reference/webhooks.md) from your CI system.
 
 ## Files that never appear
 
-A file must pass the built-in skip list, your **Allowlist**, and your **Blocklist**. NeoHive always skips PDFs in a repository. To see how the three checks combine, read [File pattern syntax](../reference/file-patterns.md).
+A file must pass the built-in skip list, your **Allowlist**, and your **Blocklist**. The skip list leaves out binary files, lock files, and dependency folders. For the full list of skipped files, see [Files in a repository](../reference/file-types.md#files-in-a-repository). For the pattern rules, see [File pattern syntax](../reference/file-patterns.md).
 
 ## Still stuck?
 
 To get help, do the following:
 
-1. Run the following command to collect a diagnostics bundle:
+1. To collect a diagnostics bundle, run the following command:
 
    ```bash
    curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/logs.sh | bash
    ```
 
 2. Send the bundle to `hello@neohive.ai` with the name of the repository that fails.
+
+The bundle holds logs and settings with secrets removed. The bundle does not include your [Memories](../concepts/glossary.md#memory), code, or databases.
