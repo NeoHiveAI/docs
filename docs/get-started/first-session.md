@@ -1,5 +1,5 @@
 ---
-description: "Ask your agent about your code, teach the agent one thing, and see the agent recall that lesson in the next session."
+description: "Ask your agent about your code, teach the agent one thing, and see the agent recall that note in the next session."
 ---
 
 # Your first session

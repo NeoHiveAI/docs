@@ -73,7 +73,13 @@ Ask Cursor to run the `getting-started` skill. The skill checks that the Hive is
 {% hint style="success" %}
 **Check:** Cursor can reach the Hive.
 
-Ask Cursor: `List my NeoHive Indexes.` Cursor calls `list_indexes` and lists the [Indexes](../../concepts/glossary.md#index) in the Hive. The dashboard's **Install Instructions** panel also marks **Cursor** as connected.
+Ask Cursor:
+
+```text
+List my NeoHive Indexes.
+```
+
+Cursor calls `list_indexes` and lists the [Indexes](../../concepts/glossary.md#index) in the Hive. The dashboard's **Install Instructions** panel also marks **Cursor** as connected.
 
 If the `list_indexes` tool is missing, compare the `url` in your `mcp.json` with the dashboard. Then see [Agent can't connect](../../troubleshooting/connection.md).
 {% endhint %}

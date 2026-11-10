@@ -49,7 +49,7 @@ The prompt hook adds nothing in these cases:
 The prompt hook finds your [Hive](../concepts/glossary.md#hive) through the `.mcp.json` that the **Install Instructions** command writes with `--scope project`. If you add the server with the default local scope, tool calls still work. The hook then adds no context to your prompts. For more information about which scope to use, see [Connect Claude Code](../get-started/connect/claude-code.md).
 {% endhint %}
 
-The hook adds context under `NeoHive auto-context` and cuts it off at 4,000 characters. If NeoHive returns an error, the hook adds `NeoHive auto-context unavailable:` and the error text instead. If `NEOHIVE_TOKEN` is set, the hook sends that token as a bearer token (an access token in the request header).
+The hook adds context under `NeoHive auto-context` and cuts it off at 4,000 characters. If NeoHive returns an error, the hook adds `NeoHive auto-context unavailable:` and the error text instead. If `NEOHIVE_TOKEN` is set, the hook sends that token as a bearer token.
 
 ## The Glob and Grep reminder
 
@@ -59,7 +59,7 @@ The reminder appears only when a `.mcp.json` file in the current folder, or in a
 
 ## The explore-neohive subagent
 
-A subagent is a helper agent your agent hands a task to. The plugin includes one subagent, named `explore-neohive`. `explore-neohive` searches memory first and reads files only after memory points to them. The plugin's rules tell your agent to use `explore-neohive` instead of the built-in `Explore` subagent for questions like "where is X handled?".
+The plugin includes one [subagent](../concepts/glossary.md#subagent), named `explore-neohive`. `explore-neohive` searches memory first and reads files only after memory points to them. The plugin's rules tell your agent to use `explore-neohive` instead of the built-in `Explore` subagent for questions like "where is X handled?".
 
 ## What you run yourself
 

@@ -15,7 +15,7 @@ Choose the Index for each kind of content before you first add it, and decide wh
 To open the **Add an Index** dialog, do the following:
 
 1. In the dashboard, open your Hive.
-2. Select **+** next to **Indexes**.
+2. Click **+** next to **Indexes**.
 
 The **Add an Index** dialog asks where your data comes from.
 

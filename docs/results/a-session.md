@@ -71,15 +71,55 @@ What you run depends on your agent:
 The NeoHive rules tell your agent to load context when the session opens. To reload context for a new task, run `/neohive:load-context`. Before you close the session, run `/neohive:capture-session-learnings`. The capture can edit `~/CLAUDE.md`.
 {% endtab %}
 
-{% tab title="Codex" %}
-The Codex plugin has no hooks, so nothing runs on its own. Its rules file tells your agent to load context first. To run a skill, ask your agent for it by name.
-
-To load context, ask your agent to "Run the load-context skill." Before you close the session, ask your agent to "Run the capture-session-learnings skill." The capture can edit `~/AGENTS.md` or `~/.codex/AGENTS.md`.
-{% endtab %}
-
 {% tab title="Cursor" %}
 The Cursor plugin has no hooks, so nothing runs on its own. Its rules file tells your agent to load context first. To run a skill, ask your agent for it by name.
 
-To load context, ask your agent to "Run the load-context skill." Before you close the session, ask your agent to "Run the capture-session-learnings skill." The capture can edit your `.cursor/rules/*.mdc` files, or the plugin's `rules/neohive.mdc` if you have none.
+To load context, ask your agent:
+
+```text
+Run the load-context skill.
+```
+
+Before you close the session, ask your agent:
+
+```text
+Run the capture-session-learnings skill.
+```
+
+The capture can edit your `.cursor/rules/*.mdc` files, or the plugin's `rules/neohive.mdc` if you have none.
+{% endtab %}
+
+{% tab title="Codex" %}
+The Codex plugin has no hooks, so nothing runs on its own. Its rules file tells your agent to load context first. To run a skill, ask your agent for it by name.
+
+To load context, ask your agent:
+
+```text
+Run the load-context skill.
+```
+
+Before you close the session, ask your agent:
+
+```text
+Run the capture-session-learnings skill.
+```
+
+The capture can edit `~/AGENTS.md` or `~/.codex/AGENTS.md`.
+{% endtab %}
+
+{% tab title="Other MCP apps" %}
+ChatGPT, Claude Desktop, and other MCP apps have no NeoHive plugin, so they have no skills to run. To have your agent load context and save what it learned without being asked, add the rules from [Tell your agent to use NeoHive](../get-started/connect/README.md#tell-your-agent-to-use-neohive).
+
+To load context yourself, ask your agent, for example:
+
+```text
+Load NeoHive context for the payments refund task.
+```
+
+Before you close the session, ask your agent:
+
+```text
+Store what we learned in this session in NeoHive.
+```
 {% endtab %}
 {% endtabs %}

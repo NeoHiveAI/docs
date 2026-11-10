@@ -69,7 +69,13 @@ A wrong Hive ID returns `Unknown Hive: <id>`. A wrong port or host returns a con
 {% step %}
 ## Does your agent see the tools?
 
-Ask your agent: `List my NeoHive indexes.` Your agent calls `list_indexes` and answers. If the agent does not have the `list_indexes` tool, the agent has not loaded the NeoHive MCP server. Restart the agent after any configuration change.
+Ask your agent:
+
+```text
+List my NeoHive Indexes.
+```
+
+Your agent calls `list_indexes` and answers. If the agent does not have the `list_indexes` tool, the agent has not loaded the NeoHive MCP server. Restart the agent after any configuration change.
 
 In Claude Code, start Claude Code in the folder where you ran the **Install Instructions** command, because the server is saved in that folder's `.mcp.json`. For other agents, see [Connect your agent](../get-started/connect/README.md).
 {% endstep %}

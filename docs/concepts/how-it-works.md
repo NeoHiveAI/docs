@@ -6,9 +6,9 @@ description: "How your agent, the NeoHive plugin, and the NeoHive container fit 
 
 NeoHive gives every coding agent on your team one shared memory. Your agent connects to NeoHive over [MCP](glossary.md#mcp), and the NeoHive plugin tells the agent when to use memory. The memory itself runs in a Docker container on your machine or a shared server. Knowing where each part runs helps you set NeoHive up and find the cause when an agent cannot reach NeoHive.
 
-Every teammate's agent reads the same memory, whichever tool the teammate uses. When one person teaches their agent a lesson, every other agent can recall that lesson. The following diagram shows three teammates' agents sharing one [Hive](glossary.md#hive):
+Every teammate's agent reads the same memory, whichever tool the teammate uses. When one person's agent saves a note, every other agent can recall that note. The following diagram shows three teammates' agents sharing one [Hive](glossary.md#hive):
 
-<figure><img src="../.gitbook/assets/how-it-works.svg" alt="Claude Code, Cursor, and Codex agents share one Hive in the NeoHive container, and any other MCP app can connect the same way. Each agent stores lessons in the Hive and recalls what the other agents stored."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/how-it-works.svg" alt="Claude Code, Cursor, and Codex agents share one Hive in the NeoHive container, and any other MCP app can connect the same way. Each agent stores notes in the Hive and recalls what the other agents stored."><figcaption></figcaption></figure>
 
 Your agent does not read NeoHive's files. The agent asks through an MCP tool, such as `memory_recall` or `memory_store`, and gets matching code, docs, and [Memories](glossary.md#memory) back. For more information about each tool, see [MCP tools](../reference/mcp-tools.md).
 
@@ -53,7 +53,7 @@ NeoHive indexes two kinds of source: repositories that it syncs, and files that 
 
 When you add a repository, the container does the following:
 
-1. Copies (clones) the repository, such as one on GitHub or GitLab, into the `neohive-data` volume.
+1. Clones the repository, such as one on GitHub or GitLab, into the `neohive-data` volume.
 2. Splits each file into [chunks](glossary.md#chunk).
 3. Turns each chunk into an [embedding](glossary.md#embedding).
 4. Stores the chunks and their embeddings in a [Code](glossary.md#code-index) or [Documentation Index](glossary.md#documentation-index).

@@ -38,7 +38,7 @@ A section of an indexed file, such as a function, or a heading and its text. Cod
 
 ### CI
 
-Continuous integration, a system that builds and tests your code on every push or merge, such as GitHub Actions. A CI pipeline can call the [webhook](#webhook) to sync an Index. For more information, see [Webhook refresh endpoint](../reference/webhooks.md).
+Continuous integration, a system that builds and tests your code on every push or merge, such as GitHub Actions. A CI pipeline can call the [webhook](#webhook) to send changed files to an Index without waiting for the next sync. For more information, see [Webhook refresh endpoint](../reference/webhooks.md).
 
 ### CLI
 
@@ -239,3 +239,7 @@ Virtual private network, which connects your computer to a private network over 
 ### Webhook
 
 An address on your Hive that a CI pipeline calls to send changed files to NeoHive. NeoHive indexes those files immediately, without waiting for the next sync. For more information, see [Webhook refresh endpoint](../reference/webhooks.md).
+
+### WSL
+
+Windows Subsystem for Linux, which runs Linux inside Windows. On Windows, you run the NeoHive installer inside WSL 2. For more information, see [Install NeoHive](../get-started/install.md).

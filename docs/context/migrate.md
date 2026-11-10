@@ -24,16 +24,12 @@ To start the migration, do the following:
 ```
 {% endtab %}
 
-{% tab title="Cursor" %}
-Ask your agent to run the `migrate-memory` skill.
-{% endtab %}
-
-{% tab title="Codex" %}
+{% tab title="Cursor and Codex" %}
 Ask your agent to run the `migrate-memory` skill.
 {% endtab %}
 {% endtabs %}
 
-Claude Desktop and other MCP apps have no NeoHive plugin, so they cannot run the skill. Run the import once from Claude Code, Cursor, or Codex. Every agent connected to the Hive can then recall the Memories.
+ChatGPT, Claude Desktop, and other MCP apps have no NeoHive plugin, so they cannot run the skill. Run the import once from Claude Code, Cursor, or Codex. Every agent connected to the Hive can then recall the Memories.
 
 The skill looks for rules in the following places in the project, and uses the ones it finds:
 
@@ -83,6 +79,6 @@ Your agent recalls migrated rules like any other Memory. A teammate on the same 
 
 The skill does not change your context files, so your agent still loads every rule in them on each task. To load only the rules that matter, remove the migrated rules from those files. Keep the rules the skill skipped, such as personal preferences, and the NeoHive block.
 
-If a rule migrated incorrectly or becomes out of date, tell your agent. Your agent then deactivates the old Memory. For more information about correcting a Memory, see [Capture team knowledge](team-knowledge.md#correct-what-goes-stale).
+If a rule migrated incorrectly or becomes out of date, tell your agent. Your agent then deactivates the old Memory. For more information about what to say, see [Say "out of date" when a fact changes](../results/teach.md#say-out-of-date-when-a-fact-changes).
 
 Long-form notes, such as an Obsidian vault, design docs, or runbooks, belong in a [Files Index](../concepts/glossary.md#files-index). To upload long-form notes, see [Add documents and images](documents.md).

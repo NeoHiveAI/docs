@@ -6,7 +6,7 @@ description: "The glob syntax the Allowlist and Blocklist accept, how the two co
 
 Use Allowlist and Blocklist patterns to choose which files NeoHive indexes and which it skips. To set the patterns on a [Code](../concepts/glossary.md#code-index) or [Documentation Index](../concepts/glossary.md#documentation-index), see [Choose which files are included](../context/repositories/file-patterns.md).
 
-Enter one pattern per line in either list. Patterns use [micromatch](https://github.com/micromatch/micromatch) glob syntax, where wildcards such as `*` let one pattern match many files. Each pattern matches paths from the repository root, so `src/**` matches `src/api/users.ts` but not `packages/web/src/app.ts`.
+Enter one pattern per line in either list. Patterns use [micromatch](https://github.com/micromatch/micromatch) glob syntax. Each pattern matches paths from the repository root, so `src/**` matches `src/api/users.ts` but not `packages/web/src/app.ts`.
 
 ## How the filters combine
 

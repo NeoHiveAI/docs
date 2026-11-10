@@ -21,7 +21,7 @@ NeoHive creates the Knowledge Index with the Hive. Your agents write to the Know
 
 Each way ends with your agent calling `memory_store`. Every Memory goes into the Knowledge Index of the Hive your agent is connected to. Your agent also gives each Memory a type, such as `directive`, `convention`, or `decision`. For all the types, see [Memory types](../reference/memory-types.md).
 
-To see what your team's agents stored recently, check **Recent learnings** on the Hive page. To open the Knowledge Index, select **Knowledge** under **Indexes**.
+To see what your team's agents stored recently, check **Recent learnings** on the Hive page. To open the Knowledge Index, click **Knowledge** under **Indexes**.
 
 ## Who can recall your team's Memories
 

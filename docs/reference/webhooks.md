@@ -25,7 +25,7 @@ Content-Type: application/json
 X-Webhook-Secret: <secret>
 ```
 
-`<hive-id>` is the ID of your [Hive](../concepts/glossary.md#hive), the NeoHive workspace your agent connects to. The same ID appears in the Hive's [MCP](../concepts/glossary.md#mcp) endpoint, `http://<host>:3577/hives/<hive-id>/mcp`. One request updates every Code or Documentation Index in that Hive that syncs the repository you name, except an Index with an error status. A [Shared Index](../concepts/glossary.md#shared-index) updates only through the Hive that owns it.
+`<hive-id>` is the ID of your [Hive](../concepts/glossary.md#hive). The same ID appears in the Hive's [MCP](../concepts/glossary.md#mcp) endpoint, `http://<host>:3577/hives/<hive-id>/mcp`. One request updates every Code or Documentation Index in that Hive that syncs the repository you name, except an Index with an error status. A [Shared Index](../concepts/glossary.md#shared-index) updates only through the Hive that owns it.
 
 ## Authentication
 

@@ -11,7 +11,7 @@ A backend is the processor that NeoHive indexes and searches your content on, su
 - Other GPUs, through Vulkan
 - The CPU
 
-On an Apple Silicon Mac, a Mac with an Apple M-series chip such as the M1 or later, NeoHive uses the Mac's GPU in a different way. The CPU backend works on every machine, and recall is fast on any backend. A GPU backend makes indexing faster, especially for a large repository.
+On an Apple Silicon Mac, NeoHive uses the Mac's GPU in a different way. The CPU backend works on every machine, and recall is fast on any backend. A GPU backend makes indexing faster, especially for a large repository.
 
 If indexing is slow for your hardware, or NeoHive does not use your GPU, check which backend NeoHive runs on. You can then force a different backend.
 
@@ -29,7 +29,7 @@ The tag in the `IMAGE` column names the backend, for example `neohivedev/neohive
 
 ## How Apple Silicon uses the GPU
 
-On Apple Silicon, NeoHive uses the Mac's GPU through the [Metal worker](../concepts/glossary.md#metal-worker), a program that the installer sets up directly on macOS. The worker is needed because Docker on a Mac cannot reach the GPU, so the NeoHive container itself always uses the CPU backend. The worker does NeoHive's indexing work on the GPU instead, which makes indexing much faster.
+On Apple Silicon, NeoHive uses the Mac's GPU through the [Metal worker](../concepts/glossary.md#metal-worker), which the installer sets up directly on macOS. The worker is needed because Docker on a Mac cannot reach the GPU, so the NeoHive container itself always uses the CPU backend. The worker does NeoHive's indexing work on the GPU instead, which makes indexing much faster.
 
 - **NeoHive falls back to the CPU.** If any part of the worker setup fails, the installer warns you and NeoHive embeds on CPU inside the container.
 
@@ -60,9 +60,9 @@ A forced backend has no fallback. If the installer cannot download the image for
 
 ## NVIDIA GPU but NeoHive runs on CPU
 
-If NeoHive runs on the CPU even though your machine has an NVIDIA GPU, Docker is most likely missing the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html). Docker needs the toolkit to give the NeoHive container access to the GPU, and the toolkit is a separate install from the NVIDIA driver. That is why your GPU can work and show up when you run `nvidia-smi`, the NVIDIA driver's command that lists your GPUs, while NeoHive cannot use it. The installer starts a small test container to check GPU access. If the test fails, the installer uses the CPU backend and shows this warning: `NVIDIA Container Toolkit probe failed - falling back to CPU backend.`
+If NeoHive runs on the CPU even though your machine has an NVIDIA GPU, Docker is most likely missing the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html). Docker needs the toolkit to give the NeoHive container access to the GPU, and the toolkit is a separate install from the NVIDIA driver. That is why your GPU can work and show up when you run `nvidia-smi` while NeoHive cannot use it. The installer starts a small test container to check GPU access. If the test fails, the installer uses the CPU backend and shows this warning: `NVIDIA Container Toolkit probe failed - falling back to CPU backend.`
 
-This problem happens on Linux, and with Docker Engine installed inside Windows Subsystem for Linux (WSL 2). In WSL 2, `nvidia-smi` works through the Windows driver, so the GPU looks ready even when the toolkit is missing. Docker Desktop on Windows does not need the toolkit, because its WSL 2 backend includes GPU support. To fix the problem, do the following:
+This problem happens on Linux, and with Docker Engine installed inside WSL 2. In WSL 2, `nvidia-smi` works through the Windows driver, so the GPU looks ready even when the toolkit is missing. Docker Desktop on Windows does not need the toolkit, because its WSL 2 backend includes GPU support. To fix the problem, do the following:
 
 1. Install the NVIDIA Container Toolkit.
 2. Restart Docker.

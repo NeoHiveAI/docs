@@ -4,11 +4,11 @@ description: "Three ways teams use one team Hive: onboarding, debugging with pas
 
 # Team workflows
 
-Without a shared memory, each person teaches their own agent the same things. The next teammate then explains the same convention again. When every agent on the team connects to one [Hive](../concepts/glossary.md#hive), the Hive keeps each lesson once, as a [Memory](../concepts/glossary.md#memory). Every agent can then recall the Memory, whichever tool the teammate uses.
+Without a shared memory, each person teaches their own agent the same things. The next teammate then explains the same convention again. When every agent on the team connects to one [Hive](../concepts/glossary.md#hive), the Hive keeps each note once, as a [Memory](../concepts/glossary.md#memory). Every agent can then recall the Memory, whichever tool the teammate uses.
 
-To share one Hive, each teammate first connects to the team's Hive. Teams then use the Hive in three ways: onboarding, debugging with past fixes, and keeping conventions consistent. The following diagram shows lessons going into the Hive and coming back to other agents:
+To share one Hive, each teammate first connects to the team's Hive. Teams then use the Hive in three ways: onboarding, debugging with past fixes, and keeping conventions consistent. The following diagram shows notes going into the Hive and coming back to other agents:
 
-<figure><img src="../.gitbook/assets/results-team-workflows.svg" alt="Two teammates teach the team Hive a convention and a bug fix. Three agents get those lessons back through recall."><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/results-team-workflows.svg" alt="Two teammates teach the team Hive a convention and a bug fix. Three agents get those notes back through recall."><figcaption></figcaption></figure>
 
 ## Connect each person to the team Hive
 

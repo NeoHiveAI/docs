@@ -30,7 +30,7 @@ The following table shows the mistakes you can make during a session:
 | Mistake | What you notice | Fix |
 |---|---|---|
 | **Never correcting the agent** | The same wrong suggestion comes back in every session. | When your agent is wrong, say what is correct and why. |
-| **Stating a new fact without retiring the old one** | Your agent quotes the old rule as often as the new one. | Say "that's out of date", so recall stops returning the old [Memory](../concepts/glossary.md#memory). For more information, see [Teach your agent as you work](teach.md). |
+| **Stating a new fact without retiring the old one** | Your agent quotes the old rule as often as the new one. | Say `That's out of date.` Recall then stops returning the old [Memory](../concepts/glossary.md#memory). For more information, see [Teach your agent as you work](teach.md). |
 | **One session across unrelated tasks** | Loaded context fits the task you started with, not the task you are working on now. | Start a new session, or run the `load-context` [skill](../concepts/glossary.md#skill) with the new task. |
 | **Skipping the end-of-session capture** | Your agent never recalls decisions from long sessions. | Run the `capture-session-learnings` [skill](../concepts/glossary.md#skill) before you close the session. |
 

@@ -4,7 +4,7 @@ description: "Select your agent and connect it to a Hive. Every agent uses the s
 
 # Connect your agent
 
-Every agent connects to a [Hive](../../concepts/glossary.md#hive) through the Hive's [MCP](../../concepts/glossary.md#mcp) endpoint. The endpoint is a web address, and every agent uses the same one. Claude Code, Cursor, and Codex also get a NeoHive plugin, which tells each agent when to use NeoHive. The following diagram shows how the endpoint and the plugin fit together:
+Every agent connects to a [Hive](../../concepts/glossary.md#hive) through the Hive's [MCP](../../concepts/glossary.md#mcp) endpoint, and every agent uses the same one. Claude Code, Cursor, and Codex also get a NeoHive plugin, which tells each agent when to use NeoHive. The following diagram shows how the endpoint and the plugin fit together:
 
 <figure><img src="../../.gitbook/assets/get-started-connect.svg" alt="Your agent reaches the Indexes in one Hive through the Hive's MCP endpoint. A plugin inside the agent adds instructions for when to use the memory tools."><figcaption></figcaption></figure>
 

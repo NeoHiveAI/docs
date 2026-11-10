@@ -96,20 +96,20 @@ claude mcp remove <neohive-entry>
 ```
 {% endtab %}
 
-{% tab title="Claude Desktop" %}
-Delete the NeoHive entries from `claude_desktop_config.json`, and then restart Claude Desktop.
-{% endtab %}
-
-{% tab title="ChatGPT" %}
-In the ChatGPT desktop app, open **Settings**, then **Plugins**, and remove each NeoHive server.
+{% tab title="Cursor" %}
+Delete the NeoHive entries from `.cursor/mcp.json` in your project, or from `~/.cursor/mcp.json`.
 {% endtab %}
 
 {% tab title="Codex" %}
 Delete the NeoHive entries from `.codex/config.toml` in your project, or from `~/.codex/config.toml`.
 {% endtab %}
 
-{% tab title="Cursor" %}
-Delete the NeoHive entries from `.cursor/mcp.json` in your project, or from `~/.cursor/mcp.json`.
+{% tab title="ChatGPT" %}
+In the ChatGPT desktop app, open **Settings**, then **Plugins**, and remove each NeoHive server.
+{% endtab %}
+
+{% tab title="Claude Desktop" %}
+Delete the NeoHive entries from `claude_desktop_config.json`, and then restart Claude Desktop.
 {% endtab %}
 {% endtabs %}
 

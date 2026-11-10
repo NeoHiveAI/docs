@@ -57,7 +57,13 @@ Ask Codex to run the NeoHive `getting-started` skill. The skill checks that the 
 {% hint style="success" %}
 **Check:** Codex can reach the Hive.
 
-Ask Codex: `List my NeoHive Indexes.` Codex calls `list_indexes` and lists the [Indexes](../../concepts/glossary.md#index) in the Hive. The dashboard's **Install Instructions** panel also marks **Codex** as connected.
+Ask Codex:
+
+```text
+List my NeoHive Indexes.
+```
+
+Codex calls `list_indexes` and lists the [Indexes](../../concepts/glossary.md#index) in the Hive. The dashboard's **Install Instructions** panel also marks **Codex** as connected.
 
 If the `list_indexes` tool is missing, compare the `url` in your `config.toml` with the dashboard. Then see [Agent can't connect](../../troubleshooting/connection.md).
 {% endhint %}

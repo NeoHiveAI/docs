@@ -4,7 +4,7 @@ description: "What to check when your agent's NeoHive recall comes back empty or
 
 # Recall isn't finding what I need
 
-A recall is your agent's search of the knowledge NeoHive stores. A recall can come back empty or miss what you expected. The cause is usually the query's wording or the stored content.
+A [recall](../concepts/glossary.md#recall) can come back empty or miss what you expected. The cause is usually the query's wording or the stored content.
 
 Find your symptom in the following table:
 

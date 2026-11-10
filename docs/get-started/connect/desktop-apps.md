@@ -67,11 +67,27 @@ If the address starts with `https://`, remove `--allow-http`.
 
 **If the app runs on the provider's servers**, put NeoHive behind a public HTTPS address first. To set up that address, see [Expose NeoHive beyond your network](../../security/network.md).
 {% endtab %}
+{% endtabs %}
 
-{% tab title="Agents with no plugin" %}
-To adapt a NeoHive plugin for an agent that has no plugin, do the following:
+{% hint style="success" %}
+**Check:** the app can reach the Hive.
 
-1. Connect the agent with the steps in the **Other MCP apps** tab.
+Ask the app:
+
+```text
+List my NeoHive Indexes.
+```
+
+The app calls `list_indexes` and lists the [Indexes](../../concepts/glossary.md#index) in the Hive.
+
+If the `list_indexes` tool is missing, read the app's MCP log. Claude Desktop writes `mcp*.log` files to `~/Library/Logs/Claude/` on macOS and `%APPDATA%\Claude\logs\` on Windows. Then see [Agent can't connect](../../troubleshooting/connection.md).
+{% endhint %}
+
+## Adapt a plugin for an agent with no plugin
+
+If your agent has no NeoHive plugin, you can have the agent adapt one of the existing plugins. To adapt a plugin, do the following:
+
+1. Connect the agent, as shown in the **Other MCP apps** tab.
 2. Clone the plugin closest to your agent: [NeoHiveClaude](https://github.com/NeoHiveAI/NeoHiveClaude), [NeoHiveCursor](https://github.com/NeoHiveAI/NeoHiveCursor), or [NeoHiveCodex](https://github.com/NeoHiveAI/NeoHiveCodex).
 3. Open the plugin in your agent.
 4. Paste the following prompt:
@@ -82,20 +98,10 @@ To adapt a NeoHive plugin for an agent that has no plugin, do the following:
    NeoHive is a self-hosted memory that agents reach over MCP. The adapted plugin should:
 
    1. Register NeoHive's MCP endpoint (http://localhost:3577/hives/<hive-id>/mcp, from the Hive's Install Instructions panel in the NeoHive dashboard). If the agent cannot use an HTTP endpoint, wrap it with the mcp-remote npm package.
-   2. Add rules telling the agent to call memory_context and memory_recall before exploring the codebase, and memory_store to save conventions, decisions, and lessons.
+   2. Add rules telling the agent to call memory_context and memory_recall before exploring the codebase, and memory_store to save conventions, decisions, and other notes.
    3. Use whatever session hooks the agent supports to load context at the start of a session and save learnings at the end.
 
    Keep the behavior as close to the original plugin as the agent allows, and list anything it cannot support.
    ```
 
 To ask for a plugin for your agent, email `hello@neohive.ai`.
-{% endtab %}
-{% endtabs %}
-
-{% hint style="success" %}
-**Check:** the app can reach the Hive.
-
-Ask the app: `List my NeoHive Indexes.` The app calls `list_indexes` and lists the [Indexes](../../concepts/glossary.md#index) in the Hive.
-
-If the `list_indexes` tool is missing, read the app's MCP log. Claude Desktop writes `mcp*.log` files to `~/Library/Logs/Claude/` on macOS and `%APPDATA%\Claude\logs\` on Windows. Then see [Agent can't connect](../../troubleshooting/connection.md).
-{% endhint %}

@@ -56,17 +56,7 @@ To install the plugin, start Claude Code in your project, and then run the follo
 
 If you skip `/reload-plugins`, the next step fails with an unknown command error.
 
-The plugin doesn't add an MCP server, which is why you added the server first. Instead, the plugin adds the following parts:
-
-| Part | What it does |
-|---|---|
-| Rules file | Installs `~/.claude/rules/neohive.md` at session start. The file tells Claude Code when to call `memory_context`, `memory_recall`, and `memory_store`. |
-| Prompt hook | Adds relevant [Memories](../../concepts/glossary.md#memory) to the context when you send a prompt. |
-| Glob and Grep reminder | Suggests `memory_recall` before a broad file search. The reminder runs in projects that have the `.mcp.json` file. |
-| `explore-neohive` subagent | Searches NeoHive before reading files. |
-| Skills | `/neohive:getting-started`, `/neohive:load-context`, `/neohive:capture-session-learnings`, and others. For more information about each command, see [Slash commands](../../reference/slash-commands.md). |
-
-For more information about when each part runs, when the prompt hook skips a prompt, and how to turn each hook off, see [What the plugin does automatically](../../results/plugin-automation.md).
+The plugin doesn't add an MCP server, which is why you added the server first. It adds a rules file, a prompt hook that adds relevant [Memories](../../concepts/glossary.md#memory) to each prompt, a reminder to recall before broad file searches, and the `explore-neohive` subagent. It also adds the `/neohive:` commands listed in [Slash commands](../../reference/slash-commands.md). For more information about when each part runs, when the prompt hook skips a prompt, and how to turn each hook off, see [What the plugin does automatically](../../results/plugin-automation.md).
 {% endstep %}
 
 {% step %}
@@ -85,7 +75,13 @@ The wizard checks that the Hive is reachable and offers to write a Hive summary 
 {% hint style="success" %}
 **Check:** Claude Code can reach the Hive.
 
-Ask Claude Code: `List my NeoHive Indexes.` Claude Code calls `list_indexes` and lists the [Indexes](../../concepts/glossary.md#index) in the Hive. The dashboard's **Install Instructions** panel also marks **Claude Code** as connected.
+Ask Claude Code:
+
+```text
+List my NeoHive Indexes.
+```
+
+Claude Code calls `list_indexes` and lists the [Indexes](../../concepts/glossary.md#index) in the Hive. The dashboard's **Install Instructions** panel also marks **Claude Code** as connected.
 
 If the `list_indexes` tool is missing, run `claude mcp get <name>` and compare the URL with the dashboard. Then see [Agent can't connect](../../troubleshooting/connection.md).
 {% endhint %}

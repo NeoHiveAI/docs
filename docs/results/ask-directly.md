@@ -14,7 +14,7 @@ Ask the way you would ask a teammate:
 | Whether the team has seen a problem before | `Have we hit flaky failures in the batch processor before? What fixed them?` | `memory_recall` |
 | The rules for an area | `What conventions do we follow for error handling in the API layer?` | `memory_recall`, limited to conventions |
 | How a piece of code works | `How does the retry logic in the billing webhook work?` | `memory_recall`, then reads the files that the results point to |
-| Which Indexes your agent can search | `List my NeoHive indexes.` | `list_indexes` |
+| Which Indexes your agent can search | `List my NeoHive Indexes.` | `list_indexes` |
 
 ## Narrow the ask
 

@@ -57,4 +57,4 @@ http://192.168.1.20:3577/hives/<hive-id>/mcp
 **Check:** each teammate's agent calls `list_indexes` and sees the same [Indexes](../concepts/glossary.md#index). **Tool usage** on the Hive page counts requests per kind of agent, so two teammates on Claude Code share one bar.
 {% endhint %}
 
-To reach NeoHive from outside a trusted network, put an authenticating proxy in front of NeoHive. An authenticating proxy is a server that checks who is connecting before it passes requests on. Do not open the port instead. For more information about setting up the proxy, see [Exposing NeoHive beyond your network](../security/network.md).
+To reach NeoHive from outside a trusted network, put an authenticating proxy in front of NeoHive. Do not open the port instead. For more information about setting up the proxy, see [Exposing NeoHive beyond your network](../security/network.md).

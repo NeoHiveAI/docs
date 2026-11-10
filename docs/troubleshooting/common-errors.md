@@ -14,7 +14,7 @@ The installer is the script that downloads and starts NeoHive. When the installe
 
 | Code | Message | Fix |
 |---|---|---|
-| `E201` | `Unsupported OS: <name>. Linux and macOS are supported. On Windows, install via WSL2.` | On Windows, run the installer inside Windows Subsystem for Linux (WSL2). |
+| `E201` | `Unsupported OS: <name>. Linux and macOS are supported. On Windows, install via WSL2.` | On Windows, run the installer inside WSL 2. |
 | `E202` | `Docker is not installed. Install from https://docs.docker.com/get-docker/ and retry.` | Install Docker, and then run the installer again. |
 | `E203` | `Docker daemon is not running (or current user cannot access it). Start Docker and retry.` | Start Docker. Check that `docker info` works without `sudo`. |
 | `E204` | `Invalid BACKEND '<value>' (expected cpu\|vulkan\|cuda\|rocm)` | Set `NEOHIVE_BACKEND` to one of the listed values, or unset it. |

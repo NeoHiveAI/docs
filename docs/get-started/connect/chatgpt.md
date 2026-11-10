@@ -37,7 +37,13 @@ Without instructions, ChatGPT calls NeoHive's tools only when you ask it to. To 
 {% hint style="success" %}
 **Check:** ChatGPT can reach the Hive.
 
-In a new chat, ask ChatGPT: `List my NeoHive Indexes.` ChatGPT calls `list_indexes` and lists the [Indexes](../../concepts/glossary.md#index) in the Hive. The dashboard's **Install Instructions** panel also marks **ChatGPT** as connected.
+In a new chat, ask ChatGPT:
+
+```text
+List my NeoHive Indexes.
+```
+
+ChatGPT calls `list_indexes` and lists the [Indexes](../../concepts/glossary.md#index) in the Hive. The dashboard's **Install Instructions** panel also marks **ChatGPT** as connected.
 
 If ChatGPT doesn't call the tool, compare the **URL** in ChatGPT with the endpoint in the dashboard. Then see [Agent can't connect](../../troubleshooting/connection.md).
 {% endhint %}

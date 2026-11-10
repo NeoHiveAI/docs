@@ -4,7 +4,7 @@ description: "The MCP tools each NeoHive Hive exposes, with every parameter, typ
 
 # MCP tools
 
-A [Hive](../concepts/glossary.md#hive) is a NeoHive workspace that holds your [Indexes](../concepts/glossary.md#index). Your agent works with a Hive through the following tools.
+Your agent works with a [Hive](../concepts/glossary.md#hive) and its [Indexes](../concepts/glossary.md#index) through the following tools.
 
 Each Hive serves these tools at its [MCP](../concepts/glossary.md#mcp) endpoint, `http://localhost:3577/hives/<hive-id>/mcp`, over Streamable HTTP.
 
@@ -21,7 +21,7 @@ Each Hive serves these tools at its [MCP](../concepts/glossary.md#mcp) endpoint,
 
 ## list_indexes
 
-`list_indexes` takes no parameters. Each line of the reply shows the Index ID, name, type, status, and embedding model, followed by the Index's description if it has one. An Index shared into your Hive shows `shared_from: <owner hive>` and `access: read-only`. You can recall from a Shared Index but not write to it.
+`list_indexes` takes no parameters. Each line of the reply shows the Index ID, name, type, status, and embedding model, followed by the Index's description if it has one. An Index shared into your Hive shows `shared_from: <owner hive>` and `access: read-only`. You can recall from a Shared Index but not write to it. For more information about what each Hive can change, see [Shared Index](../concepts/hives-indexes-memories.md#shared-index).
 
 ## memory_recall
 

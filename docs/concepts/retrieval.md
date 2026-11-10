@@ -24,7 +24,7 @@ When your agent searches the whole Hive, each result shows the ID of the Index i
 
 Your agent can ask in two ways:
 
-* **At the start of a task.** `memory_context` returns the directives and conventions that match the task you describe, then decisions, known problems, and other lessons. Most code does not come back from `memory_context`.
+* **At the start of a task.** `memory_context` returns the directives and conventions that match the task you describe, then decisions, known problems, and other notes. Most code does not come back from `memory_context`.
 * **For code, or a specific question mid-task.** `memory_recall` searches for the query your agent writes and returns the best matches.
 
 Both tools search every Index unless you name one.
@@ -39,16 +39,26 @@ NeoHive sets the order. You choose what to ask and where to look, and your agent
 
 | To | Parameter | How it helps |
 |---|---|---|
-| Find more of what you need | `queries` | Takes up to five phrasings of the same need. Different phrasings match different text. |
+| Find more of what you need | `queries` | Takes several phrasings of the same need. Different phrasings match different text. |
 | Search one Index only | `index` | Makes the search faster and more focused when you know which Index holds the answer. |
 | Get only certain kinds of result | `types` | Keeps only the types you name, such as `directive` and `convention`. NeoHive also gives each section of code and docs a type, so those sections can match too. |
-| Get more or fewer results | `limit` | Sets how many results come back. The default is 10. |
+| Get more or fewer results | `limit` | Sets how many results come back. |
 
 For more information about each parameter, its default, and its limits, see [MCP tools](../reference/mcp-tools.md).
 
 When you do not know which Index holds the answer, search the whole Hive first, and note the Index ID on the best results. Then repeat the query with `index` set to that ID.
 
-The phrasing of a query also matters. Name the tool and the problem, not only the topic. For example, `GitHub Actions concurrency limit workaround` finds more than `how do I fix GitHub Actions`.
+The phrasing of a query also matters. Name the tool and the problem, not only the topic. For example, instead of:
+
+```text
+how do I fix GitHub Actions
+```
+
+Write:
+
+```text
+GitHub Actions concurrency limit workaround
+```
 
 ## Put it into practice
 

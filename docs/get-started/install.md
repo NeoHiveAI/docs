@@ -41,7 +41,7 @@ You can also set `NEOHIVE_LICENSE_FILE=/path/to/license.key` before the command.
 
 If port `3577` is already in use, set `NEOHIVE_PORT=3600` (or any free port) before the command. Then use that port wherever these docs say `3577`.
 
-The installer looks for a GPU that supports CUDA, ROCm, or Vulkan, and uses the CPU if it finds none. On an arm64 machine, including an Apple Silicon Mac, the installer skips that search and always uses the CPU backend. An Apple Silicon Mac also gets a small native worker that runs on the Metal GPU. For more information about how the installer picks a backend, see [GPU and CPU](../admin/gpu-cpu.md). If the backend that the installer picks fails, run the installer again with the CPU backend:
+The installer detects your GPU and picks a backend, and an Apple Silicon Mac also gets the [Metal worker](../concepts/glossary.md#metal-worker), which embeds on the Mac's GPU. For more information about how the installer picks a backend, see [GPU and CPU](../admin/gpu-cpu.md). If the backend that the installer picks fails, run the installer again with the CPU backend:
 
 ```bash
 NEOHIVE_BACKEND=cpu \
@@ -157,7 +157,11 @@ Open the Index from the Hive page. For a repository Index, **Sync history** show
 {% hint style="success" %}
 **Check:** your agent answers from your content.
 
-Ask your agent a question that only your content can answer, such as `How does the authentication middleware work?`
+Ask your agent a question that only your content can answer, for example:
+
+```text
+How does the authentication middleware work?
+```
 
 The agent calls `memory_recall` and cites real paths from your repository or files. If the `memory_recall` tool is missing, see [Agent can't connect](../troubleshooting/connection.md). If the answer is vague, see [Recall isn't finding what I need](../troubleshooting/recall.md).
 {% endhint %}

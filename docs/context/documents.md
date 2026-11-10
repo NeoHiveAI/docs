@@ -19,12 +19,12 @@ NeoHive accepts markdown, text, PDF, Word, Excel, and PowerPoint files, and PNG 
 To create a Files Index, do the following:
 
 1. In the dashboard, open your [Hive](../concepts/glossary.md#hive).
-2. Select **+** next to **Indexes**.
+2. Click **+** next to **Indexes**.
 3. Select **File Upload**.
 4. Enter an **Index name** that describes the documents, for example `Engineering Docs`.
-5. Select **Create Index**.
+5. Click **Create Index**.
 
-To upload files at the same time, drag them onto the **Files** drop zone, or select the drop zone to browse, before you select **Create Index**. NeoHive then fills in **Index name** from the first file, and you can change it. To upload files later, see [Manage files later](#manage-files-later).
+To upload files at the same time, drag them onto the **Files** drop zone, or click the drop zone to browse, before you click **Create Index**. NeoHive then fills in **Index name** from the first file, and you can change it. To upload files later, see [Manage files later](#manage-files-later).
 
 Each file becomes searchable as soon as it finishes processing.
 
@@ -43,11 +43,9 @@ The tab shows which file is processing and how much of the upload is done.
 To replace a document, upload the new version with exactly the same file name. NeoHive replaces the old file and its content.
 
 {% hint style="warning" %}
-When you select the trash icon next to a file, NeoHive deletes the file and its content from the Index right away. NeoHive does not ask you to confirm.
+When you click the trash icon next to a file, NeoHive deletes the file and its content from the Index right away. NeoHive does not ask you to confirm.
 {% endhint %}
 
 ## Large or scanned files
 
-A large file can take longer than five minutes to convert. A PDF that runs out of time is converted again without layout analysis, so its tables lose their structure. A large Office file or image fails. To allow more time, see [Supported file types](../reference/file-types.md).
-
-NeoHive reads scanned pages with optical character recognition (OCR). If OCR finds no readable text, the file fails with `No text could be extracted from this document`. A faint scan, text drawn as shapes, or small or low-contrast text can cause the error. To fix the error, upload a clearer copy, or export the document's text and upload the result.
+A large file can take more than five minutes to convert, and a scan with faint or very small text can fail with `No text could be extracted from this document`. For more information about conversion time limits and files with no readable text, see [Supported file types](../reference/file-types.md#file-uploads).

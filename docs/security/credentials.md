@@ -12,7 +12,7 @@ Each data source on the **Data Sources** page can have several **connections**, 
 
 | What | Where it lives | How it's protected |
 |---|---|---|
-| Each connection's token or SSH key | NeoHive's database in the `neohive-data` volume | NeoHive encrypts it with AES-256-GCM, a form of the Advanced Encryption Standard (AES). The dashboard and API don't show it |
+| Each connection's token or SSH key | NeoHive's database in the `neohive-data` volume | NeoHive encrypts it with AES-256-GCM. The dashboard and API don't show it |
 | The encryption key | `/app/data/.encryption_key` in the same volume. NeoHive creates the file on first start, unless you set `MEMVEC_ENCRYPTION_KEY` | Only the file's owner can read the file that NeoHive creates. If you start the container yourself, you can pass your own 64-hex-character key in `MEMVEC_ENCRYPTION_KEY` instead. NeoHive then uses that key and ignores the file |
 | An SSH key during a git command | A temporary file inside the container | Only the file's owner can read it. NeoHive deletes the file when the command ends |
 | The token, for HTTPS clones | The clone's git config under `/app/data/repos/` | NeoHive doesn't encrypt it |

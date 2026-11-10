@@ -38,7 +38,7 @@ On the **GitHub** or **GitLab** card under **Available**, click **Install**. If 
 | **Name** | Enter a label, such as `Work GitHub`. You can use each name only once for each service |
 | **PAT** or **SSH** | Paste a **Personal Access Token**, or switch to **SSH** and paste an **SSH Private Key** |
 
-**Create a PAT** opens your provider's token page with the required scopes already selected. Scopes are the permissions the token grants. For the scopes on each provider, see [Create a token](../context/repositories/connect.md#create-a-token).
+**Create a PAT** opens your provider's token page with the required scopes already selected. For the scopes on each provider, see [Create a token](../context/repositories/connect.md#create-a-token).
 
 To create the token yourself, follow [Creating a personal access token (classic)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic) on GitHub, or [Create a personal access token](https://docs.gitlab.com/user/profile/personal_access_tokens/#create-a-personal-access-token) on GitLab.
 {% endstep %}

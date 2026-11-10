@@ -4,7 +4,7 @@ description: "Phrase requests and memory queries so NeoHive returns the Memories
 
 # Write prompts that retrieve well
 
-Recall is how your agent searches your [Hive](../concepts/glossary.md#hive) for context, through `memory_recall` or `memory_context`.
+Your agent [recalls](../concepts/glossary.md#recall) context from your [Hive](../concepts/glossary.md#hive) through `memory_recall` or `memory_context`.
 
 Recall finds a [Memory](../concepts/glossary.md#memory), code, or a document by the words and meaning it shares with your query. A vague question shares few words with anything, so it gets weak matches. Write each prompt and query the way the answer would be written. For more information about how recall finds and ranks results, see [How retrieval works](../concepts/retrieval.md).
 

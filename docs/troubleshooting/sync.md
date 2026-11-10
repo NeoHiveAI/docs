@@ -82,7 +82,7 @@ docker logs neohive --tail 50
 
 ## Schedule
 
-If an Index syncs too often or too rarely, change its **Sync interval** on the **Sync Settings** tab. For more information about the intervals you can choose, see [Set the schedule](../context/repositories/sync.md#set-the-schedule). To sync now, click **Trigger sync**, or call the [webhook refresh endpoint](../reference/webhooks.md) from your CI system.
+If an Index syncs too often or too rarely, change its **Sync interval** on the **Sync Settings** tab. For more information about the intervals you can choose, see [Choose a sync interval](../context/repositories/sync.md#choose-a-sync-interval). To index changes now, click **Trigger sync**, or have your CI system send the changed files to the [webhook refresh endpoint](../reference/webhooks.md), which updates the Index without running a sync.
 
 ## Files that never appear
 

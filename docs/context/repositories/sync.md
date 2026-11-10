@@ -4,7 +4,7 @@ description: "Set how often a Code or Documentation Index syncs, sync it on dema
 
 # Keep a repository up to date
 
-A [Code](../../concepts/glossary.md#code-index) or [Documentation Index](../../concepts/glossary.md#documentation-index) stays up to date by syncing with its repository on a schedule. You choose the schedule, and you can select **Trigger sync** to index a change right away. When something looks wrong, **Sync history** shows what each sync did.
+A [Code](../../concepts/glossary.md#code-index) or [Documentation Index](../../concepts/glossary.md#documentation-index) stays up to date by syncing with its repository on a schedule. You choose the schedule, and you can click **Trigger sync** to index a change right away. When something looks wrong, **Sync history** shows what each sync did.
 
 <figure><img src="../../.gitbook/assets/context-sync.svg" alt="An example day in UTC with the default schedule. Scheduled syncs run every 4 hours at 00:00, 04:00, 08:00, and so on. At 10:12 you select Trigger sync, and a sync runs immediately. At 14:36 a CI pipeline calls the webhook after a merge and sends only the changed files. Only one sync runs per Index at a time."><figcaption></figcaption></figure>
 
@@ -16,7 +16,7 @@ To set the schedule, do the following:
 
 1. Open the Index's **Sync Settings** tab.
 2. Under **Configuration**, select a **Sync interval**.
-3. Select **Save settings**.
+3. Click **Save settings**.
 
 Syncs run at fixed times of day, in UTC. For example, **Every 4 hours** runs at 00:00, 04:00, 08:00, and so on, and **Daily** runs at 00:00.
 
@@ -37,14 +37,14 @@ Pick the interval that matches how often the repository changes. The following t
 
 To sync now, do the following:
 
-1. At the top of the Index page, select **Trigger sync**.
-2. If the **Sync Warning** dialog opens, select **I Understand**. The dialog says that the sync can slow down the machine.
+1. At the top of the Index page, click **Trigger sync**.
+2. If the **Sync Warning** dialog opens, click **I Understand**. The dialog says that the sync can slow down the machine.
 
-To stop the dialog from opening each time, select **Don't show this again** before you select **I Understand**.
+To stop the dialog from opening each time, select **Don't show this again** before you click **I Understand**.
 
 The page header shows the sync progress and a button to cancel the sync.
 
-If some files fail to index, the rest of the repository still syncs, and NeoHive tries the failed files again on its own. If a file keeps failing, NeoHive leaves that file out until you select **Trigger sync**, and the Index page shows `Some files could not be indexed, the rest synced`. To find out why and fix it, see [Repository sync issues](../../troubleshooting/sync.md).
+If some files fail to index, the rest of the repository still syncs, and NeoHive tries the failed files again on its own. If a file keeps failing, NeoHive leaves that file out until you click **Trigger sync**, and the Index page shows `Some files could not be indexed, the rest synced`. To find out why and fix it, see [Repository sync issues](../../troubleshooting/sync.md).
 
 To index changes right after every merge, your CI pipeline can send the changed files to the webhook refresh endpoint. The webhook works differently from a sync, as [How the webhook differs from a sync](../../reference/webhooks.md#how-the-webhook-differs-from-a-sync) explains.
 
@@ -67,7 +67,7 @@ For runs that keep failing, see [Repository sync issues](../../troubleshooting/s
 
 If someone renames the branch, for example from `master` to `main`, the sync usually follows the new name on its own. If it cannot, a banner on the Index page shows `A synced branch is no longer on the remote`, and everything indexed so far stays searchable. To sync the renamed branch, do one of the following:
 
-* In the banner, under **Pick a branch to sync instead**, select the new branch, and then select **Sync this branch**.
-* On the **Sync Settings** tab, select the new branch in **Branch**, and then select **Save settings**.
+* In the banner, under **Pick a branch to sync instead**, select the new branch, and then click **Sync this branch**.
+* On the **Sync Settings** tab, select the new branch in **Branch**, and then click **Save settings**.
 
 Either way, NeoHive starts a sync of the new branch.

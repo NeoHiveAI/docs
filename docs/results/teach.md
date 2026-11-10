@@ -4,9 +4,9 @@ description: "How to correct your agent and tell it what to remember, so the kno
 
 # Teach your agent as you work
 
-Without NeoHive, your agent forgets what you told it when the session ends. You then explain the same things and correct the same mistakes again. With NeoHive, you tell your agent something once, in plain words. Your agent stores the lesson as a [Memory](../concepts/glossary.md#memory) in your [Hive](../concepts/glossary.md#hive). Every teammate's agent then gets the Memory back in later sessions, whichever tool they use.
+Without NeoHive, your agent forgets what you told it when the session ends. You then explain the same things and correct the same mistakes again. With NeoHive, you tell your agent something once, in plain words. Your agent stores it as a note, a [Memory](../concepts/glossary.md#memory) in your [Hive](../concepts/glossary.md#hive). Every teammate's agent then gets the Memory back in later sessions, whichever tool they use.
 
-How you word a lesson decides whether recall finds the lesson later. The following diagram shows one correction reaching a teammate:
+How you word a note decides whether recall finds the note later. The following diagram shows one correction reaching a teammate:
 
 <figure><img src="../.gitbook/assets/results-teach.svg" alt="You correct your agent to validate tokens in the gateway. Later, recall returns that Memory to a teammate who adds auth checks to the orders service."><figcaption></figcaption></figure>
 
