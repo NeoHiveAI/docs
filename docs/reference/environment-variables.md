@@ -113,7 +113,7 @@ The following steps first copy the settings that the installer gave the containe
    docker inspect -f '{{range .Config.Env}}{{println .}}{{end}}' neohive > neohive.env
    ```
 
-2. Find the image, the port, and the license identity file that NeoHive uses:
+2. Find the image, the port, and the license file that NeoHive uses:
 
    ```bash
    docker inspect -f '{{.Config.Image}}' neohive
@@ -121,7 +121,9 @@ The following steps first copy the settings that the installer gave the containe
    docker inspect -f '{{range .Mounts}}{{if eq .Destination "/app/data/machine-id"}}{{.Source}}{{end}}{{end}}' neohive
    ```
 
-   The first command prints the image name, such as `docker.io/neohivedev/neohive:cuda`. The part after the colon names your backend, for example `cuda` or `v1.8.0-cuda`. The second command prints one or two addresses, such as `0.0.0.0:3577`, and the number after the last colon is your port. The third command prints the path of the license identity file, such as `/home/you/.cache/neohive/machine-id`.
+   - The first command prints the image name, such as `docker.io/neohivedev/neohive:cuda`. The part after the colon names your backend, for example `cuda` or `v1.8.0-cuda`.
+   - The second command prints one or two addresses, such as `0.0.0.0:3577`. The number after the last colon is your port.
+   - The third command prints the path of your license file.
 
 3. Stop the container. NeoHive is unavailable until step 5 finishes:
 
@@ -135,14 +137,14 @@ The following steps first copy the settings that the installer gave the containe
    docker rm neohive
    ```
 
-5. Start a new container with the new variables. Replace `<machine-id-file>`, `<port>`, and `<image>` with the values from step 2:
+5. Start a new container with the new variables. Replace `<image>`, `<port>`, and `<license-file>` with the values from step 2:
 
    ```bash
    docker run -d \
      --name neohive \
      --restart on-failure:3 \
      -v neohive-data:/app/data \
-     -v <machine-id-file>:/app/data/machine-id:ro \
+     -v <license-file>:/app/data/machine-id:ro \
      -p <port>:3577 \
      --env-file neohive.env \
      -e MEMVEC_DOCUMENT_MAX_PAGES=1500 \
@@ -150,7 +152,7 @@ The following steps first copy the settings that the installer gave the containe
      <image>
    ```
 
-   The `machine-id` line carries over the license identity that the installer set up. If the image from step 2 names a GPU backend, add the flags for that backend before `<image>`:
+   The `<license-file>` line keeps the license that the installer set up. If the image from step 2 names a GPU backend, add the flags for that backend before `<image>`:
 
    | Backend | Flags |
    |---|---|
