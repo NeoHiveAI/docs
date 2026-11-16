@@ -164,7 +164,7 @@ The new container also needs the installer's settings from the old one, such as 
      <image>
    ```
 
-   The `<license-file>` line keeps the license that the installer set up. If the image from step 2 names a GPU backend, add that backend's flags before `<image>`: `--gpus all` for `cuda`, `--device /dev/dri` for `vulkan`, or `--device /dev/kfd --device /dev/dri --group-add video --group-add render` for `rocm`. On a Mac with Apple Silicon, also add `--add-host host.docker.internal:host-gateway`, so that NeoHive can reach the [Metal worker](../concepts/glossary.md#metal-worker).
+   The `<license-file>` line keeps the license that the installer set up. If the image from step 2 names a GPU backend, add that backend's flags before `<image>`. For more information, see [GPU flags](#gpu-flags).
 
 8. Delete the environment file, because it holds your license key:
 
@@ -181,3 +181,15 @@ docker exec neohive printenv MEMVEC_DOCUMENT_MAX_PAGES MEMVEC_DOCUMENT_TIMEOUT_M
 
 The command prints `1500` and `1800000`.
 {% endhint %}
+
+#### GPU flags
+
+A container on a GPU backend needs extra flags to reach the GPU. Add the flags for the backend that the image names:
+
+| Backend | Flags |
+|---|---|
+| `cuda` | `--gpus all` |
+| `vulkan` | `--device /dev/dri` |
+| `rocm` | `--device /dev/kfd --device /dev/dri --group-add video --group-add render` |
+
+On a Mac with Apple Silicon, also add `--add-host host.docker.internal:host-gateway`, so that NeoHive can reach the [Metal worker](../concepts/glossary.md#metal-worker). For more information about backends and the Metal worker, see [GPU and CPU](../admin/gpu-cpu.md).
