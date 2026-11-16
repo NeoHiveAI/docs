@@ -147,7 +147,7 @@ To set a server variable, replace the `neohive` container with a new one that ha
      <image>
    ```
 
-   The `machine-id` file keeps NeoHive on the same license [seat](../concepts/glossary.md#license-seat). Without the file, the new container takes another seat. If NeoHive uses a GPU, add the flags for your backend before `<image>`: `--gpus all` for CUDA, `--device /dev/dri` for Vulkan, or `--device /dev/kfd --device /dev/dri --group-add video --group-add render` for ROCm. On a Mac with Apple Silicon, add `--add-host host.docker.internal:host-gateway` so that NeoHive can reach the Metal worker.
+   Keep the `machine-id` line as it is. It carries over the license identity that the installer set up. If NeoHive uses a GPU, add the flags for your backend before `<image>`: `--gpus all` for CUDA, `--device /dev/dri` for Vulkan, or `--device /dev/kfd --device /dev/dri --group-add video --group-add render` for ROCm. On a Mac with Apple Silicon, add `--add-host host.docker.internal:host-gateway` so that NeoHive can reach the Metal worker.
 
 6. Delete the environment file, because it holds your license key:
 
