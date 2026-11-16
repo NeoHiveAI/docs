@@ -91,14 +91,14 @@ To create the Index, do the following:
 2. Next to **Indexes**, click **+**.
 3. Select **SharePoint**.
 4. Under **Connection**, select your SharePoint connection.
-5. Select the site:
+5. Under **SharePoint site**, select the site:
    * With `Sites.Read.All`, select the site from the list. The list shows team and communication sites. It doesn't show OneDrive or the sites that SharePoint keeps for itself.
    * With `Sites.Selected`, NeoHive can open only the sites that you granted, and it can't list them. NeoHive shows **This connection can't list its sites**. Paste the address of a site that you granted to the app, such as `https://contoso.sharepoint.com/sites/team-docs`, and then click **Resolve**.
 6. Under **Document library**, select the library to sync.
 7. Optional: To sync one folder instead of the whole library, enter it in **Folder path (optional)**, such as `Engineering/Specs`.
    * Start the path inside the library. For the **Documents** library, enter `Engineering/Specs`, not `Documents/Engineering/Specs`.
    * You can also paste the folder's address from your browser while the folder is open in SharePoint.
-8. Under **Sync interval**, select **Every hour**, **Every 4 hours**, or **Daily**.
+8. Under **Sync interval**, select **Every 15 minutes**, **Every 30 minutes**, **Every hour**, **Every 4 hours**, or **Daily**.
 9. Check **Index name**. NeoHive fills it in from the site name.
 10. Click **Create Index**.
 
@@ -109,7 +109,7 @@ NeoHive creates the Index and starts the first sync. The first sync reads the wh
 {% hint style="success" %}
 **Check:** NeoHive syncs the library.
 
-Open the Index's **SharePoint** tab. **Recent syncs** shows the first run, and **Synced files** lists each file with its import status.
+Open the Index's **Sync Settings** tab. **Sync history** shows the first run. The **Files** tab lists each file under **Synced files**, with its import status.
 
 If the run fails, see [Fix a connection that fails](#fix-a-connection-that-fails).
 {% endhint %}
@@ -131,14 +131,14 @@ To change or delete a synced file, edit it in SharePoint. The next sync updates 
 
 ## Manage the sync
 
-The Index's **SharePoint** tab shows the **Site**, **Library**, **Folder**, **Sync interval**, and **Status**. From the tab, you can do the following:
+The Index's **Sync Settings** tab shows the **Service**, the **Source** (the site, library, and folder), the **Sync interval**, and the **Status**. You can do the following:
 
 | To do this | Do this |
 |---|---|
-| Sync now, without waiting for the schedule | Click **Sync now** |
+| Sync now, without waiting for the schedule | Click **Sync now** at the top of the Index page |
 | Stop scheduled syncs for a while | Click **Pause**. To start them again, click **Resume**. **Sync now** still works while the source is paused |
 | Sync more or less often | Select another option under **Sync interval**. The next sync follows the new interval |
-| Stop syncing the library | Click **Remove source**, and then click **Remove** |
+| Stop syncing the library | Under **Remove sync source** on the **Sync Settings** tab, click **Remove source**, and then click **Remove** |
 
 An Index syncs one library. To sync another library, create another Index.
 
@@ -192,8 +192,8 @@ When a sync fails, the Index's **Sync Settings** tab can show the following mess
 | `The app registration cannot read "<site> / <library>". Grant it Sites.Read.All, or grant this site under Sites.Selected.` | The app lost access to the site, for example because its `Sites.Selected` grant was removed | Grant the site to the app again, and then click **Sync now** |
 | `NeoHive lost access to "<site> / <library>". The Entra app has no SharePoint permission with admin consent. ...` | Admin consent for the app's permissions was withdrawn. The connection is also marked **Invalid** at its next daily check | Grant admin consent again, and then click **Sync now** |
 | `SharePoint could not find the library "<library>" on "<site>". It may have been deleted or moved.` | The library no longer exists at that address | Remove the source, and then create a new Index for the library's new location |
-| `The folder "<folder>" no longer exists in SharePoint, so its files were removed from the Index. Remove this source, or create a new Index for the folder's new location.` | The folder in **Folder path (optional)** was deleted or moved | Remove the source. To keep syncing the folder, create a new Index for its new location |
-| `The SharePoint connection this source uses was deleted. Remove this source, or add a connection and create the Index again.` | The connection was deleted on the **Data Sources** page | Remove the source, save a new connection, and then create the Index again |
+| `The folder "<folder>" no longer exists, so its files were removed from the Index. Remove this source, or create a new Index for the folder's new location.` | The folder in **Folder path (optional)** was deleted or moved | Remove the source. To keep syncing the folder, create a new Index for its new location |
+| `The connection this source uses was deleted. Remove this source, or add a connection and create the Index again.` | The connection was deleted on the **Data Sources** page | Remove the source, save a new connection, and then create the Index again |
 
 A file that NeoHive can't download, such as an older Word file that Microsoft can't convert to PDF, doesn't stop the sync. NeoHive counts the file as skipped and tries again the next time the file changes.
 
