@@ -14,7 +14,7 @@ The following diagram shows the path of one webhook request:
 
 To set up the webhook, do the following:
 
-1. Set `MEMVEC_WEBHOOK_SECRET` on the container. For how to set a server variable, see [Set a server variable](environment-variables.md#set-a-server-variable). For more information about the secret, see [Authentication](#authentication).
+1. Set `MEMVEC_WEBHOOK_SECRET` on the container. For how to set a server variable, see [Server](environment-variables.md#server). For more information about the secret, see [Authentication](#authentication).
 2. After each merge, send an HTTP request from your CI pipeline. Any CI system that can run `curl` works. For GitHub Actions, start from the [GitHub Actions template](#github-actions-template), and adapt it for other CI systems.
 
 Every request uses the following method, URL, and headers. Replace `<host>`, `<hive-id>`, and `<secret>` with your own values:
