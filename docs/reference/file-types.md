@@ -42,7 +42,7 @@ The following limits apply to each upload:
 | Files in one upload | 20 files, or 200 MB in total. The dashboard splits a larger selection into several uploads. |
 | A file whose name is already in the [Index](../concepts/glossary.md#index) | NeoHive replaces the stored file with the new one. |
 
-To raise the page or pixel limit, see [Set a server variable](environment-variables.md#set-a-server-variable). The 50 MB limit for one file is fixed, so split a larger file into smaller files.
+To change the page or pixel limit, see [Environment variables](environment-variables.md#server).
 
 ## Files in a repository
 

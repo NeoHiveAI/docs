@@ -103,7 +103,9 @@ The installer drops variables you added with `docker run -e` the next time it re
 
 ### Set a server variable
 
-To set a server variable, replace the `neohive` container with a new one that has the variable added. Your data stays in the `neohive-data` volume. The following steps carry over the settings the installer gave the container, such as your license key and port. The example raises the PDF page limit to 1,500 pages and gives each conversion 30 minutes:
+To set a server variable, replace the `neohive` container with a new one that has the variable added. Your data stays in the `neohive-data` volume.
+
+The following steps first copy the settings that the installer gave the container, such as your license key and port, so that the new container keeps them. Then the steps start the new container with the variables that you want to change. In this example, the new container raises the PDF page limit to 1,500 pages and gives each conversion 30 minutes:
 
 1. Save the container's current environment to a file:
 
