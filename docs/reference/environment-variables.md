@@ -113,14 +113,15 @@ The following steps first copy the settings that the installer gave the containe
    docker inspect -f '{{range .Config.Env}}{{println .}}{{end}}' neohive > neohive.env
    ```
 
-2. Find the image and the port that NeoHive uses:
+2. Find the image, the port, and the license identity file that NeoHive uses:
 
    ```bash
    docker inspect -f '{{.Config.Image}}' neohive
    docker port neohive 3577
+   docker inspect -f '{{range .Mounts}}{{if eq .Destination "/app/data/machine-id"}}{{.Source}}{{end}}{{end}}' neohive
    ```
 
-   The first command prints the image name. The second prints an address such as `0.0.0.0:3577`, and the number after the last colon is your port.
+   The first command prints the image name, such as `docker.io/neohivedev/neohive:cuda`. The part after the colon names your backend, for example `cuda` or `v1.8.0-cuda`. The second command prints one or two addresses, such as `0.0.0.0:3577`, and the number after the last colon is your port. The third command prints the path of the license identity file, such as `/home/you/.cache/neohive/machine-id`.
 
 3. Stop the container. NeoHive is unavailable until step 5 finishes:
 
@@ -134,14 +135,14 @@ The following steps first copy the settings that the installer gave the containe
    docker rm neohive
    ```
 
-5. Start a new container with the new variables. Replace `<port>` and `<image>` with the values from step 2:
+5. Start a new container with the new variables. Replace `<machine-id-file>`, `<port>`, and `<image>` with the values from step 2:
 
    ```bash
    docker run -d \
      --name neohive \
      --restart on-failure:3 \
      -v neohive-data:/app/data \
-     -v ~/.cache/neohive/machine-id:/app/data/machine-id:ro \
+     -v <machine-id-file>:/app/data/machine-id:ro \
      -p <port>:3577 \
      --env-file neohive.env \
      -e MEMVEC_DOCUMENT_MAX_PAGES=1500 \
@@ -149,7 +150,15 @@ The following steps first copy the settings that the installer gave the containe
      <image>
    ```
 
-   Keep the `machine-id` line as it is. It carries over the license identity that the installer set up. If NeoHive uses a GPU, add the flags for your backend before `<image>`: `--gpus all` for CUDA, `--device /dev/dri` for Vulkan, or `--device /dev/kfd --device /dev/dri --group-add video --group-add render` for ROCm. On a Mac with Apple Silicon, add `--add-host host.docker.internal:host-gateway` so that NeoHive can reach the Metal worker.
+   The `machine-id` line carries over the license identity that the installer set up. If the image from step 2 names a GPU backend, add the flags for that backend before `<image>`:
+
+   | Backend | Flags |
+   |---|---|
+   | `cuda` | `--gpus all` |
+   | `vulkan` | `--device /dev/dri` |
+   | `rocm` | `--device /dev/kfd --device /dev/dri --group-add video --group-add render` |
+
+   On a Mac with Apple Silicon, also add `--add-host host.docker.internal:host-gateway`, so that NeoHive can reach the [Metal worker](../concepts/glossary.md#metal-worker).
 
 6. Delete the environment file, because it holds your license key:
 

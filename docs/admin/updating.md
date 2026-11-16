@@ -55,6 +55,8 @@ The installer does not remember the variables from your last install. Any variab
 | `NEOHIVE_METAL_WORKER`, `NEOHIVE_METAL_WORKER_PORT` | You turned off or moved the Metal worker |
 | `NEOHIVE_DOCUMENT_TIMEOUT_MS`, `NEOHIVE_CHUNKER_TIMEOUT_MS` | You gave large files more time |
 
+The update also removes server variables that you set on the container yourself, such as a higher PDF page limit. After the update, set them again. For more information, see [Set a server variable](../reference/environment-variables.md#set-a-server-variable).
+
 For example, the following command sets a different port and forces the CPU backend:
 
 ```bash
