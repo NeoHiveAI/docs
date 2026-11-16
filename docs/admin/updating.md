@@ -55,8 +55,6 @@ The installer does not remember the variables from your last install. Any variab
 | `NEOHIVE_METAL_WORKER`, `NEOHIVE_METAL_WORKER_PORT` | You turned off or moved the Metal worker |
 | `NEOHIVE_DOCUMENT_TIMEOUT_MS`, `NEOHIVE_CHUNKER_TIMEOUT_MS` | You gave large files more time |
 
-Server variables that you set on the container yourself, such as a higher PDF page limit, work differently. The installer cannot set them, so the update removes them. After the update, set them again with the steps in [Set a server variable](../reference/environment-variables.md#set-a-server-variable).
-
 For example, the following command sets a different port and forces the CPU backend:
 
 ```bash
@@ -65,7 +63,7 @@ NEOHIVE_BACKEND=cpu \
   bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
 ```
 
-For the full list of variables, see [Environment variables](../reference/environment-variables.md).
+Server variables that you set on the container yourself, such as a higher PDF page limit, work differently. The installer cannot set them, so the update removes them. After the update, set them again. For more information, see [Set a server variable](../reference/environment-variables.md#set-a-server-variable), and for the full list of variables, see [Environment variables](../reference/environment-variables.md).
 
 {% hint style="success" %}
 **Check:** To confirm that NeoHive is running again, run the following command:

@@ -79,7 +79,7 @@ Set each variable where your coding agent starts, for example with `export NEOHI
 The NeoHive server reads these variables from the `neohive` container's environment, not from your shell. To set one, see [Set a server variable](#set-a-server-variable).
 
 {% hint style="warning" %}
-The installer drops variables you added with `docker run -e` the next time it recreates the container, for example during an update. Add them again after every update. If you set `MEMVEC_ENCRYPTION_KEY`, add it back before NeoHive starts, or NeoHive cannot read the connection tokens it stored.
+When the installer recreates the container, for example during an update, it removes server variables that you set yourself. Set them again after every update. If you set `MEMVEC_ENCRYPTION_KEY`, add it back before NeoHive starts, or NeoHive cannot read the connection tokens it stored.
 {% endhint %}
 
 | Variable | Default | Purpose |
@@ -103,9 +103,9 @@ The installer drops variables you added with `docker run -e` the next time it re
 
 ### Set a server variable
 
-To set a server variable, replace the `neohive` container with a new one that has the variable added. Your data stays in the `neohive-data` volume.
+To set a server variable, replace the `neohive` container with a new one that has the variable added. Replacing the container keeps your data, because NeoHive stores it in the `neohive-data` volume, not in the container.
 
-The following steps first copy the settings that the installer gave the container, such as your license key and port, so that the new container keeps them. Then the steps start the new container with the variables that you want to change. In this example, the new container raises the PDF page limit to 1,500 pages and gives each conversion 30 minutes:
+The new container also needs the installer's settings from the old one, such as your license key and port. The first steps copy those settings, and then the new container starts with your variables added. In the following example, the new container raises the PDF page limit to 1,500 and gives each conversion 30 minutes:
 
 1. Save the container's current environment to a file:
 
@@ -113,31 +113,43 @@ The following steps first copy the settings that the installer gave the containe
    docker inspect -f '{{range .Config.Env}}{{println .}}{{end}}' neohive > neohive.env
    ```
 
-2. Find the image, the port, and the license file that NeoHive uses:
+2. Find the image that NeoHive uses:
 
    ```bash
    docker inspect -f '{{.Config.Image}}' neohive
+   ```
+
+   The command prints the image name, such as `docker.io/neohivedev/neohive:cuda`. The part after the colon names your backend, for example `cuda` or `v1.8.0-cuda`.
+
+3. Find the port that NeoHive uses:
+
+   ```bash
    docker port neohive 3577
+   ```
+
+   The command prints one or two addresses, such as `0.0.0.0:3577`. The number after the last colon is your port.
+
+4. Find the license file that NeoHive uses:
+
+   ```bash
    docker inspect -f '{{range .Mounts}}{{if eq .Destination "/app/data/machine-id"}}{{.Source}}{{end}}{{end}}' neohive
    ```
 
-   - The first command prints the image name, such as `docker.io/neohivedev/neohive:cuda`. The part after the colon names your backend, for example `cuda` or `v1.8.0-cuda`.
-   - The second command prints one or two addresses, such as `0.0.0.0:3577`. The number after the last colon is your port.
-   - The third command prints the path of your license file.
+   The command prints the path of your license file.
 
-3. Stop the container. NeoHive is unavailable until step 5 finishes:
+5. Stop the container. NeoHive is unavailable until step 7 finishes:
 
    ```bash
    docker stop neohive
    ```
 
-4. Remove the container:
+6. Remove the container:
 
    ```bash
    docker rm neohive
    ```
 
-5. Start a new container with the new variables. Replace `<image>`, `<port>`, and `<license-file>` with the values from step 2:
+7. Start a new container with the new variables. Replace `<image>`, `<port>`, and `<license-file>` with the values from steps 2 to 4:
 
    ```bash
    docker run -d \
@@ -152,17 +164,9 @@ The following steps first copy the settings that the installer gave the containe
      <image>
    ```
 
-   The `<license-file>` line keeps the license that the installer set up. If the image from step 2 names a GPU backend, add the flags for that backend before `<image>`:
+   The `<license-file>` line keeps the license that the installer set up. If the image from step 2 names a GPU backend, add that backend's flags before `<image>`: `--gpus all` for `cuda`, `--device /dev/dri` for `vulkan`, or `--device /dev/kfd --device /dev/dri --group-add video --group-add render` for `rocm`. On a Mac with Apple Silicon, also add `--add-host host.docker.internal:host-gateway`, so that NeoHive can reach the [Metal worker](../concepts/glossary.md#metal-worker).
 
-   | Backend | Flags |
-   |---|---|
-   | `cuda` | `--gpus all` |
-   | `vulkan` | `--device /dev/dri` |
-   | `rocm` | `--device /dev/kfd --device /dev/dri --group-add video --group-add render` |
-
-   On a Mac with Apple Silicon, also add `--add-host host.docker.internal:host-gateway`, so that NeoHive can reach the [Metal worker](../concepts/glossary.md#metal-worker).
-
-6. Delete the environment file, because it holds your license key:
+8. Delete the environment file, because it holds your license key:
 
    ```bash
    rm neohive.env
