@@ -73,7 +73,7 @@ A page mixes a few kinds of block, and each block earns its place. A page that i
 | Rule | Explanation |
 | --- | --- |
 | **Mix block types on a page, and use each only where it fits.** | Combine prose with a list, a table, a diagram, or tabs as the content needs. Do not add a block type to fill a quota. |
-| **Use at most one list or one table in each section.** | Two lists or a list and a table back to back read like slides, and the reader loses the thread between them. |
+| **Use a table wherever it makes facts easier to scan, but do not stack lists and tables back to back.** | A table can go anywhere the content needs one, including inside a step of a numbered procedure. Facts that share the same fields are hard to scan in a sentence. Two lists or a list and a table back to back read like slides, so put a sentence between them that connects one to the next. |
 | **Keep some plain sentences on every page.** | Lists and tables hold facts. Sentences carry the reasoning that connects them. |
 | **Do not nest bullets, and avoid long runs of bullets.** | When several items share the same fields, such as a mistake, what you notice, and the fix, use a table instead. |
 | **Use a table for lookups and real comparisons.** | Good uses are "what you notice and the fix" and "what you say and what it narrows to". A two-row table or a table of single facts is a list. |

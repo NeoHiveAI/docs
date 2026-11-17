@@ -63,7 +63,7 @@ NEOHIVE_BACKEND=cpu \
   bash <(curl -fsSL https://raw.githubusercontent.com/NeoHiveAI/install/main/install.sh)
 ```
 
-Server variables that you set on the container yourself, such as a higher PDF page limit, work differently. The installer cannot set them, so the update removes them. After the update, set them again. For more information, see [Set a server variable](../reference/environment-variables.md#set-a-server-variable), and for the full list of variables, see [Environment variables](../reference/environment-variables.md).
+The update also removes server variables that you set on the container yourself, such as a higher PDF page limit. The install command cannot set these variables, so set them again after the update finishes. For more information, see [Set a server variable](../reference/environment-variables.md#set-a-server-variable), and for the full list of variables, see [Environment variables](../reference/environment-variables.md).
 
 {% hint style="success" %}
 **Check:** To confirm that NeoHive is running again, run the following command:
