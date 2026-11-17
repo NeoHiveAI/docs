@@ -76,10 +76,10 @@ Set each variable where your coding agent starts, for example with `export NEOHI
 
 ## Server
 
-The NeoHive server reads these variables from the `neohive` container's environment, not from your shell. To set one, add it with `docker run -e` when you start the container.
+The NeoHive server reads these variables from the `neohive` container's environment, not from your shell. To set one, see [Set a server variable](#set-a-server-variable).
 
 {% hint style="warning" %}
-The installer drops variables you added with `docker run -e` the next time it recreates the container, for example during an update. Add them again after every update. If you set `MEMVEC_ENCRYPTION_KEY`, add it back before NeoHive starts, or NeoHive cannot read the connection tokens it stored.
+When the installer recreates the container, for example during an update, it removes server variables that you set yourself. Set them again after every update. If you set `MEMVEC_ENCRYPTION_KEY`, add it back before NeoHive starts, or NeoHive cannot read the connection tokens it stored.
 {% endhint %}
 
 | Variable | Default | Purpose |
@@ -97,6 +97,95 @@ The installer drops variables you added with `docker run -e` the next time it re
 | `MEMVEC_EMBEDDER_TIMEOUT_MS` | `120000` (2 minutes) | How long NeoHive waits for one [embedding](../concepts/glossary.md#embedding) call. On a slow machine, raise this value. |
 | `MEMVEC_MIGRATION_SNAPSHOT` | on | Set to `off` to skip the database copy NeoHive takes before an upgrade changes its databases. |
 | `MEMVEC_MIGRATION_SNAPSHOT_KEEP` | `5` | How many of those copies to keep per database. Each copy is a full copy of the database. If disk space is low, lower this number. |
-| `MEMVEC_DOCUMENT_MAX_PAGES` | `500` | The most pages an uploaded PDF can have. If you raise it, raise `NEOHIVE_DOCUMENT_TIMEOUT_MS` too. |
+| `MEMVEC_DOCUMENT_MAX_PAGES` | `500` | The most pages an uploaded PDF can have. If you raise it, raise the conversion timeout too. Inside the container, the timeout is `MEMVEC_DOCUMENT_TIMEOUT_MS`. |
 | `MEMVEC_IMAGE_MAX_PIXELS` | `50000000` | The most pixels an uploaded image, or a picture inside a Word or PowerPoint file, can have. |
 | `MEMVEC_UPLOAD_BATCH_MAX_BYTES` | `209715200` (200 MB) | The most data one upload request can carry. The dashboard splits a larger selection to fit. |
+
+### Set a server variable
+
+To set a server variable, replace the `neohive` container with a new one that has the variable added. Replacing the container keeps your data, because NeoHive stores it in the `neohive-data` volume, not in the container.
+
+The new container also needs the installer's settings from the old one, such as your license key and port. The first steps copy those settings, and then the new container starts with your variables added. In the following example, the new container raises the PDF page limit to 1,500 and gives each conversion 30 minutes:
+
+1. Save the container's current environment to a file:
+
+   ```bash
+   docker inspect -f '{{range .Config.Env}}{{println .}}{{end}}' neohive > neohive.env
+   ```
+
+2. Find the image that NeoHive uses:
+
+   ```bash
+   docker inspect -f '{{.Config.Image}}' neohive
+   ```
+
+   The command prints the image name, such as `docker.io/neohivedev/neohive:cuda`. The part after the colon names your backend, for example `cuda` or `v1.8.0-cuda`.
+
+3. Find the port that NeoHive uses:
+
+   ```bash
+   docker port neohive 3577
+   ```
+
+   The command prints one or two addresses, such as `0.0.0.0:3577`. The number after the last colon is your port.
+
+4. Find the license file that NeoHive uses:
+
+   ```bash
+   docker inspect -f '{{range .Mounts}}{{if eq .Destination "/app/data/machine-id"}}{{.Source}}{{end}}{{end}}' neohive
+   ```
+
+   The command prints the path of your license file.
+
+5. Stop the container. NeoHive is unavailable until step 7 finishes:
+
+   ```bash
+   docker stop neohive
+   ```
+
+6. Remove the container:
+
+   ```bash
+   docker rm neohive
+   ```
+
+7. Start a new container with the new variables. Replace `<image>`, `<port>`, and `<license-file>` with the values from steps 2 to 4:
+
+   ```bash
+   docker run -d \
+     --name neohive \
+     --restart on-failure:3 \
+     -v neohive-data:/app/data \
+     -v <license-file>:/app/data/machine-id:ro \
+     -p <port>:3577 \
+     --env-file neohive.env \
+     -e MEMVEC_DOCUMENT_MAX_PAGES=1500 \
+     -e MEMVEC_DOCUMENT_TIMEOUT_MS=1800000 \
+     <image>
+   ```
+
+   The `<license-file>` line keeps the license that the installer set up. If the image name from step 2 ends in a GPU backend, add that backend's flags before `<image>`:
+
+   | Backend | Flags |
+   | --- | --- |
+   | `cuda` | `--gpus all` |
+   | `vulkan` | `--device /dev/dri` |
+   | `rocm` | `--device /dev/kfd --device /dev/dri --group-add video --group-add render` |
+
+   On a Mac with Apple Silicon, also add `--add-host host.docker.internal:host-gateway`, so that NeoHive can reach the [Metal worker](../concepts/glossary.md#metal-worker). For more information about backends and the Metal worker, see [GPU and CPU](../admin/gpu-cpu.md).
+
+8. Delete the environment file, because it holds your license key:
+
+   ```bash
+   rm neohive.env
+   ```
+
+{% hint style="success" %}
+**Check:** To confirm that the container has the new values, run the following command:
+
+```bash
+docker exec neohive printenv MEMVEC_DOCUMENT_MAX_PAGES MEMVEC_DOCUMENT_TIMEOUT_MS
+```
+
+The command prints `1500` and `1800000`.
+{% endhint %}

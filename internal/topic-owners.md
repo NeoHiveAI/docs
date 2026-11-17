@@ -61,7 +61,7 @@
 | The shortest path from install to a first answer | `get-started/quickstart.md` | |
 | GPU and CPU backends | `admin/gpu-cpu.md` | `get-started/install.md` |
 | Embedding models: defaults, choosing, and re-embedding | `admin/embedding-models.md` | `admin/dashboard.md`, `context/repositories/connect.md` |
-| Environment variables | `reference/environment-variables.md` | `admin/updating.md`, `admin/gpu-cpu.md` |
+| Environment variables, and how to set a server variable on the container | `reference/environment-variables.md` | `admin/updating.md`, `admin/gpu-cpu.md`, `reference/webhooks.md`, `troubleshooting/common-errors.md` |
 | Getting a license, license lookup, and the offline grace period | `admin/licensing.md` | `admin/updating.md`, `security/local-only.md`, `get-started/install.md` |
 | Backups and restore | `admin/backups.md` | `admin/updating.md` |
 | Updating NeoHive | `admin/updating.md` | |
