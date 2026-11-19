@@ -16,7 +16,9 @@ Before you start, you need the following:
 **SharePoint permissions don't carry into NeoHive.** NeoHive reads the library as an app, not as each person. Anyone who can use the Hive can read every file synced into it.
 {% endhint %}
 
-## Choose a permission
+{% stepper %}
+{% step %}
+## Register an app in Microsoft Entra ID
 
 NeoHive signs in to SharePoint as an app, so scheduled syncs run without anyone signed in. The app needs one Microsoft Graph permission of the **Application** type. Choose one of the following permissions:
 
@@ -25,23 +27,18 @@ NeoHive signs in to SharePoint as an app, so scheduled syncs run without anyone 
 
 Add only one permission. If the app has both, `Sites.Read.All` applies. Either permission gives access to whole sites, not to single libraries or folders.
 
-{% stepper %}
-{% step %}
-## Register an app in Microsoft Entra ID
-
 To register the app, do the following in the [Microsoft Entra admin center](https://entra.microsoft.com):
 
 1. Go to **Entra ID** > **App registrations**.
 2. Click **New registration**.
 3. Select the single tenant option, and then click **Register**. For more information, see [Register an app in Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app).
-4. On the app's **Overview** page, copy **Directory (tenant) ID** and **Application (client) ID**.
-5. Go to **API permissions**, and then click **Add a permission**.
-6. Click **Microsoft Graph**, and then click **Application permissions**.
-7. Select `Sites.Read.All` or `Sites.Selected`, and then click **Add permissions**.
-8. Click **Grant admin consent for** your tenant.
-9. Go to **Certificates & secrets** > **Client secrets**, and then click **New client secret**. For more information, see the **Add a client secret** tab in [Add and manage app credentials](https://learn.microsoft.com/en-us/entra/identity-platform/how-to-add-credentials).
-10. Copy the secret's **Value**, not its **Secret ID**. Microsoft shows the **Value** only once. The **Value** is about 40 random characters, and the **Secret ID** looks like `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
-11. Copy the secret's **Expires** date.
+4. Go to **API permissions**, and then click **Add a permission**.
+5. Click **Microsoft Graph**, and then click **Application permissions**.
+6. Select `Sites.Read.All` or `Sites.Selected`, and then click **Add permissions**.
+7. Click **Grant admin consent for** your tenant.
+8. Go to **Certificates & secrets** > **Client secrets**, and then click **New client secret**. For more information, see the **Add a client secret** tab in [Add and manage app credentials](https://learn.microsoft.com/en-us/entra/identity-platform/how-to-add-credentials).
+9. Copy the secret's **Value**, not its **Secret ID**. Microsoft shows the **Value** only once.
+10. Copy the secret's **Expires** date.
 
 {% hint style="success" %}
 **Check:** On **API permissions**, the permission's **Type** reads **Application** and its **Status** reads **Granted**. A **Delegated** permission gives NeoHive no access, because NeoHive signs in as the app.
@@ -55,7 +52,7 @@ To save the app as a connection in NeoHive, do the following:
 
 1. In the dashboard sidebar, click **Data Sources**.
 2. On the **SharePoint** card, click **Install**.
-3. Enter the values that you copied in these fields:
+3. Enter the following values from the app in Microsoft Entra ID:
 
    | Field | Value |
    |---|---|
@@ -63,15 +60,15 @@ To save the app as a connection in NeoHive, do the following:
    | **Client ID** | **Application (client) ID** from the app's **Overview** page |
    | **Client secret** | The secret's **Value** |
    | **Secret expires (optional)** | The secret's **Expires** date. NeoHive warns you 30 days before the secret expires |
-   | **Name (optional)** | A label, such as `Contoso SharePoint`. If you leave the name blank, NeoHive uses the app's name. If NeoHive can't read the app's name, it uses your SharePoint address |
+   | **Name (optional)** | A label for the connection. If you leave the name blank, NeoHive names the connection for you |
 
 4. Click **Save connection**.
 
 NeoHive checks the values with Microsoft before it saves the connection. If Microsoft rejects them, NeoHive doesn't save the connection and shows the reason. For the fix for each message, see [Fix a connection that fails](#fix-a-connection-that-fails).
 
-Each connection works with one Microsoft 365 tenant. To sync libraries from another tenant, save another connection. Each SharePoint connection needs its own name, so NeoHive asks for a different name if another connection already uses it.
+Each connection works with one Microsoft 365 tenant. To sync libraries from another tenant, save another connection.
 
-If you add or fix a permission after you save the connection, wait a minute, and then click **Validate** on the connection. NeoHive asks Microsoft for a new token, which carries the new permission. For more information about changing a connection later or seeing which Indexes use it, see [Data sources and credentials](../admin/data-sources.md).
+If you add or fix a permission after you save the connection, wait a minute, and then click **Validate** on the connection. The next sync then uses the new permission. For more information about changing a connection later or seeing which Indexes use it, see [Data sources and credentials](../admin/data-sources.md).
 
 {% hint style="success" %}
 **Check:** **SharePoint** appears under **Connected**. After you click **Manage**, your connection shows **Valid**. This check confirms only that the app can sign in. To see whether the app can read a site, open the site's Index after its first sync.
