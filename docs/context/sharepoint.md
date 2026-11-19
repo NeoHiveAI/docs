@@ -11,21 +11,23 @@ Before you start, you need the following:
 * A running NeoHive server that has a [Hive](../concepts/glossary.md#hive).
 * A Microsoft 365 tenant in Microsoft's global cloud. NeoHive doesn't support SharePoint in GCC High, in DoD, or in Microsoft 365 operated by 21Vianet in China.
 * A Microsoft 365 administrator with the Global Administrator or Privileged Role Administrator role. Only these roles can grant admin consent for Microsoft Graph application permissions. For more information, see [Grant tenant-wide admin consent](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/grant-admin-consent).
-* Outbound HTTPS from the NeoHive server to `login.microsoftonline.com`, `graph.microsoft.com`, and your SharePoint host, such as `contoso.sharepoint.com`.
 
 {% hint style="warning" %}
-**SharePoint permissions don't carry into NeoHive.** NeoHive reads the library as an app, not as each person. Anyone who can use the Hive can read every file synced into it. Sync only a library that everyone with access to the Hive can read.
+**SharePoint permissions don't carry into NeoHive.** NeoHive reads the library as an app, not as each person. Anyone who can use the Hive can read every file synced into it.
 {% endhint %}
+
+## Choose a permission
+
+NeoHive signs in to SharePoint as an app, so scheduled syncs run without anyone signed in. The app needs one Microsoft Graph permission of the **Application** type. Choose one of the following permissions:
+
+* `Sites.Read.All`: NeoHive can read every site in your Microsoft 365 tenant.
+* `Sites.Selected`: NeoHive can read only the sites that you grant to the app, each with the `read` role. For more information, see [Overview of Selected permissions](https://learn.microsoft.com/en-us/graph/permissions-selected-overview).
+
+Add only one permission. If the app has both, `Sites.Read.All` applies. Either permission gives access to whole sites, not to single libraries or folders.
 
 {% stepper %}
 {% step %}
 ## Register an app in Microsoft Entra ID
-
-NeoHive signs in to SharePoint as an app, so scheduled syncs run without anyone signed in. The app needs one Microsoft Graph permission of the **Application** type, either `Sites.Read.All` or `Sites.Selected`.
-
-`Sites.Read.All` lets NeoHive read every site in your Microsoft 365 tenant. `Sites.Selected` limits NeoHive to the sites that you grant to the app, each with the `read` role. For more information about granting a site, see [Overview of Selected permissions](https://learn.microsoft.com/en-us/graph/permissions-selected-overview).
-
-Add only one of the two permissions. If the app has both, `Sites.Read.All` applies. Either way, you grant the app access to whole sites, not to single libraries or folders. To sync only one folder, enter its path when you [create the Index](#create-the-index).
 
 To register the app, do the following in the [Microsoft Entra admin center](https://entra.microsoft.com):
 
