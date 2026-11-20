@@ -66,10 +66,6 @@ To save the app as a connection in NeoHive, do the following:
 
 NeoHive checks the values with Microsoft before it saves the connection. If Microsoft rejects them, NeoHive doesn't save the connection and shows the reason. For the fix for each message, see [Fix a connection that fails](#fix-a-connection-that-fails).
 
-Each connection works with one Microsoft 365 tenant. To sync libraries from another tenant, save another connection.
-
-If you add or fix a permission after you save the connection, wait a minute, and then click **Validate** on the connection. The next sync then uses the new permission. For more information about changing a connection later or seeing which Indexes use it, see [Data sources and credentials](../admin/data-sources.md).
-
 {% hint style="success" %}
 **Check:** **SharePoint** appears under **Connected**. After you click **Manage**, your connection shows **Valid**. This check confirms only that the app can sign in. To see whether the app can read a site, open the site's Index after its first sync.
 {% endhint %}
@@ -78,9 +74,10 @@ If you add or fix a permission after you save the connection, wait a minute, and
 {% step %}
 ## Create the Index
 
-How you choose the site depends on the app's permission. With `Sites.Read.All`, you select the site from a list of team and communication sites. The list doesn't show OneDrive or the sites that SharePoint keeps for itself. With `Sites.Selected`, NeoHive can open only the sites that you granted, and it can't list them. NeoHive shows **This connection can't list its sites**, and you paste the site's address instead.
+How you choose the site depends on the app's permission:
 
-To sync one folder instead of the whole library, enter the folder's path in **Folder path (optional)**, such as `Engineering/Specs`. Start the path inside the library: for the **Documents** library, enter `Engineering/Specs`, not `Documents/Engineering/Specs`. You can also paste the folder's address from your browser while the folder is open in SharePoint.
+* `Sites.Read.All`: You select the site from a list of team and communication sites. The list doesn't show OneDrive or the sites that SharePoint keeps for itself.
+* `Sites.Selected`: NeoHive can open only the sites that you granted, and it can't list them. NeoHive shows **This connection can't list its sites**, and you paste the site's address instead.
 
 To create the Index, do the following:
 
@@ -89,7 +86,7 @@ To create the Index, do the following:
 3. Select **SharePoint**.
 4. Under **Connection**, select your SharePoint connection.
 5. Under **SharePoint site**, select the site. If the connection can't list its sites, paste the address of a site that you granted to the app, such as `https://contoso.sharepoint.com/sites/team-docs`, and then click **Resolve**.
-6. Under **Document library**, select the library to sync.
+6. Under **Document library**, select the library to sync. To sync one folder instead of the whole library, also enter the folder's path in **Folder path (optional)**. Start the path inside the library: for the **Documents** library, enter `Engineering/Specs`, not `Documents/Engineering/Specs`.
 7. Under **Sync interval**, select **Every 15 minutes**, **Every 30 minutes**, **Every hour**, **Every 4 hours**, or **Daily**.
 8. Under **Index name**, keep the name that NeoHive fills in from the site name, or enter another name.
 9. Click **Create Index**.
@@ -138,6 +135,12 @@ The following table shows how to change the sync:
 | Sync more or less often | Select another option under **Sync interval**. The next sync follows the new interval |
 | Stop syncing the library | Under **Remove sync source** on the **Sync Settings** tab, click **Remove source**, and then click **Remove** |
 
+## Manage the connection
+
+Each connection works with one Microsoft 365 tenant, and you can't change its tenant ID. To sync libraries from another tenant, save another connection, and then create a new Index that uses it.
+
+If you add or fix a permission after you save the connection, wait a minute, and then click **Validate** on the connection. The next sync then uses the new permission. For more information about changing a connection later or seeing which Indexes use it, see [Data sources and credentials](../admin/data-sources.md).
+
 ## Replace an expired client secret
 
 A client secret expires on the date that the administrator chose when they created it. If you entered **Secret expires (optional)**, the connection shows a warning 30 days before that date. NeoHive also checks every connection once a day, so NeoHive flags an expired secret within a day.
@@ -155,8 +158,6 @@ To replace the secret, do the following:
 7. Click **Replace and validate**.
 
 NeoHive checks the new values with Microsoft before it saves them. If Microsoft rejects them, NeoHive keeps the current values and shows the reason. When the check passes, the connection shows **Valid** again, and the Index's next sync continues from where it stopped.
-
-You can't change the tenant ID. Each Index belongs to a site in one tenant, so a different tenant needs a new connection and a new Index.
 
 ## Fix a connection that fails
 
