@@ -114,7 +114,7 @@ On each sync, NeoHive asks SharePoint for the changes since the last sync. NeoHi
 
 NeoHive syncs the same file types that you can upload. For the list and the size limit, see [Supported file types](../reference/file-types.md). NeoHive converts older Word (`.doc`) and PowerPoint (`.ppt`) files to PDF as it downloads them. NeoHive doesn't sync SharePoint pages, such as news and wiki pages.
 
-NeoHive counts other file types and files over the size limit as skipped. If someone renames a synced file to an unsupported type, or the file grows past the size limit, NeoHive removes the file from the Index. Your agent then can't recall text from a file that the Index no longer holds.
+NeoHive skips any file that it can't index, such as a file of an unsupported type or a file over the size limit, and counts the file as skipped. If someone changes a synced file in SharePoint so that it no longer meets those limits, the next sync removes the file from the Index. Your agent then can't recall text from a file that the Index no longer holds.
 
 To change or delete a synced file, edit or delete the file in SharePoint. The next sync updates the Index.
 
