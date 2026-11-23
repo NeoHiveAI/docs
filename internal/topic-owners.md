@@ -47,6 +47,7 @@
 | Supported file types and size limits | `reference/file-types.md` | `context/documents.md`, `get-started/install.md` |
 | Folders and files NeoHive always skips | `reference/file-types.md` | `results/common-mistakes.md` |
 | Uploading documents to a Files Index | `context/documents.md` | |
+| Connecting SharePoint with an Entra app and syncing a document library into an Index | `context/sharepoint.md` | |
 | How the Knowledge Index captures team knowledge | `context/team-knowledge.md` | |
 | Ways teams use one shared Hive | `results/team-workflows.md` | `get-started/what-is-neohive.md` |
 | What to say to teach your agent, and retiring an out-of-date Memory | `results/teach.md` | `results/habits.md`, `context/team-knowledge.md` |
